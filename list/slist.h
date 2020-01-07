@@ -1,7 +1,7 @@
 #ifndef __SLIST_H__
 #define __SLIST_H__
 
-
+#define HEAD_INSERT
 
 
 typedef struct _node

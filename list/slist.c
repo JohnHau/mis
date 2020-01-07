@@ -7,6 +7,10 @@ uint32_t addNode(NODE **root,uint32_t val)
 
 	NODE *node=NULL;
 
+#if defined(HEAD_INSERT)
+	NODE *temp=NULL;
+#endif
+
 	if(*root == NULL)	
 	{
 		node = malloc(sizeof(NODE));
@@ -36,10 +40,40 @@ uint32_t addNode(NODE **root,uint32_t val)
 		}
 		else
 		{
+
+
+
+#if defined(TAIL_INSERT) 
 			node->val= val;
 			node->next=*root;
 
 			*root =node;
+#elif defined(HEAD_INSERT)
+
+			node->val= val;
+			if((*root)->next == NULL)
+			{
+				node->val= val;
+				node->next=NULL;
+
+				(*root)->next = node; 
+			}
+			else
+			{
+				temp = (*root)->next;
+
+				(*root)->next = node;
+				node->next = temp;
+			}
+#endif
+
+
+
+
+
+
+
+
 
 		}
 	}
@@ -123,11 +157,11 @@ int main(int argc, char*argv[])
 	addNode(&root,12);
 	addNode(&root,14);
 	addNode(&root,142);
-	addNode(&root,1882);
+	//addNode(&root,1882);
 
 
 	trv(root);
-
+#if 0
 	delNode(&root,1882);
 	trv(root);
 
@@ -141,6 +175,7 @@ int main(int argc, char*argv[])
 
 	delNode(&root,12);
 	trv(root);
+#endif
 
 }
 
