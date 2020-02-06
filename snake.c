@@ -25,6 +25,7 @@
 #define CONTENT_WIDTH (DIALOG_WIDTH - 2)
 
 
+#define HEAD   'A'
 #define BODY   'O'
 #define BLANK  ' '
 #define DIR_UP     0
@@ -32,12 +33,18 @@
 #define DIR_LEFT   2
 #define DIR_RIGHT  3
 
-int posx=0;
-int posy=0;
 int dir= DIR_RIGHT;
+int body_len =2;
+int cx=0;
+int cy=0;
+struct snake_body
+{
+	int posx;
+	int posy;
 
+};
 
-
+struct snake_body body[3];
 
 void set_colors() 
 {
@@ -307,44 +314,111 @@ int set_ticker(int n_msecs)
 
 void on_timer(int signum)
 {
+	int j;
+	int x,y;
 	static int i=0;
 	move(10,10);	
 	printw("hello world %d",i++);
 	refresh();
 
-
-	move(posx,posy);
-	addch(BLANK);
 	switch(dir)
 	{
 		case DIR_UP:
-			posx -=1;
+			//body[0].posx -=1;
+			cx -=1;
 
 			break;
 
 		case DIR_DOWN:
 
-			posx +=1;
+			//body[0].posx +=1;
+			cx +=1;
 			break;
 
 		case DIR_LEFT:
 
-			posy -=1;
+			//body[0].posy -=1;
+			cy -=1;
 			break;
 
 		case DIR_RIGHT:
 
-			posy +=1;
+			//body[0].posy +=1;
+			cy +=1;
 			break;
 
 	}
 
-	move(posx,posy);
-	addch(BODY);
-	refresh();
+	x=cx;
+	y=cy;
+	move(body[body_len -1].posx,body[body_len -1].posy);
+	addch(BLANK);
+#if 1
+	for(j=0;j<body_len;j++)
+	//for(j=body_len;j>1;j--)
+	{
 
-}
 
+		move(x,y);
+		addch(BODY);
+		//refresh(); 
+
+		body[j+1].posx = body[j].posx;
+		body[j+1].posy = body[j].posy;
+
+		body[j].posx = x;
+		body[j].posy = y;
+
+		x= body[j+1].posx;
+		y= body[j+1].posy;
+
+#if 0	
+		body[j-1].posx = body[j-2].posx;
+		body[j-1].posy = body[j-2].posy;
+		
+		move(body[j-1].posx,body[j-1].posy);
+		addch(BODY);
+		refresh();
+
+
+		y=body[j].posy;
+		x=body[j].posx;
+
+		move(x,y);
+		addch(BODY);
+#endif
+
+		x= body[j+1].posx;
+		y= body[j+1].posy;
+
+#if 0	
+		body[j-1].posx = body[j-2].posx;
+		body[j-1].posy = body[j-2].posy;
+		
+		move(body[j-1].posx,body[j-1].posy);
+		addch(BODY);
+		refresh();
+
+
+		y=body[j].posy;
+		x=body[j].posx;
+
+		move(x,y);
+		addch(BODY);
+#endif
+
+	}
+
+
+
+
+
+
+	
+#endif
+
+refresh(); 
+} 
 
 
 int onkey=0;
@@ -369,7 +443,7 @@ void on_input(int signum)
 		if(aio_return(&kbcbuf) == 1)
 		{
 			c=*cp;
-		  	onkey = c;
+			onkey = c;
 			move(15,15);
 			addch(c);
 			refresh();
@@ -395,23 +469,23 @@ void init_curses()
 {
 
 #if _BSD_SOURCE || _POSIX_C_SOURCE >= 200112L || _XOPEN_SOURCE >= 600
-  // by default, ncurses stops the execution of the program for
-  // 1 second if escape is pressed. Disable this behaviour.
-  setenv("ESCDELAY", "0", 1);
+	// by default, ncurses stops the execution of the program for
+	// 1 second if escape is pressed. Disable this behaviour.
+	setenv("ESCDELAY", "0", 1);
 #endif
-  
-  initscr();
-  // get more control over the input
-  cbreak();
-  // getch() returns ERR if no input is present and doesn't wait
-  //nodelay(stdscr, TRUE);
-  // don't echo the inserted keys to the screen
-  noecho();
-  // colors!
-  start_color();
-  set_colors();
-  // also grab keys like F1 etc.
-  keypad(stdscr, TRUE);
+
+	initscr();
+	// get more control over the input
+	cbreak();
+	// getch() returns ERR if no input is present and doesn't wait
+	//nodelay(stdscr, TRUE);
+	// don't echo the inserted keys to the screen
+	noecho();
+	// colors!
+	start_color();
+	set_colors();
+	// also grab keys like F1 etc.
+	keypad(stdscr, TRUE);
 
 }
 
@@ -459,6 +533,21 @@ int main(int argc, char* argv[])
 #endif
 
 	WINDOW *xw;
+
+	body[0].posx=30;
+	body[0].posy=30;
+#if 1
+
+	body[1].posx=30;
+	body[1].posy=29;
+
+#endif
+
+	cx = body[0].posx;
+	cy = body[0].posy;
+	
+
+
 	void on_input(int);
 	signal(SIGIO,on_input);
 	//enable_kbd_signals();
@@ -471,6 +560,8 @@ int main(int argc, char* argv[])
 
 	signal(SIGALRM,on_timer);
 	init_curses();
+
+
 
 	while(1)
 	{
