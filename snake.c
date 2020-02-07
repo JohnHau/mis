@@ -34,7 +34,6 @@
 #define DIR_RIGHT  3
 
 int dir= DIR_RIGHT;
-int body_len =2;
 int cx=0;
 int cy=0;
 struct snake_body
@@ -44,7 +43,8 @@ struct snake_body
 
 };
 
-struct snake_body body[3];
+int body_len =20;
+struct snake_body body[21];
 
 void set_colors() 
 {
@@ -351,6 +351,10 @@ void on_timer(int signum)
 
 	x=cx;
 	y=cy;
+	int tempx;
+	int tempy;
+
+	//move(body[body_len -1].posx,body[body_len -1].posy);
 	move(body[body_len -1].posx,body[body_len -1].posy);
 	addch(BLANK);
 #if 1
@@ -358,56 +362,30 @@ void on_timer(int signum)
 	//for(j=body_len;j>1;j--)
 	{
 
-
-		move(x,y);
-		addch(BODY);
-		//refresh(); 
-
-		body[j+1].posx = body[j].posx;
-		body[j+1].posy = body[j].posy;
-
-		body[j].posx = x;
-		body[j].posy = y;
-
-		x= body[j+1].posx;
-		y= body[j+1].posy;
-
-#if 0	
-		body[j-1].posx = body[j-2].posx;
-		body[j-1].posy = body[j-2].posy;
-		
-		move(body[j-1].posx,body[j-1].posy);
-		addch(BODY);
-		refresh();
-
-
-		y=body[j].posy;
-		x=body[j].posx;
-
-		move(x,y);
-		addch(BODY);
-#endif
-
-		x= body[j+1].posx;
-		y= body[j+1].posy;
-
-#if 0	
-		body[j-1].posx = body[j-2].posx;
-		body[j-1].posy = body[j-2].posy;
-		
-		move(body[j-1].posx,body[j-1].posy);
-		addch(BODY);
-		refresh();
-
-
-		y=body[j].posy;
-		x=body[j].posx;
-
-		move(x,y);
-		addch(BODY);
-#endif
+		body[body_len-1-j].posx = body[body_len -2-j].posx;
+		body[body_len-1-j].posy = body[body_len -2-j].posy;
 
 	}
+
+	body[body_len-j].posx =cx;
+	body[body_len-j].posy =cy;
+
+
+	for(j=0;j<body_len;j++)
+	{
+		move(body[j].posx,body[j].posy); 
+		if(j ==0)
+		{
+			addch(HEAD);
+		}
+		else
+		{
+
+			addch(BODY);
+		}
+
+	}
+
 
 
 
@@ -533,22 +511,7 @@ int main(int argc, char* argv[])
 #endif
 
 	WINDOW *xw;
-
-	body[0].posx=30;
-	body[0].posy=30;
-#if 1
-
-	body[1].posx=30;
-	body[1].posy=29;
-
-#endif
-
-	cx = body[0].posx;
-	cy = body[0].posy;
-	
-
-
-	void on_input(int);
+		void on_input(int);
 	signal(SIGIO,on_input);
 	//enable_kbd_signals();
 
@@ -560,8 +523,43 @@ int main(int argc, char* argv[])
 
 	signal(SIGALRM,on_timer);
 	init_curses();
+	curs_set(0);
 
 
+
+	int ti,tj;
+#if 0
+	body[0].posx=30;
+	body[0].posy=30;
+
+	body[1].posx=30;
+	body[1].posy=29;
+#endif
+
+	for(ti=0;ti<body_len;ti++)
+	{
+
+		body[ti].posx=30;
+		body[ti].posy=30-ti;
+
+		move(body[ti].posx,body[ti].posy);
+
+		if(ti == 0)
+		{
+			addch(HEAD);
+		}
+		else
+		{
+
+			addch(BODY);
+		}
+
+	}
+	refresh();
+
+
+	cx = body[0].posx;
+	cy = body[0].posy;
 
 	while(1)
 	{
