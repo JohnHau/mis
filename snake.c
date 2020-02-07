@@ -43,8 +43,10 @@ struct snake_body
 
 };
 
-int body_len =20;
-struct snake_body body[21];
+int body_len =2;
+struct snake_body body[20];
+
+int c;
 
 void set_colors() 
 {
@@ -321,6 +323,7 @@ void on_timer(int signum)
 	printw("hello world %d",i++);
 	refresh();
 
+
 	switch(dir)
 	{
 		case DIR_UP:
@@ -346,7 +349,6 @@ void on_timer(int signum)
 			//body[0].posy +=1;
 			cy +=1;
 			break;
-
 	}
 
 	x=cx;
@@ -354,22 +356,28 @@ void on_timer(int signum)
 	int tempx;
 	int tempy;
 
-	//move(body[body_len -1].posx,body[body_len -1].posy);
+	move(11,10);	
+	printw("body_len is  %d",body_len);
+
+#if 0
 	move(body[body_len -1].posx,body[body_len -1].posy);
 	addch(BLANK);
+
+	refresh();
+#endif
+
+
 #if 1
-	for(j=0;j<body_len;j++)
-	//for(j=body_len;j>1;j--)
+	for(j=body_len;j>0;j--)
 	{
 
-		body[body_len-1-j].posx = body[body_len -2-j].posx;
-		body[body_len-1-j].posy = body[body_len -2-j].posy;
+		body[j].posx = body[j-1].posx;
+		body[j].posy = body[j-1].posy;
 
 	}
 
-	body[body_len-j].posx =cx;
-	body[body_len-j].posy =cy;
-
+	body[j].posx =cx;
+	body[j].posy =cy;
 
 	for(j=0;j<body_len;j++)
 	{
@@ -387,15 +395,10 @@ void on_timer(int signum)
 	}
 
 
-
-
-
-
-
-	
+	move(body[body_len].posx,body[body_len].posy);
+	addch(BLANK);
 #endif
-
-refresh(); 
+	refresh(); 
 } 
 
 
@@ -409,7 +412,6 @@ void on_input(int signum)
 
 #endif
 
-	int c;
 	char *cp = (char*)kbcbuf.aio_buf;/*cast to char*/
 
 	if(aio_error(&kbcbuf) != 0)
@@ -425,6 +427,94 @@ void on_input(int signum)
 			move(15,15);
 			addch(c);
 			refresh();
+#if 1
+
+			if(c == 'x')
+			{
+				switch(dir)
+				{
+					case DIR_UP:
+						//body[0].posx -=1;
+						//cx -=1;
+						body[body_len].posx = body[body_len -1].posx+1; 
+						body[body_len].posy = body[body_len -1].posy;
+						body_len++;
+
+						break;
+
+					case DIR_DOWN:
+
+						//body[0].posx +=1;
+						//cx +=1;
+						body[body_len].posx = body[body_len -1].posx-1; 
+						body[body_len].posy = body[body_len -1].posy;
+						body_len++;
+
+
+						break;
+
+					case DIR_LEFT:
+
+						//body[0].posy -=1;
+						//cy -=1;
+						body[body_len].posx = body[body_len -1].posx; 
+						body[body_len].posy = body[body_len -1].posy+1;
+						body_len++;
+
+
+						break;
+
+					case DIR_RIGHT:
+
+						//body[0].posy +=1;
+						//cy +=1;
+						body[body_len].posx = body[body_len -1].posx; 
+						body[body_len].posy = body[body_len -1].posy-1;
+						body_len++;
+
+						break;
+
+
+
+				}
+#if 0
+				move(body[body_len].posx, body[body_len].posy);
+				addch(BODY);
+				refresh();
+#endif
+
+
+				int m;
+
+				for(m=0;m<body_len;m++)
+				{
+					move(body[m].posx,body[m].posy); 
+					if(m ==0)
+					{
+						addch(HEAD);
+					}
+					else
+					{
+
+						addch(BODY);
+					}
+
+				}
+
+				refresh();
+
+
+
+
+
+
+			}
+
+#endif
+
+
+
+
 
 			if(c == 'q')
 			{
@@ -519,7 +609,7 @@ int main(int argc, char* argv[])
 	aio_read(&kbcbuf);
 
 
-	set_ticker(500);
+	set_ticker(2000);
 
 	signal(SIGALRM,on_timer);
 	init_curses();
