@@ -317,7 +317,6 @@ int set_ticker(int n_msecs)
 void on_timer(int signum)
 {
 	int j;
-	int x,y;
 	static int i=0;
 	move(10,10);	
 	printw("hello world %d",i++);
@@ -327,45 +326,27 @@ void on_timer(int signum)
 	switch(dir)
 	{
 		case DIR_UP:
-			//body[0].posx -=1;
 			cx -=1;
-
 			break;
 
 		case DIR_DOWN:
 
-			//body[0].posx +=1;
 			cx +=1;
 			break;
 
 		case DIR_LEFT:
 
-			//body[0].posy -=1;
 			cy -=1;
 			break;
 
 		case DIR_RIGHT:
 
-			//body[0].posy +=1;
 			cy +=1;
 			break;
 	}
 
-	x=cx;
-	y=cy;
-	int tempx;
-	int tempy;
-
 	move(11,10);	
 	printw("body_len is  %d",body_len);
-
-#if 0
-	move(body[body_len -1].posx,body[body_len -1].posy);
-	addch(BLANK);
-
-	refresh();
-#endif
-
 
 #if 1
 	for(j=body_len;j>0;j--)
@@ -434,8 +415,6 @@ void on_input(int signum)
 				switch(dir)
 				{
 					case DIR_UP:
-						//body[0].posx -=1;
-						//cx -=1;
 						body[body_len].posx = body[body_len -1].posx+1; 
 						body[body_len].posy = body[body_len -1].posy;
 						body_len++;
@@ -444,8 +423,6 @@ void on_input(int signum)
 
 					case DIR_DOWN:
 
-						//body[0].posx +=1;
-						//cx +=1;
 						body[body_len].posx = body[body_len -1].posx-1; 
 						body[body_len].posy = body[body_len -1].posy;
 						body_len++;
@@ -455,8 +432,6 @@ void on_input(int signum)
 
 					case DIR_LEFT:
 
-						//body[0].posy -=1;
-						//cy -=1;
 						body[body_len].posx = body[body_len -1].posx; 
 						body[body_len].posy = body[body_len -1].posy+1;
 						body_len++;
@@ -466,22 +441,13 @@ void on_input(int signum)
 
 					case DIR_RIGHT:
 
-						//body[0].posy +=1;
-						//cy +=1;
 						body[body_len].posx = body[body_len -1].posx; 
 						body[body_len].posy = body[body_len -1].posy-1;
 						body_len++;
 
 						break;
 
-
-
 				}
-#if 0
-				move(body[body_len].posx, body[body_len].posy);
-				addch(BODY);
-				refresh();
-#endif
 
 
 				int m;
@@ -503,18 +469,9 @@ void on_input(int signum)
 
 				refresh();
 
-
-
-
-
-
 			}
 
 #endif
-
-
-
-
 
 			if(c == 'q')
 			{
@@ -609,7 +566,7 @@ int main(int argc, char* argv[])
 	aio_read(&kbcbuf);
 
 
-	set_ticker(2000);
+	set_ticker(200);
 
 	signal(SIGALRM,on_timer);
 	init_curses();
