@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for e in `ls *.txt`
+for e in `ls *.txt *.log`
 do
 
 
