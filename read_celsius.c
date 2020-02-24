@@ -1,8 +1,10 @@
 #include<sys/types.h>
 #include<errno.h>
 #include<string.h>
+#include<stdint.h>
 #include<termios.h>
 #include<sys/stat.h>
+#include<sys/select.h>
 #include<unistd.h>
 #include<fcntl.h>
 #include<stdio.h>
@@ -22,7 +24,7 @@ int main(int argc, char** argv)
 
 	
 	fd_set fds;
-	struct timeval tv;
+	struct timeval tv={5,0};
 	int retval;
 
 
@@ -40,15 +42,15 @@ int main(int argc, char** argv)
 
 	char rbuff[BLEN] = {0};
 
-	tv.tv_sec =1;
-	tv.tv_usec = 500000;
+//	tv.tv_sec =5;
+//	tv.tv_usec = 500000;
 
 //	fd = open("/dev/ttyUSB0",O_RDWR|O_NOCTTY|O_NDELAY);
 //	fd = open("/dev/ttyUSB0",O_RDWR|O_NOCTTY);
 	//fd = open("/dev/ttyUSB0",O_RDONLY);
-//	fd = open("/dev/ttyUSB0",O_RDWR);
+	fd = open("/dev/ttyUSB0",O_RDWR);
 //	fd = open("/dev/ttyS8",O_RDWR);
-	fd = open("/dev/ttyS4",O_RDWR);
+//	fd = open("/dev/ttyS4",O_RDWR);
 
 //	wfd = open("acom.log",O_WRONLY);
 //	rfd = open(argv[1],O_RDONLY);
@@ -77,16 +79,20 @@ int main(int argc, char** argv)
 	tlen = write(fd,"1",1);
 	//sleep(1);
 #endif
-	printf("tx:the amount is %d\n",tlen);
+//	printf("tx:the amount is %d\n",tlen);
 
+	tlen = write(fd,cmd,5);
 	while(1)
 	{
 
 		FD_ZERO(&fds);
 		FD_SET(fd,&fds);
 		
+		tv.tv_sec =5;
+		tv.tv_usec = 500000;
 		//sleep(1);
 
+	//	tlen = write(fd,cmd,5);
 		retval = select(fd+1,&fds,NULL,NULL,&tv);
 		//retval = select(fd+1,&fds,NULL,NULL,NULL);
 
@@ -99,26 +105,30 @@ int main(int argc, char** argv)
 		}
 		else if(retval)
 		{
-
-			memset(recbuf,0,sizeof(recbuf));
-			tlen =read(fd,recbuf,BLEN);	
-			//tlen =read(fd,recbuf,8);	
+			if(FD_ISSET(fd,&fds))
+			{
+				memset(recbuf,0,sizeof(recbuf));
+				tlen =read(fd,recbuf,BLEN);	
+				//tlen =read(fd,recbuf,8);	
 #if 0
-			printf("rx:the amount is %d\n",tlen);
-			printf("%d\n",recbuf[0]);
-			printf("tlen is %d\n",tlen);
+				printf("rx:the amount is %d\n",tlen);
+				printf("%d\n",recbuf[0]);
+				printf("tlen is %d\n",tlen);
 #endif
-			printf("message is %s\n",recbuf);
-			//printf("msg is %c %c %c %c\n",recbuf[0],recbuf[1],recbuf[2],recbuf[3]);
+				printf("message is %s\n",recbuf);
+				//printf("msg is %c %c %c %c\n",recbuf[0],recbuf[1],recbuf[2],recbuf[3]);
 
 
+				//	tlen = write(fd,cmd,6);
+			}
 		}
 #if 1
 		else
 		{
-			
+
 			tlen = write(fd,cmd,6);
 
+			printf("send cmd\n");
 			//printf("tlen is %d\n",tlen);
 
 			//exit(EXIT_FAILURE);
@@ -164,6 +174,7 @@ int main(int argc, char** argv)
 	close(rfd);
 	close(fd);
 #endif
+	close(fd);
 	printf("done\n");
 	return 0;
 }
