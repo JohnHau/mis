@@ -28,6 +28,8 @@ int main(int argc, char** argv)
 	int retval;
 
 
+	int scnt=0;
+
 	int nread,i;
 	int tnread;
 	int nwrite=0;
@@ -37,6 +39,7 @@ int main(int argc, char** argv)
 
 	char wbuff[64] = "Hello\n";
 	uint8_t recbuf[BLEN]={0};
+	uint8_t *precbuf=recbuf;
 	int cnt_rec=0;
 	int c;
 
@@ -81,6 +84,7 @@ int main(int argc, char** argv)
 #endif
 //	printf("tx:the amount is %d\n",tlen);
 
+	memset(recbuf,0,sizeof(recbuf));
 	tlen = write(fd,cmd,5);
 	while(1)
 	{
@@ -107,28 +111,42 @@ int main(int argc, char** argv)
 		{
 			if(FD_ISSET(fd,&fds))
 			{
-				memset(recbuf,0,sizeof(recbuf));
-				tlen =read(fd,recbuf,BLEN);	
+			//	memset(recbuf,0,sizeof(recbuf));
+				tlen =read(fd,precbuf,BLEN);	
+			//	printf("m is %s\n",precbuf);
+			//	printf("mlen is %d\n",tlen);
+				precbuf +=tlen;
 				//tlen =read(fd,recbuf,8);	
 #if 0
 				printf("rx:the amount is %d\n",tlen);
 				printf("%d\n",recbuf[0]);
 				printf("tlen is %d\n",tlen);
 #endif
-				printf("message is %s\n",recbuf);
+			//	printf("message is %s\n",recbuf);
 				//printf("msg is %c %c %c %c\n",recbuf[0],recbuf[1],recbuf[2],recbuf[3]);
 
 
 				//	tlen = write(fd,cmd,6);
+				
 			}
 		}
 #if 1
 		else
 		{
 
+			precbuf = recbuf;
+			printf("message is %s\n",precbuf);
+#if 0
+			int i=0;
+			for(i=0;i<128;i++)
+				printf("%c",precbuf[i]);
+			printf("\n");
+#endif
+			memset(recbuf,0,sizeof(recbuf));
+			precbuf = recbuf;
 			tlen = write(fd,cmd,6);
 
-			printf("send cmd\n");
+			printf("send cmd %d\n",scnt++);
 			//printf("tlen is %d\n",tlen);
 
 			//exit(EXIT_FAILURE);
