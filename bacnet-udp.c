@@ -147,6 +147,7 @@ void on_input(int signum)
 {
 
 	fgets(cmd_str,128,stdin);
+	printf("cmd_str is %s\n",cmd_str);
 
 	if(strcmp(cmd_str,"quit\n") == 0)
 	{
@@ -294,19 +295,36 @@ int main(int argc, char* argv[])
 	}
 #endif
 
+	if(argc > 1)
+	{
+
+	printf("argc is %d\n",argc);
+		if(strcmp(argv[1],"whois") == 0)
+		{
+
+			make_internet_address("192.168.0.255",PORT,&cliaddr);
+			if(sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
+			{
+				perror("udp send failed\n");
+			}
+		}
+
+
+	}
+
 
 	while(1)
 	{
 		//pause();
 #if 1
-	//	printf("waiting on port %d\n",PORT);
+		//	printf("waiting on port %d\n",PORT);
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  
 				0, ( struct sockaddr *) &cliaddr, 
 				&len); 
 
 
 		buffer[n] = '\0'; 
-	//	printf("Client : %s\n", buffer); 
+		//	printf("Client : %s\n", buffer); 
 		if(buffer[12]== 0xc4 && buffer[13] == 0x02)
 		{
 
