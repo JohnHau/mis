@@ -252,6 +252,11 @@ int main(int argc, char* argv[])
 	int optval =1;
 	setsockopt(sockfd,SOL_SOCKET,SO_BROADCAST|SO_REUSEADDR,&optval,sizeof(int));
 
+	struct timeval timeout;
+	timeout.tv_sec = 6;
+	timeout.tv_usec = 0;
+	setsockopt(sockfd,SOL_SOCKET,SO_RCVTIMEO,&timeout,sizeof(timeout));
+
 	memset(&servaddr, 0, sizeof(servaddr)); 
 	memset(&cliaddr, 0, sizeof(cliaddr)); 
 	// Filling server information 
@@ -295,6 +300,7 @@ int main(int argc, char* argv[])
 	}
 #endif
 
+#if 0
 	if(argc > 1)
 	{
 
@@ -311,19 +317,18 @@ int main(int argc, char* argv[])
 
 
 	}
-
+#endif
 
 	while(1)
 	{
 		//pause();
 #if 1
 		//	printf("waiting on port %d\n",PORT);
-		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  
-				0, ( struct sockaddr *) &cliaddr, 
-				&len); 
+		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
+	//	printf("recvfrom timeout\n");
+	//	printf("buffer is %s\n",buffer);
 
-
-		buffer[n] = '\0'; 
+		//buffer[n] = '\0'; 
 		//	printf("Client : %s\n", buffer); 
 		if(buffer[12]== 0xc4 && buffer[13] == 0x02)
 		{
@@ -337,7 +342,7 @@ int main(int argc, char* argv[])
 			tstr[strlen(tstr)-1]='\0';
 			bacnet0_log("%s\n",tstr);
 			bacnet0_log("I am %d\n",1009);
-			bacnet0_log("I am %d\n",2009);
+			bacnet0_log("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
 			//time(&it);
 			//bacnet0_log("%s\tI am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]),ctime(&it));
 
@@ -345,14 +350,28 @@ int main(int argc, char* argv[])
 #endif
 		//if(sendto(sockfd,buffer,strlen(buffer),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		//if(sendto(sockfd,brp_im,sizeof(brp_im),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
-		//if(sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
-		if(0)
+		if(strcmp(buffer,"whois\n") == 0)
 		{
-			perror("udp send failed\n");
-			exit(EXIT_FAILURE);		
-		}
-		memset(buffer,0,sizeof(buffer));
+			printf("whois\n");
+			make_internet_address("192.168.0.255",PORT,&cliaddr);
+			if(sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
+			{
+				perror("udp send failed\n");
+				exit(EXIT_FAILURE);		
+			}
 
-		sleep(1);
+		}
+
+		if(strcmp(buffer,"quit\n") == 0)
+		{
+			printf("good-bye\n");
+			exit(EXIT_SUCCESS);		
+
+		}
+
+
+
+		memset(buffer,0,sizeof(buffer));
+	//	sleep(1);
 	}
 }
