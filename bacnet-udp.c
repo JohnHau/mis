@@ -350,13 +350,21 @@ int main(int argc, char* argv[])
 			int8_t * tstr = ctime(&it);
 			tstr[strlen(tstr)-1]='\0';
 			bacnet0_log("%s\n",tstr);
-			bacnet0_log("I am %d\n",1009);
+			//bacnet0_log("I am %d\n",1009);
 			bacnet0_log("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
 			//time(&it);
 			//bacnet0_log("%s\tI am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]),ctime(&it));
 
 		}
 #endif
+		if(buffer[5] == 0x20)
+		{
+
+			printf("I am %d\n",1009);
+		}
+
+
+
 		//if(sendto(sockfd,buffer,strlen(buffer),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		//if(sendto(sockfd,brp_im,sizeof(brp_im),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		if(strcmp(buffer,"whois\n") == 0)
