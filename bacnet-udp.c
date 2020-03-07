@@ -2,9 +2,10 @@
 #include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <time.h>
 #include <string.h>
-#include <curses.h>
+//#include <curses.h>
 #include <unistd.h>
 #include <aio.h>
 #include <signal.h>
@@ -104,7 +105,7 @@ void bacnet0_log(const char *format, ... )
 
 
 
-#if 1
+#if defined(UBUNTU) 
 void enable_kbd_signals(void)
 {
 
@@ -143,6 +144,8 @@ void setup_aio_buffer(void)
 #endif
 
 int8_t cmd_str[1024];
+
+#if defined(UBUNTU) 
 void on_input(int signum)
 {
 
@@ -172,6 +175,11 @@ void on_input(int signum)
 
 	memset(cmd_str,0,sizeof(cmd_str));
 }
+
+#endif
+
+
+
 #if 0
 void on_input(int signum)
 {
@@ -279,10 +287,11 @@ int main(int argc, char* argv[])
 
 
 
+#if defined(UBUNTU) 
 	void on_input(int);
 	signal(SIGIO,on_input);
 	enable_kbd_signals();
-
+#endif
 	//	setup_aio_buffer();
 	//	aio_read(&kbcbuf);
 
