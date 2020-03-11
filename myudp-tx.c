@@ -247,8 +247,14 @@ int main(int argc, char* argv[])
 	struct sockaddr_in servaddr, cliaddr; 
 	struct hostent *hent=NULL;
 #endif
-	gethostname(hname,sizeof(hname));
-	hent = gethostbyname(hname);
+
+
+
+
+
+
+	//gethostname(hname,sizeof(hname));
+	//hent = gethostbyname(hname);
 
 	if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 )
 	{ 
@@ -260,6 +266,10 @@ int main(int argc, char* argv[])
 	int optval =1;
 	setsockopt(sockfd,SOL_SOCKET,SO_BROADCAST|SO_REUSEADDR,&optval,sizeof(int));
 
+
+
+
+#if 0
 	struct timeval timeout;
 	timeout.tv_sec = 6;
 	timeout.tv_usec = 0;
@@ -284,6 +294,17 @@ int main(int argc, char* argv[])
 
 	int len, n; 
 	len = sizeof(cliaddr);  //len is value/resuslt 
+
+#endif
+
+
+
+
+
+
+
+
+
 
 
 
@@ -328,7 +349,7 @@ int main(int argc, char* argv[])
 	}
 #endif
 
-#if 1
+#if 0
 	int fds[2];
 
 	int ifd=0;
@@ -355,19 +376,33 @@ int main(int argc, char* argv[])
 
 #endif
 
+
+
+	int ffd;
+	ffd = open("./ufifo",O_RDONLY);
+
+
+	if(ffd == -1)
+	{
+		perror("open fifo failed\n");
+		exit(EXIT_FAILURE);
+	}
+
+
+
 	while(1)
 	{
 		//pause();
 #if 1
 		//	printf("waiting on port %d\n",PORT);
 		//n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
-	//	printf("recvfrom timeout\n");
-	//	printf("buffer is %s\n",buffer);
+		//	printf("recvfrom timeout\n");
+		//	printf("buffer is %s\n",buffer);
 
 		//buffer[n] = '\0'; 
 		//	printf("Client : %s\n", buffer); 
 		//
-		
+
 #endif
 
 
@@ -382,29 +417,55 @@ int main(int argc, char* argv[])
 			exit(EXIT_SUCCESS);
 		}
 #endif
-		//fgets(buffer,sizeof(buffer),stdin);
-		read(ifd,buffer,sizeof(buffer));
+
+
+		read(ffd,buffer,sizeof(buffer));
+
+	//	fgets(buffer,sizeof(buffer),stdin);
+		//read(ifd,buffer,sizeof(buffer));
 		//fgets(buffer,sizeof(buffer),fp);
 
 		//if(sendto(sockfd,buffer,strlen(buffer),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		//if(sendto(sockfd,brp_im,sizeof(brp_im),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		if(strcmp(buffer,"whois\n") == 0)
 		{
-			printf("whois\n");
+			printf("got whois\n");
 			//make_internet_address("192.168.43.255",PORT,&cliaddr);
-			make_internet_address("10.78.146.1",PORT,&cliaddr);
+			//make_internet_address("10.78.146.1",PORT,&cliaddr);
+			//make_internet_address("192.168.0.104",PORT,&cliaddr);
+			make_internet_address("192.168.0.255",PORT,&cliaddr);
+			//make_internet_address("127.0.0.1",PORT,&cliaddr);
 
-			char* test_udp_str = "hello UDP";
-			if(sendto(sockfd,test_udp_str,sizeof(test_udp_str),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
+			char* test_udp_str = "hello UDP\n";
+			uint32_t stn=0;
+			if((stn = sendto(sockfd,test_udp_str,strlen(test_udp_str),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 			{
 				perror("udp send failed\n");
 				exit(EXIT_FAILURE);		
 			}
 
+			printf("udp send ok: %d\n",stn);
+
+
+
 		}
 
 		if(strcmp(buffer,"quit\n") == 0)
 		{
+
+
+			char *qt = "tx-quit\n";
+			if(sendto(sockfd,qt,strlen(qt),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
+
+
+			{
+				perror("udp send failed\n");
+				exit(EXIT_FAILURE);		
+			}
+
+			printf("udp send ok\n");
+
+
 			printf("good-bye\n");
 			exit(EXIT_SUCCESS);		
 

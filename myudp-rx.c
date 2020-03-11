@@ -275,8 +275,7 @@ int main(int argc, char* argv[])
 	//servaddr.sin_port = PORT; 
 
 	// Bind the socket with the server address 
-	if ( bind(sockfd, (const struct sockaddr *)&servaddr,  
-				sizeof(servaddr)) < 0 ) 
+	if ( bind(sockfd, (const struct sockaddr *)&servaddr,sizeof(servaddr)) < 0 ) 
 	{ 
 		perror("bind failed"); 
 		exit(EXIT_FAILURE); 
@@ -328,23 +327,40 @@ int main(int argc, char* argv[])
 	}
 #endif
 
+	int fpid;
+	fpid = fork();
+	if(fpid == -1)
+	{
+		perror("fork failed\n");
+		exit(EXIT_FAILURE);
+	}
+	else if(fpid == 0)
+	{
+
+		//execl("./myudp-tx",0);
+		execl("./myudp-tx","myudp-tx",(char*)0);
+	}
+
+
+
+
 	while(1)
 	{
 		//pause();
 #if 1
 		//	printf("waiting on port %d\n",PORT);
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
-	//	printf("recvfrom timeout\n");
-	//	printf("buffer is %s\n",buffer);
+		//	printf("recvfrom timeout\n");
+		//	printf("buffer is %s\n",buffer);
 
 		//buffer[n] = '\0'; 
 		//	printf("Client : %s\n", buffer); 
 		if(buffer[12]== 0xc4 && buffer[13] == 0x02)
 		{
 
-			printf("I am %d\n",1009);
+			//	printf("I am %d\n",1009);
 			printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
-
+#if 0
 			time_t it;
 			time(&it);
 			int8_t * tstr = ctime(&it);
@@ -354,19 +370,29 @@ int main(int argc, char* argv[])
 			bacnet0_log("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
 			//time(&it);
 			//bacnet0_log("%s\tI am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]),ctime(&it));
+#endif
 
 		}
 #endif
-		if(buffer[5] == 0x20)
+
+
+		printf("buffer is %s\n",buffer);
+		//if(buffer[5] == 0x20)
+		if(strcmp(buffer,"hello UDP\n") == 0)
 		{
 
-			printf("I am %d\n",1009);
+			printf("I am: %d\n",1009);
 		}
 
 
 
 		//if(sendto(sockfd,buffer,strlen(buffer),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		//if(sendto(sockfd,brp_im,sizeof(brp_im),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
+
+
+
+
+#if 0
 		if(strcmp(buffer,"whois\n") == 0)
 		{
 			printf("whois\n");
@@ -378,8 +404,12 @@ int main(int argc, char* argv[])
 			}
 
 		}
+#endif
 
-		if(strcmp(buffer,"quit\n") == 0)
+
+
+
+		if(strcmp(buffer,"tx-quit\n") == 0)
 		{
 			printf("good-bye\n");
 			exit(EXIT_SUCCESS);		
@@ -389,6 +419,6 @@ int main(int argc, char* argv[])
 
 
 		memset(buffer,0,sizeof(buffer));
-	//	sleep(1);
+		//	sleep(1);
 	}
 }
