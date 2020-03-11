@@ -1,5 +1,5 @@
 #!/bin/bash
-IP=192.168.0.105
+IP=192.168.0.107
 PORT=47808
 echo "whois"
 echo "whois" > /dev/udp/${IP}/${PORT}
