@@ -455,9 +455,9 @@ int main(int argc, char* argv[])
 		if(strcmp(buffer,"hello UDP\n") == 0)
 		{
 			//printf("good-bye\n");
-			//printf("%s %d\n","quit",12);
+			printf("%s %d\n","hellox",12);
 			//puts("quit");
-			write(pfd[1],ts,strlen(ts));
+			//write(pfd[1],ts,strlen(ts));
 
 		}
 
@@ -467,9 +467,9 @@ int main(int argc, char* argv[])
 		if(strcmp(buffer,"tx-quit\n") == 0)
 		{
 			//printf("good-bye\n");
-			//printf("%s %d\n","quit",12);
+			printf("%s %d\n","quit",12);
 			//puts("quit");
-			write(pfd[1],qt,strlen(qt));
+			//write(pfd[1],qt,strlen(qt));
 			close(pfd[1]);
 			exit(EXIT_SUCCESS);		
 

@@ -87,7 +87,7 @@ char mystr[1024]={0};
 int main(int argc, char* argv[])
 {    
 
-#if 0
+#if 1
 	if(setvbuf(stdin,NULL,_IOLBF,0) != 0)
 	{
 		perror("setvbuf failed\n");
@@ -97,10 +97,10 @@ int main(int argc, char* argv[])
 	while(1)
 	{
 
-		//scanf("%s %d",mystr,&val);
+		scanf("%s %d",mystr,&val);
 		//fgets(mystr,strlen(mystr),stdin);
 
-		read(STDIN_FILENO,mystr,sizeof(mystr));
+		//read(STDIN_FILENO,mystr,sizeof(mystr));
 		if(strcmp(mystr,"quit") == 0)
 		{
 			bacnet0_log("%s\n",mystr); 
