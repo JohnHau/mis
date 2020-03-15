@@ -381,7 +381,6 @@ int main(int argc, char* argv[])
 
 
 
-char *ts="hello";
 	while(1)
 	{
 		//pause();
@@ -400,9 +399,9 @@ char *ts="hello";
 
 			//	printf("I am %d\n",1009);
 			//printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
-			//printf("%s %d\n","hello",23);
+		//	printf("%s %d\n","hello",23);
 			//printf("%s\r\n","hello");
-			write(pfd[1],ts,strlen(ts));
+			//write(pfd[1],ts,strlen(ts));
 #if 0
 			time_t it;
 			time(&it);
@@ -418,17 +417,19 @@ char *ts="hello";
 		}
 #endif
 
+#if 0
 
 		//if(buffer[5] == 0x20)
 		if(strcmp(buffer,"whois\n") == 0)
 		{
 
 			//printf("I am: %d\n",1009);
-			//printf("%s\r\n","world");
+			//printf("%s %d\n","world",88);
+			//puts("world");
 			write(pfd[1],ts,strlen(ts));
 		}
 
-
+#endif
 
 		//if(sendto(sockfd,buffer,strlen(buffer),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		//if(sendto(sockfd,brp_im,sizeof(brp_im),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
@@ -450,12 +451,26 @@ char *ts="hello";
 		}
 #endif
 
+		char *ts="hello";
+		if(strcmp(buffer,"hello UDP\n") == 0)
+		{
+			//printf("good-bye\n");
+			//printf("%s %d\n","quit",12);
+			//puts("quit");
+			write(pfd[1],ts,strlen(ts));
+
+		}
 
 
 
+		char *qt="quit";
 		if(strcmp(buffer,"tx-quit\n") == 0)
 		{
-			printf("good-bye\n");
+			//printf("good-bye\n");
+			//printf("%s %d\n","quit",12);
+			//puts("quit");
+			write(pfd[1],qt,strlen(qt));
+			close(pfd[1]);
 			exit(EXIT_SUCCESS);		
 
 		}

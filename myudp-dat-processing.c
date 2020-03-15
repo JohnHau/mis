@@ -87,22 +87,33 @@ char mystr[1024]={0};
 int main(int argc, char* argv[])
 {    
 
-
+#if 0
 	if(setvbuf(stdin,NULL,_IOLBF,0) != 0)
 	{
 		perror("setvbuf failed\n");
 	}
-
+#endif
 
 	while(1)
 	{
 
-//		scanf("%s %d",mystr,&val);
-		//fgets(mystr,sizeof(mystr),stdin);
-		read(STDIN_FILENO,mystr,sizeof(mystr));
+		//scanf("%s %d",mystr,&val);
+		//fgets(mystr,strlen(mystr),stdin);
 
-//		printf("%s %d",mystr,val+1);
+		read(STDIN_FILENO,mystr,sizeof(mystr));
+		if(strcmp(mystr,"quit") == 0)
+		{
+			bacnet0_log("%s\n",mystr); 
+			exit(EXIT_SUCCESS);
+
+		}
+		//fgets(mystr,sizeof(mystr),stdin);
+		//read(STDIN_FILENO,mystr,sizeof(mystr));
+
+		//		printf("%s %d",mystr,val+1);
 		bacnet0_log("%s\n",mystr); 
+
+		memset(mystr,0,sizeof(mystr));
 
 
 	}
