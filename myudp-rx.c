@@ -342,8 +342,46 @@ int main(int argc, char* argv[])
 	}
 
 
+	int pfd[2] = {0};
+
+	if(pipe(pfd) == -1)
+	{
+		perror("pipe failed\n");
+	}
 
 
+	fpid = fork();
+	if(fpid == -1)
+	{
+		perror("fork failed\n");
+		exit(EXIT_FAILURE);
+	}
+	else if(fpid == 0)
+	{
+
+		if(dup2(pfd[0],STDIN_FILENO) != STDIN_FILENO)
+		{
+			perror("dup2 stdin failed\n");
+		}
+
+		close(pfd[1]);
+
+		
+
+		//execl("./myudp-tx",0);
+		execl("./myudp-dat-processing","myudp-dat-processing",(char*)0);
+	}
+
+	if(dup2(pfd[1],STDOUT_FILENO) != STDOUT_FILENO)
+	{
+		perror("dup2 stdout failed\n");
+	}
+
+	close(pfd[0]);
+
+
+
+char *ts="hello";
 	while(1)
 	{
 		//pause();
@@ -355,11 +393,16 @@ int main(int argc, char* argv[])
 
 		//buffer[n] = '\0'; 
 		//	printf("Client : %s\n", buffer); 
+		//printf("buffer is %s\n",buffer);
+
 		if(buffer[12]== 0xc4 && buffer[13] == 0x02)
 		{
 
 			//	printf("I am %d\n",1009);
-			printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
+			//printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
+			//printf("%s %d\n","hello",23);
+			//printf("%s\r\n","hello");
+			write(pfd[1],ts,strlen(ts));
 #if 0
 			time_t it;
 			time(&it);
@@ -376,12 +419,13 @@ int main(int argc, char* argv[])
 #endif
 
 
-		printf("buffer is %s\n",buffer);
 		//if(buffer[5] == 0x20)
-		if(strcmp(buffer,"hello UDP\n") == 0)
+		if(strcmp(buffer,"whois\n") == 0)
 		{
 
-			printf("I am: %d\n",1009);
+			//printf("I am: %d\n",1009);
+			//printf("%s\r\n","world");
+			write(pfd[1],ts,strlen(ts));
 		}
 
 
