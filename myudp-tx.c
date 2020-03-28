@@ -26,8 +26,9 @@
 #define CONTENT_WIDTH (DIALOG_WIDTH - 2)
 
 uint8_t bqr_whois[]={
-		0x81,0x0a,0x00,0x0c,0x01,0x20,
-		0xff,0xff,0x00,0xff,0x10,0x08
+//	0xba,0xc0,0xba,0xc0,0x00,0x14,0x74,0x4d,
+	0x81,0x0a,0x00,0x0c,0x01,0x20,
+	0xff,0xff,0x00,0xff,0x10,0x08
 
 };
 
@@ -239,6 +240,11 @@ int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in 
 
 int main(int argc, char* argv[])
 {    
+
+	uint32_t stn=0;
+
+
+
 #if 0
 	int sockfd; 
 	char hname[128]={0};
@@ -379,6 +385,7 @@ int main(int argc, char* argv[])
 
 
 	int ffd;
+#if 0
 	ffd = open("./ufifo",O_RDONLY);
 
 
@@ -387,8 +394,9 @@ int main(int argc, char* argv[])
 		perror("open fifo failed\n");
 		exit(EXIT_FAILURE);
 	}
-
-
+#endif
+	
+	int cnt=0;
 
 	while(1)
 	{
@@ -419,7 +427,7 @@ int main(int argc, char* argv[])
 #endif
 
 
-		read(ffd,buffer,sizeof(buffer));
+//		read(ffd,buffer,sizeof(buffer));
 
 	//	fgets(buffer,sizeof(buffer),stdin);
 		//read(ifd,buffer,sizeof(buffer));
@@ -433,12 +441,13 @@ int main(int argc, char* argv[])
 			//make_internet_address("192.168.43.255",PORT,&cliaddr);
 			//make_internet_address("10.78.146.1",PORT,&cliaddr);
 			//make_internet_address("192.168.0.104",PORT,&cliaddr);
-			make_internet_address("192.168.0.255",PORT,&cliaddr);
+			make_internet_address("192.168.0.108",PORT,&cliaddr);
+			//make_internet_address("192.168.0.255",PORT,&cliaddr);
 			//make_internet_address("127.0.0.1",PORT,&cliaddr);
 
 			char* test_udp_str = "hello UDP\n";
-			uint32_t stn=0;
-			if((stn = sendto(sockfd,test_udp_str,strlen(test_udp_str),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+			//if((stn = sendto(sockfd,test_udp_str,strlen(test_udp_str),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+			if((stn = sendto(sockfd,bqr_whois,strlen(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 			{
 				perror("udp send failed\n");
 				exit(EXIT_FAILURE);		
@@ -474,6 +483,25 @@ int main(int argc, char* argv[])
 
 
 		memset(buffer,0,sizeof(buffer));
-		//	sleep(1);
+
+		//make_internet_address("192.168.0.108",PORT,&cliaddr);
+		//make_internet_address("192.168.0.106",PORT,&cliaddr);
+		make_internet_address("192.168.0.255",PORT,&cliaddr);
+		if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+		{
+			perror("udp send failed\n");
+			exit(EXIT_FAILURE);		
+		}
+
+		printf("udp send ok: %d\n",stn);
+
+
+		sleep(1);
+		
+		exit(EXIT_SUCCESS);
+
+		cnt++;
+		if(cnt > 10)
+			exit(EXIT_SUCCESS);
 	}
 }

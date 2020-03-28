@@ -342,6 +342,7 @@ int main(int argc, char* argv[])
 	}
 
 
+#if 0
 	int pfd[2] = {0};
 
 	if(pipe(pfd) == -1)
@@ -379,7 +380,7 @@ int main(int argc, char* argv[])
 
 	close(pfd[0]);
 
-
+#endif
 
 char *ts="hello";
 	while(1)
@@ -399,10 +400,10 @@ char *ts="hello";
 		{
 
 			//	printf("I am %d\n",1009);
-			//printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
+			printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
 			//printf("%s %d\n","hello",23);
 			//printf("%s\r\n","hello");
-			write(pfd[1],ts,strlen(ts));
+			//write(pfd[1],ts,strlen(ts));
 #if 0
 			time_t it;
 			time(&it);
@@ -418,6 +419,11 @@ char *ts="hello";
 		}
 #endif
 
+		if(buffer[10]== 0x10 && buffer[11] == 0x08)
+		{
+
+			printf("I am 5006\n");
+		}
 
 		//if(buffer[5] == 0x20)
 		if(strcmp(buffer,"whois\n") == 0)
@@ -425,7 +431,7 @@ char *ts="hello";
 
 			//printf("I am: %d\n",1009);
 			//printf("%s\r\n","world");
-			write(pfd[1],ts,strlen(ts));
+			//write(pfd[1],ts,strlen(ts));
 		}
 
 
