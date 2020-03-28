@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <time.h>
+#include <sys/time.h>
 #include <string.h>
 //#include <curses.h>
 #include <unistd.h>
@@ -25,6 +26,7 @@
 #define DIALOG_HEIGHT 20
 #define CONTENT_WIDTH (DIALOG_WIDTH - 2)
 
+uint32_t stn=0;
 uint8_t bqr_whois[]={
 //	0xba,0xc0,0xba,0xc0,0x00,0x14,0x74,0x4d,
 	0x81,0x0a,0x00,0x0c,0x01,0x20,
@@ -215,6 +217,60 @@ void on_input(int signum)
 }
 #endif
 
+
+
+
+void on_timer(int signum)
+{
+	signal(SIGALRM,on_timer);
+//	make_internet_address("192.168.0.255",PORT,&cliaddr);
+		if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+		{
+			perror("udp send failed\n");
+			exit(EXIT_FAILURE);		
+		}
+
+		//printf("udp send ok: %d\n",stn);
+
+
+	//printf("hello timer\n");
+
+}
+
+
+
+
+
+
+
+int set_timer(uint32_t nms)
+{
+
+	struct itimerval ts;
+
+	ts.it_interval.tv_sec = nms/1000;
+	ts.it_interval.tv_usec = (nms%1000)*1000L;
+
+
+	ts.it_value.tv_sec = nms/1000;
+	ts.it_value.tv_usec = (nms%1000)*1000L;
+
+
+	return setitimer(ITIMER_REAL,&ts,NULL);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in *addrp)
 {
 
@@ -241,23 +297,6 @@ int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in 
 int main(int argc, char* argv[])
 {    
 
-	uint32_t stn=0;
-
-
-
-#if 0
-	int sockfd; 
-	char hname[128]={0};
-	uint8_t  buffer[MAXLINE]; 
-	char *hello = "Hello from server"; 
-	struct sockaddr_in servaddr, cliaddr; 
-	struct hostent *hent=NULL;
-#endif
-
-
-
-
-
 
 	//gethostname(hname,sizeof(hname));
 	//hent = gethostbyname(hname);
@@ -275,45 +314,6 @@ int main(int argc, char* argv[])
 
 
 
-#if 0
-	struct timeval timeout;
-	timeout.tv_sec = 6;
-	timeout.tv_usec = 0;
-	setsockopt(sockfd,SOL_SOCKET,SO_RCVTIMEO,&timeout,sizeof(timeout));
-
-	memset(&servaddr, 0, sizeof(servaddr)); 
-	memset(&cliaddr, 0, sizeof(cliaddr)); 
-	// Filling server information 
-	servaddr.sin_family    = AF_INET; // IPv4 
-	//servaddr.sin_addr.s_addr = htonl(INADDR_ANY); 
-	servaddr.sin_addr.s_addr = INADDR_ANY; 
-	servaddr.sin_port = htons(PORT); 
-	//servaddr.sin_port = PORT; 
-
-	// Bind the socket with the server address 
-	if ( bind(sockfd, (const struct sockaddr *)&servaddr,  
-				sizeof(servaddr)) < 0 ) 
-	{ 
-		perror("bind failed"); 
-		exit(EXIT_FAILURE); 
-	} 
-
-	int len, n; 
-	len = sizeof(cliaddr);  //len is value/resuslt 
-
-#endif
-
-
-
-
-
-
-
-
-
-
-
-
 #if defined(UBUNTU) 
 	void on_input(int);
 	signal(SIGIO,on_input);
@@ -325,64 +325,11 @@ int main(int argc, char* argv[])
 	memset(buffer,0,sizeof(buffer));
 
 
-#if 0
-	//make_internet_address("192.168.0.104",PORT,&cliaddr);
-	make_internet_address("192.168.0.255",PORT,&cliaddr);
-	if(sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
-	{
-		perror("udp  send failed\n");
-		exit(EXIT_FAILURE);		
-
-	}
-#endif
-
-#if 0
-	if(argc > 1)
-	{
-
-	printf("argc is %d\n",argc);
-		if(strcmp(argv[1],"whois") == 0)
-		{
-
-			make_internet_address("192.168.0.255",PORT,&cliaddr);
-			if(sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
-			{
-				perror("udp send failed\n");
-			}
-		}
 
 
-	}
-#endif
+	//signal(SIGALRM,on_timer);
 
-#if 0
-	int fds[2];
-
-	int ifd=0;
-
-
-	if(pipe(fds) == -1)
-	{
-		perror("create pipe failed\n");
-		exit(EXIT_SUCCESS);
-	}
-
-
-
-	//ifd = dup(fds[1]);
-	close(0);
-	ifd = dup(fds[0]);
-	close(fds[0]);
-
-	if(ifd !=0)
-	{
-		perror("dup failed\n");
-		exit(EXIT_SUCCESS);
-	}
-
-#endif
-
-
+	//set_timer(1000);
 
 	int ffd;
 #if 0
@@ -398,40 +345,29 @@ int main(int argc, char* argv[])
 	
 	int cnt=0;
 
+	make_internet_address("192.168.0.255",PORT,&cliaddr);
+
+
+	struct timespec tp;
+	tp.tv_sec =1;
+	tp.tv_nsec =0;
 	while(1)
 	{
-		//pause();
-#if 1
-		//	printf("waiting on port %d\n",PORT);
-		//n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
-		//	printf("recvfrom timeout\n");
-		//	printf("buffer is %s\n",buffer);
-
-		//buffer[n] = '\0'; 
-		//	printf("Client : %s\n", buffer); 
-		//
-
-#endif
-
-
-
-#if 0
-		FILE * fp =NULL;
-		fp = fdopen(ifd,"r");
-
-		if(fp ==NULL)
+		if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 		{
-			perror("fdopen failed\n");
-			exit(EXIT_SUCCESS);
+			perror("udp send failed\n");
+			exit(EXIT_FAILURE);		
 		}
-#endif
+
+		printf("hello udp\n");
+		nanosleep(&tp,NULL);
 
 
-//		read(ffd,buffer,sizeof(buffer));
 
-	//	fgets(buffer,sizeof(buffer),stdin);
-		//read(ifd,buffer,sizeof(buffer));
-		//fgets(buffer,sizeof(buffer),fp);
+	}
+	while(1)
+	{
+
 
 		//if(sendto(sockfd,buffer,strlen(buffer),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
 		//if(sendto(sockfd,brp_im,sizeof(brp_im),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr)) == -1)
@@ -483,7 +419,7 @@ int main(int argc, char* argv[])
 
 
 		memset(buffer,0,sizeof(buffer));
-
+#if 0
 		//make_internet_address("192.168.0.108",PORT,&cliaddr);
 		//make_internet_address("192.168.0.106",PORT,&cliaddr);
 		make_internet_address("192.168.0.255",PORT,&cliaddr);
@@ -494,14 +430,13 @@ int main(int argc, char* argv[])
 		}
 
 		printf("udp send ok: %d\n",stn);
+#endif
+		//sleep(1000);
 
-
-		sleep(1);
-		
-		exit(EXIT_SUCCESS);
-
+#if 0
 		cnt++;
 		if(cnt > 10)
 			exit(EXIT_SUCCESS);
+#endif
 	}
 }
