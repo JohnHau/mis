@@ -42,9 +42,9 @@ uint8_t brp_im[]={
 uint8_t bqr_rp[]={
 	0x81,0x0a,0x00,0x11,0x01,0x04,
 	0x00,0x03,0x00,0x0c,0x0c,0x02,
-	//0x3f,0xff,0xfe,0x19,0x2c
+	0x3f,0xff,0xfe,0x19,0x2c
 	//0x00,0x03,0xe8,0x19,0x2c
-	0x00,0x03,0xf0,0x19,0x2c
+	//0x00,0x03,0xf0,0x19,0x2c
 
 
 };
@@ -58,6 +58,9 @@ uint8_t  buffer[MAXLINE];
 char *hello = "Hello from server"; 
 struct sockaddr_in servaddr, cliaddr; 
 struct hostent *hent=NULL;
+
+
+char *sip=NULL;
 
 
 int stn=0;
@@ -257,7 +260,9 @@ void on_timer(int signum)
 	signal(SIGALRM,on_timer);
 //	make_internet_address("192.168.0.255",PORT,&cliaddr);
 		//make_internet_address("192.168.1.196",PORT,&cliaddr);
-		make_internet_address("192.168.1.208",PORT,&cliaddr);
+		//make_internet_address("192.168.1.208",PORT,&cliaddr);
+		//make_internet_address(argv[2],PORT,&cliaddr);
+		make_internet_address(sip,PORT,&cliaddr);
 		//if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 		if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 		{
@@ -302,6 +307,17 @@ int set_timer(uint32_t nms)
 
 int main(int argc, char* argv[])
 {    
+
+
+	if(argc <2)
+	{
+
+		printf("err:parameters\n");
+		exit(EXIT_FAILURE);
+	}
+
+	sip = argv[2];
+	
 #if 0
 	int sockfd; 
 	char hname[128]={0};
@@ -389,11 +405,14 @@ int main(int argc, char* argv[])
 		//make_internet_address("192.168.2.3",PORT,&cliaddr);
 		//make_internet_address("192.168.2.16",PORT,&cliaddr);
 		//make_internet_address("192.168.1.196",PORT,&cliaddr);
-		make_internet_address("192.168.1.208",PORT,&cliaddr);
+		//make_internet_address("192.168.1.208",PORT,&cliaddr);
+		//make_internet_address(argv[2],PORT,&cliaddr);
+		make_internet_address(sip,PORT,&cliaddr);
 		//make_internet_address("192.168.2.22",PORT,&cliaddr);
 		sleep(3);
 		printf("start sending\n");
-		set_timer(10);
+		//set_timer(10);
+		set_timer(atoi(argv[1]));
 		signal(SIGALRM,on_timer);
 		while(1);
 		while(1)	

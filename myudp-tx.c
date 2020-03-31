@@ -374,7 +374,7 @@ int main(int argc, char* argv[])
 	//
 	struct sockaddr_in addrMe;
 	addrMe.sin_family = AF_INET;
-	addrMe.sin_port = htons(47808);//1001你的端口号
+	addrMe.sin_port = htons(47808);//1001 port you are using
 	addrMe.sin_addr.s_addr = INADDR_ANY; 
 	bind(sockfd, (struct sockaddr*)&addrMe, sizeof(addrMe));
 #if 0	
