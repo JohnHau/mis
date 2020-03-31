@@ -308,6 +308,7 @@ int set_timer(uint32_t nms)
 int main(int argc, char* argv[])
 {    
 
+#if 0
 
 	if(argc <2)
 	{
@@ -317,6 +318,7 @@ int main(int argc, char* argv[])
 	}
 
 	sip = argv[2];
+#endif
 	
 #if 0
 	int sockfd; 
@@ -336,6 +338,7 @@ int main(int argc, char* argv[])
 		perror("socket creation failed"); 
 		exit(EXIT_FAILURE); 
 	} 
+
 
 
 	int optval =1;
@@ -361,7 +364,7 @@ int main(int argc, char* argv[])
 	//servaddr.sin_port = PORT; 
 
 	// Bind the socket with the server address 
-	if ( bind(sockfd, (const struct sockaddr *)&servaddr,sizeof(servaddr)) < 0 ) 
+	if (bind(sockfd, (const struct sockaddr *)&servaddr,sizeof(servaddr)) < 0 ) 
 	{ 
 		perror("bind failed"); 
 		exit(EXIT_FAILURE); 
@@ -382,7 +385,7 @@ int main(int argc, char* argv[])
 
 	memset(buffer,0,sizeof(buffer));
 
-
+#if 1
 	int fpid;
 	fpid = fork();
 	if(fpid == -1)
@@ -393,11 +396,18 @@ int main(int argc, char* argv[])
 	else if(fpid == 0)
 	{
 
+		char tsk[32]={0};
+		sprintf(tsk,"%d",sockfd);
+		printf("tsk is %s\n",tsk);
+		//sleep(100);
 		//execl("./myudp-tx",0);
 		//execl("./myudp-tx.exe","myudp-tx.exe",(char*)0);
+		execl("./myudp-tx.exe","myudp-tx.exe",tsk,(char*)0);
+		printf("err: execl\n");
+		//execl("./myudp-tx","myudp-tx",tsk,(char*)0);
 		//
 		//
-#if 1
+#if 0
 		struct timespec tp;
 		tp.tv_sec =0;
 		tp.tv_nsec =500000;
@@ -438,7 +448,29 @@ int main(int argc, char* argv[])
 
 	}
 
-	
+
+
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #if 0
 	//make_internet_address("192.168.0.104",PORT,&cliaddr);
 	make_internet_address("192.168.0.255",PORT,&cliaddr);
@@ -454,7 +486,7 @@ int main(int argc, char* argv[])
 	if(argc > 1)
 	{
 
-	printf("argc is %d\n",argc);
+		printf("argc is %d\n",argc);
 		if(strcmp(argv[1],"whois") == 0)
 		{
 
@@ -516,6 +548,7 @@ int main(int argc, char* argv[])
 	uint32_t bcnt=0;
 	uint32_t ccnt=0;
 	uint32_t vcnt=0;
+	printf("rec: \n");
 	while(1)
 	{
 		//pause();
