@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <time.h>
+#include <sys/time.h>
 #include <string.h>
 //#include <curses.h>
 #include <unistd.h>
@@ -16,7 +17,8 @@
 #include <netdb.h> 
   
 #define PORT     0xBAC0 
-#define MAXLINE  1500 
+//#define PORT     60542 
+#define MAXLINE  1400 
 
 
 #define LOG_FILE "bacnet0.log"
@@ -37,6 +39,17 @@ uint8_t brp_im[]={
 		0xf1,0x22,0x04,0x00,0x91,0x03,0x22,0x01,0x04
 };
 
+uint8_t bqr_rp[]={
+	0x81,0x0a,0x00,0x11,0x01,0x04,
+	0x00,0x03,0x00,0x0c,0x0c,0x02,
+	//0x3f,0xff,0xfe,0x19,0x2c
+	//0x00,0x03,0xe8,0x19,0x2c
+	0x00,0x03,0xf0,0x19,0x2c
+
+
+};
+
+
 extern int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in *addrp);
 
 int sockfd; 
@@ -47,6 +60,7 @@ struct sockaddr_in servaddr, cliaddr;
 struct hostent *hent=NULL;
 
 
+int stn=0;
 
 
 
@@ -237,6 +251,55 @@ int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in 
 }
 
 
+uint32_t vvcnt=0;
+void on_timer(int signum)
+{
+	signal(SIGALRM,on_timer);
+//	make_internet_address("192.168.0.255",PORT,&cliaddr);
+		//make_internet_address("192.168.1.196",PORT,&cliaddr);
+		make_internet_address("192.168.1.208",PORT,&cliaddr);
+		//if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+		if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+		{
+			perror("udp send failed\n");
+			exit(EXIT_FAILURE);		
+		}
+		vvcnt++;
+
+
+		if(vvcnt == 100)
+		{
+			vvcnt=0;
+
+			sleep(100);
+		}
+
+
+
+		//printf("udp send ok: %d\n",stn);
+
+	//printf("hello timer\n");
+
+}
+
+int set_timer(uint32_t nms)
+{
+
+	struct itimerval ts;
+
+	ts.it_interval.tv_sec = nms/1000;
+	ts.it_interval.tv_usec = (nms%1000)*1000L;
+
+
+	ts.it_value.tv_sec = nms/1000;
+	ts.it_value.tv_usec = (nms%1000)*1000L;
+
+
+	return setitimer(ITIMER_REAL,&ts,NULL);
+}
+
+
+
 int main(int argc, char* argv[])
 {    
 #if 0
@@ -247,6 +310,8 @@ int main(int argc, char* argv[])
 	struct sockaddr_in servaddr, cliaddr; 
 	struct hostent *hent=NULL;
 #endif
+
+
 	gethostname(hname,sizeof(hname));
 	hent = gethostbyname(hname);
 
@@ -258,19 +323,24 @@ int main(int argc, char* argv[])
 
 
 	int optval =1;
-	setsockopt(sockfd,SOL_SOCKET,SO_BROADCAST|SO_REUSEADDR,&optval,sizeof(int));
+	//setsockopt(sockfd,SOL_SOCKET,SO_BROADCAST|SO_REUSEADDR,&optval,sizeof(int));
 
 	struct timeval timeout;
 	timeout.tv_sec = 6;
 	timeout.tv_usec = 0;
-	setsockopt(sockfd,SOL_SOCKET,SO_RCVTIMEO,&timeout,sizeof(timeout));
+	//setsockopt(sockfd,SOL_SOCKET,SO_RCVTIMEO,&timeout,sizeof(timeout));
 
 	memset(&servaddr, 0, sizeof(servaddr)); 
 	memset(&cliaddr, 0, sizeof(cliaddr)); 
+
+
+	const char localip[]="192.168.2.10";
+
 	// Filling server information 
 	servaddr.sin_family    = AF_INET; // IPv4 
 	//servaddr.sin_addr.s_addr = htonl(INADDR_ANY); 
 	servaddr.sin_addr.s_addr = INADDR_ANY; 
+	//servaddr.sin_addr.s_addr = inet_addr(localip); 
 	servaddr.sin_port = htons(PORT); 
 	//servaddr.sin_port = PORT; 
 
@@ -297,6 +367,59 @@ int main(int argc, char* argv[])
 	memset(buffer,0,sizeof(buffer));
 
 
+	int fpid;
+	fpid = fork();
+	if(fpid == -1)
+	{
+		perror("fork failed\n");
+		exit(EXIT_FAILURE);
+	}
+	else if(fpid == 0)
+	{
+
+		//execl("./myudp-tx",0);
+		//execl("./myudp-tx.exe","myudp-tx.exe",(char*)0);
+		//
+		//
+#if 1
+		struct timespec tp;
+		tp.tv_sec =0;
+		tp.tv_nsec =500000;
+		int cnt=0;	
+		//make_internet_address("192.168.2.3",PORT,&cliaddr);
+		//make_internet_address("192.168.2.16",PORT,&cliaddr);
+		//make_internet_address("192.168.1.196",PORT,&cliaddr);
+		make_internet_address("192.168.1.208",PORT,&cliaddr);
+		//make_internet_address("192.168.2.22",PORT,&cliaddr);
+		sleep(3);
+		printf("start sending\n");
+		set_timer(10);
+		signal(SIGALRM,on_timer);
+		while(1);
+		while(1)	
+		{
+			if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+			{
+				perror("udp send failed\n");
+				exit(EXIT_FAILURE);		
+			}
+
+			bqr_rp[8]++;
+			printf("hello udp\n");
+			nanosleep(&tp,NULL);
+			cnt++;
+
+			if(cnt == 100)
+			{
+				//sleep(5);
+				exit(EXIT_SUCCESS);
+			}
+		}
+#endif
+
+	}
+
+	
 #if 0
 	//make_internet_address("192.168.0.104",PORT,&cliaddr);
 	make_internet_address("192.168.0.255",PORT,&cliaddr);
@@ -327,21 +450,6 @@ int main(int argc, char* argv[])
 	}
 #endif
 
-	int fpid;
-	fpid = fork();
-	if(fpid == -1)
-	{
-		perror("fork failed\n");
-		exit(EXIT_FAILURE);
-	}
-	else if(fpid == 0)
-	{
-
-		//execl("./myudp-tx",0);
-		execl("./myudp-tx","myudp-tx",(char*)0);
-	}
-
-
 #if 0
 	int pfd[2] = {0};
 
@@ -367,7 +475,7 @@ int main(int argc, char* argv[])
 
 		close(pfd[1]);
 
-		
+
 
 		//execl("./myudp-tx",0);
 		execl("./myudp-dat-processing","myudp-dat-processing",(char*)0);
@@ -382,7 +490,13 @@ int main(int argc, char* argv[])
 
 #endif
 
-char *ts="hello";
+	char *ts="hello";
+	int xmcnt=0;
+	uint32_t bid=0;
+	uint32_t acnt=0;
+	uint32_t bcnt=0;
+	uint32_t ccnt=0;
+	uint32_t vcnt=0;
 	while(1)
 	{
 		//pause();
@@ -391,6 +505,26 @@ char *ts="hello";
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
 		//	printf("recvfrom timeout\n");
 		//	printf("buffer is %s\n",buffer);
+		printf("\n==ip %s\n",(char*)inet_ntoa(cliaddr.sin_addr));
+
+
+#if 0
+
+		printf("\nrevision start\n");
+		//for(int x=0;x<12;x++)
+		for(xmcnt=0;xmcnt<n;xmcnt++)
+		{
+			//printf("%x ",buffer[x+16]);
+			printf("%x ",buffer[xmcnt]);
+		}
+		printf("\nrevision end\n");
+		//printf("revision is %s\n",buffer);
+#endif
+
+
+
+
+
 
 		//buffer[n] = '\0'; 
 		//	printf("Client : %s\n", buffer); 
@@ -398,9 +532,32 @@ char *ts="hello";
 
 		if(buffer[12]== 0xc4 && buffer[13] == 0x02)
 		{
+			bid=(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]);
+
+
+			if(bid == 4194302)
+			{
+				acnt++;
+				printf("I am %d\t%d\n",bid,acnt);
+			}
+
+			if(bid == 12)
+			{
+				bcnt++;
+				printf("I am %d\t%d\n",bid,bcnt);
+			}
+			if(bid == 1000)
+			{
+				ccnt++;
+				printf("I am %d\t%d\n",bid,ccnt);
+			}
+
+
+			printf("I am %d\n",bid);
+			bid=0;
 
 			//	printf("I am %d\n",1009);
-			printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
+			//printf("I am %d\n",(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]));
 			//printf("%s %d\n","hello",23);
 			//printf("%s\r\n","hello");
 			//write(pfd[1],ts,strlen(ts));
@@ -422,7 +579,7 @@ char *ts="hello";
 		if(buffer[10]== 0x10 && buffer[11] == 0x08)
 		{
 
-			printf("I am 5006\n");
+			//printf("I am 5006\n");
 		}
 
 		//if(buffer[5] == 0x20)
@@ -433,6 +590,18 @@ char *ts="hello";
 			//printf("%s\r\n","world");
 			//write(pfd[1],ts,strlen(ts));
 		}
+
+
+
+
+		if(buffer[16] == 0x3e  && buffer[27]==0x3f)
+		{
+			vcnt++;
+
+			printf("%c%c%c%c%c%c%c\t%d\n",buffer[20],buffer[21],buffer[22],buffer[23],buffer[24],buffer[25],buffer[26],vcnt);
+		}
+
+
 
 
 
@@ -465,8 +634,6 @@ char *ts="hello";
 			exit(EXIT_SUCCESS);		
 
 		}
-
-
 
 		memset(buffer,0,sizeof(buffer));
 		//	sleep(1);
