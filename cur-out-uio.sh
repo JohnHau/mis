@@ -7,5 +7,5 @@ fi
 
 
 let a=$1
-res=`echo "scale=4;($a*2100)/(65535-$a)"|bc`
-echo "R is $res hom"
+cur=`echo "scale=4;($a/65535)*2.5*10"|bc`
+echo "cur is $cur ma"
