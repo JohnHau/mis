@@ -39,10 +39,25 @@ uint8_t brp_im[]={
 		0x81,0x0b,0x00,0x19,0x01,0x20,0xff,0xff,0x00,0xff,0x10,0x00,0xc4,0x02,0x00,0x03,
 		0xf1,0x22,0x04,0x00,0x91,0x03,0x22,0x01,0x04
 };
+uint8_t bqr_rp[]={
+	0x81,0x0a,0x00,0x11,0x01,0x04,
+	0x00,0x03,0x00,0x0c,0x0c,0x02,
+	//0x3f,0xff,0xfe,0x19,0x2c
+	//0x00,0x03,0xf0,0x19,0x2c
+	0x00,0x27,0x19,0x19,0x2c
+
+
+};
+
+
+/*
+ * 0x00,0x03,0xe8,0x19,0x2c
+ *
+ * */
 
 extern int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in *addrp);
 
-int sockfd; 
+int sockfd = 0; 
 char hname[128]={0};
 uint8_t  buffer[MAXLINE]; 
 char *hello = "Hello from server"; 
@@ -223,8 +238,11 @@ void on_input(int signum)
 void on_timer(int signum)
 {
 	signal(SIGALRM,on_timer);
-//	make_internet_address("192.168.0.255",PORT,&cliaddr);
-		if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+	//make_internet_address("192.168.0.255",PORT,&cliaddr);
+	//make_internet_address("192.168.1.208",PORT,&cliaddr);
+	make_internet_address("192.168.2.4",PORT,&cliaddr);
+		//if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+		if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 		{
 			perror("udp send failed\n");
 			exit(EXIT_FAILURE);		
@@ -233,7 +251,7 @@ void on_timer(int signum)
 		//printf("udp send ok: %d\n",stn);
 
 
-	//printf("hello timer\n");
+	printf("hello timer\n");
 
 }
 
@@ -297,17 +315,33 @@ int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in 
 int main(int argc, char* argv[])
 {    
 
+	sockfd = atoi(argv[1]);
+	printf("sockfd is %d\n",sockfd);
+	printf("argv[1] is %s\n",argv[1]);
 
+	//exit(EXIT_SUCCESS);
+
+
+#if 0
+
+	if(sockfd <= 0)
+	{
+
+		printf("err: sending process,bad parameter\n");
+		exit(EXIT_FAILURE);
+	}
+
+#endif
 	//gethostname(hname,sizeof(hname));
 	//hent = gethostbyname(hname);
-
+#if 0
 	if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 )
 	{ 
 		perror("socket creation failed"); 
 		exit(EXIT_FAILURE); 
 	} 
 
-
+#endif
 	int optval =1;
 	setsockopt(sockfd,SOL_SOCKET,SO_BROADCAST|SO_REUSEADDR,&optval,sizeof(int));
 
@@ -343,29 +377,92 @@ int main(int argc, char* argv[])
 	}
 #endif
 	
+	//sleep(5);
 	int cnt=0;
 
-	make_internet_address("192.168.0.255",PORT,&cliaddr);
+
+	//make_internet_address("192.168.0.255",PORT,&cliaddr);
+	//make_internet_address("192.168.2.255",PORT,&cliaddr);
+	//make_internet_address("192.168.2.4",PORT,&cliaddr);
+	//make_internet_address("192.168.2.3",PORT,&cliaddr);
+	//make_internet_address("192.168.1.208",PORT,&cliaddr);
+	//make_internet_address("192.168.1.196",PORT,&cliaddr);
+	//make_internet_address("192.168.2.16",PORT,&cliaddr);
+	//make_internet_address("192.168.43.238",PORT,&cliaddr);
+	//make_internet_address("192.168.43.219",PORT,&cliaddr);
+	//make_i1nternet_address("192.168.43.255",PORT,&cliaddr);
+	//
+#if 0
+	struct sockaddr_in addrMe;
+	addrMe.sin_family = AF_INET;
+	addrMe.sin_port = htons(47808);//1001 port you are using
+	addrMe.sin_addr.s_addr = INADDR_ANY; 
+	bind(sockfd, (struct sockaddr*)&addrMe, sizeof(addrMe));
+
+#endif
+
+
+
+
+#if 0	
+	if ( bind(sockfd, (const struct sockaddr *)&cliaddr,sizeof(cliaddr)) < 0 ) 
+	{ 
+		perror("send bind failed"); 
+		exit(EXIT_FAILURE); 
+	} 
+#endif
 
 
 	struct timespec tp;
-	tp.tv_sec =1;
-	tp.tv_nsec =0;
+	tp.tv_sec =3;
+	tp.tv_nsec =100000;
+	signal(SIGALRM,on_timer);
+	set_timer(1000);
+
+	while(1);
 	while(1)
 	{
+		//make_internet_address("192.168.2.22",PORT,&cliaddr);
+		//make_internet_address("192.168.2.3",PORT,&cliaddr);
+		//make_internet_address("192.168.2.3",47808,&cliaddr);
+		//make_internet_address("192.168.2.2",PORT,&cliaddr);
+
+
+
+#if 0
+		//	nanosleep(&tp,NULL);
 		if((stn = sendto(sockfd,bqr_whois,sizeof(bqr_whois),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+			//if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 		{
 			perror("udp send failed\n");
 			exit(EXIT_FAILURE);		
 		}
 
+
+#endif
+		//nanosleep(&tp,NULL);
+
+		if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+		{
+			perror("udp send failed\n");
+			exit(EXIT_FAILURE);		
+		}
+
+		bqr_rp[8]++;
 		printf("hello udp\n");
 		nanosleep(&tp,NULL);
+		cnt++;
+
+		if(cnt == 100)
+		{
+			//sleep(5);
+			exit(EXIT_SUCCESS);
+		}
 
 
 
 	}
-	while(1)
+	while(0)
 	{
 
 
@@ -377,7 +474,8 @@ int main(int argc, char* argv[])
 			//make_internet_address("192.168.43.255",PORT,&cliaddr);
 			//make_internet_address("10.78.146.1",PORT,&cliaddr);
 			//make_internet_address("192.168.0.104",PORT,&cliaddr);
-			make_internet_address("192.168.0.108",PORT,&cliaddr);
+			//make_internet_address("192.168.0.108",PORT,&cliaddr);
+			make_internet_address("192.168.2.255",PORT,&cliaddr);
 			//make_internet_address("192.168.0.255",PORT,&cliaddr);
 			//make_internet_address("127.0.0.1",PORT,&cliaddr);
 
