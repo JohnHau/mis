@@ -188,13 +188,29 @@ void *read_udp(void *arg_r)
 
 	len = sizeof(cliaddr);  //len is value/resuslt 
 
+
+	FILE *fp;
+	fp = fopen("object-list.log","w");
+
+
+	if(fp == NULL)
+	{
+
+		printf("failed open object-list.log");
+		exit(EXIT_FAILURE);
+
+	}
+
+
+
+
 	while(1)
 	{
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
 		//n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, sizeof(struct sockaddr)); 
 
 #if 0
-//		printf("==========rec len is %d\n",n);
+		//		printf("==========rec len is %d\n",n);
 
 		printf("rec data is \r\n");
 		for(int i=0;i<n;i++)
@@ -325,7 +341,9 @@ void *read_udp(void *arg_r)
 
 			
 
-			printf("rv is %x %x %x %x %x\n",buffer[6],buffer[10],buffer[11],buffer[12],buffer[13]);
+			printf("rv is %02x %02x %02x %02x %02x\n",buffer[6],buffer[10],buffer[11],buffer[12],buffer[13]);
+			fprintf(fp,"rv is %02x %02x %02x %02x %02x\n",buffer[6],buffer[10],buffer[11],buffer[12],buffer[13]);
+			fflush(fp);
 
 
 
