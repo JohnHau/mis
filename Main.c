@@ -67,7 +67,7 @@ void main(void)
     LCD_backlight_init();
     LCD_On();
     
-   delay(2000);
+   //delay(2000);
    //delay(2000);
    //delay(2000);
        //buzz();

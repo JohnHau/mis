@@ -4240,13 +4240,13 @@ void delay(unsigned int x)
 {
 unsigned int i,j;
 for(i=0;i<x;i++)
-for(j=0;j<100;j++);
+for(j=0;j<10;j++);
 }
 
 static void i2c_Delay(void)
 {
 uint32_t i;
-for (i = 0; i < 100; i++);
+for (i = 0; i < 5; i++);
 
 # 31
 }
@@ -5018,6 +5018,8 @@ LATEbits.LE0 =0;
 uint8_t ms = 0x66;
 uint8_t ss=0;
 uint8_t css=0;
+uint8_t rcnt=0;
+uint8_t page=0;
 void Initial_LY096BG30(void)
 {
 
@@ -5026,95 +5028,94 @@ void Initial_LY096BG30(void)
 
 i2c_CfgGpio();
 
-# 934
+# 936
 LATEbits.LATE1=0;
-delay(2000);
-delay(2000);
-delay(2000);
+delay(1);
 
-
-
+# 943
 LATEbits.LATE1=1;
-delay(2000);
+delay(1);
 
-# 964
+# 966
 write_buf[0]=0x21;
 
 
-ee_WriteBytes(write_buf, 0x80, 1);
 
-# 977
+ee_WriteBytes(write_buf, 0x00, 1);
+
+# 981
 write_buf[0]=0x15;
 
 
 
+ee_WriteBytes(write_buf, 0x00, 1);
 
-ee_WriteBytes(write_buf, 0x80, 1);
 
 
 write_buf[0]=0x08;
 
-
-ee_WriteBytes(write_buf, 0x80, 1);
-
+ee_WriteBytes(write_buf, 0x00, 1);
 
 
-write_buf[0]=0xc0;
 
-ee_WriteBytes(write_buf, 0x80, 1);
+write_buf[0]=0x9f;
 
-# 1004
+# 1001
+ee_WriteBytes(write_buf, 0x00, 1);
+
+# 1012
 write_buf[0]=0x20;
+ee_WriteBytes(write_buf, 0x00, 1);
 
-ee_WriteBytes(write_buf, 0x80, 1);
 
 
 
 write_buf[0]=0x05;
+ee_WriteBytes(write_buf, 0x00, 1);
 
-ee_WriteBytes(write_buf, 0x80, 1);
-
-
-
-
-write_buf[0]=0x09;
+# 1026
+write_buf[0]=0x0c;
 
 
-ee_WriteBytes(write_buf, 0x80, 1);
+ee_WriteBytes(write_buf, 0x00, 1);
 
-
-
-
+# 1035
 write_buf[0]=0x80;
 
+ee_WriteBytes(write_buf, 0x00, 1);
 
-ee_WriteBytes(write_buf, 0x80, 1);
 
 
 write_buf[0]=0x40;
 
+ee_WriteBytes(write_buf, 0x00, 1);
 
-ee_WriteBytes(write_buf, 0x80, 1);
+# 1061
+write_buf[0]=0x00;
 
-# 1041
-delay(2000);
 
-# 1051
-write_buf[0]=0xa5;
 
-# 1070
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
-ee_WriteBytes(write_buf, 0xc0, 1);
+for(page=0;page<8;page++)
+{
+for(rcnt=0;rcnt<102;rcnt++)
+{
+ee_WriteBytes(write_buf, 0x40, 1);
+}
 
-# 1248
+}
+
+
+write_buf[0]=0x88;
+ee_WriteBytes(write_buf, 0x00, 1);
+
+write_buf[0]=0x44;
+ee_WriteBytes(write_buf, 0x00, 1);
+
+
+write_buf[0]=0xaa;
+ee_WriteBytes(write_buf, 0x40, 1);
+
+# 1269
 }
 
 
@@ -5126,7 +5127,7 @@ unsigned char m,n;
 for(m=0;m<8;m++)
 {
 
-# 1263
+# 1284
 write_buf[0]=0xb0+m;
 ee_WriteBytes(write_buf, 0x00, 1);
 
@@ -5137,7 +5138,7 @@ ee_WriteBytes(write_buf, 0x00, 1);
 write_buf[0]=0x10;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 1278
+# 1299
 for(n=0;n<128;n++)
 {
 
@@ -5229,7 +5230,7 @@ unsigned int i=0;
 for(y=0;y<8;y++)
 {
 
-# 1373
+# 1394
 write_buf[0]=0xb0+y;
 ee_WriteBytes(write_buf, 0x00, 1);
 
@@ -5240,7 +5241,7 @@ ee_WriteBytes(write_buf, 0x00, 1);
 write_buf[0]=0x10;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 1389
+# 1410
 for(x=0;x<128;x++)
 {
 
@@ -5290,7 +5291,7 @@ y=0;
 for(y=0;y<8;y++)
 {
 
-# 1442
+# 1463
 write_buf[0]=0xb0+7-y;
 ee_WriteBytes(write_buf, 0x00, 1);
 
@@ -5301,7 +5302,7 @@ ee_WriteBytes(write_buf, 0x00, 1);
 write_buf[0]=0x10;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 1459
+# 1480
 for(x=0;x<16;x++)
 {
 

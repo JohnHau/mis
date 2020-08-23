@@ -6,10 +6,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_backlight_init `(v ~T0 @X0 0 ef ]
 "181
 [v _LCD_On `(v ~T0 @X0 0 ef ]
-"186
-[v _delay `(v ~T0 @X0 0 ef1`ui ]
 "169
 [v _Initial_LY096BG30 `(v ~T0 @X0 0 ef ]
+"186
+[v _delay `(v ~T0 @X0 0 ef1`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -19135,9 +19135,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 68: LCD_On();
 "68
 [e ( _LCD_On ..  ]
-[; ;Main.c: 70: delay(2000);
-"70
-[e ( _delay (1 -> -> 2000 `i `ui ]
 [; ;Main.c: 80: Initial_LY096BG30();
 "80
 [e ( _Initial_LY096BG30 ..  ]

@@ -4935,8 +4935,6 @@ BeepInit();
 LCD_backlight_init();
 LCD_On();
 
-delay(2000);
-
 # 80
 Initial_LY096BG30();
 
