@@ -7,56 +7,40 @@
 [v _BeepInit BeepInit `(v  1 e 1 0 ]
 "63 E:\myWorkSpace\injector\LEDspi/Main.c
 [v _main main `(v  1 e 1 0 ]
-"10 E:\myWorkSpace\injector\LEDspi/Oled.c
+"131 E:\myWorkSpace\injector\LEDspi/Oled.c
 [v _delay delay `(v  1 e 1 0 ]
-"17
+"138
 [v _i2c_Delay i2c_Delay `(v  1 s 1 i2c_Delay ]
-"33
+"154
 [v _i2c_Start i2c_Start `(v  1 e 1 0 ]
-"46
+"167
 [v _i2c_Stop i2c_Stop `(v  1 e 1 0 ]
-"56
+"177
 [v _i2c_SendByte i2c_SendByte `(v  1 e 1 0 ]
-"84
+"205
 [v _i2c_ReadByte i2c_ReadByte `(uc  1 e 1 0 ]
-"112
+"233
 [v _i2c_WaitAck i2c_WaitAck `(uc  1 e 1 0 ]
-"140
+"261
 [v _i2c_Ack i2c_Ack `(v  1 e 1 0 ]
-"152
+"273
 [v _i2c_NAck i2c_NAck `(v  1 e 1 0 ]
-"163
+"284
 [v _i2c_CfgGpio i2c_CfgGpio `(v  1 e 1 0 ]
-"231
-[v _delay_ms delay_ms `(v  1 e 1 0 ]
-"243
-[v _OLED_WR_Byte OLED_WR_Byte `(v  1 e 1 0 ]
-"275
-[v _Column_Address Column_Address `(v  1 e 1 0 ]
-"288
-[v _Row_Address Row_Address `(v  1 e 1 0 ]
-"300
-[v _OLED_Clear OLED_Clear `(v  1 e 1 0 ]
-"316
-[v _OLED_ShowChar OLED_ShowChar `(v  1 e 1 0 ]
-"373
-[v _oled_pow oled_pow `(ui  1 e 2 0 ]
-"459
-[v _OledIoInit OledIoInit `(v  1 e 1 0 ]
-"569
+"449
 [v _ee_CheckDevice ee_CheckDevice `(uc  1 e 1 0 ]
-"604
+"484
 [v _ee_ReadBytes ee_ReadBytes `(uc  1 e 1 0 ]
-"667
+"547
 [v _ee_WriteBytes ee_WriteBytes `(uc  1 e 1 0 ]
-"885
+"765
 [v _LCD_backlight_init LCD_backlight_init `(v  1 e 1 0 ]
-"898
+"778
 [v _LCD_On LCD_On `(v  1 e 1 0 ]
-"921
+"799
+[v _setYX_LCD setYX_LCD `(uc  1 e 1 0 ]
+"833
 [v _Initial_LY096BG30 Initial_LY096BG30 `(v  1 e 1 0 ]
-"1438
-[v _xdelay xdelay `(v  1 e 1 0 ]
 "92 E:\myWorkSpace\injector\LEDspi/PositionControl.c
 [v _CalContinueWorkTimePeriod CalContinueWorkTimePeriod `(v  1 e 1 0 ]
 "100
@@ -65,8 +49,6 @@
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ftadd.c
@@ -77,10 +59,6 @@
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 "20 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
@@ -89,8 +67,6 @@
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 [s S86 . 6 `uc 1 NewValue 1 0 `uc 1 OldValue 1 1 `uc 1 SendValue 1 2 `uc 1 SendValueChangeFlag 1 3 `uc 1 FiterTimesCount 1 4 `uc 1 FiterTimes 1 5 ]
@@ -102,30 +78,20 @@
 [v _StartInjectKey StartInjectKey `S86  1 e 6 0 ]
 "9
 [v _KeyScanPeriod KeyScanPeriod `uc  1 e 1 0 ]
-"765 E:\myWorkSpace\injector\LEDspi/Oled.c
+"10 E:\myWorkSpace\injector\LEDspi/Oled.c
+[v _minject minject `C[1024]uc  1 e 1024 0 ]
+"645
 [v _write_buf write_buf `[256]uc  1 e 256 0 ]
-"766
+"646
 [v _read_buf read_buf `[256]uc  1 e 256 0 ]
-"919
+"828
+[v _ss ss `uc  1 e 1 0 ]
+"830
 [v _rcnt rcnt `uc  1 e 1 0 ]
-"920
+"831
 [v _page page `uc  1 e 1 0 ]
-"1313
-[v _show1 show1 `C[1024]uc  1 e 1024 0 ]
-"1424
-[v _ASCII_16_Dot ASCII_16_Dot `C[16]uc  1 e 16 0 ]
-"4 E:\myWorkSpace\injector\LEDspi/oledfont.h
-[v _F8X16 F8X16 `C[95][16]uc  1 e 1520 0 ]
-"103
-[v _F12X24 F12X24 `C[95][36]uc  1 e 3420 0 ]
-"203
-[v _F16X32 F16X32 `C[95][64]uc  1 e 6080 0 ]
-"303
-[v _Hzk16x16 Hzk16x16 `C[5][32]uc  1 e 160 0 ]
-"313
-[v _Hzk24x24 Hzk24x24 `C[5][72]uc  1 e 360 0 ]
-"322
-[v _Hzk32x32 Hzk32x32 `C[5][144]uc  1 e 720 0 ]
+"832
+[v _xtt xtt `ui  1 e 2 0 ]
 "5 E:\myWorkSpace\injector\LEDspi/PositionControl.c
 [v _InjectionMotorCurrentPosition InjectionMotorCurrentPosition `VEui  1 e 2 0 ]
 [v _InjectionMotorAimPosition InjectionMotorAimPosition `VEui  1 e 2 0 ]
@@ -149,9 +115,9 @@
 [v _InjectionStepMotorStepPulseNum InjectionStepMotorStepPulseNum `ui  1 e 2 0 ]
 "19
 [v _InjectionStepMotorStepPulseMaxNum InjectionStepMotorStepPulseMaxNum `ui  1 e 2 0 ]
-[s S1272 . 5 `uc 1 InjectMode 1 0 `uc 1 InjectType 1 1 `uc 1 NeedleLength 1 2 `uc 1 InjectDepth 1 3 `uc 1 Variable 1 4 ]
+[s S1163 . 5 `uc 1 InjectMode 1 0 `uc 1 InjectType 1 1 `uc 1 NeedleLength 1 2 `uc 1 InjectDepth 1 3 `uc 1 Variable 1 4 ]
 "20
-[v _CurrentWorkPara CurrentWorkPara `S1272  1 e 5 0 ]
+[v _CurrentWorkPara CurrentWorkPara `S1163  1 e 5 0 ]
 "11 E:\myWorkSpace\injector\LEDspi/Timer.c
 [v _LastNeedleFeedback LastNeedleFeedback `uc  1 e 1 0 ]
 "12
@@ -478,84 +444,94 @@
 {
 "125
 } 0
-"885 E:\myWorkSpace\injector\LEDspi/Oled.c
+"765 E:\myWorkSpace\injector\LEDspi/Oled.c
 [v _LCD_backlight_init LCD_backlight_init `(v  1 e 1 0 ]
 {
-"896
+"776
 } 0
-"898
+"778
 [v _LCD_On LCD_On `(v  1 e 1 0 ]
 {
-"907
+"787
 } 0
-"921
+"833
 [v _Initial_LY096BG30 Initial_LY096BG30 `(v  1 e 1 0 ]
 {
-"1269
+"1085
 } 0
-"163
-[v _i2c_CfgGpio i2c_CfgGpio `(v  1 e 1 0 ]
+"799
+[v _setYX_LCD setYX_LCD `(uc  1 e 1 0 ]
 {
-"207
+[v setYX_LCD@py py `uc  1 a 1 wreg ]
+[v setYX_LCD@py py `uc  1 a 1 wreg ]
+[v setYX_LCD@px px `uc  1 p 1 0 ]
+"803
+[v setYX_LCD@py py `uc  1 a 1 1 ]
+"813
 } 0
-"667
+"547
 [v _ee_WriteBytes ee_WriteBytes `(uc  1 e 1 0 ]
 {
-"669
+"549
 [v ee_WriteBytes@m m `ui  1 a 2 27 ]
-"671
+"551
 [v ee_WriteBytes@usAddr usAddr `uc  1 a 1 29 ]
-"667
+"547
 [v ee_WriteBytes@_pWriteBuf _pWriteBuf `*.39uc  1 p 2 22 ]
 [v ee_WriteBytes@_usAddress _usAddress `uc  1 p 1 24 ]
 [v ee_WriteBytes@_usSize _usSize `ui  1 p 2 25 ]
-"734
+"614
 } 0
-"112
+"233
 [v _i2c_WaitAck i2c_WaitAck `(uc  1 e 1 0 ]
 {
-"114
+"235
 [v i2c_WaitAck@re re `uc  1 a 1 20 ]
-"137
+"258
 } 0
-"46
+"167
 [v _i2c_Stop i2c_Stop `(v  1 e 1 0 ]
 {
-"53
+"174
 } 0
-"33
+"154
 [v _i2c_Start i2c_Start `(v  1 e 1 0 ]
 {
-"43
+"164
 } 0
-"56
+"177
 [v _i2c_SendByte i2c_SendByte `(v  1 e 1 0 ]
 {
 [v i2c_SendByte@_ucByte _ucByte `uc  1 a 1 wreg ]
-"58
+"179
 [v i2c_SendByte@i i `uc  1 a 1 21 ]
-"56
+"177
 [v i2c_SendByte@_ucByte _ucByte `uc  1 a 1 wreg ]
-"60
+"181
 [v i2c_SendByte@_ucByte _ucByte `uc  1 a 1 20 ]
-"81
+"202
 } 0
-"17
+"138
 [v _i2c_Delay i2c_Delay `(v  1 s 1 i2c_Delay ]
 {
-"19
+"140
 [v i2c_Delay@i i `ul  1 a 4 16 ]
-"31
+"152
 } 0
-"10
+"284
+[v _i2c_CfgGpio i2c_CfgGpio `(v  1 e 1 0 ]
+{
+"328
+} 0
+"131
 [v _delay delay `(v  1 e 1 0 ]
 {
-"12
+"133
 [v delay@j j `ui  1 a 2 20 ]
 [v delay@i i `ui  1 a 2 18 ]
-"10
+"131
 [v delay@x x `ui  1 p 2 16 ]
-"15
+"136
 } 0
 "4 E:\myWorkSpace\injector\LEDspi/Beep.c
 [v _BeepInit BeepInit `(v  1 e 1 0 ]

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.41\dat\en_msgs.txt -cs \
   -h+dist/default/production\injector.X.production.sym \
   --cmf=dist/default/production\injector.X.production.cmf -z -Q18F4520 \
-  -oC:\Users\ADMINI~1\AppData\Local\Temp\s1jio.2 \
+  -oC:\Users\ADMINI~1\AppData\Local\Temp\s2fs8.2 \
   -Mdist/default/production/injector.X.production.map -E1 -ver=XC8 \
   -ASTACK=0300h-05ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ADMINI~1\AppData\Local\Temp\s1jio.obj \
+  C:\Users\ADMINI~1\AppData\Local\Temp\s2fs8.obj \
   dist/default/production\injector.X.production.obj 
 
 Object code version is 3.11
@@ -34,36 +34,38 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ADMINI~1\AppData\Local\Temp\s1jio.obj
+C:\Users\ADMINI~1\AppData\Local\Temp\s2fs8.obj
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\injector.X.production.obj
                 intcode                               8        8        6        4       0
-                temp                                 6C       6C        1        1       1
-                mediumconst                        140A     140A     6BF6      A05       0
+                temp                                 6F       6F        1        1       1
+                mediumconst                        43EE     43EE     3C12     21F7       0
                 intcode_body                         12       12      264        4       0
-                text12                              5E0      5E0        6        4       0
-                text11                              500      500       36        4       0
-                text10                              536      536       30        4       0
-                text9                               492      492       38        4       0
-                text8                               5AA      5AA       16        4       0
-                text7                               5CE      5CE        C        4       0
-                text6                               566      566       26        4       0
-                text5                               4CA      4CA       36        4       0
-                text4                               5C0      5C0        E        4       0
-                text3                               276      276      1C8        4       0
-                text2                               5E6      5E6        4        4       0
-                text1                               5DA      5DA        6        4       0
-                text0                               58C      58C       1E        4       0
-                cstackCOMRAM                         4D       4D       1E        1       1
+                text13                              5BA      5BA        6        4       0
+                text12                              4DA      4DA       36        4       0
+                text11                              59A      59A        E        4       0
+                text10                              510      510       30        4       0
+                text9                               46C      46C       38        4       0
+                text8                               584      584       16        4       0
+                text7                               5A8      5A8        C        4       0
+                text6                               540      540       26        4       0
+                text5                               4A4      4A4       36        4       0
+                text4                               422      422       4A        4       0
+                text3                               276      276      152        4       0
+                text2                               5C0      5C0        4        4       0
+                text1                               5B4      5B4        6        4       0
+                text0                               566      566       1E        4       0
+                cstackCOMRAM                         4F       4F       1E        1       1
+                cstackBANK0                          80       80        2       80       1
                 bssBANK2                            200      200      100      200       1
                 bssBANK1                            100      100      100      100       1
-                dataCOMRAM                           6B       6B        1        1       1
-                bssCOMRAM                             1        1       4C        1       1
-                cinit                               43E      43E       54        4       0
-                idataCOMRAM                         5EA      5EA        1        4       0
+                dataCOMRAM                           6D       6D        2        1       1
+                bssCOMRAM                             1        1       4E        1       1
+                cinit                               3C8      3C8       5A        4       0
+                idataCOMRAM                         5C4      5C4        2        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -73,34 +75,35 @@ TOTAL           Name                               Link     Load   Length     Sp
                 init                                  E        E        4         0
                 reset_vec                             0        0        4         0
                 intcode_body                         12       12      264         0
-                text12                              5E0      5E0        6         0
-                text11                              500      500       36         0
-                text10                              536      536       30         0
-                text9                               492      492       38         0
-                text8                               5AA      5AA       16         0
-                text7                               5CE      5CE        C         0
-                text6                               566      566       26         0
-                text5                               4CA      4CA       36         0
-                text4                               5C0      5C0        E         0
-                text3                               276      276      1C8         0
-                text2                               5E6      5E6        4         0
-                text1                               5DA      5DA        6         0
-                text0                               58C      58C       1E         0
-                cinit                               43E      43E       54         0
-                idataCOMRAM                         5EA      5EA        1         0
+                text13                              5BA      5BA        6         0
+                text12                              4DA      4DA       36         0
+                text11                              59A      59A        E         0
+                text10                              510      510       30         0
+                text9                               46C      46C       38         0
+                text8                               584      584       16         0
+                text7                               5A8      5A8        C         0
+                text6                               540      540       26         0
+                text5                               4A4      4A4       36         0
+                text4                               422      422       4A         0
+                text3                               276      276      152         0
+                text2                               5C0      5C0        4         0
+                text1                               5B4      5B4        6         0
+                text0                               566      566       1E         0
+                cinit                               3C8      3C8       5A         0
+                idataCOMRAM                         5C4      5C4        2         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        140A     140A     6BF6         0
+                mediumconst                        43EE     43EE     3C12         0
 
         CLASS   COMRAM         
-                temp                                 6C       6C        1         1
-                cstackCOMRAM                         4D       4D       1E         1
-                dataCOMRAM                           6B       6B        1         1
-                bssCOMRAM                             1        1       4C         1
+                temp                                 6F       6F        1         1
+                cstackCOMRAM                         4F       4F       1E         1
+                dataCOMRAM                           6D       6D        2         1
+                bssCOMRAM                             1        1       4E         1
 
         CLASS   ABS1           
 
@@ -109,6 +112,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
+                cstackBANK0                          80       80        2         1
 
         CLASS   BANK1          
                 bssBANK1                            100      100      100         1
@@ -139,11 +143,12 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000001  00006C  00006D         1       1  COMRAM  
-                intcode                        000008  0005E3  0005EB         4       0  CODE    
+                bssCOMRAM                      000001  00006F  000070         1       1  COMRAM  
+                intcode                        000008  0005BE  0005C6         4       0  CODE    
+                cstackBANK0                    000080  000002  000082        80       1  BANK0   
                 bssBANK1                       000100  000100  000200       100       1  BANK1   
                 bssBANK2                       000200  000100  000300       200       1  BANK2   
-                mediumconst                    00140A  006BF6  008000       A05       0  MEDIUMCO
+                mediumconst                    0043EE  003C12  008000      21F7       0  MEDIUMCO
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -151,72 +156,67 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            000080-0000FF               80
+        BANK0            000082-0000FF               7E
         BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
-        BIGRAM           00006D-0000FF               93
+        BIGRAM           000070-00007F               10
+                         000082-0000FF               7E
                          000300-0005FF              300
         CODE             000004-000007                4
-                         0005EB-001409              E1F
-        COMRAM           00006D-00007F               13
+                         0005C6-0043ED             3E28
+        COMRAM           000070-00007F               10
         CONST            000004-000007                4
-                         0005EB-001409              E1F
+                         0005C6-0043ED             3E28
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000600-001409              E0A
-        RAM              000080-0000FF               80
+        MEDIUMCONST      000600-0043ED             3DEE
+        RAM              000082-0000FF               7E
                          000300-0005FF              100
         SFR              000F80-000FFF               80
-        SMALLCONST       000600-001409              100
+        SMALLCONST       000600-0043ED              100
         STACK            000300-0005FF              300
 
                                   Symbol Table
 
-ISR@i                              cstackCOMRAM 00005C
+ISR@i                              cstackCOMRAM 00005E
 _ASCII_16_Dot                      mediumconst  007FEF
-_BMP1                              mediumconst  00340B
-_BMP2                              mediumconst  00140B
-_BeepInit                          text12       0005E0
+_BMP1                              mediumconst  0063EF
+_BMP2                              mediumconst  0043EF
+_BeepInit                          text13       0005BA
 _ConfirmKey                        bssCOMRAM    000007
-_ContinueWorkState                 bssCOMRAM    00003E
+_ContinueWorkState                 bssCOMRAM    000040
 _ContinueWorkTimeCount             bssCOMRAM    000023
 _ContinueWorkTimePeriod            bssCOMRAM    000025
-_CurrentWorkPara                   bssCOMRAM    000048
+_CurrentWorkPara                   bssCOMRAM    000049
 _DDRAbits                          (abs)        000F92
 _DDRBbits                          (abs)        000F93
 _DDRCbits                          (abs)        000F94
 _DDRDbits                          (abs)        000F95
 _DDREbits                          (abs)        000F96
 _DownKey                           bssCOMRAM    00000D
-_F12X24                            mediumconst  0063CB
-_F16X32                            mediumconst  004C0B
-_F8X16                             mediumconst  007127
 _GIE                               (abs)        007F97
-_Hzk16x16                          mediumconst  007F4F
-_Hzk24x24                          mediumconst  007DE7
-_Hzk32x32                          mediumconst  007B17
 _ISR                               intcode      000008
 _Initial_LY096BG30                 text3        000276
 _InjectAmountNeedPulseNum          bssCOMRAM    000027
 _InjectDepthNeedPulseNum           bssCOMRAM    000029
 _InjectionMotorAimPosition         bssCOMRAM    000031
-_InjectionMotorCurrent             bssCOMRAM    000037
+_InjectionMotorCurrent             bssCOMRAM    000039
 _InjectionMotorCurrentPosition     bssCOMRAM    000033
 _InjectionStepMotorStepPulseMaxNum bssCOMRAM    00001F
 _InjectionStepMotorStepPulseNum    bssCOMRAM    000021
-_KeyScanPeriod                     bssCOMRAM    000046
+_KeyScanPeriod                     bssCOMRAM    000047
 _LATCbits                          (abs)        000F8B
 _LATEbits                          (abs)        000F8D
-_LCD_On                            text2        0005E6
-_LCD_backlight_init                text1        0005DA
-_LastInjectionFeedback             bssCOMRAM    00003C
-_LastNeedleFeedback                bssCOMRAM    00003D
+_LCD_On                            text2        0005C0
+_LCD_backlight_init                text1        0005B4
+_LastInjectionFeedback             bssCOMRAM    00003E
+_LastNeedleFeedback                bssCOMRAM    00003F
 _NeedleInitPosition                bssCOMRAM    00002B
 _NeedleMotorAimPosition            bssCOMRAM    00002D
-_NeedleMotorCurrent                bssCOMRAM    000035
+_NeedleMotorCurrent                bssCOMRAM    000037
 _NeedleMotorCurrentPosition        bssCOMRAM    00002F
-_NeedleMotorFindZeroPosFlag        bssCOMRAM    000040
-_NeedleRunDir                      bssCOMRAM    00003F
+_NeedleMotorFindZeroPosFlag        bssCOMRAM    000042
+_NeedleRunDir                      bssCOMRAM    000041
 _OnOffKey                          bssCOMRAM    000019
 _PORTAbits                         (abs)        000F80
 _PORTBbits                         (abs)        000F81
@@ -226,7 +226,7 @@ _PORTDbits                         (abs)        000F83
 _PORTEbits                         (abs)        000F84
 _PSA                               (abs)        007EAB
 _StartInjectKey                    bssCOMRAM    000001
-_StartWorkFlag                     bssCOMRAM    000047
+_StartWorkFlag                     bssCOMRAM    000048
 _T08BIT                            (abs)        007EAE
 _T0CS                              (abs)        007EAD
 _T0IE                              (abs)        007F95
@@ -291,6 +291,7 @@ __Hclrtext                         clrtext      000000
 __Hcomram                          comram       000000
 __Hconfig                          config       30000E
 __Hconst                           const        000000
+__HcstackBANK0                     cstackBANK0  000000
 __HcstackCOMRAM                    cstackCOMRAM 000000
 __Hdata                            data         000000
 __HdataCOMRAM                      dataCOMRAM   000000
@@ -330,13 +331,14 @@ __Hspace_1                         (abs)        000300
 __Hspace_2                         (abs)        000000
 __Hstack                           stack        000000
 __Hstruct                          struct       000000
-__Htemp                            temp         00006D
+__Htemp                            temp         000070
 __Htext                            text         000000
 __Htext0                           text0        000000
 __Htext1                           text1        000000
 __Htext10                          text10       000000
 __Htext11                          text11       000000
 __Htext12                          text12       000000
+__Htext13                          text13       000000
 __Htext2                           text2        000000
 __Htext3                           text3        000000
 __Htext4                           text4        000000
@@ -365,6 +367,7 @@ __Lclrtext                         clrtext      000000
 __Lcomram                          comram       000000
 __Lconfig                          config       300000
 __Lconst                           const        000000
+__LcstackBANK0                     cstackBANK0  000000
 __LcstackCOMRAM                    cstackCOMRAM 000000
 __Ldata                            data         000000
 __LdataCOMRAM                      dataCOMRAM   000000
@@ -384,7 +387,7 @@ __Lintentry                        intentry     000000
 __Lintret                          intret       000000
 __Lintsave_regs                    intsave_regs 000000
 __Lirdata                          irdata       000000
-__Lmediumconst                     mediumconst  00140A
+__Lmediumconst                     mediumconst  0043EE
 __LnvFARRAM                        nvFARRAM     000000
 __Lnvbit                           nvbit        000000
 __Lnvrram                          nvrram       000000
@@ -404,13 +407,14 @@ __Lspace_1                         (abs)        000000
 __Lspace_2                         (abs)        000000
 __Lstack                           stack        000000
 __Lstruct                          struct       000000
-__Ltemp                            temp         00006C
+__Ltemp                            temp         00006F
 __Ltext                            text         000000
 __Ltext0                           text0        000000
 __Ltext1                           text1        000000
 __Ltext10                          text10       000000
 __Ltext11                          text11       000000
 __Ltext12                          text12       000000
+__Ltext13                          text13       000000
 __Ltext2                           text2        000000
 __Ltext3                           text3        000000
 __Ltext4                           text4        000000
@@ -430,55 +434,52 @@ ___sp                              stack        000000
 __accesstop                        (abs)        000080
 __activetblptr                     (abs)        000002
 __end_of_ASCII_16_Dot              mediumconst  007FFF
-__end_of_BMP1                      mediumconst  004C0B
-__end_of_BMP2                      mediumconst  00340B
-__end_of_BeepInit                  text12       0005E6
-__end_of_F12X24                    mediumconst  007127
-__end_of_F16X32                    mediumconst  0063CB
-__end_of_F8X16                     mediumconst  007717
-__end_of_Hzk16x16                  mediumconst  007FEF
-__end_of_Hzk24x24                  mediumconst  007F4F
-__end_of_Hzk32x32                  mediumconst  007DE7
+__end_of_BMP1                      mediumconst  007BEF
+__end_of_BMP2                      mediumconst  0063EF
+__end_of_BeepInit                  text13       0005C0
 __end_of_ISR                       intcode_body 000276
-__end_of_Initial_LY096BG30         text3        00043E
-__end_of_LCD_On                    text2        0005EA
-__end_of_LCD_backlight_init        text1        0005E0
-__end_of__initialization           cinit        000484
-__end_of_delay                     text11       000536
-__end_of_ee_WriteBytes             text5        000500
-__end_of_i2c_CfgGpio               text4        0005CE
-__end_of_i2c_Delay                 text10       000566
-__end_of_i2c_SendByte              text9        0004CA
-__end_of_i2c_Start                 text8        0005C0
-__end_of_i2c_Stop                  text7        0005DA
-__end_of_i2c_WaitAck               text6        00058C
-__end_of_main                      text0        0005AA
-__end_of_show1                     mediumconst  007B17
-__initialization                   cinit        00043E
-__mediumconst                      mediumconst  00140A
+__end_of_Initial_LY096BG30         text3        0003C8
+__end_of_LCD_On                    text2        0005C4
+__end_of_LCD_backlight_init        text1        0005BA
+__end_of__initialization           cinit        000414
+__end_of_delay                     text12       000510
+__end_of_ee_WriteBytes             text5        0004DA
+__end_of_i2c_CfgGpio               text11       0005A8
+__end_of_i2c_Delay                 text10       000540
+__end_of_i2c_SendByte              text9        0004A4
+__end_of_i2c_Start                 text8        00059A
+__end_of_i2c_Stop                  text7        0005B4
+__end_of_i2c_WaitAck               text6        000566
+__end_of_main                      text0        000584
+__end_of_minject                   mediumconst  007FEF
+__end_of_setYX_LCD                 text4        00046C
+__initialization                   cinit        0003C8
+__mediumconst                      mediumconst  0043EE
 __pbssBANK1                        bssBANK1     000100
 __pbssBANK2                        bssBANK2     000200
 __pbssCOMRAM                       bssCOMRAM    000001
-__pcinit                           cinit        00043E
-__pcstackCOMRAM                    cstackCOMRAM 00004D
-__pdataCOMRAM                      dataCOMRAM   00006B
-__pidataCOMRAM                     idataCOMRAM  0005EA
+__pcinit                           cinit        0003C8
+__pcstackBANK0                     cstackBANK0  000080
+__pcstackCOMRAM                    cstackCOMRAM 00004F
+__pdataCOMRAM                      dataCOMRAM   00006D
+__pidataCOMRAM                     idataCOMRAM  0005C4
 __pintcode                         intcode      000008
 __pintcode_body                    intcode_body 000012
-__pmediumconst                     mediumconst  00140A
-__ptext0                           text0        00058C
-__ptext1                           text1        0005DA
-__ptext10                          text10       000536
-__ptext11                          text11       000500
-__ptext12                          text12       0005E0
-__ptext2                           text2        0005E6
+__pmediumconst                     mediumconst  0043EE
+__ptext0                           text0        000566
+__ptext1                           text1        0005B4
+__ptext10                          text10       000510
+__ptext11                          text11       00059A
+__ptext12                          text12       0004DA
+__ptext13                          text13       0005BA
+__ptext2                           text2        0005C0
 __ptext3                           text3        000276
-__ptext4                           text4        0005C0
-__ptext5                           text5        0004CA
-__ptext6                           text6        000566
-__ptext7                           text7        0005CE
-__ptext8                           text8        0005AA
-__ptext9                           text9        000492
+__ptext4                           text4        000422
+__ptext5                           text5        0004A4
+__ptext6                           text6        000540
+__ptext7                           text7        0005A8
+__ptext8                           text8        000584
+__ptext9                           text9        00046C
 __ramtop                           ramtop       000600
 __size_of_BeepInit                 (abs)        000000
 __size_of_ISR                      (abs)        000000
@@ -494,50 +495,56 @@ __size_of_i2c_Start                (abs)        000000
 __size_of_i2c_Stop                 (abs)        000000
 __size_of_i2c_WaitAck              (abs)        000000
 __size_of_main                     (abs)        000000
+__size_of_setYX_LCD                (abs)        000000
 __smallconst                       smallconst   000000
-_css                               bssCOMRAM    000043
-_delay                             text11       000500
-_ee_WriteBytes                     text5        0004CA
-_flag                              bssCOMRAM    00003B
-_i2c_CfgGpio                       text4        0005C0
-_i2c_Delay                         text10       000536
-_i2c_SendByte                      text9        000492
-_i2c_Start                         text8        0005AA
-_i2c_Stop                          text7        0005CE
-_i2c_WaitAck                       text6        000566
-_main                              text0        00058C
-_ms                                dataCOMRAM   00006B
-_page                              bssCOMRAM    000041
-_rcnt                              bssCOMRAM    000042
+_css                               bssCOMRAM    000045
+_delay                             text12       0004DA
+_ee_WriteBytes                     text5        0004A4
+_flag                              bssCOMRAM    00003D
+_i2c_CfgGpio                       text11       00059A
+_i2c_Delay                         text10       000510
+_i2c_SendByte                      text9        00046C
+_i2c_Start                         text8        000584
+_i2c_Stop                          text7        0005A8
+_i2c_WaitAck                       text6        000540
+_main                              text0        000566
+_minject                           mediumconst  007BEF
+_ms                                dataCOMRAM   00006E
+_page                              bssCOMRAM    000043
+_rcnt                              bssCOMRAM    000044
 _read_buf                          bssBANK2     000200
-_show1                             mediumconst  007717
-_ss                                bssCOMRAM    000044
+_setYX_LCD                         text4        000422
+_show1                             dataCOMRAM   00006D
+_ss                                bssCOMRAM    00004E
 _write_buf                         bssBANK1     000100
-_xn                                bssCOMRAM    000039
-btemp                              temp         00006C
-delay@i                            cstackCOMRAM 00005F
-delay@j                            cstackCOMRAM 000061
-delay@x                            cstackCOMRAM 00005D
-ee_WriteBytes@_pWriteBuf           cstackCOMRAM 000063
-ee_WriteBytes@_usAddress           cstackCOMRAM 000065
-ee_WriteBytes@_usSize              cstackCOMRAM 000066
-ee_WriteBytes@m                    cstackCOMRAM 000068
-ee_WriteBytes@usAddr               cstackCOMRAM 00006A
-end_of_initialization              cinit        000484
-i2c_Delay@i                        cstackCOMRAM 00005D
-i2c_SendByte@_ucByte               cstackCOMRAM 000061
-i2c_SendByte@i                     cstackCOMRAM 000062
-i2c_WaitAck@re                     cstackCOMRAM 000061
-int$flags                          temp         00006C
+_xn                                bssCOMRAM    00003B
+_xtt                               bssCOMRAM    000035
+btemp                              temp         00006F
+delay@i                            cstackCOMRAM 000061
+delay@j                            cstackCOMRAM 000063
+delay@x                            cstackCOMRAM 00005F
+ee_WriteBytes@_pWriteBuf           cstackCOMRAM 000065
+ee_WriteBytes@_usAddress           cstackCOMRAM 000067
+ee_WriteBytes@_usSize              cstackCOMRAM 000068
+ee_WriteBytes@m                    cstackCOMRAM 00006A
+ee_WriteBytes@usAddr               cstackCOMRAM 00006C
+end_of_initialization              cinit        000414
+i2c_Delay@i                        cstackCOMRAM 00005F
+i2c_SendByte@_ucByte               cstackCOMRAM 000063
+i2c_SendByte@i                     cstackCOMRAM 000064
+i2c_WaitAck@re                     cstackCOMRAM 000063
+int$flags                          temp         00006F
 int_func                           intcode_body 000012
 intlevel0                          text         000000
 intlevel1                          text         000000
 intlevel2                          text         000000
 intlevel3                          text         000000
+setYX_LCD@px                       cstackBANK0  000080
+setYX_LCD@py                       cstackBANK0  000081
 stackhi                            (abs)        0005FF
 stacklo                            (abs)        000300
 start                              init         00000E
-start_initialization               cinit        00043E
+start_initialization               cinit        0003C8
 
 
 FUNCTION INFORMATION:
@@ -552,7 +559,7 @@ FUNCTION INFORMATION:
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -563,7 +570,7 @@ FUNCTION INFORMATION:
       Temps:          0       0       0       0       0       0       0
       Totals:         0       0       0       0       0       0       0
 Total ram usage:        0 bytes
- Hardware stack levels required when called:    5
+ Hardware stack levels required when called:    6
  This function calls:
 		_BeepInit
 		_Initial_LY096BG30
@@ -577,7 +584,7 @@ Total ram usage:        0 bytes
 
  *************** function _LCD_backlight_init *****************
  Defined at:
-		line 885 in file "../Oled.c"
+		line 765 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -607,7 +614,7 @@ Total ram usage:        0 bytes
 
  *************** function _LCD_On *****************
  Defined at:
-		line 898 in file "../Oled.c"
+		line 778 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -637,13 +644,47 @@ Total ram usage:        0 bytes
 
  *************** function _Initial_LY096BG30 *****************
  Defined at:
-		line 921 in file "../Oled.c"
+		line 833 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
                   1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_delay
+		_ee_WriteBytes
+		_i2c_CfgGpio
+		_setYX_LCD
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _setYX_LCD *****************
+ Defined at:
+		line 799 in file "../Oled.c"
+ Parameters:    Size  Location     Type
+  py              1    wreg     unsigned char 
+  px              1    0[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  py              1    1[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
  Registers used:
 		wreg, fsr2l, fsr2h, status,2, status,0, cstack
  Tracked objects:
@@ -651,47 +692,15 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
+      Params:         0       1       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Totals:         0       2       0       0       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
  This function calls:
-		_delay
 		_ee_WriteBytes
-		_i2c_CfgGpio
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _i2c_CfgGpio *****************
- Defined at:
-		line 163 in file "../Oled.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
  This function is called by:
 		_Initial_LY096BG30
  This function uses a non-reentrant model
@@ -699,10 +708,10 @@ Total ram usage:        0 bytes
 
  *************** function _ee_WriteBytes *****************
  Defined at:
-		line 667 in file "../Oled.c"
+		line 547 in file "../Oled.c"
  Parameters:    Size  Location     Type
   _pWriteBuf      2   22[COMRAM] PTR unsigned char 
-		 -> write_buf(256), ee_Erase@buf(256), 
+		 -> ss(1), write_buf(256), ee_Erase@buf(256), 
   _usAddress      1   24[COMRAM] unsigned char 
   _usSize         2   25[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
@@ -731,18 +740,16 @@ Total ram usage:        8 bytes
 		_i2c_Stop
 		_i2c_WaitAck
  This function is called by:
+		_setYX_LCD
 		_Initial_LY096BG30
 		_ee_Erase
 		_ee_Test
-		_fill_picture
-		_picture_1
-		_oled_096_print
  This function uses a non-reentrant model
 
 
  *************** function _i2c_WaitAck *****************
  Defined at:
-		line 112 in file "../Oled.c"
+		line 233 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -774,7 +781,7 @@ Total ram usage:        1 bytes
 
  *************** function _i2c_Stop *****************
  Defined at:
-		line 46 in file "../Oled.c"
+		line 167 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -806,7 +813,7 @@ Total ram usage:        0 bytes
 
  *************** function _i2c_Start *****************
  Defined at:
-		line 33 in file "../Oled.c"
+		line 154 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -838,7 +845,7 @@ Total ram usage:        0 bytes
 
  *************** function _i2c_SendByte *****************
  Defined at:
-		line 56 in file "../Oled.c"
+		line 177 in file "../Oled.c"
  Parameters:    Size  Location     Type
   _ucByte         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -871,7 +878,7 @@ Total ram usage:        2 bytes
 
  *************** function _i2c_Delay *****************
  Defined at:
-		line 17 in file "../Oled.c"
+		line 138 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -905,9 +912,39 @@ Total ram usage:        4 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _i2c_CfgGpio *****************
+ Defined at:
+		line 284 in file "../Oled.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_Initial_LY096BG30
+ This function uses a non-reentrant model
+
+
  *************** function _delay *****************
  Defined at:
-		line 10 in file "../Oled.c"
+		line 131 in file "../Oled.c"
  Parameters:    Size  Location     Type
   x               2   16[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
@@ -1006,42 +1043,37 @@ Module		Function		Class		Link	Load	Size
 ../Timer.c estimated size: 619
 
 ../Oled.c
-		_delay         		CODE           	0500	0000	55
-		_i2c_CfgGpio   		CODE           	05C0	0000	15
-		_i2c_Stop      		CODE           	05CE	0000	13
-		_i2c_WaitAck   		CODE           	0566	0000	39
-		_i2c_Delay     		CODE           	0536	0000	49
-		_i2c_SendByte  		CODE           	0492	0000	57
-		_LCD_backlight_init		CODE           	05DA	0000	7
-		_ee_WriteBytes 		CODE           	04CA	0000	55
-		_Initial_LY096BG30		CODE           	0276	0000	457
-		_i2c_Start     		CODE           	05AA	0000	23
-		_LCD_On        		CODE           	05E6	0000	5
+		_delay         		CODE           	04DA	0000	55
+		_i2c_CfgGpio   		CODE           	059A	0000	15
+		_setYX_LCD     		CODE           	0422	0000	75
+		_i2c_Stop      		CODE           	05A8	0000	13
+		_i2c_WaitAck   		CODE           	0540	0000	39
+		_i2c_Delay     		CODE           	0510	0000	49
+		_i2c_SendByte  		CODE           	046C	0000	57
+		_LCD_backlight_init		CODE           	05B4	0000	7
+		_ee_WriteBytes 		CODE           	04A4	0000	55
+		_Initial_LY096BG30		CODE           	0276	0000	339
+		_i2c_Start     		CODE           	0584	0000	23
+		_LCD_On        		CODE           	05C0	0000	5
 
-../Oled.c estimated size: 775
+../Oled.c estimated size: 732
 
 ../Main.c
-		_main          		CODE           	058C	0000	31
+		_main          		CODE           	0566	0000	31
 
 ../Main.c estimated size: 31
 
 shared
-		_F12X24        		MEDIUMCONST    	63CB	0000	3421
-		_BMP1          		MEDIUMCONST    	340B	0000	6145
-		_BMP2          		MEDIUMCONST    	140B	0000	8193
-		_F8X16         		MEDIUMCONST    	7127	0000	1521
-		_Hzk32x32      		MEDIUMCONST    	7B17	0000	721
-		__initialization		CODE           	043E	0000	71
-		_Hzk16x16      		MEDIUMCONST    	7F4F	0000	161
+		_BMP1          		MEDIUMCONST    	63EF	0000	6145
+		_BMP2          		MEDIUMCONST    	43EF	0000	8193
+		__initialization		CODE           	03C8	0000	77
+		_minject       		MEDIUMCONST    	7BEF	0000	1025
 		_ASCII_16_Dot  		MEDIUMCONST    	7FEF	0000	17
-		_F16X32        		MEDIUMCONST    	4C0B	0000	6081
-		_show1         		MEDIUMCONST    	7717	0000	1025
-		_Hzk24x24      		MEDIUMCONST    	7DE7	0000	361
 
-shared estimated size: 27717
+shared estimated size: 15457
 
 ../Beep.c
-		_BeepInit      		CODE           	05E0	0000	7
+		_BeepInit      		CODE           	05BA	0000	7
 
 ../Beep.c estimated size: 7
 
