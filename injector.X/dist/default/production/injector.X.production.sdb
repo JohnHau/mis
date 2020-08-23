@@ -1,0 +1,567 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"4 E:\myWorkSpace\injector\LEDspi/Beep.c
+[v _BeepInit BeepInit `(v  1 e 1 0 ]
+"63 E:\myWorkSpace\injector\LEDspi/Main.c
+[v _main main `(v  1 e 1 0 ]
+"10 E:\myWorkSpace\injector\LEDspi/Oled.c
+[v _delay delay `(v  1 e 1 0 ]
+"17
+[v _i2c_Delay i2c_Delay `(v  1 s 1 i2c_Delay ]
+"33
+[v _i2c_Start i2c_Start `(v  1 e 1 0 ]
+"46
+[v _i2c_Stop i2c_Stop `(v  1 e 1 0 ]
+"56
+[v _i2c_SendByte i2c_SendByte `(v  1 e 1 0 ]
+"84
+[v _i2c_ReadByte i2c_ReadByte `(uc  1 e 1 0 ]
+"112
+[v _i2c_WaitAck i2c_WaitAck `(uc  1 e 1 0 ]
+"140
+[v _i2c_Ack i2c_Ack `(v  1 e 1 0 ]
+"152
+[v _i2c_NAck i2c_NAck `(v  1 e 1 0 ]
+"163
+[v _i2c_CfgGpio i2c_CfgGpio `(v  1 e 1 0 ]
+"231
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"243
+[v _OLED_WR_Byte OLED_WR_Byte `(v  1 e 1 0 ]
+"275
+[v _Column_Address Column_Address `(v  1 e 1 0 ]
+"288
+[v _Row_Address Row_Address `(v  1 e 1 0 ]
+"300
+[v _OLED_Clear OLED_Clear `(v  1 e 1 0 ]
+"316
+[v _OLED_ShowChar OLED_ShowChar `(v  1 e 1 0 ]
+"373
+[v _oled_pow oled_pow `(ui  1 e 2 0 ]
+"459
+[v _OledIoInit OledIoInit `(v  1 e 1 0 ]
+"569
+[v _ee_CheckDevice ee_CheckDevice `(uc  1 e 1 0 ]
+"604
+[v _ee_ReadBytes ee_ReadBytes `(uc  1 e 1 0 ]
+"667
+[v _ee_WriteBytes ee_WriteBytes `(uc  1 e 1 0 ]
+"885
+[v _LCD_backlight_init LCD_backlight_init `(v  1 e 1 0 ]
+"898
+[v _LCD_On LCD_On `(v  1 e 1 0 ]
+"919
+[v _Initial_LY096BG30 Initial_LY096BG30 `(v  1 e 1 0 ]
+"1417
+[v _xdelay xdelay `(v  1 e 1 0 ]
+"92 E:\myWorkSpace\injector\LEDspi/PositionControl.c
+[v _CalContinueWorkTimePeriod CalContinueWorkTimePeriod `(v  1 e 1 0 ]
+"100
+[v _CalContinueWorkModeInjectionStepPulseAndMaxPuse CalContinueWorkModeInjectionStepPulseAndMaxPuse `(v  1 e 1 0 ]
+"17 E:\myWorkSpace\injector\LEDspi/Timer.c
+[v _ISR ISR `IIH(v  1 e 1 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+[s S86 . 6 `uc 1 NewValue 1 0 `uc 1 OldValue 1 1 `uc 1 SendValue 1 2 `uc 1 SendValueChangeFlag 1 3 `uc 1 FiterTimesCount 1 4 `uc 1 FiterTimes 1 5 ]
+"7 E:\myWorkSpace\injector\LEDspi/Key.c
+[v _OnOffKey OnOffKey `S86  1 e 6 0 ]
+[v _UpKey UpKey `S86  1 e 6 0 ]
+[v _DownKey DownKey `S86  1 e 6 0 ]
+[v _ConfirmKey ConfirmKey `S86  1 e 6 0 ]
+[v _StartInjectKey StartInjectKey `S86  1 e 6 0 ]
+"9
+[v _KeyScanPeriod KeyScanPeriod `uc  1 e 1 0 ]
+"765 E:\myWorkSpace\injector\LEDspi/Oled.c
+[v _write_buf write_buf `[256]uc  1 e 256 0 ]
+"766
+[v _read_buf read_buf `[256]uc  1 e 256 0 ]
+"1292
+[v _show1 show1 `C[1024]uc  1 e 1024 0 ]
+"1403
+[v _ASCII_16_Dot ASCII_16_Dot `C[16]uc  1 e 16 0 ]
+"4 E:\myWorkSpace\injector\LEDspi/oledfont.h
+[v _F8X16 F8X16 `C[95][16]uc  1 e 1520 0 ]
+"103
+[v _F12X24 F12X24 `C[95][36]uc  1 e 3420 0 ]
+"203
+[v _F16X32 F16X32 `C[95][64]uc  1 e 6080 0 ]
+"303
+[v _Hzk16x16 Hzk16x16 `C[5][32]uc  1 e 160 0 ]
+"313
+[v _Hzk24x24 Hzk24x24 `C[5][72]uc  1 e 360 0 ]
+"322
+[v _Hzk32x32 Hzk32x32 `C[5][144]uc  1 e 720 0 ]
+"5 E:\myWorkSpace\injector\LEDspi/PositionControl.c
+[v _InjectionMotorCurrentPosition InjectionMotorCurrentPosition `VEui  1 e 2 0 ]
+[v _InjectionMotorAimPosition InjectionMotorAimPosition `VEui  1 e 2 0 ]
+"6
+[v _NeedleMotorCurrentPosition NeedleMotorCurrentPosition `VEi  1 e 2 0 ]
+[v _NeedleMotorAimPosition NeedleMotorAimPosition `VEi  1 e 2 0 ]
+"7
+[v _NeedleInitPosition NeedleInitPosition `VEui  1 e 2 0 ]
+"12
+[v _NeedleMotorFindZeroPosFlag NeedleMotorFindZeroPosFlag `uc  1 e 1 0 ]
+"14
+[v _ContinueWorkTimePeriod ContinueWorkTimePeriod `ui  1 e 2 0 ]
+"15
+[v _ContinueWorkTimeCount ContinueWorkTimeCount `ui  1 e 2 0 ]
+"16
+[v _NeedleRunDir NeedleRunDir `uc  1 e 1 0 ]
+"17
+[v _StartWorkFlag StartWorkFlag `uc  1 e 1 0 ]
+[v _ContinueWorkState ContinueWorkState `uc  1 e 1 0 ]
+"18
+[v _InjectionStepMotorStepPulseNum InjectionStepMotorStepPulseNum `ui  1 e 2 0 ]
+"19
+[v _InjectionStepMotorStepPulseMaxNum InjectionStepMotorStepPulseMaxNum `ui  1 e 2 0 ]
+[s S1270 . 5 `uc 1 InjectMode 1 0 `uc 1 InjectType 1 1 `uc 1 NeedleLength 1 2 `uc 1 InjectDepth 1 3 `uc 1 Variable 1 4 ]
+"20
+[v _CurrentWorkPara CurrentWorkPara `S1270  1 e 5 0 ]
+"11 E:\myWorkSpace\injector\LEDspi/Timer.c
+[v _LastNeedleFeedback LastNeedleFeedback `uc  1 e 1 0 ]
+"12
+[v _LastInjectionFeedback LastInjectionFeedback `uc  1 e 1 0 ]
+"13
+[v _flag flag `uc  1 e 1 0 ]
+[s S400 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"113 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[s S409 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S418 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFN 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 SS 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S426 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S429 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CVREF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S434 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S437 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S440 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 C1OUT 1 0 :1:4 
+`uc 1 C2OUT 1 0 :1:5 
+]
+[s S444 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 RJPU 1 0 :1:7 
+]
+[u S448 . 1 `S400 1 . 1 0 `S409 1 . 1 0 `S418 1 . 1 0 `S426 1 . 1 0 `S429 1 . 1 0 `S434 1 . 1 0 `S437 1 . 1 0 `S440 1 . 1 0 `S444 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES448  1 e 1 @3968 ]
+[s S102 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"311
+[s S182 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S191 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S200 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S202 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S205 . 1 `S102 1 . 1 0 `S182 1 . 1 0 `S191 1 . 1 0 `S200 1 . 1 0 `S202 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES205  1 e 1 @3969 ]
+"445
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+[s S507 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"492
+[s S516 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S525 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S534 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+]
+[s S538 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[u S542 . 1 `S507 1 . 1 0 `S516 1 . 1 0 `S525 1 . 1 0 `S534 1 . 1 0 `S538 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES542  1 e 1 @3970 ]
+[s S142 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"663
+[s S253 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S262 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S267 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S270 . 1 `S142 1 . 1 0 `S253 1 . 1 0 `S262 1 . 1 0 `S267 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES270  1 e 1 @3971 ]
+[s S30 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+]
+"825
+[s S621 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 CS 1 0 :1:2 
+`uc 1 MCLR 1 0 :1:3 
+]
+[s S626 . 1 `uc 1 NOT_RD 1 0 :1:0 
+]
+[s S628 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_WR 1 0 :1:1 
+]
+[s S631 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_CS 1 0 :1:2 
+]
+[s S634 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_MCLR 1 0 :1:3 
+]
+[s S637 . 1 `uc 1 nRD 1 0 :1:0 
+`uc 1 nWR 1 0 :1:1 
+`uc 1 nCS 1 0 :1:2 
+`uc 1 nMCLR 1 0 :1:3 
+]
+[s S642 . 1 `uc 1 AN5 1 0 :1:0 
+`uc 1 AN6 1 0 :1:1 
+`uc 1 AN7 1 0 :1:2 
+`uc 1 VPP 1 0 :1:3 
+]
+[s S647 . 1 `uc 1 PD2 1 0 :1:0 
+`uc 1 PC2 1 0 :1:1 
+`uc 1 CCP10 1 0 :1:2 
+`uc 1 CCP9E 1 0 :1:3 
+]
+[s S652 . 1 `uc 1 RDE 1 0 :1:0 
+`uc 1 WRE 1 0 :1:1 
+`uc 1 PB2 1 0 :1:2 
+`uc 1 PC3E 1 0 :1:3 
+]
+[u S657 . 1 `S30 1 . 1 0 `S621 1 . 1 0 `S626 1 . 1 0 `S628 1 . 1 0 `S631 1 . 1 0 `S634 1 . 1 0 `S637 1 . 1 0 `S642 1 . 1 0 `S647 1 . 1 0 `S652 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES657  1 e 1 @3972 ]
+[s S895 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1218
+[s S904 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S913 . 1 `S895 1 . 1 0 `S904 1 . 1 0 ]
+[v _LATCbits LATCbits `VES913  1 e 1 @3979 ]
+[s S53 . 1 `uc 1 LATE0 1 0 :1:0 
+`uc 1 LATE1 1 0 :1:1 
+`uc 1 LATE2 1 0 :1:2 
+]
+"1430
+[s S57 . 1 `uc 1 LE0 1 0 :1:0 
+`uc 1 LE1 1 0 :1:1 
+`uc 1 LE2 1 0 :1:2 
+]
+[u S61 . 1 `S53 1 . 1 0 `S57 1 . 1 0 ]
+[v _LATEbits LATEbits `VES61  1 e 1 @3981 ]
+[s S804 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1601
+[u S822 . 1 `S804 1 . 1 0 `S400 1 . 1 0 ]
+[v _DDRAbits DDRAbits `VES822  1 e 1 @3986 ]
+[s S93 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1822
+[u S111 . 1 `S93 1 . 1 0 `S102 1 . 1 0 ]
+[v _DDRBbits DDRBbits `VES111  1 e 1 @3987 ]
+[s S742 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1938
+[u S760 . 1 `S742 1 . 1 0 `S507 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES760  1 e 1 @3988 ]
+"2043
+[v _DDRCbits DDRCbits `VES760  1 e 1 @3988 ]
+[s S133 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"2264
+[u S151 . 1 `S133 1 . 1 0 `S142 1 . 1 0 ]
+[v _DDRDbits DDRDbits `VES151  1 e 1 @3989 ]
+[s S21 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 PSPMODE 1 0 :1:4 
+`uc 1 IBOV 1 0 :1:5 
+`uc 1 OBF 1 0 :1:6 
+`uc 1 IBF 1 0 :1:7 
+]
+"2376
+[u S35 . 1 `S21 1 . 1 0 `S30 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES35  1 e 1 @3990 ]
+"2452
+[v _DDREbits DDREbits `VES35  1 e 1 @3990 ]
+"6176
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"7153
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"7555
+[v _PSA PSA `VEb  1 e 0 @32427 ]
+"7811
+[v _T08BIT T08BIT `VEb  1 e 0 @32430 ]
+"7815
+[v _T0CS T0CS `VEb  1 e 0 @32429 ]
+"7817
+[v _T0IE T0IE `VEb  1 e 0 @32661 ]
+"7819
+[v _T0IF T0IF `VEb  1 e 0 @32658 ]
+"7821
+[v _T0PS0 T0PS0 `VEb  1 e 0 @32424 ]
+"7823
+[v _T0PS1 T0PS1 `VEb  1 e 0 @32425 ]
+"7825
+[v _T0PS2 T0PS2 `VEb  1 e 0 @32426 ]
+"63 E:\myWorkSpace\injector\LEDspi/Main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"125
+} 0
+"885 E:\myWorkSpace\injector\LEDspi/Oled.c
+[v _LCD_backlight_init LCD_backlight_init `(v  1 e 1 0 ]
+{
+"896
+} 0
+"898
+[v _LCD_On LCD_On `(v  1 e 1 0 ]
+{
+"907
+} 0
+"919
+[v _Initial_LY096BG30 Initial_LY096BG30 `(v  1 e 1 0 ]
+{
+"1248
+} 0
+"163
+[v _i2c_CfgGpio i2c_CfgGpio `(v  1 e 1 0 ]
+{
+"207
+} 0
+"667
+[v _ee_WriteBytes ee_WriteBytes `(uc  1 e 1 0 ]
+{
+"669
+[v ee_WriteBytes@m m `ui  1 a 2 27 ]
+"671
+[v ee_WriteBytes@usAddr usAddr `uc  1 a 1 29 ]
+"667
+[v ee_WriteBytes@_pWriteBuf _pWriteBuf `*.39uc  1 p 2 22 ]
+[v ee_WriteBytes@_usAddress _usAddress `uc  1 p 1 24 ]
+[v ee_WriteBytes@_usSize _usSize `ui  1 p 2 25 ]
+"734
+} 0
+"112
+[v _i2c_WaitAck i2c_WaitAck `(uc  1 e 1 0 ]
+{
+"114
+[v i2c_WaitAck@re re `uc  1 a 1 20 ]
+"137
+} 0
+"46
+[v _i2c_Stop i2c_Stop `(v  1 e 1 0 ]
+{
+"53
+} 0
+"33
+[v _i2c_Start i2c_Start `(v  1 e 1 0 ]
+{
+"43
+} 0
+"56
+[v _i2c_SendByte i2c_SendByte `(v  1 e 1 0 ]
+{
+[v i2c_SendByte@_ucByte _ucByte `uc  1 a 1 wreg ]
+"58
+[v i2c_SendByte@i i `uc  1 a 1 21 ]
+"56
+[v i2c_SendByte@_ucByte _ucByte `uc  1 a 1 wreg ]
+"60
+[v i2c_SendByte@_ucByte _ucByte `uc  1 a 1 20 ]
+"81
+} 0
+"17
+[v _i2c_Delay i2c_Delay `(v  1 s 1 i2c_Delay ]
+{
+"19
+[v i2c_Delay@i i `ul  1 a 4 16 ]
+"31
+} 0
+"10
+[v _delay delay `(v  1 e 1 0 ]
+{
+"12
+[v delay@j j `ui  1 a 2 20 ]
+[v delay@i i `ui  1 a 2 18 ]
+"10
+[v delay@x x `ui  1 p 2 16 ]
+"15
+} 0
+"4 E:\myWorkSpace\injector\LEDspi/Beep.c
+[v _BeepInit BeepInit `(v  1 e 1 0 ]
+{
+"17
+} 0
+"17 E:\myWorkSpace\injector\LEDspi/Timer.c
+[v _ISR ISR `IIH(v  1 e 1 0 ]
+{
+"20
+[v ISR@i i `uc  1 a 1 15 ]
+"236
+} 0

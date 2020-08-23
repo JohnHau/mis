@@ -1,0 +1,893 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC LFSROK SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+"146 C:\Users\PC\Desktop\LED\Ad.c
+"85 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4520.h
+"189
+"231
+"360
+"927
+"809
+"872
+"134 C:\Users\PC\Desktop\LED\MotorDrive.c
+"746 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4520.h
+"872
+"134
+"4 C:\Users\PC\Desktop\LED\oledfont.h
+[v F4564 `C[16]uc  0a t 16 ]
+"103
+[v F4566 `C[36]uc  0a t 36 ]
+"203
+[v F4568 `C[64]uc  0a t 64 ]
+"303
+[v F4570 `C[32]uc  0a t 32 ]
+"313
+[v F4572 `C[72]uc  0a t 72 ]
+"322
+[v F4574 `C[144]uc  0a t 144 ]
+"85 C:\Users\PC\Desktop\LED\Main.c
+"134 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4520.h
+"16 C:\Users\PC\Desktop\LED\Beep.c
+"809 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4520.h
+"746
+"683
+"21 C:\Users\PC\Desktop\LED\Timer.c
+[v F4466 `(v  1 t 0 ]
+"33
+"189 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4520.h
+"4 C:\Users\PC\Desktop\LED\oledfont.h
+[v F4495 `C[16]uc  0a t 16 ]
+"103
+[v F4497 `C[36]uc  0a t 36 ]
+"203
+[v oledfont@F4499 `C[64]uc  0a t 64 ]
+"303
+[v F4501 `C[32]uc  0a t 32 ]
+"313
+[v F4503 `C[72]uc  0a t 72 ]
+"322
+[v F4505 `C[144]uc  0a t 144 ]
+"5 ../../common/abdiv.c
+[v ___abdiv `(c  1 e 1 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abmod.c
+[v ___abmod `(c  1 e 1 0 ]
+"32 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abtofl.c
+[v ___abtofl `(d  1 e 3 0 ]
+"34 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abtoft.c
+[v ___abtoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\aldiv.c
+[v ___aldiv `(l  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\almod.c
+[v ___almod `(l  1 e 4 0 ]
+"37 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\altofl.c
+[v ___altofl `(d  1 e 3 0 ]
+"43 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\altoft.c
+[v ___altoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asfladd.c
+[v ___asfladd `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asfldiv.c
+[v ___asfldiv `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asflmul.c
+[v ___asflmul `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asflsub.c
+[v ___asflsub `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftadd.c
+[v ___asftadd `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftdiv.c
+[v ___asftdiv `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftmul.c
+[v ___asftmul `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftsub.c
+[v ___asftsub `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\aslmul.c
+[v ___aslmul `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\atdiv.c
+[v ___atdiv `(m  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\atmod.c
+[v ___atmod `(m  1 e 3 0 ]
+"38 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\attofl.c
+[v ___attofl `(d  1 e 3 0 ]
+"38 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\attoft.c
+[v ___attoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awdiv.c
+[v ___awdiv `(i  1 e 2 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awmod.c
+[v ___awmod `(i  1 e 2 0 ]
+"32 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awtofl.c
+[v ___awtofl `(d  1 e 3 0 ]
+"33 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awtoft.c
+[v ___awtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\bmul.c
+[v ___bmul `(uc  1 e 1 0 ]
+"64 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\double.c
+[v ___flpack `(d  1 e 3 0 ]
+"89 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fladd.c
+[v ___fladd `(d  1 e 3 0 ]
+"50 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fldiv.c
+[v ___fldiv `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flge.c
+[v ___flge `(b  1 e 0 0 ]
+"51 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flmul.c
+[v ___flmul `(d  1 e 3 0 ]
+"16 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flneg.c
+[v ___flneg `(d  1 e 3 0 ]
+"63 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\float.c
+[v ___ftpack `(f  1 e 3 0 ]
+"22 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flsub.c
+[v ___flsub `(d  1 e 3 0 ]
+"44 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fltol.c
+[v ___fltol `(l  1 e 4 0 ]
+"87 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftadd.c
+[v ___ftadd `(f  1 e 3 0 ]
+"50 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftdiv.c
+[v ___ftdiv `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftge.c
+[v ___ftge `(b  1 e 0 0 ]
+"52 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftmul.c
+[v ___ftmul `(f  1 e 3 0 ]
+"16 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftneg.c
+[v ___ftneg `(f  1 e 3 0 ]
+"22 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftsub.c
+[v ___ftsub `(f  1 e 3 0 ]
+"45 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fttol.c
+[v ___fttol `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbdiv.c
+[v ___lbdiv `(uc  1 e 1 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbmod.c
+[v ___lbmod `(uc  1 e 1 0 ]
+"28 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbtofl.c
+[v ___lbtofl `(d  1 e 3 0 ]
+"28 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbtoft.c
+[v ___lbtoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lldiv.c
+[v ___lldiv `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\llmod.c
+[v ___llmod `(ul  1 e 4 0 ]
+"31 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lltofl.c
+[v ___lltofl `(d  1 e 3 0 ]
+"36 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lltoft.c
+[v ___lltoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lmul.c
+[v ___lmul `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ltdiv.c
+[v ___ltdiv `(um  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ltmod.c
+[v ___ltmod `(um  1 e 3 0 ]
+"31 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lttofl.c
+[v ___lttofl `(d  1 e 3 0 ]
+"31 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lttoft.c
+[v ___lttoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+"29 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwtofl.c
+[v ___lwtofl `(d  1 e 3 0 ]
+"29 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwtoft.c
+[v ___lwtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\tmul.c
+[v ___tmul `(um  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\wmul.c
+[v ___wmul `(ui  1 e 2 0 ]
+"19 C:\Users\PC\Desktop\LED\Ad.c
+[v _EnableAd `(v  1 e 0 0 ]
+"24
+[v _CloseAd `(v  1 e 0 0 ]
+"29
+[v _SetAdChanel `(v  1 e 0 0 ]
+"34
+[v _StartAdConvert `(v  1 e 0 0 ]
+"40
+[v _StartAndReadAdValue `(ui  1 e 2 0 ]
+"55
+[v _CalAdAverage `(v  1 e 0 0 ]
+"71
+[v _AddDataToBuff `(v  1 e 0 0 ]
+"83
+[v _ADInit `(v  1 e 0 0 ]
+"93
+[v _CalVoltValue `(v  1 e 0 0 ]
+"97
+[v _InJectionCrrentValue `(v  1 e 0 0 ]
+"102
+[v _NeedleCrrentValue `(v  1 e 0 0 ]
+"107
+[v _AdSampleTask `(v  1 e 0 0 ]
+"5 C:\Users\PC\Desktop\LED\Beep.c
+[v _BeepInit `(v  1 e 0 0 ]
+"10
+[v _BeepOn `(v  1 e 0 0 ]
+"14
+[v _BeepOff `(v  1 e 0 0 ]
+"12 C:\Users\PC\Desktop\LED\Key.c
+[v _KEY_Init `(v  1 e 0 0 ]
+"56
+[v _KEY_Scan `(v  1 e 0 0 ]
+"213
+[v _KeyFuction `(v  1 e 0 0 ]
+"58 C:\Users\PC\Desktop\LED\Main.c
+[v _delay `(v  1 e 0 0 ]
+"65
+[v _main `(v  1 e 0 0 ]
+"6 C:\Users\PC\Desktop\LED\MotorDrive.c
+[v _OpenMotorPower `(v  1 e 0 0 ]
+"10
+[v _CloseMotorPower `(v  1 e 0 0 ]
+"15
+[v _NeedleMotorForwardRun `(v  1 e 0 0 ]
+"26
+[v _NeedleMotorReverseRun `(v  1 e 0 0 ]
+"38
+[v _NeedleMotorFastStop `(v  1 e 0 0 ]
+"50
+[v _NeedleMotorFreeStop `(v  1 e 0 0 ]
+"62
+[v _InjectionMotorForwardRun `(v  1 e 0 0 ]
+"73
+[v _InjectionMotorReverseRun `(v  1 e 0 0 ]
+"85
+[v _InjectionMotorFastStop `(v  1 e 0 0 ]
+"97
+[v _InjectionMotorFreeStop `(v  1 e 0 0 ]
+"109
+[v _MotorDriveInit `(v  1 e 0 0 ]
+"6 C:\Users\PC\Desktop\LED\Oled.c
+[v _delay_ms `(v  1 e 0 0 ]
+"19
+[v _IIC_delay `(v  1 e 0 0 ]
+"26
+[v _I2C_Start `(v  1 e 0 0 ]
+"38
+[v _I2C_Stop `(v  1 e 0 0 ]
+"47
+[v _I2C_WaitAck `(v  1 e 0 0 ]
+"56
+[v _Send_Byte `(v  1 e 0 0 ]
+"81
+[v _OLED_WR_Byte `(v  1 e 0 0 ]
+"100
+[v _Column_Address `(v  1 e 0 0 ]
+"113
+[v _Row_Address `(v  1 e 0 0 ]
+"125
+[v _OLED_Clear `(v  1 e 0 0 ]
+"155
+[v _OLED_ShowChar `(v  1 e 0 0 ]
+"205
+[v _OLED_ShowString `(v  1 e 0 0 ]
+"221
+[v _oled_pow `(ui  1 e 2 0 ]
+"236
+[v _OLED_ShowNum `(v  1 e 0 0 ]
+"263
+[v _OLED_ShowChinese `(v  1 e 0 0 ]
+"306
+[v _OLED_DrawBMP `(v  1 e 0 0 ]
+"326
+[v _OledIoInit `(v  1 e 0 0 ]
+"339
+[v _Init_ssd1327 `(v  1 e 0 0 ]
+"15 C:\Users\PC\Desktop\LED\PositionControl.c
+[v _PositionCheckInit `(v  1 e 0 0 ]
+"27
+[v _AimPositionCal `(v  1 e 0 0 ]
+"32
+[v _MotorRunControl `(v  1 e 0 0 ]
+"7 C:\Users\PC\Desktop\LED\Timer.c
+[v _TimerInit `(v  1 e 0 0 ]
+"21
+[v _ISR `I(v  1 e 0 0 ]
+[s S62 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"85 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4520.h
+[s S71 . 1 `uc 1 RA 1 0 :8:0 
+]
+[s S73 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+`uc 1 OSC1 1 0 :1:7 
+]
+[s S82 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFN 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 SS 1 0 :1:5 
+`uc 1 CLKO 1 0 :1:6 
+`uc 1 CLKI 1 0 :1:7 
+]
+[s S90 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_SS 1 0 :1:5 
+]
+[s S93 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CVREF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nSS 1 0 :1:5 
+]
+[s S98 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S101 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S104 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 C1OUT 1 0 :1:4 
+`uc 1 C2OUT 1 0 :1:5 
+]
+[s S108 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S111 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S113 . 1 `S62 1 . 1 0 `S71 1 . 1 0 `S73 1 . 1 0 `S82 1 . 1 0 `S90 1 . 1 0 `S93 1 . 1 0 `S98 1 . 1 0 `S101 1 . 1 0 `S104 1 . 1 0 `S108 1 . 1 0 `S111 1 . 1 0 ]
+[v _PORTAbits `VS113  1 e 1 @3968 ]
+[s S797 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"134
+[s S865 . 1 `uc 1 RB 1 0 :8:0 
+]
+[s S867 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S876 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S885 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S887 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S890 . 1 `S797 1 . 1 0 `S865 1 . 1 0 `S867 1 . 1 0 `S876 1 . 1 0 `S885 1 . 1 0 `S887 1 . 1 0 ]
+[v _PORTBbits `VS890  1 e 1 @3969 ]
+[s S177 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"189
+[s S186 . 1 `uc 1 RC 1 0 :8:0 
+]
+[s S188 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S197 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S206 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+]
+[s S210 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S213 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S216 . 1 `S177 1 . 1 0 `S186 1 . 1 0 `S188 1 . 1 0 `S197 1 . 1 0 `S206 1 . 1 0 `S210 1 . 1 0 `S213 1 . 1 0 ]
+[v _PORTCbits `VS216  1 e 1 @3970 ]
+[s S264 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"231
+[s S273 . 1 `uc 1 RD 1 0 :8:0 
+]
+[s S275 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S284 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S289 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S292 . 1 `S264 1 . 1 0 `S273 1 . 1 0 `S275 1 . 1 0 `S284 1 . 1 0 `S289 1 . 1 0 ]
+[v _PORTDbits `VS292  1 e 1 @3971 ]
+[s S327 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+]
+"360
+[s S332 . 1 `uc 1 RE 1 0 :8:0 
+]
+[s S334 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 CS 1 0 :1:2 
+`uc 1 MCLR 1 0 :1:3 
+]
+[s S339 . 1 `uc 1 NOT_RD 1 0 :1:0 
+]
+[s S341 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_WR 1 0 :1:1 
+]
+[s S344 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_CS 1 0 :1:2 
+]
+[s S347 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_MCLR 1 0 :1:3 
+]
+[s S350 . 1 `uc 1 nRD 1 0 :1:0 
+`uc 1 nWR 1 0 :1:1 
+`uc 1 nCS 1 0 :1:2 
+`uc 1 nMCLR 1 0 :1:3 
+]
+[s S355 . 1 `uc 1 AN5 1 0 :1:0 
+`uc 1 AN6 1 0 :1:1 
+`uc 1 AN7 1 0 :1:2 
+`uc 1 VPP 1 0 :1:3 
+]
+[s S360 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CCP10 1 0 :1:2 
+]
+[s S363 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CCP2E 1 0 :1:7 
+]
+[s S366 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CCP6E 1 0 :1:6 
+]
+[s S369 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 CCP7E 1 0 :1:5 
+]
+[s S372 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CCP8E 1 0 :1:4 
+]
+[s S375 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP9E 1 0 :1:3 
+]
+[s S378 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PA2E 1 0 :1:7 
+]
+[s S381 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PB1E 1 0 :1:6 
+]
+[s S384 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PB2 1 0 :1:2 
+]
+[s S387 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 PB3E 1 0 :1:4 
+]
+[s S390 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 PC1E 1 0 :1:5 
+]
+[s S393 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PC2 1 0 :1:1 
+]
+[s S396 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 PC3E 1 0 :1:3 
+]
+[s S399 . 1 `uc 1 PD2 1 0 :1:0 
+]
+[s S401 . 1 `uc 1 RDE 1 0 :1:0 
+]
+[s S403 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RE4 1 0 :1:4 
+]
+[s S406 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RE5 1 0 :1:5 
+]
+[s S409 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RE6 1 0 :1:6 
+]
+[s S412 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RE7 1 0 :1:7 
+]
+[s S415 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 WRE 1 0 :1:1 
+]
+[u S418 . 1 `S327 1 . 1 0 `S332 1 . 1 0 `S334 1 . 1 0 `S339 1 . 1 0 `S341 1 . 1 0 `S344 1 . 1 0 `S347 1 . 1 0 `S350 1 . 1 0 `S355 1 . 1 0 `S360 1 . 1 0 `S363 1 . 1 0 `S366 1 . 1 0 `S369 1 . 1 0 `S372 1 . 1 0 `S375 1 . 1 0 `S378 1 . 1 0 `S381 1 . 1 0 `S384 1 . 1 0 `S387 1 . 1 0 `S390 1 . 1 0 `S393 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S401 1 . 1 0 `S403 1 . 1 0 `S406 1 . 1 0 `S409 1 . 1 0 `S412 1 . 1 0 `S415 1 . 1 0 ]
+[v _PORTEbits `VS418  1 e 1 @3972 ]
+[s S577 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"683
+[s S586 . 1 `uc 1 TRISC 1 0 :8:0 
+]
+[u S597 . 1 `S577 1 . 1 0 `S586 1 . 1 0 `S177 1 . 1 0 ]
+[v _DDRAbits `VS597  1 e 1 @3986 ]
+"746
+[v _DDRBbits `VS597  1 e 1 @3987 ]
+"809
+[v _DDRCbits `VS597  1 e 1 @3988 ]
+"872
+[v _DDRDbits `VS597  1 e 1 @3989 ]
+[s S540 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 PSPMODE 1 0 :1:4 
+`uc 1 IBOV 1 0 :1:5 
+`uc 1 OBF 1 0 :1:6 
+`uc 1 IBF 1 0 :1:7 
+]
+"927
+[s S549 . 1 `uc 1 TRISE 1 0 :8:0 
+]
+[u S556 . 1 `S540 1 . 1 0 `S549 1 . 1 0 `S327 1 . 1 0 ]
+[v _DDREbits `VS556  1 e 1 @3990 ]
+"1821
+[v _ADCON2 `Vuc  1 e 1 @4032 ]
+"1844
+[v _ADCON1 `Vuc  1 e 1 @4033 ]
+"1877
+[v _ADCON0 `Vuc  1 e 1 @4034 ]
+"1956
+[v _ADRESH `Vuc  1 e 1 @4036 ]
+"2471
+[v _TMR0 `Vus  1 e 2 @4054 ]
+"3485
+[v _GIE `Vb  1 e 0 @32663 ]
+"3905
+[v _PSA `Vb  1 e 0 @32427 ]
+"4163
+[v _T08BIT `Vb  1 e 0 @32430 ]
+"4167
+[v _T0CS `Vb  1 e 0 @32429 ]
+"4169
+[v _T0IE `Vb  1 e 0 @32661 ]
+"4171
+[v _T0IF `Vb  1 e 0 @32658 ]
+"4173
+[v _T0PS0 `Vb  1 e 0 @32424 ]
+"4175
+[v _T0PS1 `Vb  1 e 0 @32425 ]
+"4177
+[v _T0PS2 `Vb  1 e 0 @32426 ]
+"4 C:\Users\PC\Desktop\LED\Ad.c
+[v _AdSampleTaskTime `uc  1 e 1 0 ]
+"6
+[v _InjectionMotorAdAverageValue `ui  1 e 2 0 ]
+"7
+[v _NeedleMotorAdAverageValue `ui  1 e 2 0 ]
+"8
+[v _BatteryVoltAdAverageValue `ui  1 e 2 0 ]
+"10
+[v _InJectionCrrentAdArray `[5]ui  1 e 10 0 ]
+"11
+[v _NeedleCrrentAdArray `[5]ui  1 e 10 0 ]
+"12
+[v _BatteryAdArray `[5]ui  1 e 10 0 ]
+"14
+[v _BatteryVolt `Vui  1 e 2 0 ]
+"3 C:\Users\PC\Desktop\LED\bmp.h
+[v _BMP1 `C[4608]uc  1 e 4608 0 ]
+[s S779 . 6 `uc 1 NewValue 1 0 `uc 1 OldValue 1 1 `uc 1 SendValue 1 2 `uc 1 SendValueChangeFlag 1 3 `uc 1 FiterTimesCount 1 4 `uc 1 FiterTimes 1 5 ]
+"6 C:\Users\PC\Desktop\LED\Key.c
+[v _OnOffKey `S779  1 e 6 0 ]
+[v _UpKey `S779  1 e 6 0 ]
+[v _DownKey `S779  1 e 6 0 ]
+[v _ConfirmKey `S779  1 e 6 0 ]
+[v _StartInjectKey `S779  1 e 6 0 ]
+"8
+[v _KeyScanPeriod `uc  1 e 1 0 ]
+"65 C:\Users\PC\Desktop\LED\Main.c
+[v _main `(v  1 e 0 0 ]
+{
+"85
+} 0
+"83 C:\Users\PC\Desktop\LED\Ad.c
+[v _ADInit `(v  1 e 0 0 ]
+{
+"84
+[v ADInit@delay `uc  1 a 1 0 ]
+"91
+} 0
+"19
+[v _EnableAd `(v  1 e 0 0 ]
+{
+"21
+} 0
+"107
+[v _AdSampleTask `(v  1 e 0 0 ]
+{
+"109
+[v AdSampleTask@value `ui  1 a 2 34 ]
+"108
+[v AdSampleTask@counter `uc  1 s 1 counter ]
+"146
+} 0
+"71
+[v _AddDataToBuff `(v  1 e 0 0 ]
+{
+[v AddDataToBuff@pData `*.aui  1 a 1 wreg ]
+"72
+[v AddDataToBuff@Index `uc  1 a 1 3 ]
+"71
+[v AddDataToBuff@pData `*.aui  1 a 1 wreg ]
+[v AddDataToBuff@value `ui  1 p 2 0 ]
+"79
+} 0
+"40
+[v _StartAndReadAdValue `(ui  1 e 2 0 ]
+{
+[v StartAndReadAdValue@ch `uc  1 a 1 wreg ]
+"42
+[v StartAndReadAdValue@value `ui  1 a 2 8 ]
+"41
+[v StartAndReadAdValue@delay `ui  1 a 2 6 ]
+"40
+[v StartAndReadAdValue@ch `uc  1 a 1 wreg ]
+"51
+} 0
+"29
+[v _SetAdChanel `(v  1 e 0 0 ]
+{
+[v SetAdChanel@ch `uc  1 a 1 wreg ]
+[v SetAdChanel@ch `uc  1 a 1 wreg ]
+"31
+} 0
+"34
+[v _StartAdConvert `(v  1 e 0 0 ]
+{
+"36
+} 0
+"55
+[v _CalAdAverage `(v  1 e 0 0 ]
+{
+[v CalAdAverage@pData `*.aui  1 a 1 wreg ]
+"58
+[v CalAdAverage@sum `ul  1 a 4 28 ]
+"56
+[v CalAdAverage@Index `uc  1 a 1 33 ]
+"55
+[v CalAdAverage@pData `*.aui  1 a 1 wreg ]
+[v CalAdAverage@pPar `*.aui  1 p 1 25 ]
+"66
+} 0
+"97
+[v _InJectionCrrentValue `(v  1 e 0 0 ]
+{
+"99
+} 0
+"102
+[v _NeedleCrrentValue `(v  1 e 0 0 ]
+{
+"104
+} 0
+"93
+[v _CalVoltValue `(v  1 e 0 0 ]
+{
+"95
+} 0
+"15 C:\Users\PC\Desktop\LED\MotorDrive.c
+[v _NeedleMotorForwardRun `(v  1 e 0 0 ]
+{
+"24
+} 0
+"73
+[v _InjectionMotorReverseRun `(v  1 e 0 0 ]
+{
+"83
+} 0
+"109
+[v _MotorDriveInit `(v  1 e 0 0 ]
+{
+"134
+} 0
+"12 C:\Users\PC\Desktop\LED\Key.c
+[v _KEY_Init `(v  1 e 0 0 ]
+{
+"53
+} 0
+"213
+[v _KeyFuction `(v  1 e 0 0 ]
+{
+"289
+} 0
+"56
+[v _KEY_Scan `(v  1 e 0 0 ]
+{
+"211
+} 0
+"15 C:\Users\PC\Desktop\LED\PositionControl.c
+[v _PositionCheckInit `(v  1 e 0 0 ]
+{
+"24
+} 0
+"326 C:\Users\PC\Desktop\LED\Oled.c
+[v _OledIoInit `(v  1 e 0 0 ]
+{
+"335
+} 0
+"339
+[v _Init_ssd1327 `(v  1 e 0 0 ]
+{
+"377
+} 0
+"5 C:\Users\PC\Desktop\LED\Beep.c
+[v _BeepInit `(v  1 e 0 0 ]
+{
+"8
+} 0
+"306 C:\Users\PC\Desktop\LED\Oled.c
+[v _OLED_DrawBMP `(v  1 e 0 0 ]
+{
+[v OLED_DrawBMP@x `uc  1 a 1 wreg ]
+"307
+[v OLED_DrawBMP@k `ui  1 a 2 16 ]
+[v OLED_DrawBMP@num `ui  1 a 2 14 ]
+"306
+[v OLED_DrawBMP@x `uc  1 a 1 wreg ]
+[v OLED_DrawBMP@y `uc  1 p 1 7 ]
+[v OLED_DrawBMP@width `uc  1 p 1 8 ]
+[v OLED_DrawBMP@height `uc  1 p 1 9 ]
+[v OLED_DrawBMP@BMP `*.dCuc  1 p 2 10 ]
+"323
+} 0
+"7 C:\Users\PC\Desktop\LED\Timer.c
+[v _TimerInit `(v  1 e 0 0 ]
+{
+"18
+} 0
+"6 C:\Users\PC\Desktop\LED\Oled.c
+[v _delay_ms `(v  1 e 0 0 ]
+{
+"7
+[v delay_ms@a `ui  1 a 2 2 ]
+"6
+[v delay_ms@ms `ui  1 p 2 0 ]
+"15
+} 0
+"125
+[v _OLED_Clear `(v  1 e 0 0 ]
+{
+[v OLED_Clear@x1 `uc  1 a 1 wreg ]
+"126
+[v OLED_Clear@m `uc  1 a 1 17 ]
+[v OLED_Clear@i `uc  1 a 1 16 ]
+"125
+[v OLED_Clear@x1 `uc  1 a 1 wreg ]
+[v OLED_Clear@y1 `uc  1 p 1 7 ]
+[v OLED_Clear@x2 `uc  1 p 1 8 ]
+[v OLED_Clear@y2 `uc  1 p 1 9 ]
+[v OLED_Clear@color `uc  1 p 1 10 ]
+"144
+} 0
+"113
+[v _Row_Address `(v  1 e 0 0 ]
+{
+[v Row_Address@a `uc  1 a 1 wreg ]
+[v Row_Address@a `uc  1 a 1 wreg ]
+[v Row_Address@b `uc  1 p 1 5 ]
+"117
+} 0
+"100
+[v _Column_Address `(v  1 e 0 0 ]
+{
+[v Column_Address@a `uc  1 a 1 wreg ]
+[v Column_Address@a `uc  1 a 1 wreg ]
+[v Column_Address@b `uc  1 p 1 5 ]
+"104
+} 0
+"81
+[v _OLED_WR_Byte `(v  1 e 0 0 ]
+{
+[v OLED_WR_Byte@dat `uc  1 a 1 wreg ]
+[v OLED_WR_Byte@dat `uc  1 a 1 wreg ]
+[v OLED_WR_Byte@mode `uc  1 p 1 3 ]
+"91
+} 0
+"38
+[v _I2C_Stop `(v  1 e 0 0 ]
+{
+"43
+} 0
+"47
+[v _I2C_WaitAck `(v  1 e 0 0 ]
+{
+"52
+} 0
+"26
+[v _I2C_Start `(v  1 e 0 0 ]
+{
+"34
+} 0
+"56
+[v _Send_Byte `(v  1 e 0 0 ]
+{
+[v Send_Byte@dat `uc  1 a 1 wreg ]
+"57
+[v Send_Byte@i `uc  1 a 1 2 ]
+"56
+[v Send_Byte@dat `uc  1 a 1 wreg ]
+"75
+} 0
+"19
+[v _IIC_delay `(v  1 e 0 0 ]
+{
+"20
+[v IIC_delay@t `uc  1 a 1 0 ]
+"22
+} 0
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lldiv.c
+[v ___lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient `ul  1 a 4 20 ]
+"12
+[v ___lldiv@counter `uc  1 a 1 24 ]
+"10
+[v ___lldiv@dividend `ul  1 p 4 12 ]
+[v ___lldiv@divisor `ul  1 p 4 16 ]
+"31
+} 0
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lmul.c
+[v ___lmul `(ul  1 e 4 0 ]
+{
+"4
+[v ___lmul@product `ul  1 a 4 8 ]
+"3
+[v ___lmul@multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand `ul  1 p 4 4 ]
+"13
+} 0
+"21 C:\Users\PC\Desktop\LED\Timer.c
+[v _ISR `I(v  1 e 0 0 ]
+{
+"33
+} 0

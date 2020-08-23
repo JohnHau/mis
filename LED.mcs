@@ -1,0 +1,302 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\Users\PC\Desktop\LED\Ad.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=C:\Users\PC\Desktop\LED\MotorDrive.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=C:\Users\PC\Desktop\LED\Key.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=C:\Users\PC\Desktop\LED\Main.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=C:\Users\PC\Desktop\LED\Beep.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=C:\Users\PC\Desktop\LED\PositionControl.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=C:\Users\PC\Desktop\LED\Timer.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=C:\Users\PC\Desktop\LED\Oled.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=C:\Users\PC\Desktop\LED\Logic.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=C:\Users\PC\Desktop\LED\Display.p1
+Folder=Intermediary
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=C:\Users\PC\Desktop\LED\LED.cof
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=C:\Users\PC\Desktop\LED\LED.hex
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=C:\Users\PC\Desktop\LED\LED.sym
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=C:\Users\PC\Desktop\LED\LED.map
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File014]
+Location=C:\Users\PC\Desktop\LED\LED.hxl
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File015]
+Location=C:\Users\PC\Desktop\LED\startup.lst
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File016]
+Location=C:\Users\PC\Desktop\LED\startup.rlf
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File017]
+Location=C:\Users\PC\Desktop\LED\doprnt.p1
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File018]
+Location=C:\Users\PC\Desktop\LED\doprnt.pre
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File019]
+Location=C:\Users\PC\Desktop\LED\LED.obj
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File020]
+Location=C:\Users\PC\Desktop\LED\LED.lst
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File021]
+Location=C:\Users\PC\Desktop\LED\LED.rlf
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=
+[File022]
+Location=C:\Users\PC\Desktop\LED\LED.sdb
+Folder=Output
+DeviceName=PIC18F4520
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\bin\picc18.exe
+PPAD=$(BINDIR)|C:\Users\PC\Desktop\LED||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|Ad.c|MotorDrive.c|Key.c|Main.c|Beep.c|PositionControl.c|Timer.c|Oled.c|Logic.c|Display.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C6=31 DB=0 DC=9 DF=0 DD=1 C2=0 C3=0 DE=1 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 C9=3,2,1 FE=31 EC=1 F0=0 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=0 F5= F9=0 FA=0 FB=0 C0=1 C1=0 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=1 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5= E5=1 E7=0 E8=0 126=0 F1=0 F6= F7= B9=-1 107=0
+TraceCmdString=
+DebugOptions=

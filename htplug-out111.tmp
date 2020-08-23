@@ -1,0 +1,5 @@
+HI-TECH C Compiler for PIC18 MCUs (PRO Mode)  V9.80
+Copyright (C) 2011 Microchip Technology Inc.
+Serial number: HCPIC18P-66666 (PRO)
+Advisory[1233] Employing 18F4520 errata work-arounds:
+Advisory[1234]  * Corrupted fast interrupt shadow registers
