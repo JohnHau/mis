@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
-echo "send rol" > udp-fifo
+#echo "send rol" > udp-fifo
+echo "send rv" > udp-fifo
+#echo "send testrol" > udp-fifo
 exit 0
 
 
