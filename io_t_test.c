@@ -47,45 +47,15 @@ uint8_t bqr_rp[]={
 
 };
 
-#define DEVICE_IDL   req_read_object_list[14]
-#define DEVICE_IDM   req_read_object_list[13]
-#define DEVICE_IDH   req_read_object_list[12]
+#define DEVICE_IDL   bqr_rp[14]
+#define DEVICE_IDM   bqr_rp[13]
+#define DEVICE_IDH   bqr_rp[12]
 
 
 
-uint8_t req_read_object_list[]={
-
-	0x81,0x0a,0x00,0x11,0x01,0x04,
-	0x02,0x75,0xdd,0x0c,0x0c,0x02,
-	//0x00,0x00,0x0a,0x19,0x4c
-	//0x00,0x00,0x08,0x19,0x4c
-	0x00,0x00,0x17,0x19,0x4c
-	//0x00,0x03,0xee,0x19,0x4c
-	//0x00,0x03,0xeb,0x19,0x4c,0x29,0x00
 
 
-};
 
-
-uint8_t segment_ack[]={
-	0x81,0x0a,0x00,0x0a,0x01,0x00,
-	0x40,0x01,0x00,0x01
-
-
-};
-
-uint8_t is_ready_object_list =0;
-uint32_t cnt_object_list =0;
-
-uint8_t array_object_list[1024][4]={0};
-
-uint8_t cmd_object_list[] ={
-0x81,0x0a,0x00,0x13,0x01,0x04,0x02,
-0x75,0x03,0x0e,0x0c,
-0x02,0x81,0x00,0x00,
-0x1e,0x09,0x08,0x1f
-
-};
 
 extern int32_t make_internet_address(int8_t * hostname,int32_t port,struct sockaddr_in *addrp);
 
@@ -294,72 +264,6 @@ void *read_udp(void *arg_r)
 			printf("%c%c%c%c%c%c%c\t%d\n",buffer[20],buffer[21],buffer[22],buffer[23],buffer[24],buffer[25],buffer[26],vcnt);
 		}
 
-		int moffset =0;
-		//int foffset =18;
-		int foffset =23;
-		if(buffer[4]== 0x01  && buffer[5]==0x04)
-		{
-
-			printf("******rec object list\n");
-			printf("result saved to object-list.log\n");
-			while(foffset < n)
-			{
-				printf("Command is %x %x %x %x ",buffer[foffset],buffer[foffset+1],buffer[foffset+2],buffer[foffset+3]);
-
-				array_object_list[cnt_object_list][0]= buffer[foffset + 0];
-				array_object_list[cnt_object_list][1]= buffer[foffset + 1];
-				array_object_list[cnt_object_list][2]= buffer[foffset + 2];
-				array_object_list[cnt_object_list][3]= buffer[foffset + 3];
-
-
-				foffset +=5;
-				cnt_object_list ++;
-
-				printf("No of cnt_object_list:  %d\n",cnt_object_list);
-				
-			}
-
-
-
-			is_ready_object_list = 1;
-
-
-
-
-
-
-
-
-
-
-
-
-#if 0
-			if((stn = sendto(sockfd,segment_ack,sizeof(segment_ack),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
-			{
-				perror("udp send failed\n");
-				exit(EXIT_FAILURE);		
-			}
-#endif
-
-
-		}
-
-		if(buffer[4]== 0x01  && buffer[5]==0x00)// receive results of object lists
-		{
-
-			
-			rv_cnt++;
-			printf("result is %02x %02x %02x %02x %02x  cnt is %d\n",buffer[6],buffer[10],buffer[11],buffer[12],buffer[13],rv_cnt);
-
-
-
-			fprintf(fp,"result is %02x %02x %02x %02x %02x\n",buffer[6],buffer[10],buffer[11],buffer[12],buffer[13]);
-			fflush(fp);
-
-
-
-		}
 
 		if(strcmp(buffer,"tx-quit\n") == 0)
 		{
@@ -428,54 +332,6 @@ void *write_udp(void *arg_w)
 
 		}
 
-
-		if(strcmp(cmd_buf,"send rol\n") == 0)
-		{
-
-
-			if((stn = sendto(sockfd,req_read_object_list,sizeof(req_read_object_list),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
-			{
-				perror("udp send failed\n");
-				exit(EXIT_FAILURE);		
-			}
-
-			printf("-------send rol\n");
-
-
-		}
-
-
-		if(is_ready_object_list)
-		{
-
-			uint32_t icnt=0;
-			for(icnt=0;icnt <= cnt_object_list;icnt++)
-			{
-
-
-
-				cmd_object_list[11] = array_object_list[icnt][0];
-				cmd_object_list[12] = array_object_list[icnt][1];
-				cmd_object_list[13] = array_object_list[icnt][2];
-				cmd_object_list[14] = array_object_list[icnt][3];
-
-
-
-
-				if((stn = sendto(sockfd,cmd_object_list,sizeof(cmd_object_list),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
-				{
-					perror("udp send failed\n");
-					exit(EXIT_FAILURE);		
-				}
-			//	printf("icnt is %d\n",icnt);
-				sleep(1);
-				//usleep(50000);
-
-			}
-
-			is_ready_object_list = 0;
-
-		}
 
 
 		memset(cmd_buf,0,sizeof(cmd_buf));
@@ -567,159 +423,5 @@ int main(int argc, char* argv[])
 
 
 	exit(0);
-
-
-	//==================================================================================================================
-#if 0
-	int fpid;
-	int n=0;
-	fpid = fork();
-	if(fpid == -1)
-	{
-		perror("fork failed\n");
-		exit(EXIT_FAILURE);
-	}
-	else if(fpid == 0)
-	{
-
-		//execl("./myudp-tx.exe","myudp-tx.exe",(char*)0);
-#if 1
-		struct timespec tp;
-		tp.tv_sec =0;
-		tp.tv_nsec =500000;
-		int cnt=0;	
-		make_internet_address(sip,PORT,&cliaddr);
-		//make_internet_address("192.168.2.22",PORT,&cliaddr);
-		//
-
-#if 0
-		if((stn = sendto(sockfd,req_read_object_list,sizeof(req_read_object_list),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
-		{
-			perror("udp send failed\n");
-			exit(EXIT_FAILURE);		
-		}
-
-		sleep(300);
-#endif
-
-		sleep(3);
-
-		printf("start sending\n");
-		set_timer(atoi(argv[1]));
-		signal(SIGALRM,on_timer);
-		while(1);
-#endif
-
-	}
-
-
-#endif
-	//============================================================================================================================================
-
-
-
-
-
-
-
-
-	//===========================================================================================================================================
-#if 0
-	char *ts="hello";
-	int xmcnt=0;
-	int rcnt=0;
-	uint32_t bid=0;
-	uint32_t acnt=0;
-	uint32_t bcnt=0;
-	uint32_t ccnt=0;
-	uint32_t vcnt=0;
-	while(1)
-	{
-#if 1
-		rcnt = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
-		//n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, sizeof(struct sockaddr)); 
-
-		printf("\n==ip %s\n",(char*)inet_ntoa(cliaddr.sin_addr));
-		printf("\n==rec len is %d\n",rcnt);
-
-
-		if(buffer[12]== 0xc4 && buffer[13] == 0x02)
-		{
-			bid=(uint32_t)(buffer[14]<<16|buffer[15]<<8|buffer[16]);
-
-
-			if(bid == 4194302)
-			{
-				acnt++;
-				printf("I am %d\t%d\n",bid,acnt);
-			}
-
-			if(bid == 12)
-			{
-				bcnt++;
-				printf("I am %d\t%d\n",bid,bcnt);
-			}
-			if(bid == 1000)
-			{
-				ccnt++;
-				printf("I am %d\t%d\n",bid,ccnt);
-			}
-
-
-			printf("I am %d\n",bid);
-			bid=0;
-
-		}
-#endif
-
-		if(buffer[10]== 0x10 && buffer[11] == 0x08)
-		{
-
-			//printf("I am 5006\n");
-		}
-
-		if(strcmp(buffer,"whois\n") == 0)
-		{
-
-			//printf("I am: %d\n",1009);
-			//printf("%s\r\n","world");
-			//write(pfd[1],ts,strlen(ts));
-		}
-
-
-		if(buffer[16] == 0x3e  && buffer[27]==0x3f)
-		{
-			vcnt++;
-
-			printf("%c%c%c%c%c%c%c\t%d\n",buffer[20],buffer[21],buffer[22],buffer[23],buffer[24],buffer[25],buffer[26],vcnt);
-		}
-
-
-		if(strcmp(buffer,"tx-quit\n") == 0)
-		{
-			printf("good-bye\n");
-			exit(EXIT_SUCCESS);		
-
-		}
-
-
-
-
-
-		memset(buffer,0,sizeof(buffer));
-		//	sleep(1);
-	}
-
-#endif
-//======================================================================================================================================
-
-
-
-
-
-
-
-
-
 
 }
