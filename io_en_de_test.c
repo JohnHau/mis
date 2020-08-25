@@ -2,8 +2,14 @@
 #include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include <mcrypt.h>
 #include <openssl/sha.h>
+
+#include <mbedtls/aes.h>
+#include <mbedtls/ssl.h>
+#include <mbedtls/x509.h>
+
 #include <math.h>
 
 
@@ -21,9 +27,98 @@
 #include <netinet/in.h> 
 #include <netdb.h> 
 #include <pthread.h> 
+
+
+
+#ifndef byte
+typedef unsigned char byte;
+#endif
+
+#ifndef _octet
+typedef unsigned char octet;
+#define _octet
+#endif
+
+#ifndef _dword
+typedef unsigned long dword;
+#define _dword
+#endif
+
+#ifndef _word
+typedef unsigned short word;
+#define _word
+#endif//	
+#define	littleEndian	1   //PCs are littleEndian
+
+
+//#define false 0
+//#define false 1
+
+typedef enum { false, true } bool;
+
+
+
+enum BACnetPDUTypes
+	{	CONF_REQ_PDU,							//0
+		UNCONF_REQ_PDU,							//1
+		SIMPLE_ACK_PDU,							//2
+		COMPLEX_ACK_PDU,						//3
+		SEGMENT_ACK_PDU,						//4
+		ERROR_PDU,								//5
+		REJECT_PDU,								//6
+		ABORT_PDU								//7
+	} ;
+
+
+enum BACnetUnconfirmedService
+	{
+		IAm,									//0
+		IHave,									//1
+		unconfirmedCOVNotification,				//2
+		unconfirmedEventNotification,			//3
+		unconfirmedPrivateTransfer,				//4
+		unconfirmedTextMessage,					//5
+		timeSynchronization,					//6
+		whoHas,									//7
+		whoIs,									//8
+		UTCtimeSynchronization,					//9								***004
+		writeGroup								//10							***1400
+	};
+
+
+#define dm_pt_a		1					//Device Management-Private Transfer-A (Confirmed/UnconfirmedPrivateTransfer initiate)
   
 #define PORT     0xBAC0 
 #define MAXLINE  1500 
+
+#define  IV_SIZE   32 
+#define aeskey_size   32
+
+octet NpduHeader[20];
+octet ApduInput[1476];
+octet ApduOutput[1476];
+octet ApduOutputtemp[1476];
+octet npdutemp[1500];
+octet ApduPackage[1476];
+octet plain_decrypt[1476];
+octet tb[1476];
+octet myBuff[1476];
+
+uint8_t tkey[32] = {0};
+
+
+int64_t timestamp =0;
+int64_t timestampfromApdu =0;
+int64_t timestampfromApdutmp=0;
+
+
+
+
+
+
+
+
+
 
 
 int stn=0;
@@ -49,7 +144,18 @@ uint8_t bqr_rp[32]={
 };
 
 
+uint8_t test_package[1476]={0};
+
+
+
+
 uint8_t s_bqr_rp[32]={0};
+
+
+uint8_t sbuffer[32]={0};
+
+
+
 
 #define DEVICE_IDH   bqr_rp[12]
 #define DEVICE_IDM   bqr_rp[13]
@@ -84,8 +190,7 @@ uint8_t cipherAes128[] = {0x3a, 0xd7, 0x7b, 0xb4, 0x0d, 0x7a, 0x36, 0x60, 0xa8, 
 uint8_t ive[] =  {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
 
 uint8_t iven[] = {
-	0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35,
-	0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35
+	0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
 };
 
 uint8_t plainAes256[] = {
@@ -180,6 +285,156 @@ int xmain()
 
 
 
+/////////////////////////////////////////////////////////////////////// 
+//	Encode an Application Tagged Octet String
+//in:	op		points to an octet buffer to put the results in
+//		os		points to the octet string to encode
+//		n		has the number of octets to encode(0-65535)
+//out:	return	advanced pointer to buffer
+
+octet *eOCTETSTRING(octet *op, octet *os, word n)
+{
+union { word w; byte b[2];} u;
+	word	i;
+
+	u.w=n;		//so we can get byte access
+	if(n<=4)
+		*op++=0x60+(octet)n;	//tag 6, length
+	else
+	{
+		*op++=0x65;				//tag 6, extended length
+		if(n<=253)
+			*op++=(octet)n;
+		else					//assume n<=65535
+		{	*op++=0xFE;
+#if littleEndian				//		***230 Begin
+			*op++=(octet)u.b[1];	//msb of length first
+			*op++=(octet)u.b[0];
+#else
+			*op++=(octet)u.b[0];	//msb of length first
+			*op++=(octet)u.b[1];
+#endif								//		***230 End
+		}	
+	}
+	for(i=0;i<n;i++)				//store all octets in order
+		*op++=*os++;			
+	return op;
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////// 
+//	Encode an Application Tagged 4 octet minimal encoding value
+//in:	op		points to an octet buffer to put the results in
+//		val		has the value to encode
+//		utag	is the tag value to use, e.g. 0x20 is tag 2
+//		sgnd	true if signed, false if unsigned
+//out:	return	advanced pointer to buffer
+
+octet *eDWORD(octet *op, dword val,octet utag,bool sgnd)
+{
+union { dword dw; byte b[4];} u;
+	int		i;
+    bool 	ffndb=false;			//found first non-discardable byte
+    bool	db;						//true if this is a discardable byte
+    
+	u.dw=val;						//so we can get at individual bytes
+	*op++=utag+0x04;				//tag(utag), assume 4 octets(dword)
+#if littleEndian							//	***230 Begin
+	for(i=3;i>=0;i--)				//store all bytes from first non-0 ms byte, ms first, ls last
+	{
+		db=(u.b[i]==0);				//if 0, it's discardable
+		if(sgnd&&(u.b[i]==0xFF)) db=true;			//also discardable if signed and it's FF
+//
+// The following code is added so that the following cases of SIGNED numbers are encoded properly:
+//		0x00000080	encoded as 32 00 80
+//		0xFFFFFF80	encoded as 31 80
+//		0xFFFFFF7F	encoded as 32 FF 7F
+//		etc.
+		if(sgnd && db && !ffndb &&(i!=0))		//it's signed and possibly discardable
+		{
+			if((u.b[i]==0) &&((u.b[i-1]&0x80) != 0)) db=false;		//don't discard
+			else if((u.b[i]==0xFF) &&((u.b[i-1]&0x80) == 0)) db=false;	//don't discard 
+		}
+//
+		if(!db||ffndb||i==0)
+		{
+			*op++=(octet)u.b[i];					//save byte
+			ffndb=true;								//we found first non-discardable byte
+		}
+		else
+			op[-1]--;								//one less digit than assumed
+	}			
+#else
+	for(i=0;i<4;i++)								//store all bytes from first non-0 ms byte, ms first, ls last
+	{
+		db=(u.b[i]==0);												//if 0, it's discardable
+		if(sgnd&&(u.b[i]==0xFF)) db=true;			//also discardable if signed and it's FF
+//
+// The following code is added so that the following cases of SIGNED numbers are encoded properly:
+//		0x00000080	encoded as 32 00 80
+//		0xFFFFFF80	encoded as 31 80
+//		0xFFFFFF7F	encoded as 32 FF 7F
+//		etc.
+		if(sgnd && db && !ffndb &&(i!=3))			 //it's signed and possibly discardable	***303
+		{
+			if((u.b[i]==0) &&((u.b[i+1]&0x80) != 0)) db=false;		//don't discard
+			else if((u.b[i]==0xFF) &&((u.b[i+1]&0x80) == 0)) db=false;	//don't discard 
+		}
+//
+		if(!db||ffndb||i==3)						//	***303
+		{	*op++=(octet)u.b[i];					//save byte
+			ffndb=true;								//we found first non-discardable byte
+		}
+		else
+			op[-1]--;								//one less digit than assumed
+	}			
+#endif												//***230 End
+	return op;
+}
+
+
+/////////////////////////////////////////////////////////////////////// 
+//	Encode an Application Tagged Enumerated Value
+//in:	op		points to an octet buffer to put the results in
+//		eval	has the dword enumerated value to encode
+//out:	return	advanced pointer to buffer
+
+octet *eENUM(octet *op, dword eval)
+{
+	return eDWORD(op,eval,0x90,false);				//minimal encode using tag 9
+}
+
+///////////////////////////////////////////////////////////////////////
+//	Encode the body of a Private Transfer request
+//
+// in:	tp			points to the buffer to encode into (assumes there's enough space)
+//		vendorid	the vendor id of the private transfer
+//		svc			the service code
+//		params		pointer to the response/error parameters (or NULL if nbytes==0)
+//		nbytes		the number of octets in params
+// out:	tp			advanced or NULL if failed
+
+octet *EncodePrivateTransfer(octet *tp,word vendorid,dword svc,octet *params,dword nbytes)
+{
+#if dm_pt_a				//	***206
+	dword	i;
+
+	tp=eDWORD(tp,vendorid,0x08,false);	//[0]vendorID
+	tp=eDWORD(tp,svc,0x18,false);		//[1]serviceNumber
+	if (nbytes&&(params!=NULL))
+	{	//probably should check if we have enough space here!
+		*tp++=0x2E;			//[2]opening tag serviceParameters
+		for (i=0;i<nbytes;i++)
+			*tp++=*params++;                        //serviceParameters
+		*tp++=0x2F;			//[2]closing tag serviceParameters
+	}
+	return tp;
+#else 						//		***206									
+	return NULL;				//		***206
+#endif //dm_pt_a
+}
 
 
 
@@ -188,6 +443,205 @@ int xmain()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+int EncrypteApdu(word apduLen)
+{
+	int ret =0;
+	int i=0;
+	octet iv[IV_SIZE];
+	octet digest[32];
+
+	memset(iv, 0x55, IV_SIZE);
+	mbedtls_aes_context aes_ctx;
+	mbedtls_md_context_t sha_ctx;
+	mbedtls_aes_init( &aes_ctx );
+	ret |= mbedtls_aes_setkey_enc( &aes_ctx, tkey, aeskey_size * 8);
+	ret |= mbedtls_aes_crypt_cbc( &aes_ctx, MBEDTLS_AES_ENCRYPT, apduLen, iv,ApduInput,ApduOutput );
+	if( ret != 0 )
+	{
+		goto exit;
+	}
+	//LOGMESSAGE("after encryption,start to add hamc sign\n");
+	printf("after encryption,start to add hamc sign\n");
+#if 0
+	//LOGMESSAGE("*********** after the encryption\n");
+	printf("*********** after the encryption\n");
+	for(i=0;i<apduLen;i++)
+		//LOGMESSAGE("0x%x ",ApduOutput[i]);
+		printf("0x%x ",ApduOutput[i]);
+	//LOGMESSAGE("\n");
+	printf("\n");
+#endif
+	mbedtls_md_init(&sha_ctx);
+	memset(digest, 0x00, sizeof(digest));
+	if((ret = mbedtls_md_setup(&sha_ctx, mbedtls_md_info_from_type(MBEDTLS_MD_SHA256), 1))!=0)
+	{
+		goto cleanup;
+	}
+	if((ret =mbedtls_md_hmac_starts(&sha_ctx, tkey, aeskey_size))!=0)
+	{
+		goto cleanup;
+	}
+	if((ret =mbedtls_md_hmac_update(&sha_ctx, ApduOutput, apduLen))!=0)
+	{
+		goto cleanup;
+	}
+	if((ret =mbedtls_md_hmac_finish(&sha_ctx, digest))!=0)
+	{
+		goto cleanup;
+	}
+#if 0
+	//LOGMESSAGE("HMAC: \n");
+	printf("HMAC: \n");
+	for(i=0;i<32;i++)
+		//LOGMESSAGE("0x%x ",digest[i]);
+		printf("0x%x ",digest[i]);
+	//LOGMESSAGE("\n");
+	printf("\n");
+#endif
+	//LOGMESSAGE("have add sign\n");
+	printf("have add sign\n");
+	memcpy(ApduOutput+apduLen,digest,32);
+
+	/*mbedtls_aes_setkey_dec(&aes_ctx, tkey(), aeskey_size*8);//  set decrypt key
+	  memset(iv, 0, IV_SIZE);
+	  mbedtls_aes_crypt_cbc(&aes_ctx, MBEDTLS_AES_DECRYPT, apduLen, iv, ApduOutput, plain_decrypt);
+	//LOGMESSAGE("*********** decrypted\n");
+	printf("*********** decrypted\n");
+	for(i=0;i<apduLen;i++)
+	//LOGMESSAGE("0x%x ",plain_decrypt[i]);
+	printf("0x%x ",plain_decrypt[i]);
+	//LOGMESSAGE("\n");
+	printf("\n");*/
+cleanup:
+	mbedtls_md_free( &sha_ctx);
+exit:
+	mbedtls_aes_free(&aes_ctx);
+	return ret;
+}
+
+
+
+
+
+void macEncryptionTransmit(word *dlen, octet *np)
+{
+	word ApduLen,NpduHeaderLen,NpduLen,Apdulentmp;
+	octet	*tp;
+	word vendorid =17;
+	dword svc =0x90;
+	int i=0;
+
+
+
+    octet *encodedOctetString = NULL;
+	encodedOctetString = tb;
+    int TotalLength = 0;
+	memset(npdutemp,0x00,1500);
+	memcpy(npdutemp,np,*dlen);
+	memset(ApduInput,0,1476);
+	memset(ApduOutput,0,1476);
+
+//	if(GetApdu(*dlen,&NpduHeaderLen,&ApduLen)==false)
+//		return;
+
+
+
+
+#if 1
+	/*
+	//LOGMESSAGE("NpduHeaderLen %d\n",NpduHeaderLen);
+	printf("NpduHeaderLen %d\n",NpduHeaderLen);
+	for(i=0;i<NpduHeaderLen;i++)
+		//LOGMESSAGE("0x%x ",NpduHeader[i]);
+		printf("0x%x ",NpduHeader[i]);
+
+	//LOGMESSAGE("\n");
+	printf("\n");
+	*/
+
+	//LOGMESSAGE("ApduLen %d\n",ApduLen);
+	printf("ApduLen %d\n",ApduLen);
+	//LOGMESSAGE("Apdu :\n");
+	printf("Apdu :\n");
+	for(i=0;i<ApduLen;i++)
+		//LOGMESSAGE("0x%x ",ApduInput[i]);
+		printf("0x%x ",ApduInput[i]);
+//	LOGMESSAGE("\n");
+	printf("\n");
+#endif
+	//LOGMESSAGE("get apdu response,start to add time and encrypt\n");
+	printf("get apdu response,start to add time and encrypt\n");
+	timestamp++;
+	Apdulentmp =ApduLen;
+
+	memcpy(ApduInput+ApduLen,&timestamp,8);
+	ApduLen = ApduLen+8;
+	if(ApduLen%16 !=0)
+		ApduLen =ApduLen +16-ApduLen%16;
+	if((ApduLen +32 +2 )<1472)
+	{
+		EncrypteApdu(ApduLen);
+		ApduLen =ApduLen+32;
+#if 0
+		//LOGMESSAGE("after add HAMC signature:\n");
+		printf("after add HAMC signature:\n");
+		//LOGMESSAGE("after add HAMC signature:\n");
+		printf("after add HAMC signature:\n");
+		for(i=0;i<ApduLen;i++)
+			//LOGMESSAGE("0x%x ",ApduOutput[i]);
+			printf("0x%x ",ApduOutput[i]);
+		//LOGMESSAGE("\n");
+		printf("\n");
+#endif
+		memset(npdutemp,0,1500);
+		memcpy(npdutemp,NpduHeader,NpduHeaderLen);
+		tp=npdutemp + NpduHeaderLen;
+		//*tp++=UNCONF_REQ_PDU<<4;
+		//*tp++=unconfirmedPrivateTransfer;
+
+		memcpy(ApduOutputtemp,&Apdulentmp,2);
+		memcpy(ApduOutputtemp +2,ApduOutput,ApduLen);
+#if 0
+		//LOGMESSAGE("after add lengh :\n");
+		printf("after add lengh :\n");
+		for(i=0;i<ApduLen+2;i++)
+			//LOGMESSAGE("0x%x ",ApduOutputtemp[i]);
+			printf("0x%x ",ApduOutputtemp[i]);
+		//LOGMESSAGE("\n");
+		printf("\n");
+#endif
+		encodedOctetString = eOCTETSTRING(encodedOctetString,ApduOutputtemp,ApduLen+2);
+		TotalLength = (dword)(encodedOctetString - tb);
+		*tp++=UNCONF_REQ_PDU<<4;
+		*tp++=unconfirmedPrivateTransfer;
+		tp =EncodePrivateTransfer(tp,vendorid,svc,tb,TotalLength);
+		NpduLen =tp -npdutemp;
+		//LOGMESSAGE("transmit NPDU,length %d\n",NpduLen);
+		printf("transmit NPDU,length %d\n",NpduLen);
+#if 0
+
+		for(i=0;i<NpduLen;i++)
+			//LOGMESSAGE("0x%x ",npdutemp[i]);
+			printf("0x%x ",npdutemp[i]);
+		//LOGMESSAGE("\n");
+		printf("\n");
+#endif
+		memcpy(np,npdutemp,NpduLen);
+		*dlen =NpduLen;
+
+	}
+}
 
 
 
@@ -323,6 +777,10 @@ void *read_udp(void *arg_r)
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, &len); 
 		//n = recvfrom(sockfd, (char *)buffer, MAXLINE,  0, ( struct sockaddr *) &cliaddr, sizeof(struct sockaddr)); 
 
+
+		keysize = 32;
+		//memcpy(sbuffer,buffer,32);
+		decrypt(buffer, 32, iven, keyAes256, keysize);
 #if 0
 		//		printf("==========rec len is %d\n",n);
 
@@ -456,7 +914,8 @@ void *write_udp(void *arg_w)
 		{
 
 
-			if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+			//if((stn = sendto(sockfd,bqr_rp,sizeof(bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
+			if((stn = sendto(sockfd,s_bqr_rp,sizeof(s_bqr_rp),0,(struct sockaddr*)&cliaddr,sizeof(cliaddr))) == -1)
 			{
 				perror("udp send failed\n");
 				exit(EXIT_FAILURE);		
@@ -487,51 +946,51 @@ void *write_udp(void *arg_w)
 //sha256=ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
 
 
+uint8_t hash_bqr_rp[32]={0};
 
 uint8_t hsab[32]={0};
 uint8_t sab[]={
 
-'a','b','c'
-
-
-
-	/*
-	       0x94, 0x00, 0xa8, 0x4a, 0x0f,0x1e, 0x99, 0x1c, 0x9d, 
-	       0xd2, 0xd1, 0x83, 0x90, 0x4a,0xfe, 0xbd, 0x21, 0x10, 
-	       0x18, 0x52, 0x7c, 0xce, 0xcd,0x62, 0x08, 0x83, 0xac,
-	       0xcd, 0x36, 0x57, 0xcc, 0x11,0x00, 0x73, 0xda, 0xd3, 
-	       0x0c, 0x16, 0xbb, 0x82, 0xe2,0x87, 0x34, 0xef, 0x98,
-	       0x62, 0x96, 0x2e, 0xa8, 0xaf,0x09, 0x6f, 0xa9, 0x58,
-	       0x07, 0xfe, 0x89, 0x8f, 0x40,0x6e, 0xfa, 0xfc, 0xb4,
-	       0xb7, 0x8b, 0x93, 0xd4, 0x8b,0x1b, 0x63, 0xe7, 0xf9, 
-	       0x36, 0x90, 0x09, 0x50, 0x71,0x6d, 0x24, 0x48, 0xd2,
-	       0x3d, 0x65, 0xfe, 0x4b, 0xd7,0xff, 0xb4, 0xed, 0xf4, 
-	       0x9c, 0x36 ,0x1b, 0x24, 0xe6,0xf5, 0x6e, 0x96, 0xec,
-	       0x1a, 0x89, 0x1b, 0xcf, 0xf7,0x63, 0xb4, 0xaa, 0x4a, 
-	       0x5e, 0xc3, 0x9d, 0x01, 0xb8,0x63, 0x53 ,0xe8, 0x39,
-	       0x5f, 0x1e, 0xf8, 0x4a, 0x99,0xb1, 0x1d, 0x0b ,0x80,
-	       0xda ,0x35, 0x29 ,0x68, 0xe6,0xe7, 0x0e, 0xb0, 0x48, 
-	       0xc9, 0x92 ,0x87, 0x73, 0x18,0x52, 0x3b, 0x0c, 0x55,
-	       0x7f ,0xb2, 0xbe, 0x30 ,0x1c,0x4a, 0x06, 0x19, 0xb9,
-	       0xc4, 0xec, 0x18, 0xab, 0x90,0x1e, 0x7e, 0xa6, 0xe9,
-	       0x41, 0xe3, 0xfe, 0xea ,0xf6,0xa3, 0xdc, 0x54, 0x3f, 
-	       0x1b ,0x3f ,0x0f ,0xf3, 0x17,0x52, 0x08, 0xb8 ,0x00,
-	       0x8c, 0xb7, 0xf4, 0x0f, 0x22,0x12, 0x24, 0xb9, 0x3d,
-	       0xa2 ,0x39, 0x4, 0x87, 0x1d;
-	       */
+'a','b','c','d'
 
 };
 
+uint8_t skey[32]={0};
 
 
 int main(int argc, char* argv[])
 {    
-
+#if 0
+	mbedtls_x509_crt cacert;
+	mbedtls_x509_crt_init( &cacert );
 
 	SHA256_CTX ctx;
 	SHA256_Init(&ctx);
-	SHA256_Update(&ctx, sab, 3);
+	SHA256_Update(&ctx, sab, 4);
+	//SHA256_Update(&ctx, hash_bqr_rp, 32);
 	SHA256_Final(hsab, &ctx);
+	//SHA256_Final(hash_bqr_rp, &ctx);
+
+	for(int is=0;is<32;is++)
+	{
+
+		printf("%02x ",hsab[is]);
+	//	printf("%02x ",plainAes128[is]);
+	}
+
+	printf("\n");
+
+	return 0;
+
+#endif
+
+
+
+
+
+
+
+
 
 
 	printf("==C==\n");
@@ -547,7 +1006,7 @@ int main(int argc, char* argv[])
 
 
 
-	
+
 	for(int is=0;is<32;is++)
 	{
 
@@ -569,7 +1028,7 @@ int main(int argc, char* argv[])
 
 
 	printf("\n");
-	
+
 
 
 #if 0
@@ -585,7 +1044,7 @@ int main(int argc, char* argv[])
 #endif
 
 
-	
+
 	//mencrypt(buffer, buffer_len, NULL, keyAes128, keysize); 
 
 	//printf("cipher:  "); display(buffer , buffer_len);
