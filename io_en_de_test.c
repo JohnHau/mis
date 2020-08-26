@@ -135,13 +135,18 @@ uint8_t brp_im[]={
 		0xf1,0x22,0x04,0x00,0x91,0x03,0x22,0x01,0x04
 };
 
-uint8_t bqr_rp[32]={
-	0x81,0x0a,0x00,0x11,0x01,0x04,
+//uint8_t bqr_rp[32]={
+//octet bqr_rp[32]={
+octet bqr_rp[2048]={
+	0x81,0x0a,0x00,0x11,
+	0x01,0x04,
 	0x00,0x03,0x00,0x0c,0x0c,0x02,
 	0x00,0x03,0xeb,0x19,0x2c
 
 
 };
+
+word npdu_len= 0x11 - 4;
 
 
 uint8_t test_package[1476]={0};
@@ -544,17 +549,21 @@ void macEncryptionTransmit(word *dlen, octet *np)
 
 
 
-    octet *encodedOctetString = NULL;
+	octet *encodedOctetString = NULL;
 	encodedOctetString = tb;
-    int TotalLength = 0;
+	int TotalLength = 0;
 	memset(npdutemp,0x00,1500);
 	memcpy(npdutemp,np,*dlen);
 	memset(ApduInput,0,1476);
 	memset(ApduOutput,0,1476);
 
-//	if(GetApdu(*dlen,&NpduHeaderLen,&ApduLen)==false)
-//		return;
+	//	if(GetApdu(*dlen,&NpduHeaderLen,&ApduLen)==false)
+	//		return;
 
+	NpduHeaderLen = 2;
+	ApduLen =  0x11-4-2;
+	memcpy(NpduHeader,bqr_rp + 4,2);
+	memcpy(ApduInput,bqr_rp + 4 + 2,11);
 
 
 
@@ -563,8 +572,8 @@ void macEncryptionTransmit(word *dlen, octet *np)
 	//LOGMESSAGE("NpduHeaderLen %d\n",NpduHeaderLen);
 	printf("NpduHeaderLen %d\n",NpduHeaderLen);
 	for(i=0;i<NpduHeaderLen;i++)
-		//LOGMESSAGE("0x%x ",NpduHeader[i]);
-		printf("0x%x ",NpduHeader[i]);
+	//LOGMESSAGE("0x%x ",NpduHeader[i]);
+	printf("0x%x ",NpduHeader[i]);
 
 	//LOGMESSAGE("\n");
 	printf("\n");
@@ -577,12 +586,13 @@ void macEncryptionTransmit(word *dlen, octet *np)
 	for(i=0;i<ApduLen;i++)
 		//LOGMESSAGE("0x%x ",ApduInput[i]);
 		printf("0x%x ",ApduInput[i]);
-//	LOGMESSAGE("\n");
+	//	LOGMESSAGE("\n");
 	printf("\n");
 #endif
 	//LOGMESSAGE("get apdu response,start to add time and encrypt\n");
 	printf("get apdu response,start to add time and encrypt\n");
-	timestamp++;
+	//timestamp++;
+	timestamp=0x00;
 	Apdulentmp =ApduLen;
 
 	memcpy(ApduInput+ApduLen,&timestamp,8);
@@ -593,14 +603,18 @@ void macEncryptionTransmit(word *dlen, octet *np)
 	{
 		EncrypteApdu(ApduLen);
 		ApduLen =ApduLen+32;
-#if 0
+#if 1
 		//LOGMESSAGE("after add HAMC signature:\n");
-		printf("after add HAMC signature:\n");
+		//printf("after add HAMC signature:\n");
 		//LOGMESSAGE("after add HAMC signature:\n");
 		printf("after add HAMC signature:\n");
 		for(i=0;i<ApduLen;i++)
-			//LOGMESSAGE("0x%x ",ApduOutput[i]);
-			printf("0x%x ",ApduOutput[i]);
+		{
+			//LOGMESSAGE("0x%02x ",ApduOutput[i]);
+			printf("0x%02x ",ApduOutput[i]);
+			if((i+1)%8 == 0)
+				printf("\n");
+		}
 		//LOGMESSAGE("\n");
 		printf("\n");
 #endif
@@ -639,6 +653,18 @@ void macEncryptionTransmit(word *dlen, octet *np)
 #endif
 		memcpy(np,npdutemp,NpduLen);
 		*dlen =NpduLen;
+
+
+		printf("at last npdu is\n");
+		for(i=0;i<NpduLen;i++)
+		{
+			//LOGMESSAGE("0x%02x ",ApduOutput[i]);
+			printf("0x%02x ",np[i]);
+			if((i+1)%8 == 0)
+				printf("\n");
+		}
+		//LOGMESSAGE("\n");
+		printf("\n");
 
 	}
 }
@@ -989,6 +1015,8 @@ int main(int argc, char* argv[])
 
 
 
+	macEncryptionTransmit(&npdu_len, bqr_rp + 4);
+	return 0;
 
 
 
