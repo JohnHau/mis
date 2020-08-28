@@ -105,9 +105,7 @@ void main(void)
 #endif
     
 	//ADInit();
-	//TimerInit();
-	//OLED_DrawBMP(16,0,96,96,BMP1);
-	//OLED_DrawBMP(0,0,128,96,BMP1);
+	TimerInit();
 	while(1)               
 	{   
 		//NeedleFindZeroPosFun();
@@ -116,10 +114,7 @@ void main(void)
 		//KeyFuction();
 		delay(100);	
 
-	//	OLED_ShowNum(NEEDLE_LENGTH_DISPLAY_X,NEEDLE_LENGTH_DISPLAY_Y,InjectPosition/20,2,24);
-	//	OLED_ShowNum(INJECT_DEPTH_DISPLAY_X,INJECT_DEPTH_DISPLAY_Y,NeedlePosition/20,2,24);
-	//	OLED_ShowNum(INJECT_TYPE_DISPLAY_X,INJECT_TYPE_DISPLAY_Y,8,2,24);
-	//	OLED_ShowNum(VARIABLE_DISPLAY_X,VARIABLE_DISPLAY_Y,4,2,24);
+
 
 	}
 }

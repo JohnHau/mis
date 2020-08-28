@@ -2,13 +2,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "4 ../Beep.h
 [v _BeepInit `(v ~T0 @X0 0 ef ]
-"180 ../Oled.h
+"82 ../Oled.h
 [v _LCD_backlight_init `(v ~T0 @X0 0 ef ]
-"181
+"83
 [v _LCD_On `(v ~T0 @X0 0 ef ]
-"169
+"78
 [v _Initial_LY096BG30 `(v ~T0 @X0 0 ef ]
-"186
+"5 ../Timer.h
+[v _TimerInit `(v ~T0 @X0 0 ef ]
+"88 ../Oled.h
 [v _delay `(v ~T0 @X0 0 ef1`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2868,40 +2870,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Oled.h: 38: void delay_ms(unsigned int ms);
-[; ;Oled.h: 39: void OLED_WR_Byte(unsigned char dat,unsigned char cmd);
-[; ;Oled.h: 40: void Column_Address(unsigned char a, unsigned char b);
-[; ;Oled.h: 41: void Row_Address(unsigned char a, unsigned char b);
-[; ;Oled.h: 42: void OLED_Clear(unsigned char x1,unsigned char y1,unsigned char x2,unsigned char y2,unsigned char color);
-[; ;Oled.h: 43: void OLED_ShowChar(unsigned char x,unsigned char y,unsigned char chr,unsigned char sizey);
-[; ;Oled.h: 44: void OLED_ShowString(unsigned char x,unsigned char y,unsigned char *dp,unsigned char sizey);
-[; ;Oled.h: 45: void OLED_ShowNum(unsigned char x,unsigned char y,unsigned int num,unsigned char len,unsigned char sizey);
-[; ;Oled.h: 46: void OLED_ShowChinese(unsigned char x,unsigned char y,unsigned char num,unsigned char sizey);
-[; ;Oled.h: 47: void OLED_DrawBMP(unsigned char x,unsigned char y,unsigned char width,unsigned char height,const unsigned char *BMP);
-[; ;Oled.h: 48: void Init_ssd1327(void);
-[; ;Oled.h: 110: void i2c_CfgGpio(void);
-[; ;Oled.h: 111: void i2c_Start(void);
-[; ;Oled.h: 112: void i2c_Stop(void);
-[; ;Oled.h: 113: void i2c_SendByte(uint8_t _ucByte);
-[; ;Oled.h: 114: uint8_t i2c_ReadByte(void);
-[; ;Oled.h: 115: uint8_t i2c_WaitAck(void);
-[; ;Oled.h: 116: void i2c_Ack(void);
-[; ;Oled.h: 117: void i2c_NAck(void);
-[; ;Oled.h: 158: uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
-[; ;Oled.h: 160: uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
-[; ;Oled.h: 163: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;Oled.h: 164: void ee_Erase(void);
-[; ;Oled.h: 165: uint8_t ee_WaitStandby(void);
-[; ;Oled.h: 166: uint8_t ee_Test(void) ;
-[; ;Oled.h: 169: void Initial_LY096BG30(void);
-[; ;Oled.h: 170: void fill_picture(unsigned char fill_Data);
-[; ;Oled.h: 171: void picture_1(void);
-[; ;Oled.h: 175: void oled_096_print(uint8_t col, uint8_t row, int8_t*str);
-[; ;Oled.h: 180: void LCD_backlight_init(void);
-[; ;Oled.h: 181: void LCD_On(void);
-[; ;Oled.h: 182: void LCD_Off(void);
-[; ;Oled.h: 184: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;Oled.h: 186: void delay(unsigned int x);
+[; ;Oled.h: 5: void delay_ms(unsigned int ms);
+[; ;Oled.h: 42: void i2c_CfgGpio(void);
+[; ;Oled.h: 43: void i2c_Start(void);
+[; ;Oled.h: 44: void i2c_Stop(void);
+[; ;Oled.h: 45: void i2c_SendByte(uint8_t _ucByte);
+[; ;Oled.h: 46: uint8_t i2c_ReadByte(void);
+[; ;Oled.h: 47: uint8_t i2c_WaitAck(void);
+[; ;Oled.h: 48: void i2c_Ack(void);
+[; ;Oled.h: 49: void i2c_NAck(void);
+[; ;Oled.h: 67: uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
+[; ;Oled.h: 69: uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
+[; ;Oled.h: 72: uint8_t ee_CheckDevice(uint8_t _Address);
+[; ;Oled.h: 73: void ee_Erase(void);
+[; ;Oled.h: 74: uint8_t ee_WaitStandby(void);
+[; ;Oled.h: 75: uint8_t ee_Test(void) ;
+[; ;Oled.h: 78: void Initial_LY096BG30(void);
+[; ;Oled.h: 82: void LCD_backlight_init(void);
+[; ;Oled.h: 83: void LCD_On(void);
+[; ;Oled.h: 84: void LCD_Off(void);
+[; ;Oled.h: 86: uint8_t ee_CheckDevice(uint8_t _Address);
+[; ;Oled.h: 88: void delay(unsigned int x);
 "3 ../bmp.h
 [v _BMP1 `Cuc ~T0 @X0 -> 0 `x e ]
 [i _BMP1
@@ -19138,23 +19127,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 80: Initial_LY096BG30();
 "80
 [e ( _Initial_LY096BG30 ..  ]
-[; ;Main.c: 111: while(1)
-"111
+[; ;Main.c: 108: TimerInit();
+"108
+[e ( _TimerInit ..  ]
+[; ;Main.c: 109: while(1)
+"109
 [e :U 280 ]
-[; ;Main.c: 112: {
-"112
+[; ;Main.c: 110: {
+"110
 {
-[; ;Main.c: 117: delay(100);
-"117
+[; ;Main.c: 115: delay(100);
+"115
 [e ( _delay (1 -> -> 100 `i `ui ]
-"124
+"119
 }
 [e :U 279 ]
-"111
+"109
 [e $U 280  ]
 [e :U 281 ]
-[; ;Main.c: 124: }
-[; ;Main.c: 125: }
-"125
+[; ;Main.c: 119: }
+[; ;Main.c: 120: }
+"120
 [e :UE 278 ]
 }

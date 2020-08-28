@@ -8,8 +8,8 @@ KeyType OnOffKey={0},UpKey={0},DownKey={0},ConfirmKey={0},StartInjectKey={0};
 
 unsigned char KeyScanPeriod =0;
 
-//按键初始化函数
-void KEY_Init(void) //IO初始化
+#if 1
+void KEY_Init(void) //
 { 
 	DDRBbits.RB4 	=1;  	
 	DDRDbits.RD4  	=1;			
@@ -297,3 +297,6 @@ void KeyFuction(void)
 
 	}
 }
+
+
+#endif
