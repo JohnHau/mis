@@ -1,6 +1,7 @@
 //#include <p18cxxx.h>
 //#include<pic18.h>  
 #include <xc.h>
+#include<stdint.h>	
 #include "Timer.h"
 //#include "Ad.h"
 #include "Key.h"
@@ -12,11 +13,87 @@ unsigned char LastNeedleFeedback =0;
 unsigned char LastInjectionFeedback =0;
 unsigned char flag =0;
 
+uint16_t mbcnt=0;
 
 //void __interrupt(high_priority) ISR(void)
-void __interrupt(high_priority) ISR(void)
+//void __interrupt(high_priority) ISR(void)
+void __interrupt ISR(void)
 {
-
+    uint8_t temp;
+    
+#if 1
+    if(INTCONbits.RBIF)
+    {
+    
+        
+        if (KEY_WAKE  == 0)
+        {
+             //LCD_On();
+             LCD_Blink();
+        }
+        
+        if (ACTION_BUTTON  == 0)
+        {
+            //buzz();
+             //LCD_Off();
+            LCD_Blink();
+        }
+        
+        temp = PORTB;
+        INTCONbits.RBIF=0;
+        
+        
+ 
+        
+        
+       // buzz();
+    }
+    
+    
+    
+           
+        if(INTCONbits.INT0IF)//LP_BUTTON
+        {   
+            //buzz();
+            //LCD_On();
+             LCD_Blink();
+            INTCONbits.INT0IF = 0;
+        }
+        
+        
+    if (INTCON3bits.INT2IF)
+    {
+      INTCONbits.INT0IF = 0;
+      
+      //buzz();
+      mbcnt++;
+      
+      if(mbcnt == 30000)
+      {
+      
+          STOP_B();
+          ENABLE_BL();
+      }
+      
+      
+      
+    }
+    
+    
+    
+    
+    
+#endif
+    
+    //buzz();
+    
+    
+    
+    
+    
+    
+#if 0
+    
   unsigned char i =0;
 
   if(T0IE && T0IF) 
@@ -233,6 +310,17 @@ void __interrupt(high_priority) ISR(void)
 
   }
     T0IF=0; // 
+    
+    
+#endif
+    
+    
+    
+    
+    
+    
+    
+    
 } 
 
 void TimerInit(void)

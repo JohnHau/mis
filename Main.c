@@ -9,7 +9,7 @@
 #include "Key.h"
 #include "Timer.h"
 #include "Oled.h"
-#include "bmp.h"
+//#include "bmp.h"
 //#include "oledfont.h"
 //#include "Display.h"
 #include "PositionControl.h"
@@ -67,8 +67,12 @@ void main(void)
 { 
 
 	BeepInit();
+    //BeepOn();
+    //while(1);
+    
+    
     LCD_backlight_init();
-    LCD_On();
+    //LCD_On();
     
    //delay(2000);
    //delay(2000);
@@ -78,11 +82,70 @@ void main(void)
     //LCD_Off();
 	MotorDriveInit();
 	//PositionCheckInit();
-	//KEY_Init();
+	KEY_Init();
 
-    Initial_LY096BG30();
+    //Initial_LY096BG30();
    // while(xn<20)
     //LCD_On();
+    //while(1);
+    
+#if 0
+    //injector
+    ENABLE_BH();
+    FORWARD_RUN_B();        
+#endif
+    
+    
+    
+    while(1)
+    {
+        
+        
+        if(KEY_UP == 0)//=============
+        {
+            //buzz();
+            LCD_Blink();
+        }
+        if(KEY_DOWN == 0)
+        {
+            //buzz();
+        }
+        if(KEY_V == 0)
+        {
+            //buzz();
+        }
+        if(KEY_WAKE == 0)
+      
+       
+        //if(KEY_WAKE == 0 && KEY_UP == 1 && KEY_V == 1 && KEY_DOWN == 1)//==============
+        //if((PORTB &0x10) == 0)
+        //    if((LATB &0x10) == 0)
+        //if(ACTION_BUTTON == 0)
+        //if(LP_BUTTON == 0)
+        {
+                //LATB = 0xff;
+            //PORTB =0xff;
+            //delay(100);
+             //if(KEY_WAKE == 0 )
+             {
+                buzz();
+               // LCD_Blink();
+               // break;
+             }
+
+        }
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 #if 0
     // pusher
@@ -108,7 +171,7 @@ void main(void)
 #endif       
     
     
- #if 1
+ #if 0
     //injector
     ENABLE_BH();
     FORWARD_RUN_B();        
@@ -132,7 +195,7 @@ void main(void)
     
     
     
-    
+
     
             
             

@@ -481,11 +481,21 @@ void LCD_Off(void)
 {
 	//PORTBbits.RB1 =0;	//colse	
     //PORTEbits.RE0 =0;
+    LATEbits.LE0 =0;
     
-     LATEbits.LE0 =0;
+ 
 }
 
-
+void LCD_Blink(void)
+{
+	//PORTBbits.RB1 =0;	//colse	
+    //PORTEbits.RE0 =0;
+       
+     LATEbits.LE0 =1;
+     delay(50);
+     LATEbits.LE0 =0;
+     //delay(50);
+}
 
 
 uint8_t setYX_LCD(uint8_t py,uint8_t px)

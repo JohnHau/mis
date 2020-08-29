@@ -3763,11 +3763,11 @@ extern void BeepOn(void);
 extern void BeepOff(void);
 void buzz(void);
 
-# 4 "../Beep.c"
+# 5 "../Beep.c"
 void BeepInit(void)
 {
 
-# 13
+# 14
 TRISEbits.RE2 =0;
 LATEbits.LE2 =0;
 
@@ -3804,7 +3804,7 @@ for(i=0;i<200;i++)
 for(j=0;j<100;j++);
 
 LATEbits.LE2 =0;
-for(i=0;i<200;i++)
-for(j=0;j<100;j++);
+
+
 
 }

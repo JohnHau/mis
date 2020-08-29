@@ -3757,7 +3757,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "../Key.h"
+# 54 "../Key.h"
 extern unsigned char KeyScanPeriod;
 
 typedef struct
@@ -3814,46 +3814,21 @@ unsigned char KeyScanPeriod =0;
 
 void KEY_Init(void)
 {
-DDRBbits.RB4 =1;
-DDRDbits.RD4 =1;
-DDRDbits.RD7 =1;
-DDRBbits.RB3 =1;
-DDRBbits.RB5 =1;
 
-OnOffKey.NewValue =1;
-OnOffKey.OldValue =1;
-OnOffKey.SendValue =1;
-OnOffKey.SendValueChangeFlag =0;
-OnOffKey.FiterTimes =3;
-OnOffKey.FiterTimesCount =OnOffKey.FiterTimes;
+# 24
+TRISBbits.RB3 =1;
+TRISBbits.RB4 =1;
 
-UpKey.NewValue =1;
-UpKey.OldValue =1;
-UpKey.SendValue =1;
-UpKey.SendValueChangeFlag =0;
-UpKey.FiterTimes =3;
-UpKey.FiterTimesCount =UpKey.FiterTimes;
 
-DownKey.NewValue =1;
-DownKey.OldValue =1;
-DownKey.SendValue =1;
-DownKey.SendValueChangeFlag =0;
-DownKey.FiterTimes =3;
-DownKey.FiterTimesCount =DownKey.FiterTimes;
 
-ConfirmKey.NewValue =1;
-ConfirmKey.OldValue =1;
-ConfirmKey.SendValue =1;
-ConfirmKey.SendValueChangeFlag =0;
-ConfirmKey.FiterTimes =3;
-ConfirmKey.FiterTimesCount =ConfirmKey.FiterTimes;
+TRISBbits.RB5 =1;
 
-StartInjectKey.NewValue =1;
-StartInjectKey.OldValue =1;
-StartInjectKey.SendValue =1;
-StartInjectKey.SendValueChangeFlag =0;
-StartInjectKey.FiterTimes =3;
-StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
+TRISDbits.RD6 =1;
+TRISDbits.RD7 =1;
+
+TRISBbits.RB0 =1;
+
+# 123
 }
 
 void KEY_Scan(void)

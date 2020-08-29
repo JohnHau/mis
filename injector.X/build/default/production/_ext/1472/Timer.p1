@@ -1,13 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T46 __interrupt high_priority  ]
-"7817 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-[v _T0IE `Vb ~T0 @X0 0 e@32661 ]
-"7819
-[v _T0IF `Vb ~T0 @X0 0 e@32658 ]
-"14 ../Key.h
-[v _KeyScanPeriod `uc ~T0 @X0 0 e ]
-"273 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+"6591 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6601
+[s S271 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S271 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6611
+[s S272 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S272 . . GIEL GIEH ]
+"6590
+[u S269 `S270 1 `S271 1 `S272 1 ]
+[n S269 . . . . ]
+"6617
+[v _INTCONbits `VS269 ~T0 @X0 0 e@4082 ]
+"273
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S12 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
 "283
@@ -27,107 +33,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S11 . . . . . . ]
 "311
 [v _PORTBbits `VS11 ~T0 @X0 0 e@3969 ]
-"67 ../PositionControl.h
-[v _NeedleRunDir `uc ~T0 @X0 0 e ]
-"61
-[v _NeedleMotorCurrentPosition `Vi ~T0 @X0 0 e ]
-"632 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-[s S24 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S24 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"642
-[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S25 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
-"652
-[s S26 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . . P1B P1C P1D ]
-"658
-[s S27 :7 `uc 1 :1 `uc 1 ]
-[n S27 . . SS2 ]
-"631
-[u S23 `S24 1 `S25 1 `S26 1 `S27 1 ]
-[n S23 . . . . . ]
-"663
-[v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
-"60 ../PositionControl.h
-[v _InjectionMotorCurrentPosition `Vui ~T0 @X0 0 e ]
-"68
-[v _StartWorkFlag `uc ~T0 @X0 0 e ]
-[v _ContinueWorkState `uc ~T0 @X0 0 e ]
-"451 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S18 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"461
-[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S19 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
-"471
-[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S20 . T13CKI CCP2 . SCL SDA . CK DT ]
-"481
-[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S21 . T1CKI . P1A ]
-"486
-[s S22 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S22 . . PA2 PA1 ]
-"450
-[u S17 `S18 1 `S19 1 `S20 1 `S21 1 `S22 1 ]
-[n S17 . . . . . . ]
-"492
-[v _PORTCbits `VS17 ~T0 @X0 0 e@3970 ]
-"61 ../PositionControl.h
-[v _NeedleMotorAimPosition `Vi ~T0 @X0 0 e ]
-"773 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S29 . RE0 RE1 RE2 RE3 ]
-"779
-[s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S30 . RD WR CS MCLR ]
-"785
-[s S31 :1 `uc 1 ]
-[n S31 . NOT_RD ]
-"788
-[s S32 :1 `uc 1 :1 `uc 1 ]
-[n S32 . . NOT_WR ]
-"792
-[s S33 :2 `uc 1 :1 `uc 1 ]
-[n S33 . . NOT_CS ]
-"796
-[s S34 :3 `uc 1 :1 `uc 1 ]
-[n S34 . . NOT_MCLR ]
-"800
-[s S35 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S35 . nRD nWR nCS nMCLR ]
-"806
-[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S36 . AN5 AN6 AN7 VPP ]
-"812
-[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S37 . PD2 PC2 CCP10 CCP9E ]
-"818
-[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S38 . RDE WRE PB2 PC3E ]
-"772
-[u S28 `S29 1 `S30 1 `S31 1 `S32 1 `S33 1 `S34 1 `S35 1 `S36 1 `S37 1 `S38 1 ]
-[n S28 . . . . . . . . . . . ]
-"825
-[v _PORTEbits `VS28 ~T0 @X0 0 e@3972 ]
-"60 ../PositionControl.h
-[v _InjectionMotorAimPosition `Vui ~T0 @X0 0 e ]
-"62
-[v _NeedleInitPosition `Vui ~T0 @X0 0 e ]
-"66
-[v _ContinueWorkTimeCount `ui ~T0 @X0 0 e ]
-"65
-[v _ContinueWorkTimePeriod `ui ~T0 @X0 0 e ]
-"69
-[v _InjectionStepMotorStepPulseNum `ui ~T0 @X0 0 e ]
-"50
-[s S277 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S277 . InjectMode InjectType NeedleLength InjectDepth Variable ]
-"58
-[v _CurrentWorkPara `S277 ~T0 @X0 0 e ]
-"63
-[v _NeedleMotorFindZeroPosFlag `uc ~T0 @X0 0 e ]
-"7815 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+"32 ../Timer.c
+[v _LCD_Blink `(i ~T0 @X0 0 ef ]
+"267 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"6431
+[s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S263 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
+"6441
+[s S264 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S264 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
+"6430
+[u S262 `S263 1 `S264 1 ]
+[n S262 . . . ]
+"6452
+[v _INTCON3bits `VS262 ~T0 @X0 0 e@4080 ]
+"1308
+[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S49 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"1318
+[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"1307
+[u S48 `S49 1 `S50 1 ]
+[n S48 . . . ]
+"1329
+[v _LATDbits `VS48 ~T0 @X0 0 e@3980 ]
+"7815
 [v _T0CS `Vb ~T0 @X0 0 e@32429 ]
 "7555
 [v _PSA `Vb ~T0 @X0 0 e@32427 ]
@@ -139,6 +71,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T0PS0 `Vb ~T0 @X0 0 e@32424 ]
 "7811
 [v _T08BIT `Vb ~T0 @X0 0 e@32430 ]
+"7819
+[v _T0IF `Vb ~T0 @X0 0 e@32658 ]
+"7817
+[v _T0IE `Vb ~T0 @X0 0 e@32661 ]
 "7153
 [v _GIE `Vb ~T0 @X0 0 e@32663 ]
 "6176
@@ -2921,21 +2857,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer.h: 5: extern void TimerInit(void);
-[; ;Key.h: 14: extern unsigned char KeyScanPeriod;
-[; ;Key.h: 16: typedef struct
-[; ;Key.h: 17: {
-[; ;Key.h: 18: unsigned char NewValue;
-[; ;Key.h: 19: unsigned char OldValue;
-[; ;Key.h: 20: unsigned char SendValue;
-[; ;Key.h: 21: unsigned char SendValueChangeFlag;
-[; ;Key.h: 22: unsigned char FiterTimesCount;
-[; ;Key.h: 23: unsigned char FiterTimes;
-[; ;Key.h: 25: }KeyType;
-[; ;Key.h: 27: extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
-[; ;Key.h: 29: extern void KEY_Init(void);
-[; ;Key.h: 30: extern void KEY_Scan(void);
-[; ;Key.h: 31: extern void KeyFuction(void);
+[; ;Key.h: 54: extern unsigned char KeyScanPeriod;
+[; ;Key.h: 56: typedef struct
+[; ;Key.h: 57: {
+[; ;Key.h: 58: unsigned char NewValue;
+[; ;Key.h: 59: unsigned char OldValue;
+[; ;Key.h: 60: unsigned char SendValue;
+[; ;Key.h: 61: unsigned char SendValueChangeFlag;
+[; ;Key.h: 62: unsigned char FiterTimesCount;
+[; ;Key.h: 63: unsigned char FiterTimes;
+[; ;Key.h: 65: }KeyType;
+[; ;Key.h: 67: extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
+[; ;Key.h: 69: extern void KEY_Init(void);
+[; ;Key.h: 70: extern void KEY_Scan(void);
+[; ;Key.h: 71: extern void KeyFuction(void);
 [; ;PositionControl.h: 49: typedef struct
 [; ;PositionControl.h: 50: {
 [; ;PositionControl.h: 51: unsigned char InjectMode;
@@ -2973,625 +2937,180 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.h: 116: extern void InjectionMotorReverseRun(void);
 [; ;MotorDrive.h: 117: extern void InjectionMotorFastStop(void);
 [; ;MotorDrive.h: 118: extern void InjectionMotorFreeStop(void);
-"11 ../Timer.c
+"12 ../Timer.c
 [v _LastNeedleFeedback `uc ~T0 @X0 1 e ]
 [i _LastNeedleFeedback
 -> -> 0 `i `uc
 ]
-[; ;Timer.c: 11: unsigned char LastNeedleFeedback =0;
-"12
+[; ;Timer.c: 12: unsigned char LastNeedleFeedback =0;
+"13
 [v _LastInjectionFeedback `uc ~T0 @X0 1 e ]
 [i _LastInjectionFeedback
 -> -> 0 `i `uc
 ]
-[; ;Timer.c: 12: unsigned char LastInjectionFeedback =0;
-"13
+[; ;Timer.c: 13: unsigned char LastInjectionFeedback =0;
+"14
 [v _flag `uc ~T0 @X0 1 e ]
 [i _flag
 -> -> 0 `i `uc
 ]
-[; ;Timer.c: 13: unsigned char flag =0;
-"17
-[v _ISR `(v ~T46 @X0 1 ef ]
-"18
+[; ;Timer.c: 14: unsigned char flag =0;
+"16
+[v _mbcnt `ui ~T0 @X0 1 e ]
+[i _mbcnt
+-> -> 0 `i `ui
+]
+[; ;Timer.c: 16: uint16_t mbcnt=0;
+[v F3111 `(v ~T0 @X0 1 tf ]
+"20
+[v _ISR `IF3111 ~T0 @X0 1 e ]
+"21
 {
-[; ;Timer.c: 17: void __interrupt(high_priority) ISR(void)
-[; ;Timer.c: 18: {
+[; ;Timer.c: 20: void __interrupt ISR(void)
+[; ;Timer.c: 21: {
 [e :U _ISR ]
 [f ]
-"20
-[v _i `uc ~T0 @X0 1 a ]
-[; ;Timer.c: 20: unsigned char i =0;
-[e = _i -> -> 0 `i `uc ]
-[; ;Timer.c: 22: if(T0IE && T0IF)
 "22
-[e $ ! && _T0IE _T0IF 279  ]
-[; ;Timer.c: 23: {
-"23
+[v _temp `uc ~T0 @X0 1 a ]
+[; ;Timer.c: 22: uint8_t temp;
+[; ;Timer.c: 25: if(INTCONbits.RBIF)
+"25
+[e $ ! != -> . . _INTCONbits 0 0 `i -> -> -> 0 `i `Vuc `i 279  ]
+[; ;Timer.c: 26: {
+"26
 {
-[; ;Timer.c: 30: if(KeyScanPeriod)
+[; ;Timer.c: 29: if (PORTBbits.RB4 == 0)
+"29
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 280  ]
+[; ;Timer.c: 30: {
 "30
-[e $ ! != -> _KeyScanPeriod `i -> -> -> 0 `i `uc `i 280  ]
-[; ;Timer.c: 31: {
-"31
 {
-[; ;Timer.c: 32: KeyScanPeriod--;
+[; ;Timer.c: 32: LCD_Blink();
 "32
-[e -- _KeyScanPeriod -> -> 1 `i `uc ]
+[e ( _LCD_Blink ..  ]
 "33
 }
 [e :U 280 ]
 [; ;Timer.c: 33: }
-[; ;Timer.c: 35: i =(PORTBbits.RB2);
+[; ;Timer.c: 35: if (PORTBbits.RB5 == 0)
 "35
-[e = _i . . _PORTBbits 0 2 ]
-[; ;Timer.c: 36: if(LastNeedleFeedback != i)
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 281  ]
+[; ;Timer.c: 36: {
 "36
-[e $ ! != -> _LastNeedleFeedback `i -> _i `i 281  ]
-[; ;Timer.c: 37: {
-"37
 {
-[; ;Timer.c: 38: if(NeedleRunDir)
-"38
-[e $ ! != -> _NeedleRunDir `i -> -> -> 0 `i `uc `i 282  ]
-[; ;Timer.c: 39: {
+[; ;Timer.c: 39: LCD_Blink();
 "39
-{
-[; ;Timer.c: 40: NeedleMotorCurrentPosition--;
+[e ( _LCD_Blink ..  ]
 "40
-[e -- _NeedleMotorCurrentPosition -> 1 `i ]
-"41
-}
-[; ;Timer.c: 41: }
-[e $U 283  ]
-"42
-[e :U 282 ]
-[; ;Timer.c: 42: else
-[; ;Timer.c: 43: {
-"43
-{
-[; ;Timer.c: 44: NeedleMotorCurrentPosition++;
-"44
-[e ++ _NeedleMotorCurrentPosition -> 1 `i ]
-"45
-}
-[e :U 283 ]
-[; ;Timer.c: 45: }
-[; ;Timer.c: 46: LastNeedleFeedback = i;
-"46
-[e = _LastNeedleFeedback _i ]
-"47
 }
 [e :U 281 ]
-[; ;Timer.c: 47: }
-[; ;Timer.c: 49: i =(PORTDbits.RD1);
-"49
-[e = _i . . _PORTDbits 0 1 ]
-[; ;Timer.c: 50: if(LastInjectionFeedback != i)
+[; ;Timer.c: 40: }
+[; ;Timer.c: 42: temp = PORTB;
+"42
+[e = _temp _PORTB ]
+[; ;Timer.c: 43: INTCONbits.RBIF=0;
+"43
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
 "50
-[e $ ! != -> _LastInjectionFeedback `i -> _i `i 284  ]
-[; ;Timer.c: 51: {
-"51
-{
-[; ;Timer.c: 52: InjectionMotorCurrentPosition++;
-"52
-[e ++ _InjectionMotorCurrentPosition -> -> 1 `i `ui ]
-[; ;Timer.c: 53: LastInjectionFeedback = i;
-"53
-[e = _LastInjectionFeedback _i ]
-"54
-}
-[e :U 284 ]
-[; ;Timer.c: 54: }
-[; ;Timer.c: 57: if(StartWorkFlag ==1)
-"57
-[e $ ! == -> _StartWorkFlag `i -> 1 `i 285  ]
-[; ;Timer.c: 58: {
-"58
-{
-[; ;Timer.c: 59: switch(CurrentWorkPara.InjectMode)
-"59
-[e $U 287  ]
-[; ;Timer.c: 60: {
-"60
-{
-[; ;Timer.c: 61: case 0:
-"61
-[e :U 288 ]
-[; ;Timer.c: 63: if(ContinueWorkState ==0)
-"63
-[e $ ! == -> _ContinueWorkState `i -> 0 `i 289  ]
-[; ;Timer.c: 64: {
-"64
-{
-[; ;Timer.c: 65: NeedleRunDir =0;
-"65
-[e = _NeedleRunDir -> -> 0 `i `uc ]
-[; ;Timer.c: 67: (PORTCbits.RC2 =0);
-"67
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-[; ;Timer.c: 68: (PORTDbits.RD2 =1);
-"68
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 69: (PORTCbits.RC1 =1);
-"69
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 70: if((NeedleMotorCurrentPosition > NeedleMotorAimPosition) ||(NeedleMotorCurrentPosition == NeedleMotorAimPosition))
-"70
-[e $ ! || > _NeedleMotorCurrentPosition _NeedleMotorAimPosition == _NeedleMotorCurrentPosition _NeedleMotorAimPosition 290  ]
-[; ;Timer.c: 71: {
-"71
-{
-[; ;Timer.c: 73: (PORTCbits.RC2 =1);
-"73
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 74: (PORTDbits.RD2 =1);
-"74
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 75: (PORTCbits.RC1 =1);
-"75
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 77: ContinueWorkState =1;
-"77
-[e = _ContinueWorkState -> -> 1 `i `uc ]
-"78
-}
-[e :U 290 ]
-"79
-}
-[; ;Timer.c: 78: }
-[; ;Timer.c: 79: }
-[e $U 291  ]
-"80
-[e :U 289 ]
-[; ;Timer.c: 80: else if(ContinueWorkState == 1)
-[e $ ! == -> _ContinueWorkState `i -> 1 `i 292  ]
-[; ;Timer.c: 81: {
-"81
-{
-[; ;Timer.c: 83: (PORTEbits.RE1 =1);
-"83
-[e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 84: (PORTEbits.RE2 =0);
-"84
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[; ;Timer.c: 85: (PORTEbits.RE0 =1);
-"85
-[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
-[; ;Timer.c: 87: if((InjectionMotorCurrentPosition > InjectionMotorAimPosition)||(InjectionMotorCurrentPosition == InjectionMotorAimPosition))
-"87
-[e $ ! || > _InjectionMotorCurrentPosition _InjectionMotorAimPosition == _InjectionMotorCurrentPosition _InjectionMotorAimPosition 293  ]
-[; ;Timer.c: 88: {
-"88
-{
-[; ;Timer.c: 90: (PORTEbits.RE1 =1);
-"90
-[e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 91: (PORTEbits.RE2 =1);
-"91
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 92: (PORTEbits.RE0 =1);
-"92
-[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
-[; ;Timer.c: 94: ContinueWorkState =2;
-"94
-[e = _ContinueWorkState -> -> 2 `i `uc ]
-"95
-}
-[e :U 293 ]
-"96
-}
-[; ;Timer.c: 95: }
-[; ;Timer.c: 96: }
-[e $U 294  ]
-"97
-[e :U 292 ]
-[; ;Timer.c: 97: else if(ContinueWorkState == 2)
-[e $ ! == -> _ContinueWorkState `i -> 2 `i 295  ]
-[; ;Timer.c: 98: {
-"98
-{
-[; ;Timer.c: 99: NeedleRunDir =1;
-"99
-[e = _NeedleRunDir -> -> 1 `i `uc ]
-[; ;Timer.c: 101: if((NeedleMotorCurrentPosition < NeedleInitPosition)||(NeedleMotorCurrentPosition == NeedleInitPosition))
-"101
-[e $ ! || < -> _NeedleMotorCurrentPosition `ui _NeedleInitPosition == -> _NeedleMotorCurrentPosition `ui _NeedleInitPosition 296  ]
-[; ;Timer.c: 102: {
-"102
-{
-[; ;Timer.c: 104: (PORTCbits.RC2 =1);
-"104
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 105: (PORTDbits.RD2 =1);
-"105
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 106: (PORTCbits.RC1 =1);
-"106
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 108: ContinueWorkState =3;
-"108
-[e = _ContinueWorkState -> -> 3 `i `uc ]
-"109
-}
-[; ;Timer.c: 109: }
-[e $U 297  ]
-"110
-[e :U 296 ]
-[; ;Timer.c: 110: else
-[; ;Timer.c: 111: {
-"111
-{
-[; ;Timer.c: 113: (PORTCbits.RC2 =1);
-"113
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 114: (PORTDbits.RD2 =0);
-"114
-[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-[; ;Timer.c: 115: (PORTCbits.RC1 =1);
-"115
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"117
-}
-[e :U 297 ]
-"118
-}
-[; ;Timer.c: 117: }
-[; ;Timer.c: 118: }
-[e $U 298  ]
-"119
-[e :U 295 ]
-[; ;Timer.c: 119: else if(ContinueWorkState ==3)
-[e $ ! == -> _ContinueWorkState `i -> 3 `i 299  ]
-[; ;Timer.c: 120: {
-"120
-{
-[; ;Timer.c: 121: ContinueWorkState =3;
-"121
-[e = _ContinueWorkState -> -> 3 `i `uc ]
-[; ;Timer.c: 122: if(!ContinueWorkTimeCount)
-"122
-[e $ ! ! != _ContinueWorkTimeCount -> -> 0 `i `ui 300  ]
-[; ;Timer.c: 123: {
-"123
-{
-[; ;Timer.c: 124: ContinueWorkTimeCount =ContinueWorkTimePeriod;
-"124
-[e = _ContinueWorkTimeCount _ContinueWorkTimePeriod ]
-[; ;Timer.c: 125: ContinueWorkState =0;
-"125
-[e = _ContinueWorkState -> -> 0 `i `uc ]
-[; ;Timer.c: 126: InjectionMotorAimPosition =InjectionMotorCurrentPosition + InjectionStepMotorStepPulseNum;
-"126
-[e = _InjectionMotorAimPosition + _InjectionMotorCurrentPosition _InjectionStepMotorStepPulseNum ]
-"127
-}
-[e :U 300 ]
-"128
-}
-[; ;Timer.c: 127: }
-[; ;Timer.c: 128: }
-[e $U 301  ]
-"129
-[e :U 299 ]
-[; ;Timer.c: 129: else
-[; ;Timer.c: 130: {
-"130
-{
-"132
-}
-[e :U 301 ]
-[e :U 298 ]
-[e :U 294 ]
-[e :U 291 ]
-[; ;Timer.c: 132: }
-[; ;Timer.c: 133: if(ContinueWorkTimeCount)
-"133
-[e $ ! != _ContinueWorkTimeCount -> -> 0 `i `ui 302  ]
-[; ;Timer.c: 134: {
-"134
-{
-[; ;Timer.c: 135: ContinueWorkTimeCount--;
-"135
-[e -- _ContinueWorkTimeCount -> -> 1 `i `ui ]
-"136
-}
-[e :U 302 ]
-[; ;Timer.c: 136: }
-[; ;Timer.c: 138: break;
-"138
-[e $U 286  ]
-[; ;Timer.c: 140: case 1:
-"140
-[e :U 303 ]
-[; ;Timer.c: 142: break;
-"142
-[e $U 286  ]
-[; ;Timer.c: 144: default:
-"144
-[e :U 304 ]
-[; ;Timer.c: 146: break;
-"146
-[e $U 286  ]
-"148
-}
-[; ;Timer.c: 148: }
-[e $U 286  ]
-"59
-[e :U 287 ]
-[e [\ . _CurrentWorkPara 0 , $ -> -> 0 `i `uc 288
- , $ -> -> 1 `i `uc 303
- 304 ]
-"148
-[e :U 286 ]
-"149
-}
-[; ;Timer.c: 149: }
-[e $U 305  ]
-"150
-[e :U 285 ]
-[; ;Timer.c: 150: else
-[; ;Timer.c: 151: {
-"151
-{
-[; ;Timer.c: 153: if(!NeedleMotorFindZeroPosFlag)
-"153
-[e $ ! ! != -> _NeedleMotorFindZeroPosFlag `i -> -> -> 0 `i `uc `i 306  ]
-[; ;Timer.c: 154: {
-"154
-{
-[; ;Timer.c: 155: if(PORTBbits.RB0 ==0 )
-"155
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 307  ]
-[; ;Timer.c: 156: {
-"156
-{
-[; ;Timer.c: 158: {
-"158
-{
-[; ;Timer.c: 160: NeedleMotorCurrentPosition =0;
-"160
-[e = _NeedleMotorCurrentPosition -> 0 `i ]
-[; ;Timer.c: 161: flag =1;
-"161
-[e = _flag -> -> 1 `i `uc ]
-[; ;Timer.c: 164: (PORTCbits.RC2 =0);
-"164
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-[; ;Timer.c: 165: (PORTDbits.RD2 =1);
-"165
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 166: (PORTCbits.RC1 =1);
-"166
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 168: if(CurrentWorkPara.NeedleLength ==4)
-"168
-[e $ ! == -> . _CurrentWorkPara 2 `i -> 4 `i 308  ]
-[; ;Timer.c: 169: {
-"169
-{
-[; ;Timer.c: 170: NeedleInitPosition =491;
-"170
-[e = _NeedleInitPosition -> -> 491 `i `ui ]
-[; ;Timer.c: 171: NeedleMotorAimPosition =NeedleInitPosition;
-"171
-[e = _NeedleMotorAimPosition -> _NeedleInitPosition `i ]
-"172
-}
-[; ;Timer.c: 172: }
-[e $U 309  ]
-"173
-[e :U 308 ]
-[; ;Timer.c: 173: else if(CurrentWorkPara.NeedleLength ==6)
-[e $ ! == -> . _CurrentWorkPara 2 `i -> 6 `i 310  ]
-[; ;Timer.c: 174: {
-"174
-{
-[; ;Timer.c: 175: NeedleInitPosition =408;
-"175
-[e = _NeedleInitPosition -> -> 408 `i `ui ]
-[; ;Timer.c: 176: NeedleMotorAimPosition =NeedleInitPosition;
-"176
-[e = _NeedleMotorAimPosition -> _NeedleInitPosition `i ]
-"177
-}
-[; ;Timer.c: 177: }
-[e $U 311  ]
-"178
-[e :U 310 ]
-[; ;Timer.c: 178: else if(CurrentWorkPara.NeedleLength ==13)
-[e $ ! == -> . _CurrentWorkPara 2 `i -> 13 `i 312  ]
-[; ;Timer.c: 179: {
-"179
-{
-[; ;Timer.c: 180: NeedleInitPosition =116;
-"180
-[e = _NeedleInitPosition -> -> 116 `i `ui ]
-[; ;Timer.c: 181: NeedleMotorAimPosition =NeedleInitPosition;
-"181
-[e = _NeedleMotorAimPosition -> _NeedleInitPosition `i ]
-"182
-}
-[; ;Timer.c: 182: }
-[e $U 313  ]
-"183
-[e :U 312 ]
-[; ;Timer.c: 183: else
-[; ;Timer.c: 184: {
-"184
-{
-[; ;Timer.c: 185: NeedleInitPosition =116;
-"185
-[e = _NeedleInitPosition -> -> 116 `i `ui ]
-[; ;Timer.c: 186: NeedleMotorAimPosition =NeedleInitPosition;
-"186
-[e = _NeedleMotorAimPosition -> _NeedleInitPosition `i ]
-"187
-}
-[e :U 313 ]
-[e :U 311 ]
-[e :U 309 ]
-"189
-}
-"191
-}
-[; ;Timer.c: 187: }
-[; ;Timer.c: 189: }
-[; ;Timer.c: 191: }
-[e $U 314  ]
-"192
-[e :U 307 ]
-[; ;Timer.c: 192: else
-[; ;Timer.c: 193: {
-"193
-{
-[; ;Timer.c: 194: if(flag ==1)
-"194
-[e $ ! == -> _flag `i -> 1 `i 315  ]
-[; ;Timer.c: 195: {
-"195
-{
-[; ;Timer.c: 196: if((NeedleMotorCurrentPosition > NeedleMotorAimPosition)|| (NeedleMotorCurrentPosition == NeedleMotorAimPosition))
-"196
-[e $ ! || > _NeedleMotorCurrentPosition _NeedleMotorAimPosition == _NeedleMotorCurrentPosition _NeedleMotorAimPosition 316  ]
-[; ;Timer.c: 197: {
-"197
-{
-[; ;Timer.c: 199: (PORTCbits.RC2 =1);
-"199
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 200: (PORTDbits.RD2 =1);
-"200
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 201: (PORTCbits.RC1 =1);
-"201
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 202: NeedleMotorFindZeroPosFlag =1;
-"202
-[e = _NeedleMotorFindZeroPosFlag -> -> 1 `i `uc ]
-[; ;Timer.c: 203: flag =0;
-"203
-[e = _flag -> -> 0 `i `uc ]
-"204
-}
-[e :U 316 ]
-"205
-}
-[; ;Timer.c: 204: }
-[; ;Timer.c: 205: }
-[e $U 317  ]
-"206
-[e :U 315 ]
-[; ;Timer.c: 206: else
-[; ;Timer.c: 207: {
-"207
-{
-[; ;Timer.c: 209: (PORTCbits.RC2 =1);
-"209
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 210: (PORTDbits.RD2 =0);
-"210
-[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-[; ;Timer.c: 211: (PORTCbits.RC1 =1);
-"211
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 213: flag =0;
-"213
-[e = _flag -> -> 0 `i `uc ]
-"214
-}
-[e :U 317 ]
-"216
-}
-[e :U 314 ]
-"217
-}
-[; ;Timer.c: 214: }
-[; ;Timer.c: 216: }
-[; ;Timer.c: 217: }
-[e $U 318  ]
-"218
-[e :U 306 ]
-[; ;Timer.c: 218: else
-[; ;Timer.c: 219: {
-"219
-{
-[; ;Timer.c: 221: (PORTCbits.RC2 =1);
-"221
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 222: (PORTDbits.RD2 =1);
-"222
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 223: (PORTCbits.RC1 =1);
-"223
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 225: (PORTEbits.RE1 =1);
-"225
-[e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
-[; ;Timer.c: 226: (PORTEbits.RE2 =1);
-"226
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;Timer.c: 227: (PORTEbits.RE0 =1);
-"227
-[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
-"228
-}
-[e :U 318 ]
-"230
-}
-[e :U 305 ]
-"234
 }
 [e :U 279 ]
-[; ;Timer.c: 228: }
-[; ;Timer.c: 230: }
-[; ;Timer.c: 234: }
-[; ;Timer.c: 235: T0IF=0;
-"235
-[e = _T0IF -> -> 0 `i `b ]
-[; ;Timer.c: 236: }
-"236
+[; ;Timer.c: 50: }
+[; ;Timer.c: 55: if(INTCONbits.INT0IF)
+"55
+[e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 282  ]
+[; ;Timer.c: 56: {
+"56
+{
+[; ;Timer.c: 59: LCD_Blink();
+"59
+[e ( _LCD_Blink ..  ]
+[; ;Timer.c: 60: INTCONbits.INT0IF = 0;
+"60
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"61
+}
+[e :U 282 ]
+[; ;Timer.c: 61: }
+[; ;Timer.c: 64: if (INTCON3bits.INT2IF)
+"64
+[e $ ! != -> . . _INTCON3bits 0 1 `i -> -> -> 0 `i `Vuc `i 283  ]
+[; ;Timer.c: 65: {
+"65
+{
+[; ;Timer.c: 66: INTCONbits.INT0IF = 0;
+"66
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;Timer.c: 69: mbcnt++;
+"69
+[e ++ _mbcnt -> -> 1 `i `ui ]
+[; ;Timer.c: 71: if(mbcnt == 30000)
+"71
+[e $ ! == _mbcnt -> -> 30000 `i `ui 284  ]
+[; ;Timer.c: 72: {
+"72
+{
+[; ;Timer.c: 74: do{LATDbits.LD2 =0;LATDbits.LD3 =0; }while(0);
+"74
+[e :U 287 ]
+{
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
+}
+[e :U 286 ]
+[; ;Timer.c: 75: LATDbits.LD4 =0;
+"75
+[e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
+"76
+}
+[e :U 284 ]
+"80
+}
+[e :U 283 ]
+[; ;Timer.c: 76: }
+[; ;Timer.c: 80: }
+[; ;Timer.c: 324: }
+"324
 [e :UE 278 ]
 }
-"238
+"326
 [v _TimerInit `(v ~T0 @X0 1 ef ]
-"239
+"327
 {
-[; ;Timer.c: 238: void TimerInit(void)
-[; ;Timer.c: 239: {
+[; ;Timer.c: 326: void TimerInit(void)
+[; ;Timer.c: 327: {
 [e :U _TimerInit ]
 [f ]
-[; ;Timer.c: 240: T0CS=0;
-"240
+[; ;Timer.c: 328: T0CS=0;
+"328
 [e = _T0CS -> -> 0 `i `b ]
-[; ;Timer.c: 241: PSA=0;
-"241
+[; ;Timer.c: 329: PSA=0;
+"329
 [e = _PSA -> -> 0 `i `b ]
-[; ;Timer.c: 242: T0PS2=0;
-"242
+[; ;Timer.c: 330: T0PS2=0;
+"330
 [e = _T0PS2 -> -> 0 `i `b ]
-[; ;Timer.c: 243: T0PS1=0;
-"243
+[; ;Timer.c: 331: T0PS1=0;
+"331
 [e = _T0PS1 -> -> 0 `i `b ]
-[; ;Timer.c: 244: T0PS0=0;
-"244
+[; ;Timer.c: 332: T0PS0=0;
+"332
 [e = _T0PS0 -> -> 0 `i `b ]
-[; ;Timer.c: 245: T08BIT =1;
-"245
+[; ;Timer.c: 333: T08BIT =1;
+"333
 [e = _T08BIT -> -> 1 `i `b ]
-[; ;Timer.c: 246: T0IF=0;
-"246
+[; ;Timer.c: 334: T0IF=0;
+"334
 [e = _T0IF -> -> 0 `i `b ]
-[; ;Timer.c: 247: T0IE=1;
-"247
+[; ;Timer.c: 335: T0IE=1;
+"335
 [e = _T0IE -> -> 1 `i `b ]
-[; ;Timer.c: 248: GIE=1;
-"248
+[; ;Timer.c: 336: GIE=1;
+"336
 [e = _GIE -> -> 1 `i `b ]
-[; ;Timer.c: 249: TMR0=0;
-"249
+[; ;Timer.c: 337: TMR0=0;
+"337
 [e = _TMR0 -> -> 0 `i `us ]
-[; ;Timer.c: 250: }
-"250
-[e :UE 319 ]
+[; ;Timer.c: 338: }
+"338
+[e :UE 288 ]
 }

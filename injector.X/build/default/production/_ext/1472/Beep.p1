@@ -2803,78 +2803,78 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Beep.h: 5: extern void BeepOn(void);
 [; ;Beep.h: 6: extern void BeepOff(void);
 [; ;Beep.h: 7: void buzz(void);
-"4 ../Beep.c
+"5 ../Beep.c
 [v _BeepInit `(v ~T0 @X0 1 ef ]
-"5
+"6
 {
-[; ;Beep.c: 4: void BeepInit(void)
-[; ;Beep.c: 5: {
+[; ;Beep.c: 5: void BeepInit(void)
+[; ;Beep.c: 6: {
 [e :U _BeepInit ]
 [f ]
-[; ;Beep.c: 13: TRISEbits.RE2 =0;
-"13
-[e = . . _TRISEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 14: LATEbits.LE2 =0;
+[; ;Beep.c: 14: TRISEbits.RE2 =0;
 "14
+[e = . . _TRISEbits 1 2 -> -> 0 `i `uc ]
+[; ;Beep.c: 15: LATEbits.LE2 =0;
+"15
 [e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 17: }
-"17
+[; ;Beep.c: 18: }
+"18
 [e :UE 276 ]
 }
-"18
-[v _BeepOn `(v ~T0 @X0 1 ef ]
 "19
+[v _BeepOn `(v ~T0 @X0 1 ef ]
+"20
 {
-[; ;Beep.c: 18: void BeepOn(void)
-[; ;Beep.c: 19: {
+[; ;Beep.c: 19: void BeepOn(void)
+[; ;Beep.c: 20: {
 [e :U _BeepOn ]
 [f ]
-[; ;Beep.c: 24: LATEbits.LE2 =1;
-"24
+[; ;Beep.c: 25: LATEbits.LE2 =1;
+"25
 [e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
-[; ;Beep.c: 27: }
-"27
+[; ;Beep.c: 28: }
+"28
 [e :UE 277 ]
 }
-"28
-[v _BeepOff `(v ~T0 @X0 1 ef ]
 "29
+[v _BeepOff `(v ~T0 @X0 1 ef ]
+"30
 {
-[; ;Beep.c: 28: void BeepOff(void)
-[; ;Beep.c: 29: {
+[; ;Beep.c: 29: void BeepOff(void)
+[; ;Beep.c: 30: {
 [e :U _BeepOff ]
 [f ]
-[; ;Beep.c: 33: LATEbits.LE2 =0;
-"33
-[e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 34: }
+[; ;Beep.c: 34: LATEbits.LE2 =0;
 "34
+[e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
+[; ;Beep.c: 35: }
+"35
 [e :UE 278 ]
 }
-"37
-[v _buzz `(v ~T0 @X0 1 ef ]
 "38
+[v _buzz `(v ~T0 @X0 1 ef ]
+"39
 {
-[; ;Beep.c: 37: void buzz(void)
-[; ;Beep.c: 38: {
+[; ;Beep.c: 38: void buzz(void)
+[; ;Beep.c: 39: {
 [e :U _buzz ]
 [f ]
-"41
+"42
 [v _i `ui ~T0 @X0 1 a ]
 [v _j `ui ~T0 @X0 1 a ]
-[; ;Beep.c: 41: unsigned int i,j;
-[; ;Beep.c: 43: LATEbits.LE2 =1;
-"43
+[; ;Beep.c: 42: unsigned int i,j;
+[; ;Beep.c: 44: LATEbits.LE2 =1;
+"44
 [e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
-[; ;Beep.c: 45: for(i=0;i<200;i++)
-"45
+[; ;Beep.c: 46: for(i=0;i<200;i++)
+"46
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 200 `i `ui 280  ]
 [e $U 281  ]
-"46
+"47
 [e :U 280 ]
-[; ;Beep.c: 46: for(j=0;j<100;j++);
+[; ;Beep.c: 47: for(j=0;j<100;j++);
 {
 [e = _j -> -> 0 `i `ui ]
 [e $ < _j -> -> 100 `i `ui 283  ]
@@ -2884,40 +2884,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < _j -> -> 100 `i `ui 283  ]
 [e :U 284 ]
 }
-"45
+"46
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 200 `i `ui 280  ]
 [e :U 281 ]
-"46
+"47
 }
-[; ;Beep.c: 48: LATEbits.LE2 =0;
-"48
+[; ;Beep.c: 49: LATEbits.LE2 =0;
+"49
 [e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 49: for(i=0;i<200;i++)
-"49
-{
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 200 `i `ui 286  ]
-[e $U 287  ]
-"50
-[e :U 286 ]
-[; ;Beep.c: 50: for(j=0;j<100;j++);
-{
-[e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 100 `i `ui 289  ]
-[e $U 290  ]
-[e :U 289 ]
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 100 `i `ui 289  ]
-[e :U 290 ]
-}
-"49
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 200 `i `ui 286  ]
-[e :U 287 ]
-"50
-}
-[; ;Beep.c: 52: }
-"52
+[; ;Beep.c: 53: }
+"53
 [e :UE 279 ]
 }

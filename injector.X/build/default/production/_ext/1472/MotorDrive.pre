@@ -3902,6 +3902,11 @@ LATDbits.LD4 =0;
 LATDbits.LD2 =0;
 LATDbits.LD3 =0;
 
-# 167
+
+INTCON2bits.INTEDG2 = 0;
+INTCON3bits.INT2IF =0;
+INTCON3bits.INT2E = 1;
+
+# 182
 }
 

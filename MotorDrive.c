@@ -139,6 +139,21 @@ void MotorDriveInit(void)
     INPUT4_BL(); 
     
     
+    INTCON2bits.INTEDG2 = 0;//falling edge
+    INTCON3bits.INT2IF =0;
+    INTCON3bits.INT2E = 1;//PHB_MB  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 #if 0
     //L298N
 	SET_L298N_INPUT1_PIN;

@@ -169,6 +169,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S48 . . . ]
 "1329
 [v _LATDbits `VS48 ~T0 @X0 0 e@3980 ]
+"6522
+[s S266 :7 `uc 1 :1 `uc 1 ]
+[n S266 . . NOT_RBPU ]
+"6526
+[s S267 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S267 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
+"6536
+[s S268 :7 `uc 1 :1 `uc 1 ]
+[n S268 . . RBPU ]
+"6521
+[u S265 `S266 1 `S267 1 `S268 1 ]
+[n S265 . . . . ]
+"6541
+[v _INTCON2bits `VS265 ~T0 @X0 0 e@4081 ]
+"6431
+[s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S263 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
+"6441
+[s S264 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S264 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
+"6430
+[u S262 `S263 1 `S264 1 ]
+[n S262 . . . ]
+"6452
+[v _INTCON3bits `VS262 ~T0 @X0 0 e@4080 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3200,7 +3225,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 139: LATDbits.LD3 =0;
 "139
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 167: }
-"167
+[; ;MotorDrive.c: 142: INTCON2bits.INTEDG2 = 0;
+"142
+[e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 143: INTCON3bits.INT2IF =0;
+"143
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 144: INTCON3bits.INT2E = 1;
+"144
+[e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 182: }
+"182
 [e :UE 286 ]
 }

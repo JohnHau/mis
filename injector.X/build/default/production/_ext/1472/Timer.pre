@@ -3757,10 +3757,100 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
 # 5 "../Timer.h"
 extern void TimerInit(void);
 
-# 14 "../Key.h"
+# 54 "../Key.h"
 extern unsigned char KeyScanPeriod;
 
 typedef struct
@@ -3832,228 +3922,74 @@ extern void InjectionMotorReverseRun(void);
 extern void InjectionMotorFastStop(void);
 extern void InjectionMotorFreeStop(void);
 
-# 11 "../Timer.c"
+# 12 "../Timer.c"
 unsigned char LastNeedleFeedback =0;
 unsigned char LastInjectionFeedback =0;
 unsigned char flag =0;
 
+uint16_t mbcnt=0;
 
 
-void __interrupt(high_priority) ISR(void)
+
+void __interrupt ISR(void)
+{
+uint8_t temp;
+
+
+if(INTCONbits.RBIF)
 {
 
-unsigned char i =0;
 
-if(T0IE && T0IF)
+if (PORTBbits.RB4 == 0)
 {
 
-# 30
-if(KeyScanPeriod)
-{
-KeyScanPeriod--;
+LCD_Blink();
 }
 
-i =(PORTBbits.RB2);
-if(LastNeedleFeedback != i)
+if (PORTBbits.RB5 == 0)
 {
-if(NeedleRunDir)
-{
-NeedleMotorCurrentPosition--;
-}
-else
-{
-NeedleMotorCurrentPosition++;
-}
-LastNeedleFeedback = i;
+
+
+LCD_Blink();
 }
 
-i =(PORTDbits.RD1);
-if(LastInjectionFeedback != i)
-{
-InjectionMotorCurrentPosition++;
-LastInjectionFeedback = i;
+temp = PORTB;
+INTCONbits.RBIF=0;
+
+# 50
 }
 
 
-if(StartWorkFlag ==1)
-{
-switch(CurrentWorkPara.InjectMode)
-{
-case 0:
 
-if(ContinueWorkState ==0)
-{
-NeedleRunDir =0;
 
-(PORTCbits.RC2 =0);
-(PORTDbits.RD2 =1);
-(PORTCbits.RC1 =1);
-if((NeedleMotorCurrentPosition > NeedleMotorAimPosition) ||(NeedleMotorCurrentPosition == NeedleMotorAimPosition))
+if(INTCONbits.INT0IF)
 {
 
-(PORTCbits.RC2 =1);
-(PORTDbits.RD2 =1);
-(PORTCbits.RC1 =1);
 
-ContinueWorkState =1;
-}
-}
-else if(ContinueWorkState == 1)
-{
-
-(PORTEbits.RE1 =1);
-(PORTEbits.RE2 =0);
-(PORTEbits.RE0 =1);
-
-if((InjectionMotorCurrentPosition > InjectionMotorAimPosition)||(InjectionMotorCurrentPosition == InjectionMotorAimPosition))
-{
-
-(PORTEbits.RE1 =1);
-(PORTEbits.RE2 =1);
-(PORTEbits.RE0 =1);
-
-ContinueWorkState =2;
-}
-}
-else if(ContinueWorkState == 2)
-{
-NeedleRunDir =1;
-
-if((NeedleMotorCurrentPosition < NeedleInitPosition)||(NeedleMotorCurrentPosition == NeedleInitPosition))
-{
-
-(PORTCbits.RC2 =1);
-(PORTDbits.RD2 =1);
-(PORTCbits.RC1 =1);
-
-ContinueWorkState =3;
-}
-else
-{
-
-(PORTCbits.RC2 =1);
-(PORTDbits.RD2 =0);
-(PORTCbits.RC1 =1);
-
-}
-}
-else if(ContinueWorkState ==3)
-{
-ContinueWorkState =3;
-if(!ContinueWorkTimeCount)
-{
-ContinueWorkTimeCount =ContinueWorkTimePeriod;
-ContinueWorkState =0;
-InjectionMotorAimPosition =InjectionMotorCurrentPosition + InjectionStepMotorStepPulseNum;
-}
-}
-else
-{
-
-}
-if(ContinueWorkTimeCount)
-{
-ContinueWorkTimeCount--;
+LCD_Blink();
+INTCONbits.INT0IF = 0;
 }
 
-break;
 
-case 1:
+if (INTCON3bits.INT2IF)
+{
+INTCONbits.INT0IF = 0;
 
-break;
 
-default:
+mbcnt++;
 
-break;
-
-}
-}
-else
+if(mbcnt == 30000)
 {
 
-if(!NeedleMotorFindZeroPosFlag)
-{
-if(PORTBbits.RB0 ==0 )
-{
-
-{
-
-NeedleMotorCurrentPosition =0;
-flag =1;
-
-
-(PORTCbits.RC2 =0);
-(PORTDbits.RD2 =1);
-(PORTCbits.RC1 =1);
-
-if(CurrentWorkPara.NeedleLength ==4)
-{
-NeedleInitPosition =491;
-NeedleMotorAimPosition =NeedleInitPosition;
-}
-else if(CurrentWorkPara.NeedleLength ==6)
-{
-NeedleInitPosition =408;
-NeedleMotorAimPosition =NeedleInitPosition;
-}
-else if(CurrentWorkPara.NeedleLength ==13)
-{
-NeedleInitPosition =116;
-NeedleMotorAimPosition =NeedleInitPosition;
-}
-else
-{
-NeedleInitPosition =116;
-NeedleMotorAimPosition =NeedleInitPosition;
-}
-
-}
-
-}
-else
-{
-if(flag ==1)
-{
-if((NeedleMotorCurrentPosition > NeedleMotorAimPosition)|| (NeedleMotorCurrentPosition == NeedleMotorAimPosition))
-{
-
-(PORTCbits.RC2 =1);
-(PORTDbits.RD2 =1);
-(PORTCbits.RC1 =1);
-NeedleMotorFindZeroPosFlag =1;
-flag =0;
-}
-}
-else
-{
-
-(PORTCbits.RC2 =1);
-(PORTDbits.RD2 =0);
-(PORTCbits.RC1 =1);
-
-flag =0;
-}
-
-}
-}
-else
-{
-
-(PORTCbits.RC2 =1);
-(PORTDbits.RD2 =1);
-(PORTCbits.RC1 =1);
-
-(PORTEbits.RE1 =1);
-(PORTEbits.RE2 =1);
-(PORTEbits.RE0 =1);
-}
-
+do{LATDbits.LD2 =0;LATDbits.LD3 =0; }while(0);
+LATDbits.LD4 =0;
 }
 
 
 
 }
-T0IF=0;
+
+# 324
 }
 
 void TimerInit(void)

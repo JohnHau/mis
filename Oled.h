@@ -82,7 +82,7 @@ void Initial_LY096BG30(void);
 void LCD_backlight_init(void);
 void LCD_On(void);
 void LCD_Off(void);
-
+void LCD_Blink(void);
 uint8_t ee_CheckDevice(uint8_t _Address);
 
 void delay(unsigned int  x);

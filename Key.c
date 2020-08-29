@@ -1,5 +1,5 @@
-
-#include <p18cxxx.h>
+#include <xc.h>
+//#include <p18cxxx.h>
 
 #include "Key.h"
 #include "PositionControl.h"
@@ -11,6 +11,57 @@ unsigned char KeyScanPeriod =0;
 #if 1
 void KEY_Init(void) //
 { 
+     
+    
+    
+    //LATB = 0;
+   // PORTB = 0;
+   // ADCON1 = 0x07;
+    
+    //ADCON0 = 0x00;
+   // ADCON1 = 0x0f;
+    
+    TRISBbits.RB3 =1;//KEY_V
+    TRISBbits.RB4 =1;//KEY_WAKE
+    
+    
+    
+    TRISBbits.RB5 =1;//ACTION_BUTTON
+    
+    TRISDbits.RD6 =1;//KEY_UP
+    TRISDbits.RD7 =1;//KEY_DOWN
+    
+    TRISBbits.RB0 =1;//LP_BUTTON
+
+    //TRISB = 0xff;
+    
+#if 0
+    //RCONbits.IPEN = 1;
+    
+    INTCON2bits.INTEDG0 =0;//falling edge
+    INTCONbits.INT0IF = 0;
+    INTCONbits.INT0E = 1;//int0 enabled
+     
+     
+    //TRISB = 0xff;
+    INTCONbits.RBIE =1;
+    INTCONbits.PEIE =1;
+    INTCONbits.GIE =1;
+    
+#endif
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+#if 0
 	DDRBbits.RB4 	=1;  	
 	DDRDbits.RD4  	=1;			
 	DDRDbits.RD7  	=1;			
@@ -51,6 +102,24 @@ void KEY_Init(void) //
 	StartInjectKey.SendValueChangeFlag =0;
 	StartInjectKey.FiterTimes =3;
 	StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
+#endif
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 void KEY_Scan(void)

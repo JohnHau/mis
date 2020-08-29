@@ -1,4 +1,5 @@
-#include <p18cxxx.h>
+#include <xc.h>
+//#include <p18cxxx.h>
 #include "Beep.h"
 
 void BeepInit(void)
@@ -10,7 +11,7 @@ void BeepInit(void)
    // DDREbits.RE2 =0;
     
     
-        TRISEbits.RE2 =0;
+    TRISEbits.RE2 =0;
     LATEbits.LE2 =0;
     
     
@@ -46,7 +47,7 @@ LATEbits.LE2 =1;
        for(j=0;j<100;j++);
 //PORTEbits.RE2 =0;
 LATEbits.LE2 =0;
-  for(i=0;i<200;i++)
-       for(j=0;j<100;j++);
+  //for(i=0;i<200;i++)
+      // for(j=0;j<100;j++);
 
 }
