@@ -2962,17 +2962,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Beep.h: 5: extern void BeepOn(void);
 [; ;Beep.h: 6: extern void BeepOff(void);
 [; ;Beep.h: 7: void buzz(void);
-[; ;MotorDrive.h: 41: extern void MotorDriveInit(void);
-[; ;MotorDrive.h: 43: extern void OpenMotorPower(void);
-[; ;MotorDrive.h: 45: extern void CloseMotorPower(void);
-[; ;MotorDrive.h: 47: extern void NeedleMotorForwardRun(void);
-[; ;MotorDrive.h: 48: extern void NeedleMotorReverseRun(void);
-[; ;MotorDrive.h: 49: extern void NeedleMotorFastStop(void);
-[; ;MotorDrive.h: 50: extern void NeedleMotorFreeStop(void);
-[; ;MotorDrive.h: 52: extern void InjectionMotorForwardRun(void);
-[; ;MotorDrive.h: 53: extern void InjectionMotorReverseRun(void);
-[; ;MotorDrive.h: 54: extern void InjectionMotorFastStop(void);
-[; ;MotorDrive.h: 55: extern void InjectionMotorFreeStop(void);
+[; ;MotorDrive.h: 104: extern void MotorDriveInit(void);
+[; ;MotorDrive.h: 106: extern void OpenMotorPower(void);
+[; ;MotorDrive.h: 108: extern void CloseMotorPower(void);
+[; ;MotorDrive.h: 110: extern void NeedleMotorForwardRun(void);
+[; ;MotorDrive.h: 111: extern void NeedleMotorReverseRun(void);
+[; ;MotorDrive.h: 112: extern void NeedleMotorFastStop(void);
+[; ;MotorDrive.h: 113: extern void NeedleMotorFreeStop(void);
+[; ;MotorDrive.h: 115: extern void InjectionMotorForwardRun(void);
+[; ;MotorDrive.h: 116: extern void InjectionMotorReverseRun(void);
+[; ;MotorDrive.h: 117: extern void InjectionMotorFastStop(void);
+[; ;MotorDrive.h: 118: extern void InjectionMotorFreeStop(void);
 "11 ../Timer.c
 [v _LastNeedleFeedback `uc ~T0 @X0 1 e ]
 [i _LastNeedleFeedback

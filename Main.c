@@ -60,6 +60,9 @@
 
 
 int xn=0;
+int ann=0;
+uint8_t prev_edge =0;
+uint8_t cur_edge =0;
 void main(void)                
 { 
 
@@ -73,13 +76,94 @@ void main(void)
        //buzz();
     //while(1);
     //LCD_Off();
-	//MotorDriveInit();
+	MotorDriveInit();
 	//PositionCheckInit();
 	//KEY_Init();
-	//Init_ssd1327();
+
     Initial_LY096BG30();
    // while(xn<20)
     //LCD_On();
+    
+#if 0
+    // pusher
+    ENABLE_AH();
+    FORWARD_RUN_A();        
+    
+    while(ann < 2000)
+    {
+        //cur_edge = READ_PHA_MA();
+        cur_edge = READ_PHB_MA();
+        if(cur_edge != prev_edge)
+        {
+            
+            prev_edge = cur_edge;
+            ann++;
+        }
+    }
+    STOP_A();
+    ENABLE_AL();
+    buzz();
+    
+            
+#endif       
+    
+    
+ #if 1
+    //injector
+    ENABLE_BH();
+    FORWARD_RUN_B();        
+    
+    while(ann < 2000)
+    {
+        //cur_edge = READ_PHA_MB();
+        cur_edge = READ_PHB_MB();
+        if(cur_edge != prev_edge)
+        {
+            
+            prev_edge = cur_edge;
+            ann++;
+        }
+    }
+    STOP_B();
+    ENABLE_BL();
+    buzz();
+        
+#endif   
+    
+    
+    
+    
+    
+            
+            
+            
+#if 0
+    ENABLE_AH();
+    FORWARD_RUN_A();
+    delay(400);
+    STOP_A();
+     buzz();
+    REVERSE_RUN_A();
+    delay(400);
+    STOP_A();
+    buzz();
+#endif
+    
+    
+#if 0
+    ENABLE_BH();
+    FORWARD_RUN_B();
+    delay(400);
+    STOP_B();
+     buzz();
+    REVERSE_RUN_B();
+    delay(400);
+    STOP_B();
+    buzz();
+#endif
+    
+    
+    
     
 #if 0
     //while(0)
@@ -105,7 +189,7 @@ void main(void)
 #endif
     
 	//ADInit();
-	TimerInit();
+	//TimerInit();
 	while(1)               
 	{   
 		//NeedleFindZeroPosFun();

@@ -3757,7 +3757,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 41 "../MotorDrive.h"
+# 104 "../MotorDrive.h"
 extern void MotorDriveInit(void);
 
 extern void OpenMotorPower(void);
@@ -4911,6 +4911,9 @@ const unsigned char BMP2[]= {
 
 
 int xn=0;
+int ann=0;
+uint8_t prev_edge =0;
+uint8_t cur_edge =0;
 void main(void)
 {
 
@@ -4918,11 +4921,33 @@ BeepInit();
 LCD_backlight_init();
 LCD_On();
 
-# 80
+# 79
+MotorDriveInit();
+
+
+
 Initial_LY096BG30();
 
-# 108
-TimerInit();
+# 113
+LATDbits.LD4 =1;
+do{do{LATDbits.LD2 =0;LATDbits.LD3 =0; }while(0);LATDbits.LD2 =1;LATDbits.LD3 =0; }while(0);
+
+while(ann < 2000)
+{
+
+cur_edge = PORTBbits.RB2;
+if(cur_edge != prev_edge)
+{
+
+prev_edge = cur_edge;
+ann++;
+}
+}
+do{LATDbits.LD2 =0;LATDbits.LD3 =0; }while(0);
+LATDbits.LD4 =0;
+buzz();
+
+# 193
 while(1)
 {
 

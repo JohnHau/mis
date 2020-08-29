@@ -8,7 +8,7 @@ void delay(unsigned int  x)
 {
   	unsigned int  i,j;
     for(i=0;i<x;i++)
-       for(j=0;j<10;j++);
+       for(j=0;j<10000;j++);
 }
 
 static void i2c_Delay(void)

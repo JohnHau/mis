@@ -3757,7 +3757,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 41 "../MotorDrive.h"
+# 104 "../MotorDrive.h"
 extern void MotorDriveInit(void);
 
 extern void OpenMotorPower(void);
@@ -3875,28 +3875,33 @@ void InjectionMotorFreeStop(void)
 void MotorDriveInit(void)
 {
 
-(PORTEbits.RE1 =1);
-(DDREbits.RE1 =0);
 
-(PORTEbits.RE2 =1);
-(DDREbits.RE2 =0);
+TRISCbits.RC2 =0;
+TRISDbits.RD0 =0;
+TRISDbits.RD1 =0;
 
-(PORTEbits.RE0 =1);
-(DDREbits.RE0 =0);
-
-
-(PORTCbits.RC2 =1);
-(DDRCbits.RC2 =0);
-
-(PORTDbits.RD2 =1);
-(DDRDbits.RD2 =0);
-
-(PORTCbits.RC1 =1);
-(DDRCbits.RC1 =0);
+TRISCbits.RC1 =1;
+TRISAbits.RA4 =1;
 
 
-(PORTAbits.RA5 =0);
-(DDRAbits.RA5 =0);
+TRISCbits.RC0 =1;
+TRISBbits.RB2 =1;
 
+
+
+TRISDbits.RD4 =0;
+TRISDbits.RD2 =0;
+TRISDbits.RD3 =0;
+
+
+LATCbits.LC2 =0;
+LATDbits.LD0 =0;
+LATDbits.LD1 =0;
+
+LATDbits.LD4 =0;
+LATDbits.LD2 =0;
+LATDbits.LD3 =0;
+
+# 167
 }
 

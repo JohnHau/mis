@@ -3815,7 +3815,7 @@ extern void BeepOn(void);
 extern void BeepOff(void);
 void buzz(void);
 
-# 41 "../MotorDrive.h"
+# 104 "../MotorDrive.h"
 extern void MotorDriveInit(void);
 
 extern void OpenMotorPower(void);

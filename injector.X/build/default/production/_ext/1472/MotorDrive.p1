@@ -103,50 +103,72 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S28 . . . . . . . . . . . ]
 "825
 [v _PORTEbits `VS28 ~T0 @X0 0 e@3972 ]
-"2435
-[s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S82 . TRISE0 TRISE1 TRISE2 . PSPMODE IBOV OBF IBF ]
-"2445
-[s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S83 . RE0 RE1 RE2 RE3 ]
-"2434
-[u S81 `S82 1 `S83 1 ]
-[n S81 . . . ]
-"2452
-[v _DDREbits `VS81 ~T0 @X0 0 e@3990 ]
-"2022
-[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S70 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"2032
-[s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"2021
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
-"2043
-[v _DDRCbits `VS69 ~T0 @X0 0 e@3988 ]
-"2243
-[s S76 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S76 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"2253
-[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S77 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"2242
-[u S75 `S76 1 `S77 1 ]
-[n S75 . . . ]
-"2264
-[v _DDRDbits `VS75 ~T0 @X0 0 e@3989 ]
-"1580
-[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S58 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"1590
-[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S59 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"1579
-[u S57 `S58 1 `S59 1 ]
-[n S57 . . . ]
-"1601
-[v _DDRAbits `VS57 ~T0 @X0 0 e@3986 ]
+"1917
+[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S67 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1927
+[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S68 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1916
+[u S66 `S67 1 `S68 1 ]
+[n S66 . . . ]
+"1938
+[v _TRISCbits `VS66 ~T0 @X0 0 e@3988 ]
+"2138
+[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"2148
+[s S74 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S74 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"2137
+[u S72 `S73 1 `S74 1 ]
+[n S72 . . . ]
+"2159
+[v _TRISDbits `VS72 ~T0 @X0 0 e@3989 ]
+"1475
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1485
+[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S56 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"1474
+[u S54 `S55 1 `S56 1 ]
+[n S54 . . . ]
+"1496
+[v _TRISAbits `VS54 ~T0 @X0 0 e@3986 ]
+"1696
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1706
+[s S62 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S62 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"1695
+[u S60 `S61 1 `S62 1 ]
+[n S60 . . . ]
+"1717
+[v _TRISBbits `VS60 ~T0 @X0 0 e@3987 ]
+"1197
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S46 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1207
+[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S47 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"1196
+[u S45 `S46 1 `S47 1 ]
+[n S45 . . . ]
+"1218
+[v _LATCbits `VS45 ~T0 @X0 0 e@3979 ]
+"1308
+[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S49 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"1318
+[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"1307
+[u S48 `S49 1 `S50 1 ]
+[n S48 . . . ]
+"1329
+[v _LATDbits `VS48 ~T0 @X0 0 e@3980 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2925,17 +2947,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;MotorDrive.h: 41: extern void MotorDriveInit(void);
-[; ;MotorDrive.h: 43: extern void OpenMotorPower(void);
-[; ;MotorDrive.h: 45: extern void CloseMotorPower(void);
-[; ;MotorDrive.h: 47: extern void NeedleMotorForwardRun(void);
-[; ;MotorDrive.h: 48: extern void NeedleMotorReverseRun(void);
-[; ;MotorDrive.h: 49: extern void NeedleMotorFastStop(void);
-[; ;MotorDrive.h: 50: extern void NeedleMotorFreeStop(void);
-[; ;MotorDrive.h: 52: extern void InjectionMotorForwardRun(void);
-[; ;MotorDrive.h: 53: extern void InjectionMotorReverseRun(void);
-[; ;MotorDrive.h: 54: extern void InjectionMotorFastStop(void);
-[; ;MotorDrive.h: 55: extern void InjectionMotorFreeStop(void);
+[; ;MotorDrive.h: 104: extern void MotorDriveInit(void);
+[; ;MotorDrive.h: 106: extern void OpenMotorPower(void);
+[; ;MotorDrive.h: 108: extern void CloseMotorPower(void);
+[; ;MotorDrive.h: 110: extern void NeedleMotorForwardRun(void);
+[; ;MotorDrive.h: 111: extern void NeedleMotorReverseRun(void);
+[; ;MotorDrive.h: 112: extern void NeedleMotorFastStop(void);
+[; ;MotorDrive.h: 113: extern void NeedleMotorFreeStop(void);
+[; ;MotorDrive.h: 115: extern void InjectionMotorForwardRun(void);
+[; ;MotorDrive.h: 116: extern void InjectionMotorReverseRun(void);
+[; ;MotorDrive.h: 117: extern void InjectionMotorFastStop(void);
+[; ;MotorDrive.h: 118: extern void InjectionMotorFreeStop(void);
 "6 ../MotorDrive.c
 [v _OpenMotorPower `(v ~T0 @X0 1 ef ]
 "7
@@ -3130,49 +3152,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 112: {
 [e :U _MotorDriveInit ]
 [f ]
-[; ;MotorDrive.c: 114: (PORTEbits.RE1 =1);
-"114
-[e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 115: (DDREbits.RE1 =0);
+[; ;MotorDrive.c: 115: TRISCbits.RC2 =0;
 "115
-[e = . . _DDREbits 1 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 117: (PORTEbits.RE2 =1);
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 116: TRISDbits.RD0 =0;
+"116
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 117: TRISDbits.RD1 =0;
 "117
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 118: (DDREbits.RE2 =0);
-"118
-[e = . . _DDREbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 120: (PORTEbits.RE0 =1);
+[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 119: TRISCbits.RC1 =1;
+"119
+[e = . . _TRISCbits 1 1 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 120: TRISAbits.RA4 =1;
 "120
-[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 121: (DDREbits.RE0 =0);
-"121
-[e = . . _DDREbits 1 0 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 124: (PORTCbits.RC2 =1);
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 123: TRISCbits.RC0 =1;
+"123
+[e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 124: TRISBbits.RB2 =1;
 "124
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 125: (DDRCbits.RC2 =0);
-"125
-[e = . . _DDRCbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 127: (PORTDbits.RD2 =1);
-"127
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 128: (DDRDbits.RD2 =0);
+[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 128: TRISDbits.RD4 =0;
 "128
-[e = . . _DDRDbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 130: (PORTCbits.RC1 =1);
+[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 129: TRISDbits.RD2 =0;
+"129
+[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 130: TRISDbits.RD3 =0;
 "130
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 131: (DDRCbits.RC1 =0);
-"131
-[e = . . _DDRCbits 1 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 134: (PORTAbits.RA5 =0);
+[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 133: LATCbits.LC2 =0;
+"133
+[e = . . _LATCbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 134: LATDbits.LD0 =0;
 "134
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 135: (DDRAbits.RA5 =0);
+[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 135: LATDbits.LD1 =0;
 "135
-[e = . . _DDRAbits 1 5 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 137: }
+[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 137: LATDbits.LD4 =0;
 "137
+[e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 138: LATDbits.LD2 =0;
+"138
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 139: LATDbits.LD3 =0;
+"139
+[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 167: }
+"167
 [e :UE 286 ]
 }

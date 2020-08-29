@@ -2898,14 +2898,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 280  ]
 "11
 [e :U 277 ]
-[; ;Oled.c: 11: for(j=0;j<10;j++);
+[; ;Oled.c: 11: for(j=0;j<10000;j++);
 {
 [e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 10 `i `ui 281  ]
+[e $ < _j -> -> 10000 `i `ui 281  ]
 [e $U 282  ]
 [e :U 281 ]
 [e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 10 `i `ui 281  ]
+[e $ < _j -> -> 10000 `i `ui 281  ]
 [e :U 282 ]
 }
 "10

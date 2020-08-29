@@ -12,36 +12,37 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\injector.X.production.obj
-cinit CODE 0 AAE AAE 54 1
-intcode_body CODE 0 6F0 6F0 264 1
-text0 CODE 0 C6E C6E 22 1
-text1 CODE 0 C90 C90 1C 1
-text2 CODE 0 CDC CDC 6 1
-text3 CODE 0 CE8 CE8 4 1
-text4 CODE 0 954 954 15A 1
-text5 CODE 0 CC2 CC2 E 1
-text6 CODE 0 12 12 6DE 1
-text7 CODE 0 C12 C12 36 1
-text8 CODE 0 B4E B4E 48 1
-text9 CODE 0 B96 B96 44 1
-text10 CODE 0 B02 B02 4C 1
-text11 CODE 0 C48 C48 26 1
-text12 CODE 0 CD0 CD0 C 1
-text13 CODE 0 CAC CAC 16 1
-text14 CODE 0 BDA BDA 38 1
-text15 CODE 0 CEC CEC 2 1
-text16 CODE 0 CE2 CE2 6 1
-idataCOMRAM CODE 0 CEE CEE 1 1
-cstackCOMRAM COMRAM 1 4F 4F 1F 1
-cstackBANK0 BANK0 1 80 80 2 1
+cinit CODE 0 C1A C1A 54 1
+intcode_body CODE 0 718 718 264 1
+text0 CODE 0 B64 B64 60 1
+text1 CODE 0 AF2 AF2 72 1
+text2 CODE 0 D96 D96 22 1
+text3 CODE 0 DE8 DE8 6 1
+text4 CODE 0 DF4 DF4 4 1
+text5 CODE 0 97C 97C 176 1
+text6 CODE 0 DCE DCE E 1
+text7 CODE 0 12 12 706 1
+text8 CODE 0 D3A D3A 36 1
+text9 CODE 0 BC4 BC4 56 1
+text10 CODE 0 CBA CBA 48 1
+text11 CODE 0 C6E C6E 4C 1
+text12 CODE 0 D70 D70 26 1
+text13 CODE 0 DDC DDC C 1
+text14 CODE 0 DB8 DB8 16 1
+text15 CODE 0 D02 D02 38 1
+text16 CODE 0 DF8 DF8 2 1
+text17 CODE 0 DEE DEE 6 1
+idataCOMRAM CODE 0 DFA DFA 1 1
+cstackCOMRAM COMRAM 1 53 53 1B 1
+cstackBANK0 BANK0 1 80 80 6 1
 temp COMRAM 1 6F 6F 1 1
 bssBANK1 BANK1 1 100 100 100 1
 bssBANK2 BANK2 1 200 200 100 1
 intcode CODE 0 8 8 6 1
 dataCOMRAM COMRAM 1 6E 6E 1 1
-bssCOMRAM COMRAM 1 1 1 4E 1
+bssCOMRAM COMRAM 1 1 1 52 1
 mediumconst MEDIUMCONST 0 423A 423A 3DC6 1
-$C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
+$C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -52,25 +53,25 @@ config CONFIG 0 300000 300000 E 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 82-FF 1
+RAM 86-FF 1
 RAM 300-5FF 1
 SFR F80-FFF 1
-BANK0 82-FF 1
+BANK0 86-FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
-CONST CEF-4239 1
+CONST DFB-4239 1
 STACK 300-5FF 1
-SMALLCONST CEF-4239 1
+SMALLCONST DFB-4239 1
 CODE 4-7 1
-CODE CEF-4239 1
+CODE DFB-4239 1
 BIGRAM 70-7F 1
-BIGRAM 82-FF 1
+BIGRAM 86-FF 1
 BIGRAM 300-5FF 1
 COMRAM 70-7F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST CEF-4239 1
+MEDIUMCONST DFB-4239 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -87,365 +88,393 @@ MEDIUMCONST CEF-4239 1
 $dist/default/production\injector.X.production.obj
 8 intcode CODE >17:E:\myWorkSpace\injector\LEDspi/Beep.c
 8 intcode CODE >17:E:\myWorkSpace\injector\LEDspi/Timer.c
-6F0 intcode_body CODE >17:E:\myWorkSpace\injector\LEDspi/Timer.c
-72A intcode_body CODE >20:E:\myWorkSpace\injector\LEDspi/Timer.c
-72E intcode_body CODE >22:E:\myWorkSpace\injector\LEDspi/Timer.c
-734 intcode_body CODE >30:E:\myWorkSpace\injector\LEDspi/Timer.c
-738 intcode_body CODE >32:E:\myWorkSpace\injector\LEDspi/Timer.c
-73A intcode_body CODE >35:E:\myWorkSpace\injector\LEDspi/Timer.c
-742 intcode_body CODE >36:E:\myWorkSpace\injector\LEDspi/Timer.c
-74A intcode_body CODE >38:E:\myWorkSpace\injector\LEDspi/Timer.c
-750 intcode_body CODE >40:E:\myWorkSpace\injector\LEDspi/Timer.c
-756 intcode_body CODE >41:E:\myWorkSpace\injector\LEDspi/Timer.c
-758 intcode_body CODE >44:E:\myWorkSpace\injector\LEDspi/Timer.c
-75C intcode_body CODE >46:E:\myWorkSpace\injector\LEDspi/Timer.c
-760 intcode_body CODE >49:E:\myWorkSpace\injector\LEDspi/Timer.c
-768 intcode_body CODE >50:E:\myWorkSpace\injector\LEDspi/Timer.c
-770 intcode_body CODE >52:E:\myWorkSpace\injector\LEDspi/Timer.c
-774 intcode_body CODE >53:E:\myWorkSpace\injector\LEDspi/Timer.c
-778 intcode_body CODE >57:E:\myWorkSpace\injector\LEDspi/Timer.c
-780 intcode_body CODE >63:E:\myWorkSpace\injector\LEDspi/Timer.c
-786 intcode_body CODE >65:E:\myWorkSpace\injector\LEDspi/Timer.c
-78A intcode_body CODE >67:E:\myWorkSpace\injector\LEDspi/Timer.c
-78C intcode_body CODE >68:E:\myWorkSpace\injector\LEDspi/Timer.c
-78E intcode_body CODE >69:E:\myWorkSpace\injector\LEDspi/Timer.c
-790 intcode_body CODE >70:E:\myWorkSpace\injector\LEDspi/Timer.c
-7B2 intcode_body CODE >73:E:\myWorkSpace\injector\LEDspi/Timer.c
-7B4 intcode_body CODE >74:E:\myWorkSpace\injector\LEDspi/Timer.c
-7B6 intcode_body CODE >75:E:\myWorkSpace\injector\LEDspi/Timer.c
-7B8 intcode_body CODE >77:E:\myWorkSpace\injector\LEDspi/Timer.c
-7BC intcode_body CODE >80:E:\myWorkSpace\injector\LEDspi/Timer.c
-7C2 intcode_body CODE >83:E:\myWorkSpace\injector\LEDspi/Timer.c
-7C4 intcode_body CODE >84:E:\myWorkSpace\injector\LEDspi/Timer.c
-7C6 intcode_body CODE >85:E:\myWorkSpace\injector\LEDspi/Timer.c
-7C8 intcode_body CODE >87:E:\myWorkSpace\injector\LEDspi/Timer.c
-7E2 intcode_body CODE >90:E:\myWorkSpace\injector\LEDspi/Timer.c
-7E4 intcode_body CODE >91:E:\myWorkSpace\injector\LEDspi/Timer.c
-7E6 intcode_body CODE >92:E:\myWorkSpace\injector\LEDspi/Timer.c
-7E8 intcode_body CODE >94:E:\myWorkSpace\injector\LEDspi/Timer.c
-7EC intcode_body CODE >97:E:\myWorkSpace\injector\LEDspi/Timer.c
-7F4 intcode_body CODE >99:E:\myWorkSpace\injector\LEDspi/Timer.c
-7F8 intcode_body CODE >101:E:\myWorkSpace\injector\LEDspi/Timer.c
-812 intcode_body CODE >104:E:\myWorkSpace\injector\LEDspi/Timer.c
-814 intcode_body CODE >105:E:\myWorkSpace\injector\LEDspi/Timer.c
-816 intcode_body CODE >106:E:\myWorkSpace\injector\LEDspi/Timer.c
-818 intcode_body CODE >108:E:\myWorkSpace\injector\LEDspi/Timer.c
-81C intcode_body CODE >109:E:\myWorkSpace\injector\LEDspi/Timer.c
-81E intcode_body CODE >110:E:\myWorkSpace\injector\LEDspi/Timer.c
-81E intcode_body CODE >113:E:\myWorkSpace\injector\LEDspi/Timer.c
-820 intcode_body CODE >114:E:\myWorkSpace\injector\LEDspi/Timer.c
-822 intcode_body CODE >115:E:\myWorkSpace\injector\LEDspi/Timer.c
-824 intcode_body CODE >118:E:\myWorkSpace\injector\LEDspi/Timer.c
-826 intcode_body CODE >119:E:\myWorkSpace\injector\LEDspi/Timer.c
-82E intcode_body CODE >121:E:\myWorkSpace\injector\LEDspi/Timer.c
-832 intcode_body CODE >122:E:\myWorkSpace\injector\LEDspi/Timer.c
-83A intcode_body CODE >124:E:\myWorkSpace\injector\LEDspi/Timer.c
-842 intcode_body CODE >125:E:\myWorkSpace\injector\LEDspi/Timer.c
-846 intcode_body CODE >126:E:\myWorkSpace\injector\LEDspi/Timer.c
-852 intcode_body CODE >133:E:\myWorkSpace\injector\LEDspi/Timer.c
-85A intcode_body CODE >135:E:\myWorkSpace\injector\LEDspi/Timer.c
-860 intcode_body CODE >148:E:\myWorkSpace\injector\LEDspi/Timer.c
-862 intcode_body CODE >59:E:\myWorkSpace\injector\LEDspi/Timer.c
-86C intcode_body CODE >149:E:\myWorkSpace\injector\LEDspi/Timer.c
-86E intcode_body CODE >153:E:\myWorkSpace\injector\LEDspi/Timer.c
-874 intcode_body CODE >155:E:\myWorkSpace\injector\LEDspi/Timer.c
-878 intcode_body CODE >160:E:\myWorkSpace\injector\LEDspi/Timer.c
-880 intcode_body CODE >161:E:\myWorkSpace\injector\LEDspi/Timer.c
-884 intcode_body CODE >164:E:\myWorkSpace\injector\LEDspi/Timer.c
-886 intcode_body CODE >165:E:\myWorkSpace\injector\LEDspi/Timer.c
-888 intcode_body CODE >166:E:\myWorkSpace\injector\LEDspi/Timer.c
-88A intcode_body CODE >168:E:\myWorkSpace\injector\LEDspi/Timer.c
-892 intcode_body CODE >170:E:\myWorkSpace\injector\LEDspi/Timer.c
-89A intcode_body CODE >171:E:\myWorkSpace\injector\LEDspi/Timer.c
-8A2 intcode_body CODE >172:E:\myWorkSpace\injector\LEDspi/Timer.c
-8A4 intcode_body CODE >173:E:\myWorkSpace\injector\LEDspi/Timer.c
-8AC intcode_body CODE >175:E:\myWorkSpace\injector\LEDspi/Timer.c
-8B4 intcode_body CODE >178:E:\myWorkSpace\injector\LEDspi/Timer.c
-8BC intcode_body CODE >180:E:\myWorkSpace\injector\LEDspi/Timer.c
-8C0 intcode_body CODE >181:E:\myWorkSpace\injector\LEDspi/Timer.c
-8C2 intcode_body CODE >185:E:\myWorkSpace\injector\LEDspi/Timer.c
-8CA intcode_body CODE >194:E:\myWorkSpace\injector\LEDspi/Timer.c
-8D0 intcode_body CODE >196:E:\myWorkSpace\injector\LEDspi/Timer.c
-8F2 intcode_body CODE >199:E:\myWorkSpace\injector\LEDspi/Timer.c
-8F4 intcode_body CODE >200:E:\myWorkSpace\injector\LEDspi/Timer.c
-8F6 intcode_body CODE >201:E:\myWorkSpace\injector\LEDspi/Timer.c
-8F8 intcode_body CODE >202:E:\myWorkSpace\injector\LEDspi/Timer.c
-8FE intcode_body CODE >206:E:\myWorkSpace\injector\LEDspi/Timer.c
-8FE intcode_body CODE >209:E:\myWorkSpace\injector\LEDspi/Timer.c
-900 intcode_body CODE >210:E:\myWorkSpace\injector\LEDspi/Timer.c
-902 intcode_body CODE >211:E:\myWorkSpace\injector\LEDspi/Timer.c
-904 intcode_body CODE >213:E:\myWorkSpace\injector\LEDspi/Timer.c
-908 intcode_body CODE >217:E:\myWorkSpace\injector\LEDspi/Timer.c
-90A intcode_body CODE >218:E:\myWorkSpace\injector\LEDspi/Timer.c
-90A intcode_body CODE >221:E:\myWorkSpace\injector\LEDspi/Timer.c
-90C intcode_body CODE >222:E:\myWorkSpace\injector\LEDspi/Timer.c
-90E intcode_body CODE >223:E:\myWorkSpace\injector\LEDspi/Timer.c
-910 intcode_body CODE >225:E:\myWorkSpace\injector\LEDspi/Timer.c
-912 intcode_body CODE >226:E:\myWorkSpace\injector\LEDspi/Timer.c
-914 intcode_body CODE >227:E:\myWorkSpace\injector\LEDspi/Timer.c
-916 intcode_body CODE >234:E:\myWorkSpace\injector\LEDspi/Timer.c
-916 intcode_body CODE >235:E:\myWorkSpace\injector\LEDspi/Timer.c
-918 intcode_body CODE >236:E:\myWorkSpace\injector\LEDspi/Timer.c
-CE2 text16 CODE >4:E:\myWorkSpace\injector\LEDspi/Beep.c
-CE2 text16 CODE >13:E:\myWorkSpace\injector\LEDspi/Beep.c
-CE4 text16 CODE >14:E:\myWorkSpace\injector\LEDspi/Beep.c
-CE6 text16 CODE >17:E:\myWorkSpace\injector\LEDspi/Beep.c
-CEC text15 CODE >14:E:\myWorkSpace\injector\LEDspi/Oled.c
-CEC text15 CODE >28:E:\myWorkSpace\injector\LEDspi/Oled.c
-BDA text14 CODE >53:E:\myWorkSpace\injector\LEDspi/Oled.c
-BDC text14 CODE >57:E:\myWorkSpace\injector\LEDspi/Oled.c
-BE8 text14 CODE >58:E:\myWorkSpace\injector\LEDspi/Oled.c
-BE8 text14 CODE >59:E:\myWorkSpace\injector\LEDspi/Oled.c
-BEC text14 CODE >61:E:\myWorkSpace\injector\LEDspi/Oled.c
-BEE text14 CODE >62:E:\myWorkSpace\injector\LEDspi/Oled.c
-BF0 text14 CODE >63:E:\myWorkSpace\injector\LEDspi/Oled.c
-BF0 text14 CODE >65:E:\myWorkSpace\injector\LEDspi/Oled.c
-BF2 text14 CODE >67:E:\myWorkSpace\injector\LEDspi/Oled.c
-BF6 text14 CODE >68:E:\myWorkSpace\injector\LEDspi/Oled.c
-BF8 text14 CODE >69:E:\myWorkSpace\injector\LEDspi/Oled.c
-BFC text14 CODE >70:E:\myWorkSpace\injector\LEDspi/Oled.c
-BFE text14 CODE >71:E:\myWorkSpace\injector\LEDspi/Oled.c
-C04 text14 CODE >73:E:\myWorkSpace\injector\LEDspi/Oled.c
-C06 text14 CODE >75:E:\myWorkSpace\injector\LEDspi/Oled.c
-C0A text14 CODE >76:E:\myWorkSpace\injector\LEDspi/Oled.c
-C0E text14 CODE >57:E:\myWorkSpace\injector\LEDspi/Oled.c
-CAC text13 CODE >30:E:\myWorkSpace\injector\LEDspi/Oled.c
-CAC text13 CODE >33:E:\myWorkSpace\injector\LEDspi/Oled.c
-CAE text13 CODE >34:E:\myWorkSpace\injector\LEDspi/Oled.c
-CB0 text13 CODE >35:E:\myWorkSpace\injector\LEDspi/Oled.c
-CB4 text13 CODE >36:E:\myWorkSpace\injector\LEDspi/Oled.c
-CB6 text13 CODE >37:E:\myWorkSpace\injector\LEDspi/Oled.c
-CBA text13 CODE >38:E:\myWorkSpace\injector\LEDspi/Oled.c
-CBC text13 CODE >39:E:\myWorkSpace\injector\LEDspi/Oled.c
-CC0 text13 CODE >40:E:\myWorkSpace\injector\LEDspi/Oled.c
-CD0 text12 CODE >43:E:\myWorkSpace\injector\LEDspi/Oled.c
-CD0 text12 CODE >46:E:\myWorkSpace\injector\LEDspi/Oled.c
-CD2 text12 CODE >47:E:\myWorkSpace\injector\LEDspi/Oled.c
-CD4 text12 CODE >48:E:\myWorkSpace\injector\LEDspi/Oled.c
-CD8 text12 CODE >49:E:\myWorkSpace\injector\LEDspi/Oled.c
-CDA text12 CODE >50:E:\myWorkSpace\injector\LEDspi/Oled.c
-C48 text11 CODE >109:E:\myWorkSpace\injector\LEDspi/Oled.c
-C48 text11 CODE >113:E:\myWorkSpace\injector\LEDspi/Oled.c
-C4A text11 CODE >114:E:\myWorkSpace\injector\LEDspi/Oled.c
-C4E text11 CODE >115:E:\myWorkSpace\injector\LEDspi/Oled.c
-C50 text11 CODE >117:E:\myWorkSpace\injector\LEDspi/Oled.c
-C52 text11 CODE >118:E:\myWorkSpace\injector\LEDspi/Oled.c
-C56 text11 CODE >119:E:\myWorkSpace\injector\LEDspi/Oled.c
-C5A text11 CODE >121:E:\myWorkSpace\injector\LEDspi/Oled.c
-C5E text11 CODE >125:E:\myWorkSpace\injector\LEDspi/Oled.c
-C62 text11 CODE >128:E:\myWorkSpace\injector\LEDspi/Oled.c
-C64 text11 CODE >130:E:\myWorkSpace\injector\LEDspi/Oled.c
-C66 text11 CODE >131:E:\myWorkSpace\injector\LEDspi/Oled.c
-C6A text11 CODE >133:E:\myWorkSpace\injector\LEDspi/Oled.c
-B02 text10 CODE >315:E:\myWorkSpace\injector\LEDspi/Oled.c
-B02 text10 CODE >321:E:\myWorkSpace\injector\LEDspi/Oled.c
-B06 text10 CODE >331:E:\myWorkSpace\injector\LEDspi/Oled.c
-B0A text10 CODE >333:E:\myWorkSpace\injector\LEDspi/Oled.c
-B10 text10 CODE >335:E:\myWorkSpace\injector\LEDspi/Oled.c
-B14 text10 CODE >351:E:\myWorkSpace\injector\LEDspi/Oled.c
-B1A text10 CODE >353:E:\myWorkSpace\injector\LEDspi/Oled.c
-B1E text10 CODE >361:E:\myWorkSpace\injector\LEDspi/Oled.c
-B42 text10 CODE >362:E:\myWorkSpace\injector\LEDspi/Oled.c
-B46 text10 CODE >371:E:\myWorkSpace\injector\LEDspi/Oled.c
-B4A text10 CODE >376:E:\myWorkSpace\injector\LEDspi/Oled.c
-B96 text9 CODE >491:E:\myWorkSpace\injector\LEDspi/Oled.c
-B98 text9 CODE >495:E:\myWorkSpace\injector\LEDspi/Oled.c
-BA0 text9 CODE >496:E:\myWorkSpace\injector\LEDspi/Oled.c
-BB8 text9 CODE >499:E:\myWorkSpace\injector\LEDspi/Oled.c
-BC0 text9 CODE >500:E:\myWorkSpace\injector\LEDspi/Oled.c
-B4E text8 CODE >938:E:\myWorkSpace\injector\LEDspi/Oled.c
-B4E text8 CODE >943:E:\myWorkSpace\injector\LEDspi/Oled.c
-B5A text8 CODE >945:E:\myWorkSpace\injector\LEDspi/Oled.c
-B64 text8 CODE >946:E:\myWorkSpace\injector\LEDspi/Oled.c
-B6A text8 CODE >947:E:\myWorkSpace\injector\LEDspi/Oled.c
-B76 text8 CODE >949:E:\myWorkSpace\injector\LEDspi/Oled.c
-B8E text8 CODE >947:E:\myWorkSpace\injector\LEDspi/Oled.c
-B92 text8 CODE >943:E:\myWorkSpace\injector\LEDspi/Oled.c
-C12 text7 CODE >7:E:\myWorkSpace\injector\LEDspi/Oled.c
-C12 text7 CODE >10:E:\myWorkSpace\injector\LEDspi/Oled.c
-C1C text7 CODE >11:E:\myWorkSpace\injector\LEDspi/Oled.c
-C36 text7 CODE >10:E:\myWorkSpace\injector\LEDspi/Oled.c
-12 text6 CODE >794:E:\myWorkSpace\injector\LEDspi/Oled.c
-14 text6 CODE >796:E:\myWorkSpace\injector\LEDspi/Oled.c
-16 text6 CODE >799:E:\myWorkSpace\injector\LEDspi/Oled.c
-20 text6 CODE >800:E:\myWorkSpace\injector\LEDspi/Oled.c
-2C text6 CODE >801:E:\myWorkSpace\injector\LEDspi/Oled.c
-6C text6 CODE >800:E:\myWorkSpace\injector\LEDspi/Oled.c
-70 text6 CODE >804:E:\myWorkSpace\injector\LEDspi/Oled.c
-7A text6 CODE >805:E:\myWorkSpace\injector\LEDspi/Oled.c
-86 text6 CODE >806:E:\myWorkSpace\injector\LEDspi/Oled.c
-CE text6 CODE >805:E:\myWorkSpace\injector\LEDspi/Oled.c
-D2 text6 CODE >814:E:\myWorkSpace\injector\LEDspi/Oled.c
-DC text6 CODE >815:E:\myWorkSpace\injector\LEDspi/Oled.c
-E8 text6 CODE >816:E:\myWorkSpace\injector\LEDspi/Oled.c
-128 text6 CODE >815:E:\myWorkSpace\injector\LEDspi/Oled.c
-12C text6 CODE >819:E:\myWorkSpace\injector\LEDspi/Oled.c
-136 text6 CODE >820:E:\myWorkSpace\injector\LEDspi/Oled.c
-142 text6 CODE >821:E:\myWorkSpace\injector\LEDspi/Oled.c
-18A text6 CODE >820:E:\myWorkSpace\injector\LEDspi/Oled.c
-18E text6 CODE >829:E:\myWorkSpace\injector\LEDspi/Oled.c
-198 text6 CODE >830:E:\myWorkSpace\injector\LEDspi/Oled.c
-1A4 text6 CODE >831:E:\myWorkSpace\injector\LEDspi/Oled.c
-1E4 text6 CODE >830:E:\myWorkSpace\injector\LEDspi/Oled.c
-1E8 text6 CODE >834:E:\myWorkSpace\injector\LEDspi/Oled.c
-1F2 text6 CODE >835:E:\myWorkSpace\injector\LEDspi/Oled.c
-1FE text6 CODE >836:E:\myWorkSpace\injector\LEDspi/Oled.c
-246 text6 CODE >835:E:\myWorkSpace\injector\LEDspi/Oled.c
-24A text6 CODE >851:E:\myWorkSpace\injector\LEDspi/Oled.c
-254 text6 CODE >852:E:\myWorkSpace\injector\LEDspi/Oled.c
-260 text6 CODE >853:E:\myWorkSpace\injector\LEDspi/Oled.c
-2A0 text6 CODE >852:E:\myWorkSpace\injector\LEDspi/Oled.c
-2A4 text6 CODE >856:E:\myWorkSpace\injector\LEDspi/Oled.c
-2AE text6 CODE >857:E:\myWorkSpace\injector\LEDspi/Oled.c
-2BA text6 CODE >858:E:\myWorkSpace\injector\LEDspi/Oled.c
-302 text6 CODE >857:E:\myWorkSpace\injector\LEDspi/Oled.c
-306 text6 CODE >861:E:\myWorkSpace\injector\LEDspi/Oled.c
-310 text6 CODE >862:E:\myWorkSpace\injector\LEDspi/Oled.c
-31C text6 CODE >863:E:\myWorkSpace\injector\LEDspi/Oled.c
-364 text6 CODE >862:E:\myWorkSpace\injector\LEDspi/Oled.c
-368 text6 CODE >874:E:\myWorkSpace\injector\LEDspi/Oled.c
-372 text6 CODE >875:E:\myWorkSpace\injector\LEDspi/Oled.c
-37E text6 CODE >876:E:\myWorkSpace\injector\LEDspi/Oled.c
-3BE text6 CODE >875:E:\myWorkSpace\injector\LEDspi/Oled.c
-3C2 text6 CODE >879:E:\myWorkSpace\injector\LEDspi/Oled.c
-3CC text6 CODE >880:E:\myWorkSpace\injector\LEDspi/Oled.c
-3D8 text6 CODE >881:E:\myWorkSpace\injector\LEDspi/Oled.c
-420 text6 CODE >880:E:\myWorkSpace\injector\LEDspi/Oled.c
-424 text6 CODE >884:E:\myWorkSpace\injector\LEDspi/Oled.c
-42E text6 CODE >885:E:\myWorkSpace\injector\LEDspi/Oled.c
-43A text6 CODE >886:E:\myWorkSpace\injector\LEDspi/Oled.c
-482 text6 CODE >885:E:\myWorkSpace\injector\LEDspi/Oled.c
-486 text6 CODE >893:E:\myWorkSpace\injector\LEDspi/Oled.c
-490 text6 CODE >894:E:\myWorkSpace\injector\LEDspi/Oled.c
-49C text6 CODE >895:E:\myWorkSpace\injector\LEDspi/Oled.c
-4DC text6 CODE >894:E:\myWorkSpace\injector\LEDspi/Oled.c
-4E0 text6 CODE >898:E:\myWorkSpace\injector\LEDspi/Oled.c
-4EA text6 CODE >899:E:\myWorkSpace\injector\LEDspi/Oled.c
-4F6 text6 CODE >900:E:\myWorkSpace\injector\LEDspi/Oled.c
-53E text6 CODE >899:E:\myWorkSpace\injector\LEDspi/Oled.c
-542 text6 CODE >903:E:\myWorkSpace\injector\LEDspi/Oled.c
-54C text6 CODE >904:E:\myWorkSpace\injector\LEDspi/Oled.c
-558 text6 CODE >905:E:\myWorkSpace\injector\LEDspi/Oled.c
-5A0 text6 CODE >904:E:\myWorkSpace\injector\LEDspi/Oled.c
-5A4 text6 CODE >911:E:\myWorkSpace\injector\LEDspi/Oled.c
-5AE text6 CODE >912:E:\myWorkSpace\injector\LEDspi/Oled.c
-5BA text6 CODE >913:E:\myWorkSpace\injector\LEDspi/Oled.c
-5FA text6 CODE >912:E:\myWorkSpace\injector\LEDspi/Oled.c
-5FE text6 CODE >916:E:\myWorkSpace\injector\LEDspi/Oled.c
-608 text6 CODE >917:E:\myWorkSpace\injector\LEDspi/Oled.c
-614 text6 CODE >918:E:\myWorkSpace\injector\LEDspi/Oled.c
-65C text6 CODE >917:E:\myWorkSpace\injector\LEDspi/Oled.c
-660 text6 CODE >921:E:\myWorkSpace\injector\LEDspi/Oled.c
-66A text6 CODE >922:E:\myWorkSpace\injector\LEDspi/Oled.c
-676 text6 CODE >923:E:\myWorkSpace\injector\LEDspi/Oled.c
-6BE text6 CODE >922:E:\myWorkSpace\injector\LEDspi/Oled.c
-6C2 text6 CODE >796:E:\myWorkSpace\injector\LEDspi/Oled.c
-CC2 text5 CODE >160:E:\myWorkSpace\injector\LEDspi/Oled.c
-CC2 text5 CODE >165:E:\myWorkSpace\injector\LEDspi/Oled.c
-CC4 text5 CODE >166:E:\myWorkSpace\injector\LEDspi/Oled.c
-CC6 text5 CODE >171:E:\myWorkSpace\injector\LEDspi/Oled.c
-CC8 text5 CODE >172:E:\myWorkSpace\injector\LEDspi/Oled.c
-CCA text5 CODE >179:E:\myWorkSpace\injector\LEDspi/Oled.c
-CCC text5 CODE >182:E:\myWorkSpace\injector\LEDspi/Oled.c
-CCE text5 CODE >189:E:\myWorkSpace\injector\LEDspi/Oled.c
-954 text4 CODE >957:E:\myWorkSpace\injector\LEDspi/Oled.c
-954 text4 CODE >961:E:\myWorkSpace\injector\LEDspi/Oled.c
-958 text4 CODE >967:E:\myWorkSpace\injector\LEDspi/Oled.c
-95A text4 CODE >968:E:\myWorkSpace\injector\LEDspi/Oled.c
-966 text4 CODE >974:E:\myWorkSpace\injector\LEDspi/Oled.c
-968 text4 CODE >975:E:\myWorkSpace\injector\LEDspi/Oled.c
-974 text4 CODE >978:E:\myWorkSpace\injector\LEDspi/Oled.c
-97A text4 CODE >979:E:\myWorkSpace\injector\LEDspi/Oled.c
-992 text4 CODE >982:E:\myWorkSpace\injector\LEDspi/Oled.c
-998 text4 CODE >983:E:\myWorkSpace\injector\LEDspi/Oled.c
-9B0 text4 CODE >985:E:\myWorkSpace\injector\LEDspi/Oled.c
-9B6 text4 CODE >986:E:\myWorkSpace\injector\LEDspi/Oled.c
-9CE text4 CODE >988:E:\myWorkSpace\injector\LEDspi/Oled.c
-9D4 text4 CODE >989:E:\myWorkSpace\injector\LEDspi/Oled.c
-9EC text4 CODE >991:E:\myWorkSpace\injector\LEDspi/Oled.c
-9F2 text4 CODE >992:E:\myWorkSpace\injector\LEDspi/Oled.c
-A0A text4 CODE >994:E:\myWorkSpace\injector\LEDspi/Oled.c
-A10 text4 CODE >995:E:\myWorkSpace\injector\LEDspi/Oled.c
-A28 text4 CODE >997:E:\myWorkSpace\injector\LEDspi/Oled.c
-A2E text4 CODE >1000:E:\myWorkSpace\injector\LEDspi/Oled.c
-A46 text4 CODE >1002:E:\myWorkSpace\injector\LEDspi/Oled.c
-A4A text4 CODE >1004:E:\myWorkSpace\injector\LEDspi/Oled.c
-A58 text4 CODE >1005:E:\myWorkSpace\injector\LEDspi/Oled.c
-A66 text4 CODE >1007:E:\myWorkSpace\injector\LEDspi/Oled.c
-A74 text4 CODE >1008:E:\myWorkSpace\injector\LEDspi/Oled.c
-A82 text4 CODE >1009:E:\myWorkSpace\injector\LEDspi/Oled.c
-A90 text4 CODE >1010:E:\myWorkSpace\injector\LEDspi/Oled.c
-A9E text4 CODE >1011:E:\myWorkSpace\injector\LEDspi/Oled.c
-AAC text4 CODE >1014:E:\myWorkSpace\injector\LEDspi/Oled.c
-CE8 text3 CODE >470:E:\myWorkSpace\injector\LEDspi/Oled.c
-CE8 text3 CODE >475:E:\myWorkSpace\injector\LEDspi/Oled.c
-CEA text3 CODE >479:E:\myWorkSpace\injector\LEDspi/Oled.c
-CDC text2 CODE >457:E:\myWorkSpace\injector\LEDspi/Oled.c
-CDC text2 CODE >464:E:\myWorkSpace\injector\LEDspi/Oled.c
-CDE text2 CODE >465:E:\myWorkSpace\injector\LEDspi/Oled.c
-CE0 text2 CODE >468:E:\myWorkSpace\injector\LEDspi/Oled.c
-C90 text1 CODE >238:E:\myWorkSpace\injector\LEDspi/Timer.c
-C90 text1 CODE >240:E:\myWorkSpace\injector\LEDspi/Timer.c
-C92 text1 CODE >241:E:\myWorkSpace\injector\LEDspi/Timer.c
-C94 text1 CODE >242:E:\myWorkSpace\injector\LEDspi/Timer.c
-C96 text1 CODE >243:E:\myWorkSpace\injector\LEDspi/Timer.c
-C98 text1 CODE >244:E:\myWorkSpace\injector\LEDspi/Timer.c
-C9A text1 CODE >245:E:\myWorkSpace\injector\LEDspi/Timer.c
-C9C text1 CODE >246:E:\myWorkSpace\injector\LEDspi/Timer.c
-C9E text1 CODE >247:E:\myWorkSpace\injector\LEDspi/Timer.c
-CA0 text1 CODE >248:E:\myWorkSpace\injector\LEDspi/Timer.c
-CA2 text1 CODE >249:E:\myWorkSpace\injector\LEDspi/Timer.c
-CAA text1 CODE >250:E:\myWorkSpace\injector\LEDspi/Timer.c
-C6E text0 CODE >63:E:\myWorkSpace\injector\LEDspi/Main.c
-C6E text0 CODE >66:E:\myWorkSpace\injector\LEDspi/Main.c
-C72 text0 CODE >67:E:\myWorkSpace\injector\LEDspi/Main.c
-C76 text0 CODE >68:E:\myWorkSpace\injector\LEDspi/Main.c
-C7A text0 CODE >80:E:\myWorkSpace\injector\LEDspi/Main.c
-C7E text0 CODE >108:E:\myWorkSpace\injector\LEDspi/Main.c
-C82 text0 CODE >115:E:\myWorkSpace\injector\LEDspi/Main.c
-C8E text0 CODE >109:E:\myWorkSpace\injector\LEDspi/Main.c
-AAE cinit CODE >18873:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AAE cinit CODE >18875:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AAE cinit CODE >18878:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AAE cinit CODE >19019:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AB0 cinit CODE >19020:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AB2 cinit CODE >19021:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AB4 cinit CODE >19022:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AB6 cinit CODE >19023:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AB8 cinit CODE >19024:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ABA cinit CODE >19025:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ABC cinit CODE >19026:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AC0 cinit CODE >19030:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AC4 cinit CODE >19031:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AC8 cinit CODE >19032:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AC8 cinit CODE >19033:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ACA cinit CODE >19034:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ACC cinit CODE >19035:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ACE cinit CODE >19036:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AD0 cinit CODE >19037:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AD2 cinit CODE >19038:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AD4 cinit CODE >19041:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AD8 cinit CODE >19042:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ADC cinit CODE >19043:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ADC cinit CODE >19044:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-ADE cinit CODE >19045:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AE0 cinit CODE >19046:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AE2 cinit CODE >19047:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AE4 cinit CODE >19048:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AE6 cinit CODE >19049:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AE8 cinit CODE >19052:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AEC cinit CODE >19053:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AEE cinit CODE >19054:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AEE cinit CODE >19055:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AF0 cinit CODE >19056:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AF2 cinit CODE >19057:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AF4 cinit CODE >19063:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AF4 cinit CODE >19065:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AF6 cinit CODE >19066:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AF8 cinit CODE >19068:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AFA cinit CODE >19069:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AFC cinit CODE >19070:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
-AFE cinit CODE >19071:C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.
+718 intcode_body CODE >17:E:\myWorkSpace\injector\LEDspi/Timer.c
+752 intcode_body CODE >20:E:\myWorkSpace\injector\LEDspi/Timer.c
+756 intcode_body CODE >22:E:\myWorkSpace\injector\LEDspi/Timer.c
+75C intcode_body CODE >30:E:\myWorkSpace\injector\LEDspi/Timer.c
+760 intcode_body CODE >32:E:\myWorkSpace\injector\LEDspi/Timer.c
+762 intcode_body CODE >35:E:\myWorkSpace\injector\LEDspi/Timer.c
+76A intcode_body CODE >36:E:\myWorkSpace\injector\LEDspi/Timer.c
+772 intcode_body CODE >38:E:\myWorkSpace\injector\LEDspi/Timer.c
+778 intcode_body CODE >40:E:\myWorkSpace\injector\LEDspi/Timer.c
+77E intcode_body CODE >41:E:\myWorkSpace\injector\LEDspi/Timer.c
+780 intcode_body CODE >44:E:\myWorkSpace\injector\LEDspi/Timer.c
+784 intcode_body CODE >46:E:\myWorkSpace\injector\LEDspi/Timer.c
+788 intcode_body CODE >49:E:\myWorkSpace\injector\LEDspi/Timer.c
+790 intcode_body CODE >50:E:\myWorkSpace\injector\LEDspi/Timer.c
+798 intcode_body CODE >52:E:\myWorkSpace\injector\LEDspi/Timer.c
+79C intcode_body CODE >53:E:\myWorkSpace\injector\LEDspi/Timer.c
+7A0 intcode_body CODE >57:E:\myWorkSpace\injector\LEDspi/Timer.c
+7A8 intcode_body CODE >63:E:\myWorkSpace\injector\LEDspi/Timer.c
+7AE intcode_body CODE >65:E:\myWorkSpace\injector\LEDspi/Timer.c
+7B2 intcode_body CODE >67:E:\myWorkSpace\injector\LEDspi/Timer.c
+7B4 intcode_body CODE >68:E:\myWorkSpace\injector\LEDspi/Timer.c
+7B6 intcode_body CODE >69:E:\myWorkSpace\injector\LEDspi/Timer.c
+7B8 intcode_body CODE >70:E:\myWorkSpace\injector\LEDspi/Timer.c
+7DA intcode_body CODE >73:E:\myWorkSpace\injector\LEDspi/Timer.c
+7DC intcode_body CODE >74:E:\myWorkSpace\injector\LEDspi/Timer.c
+7DE intcode_body CODE >75:E:\myWorkSpace\injector\LEDspi/Timer.c
+7E0 intcode_body CODE >77:E:\myWorkSpace\injector\LEDspi/Timer.c
+7E4 intcode_body CODE >80:E:\myWorkSpace\injector\LEDspi/Timer.c
+7EA intcode_body CODE >83:E:\myWorkSpace\injector\LEDspi/Timer.c
+7EC intcode_body CODE >84:E:\myWorkSpace\injector\LEDspi/Timer.c
+7EE intcode_body CODE >85:E:\myWorkSpace\injector\LEDspi/Timer.c
+7F0 intcode_body CODE >87:E:\myWorkSpace\injector\LEDspi/Timer.c
+80A intcode_body CODE >90:E:\myWorkSpace\injector\LEDspi/Timer.c
+80C intcode_body CODE >91:E:\myWorkSpace\injector\LEDspi/Timer.c
+80E intcode_body CODE >92:E:\myWorkSpace\injector\LEDspi/Timer.c
+810 intcode_body CODE >94:E:\myWorkSpace\injector\LEDspi/Timer.c
+814 intcode_body CODE >97:E:\myWorkSpace\injector\LEDspi/Timer.c
+81C intcode_body CODE >99:E:\myWorkSpace\injector\LEDspi/Timer.c
+820 intcode_body CODE >101:E:\myWorkSpace\injector\LEDspi/Timer.c
+83A intcode_body CODE >104:E:\myWorkSpace\injector\LEDspi/Timer.c
+83C intcode_body CODE >105:E:\myWorkSpace\injector\LEDspi/Timer.c
+83E intcode_body CODE >106:E:\myWorkSpace\injector\LEDspi/Timer.c
+840 intcode_body CODE >108:E:\myWorkSpace\injector\LEDspi/Timer.c
+844 intcode_body CODE >109:E:\myWorkSpace\injector\LEDspi/Timer.c
+846 intcode_body CODE >110:E:\myWorkSpace\injector\LEDspi/Timer.c
+846 intcode_body CODE >113:E:\myWorkSpace\injector\LEDspi/Timer.c
+848 intcode_body CODE >114:E:\myWorkSpace\injector\LEDspi/Timer.c
+84A intcode_body CODE >115:E:\myWorkSpace\injector\LEDspi/Timer.c
+84C intcode_body CODE >118:E:\myWorkSpace\injector\LEDspi/Timer.c
+84E intcode_body CODE >119:E:\myWorkSpace\injector\LEDspi/Timer.c
+856 intcode_body CODE >121:E:\myWorkSpace\injector\LEDspi/Timer.c
+85A intcode_body CODE >122:E:\myWorkSpace\injector\LEDspi/Timer.c
+862 intcode_body CODE >124:E:\myWorkSpace\injector\LEDspi/Timer.c
+86A intcode_body CODE >125:E:\myWorkSpace\injector\LEDspi/Timer.c
+86E intcode_body CODE >126:E:\myWorkSpace\injector\LEDspi/Timer.c
+87A intcode_body CODE >133:E:\myWorkSpace\injector\LEDspi/Timer.c
+882 intcode_body CODE >135:E:\myWorkSpace\injector\LEDspi/Timer.c
+888 intcode_body CODE >148:E:\myWorkSpace\injector\LEDspi/Timer.c
+88A intcode_body CODE >59:E:\myWorkSpace\injector\LEDspi/Timer.c
+894 intcode_body CODE >149:E:\myWorkSpace\injector\LEDspi/Timer.c
+896 intcode_body CODE >153:E:\myWorkSpace\injector\LEDspi/Timer.c
+89C intcode_body CODE >155:E:\myWorkSpace\injector\LEDspi/Timer.c
+8A0 intcode_body CODE >160:E:\myWorkSpace\injector\LEDspi/Timer.c
+8A8 intcode_body CODE >161:E:\myWorkSpace\injector\LEDspi/Timer.c
+8AC intcode_body CODE >164:E:\myWorkSpace\injector\LEDspi/Timer.c
+8AE intcode_body CODE >165:E:\myWorkSpace\injector\LEDspi/Timer.c
+8B0 intcode_body CODE >166:E:\myWorkSpace\injector\LEDspi/Timer.c
+8B2 intcode_body CODE >168:E:\myWorkSpace\injector\LEDspi/Timer.c
+8BA intcode_body CODE >170:E:\myWorkSpace\injector\LEDspi/Timer.c
+8C2 intcode_body CODE >171:E:\myWorkSpace\injector\LEDspi/Timer.c
+8CA intcode_body CODE >172:E:\myWorkSpace\injector\LEDspi/Timer.c
+8CC intcode_body CODE >173:E:\myWorkSpace\injector\LEDspi/Timer.c
+8D4 intcode_body CODE >175:E:\myWorkSpace\injector\LEDspi/Timer.c
+8DC intcode_body CODE >178:E:\myWorkSpace\injector\LEDspi/Timer.c
+8E4 intcode_body CODE >180:E:\myWorkSpace\injector\LEDspi/Timer.c
+8E8 intcode_body CODE >181:E:\myWorkSpace\injector\LEDspi/Timer.c
+8EA intcode_body CODE >185:E:\myWorkSpace\injector\LEDspi/Timer.c
+8F2 intcode_body CODE >194:E:\myWorkSpace\injector\LEDspi/Timer.c
+8F8 intcode_body CODE >196:E:\myWorkSpace\injector\LEDspi/Timer.c
+91A intcode_body CODE >199:E:\myWorkSpace\injector\LEDspi/Timer.c
+91C intcode_body CODE >200:E:\myWorkSpace\injector\LEDspi/Timer.c
+91E intcode_body CODE >201:E:\myWorkSpace\injector\LEDspi/Timer.c
+920 intcode_body CODE >202:E:\myWorkSpace\injector\LEDspi/Timer.c
+926 intcode_body CODE >206:E:\myWorkSpace\injector\LEDspi/Timer.c
+926 intcode_body CODE >209:E:\myWorkSpace\injector\LEDspi/Timer.c
+928 intcode_body CODE >210:E:\myWorkSpace\injector\LEDspi/Timer.c
+92A intcode_body CODE >211:E:\myWorkSpace\injector\LEDspi/Timer.c
+92C intcode_body CODE >213:E:\myWorkSpace\injector\LEDspi/Timer.c
+930 intcode_body CODE >217:E:\myWorkSpace\injector\LEDspi/Timer.c
+932 intcode_body CODE >218:E:\myWorkSpace\injector\LEDspi/Timer.c
+932 intcode_body CODE >221:E:\myWorkSpace\injector\LEDspi/Timer.c
+934 intcode_body CODE >222:E:\myWorkSpace\injector\LEDspi/Timer.c
+936 intcode_body CODE >223:E:\myWorkSpace\injector\LEDspi/Timer.c
+938 intcode_body CODE >225:E:\myWorkSpace\injector\LEDspi/Timer.c
+93A intcode_body CODE >226:E:\myWorkSpace\injector\LEDspi/Timer.c
+93C intcode_body CODE >227:E:\myWorkSpace\injector\LEDspi/Timer.c
+93E intcode_body CODE >234:E:\myWorkSpace\injector\LEDspi/Timer.c
+93E intcode_body CODE >235:E:\myWorkSpace\injector\LEDspi/Timer.c
+940 intcode_body CODE >236:E:\myWorkSpace\injector\LEDspi/Timer.c
+DEE text17 CODE >4:E:\myWorkSpace\injector\LEDspi/Beep.c
+DEE text17 CODE >13:E:\myWorkSpace\injector\LEDspi/Beep.c
+DF0 text17 CODE >14:E:\myWorkSpace\injector\LEDspi/Beep.c
+DF2 text17 CODE >17:E:\myWorkSpace\injector\LEDspi/Beep.c
+DF8 text16 CODE >14:E:\myWorkSpace\injector\LEDspi/Oled.c
+DF8 text16 CODE >28:E:\myWorkSpace\injector\LEDspi/Oled.c
+D02 text15 CODE >53:E:\myWorkSpace\injector\LEDspi/Oled.c
+D04 text15 CODE >57:E:\myWorkSpace\injector\LEDspi/Oled.c
+D10 text15 CODE >58:E:\myWorkSpace\injector\LEDspi/Oled.c
+D10 text15 CODE >59:E:\myWorkSpace\injector\LEDspi/Oled.c
+D14 text15 CODE >61:E:\myWorkSpace\injector\LEDspi/Oled.c
+D16 text15 CODE >62:E:\myWorkSpace\injector\LEDspi/Oled.c
+D18 text15 CODE >63:E:\myWorkSpace\injector\LEDspi/Oled.c
+D18 text15 CODE >65:E:\myWorkSpace\injector\LEDspi/Oled.c
+D1A text15 CODE >67:E:\myWorkSpace\injector\LEDspi/Oled.c
+D1E text15 CODE >68:E:\myWorkSpace\injector\LEDspi/Oled.c
+D20 text15 CODE >69:E:\myWorkSpace\injector\LEDspi/Oled.c
+D24 text15 CODE >70:E:\myWorkSpace\injector\LEDspi/Oled.c
+D26 text15 CODE >71:E:\myWorkSpace\injector\LEDspi/Oled.c
+D2C text15 CODE >73:E:\myWorkSpace\injector\LEDspi/Oled.c
+D2E text15 CODE >75:E:\myWorkSpace\injector\LEDspi/Oled.c
+D32 text15 CODE >76:E:\myWorkSpace\injector\LEDspi/Oled.c
+D36 text15 CODE >57:E:\myWorkSpace\injector\LEDspi/Oled.c
+DB8 text14 CODE >30:E:\myWorkSpace\injector\LEDspi/Oled.c
+DB8 text14 CODE >33:E:\myWorkSpace\injector\LEDspi/Oled.c
+DBA text14 CODE >34:E:\myWorkSpace\injector\LEDspi/Oled.c
+DBC text14 CODE >35:E:\myWorkSpace\injector\LEDspi/Oled.c
+DC0 text14 CODE >36:E:\myWorkSpace\injector\LEDspi/Oled.c
+DC2 text14 CODE >37:E:\myWorkSpace\injector\LEDspi/Oled.c
+DC6 text14 CODE >38:E:\myWorkSpace\injector\LEDspi/Oled.c
+DC8 text14 CODE >39:E:\myWorkSpace\injector\LEDspi/Oled.c
+DCC text14 CODE >40:E:\myWorkSpace\injector\LEDspi/Oled.c
+DDC text13 CODE >43:E:\myWorkSpace\injector\LEDspi/Oled.c
+DDC text13 CODE >46:E:\myWorkSpace\injector\LEDspi/Oled.c
+DDE text13 CODE >47:E:\myWorkSpace\injector\LEDspi/Oled.c
+DE0 text13 CODE >48:E:\myWorkSpace\injector\LEDspi/Oled.c
+DE4 text13 CODE >49:E:\myWorkSpace\injector\LEDspi/Oled.c
+DE6 text13 CODE >50:E:\myWorkSpace\injector\LEDspi/Oled.c
+D70 text12 CODE >109:E:\myWorkSpace\injector\LEDspi/Oled.c
+D70 text12 CODE >113:E:\myWorkSpace\injector\LEDspi/Oled.c
+D72 text12 CODE >114:E:\myWorkSpace\injector\LEDspi/Oled.c
+D76 text12 CODE >115:E:\myWorkSpace\injector\LEDspi/Oled.c
+D78 text12 CODE >117:E:\myWorkSpace\injector\LEDspi/Oled.c
+D7A text12 CODE >118:E:\myWorkSpace\injector\LEDspi/Oled.c
+D7E text12 CODE >119:E:\myWorkSpace\injector\LEDspi/Oled.c
+D82 text12 CODE >121:E:\myWorkSpace\injector\LEDspi/Oled.c
+D86 text12 CODE >125:E:\myWorkSpace\injector\LEDspi/Oled.c
+D8A text12 CODE >128:E:\myWorkSpace\injector\LEDspi/Oled.c
+D8C text12 CODE >130:E:\myWorkSpace\injector\LEDspi/Oled.c
+D8E text12 CODE >131:E:\myWorkSpace\injector\LEDspi/Oled.c
+D92 text12 CODE >133:E:\myWorkSpace\injector\LEDspi/Oled.c
+C6E text11 CODE >315:E:\myWorkSpace\injector\LEDspi/Oled.c
+C6E text11 CODE >321:E:\myWorkSpace\injector\LEDspi/Oled.c
+C72 text11 CODE >331:E:\myWorkSpace\injector\LEDspi/Oled.c
+C76 text11 CODE >333:E:\myWorkSpace\injector\LEDspi/Oled.c
+C7C text11 CODE >335:E:\myWorkSpace\injector\LEDspi/Oled.c
+C80 text11 CODE >351:E:\myWorkSpace\injector\LEDspi/Oled.c
+C86 text11 CODE >353:E:\myWorkSpace\injector\LEDspi/Oled.c
+C8A text11 CODE >361:E:\myWorkSpace\injector\LEDspi/Oled.c
+CAE text11 CODE >362:E:\myWorkSpace\injector\LEDspi/Oled.c
+CB2 text11 CODE >371:E:\myWorkSpace\injector\LEDspi/Oled.c
+CB6 text11 CODE >376:E:\myWorkSpace\injector\LEDspi/Oled.c
+CBA text10 CODE >491:E:\myWorkSpace\injector\LEDspi/Oled.c
+CBE text10 CODE >495:E:\myWorkSpace\injector\LEDspi/Oled.c
+CC6 text10 CODE >496:E:\myWorkSpace\injector\LEDspi/Oled.c
+CDE text10 CODE >499:E:\myWorkSpace\injector\LEDspi/Oled.c
+CE8 text10 CODE >500:E:\myWorkSpace\injector\LEDspi/Oled.c
+BC4 text9 CODE >938:E:\myWorkSpace\injector\LEDspi/Oled.c
+BC4 text9 CODE >943:E:\myWorkSpace\injector\LEDspi/Oled.c
+BD4 text9 CODE >945:E:\myWorkSpace\injector\LEDspi/Oled.c
+BE0 text9 CODE >946:E:\myWorkSpace\injector\LEDspi/Oled.c
+BE6 text9 CODE >947:E:\myWorkSpace\injector\LEDspi/Oled.c
+BF6 text9 CODE >949:E:\myWorkSpace\injector\LEDspi/Oled.c
+C0E text9 CODE >947:E:\myWorkSpace\injector\LEDspi/Oled.c
+C14 text9 CODE >943:E:\myWorkSpace\injector\LEDspi/Oled.c
+D3A text8 CODE >7:E:\myWorkSpace\injector\LEDspi/Oled.c
+D3A text8 CODE >10:E:\myWorkSpace\injector\LEDspi/Oled.c
+D44 text8 CODE >11:E:\myWorkSpace\injector\LEDspi/Oled.c
+D5E text8 CODE >10:E:\myWorkSpace\injector\LEDspi/Oled.c
+12 text7 CODE >794:E:\myWorkSpace\injector\LEDspi/Oled.c
+16 text7 CODE >796:E:\myWorkSpace\injector\LEDspi/Oled.c
+18 text7 CODE >799:E:\myWorkSpace\injector\LEDspi/Oled.c
+22 text7 CODE >800:E:\myWorkSpace\injector\LEDspi/Oled.c
+2E text7 CODE >801:E:\myWorkSpace\injector\LEDspi/Oled.c
+70 text7 CODE >800:E:\myWorkSpace\injector\LEDspi/Oled.c
+74 text7 CODE >804:E:\myWorkSpace\injector\LEDspi/Oled.c
+7E text7 CODE >805:E:\myWorkSpace\injector\LEDspi/Oled.c
+8A text7 CODE >806:E:\myWorkSpace\injector\LEDspi/Oled.c
+D4 text7 CODE >805:E:\myWorkSpace\injector\LEDspi/Oled.c
+D8 text7 CODE >814:E:\myWorkSpace\injector\LEDspi/Oled.c
+E2 text7 CODE >815:E:\myWorkSpace\injector\LEDspi/Oled.c
+EE text7 CODE >816:E:\myWorkSpace\injector\LEDspi/Oled.c
+130 text7 CODE >815:E:\myWorkSpace\injector\LEDspi/Oled.c
+134 text7 CODE >819:E:\myWorkSpace\injector\LEDspi/Oled.c
+13E text7 CODE >820:E:\myWorkSpace\injector\LEDspi/Oled.c
+14A text7 CODE >821:E:\myWorkSpace\injector\LEDspi/Oled.c
+194 text7 CODE >820:E:\myWorkSpace\injector\LEDspi/Oled.c
+198 text7 CODE >829:E:\myWorkSpace\injector\LEDspi/Oled.c
+1A2 text7 CODE >830:E:\myWorkSpace\injector\LEDspi/Oled.c
+1AE text7 CODE >831:E:\myWorkSpace\injector\LEDspi/Oled.c
+1F0 text7 CODE >830:E:\myWorkSpace\injector\LEDspi/Oled.c
+1F4 text7 CODE >834:E:\myWorkSpace\injector\LEDspi/Oled.c
+1FE text7 CODE >835:E:\myWorkSpace\injector\LEDspi/Oled.c
+20A text7 CODE >836:E:\myWorkSpace\injector\LEDspi/Oled.c
+254 text7 CODE >835:E:\myWorkSpace\injector\LEDspi/Oled.c
+258 text7 CODE >851:E:\myWorkSpace\injector\LEDspi/Oled.c
+262 text7 CODE >852:E:\myWorkSpace\injector\LEDspi/Oled.c
+26E text7 CODE >853:E:\myWorkSpace\injector\LEDspi/Oled.c
+2B0 text7 CODE >852:E:\myWorkSpace\injector\LEDspi/Oled.c
+2B4 text7 CODE >856:E:\myWorkSpace\injector\LEDspi/Oled.c
+2BE text7 CODE >857:E:\myWorkSpace\injector\LEDspi/Oled.c
+2CA text7 CODE >858:E:\myWorkSpace\injector\LEDspi/Oled.c
+314 text7 CODE >857:E:\myWorkSpace\injector\LEDspi/Oled.c
+318 text7 CODE >861:E:\myWorkSpace\injector\LEDspi/Oled.c
+322 text7 CODE >862:E:\myWorkSpace\injector\LEDspi/Oled.c
+32E text7 CODE >863:E:\myWorkSpace\injector\LEDspi/Oled.c
+378 text7 CODE >862:E:\myWorkSpace\injector\LEDspi/Oled.c
+37C text7 CODE >874:E:\myWorkSpace\injector\LEDspi/Oled.c
+386 text7 CODE >875:E:\myWorkSpace\injector\LEDspi/Oled.c
+392 text7 CODE >876:E:\myWorkSpace\injector\LEDspi/Oled.c
+3D4 text7 CODE >875:E:\myWorkSpace\injector\LEDspi/Oled.c
+3D8 text7 CODE >879:E:\myWorkSpace\injector\LEDspi/Oled.c
+3E2 text7 CODE >880:E:\myWorkSpace\injector\LEDspi/Oled.c
+3EE text7 CODE >881:E:\myWorkSpace\injector\LEDspi/Oled.c
+438 text7 CODE >880:E:\myWorkSpace\injector\LEDspi/Oled.c
+43C text7 CODE >884:E:\myWorkSpace\injector\LEDspi/Oled.c
+446 text7 CODE >885:E:\myWorkSpace\injector\LEDspi/Oled.c
+452 text7 CODE >886:E:\myWorkSpace\injector\LEDspi/Oled.c
+49C text7 CODE >885:E:\myWorkSpace\injector\LEDspi/Oled.c
+4A0 text7 CODE >893:E:\myWorkSpace\injector\LEDspi/Oled.c
+4AA text7 CODE >894:E:\myWorkSpace\injector\LEDspi/Oled.c
+4B6 text7 CODE >895:E:\myWorkSpace\injector\LEDspi/Oled.c
+4F8 text7 CODE >894:E:\myWorkSpace\injector\LEDspi/Oled.c
+4FC text7 CODE >898:E:\myWorkSpace\injector\LEDspi/Oled.c
+506 text7 CODE >899:E:\myWorkSpace\injector\LEDspi/Oled.c
+512 text7 CODE >900:E:\myWorkSpace\injector\LEDspi/Oled.c
+55C text7 CODE >899:E:\myWorkSpace\injector\LEDspi/Oled.c
+560 text7 CODE >903:E:\myWorkSpace\injector\LEDspi/Oled.c
+56A text7 CODE >904:E:\myWorkSpace\injector\LEDspi/Oled.c
+576 text7 CODE >905:E:\myWorkSpace\injector\LEDspi/Oled.c
+5C0 text7 CODE >904:E:\myWorkSpace\injector\LEDspi/Oled.c
+5C4 text7 CODE >911:E:\myWorkSpace\injector\LEDspi/Oled.c
+5CE text7 CODE >912:E:\myWorkSpace\injector\LEDspi/Oled.c
+5DA text7 CODE >913:E:\myWorkSpace\injector\LEDspi/Oled.c
+61C text7 CODE >912:E:\myWorkSpace\injector\LEDspi/Oled.c
+620 text7 CODE >916:E:\myWorkSpace\injector\LEDspi/Oled.c
+62A text7 CODE >917:E:\myWorkSpace\injector\LEDspi/Oled.c
+636 text7 CODE >918:E:\myWorkSpace\injector\LEDspi/Oled.c
+680 text7 CODE >917:E:\myWorkSpace\injector\LEDspi/Oled.c
+684 text7 CODE >921:E:\myWorkSpace\injector\LEDspi/Oled.c
+68E text7 CODE >922:E:\myWorkSpace\injector\LEDspi/Oled.c
+69A text7 CODE >923:E:\myWorkSpace\injector\LEDspi/Oled.c
+6E4 text7 CODE >922:E:\myWorkSpace\injector\LEDspi/Oled.c
+6E8 text7 CODE >796:E:\myWorkSpace\injector\LEDspi/Oled.c
+DCE text6 CODE >160:E:\myWorkSpace\injector\LEDspi/Oled.c
+DCE text6 CODE >165:E:\myWorkSpace\injector\LEDspi/Oled.c
+DD0 text6 CODE >166:E:\myWorkSpace\injector\LEDspi/Oled.c
+DD2 text6 CODE >171:E:\myWorkSpace\injector\LEDspi/Oled.c
+DD4 text6 CODE >172:E:\myWorkSpace\injector\LEDspi/Oled.c
+DD6 text6 CODE >179:E:\myWorkSpace\injector\LEDspi/Oled.c
+DD8 text6 CODE >182:E:\myWorkSpace\injector\LEDspi/Oled.c
+DDA text6 CODE >189:E:\myWorkSpace\injector\LEDspi/Oled.c
+97C text5 CODE >957:E:\myWorkSpace\injector\LEDspi/Oled.c
+97C text5 CODE >961:E:\myWorkSpace\injector\LEDspi/Oled.c
+980 text5 CODE >967:E:\myWorkSpace\injector\LEDspi/Oled.c
+982 text5 CODE >968:E:\myWorkSpace\injector\LEDspi/Oled.c
+98E text5 CODE >974:E:\myWorkSpace\injector\LEDspi/Oled.c
+990 text5 CODE >975:E:\myWorkSpace\injector\LEDspi/Oled.c
+99C text5 CODE >978:E:\myWorkSpace\injector\LEDspi/Oled.c
+9A2 text5 CODE >979:E:\myWorkSpace\injector\LEDspi/Oled.c
+9BA text5 CODE >982:E:\myWorkSpace\injector\LEDspi/Oled.c
+9C0 text5 CODE >983:E:\myWorkSpace\injector\LEDspi/Oled.c
+9D8 text5 CODE >985:E:\myWorkSpace\injector\LEDspi/Oled.c
+9DE text5 CODE >986:E:\myWorkSpace\injector\LEDspi/Oled.c
+9F6 text5 CODE >988:E:\myWorkSpace\injector\LEDspi/Oled.c
+9FC text5 CODE >989:E:\myWorkSpace\injector\LEDspi/Oled.c
+A14 text5 CODE >991:E:\myWorkSpace\injector\LEDspi/Oled.c
+A1A text5 CODE >992:E:\myWorkSpace\injector\LEDspi/Oled.c
+A32 text5 CODE >994:E:\myWorkSpace\injector\LEDspi/Oled.c
+A38 text5 CODE >995:E:\myWorkSpace\injector\LEDspi/Oled.c
+A50 text5 CODE >997:E:\myWorkSpace\injector\LEDspi/Oled.c
+A56 text5 CODE >1000:E:\myWorkSpace\injector\LEDspi/Oled.c
+A6E text5 CODE >1002:E:\myWorkSpace\injector\LEDspi/Oled.c
+A72 text5 CODE >1004:E:\myWorkSpace\injector\LEDspi/Oled.c
+A84 text5 CODE >1005:E:\myWorkSpace\injector\LEDspi/Oled.c
+A96 text5 CODE >1007:E:\myWorkSpace\injector\LEDspi/Oled.c
+AA8 text5 CODE >1008:E:\myWorkSpace\injector\LEDspi/Oled.c
+ABA text5 CODE >1009:E:\myWorkSpace\injector\LEDspi/Oled.c
+ACC text5 CODE >1010:E:\myWorkSpace\injector\LEDspi/Oled.c
+ADE text5 CODE >1011:E:\myWorkSpace\injector\LEDspi/Oled.c
+AF0 text5 CODE >1014:E:\myWorkSpace\injector\LEDspi/Oled.c
+DF4 text4 CODE >470:E:\myWorkSpace\injector\LEDspi/Oled.c
+DF4 text4 CODE >475:E:\myWorkSpace\injector\LEDspi/Oled.c
+DF6 text4 CODE >479:E:\myWorkSpace\injector\LEDspi/Oled.c
+DE8 text3 CODE >457:E:\myWorkSpace\injector\LEDspi/Oled.c
+DE8 text3 CODE >464:E:\myWorkSpace\injector\LEDspi/Oled.c
+DEA text3 CODE >465:E:\myWorkSpace\injector\LEDspi/Oled.c
+DEC text3 CODE >468:E:\myWorkSpace\injector\LEDspi/Oled.c
+D96 text2 CODE >111:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+D96 text2 CODE >115:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+D98 text2 CODE >116:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+D9A text2 CODE >117:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+D9C text2 CODE >119:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+D9E text2 CODE >120:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DA0 text2 CODE >123:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DA2 text2 CODE >124:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DA4 text2 CODE >128:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DA6 text2 CODE >129:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DA8 text2 CODE >130:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DAA text2 CODE >133:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DAC text2 CODE >134:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DAE text2 CODE >135:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DB0 text2 CODE >137:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DB2 text2 CODE >138:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DB4 text2 CODE >139:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+DB6 text2 CODE >167:E:\myWorkSpace\injector\LEDspi/MotorDrive.c
+AF2 text1 CODE >37:E:\myWorkSpace\injector\LEDspi/Beep.c
+AF2 text1 CODE >43:E:\myWorkSpace\injector\LEDspi/Beep.c
+AF4 text1 CODE >45:E:\myWorkSpace\injector\LEDspi/Beep.c
+B08 text1 CODE >46:E:\myWorkSpace\injector\LEDspi/Beep.c
+B22 text1 CODE >45:E:\myWorkSpace\injector\LEDspi/Beep.c
+B2C text1 CODE >48:E:\myWorkSpace\injector\LEDspi/Beep.c
+B2E text1 CODE >49:E:\myWorkSpace\injector\LEDspi/Beep.c
+B42 text1 CODE >50:E:\myWorkSpace\injector\LEDspi/Beep.c
+B5C text1 CODE >49:E:\myWorkSpace\injector\LEDspi/Beep.c
+B62 text1 CODE >52:E:\myWorkSpace\injector\LEDspi/Beep.c
+B64 text0 CODE >66:E:\myWorkSpace\injector\LEDspi/Main.c
+B64 text0 CODE >69:E:\myWorkSpace\injector\LEDspi/Main.c
+B68 text0 CODE >70:E:\myWorkSpace\injector\LEDspi/Main.c
+B6C text0 CODE >71:E:\myWorkSpace\injector\LEDspi/Main.c
+B70 text0 CODE >79:E:\myWorkSpace\injector\LEDspi/Main.c
+B74 text0 CODE >83:E:\myWorkSpace\injector\LEDspi/Main.c
+B78 text0 CODE >113:E:\myWorkSpace\injector\LEDspi/Main.c
+B7A text0 CODE >114:E:\myWorkSpace\injector\LEDspi/Main.c
+B82 text0 CODE >116:E:\myWorkSpace\injector\LEDspi/Main.c
+B84 text0 CODE >119:E:\myWorkSpace\injector\LEDspi/Main.c
+B8C text0 CODE >120:E:\myWorkSpace\injector\LEDspi/Main.c
+B94 text0 CODE >123:E:\myWorkSpace\injector\LEDspi/Main.c
+B98 text0 CODE >124:E:\myWorkSpace\injector\LEDspi/Main.c
+B9C text0 CODE >116:E:\myWorkSpace\injector\LEDspi/Main.c
+BAC text0 CODE >127:E:\myWorkSpace\injector\LEDspi/Main.c
+BB0 text0 CODE >128:E:\myWorkSpace\injector\LEDspi/Main.c
+BB2 text0 CODE >129:E:\myWorkSpace\injector\LEDspi/Main.c
+BB6 text0 CODE >193:E:\myWorkSpace\injector\LEDspi/Main.c
+BB6 text0 CODE >199:E:\myWorkSpace\injector\LEDspi/Main.c
+BC2 text0 CODE >193:E:\myWorkSpace\injector\LEDspi/Main.c
+C1A cinit CODE >18883:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C1A cinit CODE >18885:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C1A cinit CODE >18888:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C1A cinit CODE >19038:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C1C cinit CODE >19039:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C1E cinit CODE >19040:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C20 cinit CODE >19041:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C22 cinit CODE >19042:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C24 cinit CODE >19043:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C26 cinit CODE >19044:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C28 cinit CODE >19045:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C2C cinit CODE >19049:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C30 cinit CODE >19050:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C34 cinit CODE >19051:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C34 cinit CODE >19052:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C36 cinit CODE >19053:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C38 cinit CODE >19054:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C3A cinit CODE >19055:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C3C cinit CODE >19056:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C3E cinit CODE >19057:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C40 cinit CODE >19060:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C44 cinit CODE >19061:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C48 cinit CODE >19062:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C48 cinit CODE >19063:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C4A cinit CODE >19064:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C4C cinit CODE >19065:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C4E cinit CODE >19066:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C50 cinit CODE >19067:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C52 cinit CODE >19068:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C54 cinit CODE >19071:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C58 cinit CODE >19072:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C5A cinit CODE >19073:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C5A cinit CODE >19074:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C5C cinit CODE >19075:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C5E cinit CODE >19076:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C60 cinit CODE >19082:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C60 cinit CODE >19084:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C62 cinit CODE >19085:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C64 cinit CODE >19087:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C66 cinit CODE >19088:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C68 cinit CODE >19089:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
+C6A cinit CODE >19090:C:\Users\ADMINI~1\AppData\Local\Temp\sh30.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -463,23 +492,23 @@ __Hspace_0 30000E 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Hspace_1 300 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-_LastInjectionFeedback 3E 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-__end_of_LCD_backlight_init CE2 0 CODE 0 text2 dist/default/production\injector.X.production.obj
-clear_device@col 6B 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-__end_of_Initial_LY096BG30 AAE 0 CODE 0 text4 dist/default/production\injector.X.production.obj
+_LastInjectionFeedback 40 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+__end_of_LCD_backlight_init DEE 0 CODE 0 text3 dist/default/production\injector.X.production.obj
+clear_device@col 81 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
+__end_of_Initial_LY096BG30 AF2 0 CODE 0 text5 dist/default/production\injector.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\injector.X.production.obj
-__mediumconst 423A 0 MEDIUMCONST 0 mediumconst C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-delay@i 61 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-delay@j 63 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-delay@x 5F 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+__mediumconst 423A 0 MEDIUMCONST 0 mediumconst C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+delay@i 65 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+delay@j 67 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+delay@x 63 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\injector.X.production.obj
-__end_of_LCD_On CEC 0 CODE 0 text3 dist/default/production\injector.X.production.obj
-_i2c_Stop CD0 0 CODE 0 text12 dist/default/production\injector.X.production.obj
+__end_of_LCD_On DF8 0 CODE 0 text4 dist/default/production\injector.X.production.obj
+_i2c_Stop DDC 0 CODE 0 text13 dist/default/production\injector.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 _ms 6E 0 COMRAM 1 dataCOMRAM dist/default/production\injector.X.production.obj
-_ss 46 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-_xn 3B 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-ISR@i 5E 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+_ss 48 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_xn 3D 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+ISR@i 62 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\injector.X.production.obj
 _BMP1 623B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 _BMP2 423B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
@@ -487,10 +516,12 @@ _T0CS 7EAD 0 ABS 0 - dist/default/production\injector.X.production.obj
 _T0IE 7F95 0 ABS 0 - dist/default/production\injector.X.production.obj
 _T0IF 7F92 0 ABS 0 - dist/default/production\injector.X.production.obj
 _TMR0 FD6 0 ABS 0 - dist/default/production\injector.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-_flag 3D 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-_main C6E 0 CODE 0 text0 dist/default/production\injector.X.production.obj
-_page 43 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_MotorDriveInit D96 0 CODE 0 text2 dist/default/production\injector.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+_buzz AF2 0 CODE 0 text1 dist/default/production\injector.X.production.obj
+_flag 3F 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_main B64 0 CODE 0 text0 dist/default/production\injector.X.production.obj
+_page 45 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 _pata 7F93 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 _patb 7F27 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 _patc 7EBB 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
@@ -498,30 +529,30 @@ _patd 7D9B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.produc
 _pate 7C7B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 _patf 7B5B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 _patg 7A3B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
-_rcnt 44 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_rcnt 46 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 btemp 6F 0 COMRAM 1 temp dist/default/production\injector.X.production.obj
 _ContinueWorkTimeCount 23 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-start E 0 CODE 0 init C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-__end_of_i2c_Stop CDC 0 CODE 0 text12 dist/default/production\injector.X.production.obj
+start E 0 CODE 0 init C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+__end_of_i2c_Stop DE8 0 CODE 0 text13 dist/default/production\injector.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
+__size_of_buzz 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\injector.X.production.obj
-_CurrentWorkPara 4A 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-_LCD_backlight_init CDC 0 CODE 0 text2 dist/default/production\injector.X.production.obj
+_CurrentWorkPara 4E 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_LCD_backlight_init DE8 0 CODE 0 text3 dist/default/production\injector.X.production.obj
 __Hpowerup E 0 CODE 0 powerup dist/default/production\injector.X.production.obj
-_ee_WriteBytes B02 0 CODE 0 text10 dist/default/production\injector.X.production.obj
+_ee_WriteBytes C6E 0 CODE 0 text11 dist/default/production\injector.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\injector.X.production.obj
-__accesstop 80 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-intlevel0 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-intlevel1 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-intlevel2 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-intlevel3 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
+__accesstop 80 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+intlevel0 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+intlevel1 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+intlevel2 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+intlevel3 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\injector.X.production.obj
 _DDRAbits F92 0 ABS 0 - dist/default/production\injector.X.production.obj
 _DDRBbits F93 0 ABS 0 - dist/default/production\injector.X.production.obj
 _DDRCbits F94 0 ABS 0 - dist/default/production\injector.X.production.obj
 _DDRDbits F95 0 ABS 0 - dist/default/production\injector.X.production.obj
-_DDREbits F96 0 ABS 0 - dist/default/production\injector.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\injector.X.production.obj
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
@@ -532,50 +563,55 @@ __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\injector.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\injector.X.production.obj
 _ContinueWorkTimePeriod 25 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-_NeedleMotorFindZeroPosFlag 42 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-__pidataCOMRAM CEE 0 CODE 0 idataCOMRAM dist/default/production\injector.X.production.obj
+_NeedleMotorFindZeroPosFlag 44 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+__pidataCOMRAM DFA 0 CODE 0 idataCOMRAM dist/default/production\injector.X.production.obj
+__end_of_MotorDriveInit DB8 0 CODE 0 text2 dist/default/production\injector.X.production.obj
 _InjectAmountNeedPulseNum 27 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-ee_WriteBytes@_pWriteBuf 61 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-i2c_WaitAck@re 5F 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-__end_of_i2c_WaitAck C6E 0 CODE 0 text11 dist/default/production\injector.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
+ee_WriteBytes@_pWriteBuf 65 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+i2c_WaitAck@re 63 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+__end_of_i2c_WaitAck D96 0 CODE 0 text12 dist/default/production\injector.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
 _NeedleInitPosition 2B 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\injector.X.production.obj
-_Initial_LY096BG30 954 0 CODE 0 text4 dist/default/production\injector.X.production.obj
+_Initial_LY096BG30 97C 0 CODE 0 text5 dist/default/production\injector.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\injector.X.production.obj
-__end_of_i2c_CfgGpio CD0 0 CODE 0 text5 dist/default/production\injector.X.production.obj
-__end_of_i2c_Delay CEE 0 CODE 0 text15 dist/default/production\injector.X.production.obj
+__end_of_i2c_CfgGpio DDC 0 CODE 0 text6 dist/default/production\injector.X.production.obj
+__end_of_i2c_Delay DFA 0 CODE 0 text16 dist/default/production\injector.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\injector.X.production.obj
-__end_of_i2c_Start CC2 0 CODE 0 text13 dist/default/production\injector.X.production.obj
+__end_of_i2c_Start DCE 0 CODE 0 text14 dist/default/production\injector.X.production.obj
 __size_of_i2c_Delay 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __size_of_i2c_Start 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Hmediumconst 8000 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __Hintcodelo E 0 CODE 0 intcodelo dist/default/production\injector.X.production.obj
 __size_of_BeepInit 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-_i2c_Delay CEC 0 CODE 0 text15 dist/default/production\injector.X.production.obj
+_i2c_Delay DF8 0 CODE 0 text16 dist/default/production\injector.X.production.obj
 _InjectionMotorCurrent 39 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-_i2c_Start CAC 0 CODE 0 text13 dist/default/production\injector.X.production.obj
+_i2c_Start DB8 0 CODE 0 text14 dist/default/production\injector.X.production.obj
 __size_of_delay 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\injector.X.production.obj
-_LCD_On CE8 0 CODE 0 text3 dist/default/production\injector.X.production.obj
+_LCD_On DF4 0 CODE 0 text4 dist/default/production\injector.X.production.obj
 __Lintcodelo E 0 CODE 0 intcodelo dist/default/production\injector.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-start_initialization AAE 0 CODE 0 cinit dist/default/production\injector.X.production.obj
+start_initialization C1A 0 CODE 0 cinit dist/default/production\injector.X.production.obj
 __size_of_ee_WriteBytes 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\injector.X.production.obj
-_NeedleRunDir 41 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_NeedleRunDir 43 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_TRISAbits F92 0 ABS 0 - dist/default/production\injector.X.production.obj
+_TRISBbits F93 0 ABS 0 - dist/default/production\injector.X.production.obj
 _TRISCbits F94 0 ABS 0 - dist/default/production\injector.X.production.obj
+_TRISDbits F95 0 ABS 0 - dist/default/production\injector.X.production.obj
 _TRISEbits F96 0 ABS 0 - dist/default/production\injector.X.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production\injector.X.production.obj
 _NeedleMotorAimPosition 2D 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __CFG_STVREN$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-_KeyScanPeriod 48 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_KeyScanPeriod 4C 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_prev_edge 4A 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 _T08BIT 7EAE 0 ABS 0 - dist/default/production\injector.X.production.obj
 __pcstackBANK0 80 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
 __size_of_LCD_On 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-__end_of_ee_WriteBytes B4E 0 CODE 0 text10 dist/default/production\injector.X.production.obj
-_BeepInit CE2 0 CODE 0 text16 dist/default/production\injector.X.production.obj
+__end_of_ee_WriteBytes CBA 0 CODE 0 text11 dist/default/production\injector.X.production.obj
+_BeepInit DEE 0 CODE 0 text17 dist/default/production\injector.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\injector.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\injector.X.production.obj
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\injector.X.production.obj
@@ -601,16 +637,16 @@ __Htext6 0 0 ABS 0 text6 dist/default/production\injector.X.production.obj
 __Htext7 0 0 ABS 0 text7 dist/default/production\injector.X.production.obj
 __Htext8 0 0 ABS 0 text8 dist/default/production\injector.X.production.obj
 __Htext9 0 0 ABS 0 text9 dist/default/production\injector.X.production.obj
-display_pattern@num 6D 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-display_pattern@sub 6B 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+display_pattern@num 85 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
+display_pattern@sub 81 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\injector.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\injector.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-__end_of_display_pattern 6F0 0 CODE 0 text6 dist/default/production\injector.X.production.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+__end_of_display_pattern 718 0 CODE 0 text7 dist/default/production\injector.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\injector.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\injector.X.production.obj
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-__end_of_BeepInit CE8 0 CODE 0 text16 dist/default/production\injector.X.production.obj
+__end_of_BeepInit DF4 0 CODE 0 text17 dist/default/production\injector.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\injector.X.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\injector.X.production.obj
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\injector.X.production.obj
@@ -671,27 +707,25 @@ _PSA 7EAB 0 ABS 0 - dist/default/production\injector.X.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production\injector.X.production.obj
 __S1 300 0 ABS 0 - dist/default/production\injector.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-_css 45 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_ann 3B 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_css 47 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 _xtt 35 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __size_of_i2c_CfgGpio 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-i2c_SendByte@_ucByte 5F 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-ee_WriteBytes@m 66 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-__end_of_TimerInit CAC 0 CODE 0 text1 dist/default/production\injector.X.production.obj
-__size_of_TimerInit 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-ee_WriteBytes@_usAddress 63 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-_clear_device B4E 0 CODE 0 text8 dist/default/production\injector.X.production.obj
+i2c_SendByte@_ucByte 63 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+ee_WriteBytes@m 6A 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+ee_WriteBytes@_usAddress 67 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+_clear_device BC4 0 CODE 0 text9 dist/default/production\injector.X.production.obj
 __CFG_PBADEN$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\injector.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\injector.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\injector.X.production.obj
-__end_of_ISR 954 0 CODE 0 intcode_body dist/default/production\injector.X.production.obj
-_display_pattern 12 0 CODE 0 text6 dist/default/production\injector.X.production.obj
-int_func 6F0 0 CODE 0 intcode_body dist/default/production\injector.X.production.obj
+__end_of_ISR 97C 0 CODE 0 intcode_body dist/default/production\injector.X.production.obj
+_display_pattern 12 0 CODE 0 text7 dist/default/production\injector.X.production.obj
+int_func 718 0 CODE 0 intcode_body dist/default/production\injector.X.production.obj
 __CFG_CCP2MX$PORTC 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\injector.X.production.obj
 _InjectionStepMotorStepPulseNum 21 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 _NeedleMotorCurrent 37 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-_TimerInit C90 0 CODE 0 text1 dist/default/production\injector.X.production.obj
 __Hramtop 600 0 RAM 0 ramtop dist/default/production\injector.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\injector.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production\injector.X.production.obj
@@ -706,15 +740,18 @@ __Htext13 0 0 ABS 0 text13 dist/default/production\injector.X.production.obj
 __Htext14 0 0 ABS 0 text14 dist/default/production\injector.X.production.obj
 __Htext15 0 0 ABS 0 text15 dist/default/production\injector.X.production.obj
 __Htext16 0 0 ABS 0 text16 dist/default/production\injector.X.production.obj
-__ptext10 B02 0 CODE 0 text10 dist/default/production\injector.X.production.obj
-__ptext11 C48 0 CODE 0 text11 dist/default/production\injector.X.production.obj
-__ptext12 CD0 0 CODE 0 text12 dist/default/production\injector.X.production.obj
-__ptext13 CAC 0 CODE 0 text13 dist/default/production\injector.X.production.obj
-__ptext14 BDA 0 CODE 0 text14 dist/default/production\injector.X.production.obj
-__ptext15 CEC 0 CODE 0 text15 dist/default/production\injector.X.production.obj
-__ptext16 CE2 0 CODE 0 text16 dist/default/production\injector.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\injector.X.production.obj
+__size_of_MotorDriveInit 0 0 ABS 0 - dist/default/production\injector.X.production.obj
+__ptext10 CBA 0 CODE 0 text10 dist/default/production\injector.X.production.obj
+__ptext11 C6E 0 CODE 0 text11 dist/default/production\injector.X.production.obj
+__ptext12 D70 0 CODE 0 text12 dist/default/production\injector.X.production.obj
+__ptext13 DDC 0 CODE 0 text13 dist/default/production\injector.X.production.obj
+__ptext14 DB8 0 CODE 0 text14 dist/default/production\injector.X.production.obj
+__ptext15 D02 0 CODE 0 text15 dist/default/production\injector.X.production.obj
+__ptext16 DF8 0 CODE 0 text16 dist/default/production\injector.X.production.obj
+__ptext17 DEE 0 CODE 0 text17 dist/default/production\injector.X.production.obj
 __size_of_clear_device 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-__pintcode_body 6F0 0 CODE 0 intcode_body dist/default/production\injector.X.production.obj
+__pintcode_body 718 0 CODE 0 intcode_body dist/default/production\injector.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\injector.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\injector.X.production.obj
 __CFG_BORV$0 0 0 ABS 0 - dist/default/production\injector.X.production.obj
@@ -722,15 +759,16 @@ __Lcomram 0 0 ABS 0 comram dist/default/production\injector.X.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\injector.X.production.obj
 _LATCbits F8B 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_WDTPS$64 0 0 ABS 0 - dist/default/production\injector.X.production.obj
+_LATDbits F8C 0 ABS 0 - dist/default/production\injector.X.production.obj
 _LATEbits F8D 0 ABS 0 - dist/default/production\injector.X.production.obj
 _DownKey D 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\injector.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\injector.X.production.obj
 _read_buf 200 0 BANK2 1 bssBANK2 dist/default/production\injector.X.production.obj
-__end_of_clear_device B96 0 CODE 0 text8 dist/default/production\injector.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-stacklo 300 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-display_pattern@mode 6C 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+__end_of_clear_device C1A 0 CODE 0 text9 dist/default/production\injector.X.production.obj
+stackhi 5FF 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+stacklo 300 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+display_pattern@mode 82 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\injector.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\injector.X.production.obj
 _StartInjectKey 1 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
@@ -740,11 +778,11 @@ __Lspace_0 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
-ee_WriteBytes@usAddr 68 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+ee_WriteBytes@usAddr 6C 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\injector.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\injector.X.production.obj
 _write_buf 100 0 BANK1 1 bssBANK1 dist/default/production\injector.X.production.obj
-end_of_initialization AF4 0 CODE 0 cinit dist/default/production\injector.X.production.obj
+end_of_initialization C60 0 CODE 0 cinit dist/default/production\injector.X.production.obj
 __size_of_display_pattern 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\injector.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\injector.X.production.obj
@@ -752,24 +790,25 @@ __CFG_OSC$HS 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\injector.X.production.obj
 __HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\injector.X.production.obj
 __HbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\injector.X.production.obj
-i2c_SendByte@i 60 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+i2c_SendByte@i 64 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
 __Lramtop 600 0 RAM 0 ramtop dist/default/production\injector.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\injector.X.production.obj
-setYX_LCD@px 69 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-setYX_LCD@py 6A 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-__pcinit AAE 0 CODE 0 cinit dist/default/production\injector.X.production.obj
-__ptext0 C6E 0 CODE 0 text0 dist/default/production\injector.X.production.obj
-__ptext1 C90 0 CODE 0 text1 dist/default/production\injector.X.production.obj
-__ptext2 CDC 0 CODE 0 text2 dist/default/production\injector.X.production.obj
-__ptext3 CE8 0 CODE 0 text3 dist/default/production\injector.X.production.obj
-__ptext4 954 0 CODE 0 text4 dist/default/production\injector.X.production.obj
-__ptext5 CC2 0 CODE 0 text5 dist/default/production\injector.X.production.obj
-__ptext6 12 0 CODE 0 text6 dist/default/production\injector.X.production.obj
-__ptext7 C12 0 CODE 0 text7 dist/default/production\injector.X.production.obj
-__ptext8 B4E 0 CODE 0 text8 dist/default/production\injector.X.production.obj
-__ptext9 B96 0 CODE 0 text9 dist/default/production\injector.X.production.obj
-clear_device@page 6C 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+setYX_LCD@px 6D 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+setYX_LCD@py 80 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
+__pcinit C1A 0 CODE 0 cinit dist/default/production\injector.X.production.obj
+__ptext0 B64 0 CODE 0 text0 dist/default/production\injector.X.production.obj
+__ptext1 AF2 0 CODE 0 text1 dist/default/production\injector.X.production.obj
+__ptext2 D96 0 CODE 0 text2 dist/default/production\injector.X.production.obj
+__ptext3 DE8 0 CODE 0 text3 dist/default/production\injector.X.production.obj
+__ptext4 DF4 0 CODE 0 text4 dist/default/production\injector.X.production.obj
+__ptext5 97C 0 CODE 0 text5 dist/default/production\injector.X.production.obj
+__ptext6 DCE 0 CODE 0 text6 dist/default/production\injector.X.production.obj
+__ptext7 12 0 CODE 0 text7 dist/default/production\injector.X.production.obj
+__ptext8 D3A 0 CODE 0 text8 dist/default/production\injector.X.production.obj
+__ptext9 BC4 0 CODE 0 text9 dist/default/production\injector.X.production.obj
+clear_device@page 82 0 BANK0 1 cstackBANK0 dist/default/production\injector.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\injector.X.production.obj
+_cur_edge 49 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __Ltext10 0 0 ABS 0 text10 dist/default/production\injector.X.production.obj
 __Ltext11 0 0 ABS 0 text11 dist/default/production\injector.X.production.obj
 __Ltext12 0 0 ABS 0 text12 dist/default/production\injector.X.production.obj
@@ -777,19 +816,20 @@ __Ltext13 0 0 ABS 0 text13 dist/default/production\injector.X.production.obj
 __Ltext14 0 0 ABS 0 text14 dist/default/production\injector.X.production.obj
 __Ltext15 0 0 ABS 0 text15 dist/default/production\injector.X.production.obj
 __Ltext16 0 0 ABS 0 text16 dist/default/production\injector.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\ADMINI~1\AppData\Local\Temp\s16vo.obj
-_i2c_SendByte BDA 0 CODE 0 text14 dist/default/production\injector.X.production.obj
-_i2c_WaitAck C48 0 CODE 0 text11 dist/default/production\injector.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\injector.X.production.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\ADMINI~1\AppData\Local\Temp\sh30.obj
+_i2c_SendByte D02 0 CODE 0 text15 dist/default/production\injector.X.production.obj
+_i2c_WaitAck D70 0 CODE 0 text12 dist/default/production\injector.X.production.obj
 __size_of_Initial_LY096BG30 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Lpowerup E 0 CODE 0 powerup dist/default/production\injector.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\injector.X.production.obj
-_StartWorkFlag 49 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_StartWorkFlag 4D 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\injector.X.production.obj
-_i2c_CfgGpio CC2 0 CODE 0 text5 dist/default/production\injector.X.production.obj
+_i2c_CfgGpio DCE 0 CODE 0 text6 dist/default/production\injector.X.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_WDT$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\injector.X.production.obj
-__end_of__initialization AF4 0 CODE 0 cinit dist/default/production\injector.X.production.obj
+__end_of__initialization C60 0 CODE 0 cinit dist/default/production\injector.X.production.obj
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
@@ -800,16 +840,17 @@ __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\injector.X.production.obj
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-ee_WriteBytes@_usSize 64 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
-__pcstackCOMRAM 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+ee_WriteBytes@_usSize 68 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+__pcstackCOMRAM 53 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
 _InjectDepthNeedPulseNum 29 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __pmediumconst 423A 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __size_of_i2c_SendByte 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-_ContinueWorkState 40 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_ContinueWorkState 42 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 _OnOffKey 19 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __end_of_BMP1 7A3B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __end_of_BMP2 623B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
-__end_of_main C90 0 CODE 0 text0 dist/default/production\injector.X.production.obj
+__end_of_buzz B64 0 CODE 0 text1 dist/default/production\injector.X.production.obj
+__end_of_main BC4 0 CODE 0 text0 dist/default/production\injector.X.production.obj
 __end_of_pata 7FFF 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __end_of_patb 7F93 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __end_of_patc 7F27 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
@@ -818,9 +859,9 @@ __end_of_pate 7D9B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.
 __end_of_patf 7C7B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __end_of_patg 7B5B 0 MEDIUMCONST 0 mediumconst dist/default/production\injector.X.production.obj
 __pintcode 8 0 CODE 0 intcode dist/default/production\injector.X.production.obj
-__end_of_setYX_LCD BDA 0 CODE 0 text9 dist/default/production\injector.X.production.obj
+__end_of_setYX_LCD D02 0 CODE 0 text10 dist/default/production\injector.X.production.obj
 __size_of_i2c_Stop 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-__end_of_delay C48 0 CODE 0 text7 dist/default/production\injector.X.production.obj
+__end_of_delay D70 0 CODE 0 text8 dist/default/production\injector.X.production.obj
 __size_of_setYX_LCD 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 _PORTC F82 0 ABS 0 - dist/default/production\injector.X.production.obj
 _T0PS0 7EA8 0 ABS 0 - dist/default/production\injector.X.production.obj
@@ -839,21 +880,23 @@ __Lram 0 0 ABS 0 ram dist/default/production\injector.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\injector.X.production.obj
 __CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-_delay C12 0 CODE 0 text7 dist/default/production\injector.X.production.obj
+_delay D3A 0 CODE 0 text8 dist/default/production\injector.X.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\injector.X.production.obj
 _InjectionStepMotorStepPulseMaxNum 1F 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __size_of_ISR 0 0 ABS 0 - dist/default/production\injector.X.production.obj
-__end_of_i2c_SendByte C12 0 CODE 0 text14 dist/default/production\injector.X.production.obj
-__initialization AAE 0 CODE 0 cinit dist/default/production\injector.X.production.obj
+__end_of_i2c_SendByte D3A 0 CODE 0 text15 dist/default/production\injector.X.production.obj
+__initialization C1A 0 CODE 0 cinit dist/default/production\injector.X.production.obj
+buzz@i 63 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
+buzz@j 65 0 COMRAM 1 cstackCOMRAM dist/default/production\injector.X.production.obj
 __pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production\injector.X.production.obj
 __pbssBANK2 200 0 BANK2 1 bssBANK2 dist/default/production\injector.X.production.obj
 __pdataCOMRAM 6E 0 COMRAM 1 dataCOMRAM dist/default/production\injector.X.production.obj
-_setYX_LCD B96 0 CODE 0 text9 dist/default/production\injector.X.production.obj
+_setYX_LCD CBA 0 CODE 0 text10 dist/default/production\injector.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\injector.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\injector.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\injector.X.production.obj
-_LastNeedleFeedback 3F 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
+_LastNeedleFeedback 41 0 COMRAM 1 bssCOMRAM dist/default/production\injector.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\injector.X.production.obj
 __Hintcode E 0 CODE 0 intcode dist/default/production\injector.X.production.obj
 # %SPLITSTAB Section
@@ -881,11 +924,11 @@ __Hintcode E 0 CODE 0 intcode dist/default/production\injector.X.production.obj
 # All other numeric quantities are in decimal.
 %SEGMENTS
 idloc 0 200000 200000 8 1
-cstackBANK0 1 80 80 2 1
+cstackBANK0 1 80 80 6 1
 reset_vec 0 0 0 4 1
 bssBANK1 1 100 100 100 1
 bssBANK2 1 200 200 100 1
-intcode 0 8 8 CE7 1
+intcode 0 8 8 DF3 1
 bssCOMRAM 1 1 1 6F 1
 mediumconst 0 423A 423A 3DC6 1
 config 0 300000 300000 E 1
