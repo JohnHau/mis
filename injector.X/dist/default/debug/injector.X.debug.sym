@@ -13,7 +13,7 @@ _ISR 8 0 CODE 0
 __Hintentry 0 0 ABS 0
 __CFG_PWRT$OFF 0 0 ABS 0
 __Lintentry 0 0 ABS 0
-__end_of_pate 7D9B 0 MEDIUMCONST 0
+__end_of_pate 7A9B 0 MEDIUMCONST 0
 i2delay@i 57 0 COMRAM 1
 _ann 3D 0 COMRAM 1
 _css 49 0 COMRAM 1
@@ -25,13 +25,13 @@ _T0IF 7F92 0 ABS 0
 _T0CS 7EAD 0 ABS 0
 _page 47 0 COMRAM 1
 _flag 41 0 COMRAM 1
-_pata 7F93 0 MEDIUMCONST 0
-_patb 7F27 0 MEDIUMCONST 0
-_patc 7EBB 0 MEDIUMCONST 0
-_patd 7D9B 0 MEDIUMCONST 0
-_pate 7C7B 0 MEDIUMCONST 0
-_patf 7B5B 0 MEDIUMCONST 0
-_patg 7A3B 0 MEDIUMCONST 0
+_pata 7C93 0 MEDIUMCONST 0
+_patb 7C27 0 MEDIUMCONST 0
+_patc 7BBB 0 MEDIUMCONST 0
+_patd 7A9B 0 MEDIUMCONST 0
+_pate 797B 0 MEDIUMCONST 0
+_patf 785B 0 MEDIUMCONST 0
+_patg 773B 0 MEDIUMCONST 0
 _main 13E 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 6D 0 COMRAM 1
@@ -56,7 +56,7 @@ i2delay@x 55 0 COMRAM 1
 _MotorDriveInit 2CE 0 CODE 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
-__end_of_patf 7C7B 0 MEDIUMCONST 0
+__end_of_patf 797B 0 MEDIUMCONST 0
 _read_buf 200 0 BANK2 1
 buzz@i 80 0 BANK0 1
 buzz@j 82 0 BANK0 1
@@ -109,13 +109,13 @@ __Hstruct 0 0 COMRAM 1
 __Lstruct 0 0 COMRAM 1
 __Hbigdata 0 0 BIGRAM 1
 __Lbigdata 0 0 BIGRAM 1
-__Hmediumconst 8000 0 MEDIUMCONST 0
-__Lmediumconst 7A3A 0 MEDIUMCONST 0
+__Hmediumconst 7D00 0 MEDIUMCONST 0
+__Lmediumconst 773A 0 MEDIUMCONST 0
 __Hfarbss 0 0 FARRAM 0
 __Lfarbss 0 0 FARRAM 0
-__pmediumconst 7A3A 0 MEDIUMCONST 0
+__pmediumconst 773A 0 MEDIUMCONST 0
 __Hintcode E 0 CODE 0
-__end_of_patg 7B5B 0 MEDIUMCONST 0
+__end_of_patg 785B 0 MEDIUMCONST 0
 __Lintcode 8 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 _ADRESH FC4 0 ABS 0
@@ -148,7 +148,7 @@ __Ldata 0 0 ABS 0
 __CFG_EBTR3$OFF 0 0 ABS 0
 delay@x 80 0 BANK0 1
 _ContinueWorkTimeCount 25 0 COMRAM 1
-stackhi 5FF 0 ABS 0
+stackhi 5EE 0 ABS 0
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
 __size_ofi2_LCD_Blink 0 0 ABS 0
@@ -290,7 +290,7 @@ i2_delay 298 0 CODE 0
 __pcinit 1AA 0 CODE 0
 __CFG_EBTRB$OFF 0 0 ABS 0
 __ramtop 600 0 RAM 0
-__mediumconst 7A3A 0 MEDIUMCONST 0
+__mediumconst 773A 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
@@ -306,7 +306,7 @@ __CFG_WRT2$OFF 0 0 ABS 0
 _ConfirmKey 7 0 COMRAM 1
 __CFG_WRT3$OFF 0 0 ABS 0
 __CFG_FCMEN$OFF 0 0 ABS 0
-__end_of_pata 7FFF 0 MEDIUMCONST 0
+__end_of_pata 7CFF 0 MEDIUMCONST 0
 __HbssBANK1 0 0 ABS 0
 __LbssBANK1 0 0 ABS 0
 __pbssBANK1 100 0 BANK1 1
@@ -329,14 +329,14 @@ _INTCONbits FF2 0 ABS 0
 _StartInjectKey 1 0 COMRAM 1
 _LCD_backlight_init 338 0 CODE 0
 __HidataCOMRAM 0 0 ABS 0
-__end_of_patb 7F93 0 MEDIUMCONST 0
+__end_of_patb 7C93 0 MEDIUMCONST 0
 __LidataCOMRAM 0 0 ABS 0
 __pidataCOMRAM 344 0 CODE 0
 _KeyScanPeriod 4E 0 COMRAM 1
 __CFG_CP0$OFF 0 0 ABS 0
 __smallconst 0 0 SMALLCONST 0
 __CFG_CP1$OFF 0 0 ABS 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __CFG_CP2$OFF 0 0 ABS 0
 __CFG_CP3$OFF 0 0 ABS 0
@@ -352,7 +352,7 @@ __CFG_WRTB$OFF 0 0 ABS 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
 __CFG_WRTC$OFF 0 0 ABS 0
-__end_of_patc 7F27 0 MEDIUMCONST 0
+__end_of_patc 7C27 0 MEDIUMCONST 0
 __CFG_WRTD$OFF 0 0 ABS 0
 __size_of_LCD_Blink 0 0 ABS 0
 _NeedleMotorCurrentPosition 31 0 COMRAM 1
@@ -366,7 +366,7 @@ start_initialization 1AA 0 CODE 0
 __CFG_IESO$OFF 0 0 ABS 0
 __CFG_MCLRE$ON 0 0 ABS 0
 _InjectionMotorCurrentPosition 35 0 COMRAM 1
-__end_of_patd 7EBB 0 MEDIUMCONST 0
+__end_of_patd 7BBB 0 MEDIUMCONST 0
 __initialization 1AA 0 CODE 0
 ?_get_AD_vaule 80 0 BANK0 1
 __CFG_LPT1OSC$OFF 0 0 ABS 0
@@ -377,9 +377,9 @@ _get_AD_vaule C6 0 CODE 0
 __end_of_KEY_Init 32A 0 CODE 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 344 CODE 8 0
-mediumconst 7A3A 7FFF MEDIUMCONST 7A3A 0
+mediumconst 773A 7CFF MEDIUMCONST 773A 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 bssCOMRAM 1 6D COMRAM 1 1
@@ -387,9 +387,9 @@ cstackBANK0 80 89 BANK0 80 1
 bssBANK1 100 1FF BANK1 100 1
 bssBANK2 200 2FF BANK2 200 1
 %locals
-dist/default/production\injector.X.production.obj
+dist/default/debug\injector.X.debug.obj
 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-C:\Users\ADMINI~1\AppData\Local\Temp\s21e4.
+C:\Users\ADMINI~1\AppData\Local\Temp\s2288.
 4258 1AA 0 CODE 0
 4260 1AA 0 CODE 0
 4263 1AA 0 CODE 0

@@ -1,5 +1,5 @@
 
-# 1 "../Main.c"
+# 1 "../Key.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3757,31 +3757,25 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 104 "../MotorDrive.h"
-extern void MotorDriveInit(void);
+# 54 "../Key.h"
+extern unsigned char KeyScanPeriod;
 
-extern void OpenMotorPower(void);
+typedef struct
+{
+unsigned char NewValue;
+unsigned char OldValue;
+unsigned char SendValue;
+unsigned char SendValueChangeFlag;
+unsigned char FiterTimesCount;
+unsigned char FiterTimes;
 
-extern void CloseMotorPower(void);
+}KeyType;
 
-extern void NeedleMotorForwardRun(void);
-extern void NeedleMotorReverseRun(void);
-extern void NeedleMotorFastStop(void);
-extern void NeedleMotorFreeStop(void);
+extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
 
-extern void InjectionMotorForwardRun(void);
-extern void InjectionMotorReverseRun(void);
-extern void InjectionMotorFastStop(void);
-extern void InjectionMotorFreeStop(void);
-
-# 5 "../Timer.h"
-extern void TimerInit(void);
-
-# 4 "../Beep.h"
-extern void BeepInit(void);
-extern void BeepOn(void);
-extern void BeepOff(void);
-void buzz(void);
+extern void KEY_Init(void);
+extern void KEY_Scan(void);
+extern void KeyFuction(void);
 
 # 49 "../PositionControl.h"
 typedef struct
@@ -3812,283 +3806,272 @@ extern void PositionCheckInit(void);
 extern void NeedleFindZeroPosFun(void);
 extern void CalContinueWorkTimePeriod(void);
 
-# 54 "../Key.h"
-extern unsigned char KeyScanPeriod;
+# 7 "../Key.c"
+KeyType OnOffKey={0},UpKey={0},DownKey={0},ConfirmKey={0},StartInjectKey={0};
 
-typedef struct
-{
-unsigned char NewValue;
-unsigned char OldValue;
-unsigned char SendValue;
-unsigned char SendValueChangeFlag;
-unsigned char FiterTimesCount;
-unsigned char FiterTimes;
+unsigned char KeyScanPeriod =0;
 
-}KeyType;
 
-extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
-
-extern void KEY_Init(void);
-extern void KEY_Scan(void);
-extern void KeyFuction(void);
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 5 "../Oled.h"
-void delay_ms(unsigned int ms);
-
-# 42
-void i2c_CfgGpio(void);
-void i2c_Start(void);
-void i2c_Stop(void);
-void i2c_SendByte(uint8_t _ucByte);
-uint8_t i2c_ReadByte(void);
-uint8_t i2c_WaitAck(void);
-void i2c_Ack(void);
-void i2c_NAck(void);
-
-# 67
-uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
-
-uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
-
-
-uint8_t ee_CheckDevice(uint8_t _Address);
-void ee_Erase(void);
-uint8_t ee_WaitStandby(void);
-uint8_t ee_Test(void) ;
-
-
-void Initial_LY096BG30(void);
-
-
-
-void LCD_backlight_init(void);
-void LCD_On(void);
-void LCD_Off(void);
-void LCD_Blink(void);
-uint8_t ee_CheckDevice(uint8_t _Address);
-
-
-uint8_t AD_ch0_init(void);
-uint16_t get_AD_vaule(void);
-
-
-void delay(unsigned int x);
-
-
-# 17 "../Main.c"
-#pragma config OSC = HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-#pragma config PWRT = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = 0
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 64
-
-#pragma config CCP2MX = PORTC
-#pragma config PBADEN = OFF
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-#pragma config STVREN = OFF
-#pragma config LVP = OFF
-#pragma config XINST = OFF
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTRB = OFF
-
-
-
-int xn=0;
-int ann=0;
-uint8_t prev_edge =0;
-uint8_t cur_edge =0;
-uint16_t bv =0;
-void main(void)
+void KEY_Init(void)
 {
 
-BeepInit();
+# 24
+TRISBbits.RB3 =1;
+TRISBbits.RB4 =1;
 
 
 
+TRISBbits.RB5 =1;
 
-LCD_backlight_init();
+TRISDbits.RD6 =1;
+TRISDbits.RD7 =1;
 
-# 84
-MotorDriveInit();
+TRISBbits.RB0 =1;
 
-KEY_Init();
-
-
-AD_ch0_init();
-bv = get_AD_vaule();
-
-
-bv =0;
-bv = get_AD_vaule();
-
-
-bv =0;
-bv = get_AD_vaule();
-
-# 119
-while(1)
-{
-
-
-if(PORTDbits.RD6 == 0)
-{
-
-LCD_Blink();
+# 123
 }
-if(PORTDbits.RD7 == 0)
+
+void KEY_Scan(void)
+{
+if(!KeyScanPeriod)
+{
+KeyScanPeriod =10;
+
+if(OnOffKey.NewValue !=PORTBbits.RB4)
+{
+OnOffKey.FiterTimesCount =OnOffKey.FiterTimes;
+OnOffKey.NewValue =PORTBbits.RB4;
+}
+else
+{
+if(OnOffKey.NewValue ==PORTBbits.RB4)
+{
+if(OnOffKey.FiterTimesCount)
+{
+OnOffKey.FiterTimesCount--;
+}
+else
+{
+OnOffKey.OldValue =OnOffKey.NewValue;
+}
+}
+if(OnOffKey.OldValue!=OnOffKey.SendValue)
+{
+OnOffKey.SendValue=OnOffKey.OldValue;
+OnOffKey.SendValueChangeFlag =1;
+}
+else
 {
 
 }
-if(PORTBbits.RB3 == 0)
+}
+
+if(UpKey.NewValue !=PORTDbits.RD4)
+{
+UpKey.FiterTimesCount =UpKey.FiterTimes;
+UpKey.NewValue =PORTDbits.RD4;
+}
+else
+{
+if(UpKey.NewValue ==PORTDbits.RD4)
+{
+if(UpKey.FiterTimesCount)
+{
+UpKey.FiterTimesCount--;
+}
+else
+{
+UpKey.OldValue =UpKey.NewValue;
+}
+}
+if(UpKey.OldValue!=UpKey.SendValue)
+{
+UpKey.SendValue=UpKey.OldValue;
+UpKey.SendValueChangeFlag =1;
+}
+else
 {
 
 }
-if(PORTBbits.RB4 == 0)
+}
 
-# 144
+if(DownKey.NewValue !=PORTDbits.RD7)
+{
+DownKey.FiterTimesCount =DownKey.FiterTimes;
+DownKey.NewValue =PORTDbits.RD7;
+}
+else
+{
+if(DownKey.NewValue ==PORTDbits.RD7)
+{
+if(DownKey.FiterTimesCount)
+{
+DownKey.FiterTimesCount--;
+}
+else
+{
+DownKey.OldValue =DownKey.NewValue;
+}
+}
+if(DownKey.OldValue!=DownKey.SendValue)
+{
+DownKey.SendValue=DownKey.OldValue;
+DownKey.SendValueChangeFlag =1;
+}
+else
 {
 
+}
+}
 
 
 
+
+if(ConfirmKey.NewValue !=PORTBbits.RB3)
 {
-buzz();
+ConfirmKey.FiterTimesCount =ConfirmKey.FiterTimes;
+ConfirmKey.NewValue =PORTBbits.RB3;
+}
+else
+{
+if(ConfirmKey.NewValue ==PORTBbits.RB3)
+{
+if(ConfirmKey.FiterTimesCount)
+{
+ConfirmKey.FiterTimesCount--;
+}
+else
+{
+ConfirmKey.OldValue =ConfirmKey.NewValue;
+}
+}
+if(ConfirmKey.OldValue!=ConfirmKey.SendValue)
+{
+ConfirmKey.SendValue=ConfirmKey.OldValue;
+ConfirmKey.SendValueChangeFlag =1;
+}
+else
+{
+
+}
+}
 
 
+if(StartInjectKey.NewValue !=PORTBbits.RB5)
+{
+StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
+StartInjectKey.NewValue =PORTBbits.RB5;
+}
+else
+{
+if(StartInjectKey.NewValue ==PORTBbits.RB5)
+{
+if(StartInjectKey.FiterTimesCount)
+{
+StartInjectKey.FiterTimesCount--;
+}
+else
+{
+StartInjectKey.OldValue =StartInjectKey.NewValue;
+}
+}
+if(StartInjectKey.OldValue!=StartInjectKey.SendValue)
+{
+StartInjectKey.SendValue=StartInjectKey.OldValue;
+StartInjectKey.SendValueChangeFlag =1;
+}
+else
+{
+
+}
 }
 
 }
 
+if(StartInjectKey.OldValue ==0)
+{
+StartWorkFlag =1;
 }
+else
+{
+StartWorkFlag =0;
+}
+}
+void KeyFuction(void)
+{
+static unsigned char store_key =0;
+if(OnOffKey.SendValueChangeFlag && (OnOffKey.SendValue==0))
+{
+OnOffKey.SendValueChangeFlag =0;
+OnOffKey.FiterTimes=OnOffKey.FiterTimes;
 
-# 275
-while(1)
+
+
+OnOffKey.SendValue =1;
+OnOffKey.SendValueChangeFlag =0;
+}
+else
 {
 
+}
+
+if(UpKey.SendValueChangeFlag && (UpKey.SendValue==0))
+{
+UpKey.SendValueChangeFlag =0;
+UpKey.FiterTimes=OnOffKey.FiterTimes;
 
 
 
-delay(100);
+UpKey.SendValue =1;
+UpKey.SendValueChangeFlag =0;
+}
+else
+{
+
+}
+
+if(DownKey.SendValueChangeFlag && (DownKey.SendValue==0))
+{
+DownKey.SendValueChangeFlag =0;
+DownKey.FiterTimes=DownKey.FiterTimes;
 
 
+
+DownKey.SendValue =1;
+DownKey.SendValueChangeFlag =0;
+}
+else
+{
+
+}
+
+if(ConfirmKey.SendValueChangeFlag && (ConfirmKey.SendValue==0))
+{
+ConfirmKey.SendValueChangeFlag =0;
+ConfirmKey.FiterTimes=ConfirmKey.FiterTimes;
+
+
+
+ConfirmKey.SendValue =1;
+ConfirmKey.SendValueChangeFlag =0;
+}
+else
+{
+
+}
+
+if(StartInjectKey.SendValueChangeFlag && (StartInjectKey.SendValue==0))
+{
+StartInjectKey.SendValueChangeFlag =0;
+StartInjectKey.FiterTimes=StartInjectKey.FiterTimes;
+
+
+
+StartInjectKey.SendValue =1;
+StartInjectKey.SendValueChangeFlag =0;
+}
+else
+{
 
 }
 }

@@ -1,100 +1,51 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1197 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S46 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"1207
-[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S47 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"1196
-[u S45 `S46 1 `S47 1 ]
-[n S45 . . . ]
-"1218
-[v _LATCbits `VS45 ~T0 @X0 0 e@3979 ]
-"1917
-[s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S67 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1927
-[s S68 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1916
-[u S66 `S67 1 `S68 1 ]
-[n S66 . . . ]
-"1938
-[v _TRISCbits `VS66 ~T0 @X0 0 e@3988 ]
-"445
-[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
-"2359
-[s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S79 . TRISE0 TRISE1 TRISE2 . PSPMODE IBOV OBF IBF ]
-"2369
-[s S80 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S80 . RE0 RE1 RE2 RE3 ]
-"2358
-[u S78 `S79 1 `S80 1 ]
-[n S78 . . . ]
-"2376
-[v _TRISEbits `VS78 ~T0 @X0 0 e@3990 ]
-"1419
-[s S52 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S52 . LATE0 LATE1 LATE2 ]
-"1424
-[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S53 . LE0 LE1 LE2 ]
-"1418
-[u S51 `S52 1 `S53 1 ]
-[n S51 . . . ]
-"1430
-[v _LATEbits `VS51 ~T0 @X0 0 e@3981 ]
-"216 ../Oled.c
-[v _SetAdChanel `(i ~T0 @X0 0 ef ]
-"217
-[v _StartAdConvert `(i ~T0 @X0 0 ef ]
-"4721 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"4851
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
-"1475
-[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S55 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"1485
-[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S56 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"1474
-[u S54 `S55 1 `S56 1 ]
-[n S54 . . . ]
-"1496
-[v _TRISAbits `VS54 ~T0 @X0 0 e@3986 ]
-"4727
-[s S184 :1 `uc 1 :1 `uc 1 ]
-[n S184 . . GO_NOT_DONE ]
-"4731
-[s S185 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S185 . ADON GO_nDONE CHS ]
-"4736
-[s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S186 . . GO CHS0 CHS1 CHS2 CHS3 ]
-"4744
-[s S187 :1 `uc 1 :1 `uc 1 ]
-[n S187 . . DONE ]
-"4748
-[s S188 :1 `uc 1 :1 `uc 1 ]
-[n S188 . . NOT_DONE ]
-"4752
-[s S189 :1 `uc 1 :1 `uc 1 ]
-[n S189 . . nDONE ]
-"4756
-[s S190 :1 `uc 1 :1 `uc 1 ]
-[n S190 . . GO_DONE ]
-"4760
-[s S191 :1 `uc 1 :1 `uc 1 ]
-[n S191 . . GODONE ]
-"4726
-[u S183 `S184 1 `S185 1 `S186 1 `S187 1 `S188 1 `S189 1 `S190 1 `S191 1 ]
-[n S183 . . . . . . . . . ]
-"4765
-[v _ADCON0bits `VS183 ~T0 @X0 0 e@4034 ]
-"4845
-[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"50 ../PositionControl.h
+[s S276 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S276 . InjectMode InjectType NeedleLength InjectDepth Variable ]
+"2022 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S70 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"2032
+[s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S71 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2021
+[u S69 `S70 1 `S71 1 ]
+[n S69 . . . ]
+"2043
+[v _DDRCbits `VS69 ~T0 @X0 0 e@3988 ]
+"1801
+[s S64 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S64 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1811
+[s S65 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S65 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"1800
+[u S63 `S64 1 `S65 1 ]
+[n S63 . . . ]
+"1822
+[v _DDRBbits `VS63 ~T0 @X0 0 e@3987 ]
+"1580
+[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S58 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1590
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"1579
+[u S57 `S58 1 `S59 1 ]
+[n S57 . . . ]
+"1601
+[v _DDRAbits `VS57 ~T0 @X0 0 e@3986 ]
+"2243
+[s S76 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S76 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"2253
+[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S77 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"2242
+[u S75 `S76 1 `S77 1 ]
+[n S75 . . . ]
+"2264
+[v _DDRDbits `VS75 ~T0 @X0 0 e@3989 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2873,3087 +2824,339 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;oled.h: 5: void delay_ms(unsigned int ms);
-[; ;oled.h: 42: void i2c_CfgGpio(void);
-[; ;oled.h: 43: void i2c_Start(void);
-[; ;oled.h: 44: void i2c_Stop(void);
-[; ;oled.h: 45: void i2c_SendByte(uint8_t _ucByte);
-[; ;oled.h: 46: uint8_t i2c_ReadByte(void);
-[; ;oled.h: 47: uint8_t i2c_WaitAck(void);
-[; ;oled.h: 48: void i2c_Ack(void);
-[; ;oled.h: 49: void i2c_NAck(void);
-[; ;oled.h: 67: uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
-[; ;oled.h: 69: uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
-[; ;oled.h: 72: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;oled.h: 73: void ee_Erase(void);
-[; ;oled.h: 74: uint8_t ee_WaitStandby(void);
-[; ;oled.h: 75: uint8_t ee_Test(void) ;
-[; ;oled.h: 78: void Initial_LY096BG30(void);
-[; ;oled.h: 82: void LCD_backlight_init(void);
-[; ;oled.h: 83: void LCD_On(void);
-[; ;oled.h: 84: void LCD_Off(void);
-[; ;oled.h: 85: void LCD_Blink(void);
-[; ;oled.h: 86: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;oled.h: 89: uint8_t AD_ch0_init(void);
-[; ;oled.h: 90: uint16_t get_AD_vaule(void);
-[; ;oled.h: 93: void delay(unsigned int x);
-[; ;Beep.h: 4: extern void BeepInit(void);
-[; ;Beep.h: 5: extern void BeepOn(void);
-[; ;Beep.h: 6: extern void BeepOff(void);
-[; ;Beep.h: 7: void buzz(void);
-"7 ../Oled.c
-[v _delay `(v ~T0 @X0 1 ef1`ui ]
-"8
-{
-[; ;Oled.c: 7: void delay(unsigned int x)
-[; ;Oled.c: 8: {
-[e :U _delay ]
-"7
-[v _x `ui ~T0 @X0 1 r1 ]
-"8
-[f ]
-"9
-[v _i `ui ~T0 @X0 1 a ]
-[v _j `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 9: unsigned int i,j;
-[; ;Oled.c: 10: for(i=0;i<x;i++)
-"10
-{
-[e = _i -> -> 0 `i `ui ]
-[e $U 280  ]
-"11
-[e :U 277 ]
-[; ;Oled.c: 11: for(j=0;j<10000;j++);
-{
-[e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 10000 `i `ui 281  ]
-[e $U 282  ]
-[e :U 281 ]
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 10000 `i `ui 281  ]
-[e :U 282 ]
-}
-"10
-[e ++ _i -> -> 1 `i `ui ]
-[e :U 280 ]
-[e $ < _i _x 277  ]
-[e :U 278 ]
-"11
-}
-[; ;Oled.c: 12: }
-"12
-[e :UE 276 ]
-}
-"14
-[v _i2c_Delay `(v ~T0 @X0 1 sf ]
-"15
-{
-[; ;Oled.c: 14: static void i2c_Delay(void)
-[; ;Oled.c: 15: {
-[e :U _i2c_Delay ]
-[f ]
-"16
-[v _i `ul ~T0 @X0 1 a ]
-[; ;Oled.c: 16: uint32_t i;
-[; ;Oled.c: 28: }
-"28
-[e :UE 284 ]
-}
-"30
-[v _i2c_Start `(v ~T0 @X0 1 ef ]
-"31
-{
-[; ;Oled.c: 30: void i2c_Start(void)
-[; ;Oled.c: 31: {
-[e :U _i2c_Start ]
-[f ]
-[; ;Oled.c: 33: LATCbits.LC4 =1;
-"33
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 34: LATCbits.LC3 =1;
-"34
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 35: i2c_Delay();
-"35
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 36: LATCbits.LC4 =0;
-"36
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;Oled.c: 37: i2c_Delay();
-"37
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 38: LATCbits.LC3 =0;
-"38
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 39: i2c_Delay();
-"39
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 40: }
-"40
-[e :UE 285 ]
-}
-"43
-[v _i2c_Stop `(v ~T0 @X0 1 ef ]
-"44
-{
-[; ;Oled.c: 43: void i2c_Stop(void)
-[; ;Oled.c: 44: {
-[e :U _i2c_Stop ]
-[f ]
-[; ;Oled.c: 46: LATCbits.LC4 =0;
-"46
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;Oled.c: 47: LATCbits.LC3 =1;
-"47
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 48: i2c_Delay();
-"48
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 49: LATCbits.LC4 =1;
-"49
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 50: }
-"50
-[e :UE 286 ]
-}
-"53
-[v _i2c_SendByte `(v ~T0 @X0 1 ef1`uc ]
-"54
-{
-[; ;Oled.c: 53: void i2c_SendByte(uint8_t _ucByte)
-[; ;Oled.c: 54: {
-[e :U _i2c_SendByte ]
-"53
-[v __ucByte `uc ~T0 @X0 1 r1 ]
-"54
-[f ]
-"55
-[v _i `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 55: uint8_t i;
-[; ;Oled.c: 57: for (i = 0; i < 8; i++)
-"57
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 288  ]
-[e $U 289  ]
-"58
-[e :U 288 ]
-[; ;Oled.c: 58: {
-{
-[; ;Oled.c: 59: if (_ucByte & 0x80)
-"59
-[e $ ! != & -> __ucByte `i -> 128 `i -> 0 `i 291  ]
-[; ;Oled.c: 60: {
-"60
-{
-[; ;Oled.c: 61: LATCbits.LC4 =1;
-"61
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-"62
-}
-[; ;Oled.c: 62: }
-[e $U 292  ]
-"63
-[e :U 291 ]
-[; ;Oled.c: 63: else
-[; ;Oled.c: 64: {
-"64
-{
-[; ;Oled.c: 65: LATCbits.LC4 =0;
-"65
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-"66
-}
-[e :U 292 ]
-[; ;Oled.c: 66: }
-[; ;Oled.c: 67: i2c_Delay();
-"67
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 68: LATCbits.LC3 =1;
-"68
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 69: i2c_Delay();
-"69
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 70: LATCbits.LC3 =0;
-"70
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 71: if (i == 7)
-"71
-[e $ ! == -> _i `i -> 7 `i 293  ]
-[; ;Oled.c: 72: {
-"72
-{
-[; ;Oled.c: 73: LATCbits.LC4 =1;
-"73
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-"74
-}
-[e :U 293 ]
-[; ;Oled.c: 74: }
-[; ;Oled.c: 75: _ucByte <<= 1;
-"75
-[e =<< __ucByte -> 1 `i ]
-[; ;Oled.c: 76: i2c_Delay();
-"76
-[e ( _i2c_Delay ..  ]
-"77
-}
-"57
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 288  ]
-[e :U 289 ]
-"77
-}
-[; ;Oled.c: 77: }
-[; ;Oled.c: 78: }
-"78
-[e :UE 287 ]
-}
-"81
-[v _i2c_ReadByte `(uc ~T0 @X0 1 ef ]
-"82
-{
-[; ;Oled.c: 81: uint8_t i2c_ReadByte(void)
-[; ;Oled.c: 82: {
-[e :U _i2c_ReadByte ]
-[f ]
-"83
-[v _i `uc ~T0 @X0 1 a ]
-"84
-[v _value `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 83: uint8_t i;
-[; ;Oled.c: 84: uint8_t value;
-[; ;Oled.c: 87: TRISCbits.RC4 =1;
-"87
-[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 89: value = 0;
-"89
-[e = _value -> -> 0 `i `uc ]
-[; ;Oled.c: 90: for (i = 0; i < 8; i++)
-"90
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 295  ]
-[e $U 296  ]
-"91
-[e :U 295 ]
-[; ;Oled.c: 91: {
-{
-[; ;Oled.c: 92: value <<= 1;
-"92
-[e =<< _value -> 1 `i ]
-[; ;Oled.c: 93: LATCbits.LC3 =1;
-"93
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 94: i2c_Delay();
-"94
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 95: if ((PORTC & 0x10))
-"95
-[e $ ! != & -> _PORTC `i -> 16 `i -> 0 `i 298  ]
-[; ;Oled.c: 96: {
-"96
-{
-[; ;Oled.c: 97: value++;
-"97
-[e ++ _value -> -> 1 `i `uc ]
-"98
-}
-[e :U 298 ]
-[; ;Oled.c: 98: }
-[; ;Oled.c: 100: LATCbits.LC3 =0;
-"100
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 101: i2c_Delay();
-"101
-[e ( _i2c_Delay ..  ]
-"102
-}
-"90
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 295  ]
-[e :U 296 ]
-"102
-}
-[; ;Oled.c: 102: }
-[; ;Oled.c: 104: TRISCbits.RC4 =1;
-"104
-[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 105: return value;
-"105
-[e ) _value ]
-[e $UE 294  ]
-[; ;Oled.c: 106: }
-"106
-[e :UE 294 ]
-}
-"109
-[v _i2c_WaitAck `(uc ~T0 @X0 1 ef ]
-"110
-{
-[; ;Oled.c: 109: uint8_t i2c_WaitAck(void)
-[; ;Oled.c: 110: {
-[e :U _i2c_WaitAck ]
-[f ]
-"111
-[v _re `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 111: uint8_t re;
-[; ;Oled.c: 113: LATCbits.LC4 =1;
-"113
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 114: i2c_Delay();
-"114
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 115: LATCbits.LC3 =1;
-"115
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 117: TRISCbits.RC4 =1;
-"117
-[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 118: i2c_Delay();
-"118
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 119: if ((PORTC & 0x10))
-"119
-[e $ ! != & -> _PORTC `i -> 16 `i -> 0 `i 300  ]
-[; ;Oled.c: 120: {
-"120
-{
-[; ;Oled.c: 121: re = 1;
-"121
-[e = _re -> -> 1 `i `uc ]
-"122
-}
-[; ;Oled.c: 122: }
-[e $U 301  ]
-"123
-[e :U 300 ]
-[; ;Oled.c: 123: else
-[; ;Oled.c: 124: {
-"124
-{
-[; ;Oled.c: 125: re = 0;
-"125
-[e = _re -> -> 0 `i `uc ]
-"126
-}
-[e :U 301 ]
-[; ;Oled.c: 126: }
-[; ;Oled.c: 128: LATCbits.LC3 =0;
-"128
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 130: TRISCbits.RC4 =0;
-"130
-[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
-[; ;Oled.c: 131: i2c_Delay();
-"131
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 133: return re;
-"133
-[e ) _re ]
-[e $UE 299  ]
-[; ;Oled.c: 134: }
-"134
-[e :UE 299 ]
-}
-"137
-[v _i2c_Ack `(v ~T0 @X0 1 ef ]
-"138
-{
-[; ;Oled.c: 137: void i2c_Ack(void)
-[; ;Oled.c: 138: {
-[e :U _i2c_Ack ]
-[f ]
-[; ;Oled.c: 139: LATCbits.LC4 =0;
-"139
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;Oled.c: 140: i2c_Delay();
-"140
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 141: LATCbits.LC3 =1;
-"141
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 142: i2c_Delay();
-"142
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 143: LATCbits.LC3 =0;
-"143
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 144: i2c_Delay();
-"144
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 145: LATCbits.LC4 =1;
-"145
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 146: }
-"146
-[e :UE 302 ]
-}
-"149
-[v _i2c_NAck `(v ~T0 @X0 1 ef ]
-"150
-{
-[; ;Oled.c: 149: void i2c_NAck(void)
-[; ;Oled.c: 150: {
-[e :U _i2c_NAck ]
-[f ]
-[; ;Oled.c: 151: LATCbits.LC4 =1;
-"151
-[e = . . _LATCbits 1 4 -> -> 1 `i `uc ]
-[; ;Oled.c: 152: i2c_Delay();
-"152
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 153: LATCbits.LC3 =1;
-"153
-[e = . . _LATCbits 1 3 -> -> 1 `i `uc ]
-[; ;Oled.c: 154: i2c_Delay();
-"154
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 155: LATCbits.LC3 =0;
-"155
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 156: i2c_Delay();
-"156
-[e ( _i2c_Delay ..  ]
-[; ;Oled.c: 157: }
-"157
-[e :UE 303 ]
-}
-"160
-[v _i2c_CfgGpio `(v ~T0 @X0 1 ef ]
-"161
-{
-[; ;Oled.c: 160: void i2c_CfgGpio(void)
-[; ;Oled.c: 161: {
-[e :U _i2c_CfgGpio ]
-[f ]
-[; ;Oled.c: 165: TRISCbits.RC3 =0;
-"165
-[e = . . _TRISCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 166: LATCbits.LC3 =0;
-"166
-[e = . . _LATCbits 1 3 -> -> 0 `i `uc ]
-[; ;Oled.c: 171: TRISCbits.RC4 =0;
-"171
-[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
-[; ;Oled.c: 172: LATCbits.LC4 =0;
-"172
-[e = . . _LATCbits 1 4 -> -> 0 `i `uc ]
-[; ;Oled.c: 179: TRISEbits.RE1 =0;
-"179
-[e = . . _TRISEbits 1 1 -> -> 0 `i `uc ]
-[; ;Oled.c: 182: LATEbits.LATE1=0;
-"182
-[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-[; ;Oled.c: 189: }
-"189
-[e :UE 304 ]
-}
-"194
-[v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
-"195
-{
-[; ;Oled.c: 194: void delay_ms(unsigned int ms)
-[; ;Oled.c: 195: {
-[e :U _delay_ms ]
-"194
-[v _ms `ui ~T0 @X0 1 r1 ]
-"195
-[f ]
-"196
-[v _a `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 196: unsigned int a;
-[; ;Oled.c: 197: while(ms)
-"197
-[e $U 306  ]
-[e :U 307 ]
-[; ;Oled.c: 198: {
-"198
-{
-[; ;Oled.c: 199: a=1800;
-"199
-[e = _a -> -> 1800 `i `ui ]
-[; ;Oled.c: 200: while(a--);
-"200
-[e $U 309  ]
-[e :U 310 ]
-[e :U 309 ]
-[e $ != -- _a -> -> 1 `i `ui -> -> 0 `i `ui 310  ]
-[e :U 311 ]
-[; ;Oled.c: 201: ms--;
-"201
-[e -- _ms -> -> 1 `i `ui ]
-"202
-}
-[e :U 306 ]
-"197
-[e $ != _ms -> -> 0 `i `ui 307  ]
-[e :U 308 ]
-[; ;Oled.c: 202: }
-[; ;Oled.c: 203: return;
-"203
-[e $UE 305  ]
-[; ;Oled.c: 204: }
-"204
-[e :UE 305 ]
-}
-"211
-[v _StartAndReadAdValue `(ui ~T0 @X0 1 ef1`uc ]
-"212
-{
-[; ;Oled.c: 211: unsigned int StartAndReadAdValue(unsigned char ch)
-[; ;Oled.c: 212: {
-[e :U _StartAndReadAdValue ]
-"211
-[v _ch `uc ~T0 @X0 1 r1 ]
-"212
-[f ]
-[v _delay `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 213: unsigned int delay =1000;
-"213
-[e = _delay -> -> 1000 `i `ui ]
-"214
-[v _value `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 214: unsigned int value =0;
-[e = _value -> -> 0 `i `ui ]
-[; ;Oled.c: 216: SetAdChanel(ch);
-"216
-[e ( _SetAdChanel -> _ch `i ]
-[; ;Oled.c: 217: StartAdConvert();
-"217
-[e ( _StartAdConvert ..  ]
-[; ;Oled.c: 218: while(delay-- && (ADCON0 & 0x2));
-"218
-[e $U 313  ]
-[e :U 314 ]
-[e :U 313 ]
-[e $ && != -- _delay -> -> 1 `i `ui -> -> 0 `i `ui != & -> _ADCON0 `i -> 2 `i -> 0 `i 314  ]
-[e :U 315 ]
-[; ;Oled.c: 220: value=((unsigned int)ADRESH <<2)|value;
-"220
-[e = _value | << -> _ADRESH `ui -> 2 `i _value ]
-[; ;Oled.c: 222: return(value);
-"222
-[e ) _value ]
-[e $UE 312  ]
-[; ;Oled.c: 223: }
-"223
-[e :UE 312 ]
-}
-"227
-[v _AD_ch0_init `(uc ~T0 @X0 1 ef ]
-"228
-{
-[; ;Oled.c: 227: uint8_t AD_ch0_init(void)
-[; ;Oled.c: 228: {
-[e :U _AD_ch0_init ]
-[f ]
-[; ;Oled.c: 230: TRISAbits.RA0 =1;
-"230
-[e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 233: ADCON0bits.CHS = 0;
-"233
-[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;Oled.c: 234: ADCON0bits.ADON = 1;
-"234
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 237: return 1;
-"237
-[e ) -> -> 1 `i `uc ]
-[e $UE 316  ]
-[; ;Oled.c: 238: }
-"238
-[e :UE 316 ]
-}
-"241
-[v _get_AD_vaule `(ui ~T0 @X0 1 ef ]
-"242
-{
-[; ;Oled.c: 241: uint16_t get_AD_vaule(void)
-[; ;Oled.c: 242: {
-[e :U _get_AD_vaule ]
-[f ]
-"244
-[v _hv `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 244: uint8_t hv=0;
-[e = _hv -> -> 0 `i `uc ]
-"245
-[v _lv `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 245: uint8_t lv=0;
-[e = _lv -> -> 0 `i `uc ]
-"246
-[v _ts `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 246: uint8_t ts=0;
-[e = _ts -> -> 0 `i `uc ]
-"247
-[v _rv `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 247: uint16_t rv=0;
-[e = _rv -> -> 0 `i `ui ]
-[; ;Oled.c: 248: ADCON0bits.GO =1;
-"248
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-[; ;Oled.c: 249: while(ADCON0bits.GO);
-"249
-[e $U 318  ]
-[e :U 319 ]
-[e :U 318 ]
-[e $ != -> . . _ADCON0bits 2 1 `i -> -> -> 0 `i `Vuc `i 319  ]
-[e :U 320 ]
-[; ;Oled.c: 252: hv = ADRESH;
-"252
-[e = _hv _ADRESH ]
-[; ;Oled.c: 253: lv = ADRESL;
-"253
-[e = _lv _ADRESL ]
-[; ;Oled.c: 255: rv = ((uint16_t)(hv<<8 | lv) >>6)& 0x03ff;
-"255
-[e = _rv & >> -> | << -> _hv `i -> 8 `i -> _lv `i `ui -> 6 `i -> -> 1023 `i `ui ]
-[; ;Oled.c: 258: return rv;
-"258
-[e ) _rv ]
-[e $UE 317  ]
-[; ;Oled.c: 263: }
-"263
-[e :UE 317 ]
-}
-"270
-[v _ee_CheckDevice `(uc ~T0 @X0 1 ef1`uc ]
-"271
-{
-[; ;Oled.c: 270: uint8_t ee_CheckDevice(uint8_t _Address)
-[; ;Oled.c: 271: {
-[e :U _ee_CheckDevice ]
-"270
-[v __Address `uc ~T0 @X0 1 r1 ]
-"271
-[f ]
-"272
-[v _ucAck `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 272: uint8_t ucAck;
-[; ;Oled.c: 274: i2c_Start();
-"274
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 277: i2c_SendByte(_Address | 0);
-"277
-[e ( _i2c_SendByte (1 -> | -> __Address `i -> 0 `i `uc ]
-[; ;Oled.c: 278: ucAck = i2c_WaitAck();
-"278
-[e = _ucAck ( _i2c_WaitAck ..  ]
-[; ;Oled.c: 280: i2c_Stop();
-"280
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 282: i2c_NAck();
-"282
-[e ( _i2c_NAck ..  ]
-[; ;Oled.c: 284: return ucAck;
-"284
-[e ) _ucAck ]
-[e $UE 321  ]
-[; ;Oled.c: 285: }
-"285
-[e :UE 321 ]
-}
-"289
-[v _ee_WaitStandby `(uc ~T0 @X0 1 ef ]
-"290
-{
-[; ;Oled.c: 289: uint8_t ee_WaitStandby(void)
-[; ;Oled.c: 290: {
-[e :U _ee_WaitStandby ]
-[f ]
-"291
-[v _wait_count `ul ~T0 @X0 1 a ]
-[; ;Oled.c: 291: uint32_t wait_count = 0;
-[e = _wait_count -> -> -> 0 `i `l `ul ]
-[; ;Oled.c: 293: while(ee_CheckDevice(0x78))
-"293
-[e $U 323  ]
-[e :U 324 ]
-[; ;Oled.c: 294: {
-"294
-{
-[; ;Oled.c: 296: if(wait_count++>0xFFFF)
-"296
-[e $ ! > ++ _wait_count -> -> -> 1 `i `l `ul -> -> 65535 `ui `ul 326  ]
-[; ;Oled.c: 297: {
-"297
-{
-[; ;Oled.c: 298: return 1;
-"298
-[e ) -> -> 1 `i `uc ]
-[e $UE 322  ]
-"299
-}
-[e :U 326 ]
-"300
-}
-[e :U 323 ]
-"293
-[e $ != -> ( _ee_CheckDevice (1 -> -> 120 `i `uc `i -> -> -> 0 `i `uc `i 324  ]
-[e :U 325 ]
-[; ;Oled.c: 299: }
-[; ;Oled.c: 300: }
-[; ;Oled.c: 301: return 0;
-"301
-[e ) -> -> 0 `i `uc ]
-[e $UE 322  ]
-[; ;Oled.c: 302: }
-"302
-[e :UE 322 ]
-}
-"305
-[v _ee_ReadBytes `(uc ~T0 @X0 1 ef3`*uc`ui`ui ]
-"306
-{
-[; ;Oled.c: 305: uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
-[; ;Oled.c: 306: {
-[e :U _ee_ReadBytes ]
-"305
-[v __pReadBuf `*uc ~T0 @X0 1 r1 ]
-[v __usAddress `ui ~T0 @X0 1 r2 ]
-[v __usSize `ui ~T0 @X0 1 r3 ]
-"306
-[f ]
-"307
-[v _i `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 307: uint16_t i;
-[; ;Oled.c: 312: i2c_Start();
-"312
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 315: i2c_SendByte(0x78 | 0);
-"315
-[e ( _i2c_SendByte (1 -> | -> 120 `i -> 0 `i `uc ]
-[; ;Oled.c: 318: if (i2c_WaitAck() != 0)
-"318
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 328  ]
-[; ;Oled.c: 319: {
-"319
-{
-[; ;Oled.c: 320: goto cmd_fail;
-"320
-[e $U 329  ]
-"321
-}
-[e :U 328 ]
-[; ;Oled.c: 321: }
-[; ;Oled.c: 324: i2c_SendByte((uint8_t)_usAddress);
-"324
-[e ( _i2c_SendByte (1 -> __usAddress `uc ]
-[; ;Oled.c: 327: if (i2c_WaitAck() != 0)
-"327
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 330  ]
-[; ;Oled.c: 328: {
-"328
-{
-[; ;Oled.c: 329: goto cmd_fail;
-"329
-[e $U 329  ]
-"330
-}
-[e :U 330 ]
-[; ;Oled.c: 330: }
-[; ;Oled.c: 333: i2c_Start();
-"333
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 336: i2c_SendByte(0x78 | 1);
-"336
-[e ( _i2c_SendByte (1 -> | -> 120 `i -> 1 `i `uc ]
-[; ;Oled.c: 338: if (i2c_WaitAck() != 0)
-"338
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 331  ]
-[; ;Oled.c: 339: {
-"339
-{
-[; ;Oled.c: 340: goto cmd_fail;
-"340
-[e $U 329  ]
-"341
-}
-[e :U 331 ]
-[; ;Oled.c: 341: }
-[; ;Oled.c: 344: for (i = 0; i < _usSize; i++)
-"344
-{
-[e = _i -> -> 0 `i `ui ]
-[e $U 335  ]
-"345
-[e :U 332 ]
-[; ;Oled.c: 345: {
-{
-[; ;Oled.c: 346: _pReadBuf[i] = i2c_ReadByte();
-"346
-[e = *U + __pReadBuf * -> _i `ux -> -> # *U __pReadBuf `ui `ux ( _i2c_ReadByte ..  ]
-[; ;Oled.c: 349: if (i != _usSize - 1)
-"349
-[e $ ! != _i - __usSize -> -> 1 `i `ui 336  ]
-[; ;Oled.c: 350: {
-"350
-{
-[; ;Oled.c: 351: i2c_Ack();
-"351
-[e ( _i2c_Ack ..  ]
-"352
-}
-[; ;Oled.c: 352: }
-[e $U 337  ]
-"353
-[e :U 336 ]
-[; ;Oled.c: 353: else
-[; ;Oled.c: 354: {
-"354
-{
-[; ;Oled.c: 355: i2c_NAck();
-"355
-[e ( _i2c_NAck ..  ]
-"356
-}
-[e :U 337 ]
-"357
-}
-"344
-[e ++ _i -> -> 1 `i `ui ]
-[e :U 335 ]
-[e $ < _i __usSize 332  ]
-[e :U 333 ]
-"357
-}
-[; ;Oled.c: 356: }
-[; ;Oled.c: 357: }
-[; ;Oled.c: 359: i2c_Stop();
-"359
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 360: return 1;
-"360
-[e ) -> -> 1 `i `uc ]
-[e $UE 327  ]
-[; ;Oled.c: 362: cmd_fail:
-"362
-[e :U 329 ]
-[; ;Oled.c: 363: i2c_Stop();
-"363
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 364: return 0;
-"364
-[e ) -> -> 0 `i `uc ]
-[e $UE 327  ]
-[; ;Oled.c: 365: }
-"365
-[e :UE 327 ]
-}
-"368
-[v _ee_WriteBytes `(uc ~T0 @X0 1 ef3`*uc`uc`ui ]
-"369
-{
-[; ;Oled.c: 368: uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize)
-[; ;Oled.c: 369: {
-[e :U _ee_WriteBytes ]
-"368
-[v __pWriteBuf `*uc ~T0 @X0 1 r1 ]
-[v __usAddress `uc ~T0 @X0 1 r2 ]
-[v __usSize `ui ~T0 @X0 1 r3 ]
-"369
-[f ]
-"370
-[v _i `ui ~T0 @X0 1 a ]
-[v _m `ui ~T0 @X0 1 a ]
-"372
-[v _usAddr `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 370: uint16_t i,m;
-[; ;Oled.c: 372: uint8_t usAddr;
-[; ;Oled.c: 374: usAddr = _usAddress;
-"374
-[e = _usAddr __usAddress ]
-[; ;Oled.c: 376: {
-"376
-{
-[; ;Oled.c: 378: {
-"378
-{
-[; ;Oled.c: 383: {
-"383
-{
-[; ;Oled.c: 384: i2c_Start();
-"384
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 386: i2c_SendByte(0x78 | 0);
-"386
-[e ( _i2c_SendByte (1 -> | -> 120 `i -> 0 `i `uc ]
-[; ;Oled.c: 388: if (i2c_WaitAck() == 0)
-"388
-[e $ ! == -> ( _i2c_WaitAck ..  `i -> 0 `i 339  ]
-[; ;Oled.c: 389: {
-"389
-{
-"393
-}
-[; ;Oled.c: 393: }
-[e $U 340  ]
-"394
-[e :U 339 ]
-[; ;Oled.c: 394: else
-[; ;Oled.c: 395: {
-"395
-{
-"397
-}
-[e :U 340 ]
-"398
-}
-[; ;Oled.c: 397: }
-[; ;Oled.c: 398: }
-[; ;Oled.c: 399: if (m == 1000)
-"399
-[e $ ! == _m -> -> 1000 `i `ui 341  ]
-[; ;Oled.c: 400: {
-"400
-{
-"402
-}
-[e :U 341 ]
-[; ;Oled.c: 402: }
-[; ;Oled.c: 404: i2c_SendByte(usAddr);
-"404
-[e ( _i2c_SendByte (1 _usAddr ]
-[; ;Oled.c: 406: if (i2c_WaitAck() != 0)
-"406
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 342  ]
-[; ;Oled.c: 407: {
-"407
-{
-"410
-}
-[e :U 342 ]
-"411
-}
-[; ;Oled.c: 410: }
-[; ;Oled.c: 411: }
-[; ;Oled.c: 414: i2c_SendByte(_pWriteBuf[0]);
-"414
-[e ( _i2c_SendByte (1 *U + __pWriteBuf * -> -> 0 `i `x -> -> # *U __pWriteBuf `i `x ]
-[; ;Oled.c: 415: if (i2c_WaitAck() != 0)
-"415
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 343  ]
-[; ;Oled.c: 416: {
-"416
-{
-"419
-}
-[e :U 343 ]
-"422
-}
-[; ;Oled.c: 419: }
-[; ;Oled.c: 422: }
-[; ;Oled.c: 424: i2c_Stop();
-"424
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 429: return 1;
-"429
-[e ) -> -> 1 `i `uc ]
-[e $UE 338  ]
-[; ;Oled.c: 431: cmd_fail:
-"431
-[e :U 344 ]
-[; ;Oled.c: 432: i2c_Stop();
-"432
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 434: return 0;
-"434
-[e ) -> -> 0 `i `uc ]
-[e $UE 338  ]
-[; ;Oled.c: 435: }
-"435
-[e :UE 338 ]
-}
-"441
-[v _write_buf `uc ~T0 @X0 -> 256 `i e ]
-[; ;Oled.c: 441: uint8_t write_buf[256];
-"442
-[v _read_buf `uc ~T0 @X0 -> 256 `i e ]
-[; ;Oled.c: 442: uint8_t read_buf[256];
-"444
-[v _ee_Test `(uc ~T0 @X0 1 ef ]
-"445
-{
-[; ;Oled.c: 444: uint8_t ee_Test(void)
-[; ;Oled.c: 445: {
-[e :U _ee_Test ]
-[f ]
-"446
-[v _i `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 446: uint16_t i;
-[; ;Oled.c: 450: if (ee_CheckDevice(0x78) == 1)
-"450
-[e $ ! == -> ( _ee_CheckDevice (1 -> -> 120 `i `uc `i -> 1 `i 346  ]
-[; ;Oled.c: 451: {
-"451
-{
-[; ;Oled.c: 455: return 0;
-"455
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"456
-}
-[e :U 346 ]
-[; ;Oled.c: 456: }
-[; ;Oled.c: 459: for (i = 0; i < 256; i++)
-"459
-{
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 347  ]
-[e $U 348  ]
-"460
-[e :U 347 ]
-[; ;Oled.c: 460: {
-{
-[; ;Oled.c: 461: write_buf[i] = i;
-"461
-[e = *U + &U _write_buf * -> _i `ux -> -> # *U &U _write_buf `ui `ux -> _i `uc ]
-"462
-}
-"459
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 347  ]
-[e :U 348 ]
-"462
-}
-[; ;Oled.c: 462: }
-[; ;Oled.c: 464: if (ee_WriteBytes(write_buf, 0, 256) == 0)
-"464
-[e $ ! == -> ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 256 `i `ui `i -> 0 `i 350  ]
-[; ;Oled.c: 465: {
-"465
-{
-[; ;Oled.c: 467: return 0;
-"467
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"468
-}
-[; ;Oled.c: 468: }
-[e $U 351  ]
-"469
-[e :U 350 ]
-[; ;Oled.c: 469: else
-[; ;Oled.c: 470: {
-"470
-{
-"472
-}
-[e :U 351 ]
-[; ;Oled.c: 472: }
-[; ;Oled.c: 475: if (ee_ReadBytes(read_buf, 0, 256) == 0)
-"475
-[e $ ! == -> ( _ee_ReadBytes (3 , , &U _read_buf -> -> 0 `i `ui -> -> 256 `i `ui `i -> 0 `i 352  ]
-[; ;Oled.c: 476: {
-"476
-{
-[; ;Oled.c: 478: return 0;
-"478
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"479
-}
-[; ;Oled.c: 479: }
-[e $U 353  ]
-"480
-[e :U 352 ]
-[; ;Oled.c: 480: else
-[; ;Oled.c: 481: {
-"481
-{
-"483
-}
-[e :U 353 ]
-[; ;Oled.c: 483: }
-[; ;Oled.c: 485: for (i = 0; i < 256; i++)
-"485
-{
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 354  ]
-[e $U 355  ]
-"486
-[e :U 354 ]
-[; ;Oled.c: 486: {
-{
-[; ;Oled.c: 487: if(read_buf[i] != write_buf[i])
-"487
-[e $ ! != -> *U + &U _read_buf * -> _i `ux -> -> # *U &U _read_buf `ui `ux `i -> *U + &U _write_buf * -> _i `ux -> -> # *U &U _write_buf `ui `ux `i 357  ]
-[; ;Oled.c: 488: {
-"488
-{
-[; ;Oled.c: 491: return 0;
-"491
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"492
-}
-[e :U 357 ]
-[; ;Oled.c: 492: }
-[; ;Oled.c: 495: if ((i & 15) == 15)
-"495
-[e $ ! == & _i -> -> 15 `i `ui -> -> 15 `i `ui 358  ]
-[; ;Oled.c: 496: {
-"496
-{
-"498
-}
-[e :U 358 ]
-"499
-}
-"485
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 354  ]
-[e :U 355 ]
-"499
-}
-[; ;Oled.c: 498: }
-[; ;Oled.c: 499: }
-[; ;Oled.c: 501: return 1;
-"501
-[e ) -> -> 1 `i `uc ]
-[e $UE 345  ]
-[; ;Oled.c: 502: }
-"502
-[e :UE 345 ]
-}
-"510
-[v _LCD_backlight_init `(v ~T0 @X0 1 ef ]
-"511
-{
-[; ;Oled.c: 510: void LCD_backlight_init(void)
-[; ;Oled.c: 511: {
-[e :U _LCD_backlight_init ]
-[f ]
-[; ;Oled.c: 517: TRISEbits.RE0 =0;
-"517
-[e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 518: LATEbits.LE0 =0;
-"518
-[e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 521: }
-"521
-[e :UE 359 ]
-}
-"523
-[v _LCD_On `(v ~T0 @X0 1 ef ]
-"524
-{
-[; ;Oled.c: 523: void LCD_On(void)
-[; ;Oled.c: 524: {
-[e :U _LCD_On ]
-[f ]
-[; ;Oled.c: 528: LATEbits.LE0 =1;
-"528
-[e = . . _LATEbits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 532: }
-"532
-[e :UE 360 ]
-}
-"533
-[v _LCD_Off `(v ~T0 @X0 1 ef ]
-"534
-{
-[; ;Oled.c: 533: void LCD_Off(void)
-[; ;Oled.c: 534: {
-[e :U _LCD_Off ]
-[f ]
-[; ;Oled.c: 537: LATEbits.LE0 =0;
-"537
-[e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 540: }
-"540
-[e :UE 361 ]
-}
-"542
-[v _LCD_Blink `(v ~T0 @X0 1 ef ]
-"543
-{
-[; ;Oled.c: 542: void LCD_Blink(void)
-[; ;Oled.c: 543: {
-[e :U _LCD_Blink ]
-[f ]
-[; ;Oled.c: 547: LATEbits.LE0 =1;
-"547
-[e = . . _LATEbits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 548: delay(50);
-"548
-[e ( _delay (1 -> -> 50 `i `ui ]
-[; ;Oled.c: 549: LATEbits.LE0 =0;
-"549
-[e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 551: }
-"551
-[e :UE 362 ]
-}
-"554
-[v _setYX_LCD `(uc ~T0 @X0 1 ef2`uc`uc ]
-"555
-{
-[; ;Oled.c: 554: uint8_t setYX_LCD(uint8_t py,uint8_t px)
-[; ;Oled.c: 555: {
-[e :U _setYX_LCD ]
-"554
-[v _py `uc ~T0 @X0 1 r1 ]
-[v _px `uc ~T0 @X0 1 r2 ]
-"555
-[f ]
-[; ;Oled.c: 558: write_buf[0]=0x80 + px;
-"558
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> + -> 128 `i -> _px `i `uc ]
-[; ;Oled.c: 559: ee_WriteBytes(write_buf, 0x00, 1);
-"559
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 562: write_buf[0]=0x40 + py;
-"562
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> + -> 64 `i -> _py `i `uc ]
-[; ;Oled.c: 563: ee_WriteBytes(write_buf, 0x00, 1);
-"563
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 565: return 1;
-"565
-[e ) -> -> 1 `i `uc ]
-[e $UE 363  ]
-[; ;Oled.c: 568: }
-"568
-[e :UE 363 ]
-}
-"582
-[v _ms `uc ~T0 @X0 1 e ]
-[i _ms
--> -> 102 `i `uc
-]
-[; ;Oled.c: 582: uint8_t ms = 0x66;
-"583
-[v _ss `uc ~T0 @X0 1 e ]
-[i _ss
--> -> 0 `i `uc
-]
-[; ;Oled.c: 583: uint8_t ss=0;
-"584
-[v _css `uc ~T0 @X0 1 e ]
-[i _css
--> -> 0 `i `uc
-]
-[; ;Oled.c: 584: uint8_t css=0;
-"585
-[v _rcnt `uc ~T0 @X0 1 e ]
-[i _rcnt
--> -> 0 `i `uc
-]
-[; ;Oled.c: 585: uint8_t rcnt=0;
-"586
-[v _page `uc ~T0 @X0 1 e ]
-[i _page
--> -> 0 `i `uc
-]
-[; ;Oled.c: 586: uint8_t page=0;
-"587
-[v _xtt `ui ~T0 @X0 1 e ]
-[i _xtt
+[; ;PositionControl.h: 49: typedef struct
+[; ;PositionControl.h: 50: {
+[; ;PositionControl.h: 51: unsigned char InjectMode;
+[; ;PositionControl.h: 52: unsigned char InjectType;
+[; ;PositionControl.h: 53: unsigned char NeedleLength;
+[; ;PositionControl.h: 54: unsigned char InjectDepth;
+[; ;PositionControl.h: 55: unsigned char Variable;
+[; ;PositionControl.h: 56: }WorkParaType;
+[; ;PositionControl.h: 58: extern WorkParaType CurrentWorkPara;
+[; ;PositionControl.h: 60: extern volatile unsigned int InjectionMotorCurrentPosition,InjectionMotorAimPosition;
+[; ;PositionControl.h: 61: extern volatile int NeedleMotorCurrentPosition,NeedleMotorAimPosition;
+[; ;PositionControl.h: 62: extern volatile unsigned int NeedleInitPosition;
+[; ;PositionControl.h: 63: extern unsigned char NeedleMotorFindZeroPosFlag;
+[; ;PositionControl.h: 65: extern unsigned int ContinueWorkTimePeriod ;
+[; ;PositionControl.h: 66: extern unsigned int ContinueWorkTimeCount;
+[; ;PositionControl.h: 67: extern unsigned char NeedleRunDir;
+[; ;PositionControl.h: 68: extern unsigned char StartWorkFlag,ContinueWorkState ;
+[; ;PositionControl.h: 69: extern unsigned int InjectionStepMotorStepPulseNum;
+[; ;PositionControl.h: 70: extern unsigned int InjectionStepMotorStepPulseMaxNum ;
+[; ;PositionControl.h: 73: extern void PositionCheckInit(void);
+[; ;PositionControl.h: 74: extern void NeedleFindZeroPosFun(void);
+[; ;PositionControl.h: 75: extern void CalContinueWorkTimePeriod(void);
+"5 ../PositionControl.c
+[v _InjectionMotorCurrentPosition `Vui ~T0 @X0 1 e ]
+[i _InjectionMotorCurrentPosition
 -> -> 0 `i `ui
 ]
-[; ;Oled.c: 587: uint16_t xtt=0;
-[v F3158 `Cuc ~T0 @X0 -> 27 `i t ]
-[v F3157 `F3158 ~T0 @X0 -> 2 `i t ]
-"635
-[v _pata `F3157 ~T0 @X0 -> 2 `i e ]
-[i _pata
-:U ..
-:U ..
-:U ..
-"638
--> -> 63 `i `uc
--> -> 64 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
-"639
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 152 `i `uc
--> -> 184 `i `uc
--> -> 176 `i `uc
--> -> 176 `i `uc
--> -> 176 `i `uc
--> -> 176 `i `uc
-"640
--> -> 184 `i `uc
--> -> 156 `i `uc
--> -> 143 `i `uc
--> -> 131 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
-"641
--> -> 128 `i `uc
--> -> 64 `i `uc
--> -> 63 `i `uc
-..
-:U ..
-"644
--> -> 252 `i `uc
--> -> 2 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
-"645
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 49 `i `uc
--> -> 57 `i `uc
--> -> 25 `i `uc
--> -> 25 `i `uc
--> -> 25 `i `uc
--> -> 25 `i `uc
-"646
--> -> 57 `i `uc
--> -> 113 `i `uc
--> -> 225 `i `uc
--> -> 129 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
-"647
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 252 `i `uc
-..
-..
-:U ..
-:U ..
-"660
--> -> 63 `i `uc
--> -> 64 `i `uc
--> -> 128 `i `uc
--> -> 131 `i `uc
--> -> 143 `i `uc
--> -> 191 `i `uc
--> -> 143 `i `uc
--> -> 131 `i `uc
-"661
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 131 `i `uc
--> -> 143 `i `uc
--> -> 191 `i `uc
--> -> 143 `i `uc
--> -> 131 `i `uc
-"662
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 131 `i `uc
--> -> 143 `i `uc
--> -> 191 `i `uc
--> -> 143 `i `uc
--> -> 131 `i `uc
-"663
--> -> 128 `i `uc
--> -> 64 `i `uc
--> -> 63 `i `uc
-..
-:U ..
-"667
--> -> 252 `i `uc
--> -> 2 `i `uc
--> -> 241 `i `uc
--> -> 249 `i `uc
--> -> 253 `i `uc
--> -> 253 `i `uc
--> -> 253 `i `uc
--> -> 249 `i `uc
-"668
--> -> 241 `i `uc
--> -> 1 `i `uc
--> -> 241 `i `uc
--> -> 249 `i `uc
--> -> 253 `i `uc
--> -> 253 `i `uc
--> -> 253 `i `uc
--> -> 249 `i `uc
-"669
--> -> 241 `i `uc
--> -> 1 `i `uc
--> -> 241 `i `uc
--> -> 249 `i `uc
--> -> 253 `i `uc
--> -> 253 `i `uc
--> -> 253 `i `uc
--> -> 249 `i `uc
-"670
--> -> 241 `i `uc
--> -> 2 `i `uc
--> -> 252 `i `uc
-..
-..
-..
+[v _InjectionMotorAimPosition `Vui ~T0 @X0 1 e ]
+[i _InjectionMotorAimPosition
+-> -> 0 `i `ui
 ]
-[; ;Oled.c: 635: const uint8_t pata[2][2][27]={
-[; ;Oled.c: 638: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 639: 0x80, 0x80, 0x98, 0xb8, 0xb0, 0xb0, 0xb0, 0xb0,
-[; ;Oled.c: 640: 0xb8, 0x9c, 0x8f, 0x83, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 641: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 644: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 645: 0x01, 0x01, 0x31, 0x39, 0x19, 0x19, 0x19, 0x19,
-[; ;Oled.c: 646: 0x39, 0x71, 0xe1, 0x81, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 647: 0x01, 0x02, 0xfc,
-[; ;Oled.c: 660: 0x3f, 0x40, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
-[; ;Oled.c: 661: 0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
-[; ;Oled.c: 662: 0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
-[; ;Oled.c: 663: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 667: 0xfc, 0x02, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-[; ;Oled.c: 668: 0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-[; ;Oled.c: 669: 0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-[; ;Oled.c: 670: 0xf1, 0x02, 0xfc,
-[; ;Oled.c: 683: };
-[v F3161 `Cuc ~T0 @X0 -> 27 `i t ]
-[v F3160 `F3161 ~T0 @X0 -> 2 `i t ]
-"685
-[v _patb `F3160 ~T0 @X0 -> 2 `i e ]
-[i _patb
-:U ..
-:U ..
-:U ..
-"688
--> -> 63 `i `uc
--> -> 64 `i `uc
--> -> 159 `i `uc
--> -> 159 `i `uc
--> -> 144 `i `uc
--> -> 159 `i `uc
--> -> 159 `i `uc
--> -> 144 `i `uc
-"689
--> -> 159 `i `uc
--> -> 159 `i `uc
--> -> 128 `i `uc
--> -> 141 `i `uc
--> -> 149 `i `uc
--> -> 149 `i `uc
--> -> 149 `i `uc
--> -> 142 `i `uc
-"690
--> -> 128 `i `uc
--> -> 191 `i `uc
--> -> 159 `i `uc
--> -> 136 `i `uc
--> -> 132 `i `uc
--> -> 136 `i `uc
--> -> 159 `i `uc
--> -> 191 `i `uc
-"691
--> -> 128 `i `uc
--> -> 64 `i `uc
--> -> 63 `i `uc
-..
-:U ..
-"695
--> -> 252 `i `uc
--> -> 2 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 81 `i `uc
--> -> 125 `i `uc
-"696
--> -> 61 `i `uc
--> -> 1 `i `uc
--> -> 81 `i `uc
--> -> 125 `i `uc
--> -> 61 `i `uc
--> -> 1 `i `uc
--> -> 57 `i `uc
--> -> 125 `i `uc
-"697
--> -> 69 `i `uc
--> -> 125 `i `uc
--> -> 57 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
-"698
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 252 `i `uc
-..
-..
-..
+[; ;PositionControl.c: 5: volatile unsigned int InjectionMotorCurrentPosition =0,InjectionMotorAimPosition =0;
+"6
+[v _NeedleMotorCurrentPosition `Vi ~T0 @X0 1 e ]
+[i _NeedleMotorCurrentPosition
+-> 0 `i
 ]
-[; ;Oled.c: 685: const uint8_t patb[2][2][27]={
-[; ;Oled.c: 688: 0x3f, 0x40, 0x9f, 0x9f, 0x90, 0x9f, 0x9f, 0x90,
-[; ;Oled.c: 689: 0x9f, 0x9f, 0x80, 0x8d, 0x95, 0x95, 0x95, 0x8e,
-[; ;Oled.c: 690: 0x80, 0xbf, 0x9f, 0x88, 0x84, 0x88, 0x9f, 0xbf,
-[; ;Oled.c: 691: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 695: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x51, 0x7d,
-[; ;Oled.c: 696: 0x3d, 0x01, 0x51, 0x7d, 0x3d, 0x01, 0x39, 0x7d,
-[; ;Oled.c: 697: 0x45, 0x7d, 0x39, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 698: 0x01, 0x02, 0xfc,
-[; ;Oled.c: 710: };
-[v F3164 `Cuc ~T0 @X0 -> 27 `i t ]
-[v F3163 `F3164 ~T0 @X0 -> 2 `i t ]
-"712
-[v _patc `F3163 ~T0 @X0 -> 2 `i e ]
-[i _patc
-:U ..
-:U ..
-:U ..
-"714
--> -> 63 `i `uc
--> -> 64 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
-"715
--> -> 128 `i `uc
--> -> 143 `i `uc
--> -> 136 `i `uc
--> -> 184 `i `uc
--> -> 160 `i `uc
--> -> 160 `i `uc
--> -> 160 `i `uc
--> -> 184 `i `uc
-"716
--> -> 136 `i `uc
--> -> 143 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
--> -> 128 `i `uc
-"717
--> -> 128 `i `uc
--> -> 64 `i `uc
--> -> 63 `i `uc
-..
-:U ..
-"720
--> -> 252 `i `uc
--> -> 2 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
-"721
--> -> 1 `i `uc
--> -> 253 `i `uc
--> -> 125 `i `uc
--> -> 125 `i `uc
--> -> 125 `i `uc
--> -> 125 `i `uc
--> -> 125 `i `uc
--> -> 125 `i `uc
-"722
--> -> 125 `i `uc
--> -> 253 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
-"723
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 252 `i `uc
-..
-..
-..
+[v _NeedleMotorAimPosition `Vi ~T0 @X0 1 e ]
+[i _NeedleMotorAimPosition
+-> 0 `i
 ]
-[; ;Oled.c: 712: const uint8_t patc[2][2][27]={
-[; ;Oled.c: 714: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 715: 0x80, 0x8f, 0x88, 0xb8, 0xa0, 0xa0, 0xa0, 0xb8,
-[; ;Oled.c: 716: 0x88, 0x8f, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 717: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 720: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 721: 0x01, 0xfd, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d,
-[; ;Oled.c: 722: 0x7d, 0xfd, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 723: 0x01, 0x02, 0xfc,
-[; ;Oled.c: 728: };
-[v F3167 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3166 `F3167 ~T0 @X0 -> 3 `i t ]
-"732
-[v _patd `F3166 ~T0 @X0 -> 2 `i e ]
-[i _patd
-:U ..
-:U ..
-:U ..
-"734
--> -> 15 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"735
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"736
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"737
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"738
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"739
--> -> 33 `i `uc
--> -> 35 `i `uc
--> -> 47 `i `uc
--> -> 39 `i `uc
--> -> 35 `i `uc
--> -> 33 `i `uc
--> -> 16 `i `uc
--> -> 15 `i `uc
-..
-:U ..
-"743
--> -> 255 `i `uc
--> -> 0 `i `uc
--> -> 31 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-"744
--> -> 31 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"745
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
--> -> 255 `i `uc
-"746
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 248 `i `uc
--> -> 248 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"747
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 16 `i `uc
--> -> 224 `i `uc
-"748
--> -> 224 `i `uc
--> -> 224 `i `uc
--> -> 192 `i `uc
--> -> 128 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
-..
-:U ..
-"753
--> -> 192 `i `uc
--> -> 32 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"754
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"755
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"756
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"757
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"758
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 192 `i `uc
-..
-..
-..
+[; ;PositionControl.c: 6: volatile int NeedleMotorCurrentPosition =0,NeedleMotorAimPosition =0;
+"7
+[v _NeedleInitPosition `Vui ~T0 @X0 1 e ]
+[i _NeedleInitPosition
+-> -> 0 `i `ui
 ]
-[; ;Oled.c: 732: const uint8_t patd [2][3][48]={
-[; ;Oled.c: 734: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 735: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 736: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 737: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 738: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 739: 0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-[; ;Oled.c: 743: 0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-[; ;Oled.c: 744: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 745: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 746: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 747: 0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0,
-[; ;Oled.c: 748: 0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
-[; ;Oled.c: 753: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 754: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 755: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 756: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 757: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 758: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 760: };
-[v F3170 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3169 `F3170 ~T0 @X0 -> 3 `i t ]
-"764
-[v _pate `F3169 ~T0 @X0 -> 2 `i e ]
-[i _pate
-:U ..
-:U ..
-:U ..
-"765
--> -> 15 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"766
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"767
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"768
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"769
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"770
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 47 `i `uc
--> -> 39 `i `uc
--> -> 35 `i `uc
--> -> 33 `i `uc
--> -> 16 `i `uc
--> -> 15 `i `uc
-..
-:U ..
-"774
--> -> 255 `i `uc
--> -> 0 `i `uc
--> -> 31 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-"775
--> -> 31 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"776
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
--> -> 255 `i `uc
-"777
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 248 `i `uc
--> -> 248 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"778
--> -> 4 `i `uc
--> -> 6 `i `uc
--> -> 7 `i `uc
--> -> 7 `i `uc
--> -> 112 `i `uc
--> -> 136 `i `uc
--> -> 136 `i `uc
--> -> 136 `i `uc
-"779
--> -> 255 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
-..
-:U ..
-"782
--> -> 192 `i `uc
--> -> 32 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"783
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"784
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"785
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"786
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 144 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"787
--> -> 208 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 192 `i `uc
-..
-..
-..
+[; ;PositionControl.c: 7: volatile unsigned int NeedleInitPosition =0;
+"9
+[v _InjectDepthNeedPulseNum `ui ~T0 @X0 1 e ]
+[i _InjectDepthNeedPulseNum
+-> -> 0 `i `ui
 ]
-[; ;Oled.c: 764: const uint8_t pate[2][3][48]={
-[; ;Oled.c: 765: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 766: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 767: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 768: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 769: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 770: 0x20, 0x20, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-[; ;Oled.c: 774: 0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-[; ;Oled.c: 775: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 776: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 777: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 778: 0x04, 0x06, 0x07, 0x07, 0x70, 0x88, 0x88, 0x88,
-[; ;Oled.c: 779: 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
-[; ;Oled.c: 782: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 783: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 784: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 785: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 786: 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 787: 0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 790: };
-[v F3173 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3172 `F3173 ~T0 @X0 -> 3 `i t ]
-"793
-[v _patf `F3172 ~T0 @X0 -> 2 `i e ]
-[i _patf
-:U ..
-:U ..
-:U ..
-"794
--> -> 15 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"795
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"796
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"797
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"798
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 41 `i `uc
--> -> 38 `i `uc
-"799
--> -> 34 `i `uc
--> -> 33 `i `uc
--> -> 42 `i `uc
--> -> 36 `i `uc
--> -> 34 `i `uc
--> -> 32 `i `uc
--> -> 16 `i `uc
--> -> 15 `i `uc
-..
-:U ..
-"802
--> -> 255 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-"803
--> -> 31 `i `uc
--> -> 8 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"804
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
--> -> 255 `i `uc
-"805
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 248 `i `uc
--> -> 248 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"806
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 30 `i `uc
--> -> 34 `i `uc
--> -> 66 `i `uc
--> -> 130 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
-"807
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 192 `i `uc
--> -> 64 `i `uc
--> -> 32 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
-..
-:U ..
-"810
--> -> 192 `i `uc
--> -> 32 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"811
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"812
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"813
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"814
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"815
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 192 `i `uc
-..
-..
-..
+[; ;PositionControl.c: 9: unsigned int InjectDepthNeedPulseNum=0;
+"10
+[v _InjectAmountNeedPulseNum `ui ~T0 @X0 1 e ]
+[i _InjectAmountNeedPulseNum
+-> -> 0 `i `ui
 ]
-[; ;Oled.c: 793: const uint8_t patf[2][3][48]={
-[; ;Oled.c: 794: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 795: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 796: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 797: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 798: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x29, 0x26,
-[; ;Oled.c: 799: 0x22, 0x21, 0x2a, 0x24, 0x22, 0x20, 0x10, 0x0f,
-[; ;Oled.c: 802: 0xff, 0x00, 0x00, 0x00, 0x01, 0x01, 0x1f, 0x00,
-[; ;Oled.c: 803: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 804: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 805: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 806: 0x00, 0x01, 0x1e, 0x22, 0x42, 0x82, 0x04, 0x08,
-[; ;Oled.c: 807: 0x10, 0x20, 0xc0, 0x40, 0x20, 0x00, 0x00, 0xff,
-[; ;Oled.c: 810: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 811: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 812: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 813: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 814: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 815: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 821: };
-[v F3176 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3175 `F3176 ~T0 @X0 -> 3 `i t ]
-"824
-[v _patg `F3175 ~T0 @X0 -> 2 `i e ]
-[i _patg
-:U ..
-:U ..
-:U ..
-"825
--> -> 15 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 47 `i `uc
--> -> 32 `i `uc
--> -> 47 `i `uc
-"826
--> -> 36 `i `uc
--> -> 34 `i `uc
--> -> 36 `i `uc
--> -> 47 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"827
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"828
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
-"829
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 32 `i `uc
--> -> 40 `i `uc
--> -> 41 `i `uc
--> -> 47 `i `uc
-"830
--> -> 47 `i `uc
--> -> 41 `i `uc
--> -> 40 `i `uc
--> -> 32 `i `uc
--> -> 33 `i `uc
--> -> 35 `i `uc
--> -> 16 `i `uc
--> -> 15 `i `uc
-..
-:U ..
-"834
--> -> 255 `i `uc
+[; ;PositionControl.c: 10: unsigned int InjectAmountNeedPulseNum=0;
+"12
+[v _NeedleMotorFindZeroPosFlag `uc ~T0 @X0 1 e ]
+[i _NeedleMotorFindZeroPosFlag
 -> -> 0 `i `uc
--> -> 35 `i `uc
--> -> 162 `i `uc
--> -> 163 `i `uc
--> -> 160 `i `uc
--> -> 43 `i `uc
--> -> 160 `i `uc
-"835
--> -> 47 `i `uc
--> -> 36 `i `uc
--> -> 38 `i `uc
--> -> 164 `i `uc
--> -> 47 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"836
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
--> -> 255 `i `uc
-"837
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 24 `i `uc
--> -> 248 `i `uc
--> -> 248 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"838
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 122 `i `uc
--> -> 249 `i `uc
--> -> 192 `i `uc
--> -> 192 `i `uc
--> -> 224 `i `uc
--> -> 240 `i `uc
-"839
--> -> 240 `i `uc
--> -> 224 `i `uc
--> -> 192 `i `uc
--> -> 192 `i `uc
--> -> 224 `i `uc
--> -> 240 `i `uc
--> -> 0 `i `uc
--> -> 255 `i `uc
-..
-:U ..
-"842
--> -> 192 `i `uc
--> -> 32 `i `uc
--> -> 144 `i `uc
--> -> 16 `i `uc
--> -> 144 `i `uc
--> -> 16 `i `uc
--> -> 144 `i `uc
--> -> 16 `i `uc
-"843
--> -> 144 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 144 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"844
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"845
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"846
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 144 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
-"847
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 16 `i `uc
--> -> 32 `i `uc
--> -> 192 `i `uc
-..
-..
-..
 ]
-[; ;Oled.c: 824: const uint8_t patg[2][3][48]={
-[; ;Oled.c: 825: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x2f, 0x20, 0x2f,
-[; ;Oled.c: 826: 0x24, 0x22, 0x24, 0x2f, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 827: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 828: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 829: 0x20, 0x20, 0x20, 0x20, 0x20, 0x28, 0x29, 0x2f,
-[; ;Oled.c: 830: 0x2f, 0x29, 0x28, 0x20, 0x21, 0x23, 0x10, 0x0f,
-[; ;Oled.c: 834: 0xff, 0x00, 0x23, 0xa2, 0xa3, 0xa0, 0x2b, 0xa0,
-[; ;Oled.c: 835: 0x2f, 0x24, 0x26, 0xa4, 0x2f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 836: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 837: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 838: 0x00, 0x00, 0x7a, 0xf9, 0xc0, 0xc0, 0xe0, 0xf0,
-[; ;Oled.c: 839: 0xf0, 0xe0, 0xc0, 0xc0, 0xe0, 0xf0, 0x00, 0xff,
-[; ;Oled.c: 842: 0xc0, 0x20, 0x90, 0x10, 0x90, 0x10, 0x90, 0x10,
-[; ;Oled.c: 843: 0x90, 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10,
-[; ;Oled.c: 844: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 845: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 846: 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 847: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 851: };
-"857
-[v _display_pattern `(uc ~T0 @X0 1 ef3`uc`uc`uc ]
-"858
+[; ;PositionControl.c: 12: unsigned char NeedleMotorFindZeroPosFlag =0;
+"14
+[v _ContinueWorkTimePeriod `ui ~T0 @X0 1 e ]
+[i _ContinueWorkTimePeriod
+-> -> 0 `i `ui
+]
+[; ;PositionControl.c: 14: unsigned int ContinueWorkTimePeriod =0;
+"15
+[v _ContinueWorkTimeCount `ui ~T0 @X0 1 e ]
+[i _ContinueWorkTimeCount
+-> -> 0 `i `ui
+]
+[; ;PositionControl.c: 15: unsigned int ContinueWorkTimeCount =0;
+"16
+[v _NeedleRunDir `uc ~T0 @X0 1 e ]
+[i _NeedleRunDir
+-> -> 0 `i `uc
+]
+[; ;PositionControl.c: 16: unsigned char NeedleRunDir =0;
+"17
+[v _StartWorkFlag `uc ~T0 @X0 1 e ]
+[i _StartWorkFlag
+-> -> 0 `i `uc
+]
+[v _ContinueWorkState `uc ~T0 @X0 1 e ]
+[i _ContinueWorkState
+-> -> 0 `i `uc
+]
+[; ;PositionControl.c: 17: unsigned char StartWorkFlag =0,ContinueWorkState =0;
+"18
+[v _InjectionStepMotorStepPulseNum `ui ~T0 @X0 1 e ]
+[i _InjectionStepMotorStepPulseNum
+-> -> 0 `i `ui
+]
+[; ;PositionControl.c: 18: unsigned int InjectionStepMotorStepPulseNum =0;
+"19
+[v _InjectionStepMotorStepPulseMaxNum `ui ~T0 @X0 1 e ]
+[i _InjectionStepMotorStepPulseMaxNum
+-> -> 0 `i `ui
+]
+[; ;PositionControl.c: 19: unsigned int InjectionStepMotorStepPulseMaxNum =0;
+"20
+[v _CurrentWorkPara `S276 ~T0 @X0 1 e ]
+[; ;PositionControl.c: 20: WorkParaType CurrentWorkPara;
+"92
+[v _CalContinueWorkTimePeriod `(v ~T0 @X0 1 ef ]
+"93
 {
-[; ;Oled.c: 857: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
-[; ;Oled.c: 858: {
-[e :U _display_pattern ]
-"857
-[v _num `uc ~T0 @X0 1 r1 ]
-[v _sub `uc ~T0 @X0 1 r2 ]
-[v _mode `uc ~T0 @X0 1 r3 ]
-"858
+[; ;PositionControl.c: 92: void CalContinueWorkTimePeriod(void)
+[; ;PositionControl.c: 93: {
+[e :U _CalContinueWorkTimePeriod ]
 [f ]
-[; ;Oled.c: 859: switch(num)
-"859
-[e $U 366  ]
-[; ;Oled.c: 860: {
-"860
-{
-[; ;Oled.c: 861: case 1:
-"861
-[e :U 367 ]
-[; ;Oled.c: 862: setYX_LCD(0,71);
-"862
-[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 71 `i `uc ]
-[; ;Oled.c: 863: for(ms=0;ms<27;ms++)
-"863
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 368  ]
-[e $U 369  ]
-"864
-[e :U 368 ]
-[; ;Oled.c: 864: ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"863
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 368  ]
-[e :U 369 ]
-"864
+[; ;PositionControl.c: 96: ContinueWorkTimePeriod =472441/CurrentWorkPara.Variable;
+"96
+[e = _ContinueWorkTimePeriod -> / -> 472441 `l -> . _CurrentWorkPara 4 `l `ui ]
+[; ;PositionControl.c: 97: }
+"97
+[e :UE 277 ]
 }
-[; ;Oled.c: 867: setYX_LCD(1,71);
-"867
-[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 71 `i `uc ]
-[; ;Oled.c: 868: for(ms=0;ms<27;ms++)
-"868
+"100
+[v _CalContinueWorkModeInjectionStepPulseAndMaxPuse `(v ~T0 @X0 1 ef ]
+"101
 {
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 371  ]
-[e $U 372  ]
-"869
-[e :U 371 ]
-[; ;Oled.c: 869: ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"868
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 371  ]
-[e :U 372 ]
-"869
-}
-[; ;Oled.c: 873: break;
-"873
-[e $U 365  ]
-[; ;Oled.c: 874: case 2:
-"874
-[e :U 374 ]
-[; ;Oled.c: 877: setYX_LCD(0,35);
-"877
-[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 35 `i `uc ]
-[; ;Oled.c: 878: for(ms=0;ms<27;ms++)
-"878
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 375  ]
-[e $U 376  ]
-"879
-[e :U 375 ]
-[; ;Oled.c: 879: ee_WriteBytes(patb[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"878
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 375  ]
-[e :U 376 ]
-"879
-}
-[; ;Oled.c: 882: setYX_LCD(1,35);
-"882
-[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 35 `i `uc ]
-[; ;Oled.c: 883: for(ms=0;ms<27;ms++)
-"883
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 378  ]
-[e $U 379  ]
-"884
-[e :U 378 ]
-[; ;Oled.c: 884: ee_WriteBytes(patb[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"883
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 378  ]
-[e :U 379 ]
-"884
-}
-[; ;Oled.c: 887: break;
-"887
-[e $U 365  ]
-[; ;Oled.c: 888: case 3:
-"888
-[e :U 381 ]
-[; ;Oled.c: 892: setYX_LCD(0,0);
-"892
-[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 893: for(ms=0;ms<27;ms++)
-"893
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 382  ]
-[e $U 383  ]
-"894
-[e :U 382 ]
-[; ;Oled.c: 894: ee_WriteBytes(patc[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"893
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 382  ]
-[e :U 383 ]
-"894
-}
-[; ;Oled.c: 897: setYX_LCD(1,0);
-"897
-[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 898: for(ms=0;ms<27;ms++)
-"898
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 385  ]
-[e $U 386  ]
-"899
-[e :U 385 ]
-[; ;Oled.c: 899: ee_WriteBytes(patc[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"898
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 385  ]
-[e :U 386 ]
-"899
-}
-[; ;Oled.c: 909: break;
-"909
-[e $U 365  ]
-[; ;Oled.c: 910: case 4:
-"910
-[e :U 388 ]
-[; ;Oled.c: 914: setYX_LCD(2,49);
-"914
-[e ( _setYX_LCD (2 , -> -> 2 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 915: for(ms=0;ms<48;ms++)
-"915
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 389  ]
-[e $U 390  ]
-"916
-[e :U 389 ]
-[; ;Oled.c: 916: ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"915
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 389  ]
-[e :U 390 ]
-"916
-}
-[; ;Oled.c: 919: setYX_LCD(3,49);
-"919
-[e ( _setYX_LCD (2 , -> -> 3 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 920: for(ms=0;ms<48;ms++)
-"920
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 392  ]
-[e $U 393  ]
-"921
-[e :U 392 ]
-[; ;Oled.c: 921: ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"920
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 392  ]
-[e :U 393 ]
-"921
-}
-[; ;Oled.c: 924: setYX_LCD(4,49);
-"924
-[e ( _setYX_LCD (2 , -> -> 4 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 925: for(ms=0;ms<48;ms++)
-"925
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 395  ]
-[e $U 396  ]
-"926
-[e :U 395 ]
-[; ;Oled.c: 926: ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"925
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 395  ]
-[e :U 396 ]
-"926
-}
-[; ;Oled.c: 934: break;
-"934
-[e $U 365  ]
-[; ;Oled.c: 935: case 5:
-"935
-[e :U 398 ]
-[; ;Oled.c: 937: setYX_LCD(2,0);
-"937
-[e ( _setYX_LCD (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 938: for(ms=0;ms<48;ms++)
-"938
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 399  ]
-[e $U 400  ]
-"939
-[e :U 399 ]
-[; ;Oled.c: 939: ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"938
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 399  ]
-[e :U 400 ]
-"939
-}
-[; ;Oled.c: 942: setYX_LCD(3,0);
-"942
-[e ( _setYX_LCD (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 943: for(ms=0;ms<48;ms++)
-"943
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 402  ]
-[e $U 403  ]
-"944
-[e :U 402 ]
-[; ;Oled.c: 944: ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"943
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 402  ]
-[e :U 403 ]
-"944
-}
-[; ;Oled.c: 947: setYX_LCD(4,0);
-"947
-[e ( _setYX_LCD (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 948: for(ms=0;ms<48;ms++)
-"948
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 405  ]
-[e $U 406  ]
-"949
-[e :U 405 ]
-[; ;Oled.c: 949: ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"948
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 405  ]
-[e :U 406 ]
-"949
-}
-[; ;Oled.c: 953: break;
-"953
-[e $U 365  ]
-[; ;Oled.c: 954: case 6:
-"954
-[e :U 408 ]
-[; ;Oled.c: 956: setYX_LCD(5,49);
-"956
-[e ( _setYX_LCD (2 , -> -> 5 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 957: for(ms=0;ms<48;ms++)
-"957
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 409  ]
-[e $U 410  ]
-"958
-[e :U 409 ]
-[; ;Oled.c: 958: ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"957
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 409  ]
-[e :U 410 ]
-"958
-}
-[; ;Oled.c: 961: setYX_LCD(6,49);
-"961
-[e ( _setYX_LCD (2 , -> -> 6 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 962: for(ms=0;ms<48;ms++)
-"962
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 412  ]
-[e $U 413  ]
-"963
-[e :U 412 ]
-[; ;Oled.c: 963: ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"962
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 412  ]
-[e :U 413 ]
-"963
-}
-[; ;Oled.c: 966: setYX_LCD(7,49);
-"966
-[e ( _setYX_LCD (2 , -> -> 7 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 967: for(ms=0;ms<48;ms++)
-"967
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 415  ]
-[e $U 416  ]
-"968
-[e :U 415 ]
-[; ;Oled.c: 968: ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"967
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 415  ]
-[e :U 416 ]
-"968
-}
-[; ;Oled.c: 971: break;
-"971
-[e $U 365  ]
-[; ;Oled.c: 972: case 7:
-"972
-[e :U 418 ]
-[; ;Oled.c: 974: setYX_LCD(5,0);
-"974
-[e ( _setYX_LCD (2 , -> -> 5 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 975: for(ms=0;ms<48;ms++)
-"975
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 419  ]
-[e $U 420  ]
-"976
-[e :U 419 ]
-[; ;Oled.c: 976: ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"975
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 419  ]
-[e :U 420 ]
-"976
-}
-[; ;Oled.c: 979: setYX_LCD(6,0);
-"979
-[e ( _setYX_LCD (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 980: for(ms=0;ms<48;ms++)
-"980
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 422  ]
-[e $U 423  ]
-"981
-[e :U 422 ]
-[; ;Oled.c: 981: ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"980
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 422  ]
-[e :U 423 ]
-"981
-}
-[; ;Oled.c: 984: setYX_LCD(7,0);
-"984
-[e ( _setYX_LCD (2 , -> -> 7 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 985: for(ms=0;ms<48;ms++)
-"985
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 425  ]
-[e $U 426  ]
-"986
-[e :U 425 ]
-[; ;Oled.c: 986: ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"985
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 425  ]
-[e :U 426 ]
-"986
-}
-[; ;Oled.c: 990: break;
-"990
-[e $U 365  ]
-[; ;Oled.c: 991: default:
-"991
-[e :U 428 ]
-[; ;Oled.c: 992: break;
-"992
-[e $U 365  ]
-"993
-}
-[; ;Oled.c: 993: }
-[e $U 365  ]
-"859
-[e :U 366 ]
-[e [\ _num , $ -> -> 1 `i `uc 367
- , $ -> -> 2 `i `uc 374
- , $ -> -> 3 `i `uc 381
- , $ -> -> 4 `i `uc 388
- , $ -> -> 5 `i `uc 398
- , $ -> -> 6 `i `uc 408
- , $ -> -> 7 `i `uc 418
- 428 ]
-"993
-[e :U 365 ]
-[; ;Oled.c: 997: return 1;
-"997
-[e ) -> -> 1 `i `uc ]
-[e $UE 364  ]
-[; ;Oled.c: 998: }
-"998
-[e :UE 364 ]
-}
-"1001
-[v _clear_device `(uc ~T0 @X0 1 ef ]
-"1002
-{
-[; ;Oled.c: 1001: uint8_t clear_device(void)
-[; ;Oled.c: 1002: {
-[e :U _clear_device ]
+[; ;PositionControl.c: 100: void CalContinueWorkModeInjectionStepPulseAndMaxPuse(void)
+[; ;PositionControl.c: 101: {
+[e :U _CalContinueWorkModeInjectionStepPulseAndMaxPuse ]
 [f ]
-[v _page `uc ~T0 @X0 1 a ]
-"1005
-[v _col `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 1005: uint8_t page,col;
-[; ;Oled.c: 1006: for(page=0;page<9;page++)
-"1006
+[; ;PositionControl.c: 102: if(0==CurrentWorkPara.InjectType)
+"102
+[e $ ! == -> 0 `i -> . _CurrentWorkPara 1 `i 279  ]
+[; ;PositionControl.c: 103: {
+"103
 {
-[e = _page -> -> 0 `i `uc ]
-[e $ < -> _page `i -> 9 `i 430  ]
-[e $U 431  ]
-"1007
-[e :U 430 ]
-[; ;Oled.c: 1007: {
+[; ;PositionControl.c: 104: InjectionStepMotorStepPulseMaxNum = 57639;
+"104
+[e = _InjectionStepMotorStepPulseMaxNum -> -> 57639 `l `ui ]
+[; ;PositionControl.c: 105: InjectionStepMotorStepPulseNum =500;
+"105
+[e = _InjectionStepMotorStepPulseNum -> -> 500 `i `ui ]
+"106
+}
+[; ;PositionControl.c: 106: }
+[e $U 280  ]
+"107
+[e :U 279 ]
+[; ;PositionControl.c: 107: else if(1==CurrentWorkPara.InjectType)
+[e $ ! == -> 1 `i -> . _CurrentWorkPara 1 `i 281  ]
+[; ;PositionControl.c: 108: {
+"108
 {
-[; ;Oled.c: 1008: setYX_LCD(page,0);
-"1008
-[e ( _setYX_LCD (2 , _page -> -> 0 `i `uc ]
-[; ;Oled.c: 1009: write_buf[0] =0x00;
-"1009
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 0 `i `uc ]
-[; ;Oled.c: 1010: for(col=0;col<99;col++)
-"1010
+[; ;PositionControl.c: 109: InjectionStepMotorStepPulseMaxNum = 32004;
+"109
+[e = _InjectionStepMotorStepPulseMaxNum -> -> 32004 `i `ui ]
+[; ;PositionControl.c: 110: InjectionStepMotorStepPulseNum =70;
+"110
+[e = _InjectionStepMotorStepPulseNum -> -> 70 `i `ui ]
+"111
+}
+[; ;PositionControl.c: 111: }
+[e $U 282  ]
+"112
+[e :U 281 ]
+[; ;PositionControl.c: 112: else if(2==CurrentWorkPara.InjectType)
+[e $ ! == -> 2 `i -> . _CurrentWorkPara 1 `i 283  ]
+[; ;PositionControl.c: 113: {
+"113
 {
-[e = _col -> -> 0 `i `uc ]
-[e $ < -> _col `i -> 99 `i 433  ]
-[e $U 434  ]
-"1011
-[e :U 433 ]
-[; ;Oled.c: 1011: {
+[; ;PositionControl.c: 114: InjectionStepMotorStepPulseMaxNum = 40005;
+"114
+[e = _InjectionStepMotorStepPulseMaxNum -> -> 40005 `l `ui ]
+[; ;PositionControl.c: 115: InjectionStepMotorStepPulseNum =70;
+"115
+[e = _InjectionStepMotorStepPulseNum -> -> 70 `i `ui ]
+"116
+}
+[; ;PositionControl.c: 116: }
+[e $U 284  ]
+"117
+[e :U 283 ]
+[; ;PositionControl.c: 117: else if(3==CurrentWorkPara.InjectType)
+[e $ ! == -> 3 `i -> . _CurrentWorkPara 1 `i 285  ]
+[; ;PositionControl.c: 118: {
+"118
 {
-[; ;Oled.c: 1012: ee_WriteBytes(write_buf, 0x40, 1);
-"1012
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 64 `i `uc -> -> 1 `i `ui ]
-"1013
+[; ;PositionControl.c: 119: InjectionStepMotorStepPulseMaxNum = 41005;
+"119
+[e = _InjectionStepMotorStepPulseMaxNum -> -> 41005 `l `ui ]
+[; ;PositionControl.c: 120: InjectionStepMotorStepPulseNum =70;
+"120
+[e = _InjectionStepMotorStepPulseNum -> -> 70 `i `ui ]
+"121
 }
-"1010
-[e ++ _col -> -> 1 `i `uc ]
-[e $ < -> _col `i -> 99 `i 433  ]
-[e :U 434 ]
-"1013
-}
-"1014
-}
-"1006
-[e ++ _page -> -> 1 `i `uc ]
-[e $ < -> _page `i -> 9 `i 430  ]
-[e :U 431 ]
-"1014
-}
-[; ;Oled.c: 1013: }
-[; ;Oled.c: 1014: }
-[; ;Oled.c: 1018: }
-"1018
-[e :UE 429 ]
-}
-"1020
-[v _Initial_LY096BG30 `(v ~T0 @X0 1 ef ]
-"1021
+[; ;PositionControl.c: 121: }
+[e $U 286  ]
+"122
+[e :U 285 ]
+[; ;PositionControl.c: 122: else if(4==CurrentWorkPara.InjectType)
+[e $ ! == -> 4 `i -> . _CurrentWorkPara 1 `i 287  ]
+[; ;PositionControl.c: 123: {
+"123
 {
-[; ;Oled.c: 1020: void Initial_LY096BG30(void)
-[; ;Oled.c: 1021: {
-[e :U _Initial_LY096BG30 ]
+[; ;PositionControl.c: 124: InjectionStepMotorStepPulseMaxNum = 57505;
+"124
+[e = _InjectionStepMotorStepPulseMaxNum -> -> 57505 `l `ui ]
+[; ;PositionControl.c: 125: InjectionStepMotorStepPulseNum =70;
+"125
+[e = _InjectionStepMotorStepPulseNum -> -> 70 `i `ui ]
+"126
+}
+[; ;PositionControl.c: 126: }
+[e $U 288  ]
+"127
+[e :U 287 ]
+[; ;PositionControl.c: 127: else
+[; ;PositionControl.c: 128: {
+"128
+{
+[; ;PositionControl.c: 129: InjectionStepMotorStepPulseMaxNum = 57639;
+"129
+[e = _InjectionStepMotorStepPulseMaxNum -> -> 57639 `l `ui ]
+[; ;PositionControl.c: 130: InjectionStepMotorStepPulseNum =70;
+"130
+[e = _InjectionStepMotorStepPulseNum -> -> 70 `i `ui ]
+"131
+}
+[e :U 288 ]
+[e :U 286 ]
+[e :U 284 ]
+[e :U 282 ]
+[e :U 280 ]
+[; ;PositionControl.c: 131: }
+[; ;PositionControl.c: 132: }
+"132
+[e :UE 278 ]
+}
+"302
+[v _InJectionOnceRunPulseCal `(v ~T0 @X0 1 ef ]
+"303
+{
+[; ;PositionControl.c: 302: void InJectionOnceRunPulseCal(void)
+[; ;PositionControl.c: 303: {
+[e :U _InJectionOnceRunPulseCal ]
 [f ]
-[; ;Oled.c: 1024: i2c_CfgGpio();
-"1024
-[e ( _i2c_CfgGpio ..  ]
-[; ;Oled.c: 1030: LATEbits.LATE1=0;
-"1030
-[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-[; ;Oled.c: 1031: delay(1);
-"1031
-[e ( _delay (1 -> -> 1 `i `ui ]
-[; ;Oled.c: 1037: LATEbits.LATE1=1;
-"1037
-[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
-[; ;Oled.c: 1038: delay(1);
-"1038
-[e ( _delay (1 -> -> 1 `i `ui ]
-[; ;Oled.c: 1041: write_buf[0]=0x21;
-"1041
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 33 `i `uc ]
-[; ;Oled.c: 1042: ee_WriteBytes(write_buf, 0x00, 1);
-"1042
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1045: write_buf[0]=0x15;
-"1045
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 21 `i `uc ]
-[; ;Oled.c: 1046: ee_WriteBytes(write_buf, 0x00, 1);
-"1046
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1048: write_buf[0]=0x08;
-"1048
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 8 `i `uc ]
-[; ;Oled.c: 1049: ee_WriteBytes(write_buf, 0x00, 1);
-"1049
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1051: write_buf[0]=0x9f;
-"1051
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 159 `i `uc ]
-[; ;Oled.c: 1052: ee_WriteBytes(write_buf, 0x00, 1);
-"1052
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1054: write_buf[0]=0x20;
-"1054
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 32 `i `uc ]
-[; ;Oled.c: 1055: ee_WriteBytes(write_buf, 0x00, 1);
-"1055
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1057: write_buf[0]=0x05;
-"1057
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 5 `i `uc ]
-[; ;Oled.c: 1058: ee_WriteBytes(write_buf, 0x00, 1);
-"1058
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1060: write_buf[0]=0x0c;
-"1060
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 12 `i `uc ]
-[; ;Oled.c: 1063: ee_WriteBytes(write_buf, 0x00, 1);
-"1063
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1065: clear_device();
-"1065
-[e ( _clear_device ..  ]
-[; ;Oled.c: 1067: display_pattern(1,1,0);
-"1067
-[e ( _display_pattern (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1068: display_pattern(2,0,0);
-"1068
-[e ( _display_pattern (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1070: display_pattern(3,0,0);
-"1070
-[e ( _display_pattern (3 , , -> -> 3 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1071: display_pattern(4,0,0);
-"1071
-[e ( _display_pattern (3 , , -> -> 4 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1072: display_pattern(5,0,0);
-"1072
-[e ( _display_pattern (3 , , -> -> 5 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1073: display_pattern(6,0,0);
-"1073
-[e ( _display_pattern (3 , , -> -> 6 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1074: display_pattern(7,0,0);
-"1074
-[e ( _display_pattern (3 , , -> -> 7 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1077: }
-"1077
-[e :UE 436 ]
+[; ;PositionControl.c: 305: }
+"305
+[e :UE 289 ]
 }
-"1091
-[v _xdelay `(v ~T0 @X0 1 ef1`ul ]
-"1092
+"306
+[v _NeedleOnceRunPulseCal `(v ~T0 @X0 1 ef ]
+"307
 {
-[; ;Oled.c: 1091: void xdelay(uint32_t x)
-[; ;Oled.c: 1092: {
-[e :U _xdelay ]
-"1091
-[v _x `ul ~T0 @X0 1 r1 ]
-"1092
+[; ;PositionControl.c: 306: void NeedleOnceRunPulseCal(void)
+[; ;PositionControl.c: 307: {
+[e :U _NeedleOnceRunPulseCal ]
 [f ]
-"1093
-[v _m `ul ~T0 @X0 1 a ]
-[v _n `ul ~T0 @X0 1 a ]
-[; ;Oled.c: 1093: uint32_t m,n;
-[; ;Oled.c: 1094: while(x)
-"1094
-[e $U 438  ]
-[e :U 439 ]
-[; ;Oled.c: 1095: {
-"1095
-{
-[; ;Oled.c: 1096: for(m=0;m<1000;m++)
-"1096
-{
-[e = _m -> -> -> 0 `i `l `ul ]
-[e $ < _m -> -> -> 1000 `i `l `ul 441  ]
-[e $U 442  ]
-"1097
-[e :U 441 ]
-[; ;Oled.c: 1097: for(n=0;n<1000;n++);
-{
-[e = _n -> -> -> 0 `i `l `ul ]
-[e $ < _n -> -> -> 1000 `i `l `ul 444  ]
-[e $U 445  ]
-[e :U 444 ]
-[e ++ _n -> -> -> 1 `i `l `ul ]
-[e $ < _n -> -> -> 1000 `i `l `ul 444  ]
-[e :U 445 ]
+[; ;PositionControl.c: 309: }
+"309
+[e :UE 290 ]
 }
-"1096
-[e ++ _m -> -> -> 1 `i `l `ul ]
-[e $ < _m -> -> -> 1000 `i `l `ul 441  ]
-[e :U 442 ]
-"1097
+"311
+[v _MotorRunControl `(v ~T0 @X0 1 ef ]
+"312
+{
+[; ;PositionControl.c: 311: void MotorRunControl(void)
+[; ;PositionControl.c: 312: {
+[e :U _MotorRunControl ]
+[f ]
+[; ;PositionControl.c: 314: }
+"314
+[e :UE 291 ]
 }
-[; ;Oled.c: 1099: x--;
-"1099
-[e -- _x -> -> -> 1 `i `l `ul ]
-"1100
-}
-[e :U 438 ]
-"1094
-[e $ != _x -> -> 0 `i `ul 439  ]
-[e :U 440 ]
-[; ;Oled.c: 1100: }
-[; ;Oled.c: 1102: }
-"1102
-[e :UE 437 ]
+"315
+[v _PositionCheckInit `(v ~T0 @X0 1 ef ]
+"316
+{
+[; ;PositionControl.c: 315: void PositionCheckInit(void)
+[; ;PositionControl.c: 316: {
+[e :U _PositionCheckInit ]
+[f ]
+[; ;PositionControl.c: 317: DDRCbits.RC0 =1;
+"317
+[e = . . _DDRCbits 1 0 -> -> 1 `i `uc ]
+[; ;PositionControl.c: 318: DDRBbits.RB2 =1;
+"318
+[e = . . _DDRBbits 1 2 -> -> 1 `i `uc ]
+[; ;PositionControl.c: 320: DDRAbits.RA4 =1;
+"320
+[e = . . _DDRAbits 1 4 -> -> 1 `i `uc ]
+[; ;PositionControl.c: 321: DDRDbits.RD1 =1;
+"321
+[e = . . _DDRDbits 1 1 -> -> 1 `i `uc ]
+[; ;PositionControl.c: 323: InjectionMotorCurrentPosition =0;
+"323
+[e = _InjectionMotorCurrentPosition -> -> 0 `i `ui ]
+[; ;PositionControl.c: 324: InjectionMotorAimPosition =0;
+"324
+[e = _InjectionMotorAimPosition -> -> 0 `i `ui ]
+[; ;PositionControl.c: 325: NeedleMotorCurrentPosition =0;
+"325
+[e = _NeedleMotorCurrentPosition -> 0 `i ]
+[; ;PositionControl.c: 326: NeedleInitPosition =0;
+"326
+[e = _NeedleInitPosition -> -> 0 `i `ui ]
+[; ;PositionControl.c: 327: NeedleMotorAimPosition =0 + NeedleInitPosition;
+"327
+[e = _NeedleMotorAimPosition -> + -> -> 0 `i `ui _NeedleInitPosition `i ]
+[; ;PositionControl.c: 329: CurrentWorkPara.InjectMode =0;
+"329
+[e = . _CurrentWorkPara 0 -> -> 0 `i `uc ]
+[; ;PositionControl.c: 330: CurrentWorkPara.InjectType =0;
+"330
+[e = . _CurrentWorkPara 1 -> -> 0 `i `uc ]
+[; ;PositionControl.c: 331: CurrentWorkPara.NeedleLength =0;
+"331
+[e = . _CurrentWorkPara 2 -> -> 0 `i `uc ]
+[; ;PositionControl.c: 332: CurrentWorkPara.InjectDepth =1;
+"332
+[e = . _CurrentWorkPara 3 -> -> 1 `i `uc ]
+[; ;PositionControl.c: 333: CurrentWorkPara.Variable =100;
+"333
+[e = . _CurrentWorkPara 4 -> -> 100 `i `uc ]
+[; ;PositionControl.c: 335: CalContinueWorkTimePeriod();
+"335
+[e ( _CalContinueWorkTimePeriod ..  ]
+[; ;PositionControl.c: 336: CalContinueWorkModeInjectionStepPulseAndMaxPuse();
+"336
+[e ( _CalContinueWorkModeInjectionStepPulseAndMaxPuse ..  ]
+[; ;PositionControl.c: 338: }
+"338
+[e :UE 292 ]
 }

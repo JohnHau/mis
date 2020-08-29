@@ -63,6 +63,7 @@ int xn=0;
 int ann=0;
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
+uint16_t bv =0;
 void main(void)                
 { 
 
@@ -83,6 +84,24 @@ void main(void)
 	MotorDriveInit();
 	//PositionCheckInit();
 	KEY_Init();
+    
+    
+    AD_ch0_init();
+    bv = get_AD_vaule();
+    
+    
+    bv =0;
+    bv = get_AD_vaule();
+    
+    
+    bv =0;
+    bv = get_AD_vaule();
+    
+    
+    
+    
+    
+    
 
     //Initial_LY096BG30();
    // while(xn<20)

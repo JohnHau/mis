@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\injector.X.production.hex">
+  <executable name="dist/default/debug\injector.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>2311</used>
-      <free>30457</free>
+      <used>2313</used>
+      <free>30455</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

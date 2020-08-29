@@ -3,26 +3,28 @@ Microchip MPLAB XC8 Compiler V1.41 ()
 Linker command line:
 
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.41\dat\en_msgs.txt -cs \
-  -h+dist/default/production\injector.X.production.sym \
-  --cmf=dist/default/production\injector.X.production.cmf -z -Q18F4520 \
-  -oC:\Users\ADMINI~1\AppData\Local\Temp\s21e4.2 \
-  -Mdist/default/production/injector.X.production.map -E1 -ver=XC8 \
-  -ASTACK=0300h-05ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
-  -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
-  -AABS1=00h-05FFh -ABIGRAM=01h-05FFh -ARAM=080h-0FFh,0100h-01FFhx5 \
-  -ABANK0=080h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
-  -ABANK3=0300h-03FFh -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh \
-  -ASFR=0F80h-0FFFh -preset_vec=00h,intcode=08h,intcodelo,powerup,init \
-  -pramtop=0600h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
-  -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
+  -h+dist/default/debug\injector.X.debug.sym \
+  --cmf=dist/default/debug\injector.X.debug.cmf -z -Q18F4520 \
+  -oC:\Users\ADMINI~1\AppData\Local\Temp\s2288.2 \
+  -Mdist/default/debug/injector.X.debug.map -E1 -ver=XC8 \
+  -ASTACK=0300h-05eeh -pstack=STACK -ACODE=00h-07CFFh -ACONST=00h-07CFFh \
+  -ASMALLCONST=0600h-06FFhx119 -AMEDIUMCONST=0600h-07CFFh -ACOMRAM=01h-07Fh \
+  -AABS1=00h-05EEh -ABIGRAM=01h-05EEh \
+  -ARAM=080h-0FFh,0100h-01FFhx4,0500h-05EEh -ABANK0=080h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-05EEh \
+  -ASFR=0F80h-0F9Bh,0F9Dh-0FD3h,0FD5h-0FDAh,0FE0h-0FE2h,0FE8h-0FEAh,0FF0h-0FFBh \
+  -preset_vec=00h,intcode=08h,intcodelo,powerup,init -pramtop=0600h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
   -AIDLOC=0200000h-0200007h -pidloc=IDLOC -AEEDATA=0F00000h-0F000FFh \
   -peeprom_data=EEDATA \
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ADMINI~1\AppData\Local\Temp\s21e4.obj \
-  dist/default/production\injector.X.production.obj 
+  C:\Users\ADMINI~1\AppData\Local\Temp\s2288.obj \
+  dist/default/debug\injector.X.debug.obj 
 
 Object code version is 3.11
 
@@ -34,15 +36,15 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ADMINI~1\AppData\Local\Temp\s21e4.obj
+C:\Users\ADMINI~1\AppData\Local\Temp\s2288.obj
                 init                                  E        E        4        4       0
-                reset_vec                             0        0        4        0       0
+                reset_vec                             0        0        6        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
-dist/default/production\injector.X.production.obj
+dist/default/debug\injector.X.debug.obj
                 intcode                               8        8        6        4       0
                 temp                                 6D       6D        1        1       1
-                mediumconst                        7A3A     7A3A      5C6     3D1D       0
+                mediumconst                        773A     773A      5C6     3B9D       0
                 text12                              298      298       36        4       0
                 text11                              30A      30A       12        4       0
                 intcode_body                         12       12       B4        4       0
@@ -72,7 +74,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text12                              298      298       36         0
                 text11                              30A      30A       12         0
                 intcode_body                         12       12       B4         0
@@ -94,7 +96,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        7A3A     7A3A      5C6         0
+                mediumconst                        773A     773A      5C6         0
 
         CLASS   COMRAM         
                 temp                                 6D       6D        1         1
@@ -140,13 +142,13 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 bssCOMRAM                      000001  00006D  00006E         1       1  COMRAM  
                 intcode                        000008  00033D  000345         4       0  CODE    
                 cstackBANK0                    000080  00000A  00008A        80       1  BANK0   
                 bssBANK1                       000100  000100  000200       100       1  BANK1   
                 bssBANK2                       000200  000100  000300       200       1  BANK2   
-                mediumconst                    007A3A  0005C6  008000      3D1D       0  MEDIUMCO
+                mediumconst                    00773A  0005C6  007D00      3B9D       0  MEDIUMCO
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -157,22 +159,27 @@ UNUSED ADDRESS RANGES
         BANK0            00008A-0000FF               76
         BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
-        BANK5            000500-0005FF              100
+        BANK5            000500-0005EE               EF
         BIGRAM           00006E-00007F               12
                          00008A-0000FF               76
-                         000300-0005FF              300
-        CODE             000004-000007                4
-                         000345-007A39             76F5
+                         000300-0005EE              2EF
+        CODE             000006-000007                2
+                         000345-007739             73F5
         COMRAM           00006E-00007F               12
-        CONST            000004-000007                4
-                         000345-007A39             76F5
+        CONST            000006-000007                2
+                         000345-007739             73F5
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000600-007A39             743A
+        MEDIUMCONST      000600-007739             713A
         RAM              00008A-0000FF               76
-                         000300-0005FF              100
-        SFR              000F80-000FFF               80
-        SMALLCONST       000600-007A39              100
-        STACK            000300-0005FF              300
+                         000300-0005EE              100
+        SFR              000F80-000F9B               1C
+                         000F9D-000FD3               37
+                         000FD5-000FDA                6
+                         000FE0-000FE2                3
+                         000FE8-000FEA                3
+                         000FF0-000FFB                C
+        SMALLCONST       000600-007739              100
+        STACK            000300-0005EE              2EF
 
                                   Symbol Table
 
@@ -320,7 +327,7 @@ __Hintentry                        intentry     000000
 __Hintret                          intret       000000
 __Hintsave_regs                    intsave_regs 000000
 __Hirdata                          irdata       000000
-__Hmediumconst                     mediumconst  008000
+__Hmediumconst                     mediumconst  007D00
 __HnvCOMRAM                        nvCOMRAM     000000
 __HnvFARRAM                        nvFARRAM     000000
 __Hnvbit                           nvbit        000000
@@ -332,7 +339,7 @@ __Hramtop                          ramtop       000600
 __Hrbit                            rbit         000000
 __Hrbss                            rbss         000000
 __Hrdata                           rdata        000000
-__Hreset_vec                       reset_vec    000004
+__Hreset_vec                       reset_vec    000006
 __Hrparam                          rparam       000000
 __Hsfr                             sfr          000000
 __Hsmallconst                      smallconst   000000
@@ -395,7 +402,7 @@ __Lintentry                        intentry     000000
 __Lintret                          intret       000000
 __Lintsave_regs                    intsave_regs 000000
 __Lirdata                          irdata       000000
-__Lmediumconst                     mediumconst  007A3A
+__Lmediumconst                     mediumconst  00773A
 __LnvCOMRAM                        nvCOMRAM     000000
 __LnvFARRAM                        nvFARRAM     000000
 __Lnvbit                           nvbit        000000
@@ -452,17 +459,17 @@ __end_of_buzz                      text2        00024E
 __end_of_delay                     text6        000298
 __end_of_get_AD_vaule              text1        00013E
 __end_of_main                      text0        0001AA
-__end_of_pata                      mediumconst  007FFF
-__end_of_patb                      mediumconst  007F93
-__end_of_patc                      mediumconst  007F27
-__end_of_patd                      mediumconst  007EBB
-__end_of_pate                      mediumconst  007D9B
-__end_of_patf                      mediumconst  007C7B
-__end_of_patg                      mediumconst  007B5B
+__end_of_pata                      mediumconst  007CFF
+__end_of_patb                      mediumconst  007C93
+__end_of_patc                      mediumconst  007C27
+__end_of_patd                      mediumconst  007BBB
+__end_of_pate                      mediumconst  007A9B
+__end_of_patf                      mediumconst  00797B
+__end_of_patg                      mediumconst  00785B
 __end_ofi2_LCD_Blink               text11       00031C
 __end_ofi2_delay                   text12       0002CE
 __initialization                   cinit        0001AA
-__mediumconst                      mediumconst  007A3A
+__mediumconst                      mediumconst  00773A
 __pbssBANK1                        bssBANK1     000100
 __pbssBANK2                        bssBANK2     000200
 __pbssCOMRAM                       bssCOMRAM    000001
@@ -473,7 +480,7 @@ __pdataCOMRAM                      dataCOMRAM   00006C
 __pidataCOMRAM                     idataCOMRAM  000344
 __pintcode                         intcode      000008
 __pintcode_body                    intcode_body 000012
-__pmediumconst                     mediumconst  007A3A
+__pmediumconst                     mediumconst  00773A
 __pnvCOMRAM                        nvCOMRAM     00006A
 __ptext0                           text0        00013E
 __ptext1                           text1        0000C6
@@ -514,13 +521,13 @@ _main                              text0        00013E
 _mbcnt                             bssCOMRAM    00001F
 _ms                                dataCOMRAM   00006C
 _page                              bssCOMRAM    000047
-_pata                              mediumconst  007F93
-_patb                              mediumconst  007F27
-_patc                              mediumconst  007EBB
-_patd                              mediumconst  007D9B
-_pate                              mediumconst  007C7B
-_patf                              mediumconst  007B5B
-_patg                              mediumconst  007A3B
+_pata                              mediumconst  007C93
+_patb                              mediumconst  007C27
+_patc                              mediumconst  007BBB
+_patd                              mediumconst  007A9B
+_pate                              mediumconst  00797B
+_patf                              mediumconst  00785B
+_patg                              mediumconst  00773B
 _prev_edge                         bssCOMRAM    00004C
 _rcnt                              bssCOMRAM    000048
 _read_buf                          bssBANK2     000200
@@ -550,7 +557,7 @@ intlevel0                          text         000000
 intlevel1                          text         000000
 intlevel2                          text         000000
 intlevel3                          text         000000
-stackhi                            (abs)        0005FF
+stackhi                            (abs)        0005EE
 stacklo                            (abs)        000300
 start                              init         00000E
 start_initialization               cinit        0001AA
@@ -991,16 +998,16 @@ Module		Function		Class		Link	Load	Size
 ../Main.c estimated size: 109
 
 shared
-		_pate          		MEDIUMCONST    	7C7B	0000	289
-		_patf          		MEDIUMCONST    	7B5B	0000	289
-		_patg          		MEDIUMCONST    	7A3B	0000	289
+		_pate          		MEDIUMCONST    	797B	0000	289
+		_patf          		MEDIUMCONST    	785B	0000	289
+		_patg          		MEDIUMCONST    	773B	0000	289
 		__initialization		CODE           	01AA	0000	71
 		i2_LCD_Blink   		CODE           	030A	0000	19
-		_pata          		MEDIUMCONST    	7F93	0000	109
-		_patb          		MEDIUMCONST    	7F27	0000	109
-		_patc          		MEDIUMCONST    	7EBB	0000	109
+		_pata          		MEDIUMCONST    	7C93	0000	109
+		_patb          		MEDIUMCONST    	7C27	0000	109
+		_patc          		MEDIUMCONST    	7BBB	0000	109
 		i2_delay       		CODE           	0298	0000	55
-		_patd          		MEDIUMCONST    	7D9B	0000	289
+		_patd          		MEDIUMCONST    	7A9B	0000	289
 
 shared estimated size: 1628
 

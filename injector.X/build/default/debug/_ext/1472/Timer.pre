@@ -1,5 +1,5 @@
 
-# 1 "../Main.c"
+# 1 "../Timer.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3757,81 +3757,6 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 104 "../MotorDrive.h"
-extern void MotorDriveInit(void);
-
-extern void OpenMotorPower(void);
-
-extern void CloseMotorPower(void);
-
-extern void NeedleMotorForwardRun(void);
-extern void NeedleMotorReverseRun(void);
-extern void NeedleMotorFastStop(void);
-extern void NeedleMotorFreeStop(void);
-
-extern void InjectionMotorForwardRun(void);
-extern void InjectionMotorReverseRun(void);
-extern void InjectionMotorFastStop(void);
-extern void InjectionMotorFreeStop(void);
-
-# 5 "../Timer.h"
-extern void TimerInit(void);
-
-# 4 "../Beep.h"
-extern void BeepInit(void);
-extern void BeepOn(void);
-extern void BeepOff(void);
-void buzz(void);
-
-# 49 "../PositionControl.h"
-typedef struct
-{
-unsigned char InjectMode;
-unsigned char InjectType;
-unsigned char NeedleLength;
-unsigned char InjectDepth;
-unsigned char Variable;
-}WorkParaType;
-
-extern WorkParaType CurrentWorkPara;
-
-extern volatile unsigned int InjectionMotorCurrentPosition,InjectionMotorAimPosition;
-extern volatile int NeedleMotorCurrentPosition,NeedleMotorAimPosition;
-extern volatile unsigned int NeedleInitPosition;
-extern unsigned char NeedleMotorFindZeroPosFlag;
-
-extern unsigned int ContinueWorkTimePeriod ;
-extern unsigned int ContinueWorkTimeCount;
-extern unsigned char NeedleRunDir;
-extern unsigned char StartWorkFlag,ContinueWorkState ;
-extern unsigned int InjectionStepMotorStepPulseNum;
-extern unsigned int InjectionStepMotorStepPulseMaxNum ;
-
-
-extern void PositionCheckInit(void);
-extern void NeedleFindZeroPosFun(void);
-extern void CalContinueWorkTimePeriod(void);
-
-# 54 "../Key.h"
-extern unsigned char KeyScanPeriod;
-
-typedef struct
-{
-unsigned char NewValue;
-unsigned char OldValue;
-unsigned char SendValue;
-unsigned char SendValueChangeFlag;
-unsigned char FiterTimesCount;
-unsigned char FiterTimes;
-
-}KeyType;
-
-extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
-
-extern void KEY_Init(void);
-extern void KEY_Scan(void);
-extern void KeyFuction(void);
-
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdint.h"
 typedef signed char int8_t;
 
@@ -3922,174 +3847,161 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 5 "../Oled.h"
-void delay_ms(unsigned int ms);
+# 5 "../Timer.h"
+extern void TimerInit(void);
 
-# 42
-void i2c_CfgGpio(void);
-void i2c_Start(void);
-void i2c_Stop(void);
-void i2c_SendByte(uint8_t _ucByte);
-uint8_t i2c_ReadByte(void);
-uint8_t i2c_WaitAck(void);
-void i2c_Ack(void);
-void i2c_NAck(void);
+# 54 "../Key.h"
+extern unsigned char KeyScanPeriod;
 
-# 67
-uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
-
-uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
-
-
-uint8_t ee_CheckDevice(uint8_t _Address);
-void ee_Erase(void);
-uint8_t ee_WaitStandby(void);
-uint8_t ee_Test(void) ;
-
-
-void Initial_LY096BG30(void);
-
-
-
-void LCD_backlight_init(void);
-void LCD_On(void);
-void LCD_Off(void);
-void LCD_Blink(void);
-uint8_t ee_CheckDevice(uint8_t _Address);
-
-
-uint8_t AD_ch0_init(void);
-uint16_t get_AD_vaule(void);
-
-
-void delay(unsigned int x);
-
-
-# 17 "../Main.c"
-#pragma config OSC = HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-#pragma config PWRT = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = 0
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 64
-
-#pragma config CCP2MX = PORTC
-#pragma config PBADEN = OFF
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-#pragma config STVREN = OFF
-#pragma config LVP = OFF
-#pragma config XINST = OFF
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-#pragma config EBTRB = OFF
-
-
-
-int xn=0;
-int ann=0;
-uint8_t prev_edge =0;
-uint8_t cur_edge =0;
-uint16_t bv =0;
-void main(void)
+typedef struct
 {
+unsigned char NewValue;
+unsigned char OldValue;
+unsigned char SendValue;
+unsigned char SendValueChangeFlag;
+unsigned char FiterTimesCount;
+unsigned char FiterTimes;
 
-BeepInit();
+}KeyType;
+
+extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
+
+extern void KEY_Init(void);
+extern void KEY_Scan(void);
+extern void KeyFuction(void);
+
+# 49 "../PositionControl.h"
+typedef struct
+{
+unsigned char InjectMode;
+unsigned char InjectType;
+unsigned char NeedleLength;
+unsigned char InjectDepth;
+unsigned char Variable;
+}WorkParaType;
+
+extern WorkParaType CurrentWorkPara;
+
+extern volatile unsigned int InjectionMotorCurrentPosition,InjectionMotorAimPosition;
+extern volatile int NeedleMotorCurrentPosition,NeedleMotorAimPosition;
+extern volatile unsigned int NeedleInitPosition;
+extern unsigned char NeedleMotorFindZeroPosFlag;
+
+extern unsigned int ContinueWorkTimePeriod ;
+extern unsigned int ContinueWorkTimeCount;
+extern unsigned char NeedleRunDir;
+extern unsigned char StartWorkFlag,ContinueWorkState ;
+extern unsigned int InjectionStepMotorStepPulseNum;
+extern unsigned int InjectionStepMotorStepPulseMaxNum ;
+
+
+extern void PositionCheckInit(void);
+extern void NeedleFindZeroPosFun(void);
+extern void CalContinueWorkTimePeriod(void);
+
+# 4 "../Beep.h"
+extern void BeepInit(void);
+extern void BeepOn(void);
+extern void BeepOff(void);
+void buzz(void);
+
+# 104 "../MotorDrive.h"
+extern void MotorDriveInit(void);
+
+extern void OpenMotorPower(void);
+
+extern void CloseMotorPower(void);
+
+extern void NeedleMotorForwardRun(void);
+extern void NeedleMotorReverseRun(void);
+extern void NeedleMotorFastStop(void);
+extern void NeedleMotorFreeStop(void);
+
+extern void InjectionMotorForwardRun(void);
+extern void InjectionMotorReverseRun(void);
+extern void InjectionMotorFastStop(void);
+extern void InjectionMotorFreeStop(void);
+
+# 12 "../Timer.c"
+unsigned char LastNeedleFeedback =0;
+unsigned char LastInjectionFeedback =0;
+unsigned char flag =0;
+
+uint16_t mbcnt=0;
 
 
 
-
-LCD_backlight_init();
-
-# 84
-MotorDriveInit();
-
-KEY_Init();
+void __interrupt ISR(void)
+{
+uint8_t temp;
 
 
-AD_ch0_init();
-bv = get_AD_vaule();
-
-
-bv =0;
-bv = get_AD_vaule();
-
-
-bv =0;
-bv = get_AD_vaule();
-
-# 119
-while(1)
+if(INTCONbits.RBIF)
 {
 
 
-if(PORTDbits.RD6 == 0)
+if (PORTBbits.RB4 == 0)
 {
 
 LCD_Blink();
 }
-if(PORTDbits.RD7 == 0)
-{
 
-}
-if(PORTBbits.RB3 == 0)
-{
-
-}
-if(PORTBbits.RB4 == 0)
-
-# 144
+if (PORTBbits.RB5 == 0)
 {
 
 
+LCD_Blink();
+}
+
+temp = PORTB;
+INTCONbits.RBIF=0;
+
+# 50
+}
 
 
+
+
+if(INTCONbits.INT0IF)
 {
-buzz();
 
 
+LCD_Blink();
+INTCONbits.INT0IF = 0;
 }
 
-}
 
-}
+if (INTCON3bits.INT2IF)
+{
+INTCONbits.INT0IF = 0;
 
-# 275
-while(1)
+
+mbcnt++;
+
+if(mbcnt == 30000)
 {
 
-
-
-
-delay(100);
+do{LATDbits.LD2 =0;LATDbits.LD3 =0; }while(0);
+LATDbits.LD4 =0;
+}
 
 
 
 }
+
+# 324
 }
 
+void TimerInit(void)
+{
+T0CS=0;
+PSA=0;
+T0PS2=0;
+T0PS1=0;
+T0PS0=0;
+T08BIT =1;
+T0IF=0;
+T0IE=1;
+GIE=1;
+TMR0=0;
+}

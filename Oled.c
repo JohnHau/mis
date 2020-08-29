@@ -202,12 +202,65 @@ void delay_ms(unsigned int ms)
 	}
 	return;
 }
+//================================================================================
+//AD converter  Battery
+//================================================================================
+
+
+
+unsigned int StartAndReadAdValue(unsigned char ch)
+{
+	unsigned int delay =1000;
+	unsigned int value =0; 
+
+	SetAdChanel(ch);
+	StartAdConvert();
+	while(delay-- && (ADCON0 & 0x2));
+	
+	value=((unsigned int)ADRESH <<2)|value; 
+		
+	return(value);	
+}
+
+
+
+uint8_t AD_ch0_init(void)
+{
+    
+    TRISAbits.RA0 =1;//AD0
+    
+    
+    ADCON0bits.CHS = 0;//choose channel 0
+    ADCON0bits.ADON = 1;
+
+
+    return 1;
+}
+
+
+uint16_t get_AD_vaule(void)
+{
+    
+   uint8_t hv=0; 
+   uint8_t lv=0; 
+    uint8_t ts=0; 
+   uint16_t rv=0;
+   ADCON0bits.GO =1;
+   while(ADCON0bits.GO);
+
+   
+   hv = ADRESH;
+   lv = ADRESL;
+   
+   rv = ((uint16_t)(hv<<8 | lv) >>6)& 0x03ff;
+   
+   //ts = rv;
+   return rv;
 
 
 
 
-
-
+}
 
 
 //=============================================================================================

@@ -85,6 +85,11 @@ void LCD_Off(void);
 void LCD_Blink(void);
 uint8_t ee_CheckDevice(uint8_t _Address);
 
+
+uint8_t AD_ch0_init(void);
+uint16_t get_AD_vaule(void);
+
+
 void delay(unsigned int  x);
 
 
