@@ -27,6 +27,9 @@
 
 #pragma config CCP2MX = PORTC				//ccp2 mux bit
 #pragma config PBADEN = OFF				//portb AD enble bit
+
+
+
 #pragma config LPT1OSC = OFF				//low-power timer1 oscillator enable bit
 #pragma config MCLRE = ON			//mclr pin enable bit
 
@@ -63,7 +66,9 @@ int xn=0;
 int ann=0;
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
-uint16_t bv =0;
+uint16_t bv =10;
+uint16_t cv =10;
+uint16_t dv =10;
 void main(void)                
 { 
 
@@ -73,7 +78,7 @@ void main(void)
     
     
     LCD_backlight_init();
-    //LCD_On();
+    LCD_On();
     
    //delay(2000);
    //delay(2000);
@@ -85,28 +90,80 @@ void main(void)
 	//PositionCheckInit();
 	KEY_Init();
     
+  
     
+    
+#if 0
+    while(1)
+    {
+    
+           if(STATUS_CHARGE  == 1)
+           {
+               buzz();
+           }
+    
+    }
+    
+#endif
+    
+    
+    
+#if 0
     AD_ch0_init();
+    while(1)
+    {
     bv = get_AD_vaule();
+    bv = get_SenseA_AD_vaule();
+    bv = get_SenseB_AD_vaule();
     
     
-    bv =0;
-    bv = get_AD_vaule();
+    cv =0;
+    cv = get_AD_vaule();
+    cv = get_SenseA_AD_vaule();
+    cv = get_SenseB_AD_vaule();
     
-    
-    bv =0;
-    bv = get_AD_vaule();
-    
+    dv =0;
+    dv = get_AD_vaule();
+    dv = get_SenseA_AD_vaule();
+    dv = get_SenseB_AD_vaule();
+    }
+#endif
     
     
     
     
     
 
-    //Initial_LY096BG30();
+    Initial_LY096BG30();
    // while(xn<20)
     //LCD_On();
-    //while(1);
+    while(1);
+    
+    
+#if 0
+   // FORWARD_RUN_A();   
+   // delay(100);//delay(2000);//delay(2000);delay(2000);
+    
+    //FORWARD_RUN_B();     
+    while(1)
+    {
+       // PIR1bits.TMR2IF = 0;
+       // while( PIR1bits.TMR2IF == 0);
+      
+        //REVERSE_RUN_A();        
+        //delay(100);//delay(2000);//delay(2000);delay(2000);
+        
+        
+        FORWARD_RUN_A();   
+        delay(100);//delay(2000);//delay(2000);delay(2000);
+        
+        bv += 10;
+         CCPR1L= bv;
+         buzz();
+    }
+    
+#endif
+    
     
 #if 0
     //injector
@@ -116,7 +173,7 @@ void main(void)
     
     
     
-    while(1)
+    while(0)
     {
         
         

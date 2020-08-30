@@ -111,6 +111,19 @@ void InjectionMotorFreeStop(void)
 void MotorDriveInit(void)
 {
 	
+       //===========================================================
+    
+    //CCPR2= 99;
+    PR2= 99;
+    CCPR1L= 10;
+    //CCP1CON = 
+    TRISCbits.RC2 =0;//enable A
+    T2CONbits.T2CKPS = 1;//prescaler is 4
+    CCP1CONbits.CCP1M = 0x0c;//pwm mode
+    TMR2 = 0;
+    T2CONbits.TMR2ON =1;
+    
+    //===========================================================
     
     TRISCbits.RC2 =0;//enable A
     TRISDbits.RD0 =0;//input1
@@ -146,38 +159,9 @@ void MotorDriveInit(void)
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-#if 0
-    //L298N
-	SET_L298N_INPUT1_PIN;
-	SET_L298N_INPUT1_PIN_DIR_OUT;
-
-	SET_L298N_INPUT2_PIN;
-	SET_L298N_INPUT2_PIN_DIR_OUT;
  
-	SET_L298N_A_ENABLE_PIN;
-	SET_L298N_A_ENABLE_PIN_DIR_OUT;
-	
-	//
-	SET_L298N_INPUT3_PIN;
-	SET_L298N_INPUT3_PIN_DIR_OUT;
-	
-	SET_L298N_INPUT4_PIN;
-	SET_L298N_INPUT4_PIN_DIR_OUT;
-
-	SET_L298N_B_ENABLE_PIN;
-	SET_L298N_B_ENABLE_PIN_DIR_OUT;
-	
-	//电机电源控制PIN
-	SET_MOTOR_VCC_CONTROL_PIN;
-	SET_MOTOR_VCC_CONTROL_PIN_DIR_OUT;	
-#endif
+    
+    
+    
 }
 

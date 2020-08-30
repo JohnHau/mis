@@ -27,7 +27,7 @@
 #define LP_BUTTON                PORTBbits.RB0
 
 
-
+#define   STATUS_CHARGE                PORTAbits.RA3
 
 
 

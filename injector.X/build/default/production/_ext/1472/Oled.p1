@@ -45,11 +45,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S51 . . . ]
 "1430
 [v _LATEbits `VS51 ~T0 @X0 0 e@3981 ]
-"216 ../Oled.c
-[v _SetAdChanel `(i ~T0 @X0 0 ef ]
-"217
-[v _StartAdConvert `(i ~T0 @X0 0 ef ]
-"4721 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+"4721
 [v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
 "4851
 [v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
@@ -2924,7 +2920,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;oled.h: 86: uint8_t ee_CheckDevice(uint8_t _Address);
 [; ;oled.h: 89: uint8_t AD_ch0_init(void);
 [; ;oled.h: 90: uint16_t get_AD_vaule(void);
-[; ;oled.h: 93: void delay(unsigned int x);
+[; ;oled.h: 91: uint16_t get_SenseA_AD_vaule(void);
+[; ;oled.h: 92: uint16_t get_SenseB_AD_vaule(void);
+[; ;oled.h: 95: void delay(unsigned int x);
 [; ;Beep.h: 4: extern void BeepInit(void);
 [; ;Beep.h: 5: extern void BeepOn(void);
 [; ;Beep.h: 6: extern void BeepOff(void);
@@ -3445,12 +3443,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _value `ui ~T0 @X0 1 a ]
 [; ;Oled.c: 214: unsigned int value =0;
 [e = _value -> -> 0 `i `ui ]
-[; ;Oled.c: 216: SetAdChanel(ch);
-"216
-[e ( _SetAdChanel -> _ch `i ]
-[; ;Oled.c: 217: StartAdConvert();
-"217
-[e ( _StartAdConvert ..  ]
 [; ;Oled.c: 218: while(delay-- && (ADCON0 & 0x2));
 "218
 [e $U 313  ]
@@ -3480,717 +3472,831 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.c: 230: TRISAbits.RA0 =1;
 "230
 [e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 233: ADCON0bits.CHS = 0;
-"233
+[; ;Oled.c: 231: TRISAbits.RA1 =1;
+"231
+[e = . . _TRISAbits 1 1 -> -> 1 `i `uc ]
+[; ;Oled.c: 232: TRISAbits.RA2 =1;
+"232
+[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
+[; ;Oled.c: 235: ADCON0bits.CHS = 0;
+"235
 [e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-[; ;Oled.c: 234: ADCON0bits.ADON = 1;
-"234
+[; ;Oled.c: 236: ADCON0bits.ADON = 1;
+"236
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 237: return 1;
-"237
+[; ;Oled.c: 239: return 1;
+"239
 [e ) -> -> 1 `i `uc ]
 [e $UE 316  ]
-[; ;Oled.c: 238: }
-"238
+[; ;Oled.c: 240: }
+"240
 [e :UE 316 ]
 }
-"241
+"249
 [v _get_AD_vaule `(ui ~T0 @X0 1 ef ]
-"242
+"250
 {
-[; ;Oled.c: 241: uint16_t get_AD_vaule(void)
-[; ;Oled.c: 242: {
+[; ;Oled.c: 249: uint16_t get_AD_vaule(void)
+[; ;Oled.c: 250: {
 [e :U _get_AD_vaule ]
 [f ]
-"244
+"252
 [v _hv `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 244: uint8_t hv=0;
+[; ;Oled.c: 252: uint8_t hv=0;
 [e = _hv -> -> 0 `i `uc ]
-"245
+"253
 [v _lv `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 245: uint8_t lv=0;
+[; ;Oled.c: 253: uint8_t lv=0;
 [e = _lv -> -> 0 `i `uc ]
-"246
+"254
 [v _ts `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 246: uint8_t ts=0;
+[; ;Oled.c: 254: uint8_t ts=0;
 [e = _ts -> -> 0 `i `uc ]
-"247
+"255
 [v _rv `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 247: uint16_t rv=0;
+[; ;Oled.c: 255: uint16_t rv=0;
 [e = _rv -> -> 0 `i `ui ]
-[; ;Oled.c: 248: ADCON0bits.GO =1;
-"248
+[; ;Oled.c: 256: ADCON0bits.GO =1;
+"256
 [e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-[; ;Oled.c: 249: while(ADCON0bits.GO);
-"249
+[; ;Oled.c: 257: while(ADCON0bits.GO);
+"257
 [e $U 318  ]
 [e :U 319 ]
 [e :U 318 ]
 [e $ != -> . . _ADCON0bits 2 1 `i -> -> -> 0 `i `Vuc `i 319  ]
 [e :U 320 ]
-[; ;Oled.c: 252: hv = ADRESH;
-"252
+[; ;Oled.c: 260: hv = ADRESH;
+"260
 [e = _hv _ADRESH ]
-[; ;Oled.c: 253: lv = ADRESL;
-"253
+[; ;Oled.c: 261: lv = ADRESL;
+"261
 [e = _lv _ADRESL ]
-[; ;Oled.c: 255: rv = ((uint16_t)(hv<<8 | lv) >>6)& 0x03ff;
-"255
+[; ;Oled.c: 263: rv = ((uint16_t)(hv<<8 | lv) >>6)& 0x03ff;
+"263
 [e = _rv & >> -> | << -> _hv `i -> 8 `i -> _lv `i `ui -> 6 `i -> -> 1023 `i `ui ]
-[; ;Oled.c: 258: return rv;
-"258
+[; ;Oled.c: 266: return rv;
+"266
 [e ) _rv ]
 [e $UE 317  ]
-[; ;Oled.c: 263: }
-"263
+[; ;Oled.c: 271: }
+"271
 [e :UE 317 ]
 }
-"270
-[v _ee_CheckDevice `(uc ~T0 @X0 1 ef1`uc ]
-"271
-{
-[; ;Oled.c: 270: uint8_t ee_CheckDevice(uint8_t _Address)
-[; ;Oled.c: 271: {
-[e :U _ee_CheckDevice ]
-"270
-[v __Address `uc ~T0 @X0 1 r1 ]
-"271
-[f ]
-"272
-[v _ucAck `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 272: uint8_t ucAck;
-[; ;Oled.c: 274: i2c_Start();
-"274
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 277: i2c_SendByte(_Address | 0);
+"276
+[v _get_SenseA_AD_vaule `(ui ~T0 @X0 1 ef ]
 "277
-[e ( _i2c_SendByte (1 -> | -> __Address `i -> 0 `i `uc ]
-[; ;Oled.c: 278: ucAck = i2c_WaitAck();
-"278
-[e = _ucAck ( _i2c_WaitAck ..  ]
-[; ;Oled.c: 280: i2c_Stop();
+{
+[; ;Oled.c: 276: uint16_t get_SenseA_AD_vaule(void)
+[; ;Oled.c: 277: {
+[e :U _get_SenseA_AD_vaule ]
+[f ]
+"279
+[v _hv `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 279: uint8_t hv=0;
+[e = _hv -> -> 0 `i `uc ]
 "280
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 282: i2c_NAck();
+[v _lv `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 280: uint8_t lv=0;
+[e = _lv -> -> 0 `i `uc ]
+"281
+[v _ts `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 281: uint8_t ts=0;
+[e = _ts -> -> 0 `i `uc ]
 "282
-[e ( _i2c_NAck ..  ]
-[; ;Oled.c: 284: return ucAck;
+[v _rv `ui ~T0 @X0 1 a ]
+[; ;Oled.c: 282: uint16_t rv=0;
+[e = _rv -> -> 0 `i `ui ]
+[; ;Oled.c: 283: ADCON0bits.CHS = 1;
+"283
+[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+[; ;Oled.c: 284: ADCON0bits.GO =1;
 "284
-[e ) _ucAck ]
-[e $UE 321  ]
-[; ;Oled.c: 285: }
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+[; ;Oled.c: 285: while(ADCON0bits.GO);
 "285
+[e $U 322  ]
+[e :U 323 ]
+[e :U 322 ]
+[e $ != -> . . _ADCON0bits 2 1 `i -> -> -> 0 `i `Vuc `i 323  ]
+[e :U 324 ]
+[; ;Oled.c: 288: hv = ADRESH;
+"288
+[e = _hv _ADRESH ]
+[; ;Oled.c: 289: lv = ADRESL;
+"289
+[e = _lv _ADRESL ]
+[; ;Oled.c: 291: rv = ((uint16_t)(hv<<8 | lv) >>6)& 0x03ff;
+"291
+[e = _rv & >> -> | << -> _hv `i -> 8 `i -> _lv `i `ui -> 6 `i -> -> 1023 `i `ui ]
+[; ;Oled.c: 294: return rv;
+"294
+[e ) _rv ]
+[e $UE 321  ]
+[; ;Oled.c: 299: }
+"299
 [e :UE 321 ]
 }
-"289
-[v _ee_WaitStandby `(uc ~T0 @X0 1 ef ]
-"290
+"303
+[v _get_SenseB_AD_vaule `(ui ~T0 @X0 1 ef ]
+"304
 {
-[; ;Oled.c: 289: uint8_t ee_WaitStandby(void)
-[; ;Oled.c: 290: {
+[; ;Oled.c: 303: uint16_t get_SenseB_AD_vaule(void)
+[; ;Oled.c: 304: {
+[e :U _get_SenseB_AD_vaule ]
+[f ]
+"306
+[v _hv `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 306: uint8_t hv=0;
+[e = _hv -> -> 0 `i `uc ]
+"307
+[v _lv `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 307: uint8_t lv=0;
+[e = _lv -> -> 0 `i `uc ]
+"308
+[v _ts `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 308: uint8_t ts=0;
+[e = _ts -> -> 0 `i `uc ]
+"309
+[v _rv `ui ~T0 @X0 1 a ]
+[; ;Oled.c: 309: uint16_t rv=0;
+[e = _rv -> -> 0 `i `ui ]
+[; ;Oled.c: 310: ADCON0bits.CHS = 1;
+"310
+[e = . . _ADCON0bits 1 2 -> -> 1 `i `uc ]
+[; ;Oled.c: 311: ADCON0bits.GO =1;
+"311
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+[; ;Oled.c: 312: while(ADCON0bits.GO);
+"312
+[e $U 326  ]
+[e :U 327 ]
+[e :U 326 ]
+[e $ != -> . . _ADCON0bits 2 1 `i -> -> -> 0 `i `Vuc `i 327  ]
+[e :U 328 ]
+[; ;Oled.c: 315: hv = ADRESH;
+"315
+[e = _hv _ADRESH ]
+[; ;Oled.c: 316: lv = ADRESL;
+"316
+[e = _lv _ADRESL ]
+[; ;Oled.c: 318: rv = ((uint16_t)(hv<<8 | lv) >>6)& 0x03ff;
+"318
+[e = _rv & >> -> | << -> _hv `i -> 8 `i -> _lv `i `ui -> 6 `i -> -> 1023 `i `ui ]
+[; ;Oled.c: 321: return rv;
+"321
+[e ) _rv ]
+[e $UE 325  ]
+[; ;Oled.c: 326: }
+"326
+[e :UE 325 ]
+}
+"341
+[v _ee_CheckDevice `(uc ~T0 @X0 1 ef1`uc ]
+"342
+{
+[; ;Oled.c: 341: uint8_t ee_CheckDevice(uint8_t _Address)
+[; ;Oled.c: 342: {
+[e :U _ee_CheckDevice ]
+"341
+[v __Address `uc ~T0 @X0 1 r1 ]
+"342
+[f ]
+"343
+[v _ucAck `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 343: uint8_t ucAck;
+[; ;Oled.c: 345: i2c_Start();
+"345
+[e ( _i2c_Start ..  ]
+[; ;Oled.c: 348: i2c_SendByte(_Address | 0);
+"348
+[e ( _i2c_SendByte (1 -> | -> __Address `i -> 0 `i `uc ]
+[; ;Oled.c: 349: ucAck = i2c_WaitAck();
+"349
+[e = _ucAck ( _i2c_WaitAck ..  ]
+[; ;Oled.c: 351: i2c_Stop();
+"351
+[e ( _i2c_Stop ..  ]
+[; ;Oled.c: 353: i2c_NAck();
+"353
+[e ( _i2c_NAck ..  ]
+[; ;Oled.c: 355: return ucAck;
+"355
+[e ) _ucAck ]
+[e $UE 329  ]
+[; ;Oled.c: 356: }
+"356
+[e :UE 329 ]
+}
+"360
+[v _ee_WaitStandby `(uc ~T0 @X0 1 ef ]
+"361
+{
+[; ;Oled.c: 360: uint8_t ee_WaitStandby(void)
+[; ;Oled.c: 361: {
 [e :U _ee_WaitStandby ]
 [f ]
-"291
+"362
 [v _wait_count `ul ~T0 @X0 1 a ]
-[; ;Oled.c: 291: uint32_t wait_count = 0;
+[; ;Oled.c: 362: uint32_t wait_count = 0;
 [e = _wait_count -> -> -> 0 `i `l `ul ]
-[; ;Oled.c: 293: while(ee_CheckDevice(0x78))
-"293
-[e $U 323  ]
-[e :U 324 ]
-[; ;Oled.c: 294: {
-"294
+[; ;Oled.c: 364: while(ee_CheckDevice(0x78))
+"364
+[e $U 331  ]
+[e :U 332 ]
+[; ;Oled.c: 365: {
+"365
 {
-[; ;Oled.c: 296: if(wait_count++>0xFFFF)
-"296
-[e $ ! > ++ _wait_count -> -> -> 1 `i `l `ul -> -> 65535 `ui `ul 326  ]
-[; ;Oled.c: 297: {
-"297
+[; ;Oled.c: 367: if(wait_count++>0xFFFF)
+"367
+[e $ ! > ++ _wait_count -> -> -> 1 `i `l `ul -> -> 65535 `ui `ul 334  ]
+[; ;Oled.c: 368: {
+"368
 {
-[; ;Oled.c: 298: return 1;
-"298
+[; ;Oled.c: 369: return 1;
+"369
 [e ) -> -> 1 `i `uc ]
-[e $UE 322  ]
-"299
+[e $UE 330  ]
+"370
 }
-[e :U 326 ]
-"300
+[e :U 334 ]
+"371
 }
-[e :U 323 ]
-"293
-[e $ != -> ( _ee_CheckDevice (1 -> -> 120 `i `uc `i -> -> -> 0 `i `uc `i 324  ]
-[e :U 325 ]
-[; ;Oled.c: 299: }
-[; ;Oled.c: 300: }
-[; ;Oled.c: 301: return 0;
-"301
+[e :U 331 ]
+"364
+[e $ != -> ( _ee_CheckDevice (1 -> -> 120 `i `uc `i -> -> -> 0 `i `uc `i 332  ]
+[e :U 333 ]
+[; ;Oled.c: 370: }
+[; ;Oled.c: 371: }
+[; ;Oled.c: 372: return 0;
+"372
 [e ) -> -> 0 `i `uc ]
-[e $UE 322  ]
-[; ;Oled.c: 302: }
-"302
-[e :UE 322 ]
+[e $UE 330  ]
+[; ;Oled.c: 373: }
+"373
+[e :UE 330 ]
 }
-"305
+"376
 [v _ee_ReadBytes `(uc ~T0 @X0 1 ef3`*uc`ui`ui ]
-"306
+"377
 {
-[; ;Oled.c: 305: uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
-[; ;Oled.c: 306: {
+[; ;Oled.c: 376: uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
+[; ;Oled.c: 377: {
 [e :U _ee_ReadBytes ]
-"305
+"376
 [v __pReadBuf `*uc ~T0 @X0 1 r1 ]
 [v __usAddress `ui ~T0 @X0 1 r2 ]
 [v __usSize `ui ~T0 @X0 1 r3 ]
-"306
+"377
 [f ]
-"307
-[v _i `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 307: uint16_t i;
-[; ;Oled.c: 312: i2c_Start();
-"312
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 315: i2c_SendByte(0x78 | 0);
-"315
-[e ( _i2c_SendByte (1 -> | -> 120 `i -> 0 `i `uc ]
-[; ;Oled.c: 318: if (i2c_WaitAck() != 0)
-"318
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 328  ]
-[; ;Oled.c: 319: {
-"319
-{
-[; ;Oled.c: 320: goto cmd_fail;
-"320
-[e $U 329  ]
-"321
-}
-[e :U 328 ]
-[; ;Oled.c: 321: }
-[; ;Oled.c: 324: i2c_SendByte((uint8_t)_usAddress);
-"324
-[e ( _i2c_SendByte (1 -> __usAddress `uc ]
-[; ;Oled.c: 327: if (i2c_WaitAck() != 0)
-"327
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 330  ]
-[; ;Oled.c: 328: {
-"328
-{
-[; ;Oled.c: 329: goto cmd_fail;
-"329
-[e $U 329  ]
-"330
-}
-[e :U 330 ]
-[; ;Oled.c: 330: }
-[; ;Oled.c: 333: i2c_Start();
-"333
-[e ( _i2c_Start ..  ]
-[; ;Oled.c: 336: i2c_SendByte(0x78 | 1);
-"336
-[e ( _i2c_SendByte (1 -> | -> 120 `i -> 1 `i `uc ]
-[; ;Oled.c: 338: if (i2c_WaitAck() != 0)
-"338
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 331  ]
-[; ;Oled.c: 339: {
-"339
-{
-[; ;Oled.c: 340: goto cmd_fail;
-"340
-[e $U 329  ]
-"341
-}
-[e :U 331 ]
-[; ;Oled.c: 341: }
-[; ;Oled.c: 344: for (i = 0; i < _usSize; i++)
-"344
-{
-[e = _i -> -> 0 `i `ui ]
-[e $U 335  ]
-"345
-[e :U 332 ]
-[; ;Oled.c: 345: {
-{
-[; ;Oled.c: 346: _pReadBuf[i] = i2c_ReadByte();
-"346
-[e = *U + __pReadBuf * -> _i `ux -> -> # *U __pReadBuf `ui `ux ( _i2c_ReadByte ..  ]
-[; ;Oled.c: 349: if (i != _usSize - 1)
-"349
-[e $ ! != _i - __usSize -> -> 1 `i `ui 336  ]
-[; ;Oled.c: 350: {
-"350
-{
-[; ;Oled.c: 351: i2c_Ack();
-"351
-[e ( _i2c_Ack ..  ]
-"352
-}
-[; ;Oled.c: 352: }
-[e $U 337  ]
-"353
-[e :U 336 ]
-[; ;Oled.c: 353: else
-[; ;Oled.c: 354: {
-"354
-{
-[; ;Oled.c: 355: i2c_NAck();
-"355
-[e ( _i2c_NAck ..  ]
-"356
-}
-[e :U 337 ]
-"357
-}
-"344
-[e ++ _i -> -> 1 `i `ui ]
-[e :U 335 ]
-[e $ < _i __usSize 332  ]
-[e :U 333 ]
-"357
-}
-[; ;Oled.c: 356: }
-[; ;Oled.c: 357: }
-[; ;Oled.c: 359: i2c_Stop();
-"359
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 360: return 1;
-"360
-[e ) -> -> 1 `i `uc ]
-[e $UE 327  ]
-[; ;Oled.c: 362: cmd_fail:
-"362
-[e :U 329 ]
-[; ;Oled.c: 363: i2c_Stop();
-"363
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 364: return 0;
-"364
-[e ) -> -> 0 `i `uc ]
-[e $UE 327  ]
-[; ;Oled.c: 365: }
-"365
-[e :UE 327 ]
-}
-"368
-[v _ee_WriteBytes `(uc ~T0 @X0 1 ef3`*uc`uc`ui ]
-"369
-{
-[; ;Oled.c: 368: uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize)
-[; ;Oled.c: 369: {
-[e :U _ee_WriteBytes ]
-"368
-[v __pWriteBuf `*uc ~T0 @X0 1 r1 ]
-[v __usAddress `uc ~T0 @X0 1 r2 ]
-[v __usSize `ui ~T0 @X0 1 r3 ]
-"369
-[f ]
-"370
-[v _i `ui ~T0 @X0 1 a ]
-[v _m `ui ~T0 @X0 1 a ]
-"372
-[v _usAddr `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 370: uint16_t i,m;
-[; ;Oled.c: 372: uint8_t usAddr;
-[; ;Oled.c: 374: usAddr = _usAddress;
-"374
-[e = _usAddr __usAddress ]
-[; ;Oled.c: 376: {
-"376
-{
-[; ;Oled.c: 378: {
 "378
-{
-[; ;Oled.c: 383: {
+[v _i `ui ~T0 @X0 1 a ]
+[; ;Oled.c: 378: uint16_t i;
+[; ;Oled.c: 383: i2c_Start();
 "383
-{
-[; ;Oled.c: 384: i2c_Start();
-"384
 [e ( _i2c_Start ..  ]
 [; ;Oled.c: 386: i2c_SendByte(0x78 | 0);
 "386
 [e ( _i2c_SendByte (1 -> | -> 120 `i -> 0 `i `uc ]
-[; ;Oled.c: 388: if (i2c_WaitAck() == 0)
-"388
-[e $ ! == -> ( _i2c_WaitAck ..  `i -> 0 `i 339  ]
-[; ;Oled.c: 389: {
+[; ;Oled.c: 389: if (i2c_WaitAck() != 0)
 "389
+[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 336  ]
+[; ;Oled.c: 390: {
+"390
 {
-"393
+[; ;Oled.c: 391: goto cmd_fail;
+"391
+[e $U 337  ]
+"392
 }
-[; ;Oled.c: 393: }
-[e $U 340  ]
-"394
-[e :U 339 ]
-[; ;Oled.c: 394: else
-[; ;Oled.c: 395: {
+[e :U 336 ]
+[; ;Oled.c: 392: }
+[; ;Oled.c: 395: i2c_SendByte((uint8_t)_usAddress);
 "395
-{
-"397
-}
-[e :U 340 ]
+[e ( _i2c_SendByte (1 -> __usAddress `uc ]
+[; ;Oled.c: 398: if (i2c_WaitAck() != 0)
 "398
-}
-[; ;Oled.c: 397: }
-[; ;Oled.c: 398: }
-[; ;Oled.c: 399: if (m == 1000)
+[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 338  ]
+[; ;Oled.c: 399: {
 "399
-[e $ ! == _m -> -> 1000 `i `ui 341  ]
-[; ;Oled.c: 400: {
+{
+[; ;Oled.c: 400: goto cmd_fail;
 "400
-{
-"402
+[e $U 337  ]
+"401
 }
-[e :U 341 ]
-[; ;Oled.c: 402: }
-[; ;Oled.c: 404: i2c_SendByte(usAddr);
+[e :U 338 ]
+[; ;Oled.c: 401: }
+[; ;Oled.c: 404: i2c_Start();
 "404
-[e ( _i2c_SendByte (1 _usAddr ]
-[; ;Oled.c: 406: if (i2c_WaitAck() != 0)
-"406
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 342  ]
-[; ;Oled.c: 407: {
+[e ( _i2c_Start ..  ]
+[; ;Oled.c: 407: i2c_SendByte(0x78 | 1);
 "407
-{
+[e ( _i2c_SendByte (1 -> | -> 120 `i -> 1 `i `uc ]
+[; ;Oled.c: 409: if (i2c_WaitAck() != 0)
+"409
+[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 339  ]
+[; ;Oled.c: 410: {
 "410
-}
-[e :U 342 ]
+{
+[; ;Oled.c: 411: goto cmd_fail;
 "411
+[e $U 337  ]
+"412
 }
-[; ;Oled.c: 410: }
-[; ;Oled.c: 411: }
-[; ;Oled.c: 414: i2c_SendByte(_pWriteBuf[0]);
-"414
-[e ( _i2c_SendByte (1 *U + __pWriteBuf * -> -> 0 `i `x -> -> # *U __pWriteBuf `i `x ]
-[; ;Oled.c: 415: if (i2c_WaitAck() != 0)
+[e :U 339 ]
+[; ;Oled.c: 412: }
+[; ;Oled.c: 415: for (i = 0; i < _usSize; i++)
 "415
-[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 343  ]
-[; ;Oled.c: 416: {
-"416
-{
-"419
-}
-[e :U 343 ]
-"422
-}
-[; ;Oled.c: 419: }
-[; ;Oled.c: 422: }
-[; ;Oled.c: 424: i2c_Stop();
-"424
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 429: return 1;
-"429
-[e ) -> -> 1 `i `uc ]
-[e $UE 338  ]
-[; ;Oled.c: 431: cmd_fail:
-"431
-[e :U 344 ]
-[; ;Oled.c: 432: i2c_Stop();
-"432
-[e ( _i2c_Stop ..  ]
-[; ;Oled.c: 434: return 0;
-"434
-[e ) -> -> 0 `i `uc ]
-[e $UE 338  ]
-[; ;Oled.c: 435: }
-"435
-[e :UE 338 ]
-}
-"441
-[v _write_buf `uc ~T0 @X0 -> 256 `i e ]
-[; ;Oled.c: 441: uint8_t write_buf[256];
-"442
-[v _read_buf `uc ~T0 @X0 -> 256 `i e ]
-[; ;Oled.c: 442: uint8_t read_buf[256];
-"444
-[v _ee_Test `(uc ~T0 @X0 1 ef ]
-"445
-{
-[; ;Oled.c: 444: uint8_t ee_Test(void)
-[; ;Oled.c: 445: {
-[e :U _ee_Test ]
-[f ]
-"446
-[v _i `ui ~T0 @X0 1 a ]
-[; ;Oled.c: 446: uint16_t i;
-[; ;Oled.c: 450: if (ee_CheckDevice(0x78) == 1)
-"450
-[e $ ! == -> ( _ee_CheckDevice (1 -> -> 120 `i `uc `i -> 1 `i 346  ]
-[; ;Oled.c: 451: {
-"451
-{
-[; ;Oled.c: 455: return 0;
-"455
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"456
-}
-[e :U 346 ]
-[; ;Oled.c: 456: }
-[; ;Oled.c: 459: for (i = 0; i < 256; i++)
-"459
 {
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 347  ]
-[e $U 348  ]
-"460
-[e :U 347 ]
-[; ;Oled.c: 460: {
+[e $U 343  ]
+"416
+[e :U 340 ]
+[; ;Oled.c: 416: {
 {
-[; ;Oled.c: 461: write_buf[i] = i;
-"461
-[e = *U + &U _write_buf * -> _i `ux -> -> # *U &U _write_buf `ui `ux -> _i `uc ]
-"462
+[; ;Oled.c: 417: _pReadBuf[i] = i2c_ReadByte();
+"417
+[e = *U + __pReadBuf * -> _i `ux -> -> # *U __pReadBuf `ui `ux ( _i2c_ReadByte ..  ]
+[; ;Oled.c: 420: if (i != _usSize - 1)
+"420
+[e $ ! != _i - __usSize -> -> 1 `i `ui 344  ]
+[; ;Oled.c: 421: {
+"421
+{
+[; ;Oled.c: 422: i2c_Ack();
+"422
+[e ( _i2c_Ack ..  ]
+"423
 }
-"459
+[; ;Oled.c: 423: }
+[e $U 345  ]
+"424
+[e :U 344 ]
+[; ;Oled.c: 424: else
+[; ;Oled.c: 425: {
+"425
+{
+[; ;Oled.c: 426: i2c_NAck();
+"426
+[e ( _i2c_NAck ..  ]
+"427
+}
+[e :U 345 ]
+"428
+}
+"415
 [e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 347  ]
-[e :U 348 ]
-"462
+[e :U 343 ]
+[e $ < _i __usSize 340  ]
+[e :U 341 ]
+"428
 }
-[; ;Oled.c: 462: }
-[; ;Oled.c: 464: if (ee_WriteBytes(write_buf, 0, 256) == 0)
-"464
-[e $ ! == -> ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 256 `i `ui `i -> 0 `i 350  ]
-[; ;Oled.c: 465: {
-"465
-{
-[; ;Oled.c: 467: return 0;
-"467
+[; ;Oled.c: 427: }
+[; ;Oled.c: 428: }
+[; ;Oled.c: 430: i2c_Stop();
+"430
+[e ( _i2c_Stop ..  ]
+[; ;Oled.c: 431: return 1;
+"431
+[e ) -> -> 1 `i `uc ]
+[e $UE 335  ]
+[; ;Oled.c: 433: cmd_fail:
+"433
+[e :U 337 ]
+[; ;Oled.c: 434: i2c_Stop();
+"434
+[e ( _i2c_Stop ..  ]
+[; ;Oled.c: 435: return 0;
+"435
 [e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
+[e $UE 335  ]
+[; ;Oled.c: 436: }
+"436
+[e :UE 335 ]
+}
+"439
+[v _ee_WriteBytes `(uc ~T0 @X0 1 ef3`*uc`uc`ui ]
+"440
+{
+[; ;Oled.c: 439: uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize)
+[; ;Oled.c: 440: {
+[e :U _ee_WriteBytes ]
+"439
+[v __pWriteBuf `*uc ~T0 @X0 1 r1 ]
+[v __usAddress `uc ~T0 @X0 1 r2 ]
+[v __usSize `ui ~T0 @X0 1 r3 ]
+"440
+[f ]
+"441
+[v _i `ui ~T0 @X0 1 a ]
+[v _m `ui ~T0 @X0 1 a ]
+"443
+[v _usAddr `uc ~T0 @X0 1 a ]
+[; ;Oled.c: 441: uint16_t i,m;
+[; ;Oled.c: 443: uint8_t usAddr;
+[; ;Oled.c: 445: usAddr = _usAddress;
+"445
+[e = _usAddr __usAddress ]
+[; ;Oled.c: 447: {
+"447
+{
+[; ;Oled.c: 449: {
+"449
+{
+[; ;Oled.c: 454: {
+"454
+{
+[; ;Oled.c: 455: i2c_Start();
+"455
+[e ( _i2c_Start ..  ]
+[; ;Oled.c: 457: i2c_SendByte(0x78 | 0);
+"457
+[e ( _i2c_SendByte (1 -> | -> 120 `i -> 0 `i `uc ]
+[; ;Oled.c: 459: if (i2c_WaitAck() == 0)
+"459
+[e $ ! == -> ( _i2c_WaitAck ..  `i -> 0 `i 347  ]
+[; ;Oled.c: 460: {
+"460
+{
+"464
+}
+[; ;Oled.c: 464: }
+[e $U 348  ]
+"465
+[e :U 347 ]
+[; ;Oled.c: 465: else
+[; ;Oled.c: 466: {
+"466
+{
 "468
 }
-[; ;Oled.c: 468: }
-[e $U 351  ]
+[e :U 348 ]
 "469
-[e :U 350 ]
-[; ;Oled.c: 469: else
-[; ;Oled.c: 470: {
+}
+[; ;Oled.c: 468: }
+[; ;Oled.c: 469: }
+[; ;Oled.c: 470: if (m == 1000)
 "470
+[e $ ! == _m -> -> 1000 `i `ui 349  ]
+[; ;Oled.c: 471: {
+"471
 {
-"472
+"473
+}
+[e :U 349 ]
+[; ;Oled.c: 473: }
+[; ;Oled.c: 475: i2c_SendByte(usAddr);
+"475
+[e ( _i2c_SendByte (1 _usAddr ]
+[; ;Oled.c: 477: if (i2c_WaitAck() != 0)
+"477
+[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 350  ]
+[; ;Oled.c: 478: {
+"478
+{
+"481
+}
+[e :U 350 ]
+"482
+}
+[; ;Oled.c: 481: }
+[; ;Oled.c: 482: }
+[; ;Oled.c: 485: i2c_SendByte(_pWriteBuf[0]);
+"485
+[e ( _i2c_SendByte (1 *U + __pWriteBuf * -> -> 0 `i `x -> -> # *U __pWriteBuf `i `x ]
+[; ;Oled.c: 486: if (i2c_WaitAck() != 0)
+"486
+[e $ ! != -> ( _i2c_WaitAck ..  `i -> 0 `i 351  ]
+[; ;Oled.c: 487: {
+"487
+{
+"490
 }
 [e :U 351 ]
-[; ;Oled.c: 472: }
-[; ;Oled.c: 475: if (ee_ReadBytes(read_buf, 0, 256) == 0)
-"475
-[e $ ! == -> ( _ee_ReadBytes (3 , , &U _read_buf -> -> 0 `i `ui -> -> 256 `i `ui `i -> 0 `i 352  ]
-[; ;Oled.c: 476: {
-"476
-{
-[; ;Oled.c: 478: return 0;
-"478
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"479
+"493
 }
-[; ;Oled.c: 479: }
-[e $U 353  ]
-"480
+[; ;Oled.c: 490: }
+[; ;Oled.c: 493: }
+[; ;Oled.c: 495: i2c_Stop();
+"495
+[e ( _i2c_Stop ..  ]
+[; ;Oled.c: 500: return 1;
+"500
+[e ) -> -> 1 `i `uc ]
+[e $UE 346  ]
+[; ;Oled.c: 502: cmd_fail:
+"502
 [e :U 352 ]
-[; ;Oled.c: 480: else
-[; ;Oled.c: 481: {
-"481
-{
-"483
+[; ;Oled.c: 503: i2c_Stop();
+"503
+[e ( _i2c_Stop ..  ]
+[; ;Oled.c: 505: return 0;
+"505
+[e ) -> -> 0 `i `uc ]
+[e $UE 346  ]
+[; ;Oled.c: 506: }
+"506
+[e :UE 346 ]
 }
-[e :U 353 ]
-[; ;Oled.c: 483: }
-[; ;Oled.c: 485: for (i = 0; i < 256; i++)
-"485
+"512
+[v _write_buf `uc ~T0 @X0 -> 256 `i e ]
+[; ;Oled.c: 512: uint8_t write_buf[256];
+"513
+[v _read_buf `uc ~T0 @X0 -> 256 `i e ]
+[; ;Oled.c: 513: uint8_t read_buf[256];
+"515
+[v _ee_Test `(uc ~T0 @X0 1 ef ]
+"516
+{
+[; ;Oled.c: 515: uint8_t ee_Test(void)
+[; ;Oled.c: 516: {
+[e :U _ee_Test ]
+[f ]
+"517
+[v _i `ui ~T0 @X0 1 a ]
+[; ;Oled.c: 517: uint16_t i;
+[; ;Oled.c: 521: if (ee_CheckDevice(0x78) == 1)
+"521
+[e $ ! == -> ( _ee_CheckDevice (1 -> -> 120 `i `uc `i -> 1 `i 354  ]
+[; ;Oled.c: 522: {
+"522
+{
+[; ;Oled.c: 526: return 0;
+"526
+[e ) -> -> 0 `i `uc ]
+[e $UE 353  ]
+"527
+}
+[e :U 354 ]
+[; ;Oled.c: 527: }
+[; ;Oled.c: 530: for (i = 0; i < 256; i++)
+"530
 {
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 354  ]
-[e $U 355  ]
-"486
-[e :U 354 ]
-[; ;Oled.c: 486: {
-{
-[; ;Oled.c: 487: if(read_buf[i] != write_buf[i])
-"487
-[e $ ! != -> *U + &U _read_buf * -> _i `ux -> -> # *U &U _read_buf `ui `ux `i -> *U + &U _write_buf * -> _i `ux -> -> # *U &U _write_buf `ui `ux `i 357  ]
-[; ;Oled.c: 488: {
-"488
-{
-[; ;Oled.c: 491: return 0;
-"491
-[e ) -> -> 0 `i `uc ]
-[e $UE 345  ]
-"492
-}
-[e :U 357 ]
-[; ;Oled.c: 492: }
-[; ;Oled.c: 495: if ((i & 15) == 15)
-"495
-[e $ ! == & _i -> -> 15 `i `ui -> -> 15 `i `ui 358  ]
-[; ;Oled.c: 496: {
-"496
-{
-"498
-}
-[e :U 358 ]
-"499
-}
-"485
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 256 `i `ui 354  ]
+[e $ < _i -> -> 256 `i `ui 355  ]
+[e $U 356  ]
+"531
 [e :U 355 ]
-"499
-}
-[; ;Oled.c: 498: }
-[; ;Oled.c: 499: }
-[; ;Oled.c: 501: return 1;
-"501
-[e ) -> -> 1 `i `uc ]
-[e $UE 345  ]
-[; ;Oled.c: 502: }
-"502
-[e :UE 345 ]
-}
-"510
-[v _LCD_backlight_init `(v ~T0 @X0 1 ef ]
-"511
+[; ;Oled.c: 531: {
 {
-[; ;Oled.c: 510: void LCD_backlight_init(void)
-[; ;Oled.c: 511: {
+[; ;Oled.c: 532: write_buf[i] = i;
+"532
+[e = *U + &U _write_buf * -> _i `ux -> -> # *U &U _write_buf `ui `ux -> _i `uc ]
+"533
+}
+"530
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 256 `i `ui 355  ]
+[e :U 356 ]
+"533
+}
+[; ;Oled.c: 533: }
+[; ;Oled.c: 535: if (ee_WriteBytes(write_buf, 0, 256) == 0)
+"535
+[e $ ! == -> ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 256 `i `ui `i -> 0 `i 358  ]
+[; ;Oled.c: 536: {
+"536
+{
+[; ;Oled.c: 538: return 0;
+"538
+[e ) -> -> 0 `i `uc ]
+[e $UE 353  ]
+"539
+}
+[; ;Oled.c: 539: }
+[e $U 359  ]
+"540
+[e :U 358 ]
+[; ;Oled.c: 540: else
+[; ;Oled.c: 541: {
+"541
+{
+"543
+}
+[e :U 359 ]
+[; ;Oled.c: 543: }
+[; ;Oled.c: 546: if (ee_ReadBytes(read_buf, 0, 256) == 0)
+"546
+[e $ ! == -> ( _ee_ReadBytes (3 , , &U _read_buf -> -> 0 `i `ui -> -> 256 `i `ui `i -> 0 `i 360  ]
+[; ;Oled.c: 547: {
+"547
+{
+[; ;Oled.c: 549: return 0;
+"549
+[e ) -> -> 0 `i `uc ]
+[e $UE 353  ]
+"550
+}
+[; ;Oled.c: 550: }
+[e $U 361  ]
+"551
+[e :U 360 ]
+[; ;Oled.c: 551: else
+[; ;Oled.c: 552: {
+"552
+{
+"554
+}
+[e :U 361 ]
+[; ;Oled.c: 554: }
+[; ;Oled.c: 556: for (i = 0; i < 256; i++)
+"556
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 256 `i `ui 362  ]
+[e $U 363  ]
+"557
+[e :U 362 ]
+[; ;Oled.c: 557: {
+{
+[; ;Oled.c: 558: if(read_buf[i] != write_buf[i])
+"558
+[e $ ! != -> *U + &U _read_buf * -> _i `ux -> -> # *U &U _read_buf `ui `ux `i -> *U + &U _write_buf * -> _i `ux -> -> # *U &U _write_buf `ui `ux `i 365  ]
+[; ;Oled.c: 559: {
+"559
+{
+[; ;Oled.c: 562: return 0;
+"562
+[e ) -> -> 0 `i `uc ]
+[e $UE 353  ]
+"563
+}
+[e :U 365 ]
+[; ;Oled.c: 563: }
+[; ;Oled.c: 566: if ((i & 15) == 15)
+"566
+[e $ ! == & _i -> -> 15 `i `ui -> -> 15 `i `ui 366  ]
+[; ;Oled.c: 567: {
+"567
+{
+"569
+}
+[e :U 366 ]
+"570
+}
+"556
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 256 `i `ui 362  ]
+[e :U 363 ]
+"570
+}
+[; ;Oled.c: 569: }
+[; ;Oled.c: 570: }
+[; ;Oled.c: 572: return 1;
+"572
+[e ) -> -> 1 `i `uc ]
+[e $UE 353  ]
+[; ;Oled.c: 573: }
+"573
+[e :UE 353 ]
+}
+"581
+[v _LCD_backlight_init `(v ~T0 @X0 1 ef ]
+"582
+{
+[; ;Oled.c: 581: void LCD_backlight_init(void)
+[; ;Oled.c: 582: {
 [e :U _LCD_backlight_init ]
 [f ]
-[; ;Oled.c: 517: TRISEbits.RE0 =0;
-"517
+[; ;Oled.c: 588: TRISEbits.RE0 =0;
+"588
 [e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 518: LATEbits.LE0 =0;
-"518
+[; ;Oled.c: 589: LATEbits.LE0 =0;
+"589
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 521: }
-"521
-[e :UE 359 ]
+[; ;Oled.c: 592: }
+"592
+[e :UE 367 ]
 }
-"523
+"594
 [v _LCD_On `(v ~T0 @X0 1 ef ]
-"524
+"595
 {
-[; ;Oled.c: 523: void LCD_On(void)
-[; ;Oled.c: 524: {
+[; ;Oled.c: 594: void LCD_On(void)
+[; ;Oled.c: 595: {
 [e :U _LCD_On ]
 [f ]
-[; ;Oled.c: 528: LATEbits.LE0 =1;
-"528
+[; ;Oled.c: 599: LATEbits.LE0 =1;
+"599
 [e = . . _LATEbits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 532: }
-"532
-[e :UE 360 ]
+[; ;Oled.c: 603: }
+"603
+[e :UE 368 ]
 }
-"533
+"604
 [v _LCD_Off `(v ~T0 @X0 1 ef ]
-"534
+"605
 {
-[; ;Oled.c: 533: void LCD_Off(void)
-[; ;Oled.c: 534: {
+[; ;Oled.c: 604: void LCD_Off(void)
+[; ;Oled.c: 605: {
 [e :U _LCD_Off ]
 [f ]
-[; ;Oled.c: 537: LATEbits.LE0 =0;
-"537
+[; ;Oled.c: 608: LATEbits.LE0 =0;
+"608
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 540: }
-"540
-[e :UE 361 ]
+[; ;Oled.c: 611: }
+"611
+[e :UE 369 ]
 }
-"542
+"613
 [v _LCD_Blink `(v ~T0 @X0 1 ef ]
-"543
+"614
 {
-[; ;Oled.c: 542: void LCD_Blink(void)
-[; ;Oled.c: 543: {
+[; ;Oled.c: 613: void LCD_Blink(void)
+[; ;Oled.c: 614: {
 [e :U _LCD_Blink ]
 [f ]
-[; ;Oled.c: 547: LATEbits.LE0 =1;
-"547
+[; ;Oled.c: 618: LATEbits.LE0 =1;
+"618
 [e = . . _LATEbits 1 0 -> -> 1 `i `uc ]
-[; ;Oled.c: 548: delay(50);
-"548
+[; ;Oled.c: 619: delay(50);
+"619
 [e ( _delay (1 -> -> 50 `i `ui ]
-[; ;Oled.c: 549: LATEbits.LE0 =0;
-"549
+[; ;Oled.c: 620: LATEbits.LE0 =0;
+"620
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Oled.c: 551: }
-"551
-[e :UE 362 ]
+[; ;Oled.c: 622: }
+"622
+[e :UE 370 ]
 }
-"554
+"625
 [v _setYX_LCD `(uc ~T0 @X0 1 ef2`uc`uc ]
-"555
+"626
 {
-[; ;Oled.c: 554: uint8_t setYX_LCD(uint8_t py,uint8_t px)
-[; ;Oled.c: 555: {
+[; ;Oled.c: 625: uint8_t setYX_LCD(uint8_t py,uint8_t px)
+[; ;Oled.c: 626: {
 [e :U _setYX_LCD ]
-"554
+"625
 [v _py `uc ~T0 @X0 1 r1 ]
 [v _px `uc ~T0 @X0 1 r2 ]
-"555
+"626
 [f ]
-[; ;Oled.c: 558: write_buf[0]=0x80 + px;
-"558
+[; ;Oled.c: 629: write_buf[0]=0x80 + px;
+"629
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> + -> 128 `i -> _px `i `uc ]
-[; ;Oled.c: 559: ee_WriteBytes(write_buf, 0x00, 1);
-"559
+[; ;Oled.c: 630: ee_WriteBytes(write_buf, 0x00, 1);
+"630
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 562: write_buf[0]=0x40 + py;
-"562
+[; ;Oled.c: 633: write_buf[0]=0x40 + py;
+"633
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> + -> 64 `i -> _py `i `uc ]
-[; ;Oled.c: 563: ee_WriteBytes(write_buf, 0x00, 1);
-"563
+[; ;Oled.c: 634: ee_WriteBytes(write_buf, 0x00, 1);
+"634
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 565: return 1;
-"565
+[; ;Oled.c: 636: return 1;
+"636
 [e ) -> -> 1 `i `uc ]
-[e $UE 363  ]
-[; ;Oled.c: 568: }
-"568
-[e :UE 363 ]
+[e $UE 371  ]
+[; ;Oled.c: 639: }
+"639
+[e :UE 371 ]
 }
-"582
+"653
 [v _ms `uc ~T0 @X0 1 e ]
 [i _ms
 -> -> 102 `i `uc
 ]
-[; ;Oled.c: 582: uint8_t ms = 0x66;
-"583
+[; ;Oled.c: 653: uint8_t ms = 0x66;
+"654
 [v _ss `uc ~T0 @X0 1 e ]
 [i _ss
 -> -> 0 `i `uc
 ]
-[; ;Oled.c: 583: uint8_t ss=0;
-"584
+[; ;Oled.c: 654: uint8_t ss=0;
+"655
 [v _css `uc ~T0 @X0 1 e ]
 [i _css
 -> -> 0 `i `uc
 ]
-[; ;Oled.c: 584: uint8_t css=0;
-"585
+[; ;Oled.c: 655: uint8_t css=0;
+"656
 [v _rcnt `uc ~T0 @X0 1 e ]
 [i _rcnt
 -> -> 0 `i `uc
 ]
-[; ;Oled.c: 585: uint8_t rcnt=0;
-"586
+[; ;Oled.c: 656: uint8_t rcnt=0;
+"657
 [v _page `uc ~T0 @X0 1 e ]
 [i _page
 -> -> 0 `i `uc
 ]
-[; ;Oled.c: 586: uint8_t page=0;
-"587
+[; ;Oled.c: 657: uint8_t page=0;
+"658
 [v _xtt `ui ~T0 @X0 1 e ]
 [i _xtt
 -> -> 0 `i `ui
 ]
-[; ;Oled.c: 587: uint16_t xtt=0;
-[v F3158 `Cuc ~T0 @X0 -> 27 `i t ]
-[v F3157 `F3158 ~T0 @X0 -> 2 `i t ]
-"635
-[v _pata `F3157 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 658: uint16_t xtt=0;
+[v F3172 `Cuc ~T0 @X0 -> 27 `i t ]
+[v F3171 `F3172 ~T0 @X0 -> 2 `i t ]
+"706
+[v _pata `F3171 ~T0 @X0 -> 3 `i e ]
 [i _pata
 :U ..
 :U ..
 :U ..
-"638
+"709
 -> -> 63 `i `uc
 -> -> 64 `i `uc
 -> -> 128 `i `uc
@@ -4199,7 +4305,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 128 `i `uc
-"639
+"710
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 152 `i `uc
@@ -4208,7 +4314,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 176 `i `uc
 -> -> 176 `i `uc
 -> -> 176 `i `uc
-"640
+"711
 -> -> 184 `i `uc
 -> -> 156 `i `uc
 -> -> 143 `i `uc
@@ -4217,13 +4323,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 128 `i `uc
-"641
+"712
 -> -> 128 `i `uc
 -> -> 64 `i `uc
 -> -> 63 `i `uc
 ..
 :U ..
-"644
+"715
 -> -> 252 `i `uc
 -> -> 2 `i `uc
 -> -> 1 `i `uc
@@ -4232,7 +4338,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 1 `i `uc
-"645
+"716
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 49 `i `uc
@@ -4241,7 +4347,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 25 `i `uc
 -> -> 25 `i `uc
 -> -> 25 `i `uc
-"646
+"717
 -> -> 57 `i `uc
 -> -> 113 `i `uc
 -> -> 225 `i `uc
@@ -4250,7 +4356,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 1 `i `uc
-"647
+"718
 -> -> 1 `i `uc
 -> -> 2 `i `uc
 -> -> 252 `i `uc
@@ -4258,7 +4364,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 :U ..
 :U ..
-"660
+"731
 -> -> 63 `i `uc
 -> -> 64 `i `uc
 -> -> 128 `i `uc
@@ -4267,7 +4373,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 191 `i `uc
 -> -> 143 `i `uc
 -> -> 131 `i `uc
-"661
+"732
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 128 `i `uc
@@ -4276,7 +4382,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 191 `i `uc
 -> -> 143 `i `uc
 -> -> 131 `i `uc
-"662
+"733
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 128 `i `uc
@@ -4285,13 +4391,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 191 `i `uc
 -> -> 143 `i `uc
 -> -> 131 `i `uc
-"663
+"734
 -> -> 128 `i `uc
 -> -> 64 `i `uc
 -> -> 63 `i `uc
 ..
 :U ..
-"667
+"738
 -> -> 252 `i `uc
 -> -> 2 `i `uc
 -> -> 241 `i `uc
@@ -4300,7 +4406,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 253 `i `uc
 -> -> 253 `i `uc
 -> -> 249 `i `uc
-"668
+"739
 -> -> 241 `i `uc
 -> -> 1 `i `uc
 -> -> 241 `i `uc
@@ -4309,7 +4415,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 253 `i `uc
 -> -> 253 `i `uc
 -> -> 249 `i `uc
-"669
+"740
 -> -> 241 `i `uc
 -> -> 1 `i `uc
 -> -> 241 `i `uc
@@ -4318,41 +4424,117 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 253 `i `uc
 -> -> 253 `i `uc
 -> -> 249 `i `uc
-"670
+"741
 -> -> 241 `i `uc
+-> -> 2 `i `uc
+-> -> 252 `i `uc
+..
+..
+:U ..
+:U ..
+"749
+-> -> 63 `i `uc
+-> -> 64 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+"750
+-> -> 128 `i `uc
+-> -> 129 `i `uc
+-> -> 131 `i `uc
+-> -> 134 `i `uc
+-> -> 157 `i `uc
+-> -> 189 `i `uc
+-> -> 157 `i `uc
+-> -> 134 `i `uc
+"751
+-> -> 131 `i `uc
+-> -> 129 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+"752
+-> -> 128 `i `uc
+-> -> 64 `i `uc
+-> -> 63 `i `uc
+..
+:U ..
+"756
+-> -> 252 `i `uc
+-> -> 2 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+"757
+-> -> 1 `i `uc
+-> -> 241 `i `uc
+-> -> 249 `i `uc
+-> -> 205 `i `uc
+-> -> 181 `i `uc
+-> -> 181 `i `uc
+-> -> 181 `i `uc
+-> -> 109 `i `uc
+"758
+-> -> 249 `i `uc
+-> -> 241 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+"759
+-> -> 1 `i `uc
 -> -> 2 `i `uc
 -> -> 252 `i `uc
 ..
 ..
 ..
 ]
-[; ;Oled.c: 635: const uint8_t pata[2][2][27]={
-[; ;Oled.c: 638: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 639: 0x80, 0x80, 0x98, 0xb8, 0xb0, 0xb0, 0xb0, 0xb0,
-[; ;Oled.c: 640: 0xb8, 0x9c, 0x8f, 0x83, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 641: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 644: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 645: 0x01, 0x01, 0x31, 0x39, 0x19, 0x19, 0x19, 0x19,
-[; ;Oled.c: 646: 0x39, 0x71, 0xe1, 0x81, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 647: 0x01, 0x02, 0xfc,
-[; ;Oled.c: 660: 0x3f, 0x40, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
-[; ;Oled.c: 661: 0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
-[; ;Oled.c: 662: 0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
-[; ;Oled.c: 663: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 667: 0xfc, 0x02, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-[; ;Oled.c: 668: 0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-[; ;Oled.c: 669: 0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-[; ;Oled.c: 670: 0xf1, 0x02, 0xfc,
-[; ;Oled.c: 683: };
-[v F3161 `Cuc ~T0 @X0 -> 27 `i t ]
-[v F3160 `F3161 ~T0 @X0 -> 2 `i t ]
-"685
-[v _patb `F3160 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 706: const uint8_t pata[3][2][27]={
+[; ;Oled.c: 709: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+[; ;Oled.c: 710: 0x80, 0x80, 0x98, 0xb8, 0xb0, 0xb0, 0xb0, 0xb0,
+[; ;Oled.c: 711: 0xb8, 0x9c, 0x8f, 0x83, 0x80, 0x80, 0x80, 0x80,
+[; ;Oled.c: 712: 0x80, 0x40, 0x3f,
+[; ;Oled.c: 715: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 716: 0x01, 0x01, 0x31, 0x39, 0x19, 0x19, 0x19, 0x19,
+[; ;Oled.c: 717: 0x39, 0x71, 0xe1, 0x81, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 718: 0x01, 0x02, 0xfc,
+[; ;Oled.c: 731: 0x3f, 0x40, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
+[; ;Oled.c: 732: 0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
+[; ;Oled.c: 733: 0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83,
+[; ;Oled.c: 734: 0x80, 0x40, 0x3f,
+[; ;Oled.c: 738: 0xfc, 0x02, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
+[; ;Oled.c: 739: 0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
+[; ;Oled.c: 740: 0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
+[; ;Oled.c: 741: 0xf1, 0x02, 0xfc,
+[; ;Oled.c: 749: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+[; ;Oled.c: 750: 0x80, 0x81, 0x83, 0x86, 0x9d, 0xbd, 0x9d, 0x86,
+[; ;Oled.c: 751: 0x83, 0x81, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+[; ;Oled.c: 752: 0x80, 0x40, 0x3f,
+[; ;Oled.c: 756: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 757: 0x01, 0xf1, 0xf9, 0xcd, 0xb5, 0xb5, 0xb5, 0x6d,
+[; ;Oled.c: 758: 0xf9, 0xf1, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 759: 0x01, 0x02, 0xfc,
+[; ;Oled.c: 764: };
+[v F3175 `Cuc ~T0 @X0 -> 27 `i t ]
+[v F3174 `F3175 ~T0 @X0 -> 2 `i t ]
+"766
+[v _patb `F3174 ~T0 @X0 -> 2 `i e ]
 [i _patb
 :U ..
 :U ..
 :U ..
-"688
+"769
 -> -> 63 `i `uc
 -> -> 64 `i `uc
 -> -> 159 `i `uc
@@ -4361,7 +4543,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 159 `i `uc
 -> -> 159 `i `uc
 -> -> 144 `i `uc
-"689
+"770
 -> -> 159 `i `uc
 -> -> 159 `i `uc
 -> -> 128 `i `uc
@@ -4370,7 +4552,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 149 `i `uc
 -> -> 149 `i `uc
 -> -> 142 `i `uc
-"690
+"771
 -> -> 128 `i `uc
 -> -> 191 `i `uc
 -> -> 159 `i `uc
@@ -4379,13 +4561,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 136 `i `uc
 -> -> 159 `i `uc
 -> -> 191 `i `uc
-"691
+"772
 -> -> 128 `i `uc
 -> -> 64 `i `uc
 -> -> 63 `i `uc
 ..
 :U ..
-"695
+"776
 -> -> 252 `i `uc
 -> -> 2 `i `uc
 -> -> 1 `i `uc
@@ -4394,7 +4576,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 81 `i `uc
 -> -> 125 `i `uc
-"696
+"777
 -> -> 61 `i `uc
 -> -> 1 `i `uc
 -> -> 81 `i `uc
@@ -4403,7 +4585,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 57 `i `uc
 -> -> 125 `i `uc
-"697
+"778
 -> -> 69 `i `uc
 -> -> 125 `i `uc
 -> -> 57 `i `uc
@@ -4412,7 +4594,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 1 `i `uc
-"698
+"779
 -> -> 1 `i `uc
 -> -> 2 `i `uc
 -> -> 252 `i `uc
@@ -4420,25 +4602,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;Oled.c: 685: const uint8_t patb[2][2][27]={
-[; ;Oled.c: 688: 0x3f, 0x40, 0x9f, 0x9f, 0x90, 0x9f, 0x9f, 0x90,
-[; ;Oled.c: 689: 0x9f, 0x9f, 0x80, 0x8d, 0x95, 0x95, 0x95, 0x8e,
-[; ;Oled.c: 690: 0x80, 0xbf, 0x9f, 0x88, 0x84, 0x88, 0x9f, 0xbf,
-[; ;Oled.c: 691: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 695: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x51, 0x7d,
-[; ;Oled.c: 696: 0x3d, 0x01, 0x51, 0x7d, 0x3d, 0x01, 0x39, 0x7d,
-[; ;Oled.c: 697: 0x45, 0x7d, 0x39, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 698: 0x01, 0x02, 0xfc,
-[; ;Oled.c: 710: };
-[v F3164 `Cuc ~T0 @X0 -> 27 `i t ]
-[v F3163 `F3164 ~T0 @X0 -> 2 `i t ]
-"712
-[v _patc `F3163 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 766: const uint8_t patb[2][2][27]={
+[; ;Oled.c: 769: 0x3f, 0x40, 0x9f, 0x9f, 0x90, 0x9f, 0x9f, 0x90,
+[; ;Oled.c: 770: 0x9f, 0x9f, 0x80, 0x8d, 0x95, 0x95, 0x95, 0x8e,
+[; ;Oled.c: 771: 0x80, 0xbf, 0x9f, 0x88, 0x84, 0x88, 0x9f, 0xbf,
+[; ;Oled.c: 772: 0x80, 0x40, 0x3f,
+[; ;Oled.c: 776: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x51, 0x7d,
+[; ;Oled.c: 777: 0x3d, 0x01, 0x51, 0x7d, 0x3d, 0x01, 0x39, 0x7d,
+[; ;Oled.c: 778: 0x45, 0x7d, 0x39, 0x01, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 779: 0x01, 0x02, 0xfc,
+[; ;Oled.c: 791: };
+[v F3178 `Cuc ~T0 @X0 -> 27 `i t ]
+[v F3177 `F3178 ~T0 @X0 -> 2 `i t ]
+"793
+[v _patc `F3177 ~T0 @X0 -> 2 `i e ]
 [i _patc
 :U ..
 :U ..
 :U ..
-"714
+"795
 -> -> 63 `i `uc
 -> -> 64 `i `uc
 -> -> 128 `i `uc
@@ -4447,7 +4629,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 128 `i `uc
-"715
+"796
 -> -> 128 `i `uc
 -> -> 143 `i `uc
 -> -> 136 `i `uc
@@ -4456,7 +4638,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 160 `i `uc
 -> -> 160 `i `uc
 -> -> 184 `i `uc
-"716
+"797
 -> -> 136 `i `uc
 -> -> 143 `i `uc
 -> -> 128 `i `uc
@@ -4465,13 +4647,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 128 `i `uc
 -> -> 128 `i `uc
 -> -> 128 `i `uc
-"717
+"798
 -> -> 128 `i `uc
 -> -> 64 `i `uc
 -> -> 63 `i `uc
 ..
 :U ..
-"720
+"801
 -> -> 252 `i `uc
 -> -> 2 `i `uc
 -> -> 1 `i `uc
@@ -4480,7 +4662,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 1 `i `uc
-"721
+"802
 -> -> 1 `i `uc
 -> -> 253 `i `uc
 -> -> 125 `i `uc
@@ -4489,7 +4671,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 125 `i `uc
 -> -> 125 `i `uc
 -> -> 125 `i `uc
-"722
+"803
 -> -> 125 `i `uc
 -> -> 253 `i `uc
 -> -> 1 `i `uc
@@ -4498,7 +4680,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 1 `i `uc
 -> -> 1 `i `uc
-"723
+"804
 -> -> 1 `i `uc
 -> -> 2 `i `uc
 -> -> 252 `i `uc
@@ -4506,25 +4688,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;Oled.c: 712: const uint8_t patc[2][2][27]={
-[; ;Oled.c: 714: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 715: 0x80, 0x8f, 0x88, 0xb8, 0xa0, 0xa0, 0xa0, 0xb8,
-[; ;Oled.c: 716: 0x88, 0x8f, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-[; ;Oled.c: 717: 0x80, 0x40, 0x3f,
-[; ;Oled.c: 720: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 721: 0x01, 0xfd, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d,
-[; ;Oled.c: 722: 0x7d, 0xfd, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-[; ;Oled.c: 723: 0x01, 0x02, 0xfc,
-[; ;Oled.c: 728: };
-[v F3167 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3166 `F3167 ~T0 @X0 -> 3 `i t ]
-"732
-[v _patd `F3166 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 793: const uint8_t patc[2][2][27]={
+[; ;Oled.c: 795: 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+[; ;Oled.c: 796: 0x80, 0x8f, 0x88, 0xb8, 0xa0, 0xa0, 0xa0, 0xb8,
+[; ;Oled.c: 797: 0x88, 0x8f, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+[; ;Oled.c: 798: 0x80, 0x40, 0x3f,
+[; ;Oled.c: 801: 0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 802: 0x01, 0xfd, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d,
+[; ;Oled.c: 803: 0x7d, 0xfd, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
+[; ;Oled.c: 804: 0x01, 0x02, 0xfc,
+[; ;Oled.c: 809: };
+[v F3181 `Cuc ~T0 @X0 -> 48 `i t ]
+[v F3180 `F3181 ~T0 @X0 -> 3 `i t ]
+"813
+[v _patd `F3180 ~T0 @X0 -> 2 `i e ]
 [i _patd
 :U ..
 :U ..
 :U ..
-"734
+"815
 -> -> 15 `i `uc
 -> -> 16 `i `uc
 -> -> 32 `i `uc
@@ -4533,7 +4715,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"735
+"816
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4542,7 +4724,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"736
+"817
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4551,7 +4733,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"737
+"818
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4560,7 +4742,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"738
+"819
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4569,7 +4751,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"739
+"820
 -> -> 33 `i `uc
 -> -> 35 `i `uc
 -> -> 47 `i `uc
@@ -4580,7 +4762,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 15 `i `uc
 ..
 :U ..
-"743
+"824
 -> -> 255 `i `uc
 -> -> 0 `i `uc
 -> -> 31 `i `uc
@@ -4589,7 +4771,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 8 `i `uc
 -> -> 31 `i `uc
 -> -> 0 `i `uc
-"744
+"825
 -> -> 31 `i `uc
 -> -> 8 `i `uc
 -> -> 4 `i `uc
@@ -4598,7 +4780,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"745
+"826
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -4607,7 +4789,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 255 `i `uc
 -> -> 255 `i `uc
-"746
+"827
 -> -> 24 `i `uc
 -> -> 24 `i `uc
 -> -> 24 `i `uc
@@ -4616,7 +4798,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"747
+"828
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 1 `i `uc
@@ -4625,7 +4807,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 8 `i `uc
 -> -> 16 `i `uc
 -> -> 224 `i `uc
-"748
+"829
 -> -> 224 `i `uc
 -> -> 224 `i `uc
 -> -> 192 `i `uc
@@ -4636,7 +4818,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 255 `i `uc
 ..
 :U ..
-"753
+"834
 -> -> 192 `i `uc
 -> -> 32 `i `uc
 -> -> 16 `i `uc
@@ -4645,7 +4827,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"754
+"835
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4654,7 +4836,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"755
+"836
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4663,7 +4845,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"756
+"837
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4672,7 +4854,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"757
+"838
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4681,7 +4863,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"758
+"839
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4694,35 +4876,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;Oled.c: 732: const uint8_t patd [2][3][48]={
-[; ;Oled.c: 734: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 735: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 736: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 737: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 738: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 739: 0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-[; ;Oled.c: 743: 0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-[; ;Oled.c: 744: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 745: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 746: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 747: 0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0,
-[; ;Oled.c: 748: 0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
-[; ;Oled.c: 753: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 754: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 755: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 756: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 757: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 758: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 760: };
-[v F3170 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3169 `F3170 ~T0 @X0 -> 3 `i t ]
-"764
-[v _pate `F3169 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 813: const uint8_t patd [2][3][48]={
+[; ;Oled.c: 815: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 816: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 817: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 818: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 819: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 820: 0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
+[; ;Oled.c: 824: 0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
+[; ;Oled.c: 825: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
+[; ;Oled.c: 826: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
+[; ;Oled.c: 827: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
+[; ;Oled.c: 828: 0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0,
+[; ;Oled.c: 829: 0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
+[; ;Oled.c: 834: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 835: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 836: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 837: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 838: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 839: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+[; ;Oled.c: 841: };
+[v F3184 `Cuc ~T0 @X0 -> 48 `i t ]
+[v F3183 `F3184 ~T0 @X0 -> 3 `i t ]
+"845
+[v _pate `F3183 ~T0 @X0 -> 2 `i e ]
 [i _pate
 :U ..
 :U ..
 :U ..
-"765
+"846
 -> -> 15 `i `uc
 -> -> 16 `i `uc
 -> -> 32 `i `uc
@@ -4731,7 +4913,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"766
+"847
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4740,7 +4922,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"767
+"848
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4749,7 +4931,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"768
+"849
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4758,7 +4940,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"769
+"850
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4767,7 +4949,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"770
+"851
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 47 `i `uc
@@ -4778,7 +4960,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 15 `i `uc
 ..
 :U ..
-"774
+"855
 -> -> 255 `i `uc
 -> -> 0 `i `uc
 -> -> 31 `i `uc
@@ -4787,7 +4969,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 8 `i `uc
 -> -> 31 `i `uc
 -> -> 0 `i `uc
-"775
+"856
 -> -> 31 `i `uc
 -> -> 8 `i `uc
 -> -> 4 `i `uc
@@ -4796,7 +4978,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"776
+"857
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -4805,7 +4987,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 255 `i `uc
 -> -> 255 `i `uc
-"777
+"858
 -> -> 24 `i `uc
 -> -> 24 `i `uc
 -> -> 24 `i `uc
@@ -4814,7 +4996,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"778
+"859
 -> -> 4 `i `uc
 -> -> 6 `i `uc
 -> -> 7 `i `uc
@@ -4823,7 +5005,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 136 `i `uc
 -> -> 136 `i `uc
 -> -> 136 `i `uc
-"779
+"860
 -> -> 255 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -4834,7 +5016,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 255 `i `uc
 ..
 :U ..
-"782
+"863
 -> -> 192 `i `uc
 -> -> 32 `i `uc
 -> -> 16 `i `uc
@@ -4843,7 +5025,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"783
+"864
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4852,7 +5034,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"784
+"865
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4861,7 +5043,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"785
+"866
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4870,7 +5052,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"786
+"867
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4879,7 +5061,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"787
+"868
 -> -> 208 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -4892,35 +5074,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;Oled.c: 764: const uint8_t pate[2][3][48]={
-[; ;Oled.c: 765: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 766: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 767: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 768: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 769: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 770: 0x20, 0x20, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-[; ;Oled.c: 774: 0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-[; ;Oled.c: 775: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 776: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 777: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 778: 0x04, 0x06, 0x07, 0x07, 0x70, 0x88, 0x88, 0x88,
-[; ;Oled.c: 779: 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
-[; ;Oled.c: 782: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 783: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 784: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 785: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 786: 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 787: 0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 790: };
-[v F3173 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3172 `F3173 ~T0 @X0 -> 3 `i t ]
-"793
-[v _patf `F3172 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 845: const uint8_t pate[2][3][48]={
+[; ;Oled.c: 846: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 847: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 848: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 849: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 850: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 851: 0x20, 0x20, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
+[; ;Oled.c: 855: 0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
+[; ;Oled.c: 856: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
+[; ;Oled.c: 857: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
+[; ;Oled.c: 858: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
+[; ;Oled.c: 859: 0x04, 0x06, 0x07, 0x07, 0x70, 0x88, 0x88, 0x88,
+[; ;Oled.c: 860: 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
+[; ;Oled.c: 863: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 864: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 865: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 866: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 867: 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 868: 0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+[; ;Oled.c: 871: };
+[v F3187 `Cuc ~T0 @X0 -> 48 `i t ]
+[v F3186 `F3187 ~T0 @X0 -> 3 `i t ]
+"874
+[v _patf `F3186 ~T0 @X0 -> 2 `i e ]
 [i _patf
 :U ..
 :U ..
 :U ..
-"794
+"878
 -> -> 15 `i `uc
 -> -> 16 `i `uc
 -> -> 32 `i `uc
@@ -4929,7 +5111,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"795
+"879
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4938,7 +5120,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"796
+"880
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4947,7 +5129,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"797
+"881
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -4956,16 +5138,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"798
+"882
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
--> -> 41 `i `uc
--> -> 38 `i `uc
-"799
+-> -> 32 `i `uc
+-> -> 37 `i `uc
+"883
 -> -> 34 `i `uc
 -> -> 33 `i `uc
 -> -> 42 `i `uc
@@ -4976,7 +5158,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 15 `i `uc
 ..
 :U ..
-"802
+"886
 -> -> 255 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -4985,7 +5167,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 -> -> 31 `i `uc
 -> -> 0 `i `uc
-"803
+"887
 -> -> 31 `i `uc
 -> -> 8 `i `uc
 -> -> 4 `i `uc
@@ -4994,7 +5176,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"804
+"888
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -5003,7 +5185,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 255 `i `uc
 -> -> 255 `i `uc
-"805
+"889
 -> -> 24 `i `uc
 -> -> 24 `i `uc
 -> -> 24 `i `uc
@@ -5012,27 +5194,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"806
+"890
 -> -> 0 `i `uc
 -> -> 1 `i `uc
--> -> 30 `i `uc
+-> -> 14 `i `uc
+-> -> 18 `i `uc
 -> -> 34 `i `uc
--> -> 66 `i `uc
--> -> 130 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
-"807
+-> -> 68 `i `uc
+-> -> 136 `i `uc
 -> -> 16 `i `uc
+"891
 -> -> 32 `i `uc
--> -> 192 `i `uc
 -> -> 64 `i `uc
--> -> 32 `i `uc
+-> -> 128 `i `uc
+-> -> 64 `i `uc
+-> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 255 `i `uc
 ..
 :U ..
-"810
+"895
 -> -> 192 `i `uc
 -> -> 32 `i `uc
 -> -> 16 `i `uc
@@ -5041,7 +5223,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"811
+"896
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5050,7 +5232,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"812
+"897
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5059,7 +5241,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"813
+"898
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5068,7 +5250,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"814
+"899
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5077,7 +5259,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"815
+"900
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5090,35 +5272,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;Oled.c: 793: const uint8_t patf[2][3][48]={
-[; ;Oled.c: 794: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 795: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 796: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 797: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 798: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x29, 0x26,
-[; ;Oled.c: 799: 0x22, 0x21, 0x2a, 0x24, 0x22, 0x20, 0x10, 0x0f,
-[; ;Oled.c: 802: 0xff, 0x00, 0x00, 0x00, 0x01, 0x01, 0x1f, 0x00,
-[; ;Oled.c: 803: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 804: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 805: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 806: 0x00, 0x01, 0x1e, 0x22, 0x42, 0x82, 0x04, 0x08,
-[; ;Oled.c: 807: 0x10, 0x20, 0xc0, 0x40, 0x20, 0x00, 0x00, 0xff,
-[; ;Oled.c: 810: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 811: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 812: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 813: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 814: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 815: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 821: };
-[v F3176 `Cuc ~T0 @X0 -> 48 `i t ]
-[v F3175 `F3176 ~T0 @X0 -> 3 `i t ]
-"824
-[v _patg `F3175 ~T0 @X0 -> 2 `i e ]
+[; ;Oled.c: 874: const uint8_t patf[2][3][48]={
+[; ;Oled.c: 878: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 879: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 880: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 881: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 882: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x25,
+[; ;Oled.c: 883: 0x22, 0x21, 0x2a, 0x24, 0x22, 0x20, 0x10, 0x0f,
+[; ;Oled.c: 886: 0xff, 0x00, 0x00, 0x00, 0x01, 0x01, 0x1f, 0x00,
+[; ;Oled.c: 887: 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
+[; ;Oled.c: 888: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
+[; ;Oled.c: 889: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
+[; ;Oled.c: 890: 0x00, 0x01, 0x0e, 0x12, 0x22, 0x44, 0x88, 0x10,
+[; ;Oled.c: 891: 0x20, 0x40, 0x80, 0x40, 0x00, 0x00, 0x00, 0xff,
+[; ;Oled.c: 895: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 896: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 897: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 898: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 899: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 900: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+[; ;Oled.c: 977: };
+[v F3190 `Cuc ~T0 @X0 -> 48 `i t ]
+[v F3189 `F3190 ~T0 @X0 -> 3 `i t ]
+"980
+[v _patg `F3189 ~T0 @X0 -> 3 `i e ]
 [i _patg
 :U ..
 :U ..
 :U ..
-"825
+"981
 -> -> 15 `i `uc
 -> -> 16 `i `uc
 -> -> 32 `i `uc
@@ -5127,7 +5309,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 47 `i `uc
 -> -> 32 `i `uc
 -> -> 47 `i `uc
-"826
+"982
 -> -> 36 `i `uc
 -> -> 34 `i `uc
 -> -> 36 `i `uc
@@ -5136,7 +5318,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"827
+"983
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -5145,7 +5327,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"828
+"984
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -5154,7 +5336,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
-"829
+"985
 -> -> 32 `i `uc
 -> -> 32 `i `uc
 -> -> 32 `i `uc
@@ -5163,7 +5345,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 40 `i `uc
 -> -> 41 `i `uc
 -> -> 47 `i `uc
-"830
+"986
 -> -> 47 `i `uc
 -> -> 41 `i `uc
 -> -> 40 `i `uc
@@ -5174,7 +5356,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 15 `i `uc
 ..
 :U ..
-"834
+"990
 -> -> 255 `i `uc
 -> -> 0 `i `uc
 -> -> 35 `i `uc
@@ -5183,7 +5365,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 160 `i `uc
 -> -> 43 `i `uc
 -> -> 160 `i `uc
-"835
+"991
 -> -> 47 `i `uc
 -> -> 36 `i `uc
 -> -> 38 `i `uc
@@ -5192,7 +5374,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"836
+"992
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -5201,7 +5383,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 255 `i `uc
 -> -> 255 `i `uc
-"837
+"993
 -> -> 24 `i `uc
 -> -> 24 `i `uc
 -> -> 24 `i `uc
@@ -5210,7 +5392,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
-"838
+"994
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 122 `i `uc
@@ -5219,7 +5401,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 192 `i `uc
 -> -> 224 `i `uc
 -> -> 240 `i `uc
-"839
+"995
 -> -> 240 `i `uc
 -> -> 224 `i `uc
 -> -> 192 `i `uc
@@ -5230,7 +5412,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 255 `i `uc
 ..
 :U ..
-"842
+"998
 -> -> 192 `i `uc
 -> -> 32 `i `uc
 -> -> 144 `i `uc
@@ -5239,7 +5421,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 144 `i `uc
 -> -> 16 `i `uc
-"843
+"999
 -> -> 144 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5248,7 +5430,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"844
+"1000
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5257,7 +5439,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"845
+"1001
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
@@ -5266,7 +5448,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"846
+"1002
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 144 `i `uc
@@ -5275,12 +5457,352 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
-"847
+"1003
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
 -> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 32 `i `uc
+-> -> 192 `i `uc
+..
+..
+:U ..
+:U ..
+"1011
+-> -> 15 `i `uc
+-> -> 16 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 37 `i `uc
+-> -> 37 `i `uc
+-> -> 39 `i `uc
+-> -> 32 `i `uc
+"1012
+-> -> 39 `i `uc
+-> -> 37 `i `uc
+-> -> 39 `i `uc
+-> -> 32 `i `uc
+-> -> 36 `i `uc
+-> -> 36 `i `uc
+-> -> 39 `i `uc
+-> -> 32 `i `uc
+"1013
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 33 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+"1014
+-> -> 33 `i `uc
+-> -> 32 `i `uc
+-> -> 33 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 33 `i `uc
+-> -> 32 `i `uc
+"1015
+-> -> 33 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 33 `i `uc
+-> -> 32 `i `uc
+-> -> 38 `i `uc
+"1016
+-> -> 38 `i `uc
+-> -> 38 `i `uc
+-> -> 38 `i `uc
+-> -> 38 `i `uc
+-> -> 39 `i `uc
+-> -> 39 `i `uc
+-> -> 16 `i `uc
+-> -> 15 `i `uc
+..
+:U ..
+"1019
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 16 `i `uc
+-> -> 209 `i `uc
+-> -> 81 `i `uc
+-> -> 81 `i `uc
+-> -> 16 `i `uc
+"1020
+-> -> 21 `i `uc
+-> -> 16 `i `uc
+-> -> 215 `i `uc
+-> -> 18 `i `uc
+-> -> 81 `i `uc
+-> -> 82 `i `uc
+-> -> 215 `i `uc
+-> -> 16 `i `uc
+"1021
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 129 `i `uc
+-> -> 255 `i `uc
+"1022
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 1 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"1023
+-> -> 207 `i `uc
+-> -> 255 `i `uc
+-> -> 49 `i `uc
+-> -> 49 `i `uc
+-> -> 131 `i `uc
+-> -> 131 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"1024
+-> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+..
+:U ..
+"1026
+-> -> 192 `i `uc
+-> -> 32 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 208 `i `uc
+-> -> 16 `i `uc
+-> -> 208 `i `uc
+-> -> 16 `i `uc
+"1027
+-> -> 208 `i `uc
+-> -> 16 `i `uc
+-> -> 208 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 208 `i `uc
+-> -> 16 `i `uc
+"1028
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+"1029
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+"1030
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+"1031
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 32 `i `uc
+-> -> 192 `i `uc
+..
+..
+:U ..
+:U ..
+"1036
+-> -> 15 `i `uc
+-> -> 16 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+"1037
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+"1038
+-> -> 33 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 35 `i `uc
+-> -> 33 `i `uc
+-> -> 32 `i `uc
+"1039
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+"1040
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 32 `i `uc
+-> -> 36 `i `uc
+-> -> 39 `i `uc
+-> -> 36 `i `uc
+-> -> 36 `i `uc
+"1041
+-> -> 36 `i `uc
+-> -> 36 `i `uc
+-> -> 36 `i `uc
+-> -> 39 `i `uc
+-> -> 36 `i `uc
+-> -> 32 `i `uc
+-> -> 16 `i `uc
+-> -> 15 `i `uc
+..
+:U ..
+"1045
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 19 `i `uc
+-> -> 36 `i `uc
+-> -> 36 `i `uc
+"1046
+-> -> 36 `i `uc
+-> -> 25 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"1047
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+"1048
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"1049
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 7 `i `uc
+-> -> 139 `i `uc
+-> -> 211 `i `uc
+"1050
+-> -> 227 `i `uc
+-> -> 211 `i `uc
+-> -> 139 `i `uc
+-> -> 7 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+..
+:U ..
+"1054
+-> -> 192 `i `uc
+-> -> 32 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+"1055
+-> -> 144 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+"1056
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+"1057
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+"1058
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+"1059
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
+-> -> 144 `i `uc
 -> -> 16 `i `uc
 -> -> 32 `i `uc
 -> -> 192 `i `uc
@@ -5288,672 +5810,708 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;Oled.c: 824: const uint8_t patg[2][3][48]={
-[; ;Oled.c: 825: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x2f, 0x20, 0x2f,
-[; ;Oled.c: 826: 0x24, 0x22, 0x24, 0x2f, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 827: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 828: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-[; ;Oled.c: 829: 0x20, 0x20, 0x20, 0x20, 0x20, 0x28, 0x29, 0x2f,
-[; ;Oled.c: 830: 0x2f, 0x29, 0x28, 0x20, 0x21, 0x23, 0x10, 0x0f,
-[; ;Oled.c: 834: 0xff, 0x00, 0x23, 0xa2, 0xa3, 0xa0, 0x2b, 0xa0,
-[; ;Oled.c: 835: 0x2f, 0x24, 0x26, 0xa4, 0x2f, 0x00, 0x00, 0x00,
-[; ;Oled.c: 836: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-[; ;Oled.c: 837: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-[; ;Oled.c: 838: 0x00, 0x00, 0x7a, 0xf9, 0xc0, 0xc0, 0xe0, 0xf0,
-[; ;Oled.c: 839: 0xf0, 0xe0, 0xc0, 0xc0, 0xe0, 0xf0, 0x00, 0xff,
-[; ;Oled.c: 842: 0xc0, 0x20, 0x90, 0x10, 0x90, 0x10, 0x90, 0x10,
-[; ;Oled.c: 843: 0x90, 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10,
-[; ;Oled.c: 844: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 845: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 846: 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 0x10,
-[; ;Oled.c: 847: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-[; ;Oled.c: 851: };
-"857
+[; ;Oled.c: 980: const uint8_t patg[3][3][48]={
+[; ;Oled.c: 981: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x2f, 0x20, 0x2f,
+[; ;Oled.c: 982: 0x24, 0x22, 0x24, 0x2f, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 983: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 984: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 985: 0x20, 0x20, 0x20, 0x20, 0x20, 0x28, 0x29, 0x2f,
+[; ;Oled.c: 986: 0x2f, 0x29, 0x28, 0x20, 0x21, 0x23, 0x10, 0x0f,
+[; ;Oled.c: 990: 0xff, 0x00, 0x23, 0xa2, 0xa3, 0xa0, 0x2b, 0xa0,
+[; ;Oled.c: 991: 0x2f, 0x24, 0x26, 0xa4, 0x2f, 0x00, 0x00, 0x00,
+[; ;Oled.c: 992: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
+[; ;Oled.c: 993: 0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
+[; ;Oled.c: 994: 0x00, 0x00, 0x7a, 0xf9, 0xc0, 0xc0, 0xe0, 0xf0,
+[; ;Oled.c: 995: 0xf0, 0xe0, 0xc0, 0xc0, 0xe0, 0xf0, 0x00, 0xff,
+[; ;Oled.c: 998: 0xc0, 0x20, 0x90, 0x10, 0x90, 0x10, 0x90, 0x10,
+[; ;Oled.c: 999: 0x90, 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1000: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1001: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1002: 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1003: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+[; ;Oled.c: 1011: 0x0f, 0x10, 0x20, 0x20, 0x25, 0x25, 0x27, 0x20,
+[; ;Oled.c: 1012: 0x27, 0x25, 0x27, 0x20, 0x24, 0x24, 0x27, 0x20,
+[; ;Oled.c: 1013: 0x20, 0x20, 0x20, 0x20, 0x21, 0x23, 0x23, 0x23,
+[; ;Oled.c: 1014: 0x21, 0x20, 0x21, 0x23, 0x23, 0x23, 0x21, 0x20,
+[; ;Oled.c: 1015: 0x21, 0x23, 0x23, 0x23, 0x23, 0x21, 0x20, 0x26,
+[; ;Oled.c: 1016: 0x26, 0x26, 0x26, 0x26, 0x27, 0x27, 0x10, 0x0f,
+[; ;Oled.c: 1019: 0xff, 0x00, 0x00, 0x10, 0xd1, 0x51, 0x51, 0x10,
+[; ;Oled.c: 1020: 0x15, 0x10, 0xd7, 0x12, 0x51, 0x52, 0xd7, 0x10,
+[; ;Oled.c: 1021: 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0x81, 0xff,
+[; ;Oled.c: 1022: 0xff, 0x00, 0xff, 0xff, 0x01, 0xff, 0xff, 0x00,
+[; ;Oled.c: 1023: 0xcf, 0xff, 0x31, 0x31, 0x83, 0x83, 0x00, 0x00,
+[; ;Oled.c: 1024: 0x60, 0x60, 0x60, 0x60, 0xff, 0xff, 0x00, 0xff,
+[; ;Oled.c: 1026: 0xc0, 0x20, 0x10, 0x10, 0xd0, 0x10, 0xd0, 0x10,
+[; ;Oled.c: 1027: 0xd0, 0x10, 0xd0, 0x10, 0x10, 0x10, 0xd0, 0x10,
+[; ;Oled.c: 1028: 0x10, 0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x90,
+[; ;Oled.c: 1029: 0x10, 0x10, 0x10, 0x90, 0x90, 0x90, 0x10, 0x10,
+[; ;Oled.c: 1030: 0x10, 0x90, 0x90, 0x90, 0x90, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1031: 0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x20, 0xc0,
+[; ;Oled.c: 1036: 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 1037: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 1038: 0x21, 0x23, 0x23, 0x23, 0x23, 0x23, 0x21, 0x20,
+[; ;Oled.c: 1039: 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+[; ;Oled.c: 1040: 0x20,0x20, 0x20, 0x20, 0x24, 0x27, 0x24, 0x24,
+[; ;Oled.c: 1041: 0x24, 0x24, 0x24, 0x27, 0x24, 0x20, 0x10, 0x0f,
+[; ;Oled.c: 1045: 0xff, 0x00, 0x00, 0x00, 0x00, 0x13, 0x24, 0x24,
+[; ;Oled.c: 1046: 0x24, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+[; ;Oled.c: 1047: 0xff, 0xff, 0x01, 0x01, 0x01, 0xff, 0xff, 0x00,
+[; ;Oled.c: 1048: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+[; ;Oled.c: 1049: 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x8b, 0xd3,
+[; ;Oled.c: 1050: 0xe3, 0xd3, 0x8b, 0x07, 0x00, 0x00, 0x00, 0xff,
+[; ;Oled.c: 1054: 0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x90, 0x90,
+[; ;Oled.c: 1055: 0x90, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1056: 0x10, 0x90, 0x90, 0x90, 0x90, 0x90, 0x10, 0x10,
+[; ;Oled.c: 1057: 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+[; ;Oled.c: 1058: 0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x90, 0x90,
+[; ;Oled.c: 1059: 0x90, 0x90, 0x90, 0x90, 0x90, 0x10, 0x20, 0xc0,
+[; ;Oled.c: 1107: };
+"1113
 [v _display_pattern `(uc ~T0 @X0 1 ef3`uc`uc`uc ]
-"858
+"1114
 {
-[; ;Oled.c: 857: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
-[; ;Oled.c: 858: {
+[; ;Oled.c: 1113: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
+[; ;Oled.c: 1114: {
 [e :U _display_pattern ]
-"857
+"1113
 [v _num `uc ~T0 @X0 1 r1 ]
 [v _sub `uc ~T0 @X0 1 r2 ]
 [v _mode `uc ~T0 @X0 1 r3 ]
-"858
+"1114
 [f ]
-[; ;Oled.c: 859: switch(num)
-"859
-[e $U 366  ]
-[; ;Oled.c: 860: {
-"860
+[; ;Oled.c: 1115: switch(num)
+"1115
+[e $U 374  ]
+[; ;Oled.c: 1116: {
+"1116
 {
-[; ;Oled.c: 861: case 1:
-"861
-[e :U 367 ]
-[; ;Oled.c: 862: setYX_LCD(0,71);
-"862
-[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 71 `i `uc ]
-[; ;Oled.c: 863: for(ms=0;ms<27;ms++)
-"863
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 368  ]
-[e $U 369  ]
-"864
-[e :U 368 ]
-[; ;Oled.c: 864: ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"863
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 368  ]
-[e :U 369 ]
-"864
-}
-[; ;Oled.c: 867: setYX_LCD(1,71);
-"867
-[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 71 `i `uc ]
-[; ;Oled.c: 868: for(ms=0;ms<27;ms++)
-"868
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 371  ]
-[e $U 372  ]
-"869
-[e :U 371 ]
-[; ;Oled.c: 869: ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"868
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 371  ]
-[e :U 372 ]
-"869
-}
-[; ;Oled.c: 873: break;
-"873
-[e $U 365  ]
-[; ;Oled.c: 874: case 2:
-"874
-[e :U 374 ]
-[; ;Oled.c: 877: setYX_LCD(0,35);
-"877
-[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 35 `i `uc ]
-[; ;Oled.c: 878: for(ms=0;ms<27;ms++)
-"878
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 375  ]
-[e $U 376  ]
-"879
+[; ;Oled.c: 1117: case 1:
+"1117
 [e :U 375 ]
-[; ;Oled.c: 879: ee_WriteBytes(patb[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"878
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 375  ]
+[; ;Oled.c: 1118: setYX_LCD(0,71);
+"1118
+[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 71 `i `uc ]
+[; ;Oled.c: 1119: for(ms=0;ms<27;ms++)
+"1119
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 376  ]
+[e $U 377  ]
+"1120
 [e :U 376 ]
-"879
+[; ;Oled.c: 1120: ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1119
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 376  ]
+[e :U 377 ]
+"1120
 }
-[; ;Oled.c: 882: setYX_LCD(1,35);
-"882
-[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 35 `i `uc ]
-[; ;Oled.c: 883: for(ms=0;ms<27;ms++)
-"883
+[; ;Oled.c: 1123: setYX_LCD(1,71);
+"1123
+[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 71 `i `uc ]
+[; ;Oled.c: 1124: for(ms=0;ms<27;ms++)
+"1124
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 378  ]
-[e $U 379  ]
-"884
-[e :U 378 ]
-[; ;Oled.c: 884: ee_WriteBytes(patb[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"883
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 378  ]
+[e $ < -> _ms `i -> 27 `i 379  ]
+[e $U 380  ]
+"1125
 [e :U 379 ]
-"884
+[; ;Oled.c: 1125: ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pata * -> _sub `ux -> * * -> # *U &U *U &U _pata `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1124
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 379  ]
+[e :U 380 ]
+"1125
 }
-[; ;Oled.c: 887: break;
-"887
-[e $U 365  ]
-[; ;Oled.c: 888: case 3:
-"888
-[e :U 381 ]
-[; ;Oled.c: 892: setYX_LCD(0,0);
-"892
-[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 893: for(ms=0;ms<27;ms++)
-"893
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 382  ]
-[e $U 383  ]
-"894
+[; ;Oled.c: 1129: break;
+"1129
+[e $U 373  ]
+[; ;Oled.c: 1130: case 2:
+"1130
 [e :U 382 ]
-[; ;Oled.c: 894: ee_WriteBytes(patc[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"893
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 382  ]
+[; ;Oled.c: 1133: setYX_LCD(0,35);
+"1133
+[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 35 `i `uc ]
+[; ;Oled.c: 1134: for(ms=0;ms<27;ms++)
+"1134
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 383  ]
+[e $U 384  ]
+"1135
 [e :U 383 ]
-"894
+[; ;Oled.c: 1135: ee_WriteBytes(patb[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1134
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 383  ]
+[e :U 384 ]
+"1135
 }
-[; ;Oled.c: 897: setYX_LCD(1,0);
-"897
-[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 898: for(ms=0;ms<27;ms++)
-"898
+[; ;Oled.c: 1138: setYX_LCD(1,35);
+"1138
+[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 35 `i `uc ]
+[; ;Oled.c: 1139: for(ms=0;ms<27;ms++)
+"1139
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 385  ]
-[e $U 386  ]
-"899
-[e :U 385 ]
-[; ;Oled.c: 899: ee_WriteBytes(patc[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"898
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 27 `i 385  ]
+[e $ < -> _ms `i -> 27 `i 386  ]
+[e $U 387  ]
+"1140
 [e :U 386 ]
-"899
+[; ;Oled.c: 1140: ee_WriteBytes(patb[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patb * -> _sub `ux -> * * -> # *U &U *U &U _patb `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1139
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 386  ]
+[e :U 387 ]
+"1140
 }
-[; ;Oled.c: 909: break;
-"909
-[e $U 365  ]
-[; ;Oled.c: 910: case 4:
-"910
-[e :U 388 ]
-[; ;Oled.c: 914: setYX_LCD(2,49);
-"914
-[e ( _setYX_LCD (2 , -> -> 2 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 915: for(ms=0;ms<48;ms++)
-"915
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 389  ]
-[e $U 390  ]
-"916
+[; ;Oled.c: 1143: break;
+"1143
+[e $U 373  ]
+[; ;Oled.c: 1144: case 3:
+"1144
 [e :U 389 ]
-[; ;Oled.c: 916: ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"915
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 389  ]
+[; ;Oled.c: 1148: setYX_LCD(0,0);
+"1148
+[e ( _setYX_LCD (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1149: for(ms=0;ms<27;ms++)
+"1149
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 390  ]
+[e $U 391  ]
+"1150
 [e :U 390 ]
-"916
+[; ;Oled.c: 1150: ee_WriteBytes(patc[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1149
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 27 `i 390  ]
+[e :U 391 ]
+"1150
 }
-[; ;Oled.c: 919: setYX_LCD(3,49);
-"919
-[e ( _setYX_LCD (2 , -> -> 3 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 920: for(ms=0;ms<48;ms++)
-"920
+[; ;Oled.c: 1153: setYX_LCD(1,0);
+"1153
+[e ( _setYX_LCD (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1154: for(ms=0;ms<27;ms++)
+"1154
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 392  ]
-[e $U 393  ]
-"921
-[e :U 392 ]
-[; ;Oled.c: 921: ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"920
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 392  ]
+[e $ < -> _ms `i -> 27 `i 393  ]
+[e $U 394  ]
+"1155
 [e :U 393 ]
-"921
-}
-[; ;Oled.c: 924: setYX_LCD(4,49);
-"924
-[e ( _setYX_LCD (2 , -> -> 4 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 925: for(ms=0;ms<48;ms++)
-"925
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 395  ]
-[e $U 396  ]
-"926
-[e :U 395 ]
-[; ;Oled.c: 926: ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"925
+[; ;Oled.c: 1155: ee_WriteBytes(patc[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patc * -> _sub `ux -> * * -> # *U &U *U &U _patc `ui -> -> 2 `i `ui -> -> 27 `i `ui `ux `ui -> -> 27 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1154
 [e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 395  ]
+[e $ < -> _ms `i -> 27 `i 393  ]
+[e :U 394 ]
+"1155
+}
+[; ;Oled.c: 1165: break;
+"1165
+[e $U 373  ]
+[; ;Oled.c: 1166: case 4:
+"1166
 [e :U 396 ]
-"926
-}
-[; ;Oled.c: 934: break;
-"934
-[e $U 365  ]
-[; ;Oled.c: 935: case 5:
-"935
+[; ;Oled.c: 1170: setYX_LCD(2,49);
+"1170
+[e ( _setYX_LCD (2 , -> -> 2 `i `uc -> -> 49 `i `uc ]
+[; ;Oled.c: 1171: for(ms=0;ms<48;ms++)
+"1171
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 397  ]
+[e $U 398  ]
+"1172
+[e :U 397 ]
+[; ;Oled.c: 1172: ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1171
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 397  ]
 [e :U 398 ]
-[; ;Oled.c: 937: setYX_LCD(2,0);
-"937
-[e ( _setYX_LCD (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 938: for(ms=0;ms<48;ms++)
-"938
+"1172
+}
+[; ;Oled.c: 1175: setYX_LCD(3,49);
+"1175
+[e ( _setYX_LCD (2 , -> -> 3 `i `uc -> -> 49 `i `uc ]
+[; ;Oled.c: 1176: for(ms=0;ms<48;ms++)
+"1176
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 399  ]
-[e $U 400  ]
-"939
-[e :U 399 ]
-[; ;Oled.c: 939: ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"938
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 399  ]
+[e $ < -> _ms `i -> 48 `i 400  ]
+[e $U 401  ]
+"1177
 [e :U 400 ]
-"939
+[; ;Oled.c: 1177: ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1176
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 400  ]
+[e :U 401 ]
+"1177
 }
-[; ;Oled.c: 942: setYX_LCD(3,0);
-"942
-[e ( _setYX_LCD (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 943: for(ms=0;ms<48;ms++)
-"943
+[; ;Oled.c: 1180: setYX_LCD(4,49);
+"1180
+[e ( _setYX_LCD (2 , -> -> 4 `i `uc -> -> 49 `i `uc ]
+[; ;Oled.c: 1181: for(ms=0;ms<48;ms++)
+"1181
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 402  ]
-[e $U 403  ]
-"944
-[e :U 402 ]
-[; ;Oled.c: 944: ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"943
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 402  ]
+[e $ < -> _ms `i -> 48 `i 403  ]
+[e $U 404  ]
+"1182
 [e :U 403 ]
-"944
-}
-[; ;Oled.c: 947: setYX_LCD(4,0);
-"947
-[e ( _setYX_LCD (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 948: for(ms=0;ms<48;ms++)
-"948
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 405  ]
-[e $U 406  ]
-"949
-[e :U 405 ]
-[; ;Oled.c: 949: ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"948
+[; ;Oled.c: 1182: ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patd * -> _sub `ux -> * * -> # *U &U *U &U _patd `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1181
 [e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 405  ]
+[e $ < -> _ms `i -> 48 `i 403  ]
+[e :U 404 ]
+"1182
+}
+[; ;Oled.c: 1190: break;
+"1190
+[e $U 373  ]
+[; ;Oled.c: 1191: case 5:
+"1191
 [e :U 406 ]
-"949
-}
-[; ;Oled.c: 953: break;
-"953
-[e $U 365  ]
-[; ;Oled.c: 954: case 6:
-"954
+[; ;Oled.c: 1193: setYX_LCD(2,0);
+"1193
+[e ( _setYX_LCD (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1194: for(ms=0;ms<48;ms++)
+"1194
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 407  ]
+[e $U 408  ]
+"1195
+[e :U 407 ]
+[; ;Oled.c: 1195: ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1194
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 407  ]
 [e :U 408 ]
-[; ;Oled.c: 956: setYX_LCD(5,49);
-"956
-[e ( _setYX_LCD (2 , -> -> 5 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 957: for(ms=0;ms<48;ms++)
-"957
+"1195
+}
+[; ;Oled.c: 1198: setYX_LCD(3,0);
+"1198
+[e ( _setYX_LCD (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1199: for(ms=0;ms<48;ms++)
+"1199
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 409  ]
-[e $U 410  ]
-"958
-[e :U 409 ]
-[; ;Oled.c: 958: ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"957
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 409  ]
+[e $ < -> _ms `i -> 48 `i 410  ]
+[e $U 411  ]
+"1200
 [e :U 410 ]
-"958
+[; ;Oled.c: 1200: ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1199
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 410  ]
+[e :U 411 ]
+"1200
 }
-[; ;Oled.c: 961: setYX_LCD(6,49);
-"961
-[e ( _setYX_LCD (2 , -> -> 6 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 962: for(ms=0;ms<48;ms++)
-"962
+[; ;Oled.c: 1203: setYX_LCD(4,0);
+"1203
+[e ( _setYX_LCD (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1204: for(ms=0;ms<48;ms++)
+"1204
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 412  ]
-[e $U 413  ]
-"963
-[e :U 412 ]
-[; ;Oled.c: 963: ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"962
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 412  ]
+[e $ < -> _ms `i -> 48 `i 413  ]
+[e $U 414  ]
+"1205
 [e :U 413 ]
-"963
-}
-[; ;Oled.c: 966: setYX_LCD(7,49);
-"966
-[e ( _setYX_LCD (2 , -> -> 7 `i `uc -> -> 49 `i `uc ]
-[; ;Oled.c: 967: for(ms=0;ms<48;ms++)
-"967
-{
-[e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 415  ]
-[e $U 416  ]
-"968
-[e :U 415 ]
-[; ;Oled.c: 968: ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"967
+[; ;Oled.c: 1205: ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _pate * -> _sub `ux -> * * -> # *U &U *U &U _pate `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1204
 [e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 415  ]
+[e $ < -> _ms `i -> 48 `i 413  ]
+[e :U 414 ]
+"1205
+}
+[; ;Oled.c: 1209: break;
+"1209
+[e $U 373  ]
+[; ;Oled.c: 1210: case 6:
+"1210
 [e :U 416 ]
-"968
-}
-[; ;Oled.c: 971: break;
-"971
-[e $U 365  ]
-[; ;Oled.c: 972: case 7:
-"972
+[; ;Oled.c: 1212: setYX_LCD(5,49);
+"1212
+[e ( _setYX_LCD (2 , -> -> 5 `i `uc -> -> 49 `i `uc ]
+[; ;Oled.c: 1213: for(ms=0;ms<48;ms++)
+"1213
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 417  ]
+[e $U 418  ]
+"1214
+[e :U 417 ]
+[; ;Oled.c: 1214: ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1213
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 417  ]
 [e :U 418 ]
-[; ;Oled.c: 974: setYX_LCD(5,0);
-"974
-[e ( _setYX_LCD (2 , -> -> 5 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 975: for(ms=0;ms<48;ms++)
-"975
+"1214
+}
+[; ;Oled.c: 1217: setYX_LCD(6,49);
+"1217
+[e ( _setYX_LCD (2 , -> -> 6 `i `uc -> -> 49 `i `uc ]
+[; ;Oled.c: 1218: for(ms=0;ms<48;ms++)
+"1218
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 419  ]
-[e $U 420  ]
-"976
-[e :U 419 ]
-[; ;Oled.c: 976: ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"975
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 419  ]
+[e $ < -> _ms `i -> 48 `i 420  ]
+[e $U 421  ]
+"1219
 [e :U 420 ]
-"976
+[; ;Oled.c: 1219: ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1218
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 420  ]
+[e :U 421 ]
+"1219
 }
-[; ;Oled.c: 979: setYX_LCD(6,0);
-"979
-[e ( _setYX_LCD (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 980: for(ms=0;ms<48;ms++)
-"980
+[; ;Oled.c: 1222: setYX_LCD(7,49);
+"1222
+[e ( _setYX_LCD (2 , -> -> 7 `i `uc -> -> 49 `i `uc ]
+[; ;Oled.c: 1223: for(ms=0;ms<48;ms++)
+"1223
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 422  ]
-[e $U 423  ]
-"981
-[e :U 422 ]
-[; ;Oled.c: 981: ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"980
-[e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 422  ]
+[e $ < -> _ms `i -> 48 `i 423  ]
+[e $U 424  ]
+"1224
 [e :U 423 ]
-"981
+[; ;Oled.c: 1224: ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patf * -> _sub `ux -> * * -> # *U &U *U &U _patf `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1223
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 423  ]
+[e :U 424 ]
+"1224
 }
-[; ;Oled.c: 984: setYX_LCD(7,0);
-"984
-[e ( _setYX_LCD (2 , -> -> 7 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 985: for(ms=0;ms<48;ms++)
-"985
+[; ;Oled.c: 1227: break;
+"1227
+[e $U 373  ]
+[; ;Oled.c: 1228: case 7:
+"1228
+[e :U 426 ]
+[; ;Oled.c: 1230: setYX_LCD(5,0);
+"1230
+[e ( _setYX_LCD (2 , -> -> 5 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1231: for(ms=0;ms<48;ms++)
+"1231
 {
 [e = _ms -> -> 0 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 425  ]
-[e $U 426  ]
-"986
-[e :U 425 ]
-[; ;Oled.c: 986: ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
-[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
-"985
+[e $ < -> _ms `i -> 48 `i 427  ]
+[e $U 428  ]
+"1232
+[e :U 427 ]
+[; ;Oled.c: 1232: ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1231
 [e ++ _ms -> -> 1 `i `uc ]
-[e $ < -> _ms `i -> 48 `i 425  ]
-[e :U 426 ]
-"986
-}
-[; ;Oled.c: 990: break;
-"990
-[e $U 365  ]
-[; ;Oled.c: 991: default:
-"991
+[e $ < -> _ms `i -> 48 `i 427  ]
 [e :U 428 ]
-[; ;Oled.c: 992: break;
-"992
-[e $U 365  ]
-"993
+"1232
 }
-[; ;Oled.c: 993: }
-[e $U 365  ]
-"859
-[e :U 366 ]
-[e [\ _num , $ -> -> 1 `i `uc 367
- , $ -> -> 2 `i `uc 374
- , $ -> -> 3 `i `uc 381
- , $ -> -> 4 `i `uc 388
- , $ -> -> 5 `i `uc 398
- , $ -> -> 6 `i `uc 408
- , $ -> -> 7 `i `uc 418
- 428 ]
-"993
-[e :U 365 ]
-[; ;Oled.c: 997: return 1;
-"997
-[e ) -> -> 1 `i `uc ]
-[e $UE 364  ]
-[; ;Oled.c: 998: }
-"998
-[e :UE 364 ]
-}
-"1001
-[v _clear_device `(uc ~T0 @X0 1 ef ]
-"1002
+[; ;Oled.c: 1235: setYX_LCD(6,0);
+"1235
+[e ( _setYX_LCD (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1236: for(ms=0;ms<48;ms++)
+"1236
 {
-[; ;Oled.c: 1001: uint8_t clear_device(void)
-[; ;Oled.c: 1002: {
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 430  ]
+[e $U 431  ]
+"1237
+[e :U 430 ]
+[; ;Oled.c: 1237: ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1236
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 430  ]
+[e :U 431 ]
+"1237
+}
+[; ;Oled.c: 1240: setYX_LCD(7,0);
+"1240
+[e ( _setYX_LCD (2 , -> -> 7 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1241: for(ms=0;ms<48;ms++)
+"1241
+{
+[e = _ms -> -> 0 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 433  ]
+[e $U 434  ]
+"1242
+[e :U 433 ]
+[; ;Oled.c: 1242: ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
+[e ( _ee_WriteBytes (3 , , -> + &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux * -> _ms `ux -> -> # *U &U *U + &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux * -> -> -> 2 `i `ui `ux -> * -> # *U &U *U &U *U + &U _patg * -> _sub `ux -> * * -> # *U &U *U &U _patg `ui -> -> 3 `i `ui -> -> 48 `i `ui `ux `ui -> -> 48 `i `ui `ux `ui `ux `*uc -> -> 64 `i `uc -> -> 1 `i `ui ]
+"1241
+[e ++ _ms -> -> 1 `i `uc ]
+[e $ < -> _ms `i -> 48 `i 433  ]
+[e :U 434 ]
+"1242
+}
+[; ;Oled.c: 1246: break;
+"1246
+[e $U 373  ]
+[; ;Oled.c: 1247: default:
+"1247
+[e :U 436 ]
+[; ;Oled.c: 1248: break;
+"1248
+[e $U 373  ]
+"1249
+}
+[; ;Oled.c: 1249: }
+[e $U 373  ]
+"1115
+[e :U 374 ]
+[e [\ _num , $ -> -> 1 `i `uc 375
+ , $ -> -> 2 `i `uc 382
+ , $ -> -> 3 `i `uc 389
+ , $ -> -> 4 `i `uc 396
+ , $ -> -> 5 `i `uc 406
+ , $ -> -> 6 `i `uc 416
+ , $ -> -> 7 `i `uc 426
+ 436 ]
+"1249
+[e :U 373 ]
+[; ;Oled.c: 1253: return 1;
+"1253
+[e ) -> -> 1 `i `uc ]
+[e $UE 372  ]
+[; ;Oled.c: 1254: }
+"1254
+[e :UE 372 ]
+}
+"1257
+[v _clear_device `(uc ~T0 @X0 1 ef ]
+"1258
+{
+[; ;Oled.c: 1257: uint8_t clear_device(void)
+[; ;Oled.c: 1258: {
 [e :U _clear_device ]
 [f ]
 [v _page `uc ~T0 @X0 1 a ]
-"1005
+"1261
 [v _col `uc ~T0 @X0 1 a ]
-[; ;Oled.c: 1005: uint8_t page,col;
-[; ;Oled.c: 1006: for(page=0;page<9;page++)
-"1006
+[; ;Oled.c: 1261: uint8_t page,col;
+[; ;Oled.c: 1262: for(page=0;page<9;page++)
+"1262
 {
 [e = _page -> -> 0 `i `uc ]
-[e $ < -> _page `i -> 9 `i 430  ]
-[e $U 431  ]
-"1007
-[e :U 430 ]
-[; ;Oled.c: 1007: {
+[e $ < -> _page `i -> 9 `i 438  ]
+[e $U 439  ]
+"1263
+[e :U 438 ]
+[; ;Oled.c: 1263: {
 {
-[; ;Oled.c: 1008: setYX_LCD(page,0);
-"1008
+[; ;Oled.c: 1264: setYX_LCD(page,0);
+"1264
 [e ( _setYX_LCD (2 , _page -> -> 0 `i `uc ]
-[; ;Oled.c: 1009: write_buf[0] =0x00;
-"1009
+[; ;Oled.c: 1265: write_buf[0] =0x00;
+"1265
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 0 `i `uc ]
-[; ;Oled.c: 1010: for(col=0;col<99;col++)
-"1010
+[; ;Oled.c: 1266: for(col=0;col<99;col++)
+"1266
 {
 [e = _col -> -> 0 `i `uc ]
-[e $ < -> _col `i -> 99 `i 433  ]
-[e $U 434  ]
-"1011
-[e :U 433 ]
-[; ;Oled.c: 1011: {
+[e $ < -> _col `i -> 99 `i 441  ]
+[e $U 442  ]
+"1267
+[e :U 441 ]
+[; ;Oled.c: 1267: {
 {
-[; ;Oled.c: 1012: ee_WriteBytes(write_buf, 0x40, 1);
-"1012
+[; ;Oled.c: 1268: ee_WriteBytes(write_buf, 0x40, 1);
+"1268
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 64 `i `uc -> -> 1 `i `ui ]
-"1013
+"1269
 }
-"1010
+"1266
 [e ++ _col -> -> 1 `i `uc ]
-[e $ < -> _col `i -> 99 `i 433  ]
-[e :U 434 ]
-"1013
+[e $ < -> _col `i -> 99 `i 441  ]
+[e :U 442 ]
+"1269
 }
-"1014
+"1270
 }
-"1006
+"1262
 [e ++ _page -> -> 1 `i `uc ]
-[e $ < -> _page `i -> 9 `i 430  ]
-[e :U 431 ]
-"1014
+[e $ < -> _page `i -> 9 `i 438  ]
+[e :U 439 ]
+"1270
 }
-[; ;Oled.c: 1013: }
-[; ;Oled.c: 1014: }
-[; ;Oled.c: 1018: }
-"1018
-[e :UE 429 ]
+[; ;Oled.c: 1269: }
+[; ;Oled.c: 1270: }
+[; ;Oled.c: 1274: }
+"1274
+[e :UE 437 ]
 }
-"1020
+"1276
 [v _Initial_LY096BG30 `(v ~T0 @X0 1 ef ]
-"1021
+"1277
 {
-[; ;Oled.c: 1020: void Initial_LY096BG30(void)
-[; ;Oled.c: 1021: {
+[; ;Oled.c: 1276: void Initial_LY096BG30(void)
+[; ;Oled.c: 1277: {
 [e :U _Initial_LY096BG30 ]
 [f ]
-[; ;Oled.c: 1024: i2c_CfgGpio();
-"1024
+[; ;Oled.c: 1280: i2c_CfgGpio();
+"1280
 [e ( _i2c_CfgGpio ..  ]
-[; ;Oled.c: 1030: LATEbits.LATE1=0;
-"1030
+[; ;Oled.c: 1286: LATEbits.LATE1=0;
+"1286
 [e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-[; ;Oled.c: 1031: delay(1);
-"1031
+[; ;Oled.c: 1287: delay(1);
+"1287
 [e ( _delay (1 -> -> 1 `i `ui ]
-[; ;Oled.c: 1037: LATEbits.LATE1=1;
-"1037
+[; ;Oled.c: 1293: LATEbits.LATE1=1;
+"1293
 [e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
-[; ;Oled.c: 1038: delay(1);
-"1038
+[; ;Oled.c: 1294: delay(1);
+"1294
 [e ( _delay (1 -> -> 1 `i `ui ]
-[; ;Oled.c: 1041: write_buf[0]=0x21;
-"1041
+[; ;Oled.c: 1297: write_buf[0]=0x21;
+"1297
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 33 `i `uc ]
-[; ;Oled.c: 1042: ee_WriteBytes(write_buf, 0x00, 1);
-"1042
+[; ;Oled.c: 1298: ee_WriteBytes(write_buf, 0x00, 1);
+"1298
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1045: write_buf[0]=0x15;
-"1045
+[; ;Oled.c: 1301: write_buf[0]=0x15;
+"1301
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 21 `i `uc ]
-[; ;Oled.c: 1046: ee_WriteBytes(write_buf, 0x00, 1);
-"1046
+[; ;Oled.c: 1302: ee_WriteBytes(write_buf, 0x00, 1);
+"1302
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1048: write_buf[0]=0x08;
-"1048
+[; ;Oled.c: 1304: write_buf[0]=0x08;
+"1304
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 8 `i `uc ]
-[; ;Oled.c: 1049: ee_WriteBytes(write_buf, 0x00, 1);
-"1049
+[; ;Oled.c: 1305: ee_WriteBytes(write_buf, 0x00, 1);
+"1305
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1051: write_buf[0]=0x9f;
-"1051
+[; ;Oled.c: 1307: write_buf[0]=0x9f;
+"1307
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 159 `i `uc ]
-[; ;Oled.c: 1052: ee_WriteBytes(write_buf, 0x00, 1);
-"1052
+[; ;Oled.c: 1308: ee_WriteBytes(write_buf, 0x00, 1);
+"1308
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1054: write_buf[0]=0x20;
-"1054
+[; ;Oled.c: 1310: write_buf[0]=0x20;
+"1310
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 32 `i `uc ]
-[; ;Oled.c: 1055: ee_WriteBytes(write_buf, 0x00, 1);
-"1055
+[; ;Oled.c: 1311: ee_WriteBytes(write_buf, 0x00, 1);
+"1311
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1057: write_buf[0]=0x05;
-"1057
+[; ;Oled.c: 1313: write_buf[0]=0x05;
+"1313
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 5 `i `uc ]
-[; ;Oled.c: 1058: ee_WriteBytes(write_buf, 0x00, 1);
-"1058
+[; ;Oled.c: 1314: ee_WriteBytes(write_buf, 0x00, 1);
+"1314
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1060: write_buf[0]=0x0c;
-"1060
+[; ;Oled.c: 1316: write_buf[0]=0x0c;
+"1316
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 12 `i `uc ]
-[; ;Oled.c: 1063: ee_WriteBytes(write_buf, 0x00, 1);
-"1063
+[; ;Oled.c: 1319: ee_WriteBytes(write_buf, 0x00, 1);
+"1319
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 1065: clear_device();
-"1065
+[; ;Oled.c: 1321: clear_device();
+"1321
 [e ( _clear_device ..  ]
-[; ;Oled.c: 1067: display_pattern(1,1,0);
-"1067
-[e ( _display_pattern (3 , , -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1068: display_pattern(2,0,0);
-"1068
+[; ;Oled.c: 1324: display_pattern(1,2,0);
+"1324
+[e ( _display_pattern (3 , , -> -> 1 `i `uc -> -> 2 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1328: display_pattern(2,0,0);
+"1328
 [e ( _display_pattern (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1070: display_pattern(3,0,0);
-"1070
+[; ;Oled.c: 1330: display_pattern(3,0,0);
+"1330
 [e ( _display_pattern (3 , , -> -> 3 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1071: display_pattern(4,0,0);
-"1071
+[; ;Oled.c: 1331: display_pattern(4,0,0);
+"1331
 [e ( _display_pattern (3 , , -> -> 4 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1072: display_pattern(5,0,0);
-"1072
+[; ;Oled.c: 1332: display_pattern(5,0,0);
+"1332
 [e ( _display_pattern (3 , , -> -> 5 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1073: display_pattern(6,0,0);
-"1073
+[; ;Oled.c: 1333: display_pattern(6,0,0);
+"1333
 [e ( _display_pattern (3 , , -> -> 6 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1074: display_pattern(7,0,0);
-"1074
-[e ( _display_pattern (3 , , -> -> 7 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 1077: }
-"1077
-[e :UE 436 ]
+[; ;Oled.c: 1336: display_pattern(7,2,0);
+"1336
+[e ( _display_pattern (3 , , -> -> 7 `i `uc -> -> 2 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 1339: }
+"1339
+[e :UE 444 ]
 }
-"1091
+"1353
 [v _xdelay `(v ~T0 @X0 1 ef1`ul ]
-"1092
+"1354
 {
-[; ;Oled.c: 1091: void xdelay(uint32_t x)
-[; ;Oled.c: 1092: {
+[; ;Oled.c: 1353: void xdelay(uint32_t x)
+[; ;Oled.c: 1354: {
 [e :U _xdelay ]
-"1091
+"1353
 [v _x `ul ~T0 @X0 1 r1 ]
-"1092
+"1354
 [f ]
-"1093
+"1355
 [v _m `ul ~T0 @X0 1 a ]
 [v _n `ul ~T0 @X0 1 a ]
-[; ;Oled.c: 1093: uint32_t m,n;
-[; ;Oled.c: 1094: while(x)
-"1094
-[e $U 438  ]
-[e :U 439 ]
-[; ;Oled.c: 1095: {
-"1095
+[; ;Oled.c: 1355: uint32_t m,n;
+[; ;Oled.c: 1356: while(x)
+"1356
+[e $U 446  ]
+[e :U 447 ]
+[; ;Oled.c: 1357: {
+"1357
 {
-[; ;Oled.c: 1096: for(m=0;m<1000;m++)
-"1096
+[; ;Oled.c: 1358: for(m=0;m<1000;m++)
+"1358
 {
 [e = _m -> -> -> 0 `i `l `ul ]
-[e $ < _m -> -> -> 1000 `i `l `ul 441  ]
-[e $U 442  ]
-"1097
-[e :U 441 ]
-[; ;Oled.c: 1097: for(n=0;n<1000;n++);
+[e $ < _m -> -> -> 1000 `i `l `ul 449  ]
+[e $U 450  ]
+"1359
+[e :U 449 ]
+[; ;Oled.c: 1359: for(n=0;n<1000;n++);
 {
 [e = _n -> -> -> 0 `i `l `ul ]
-[e $ < _n -> -> -> 1000 `i `l `ul 444  ]
-[e $U 445  ]
-[e :U 444 ]
+[e $ < _n -> -> -> 1000 `i `l `ul 452  ]
+[e $U 453  ]
+[e :U 452 ]
 [e ++ _n -> -> -> 1 `i `l `ul ]
-[e $ < _n -> -> -> 1000 `i `l `ul 444  ]
-[e :U 445 ]
+[e $ < _n -> -> -> 1000 `i `l `ul 452  ]
+[e :U 453 ]
 }
-"1096
+"1358
 [e ++ _m -> -> -> 1 `i `l `ul ]
-[e $ < _m -> -> -> 1000 `i `l `ul 441  ]
-[e :U 442 ]
-"1097
+[e $ < _m -> -> -> 1000 `i `l `ul 449  ]
+[e :U 450 ]
+"1359
 }
-[; ;Oled.c: 1099: x--;
-"1099
+[; ;Oled.c: 1361: x--;
+"1361
 [e -- _x -> -> -> 1 `i `l `ul ]
-"1100
+"1362
 }
-[e :U 438 ]
-"1094
-[e $ != _x -> -> 0 `i `ul 439  ]
-[e :U 440 ]
-[; ;Oled.c: 1100: }
-[; ;Oled.c: 1102: }
-"1102
-[e :UE 437 ]
+[e :U 446 ]
+"1356
+[e $ != _x -> -> 0 `i `ul 447  ]
+[e :U 448 ]
+[; ;Oled.c: 1362: }
+[; ;Oled.c: 1364: }
+"1364
+[e :UE 445 ]
 }

@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/myWorkSpace/injector/LEDspi/MotorDrive.c</file>
+            <file>file:/E:/myWorkSpace/injector/LEDspi/Main.c</file>
+            <file>file:/E:/myWorkSpace/injector/LEDspi/Timer.c</file>
+            <file>file:/E:/myWorkSpace/injector/LEDspi/Oled.c</file>
             <file>file:/E:/myWorkSpace/injector/LEDspi/Oled.h</file>
             <file>file:/E:/myWorkSpace/injector/LEDspi/Beep.c</file>
-            <file>file:/E:/myWorkSpace/injector/LEDspi/Logic.c</file>
-            <file>file:/E:/myWorkSpace/injector/LEDspi/Timer.c</file>
             <file>file:/E:/myWorkSpace/injector/LEDspi/Key.c</file>
-            <file>file:/E:/myWorkSpace/injector/LEDspi/Main.c</file>
-            <file>file:/E:/myWorkSpace/injector/LEDspi/Oled.c</file>
+            <file>file:/E:/myWorkSpace/injector/LEDspi/Key.h</file>
         </group>
     </open-files>
 </project-private>

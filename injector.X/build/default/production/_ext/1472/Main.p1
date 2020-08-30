@@ -4,14 +4,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BeepInit `(v ~T0 @X0 0 ef ]
 "82 ../Oled.h
 [v _LCD_backlight_init `(v ~T0 @X0 0 ef ]
+"83
+[v _LCD_On `(v ~T0 @X0 0 ef ]
 "104 ../MotorDrive.h
 [v _MotorDriveInit `(v ~T0 @X0 0 ef ]
 "69 ../Key.h
 [v _KEY_Init `(v ~T0 @X0 0 ef ]
-"89 ../Oled.h
-[v _AD_ch0_init `(uc ~T0 @X0 0 ef ]
-"90
-[v _get_AD_vaule `(ui ~T0 @X0 0 ef ]
+"78 ../Oled.h
+[v _Initial_LY096BG30 `(v ~T0 @X0 0 ef ]
 "632 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
 [s S24 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S24 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
@@ -53,7 +53,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTBbits `VS11 ~T0 @X0 0 e@3969 ]
 "7 ../Beep.h
 [v _buzz `(v ~T0 @X0 0 ef ]
-"93 ../Oled.h
+"95 ../Oled.h
 [v _delay `(v ~T0 @X0 0 ef1`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2936,7 +2936,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 86: uint8_t ee_CheckDevice(uint8_t _Address);
 [; ;Oled.h: 89: uint8_t AD_ch0_init(void);
 [; ;Oled.h: 90: uint16_t get_AD_vaule(void);
-[; ;Oled.h: 93: void delay(unsigned int x);
+[; ;Oled.h: 91: uint16_t get_SenseA_AD_vaule(void);
+[; ;Oled.h: 92: uint16_t get_SenseB_AD_vaule(void);
+[; ;Oled.h: 95: void delay(unsigned int x);
 "17 ../Main.c
 [p x OSC=HS ]
 "18
@@ -2957,202 +2959,209 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x CCP2MX=PORTC ]
 "29
 [p x PBADEN=OFF ]
-"30
-[p x LPT1OSC=OFF ]
-"31
-[p x MCLRE=ON ]
 "33
-[p x STVREN=OFF ]
+[p x LPT1OSC=OFF ]
 "34
-[p x LVP=OFF ]
-"35
-[p x XINST=OFF ]
+[p x MCLRE=ON ]
+"36
+[p x STVREN=OFF ]
 "37
-[p x CP0=OFF ]
+[p x LVP=OFF ]
 "38
-[p x CP1=OFF ]
-"39
-[p x CP2=OFF ]
+[p x XINST=OFF ]
 "40
-[p x CP3=OFF ]
+[p x CP0=OFF ]
+"41
+[p x CP1=OFF ]
 "42
-[p x CPB=OFF ]
+[p x CP2=OFF ]
 "43
-[p x CPD=OFF ]
+[p x CP3=OFF ]
 "45
-[p x WRT0=OFF ]
+[p x CPB=OFF ]
 "46
-[p x WRT1=OFF ]
-"47
-[p x WRT2=OFF ]
+[p x CPD=OFF ]
 "48
-[p x WRT3=OFF ]
+[p x WRT0=OFF ]
+"49
+[p x WRT1=OFF ]
 "50
-[p x WRTC=OFF ]
+[p x WRT2=OFF ]
 "51
-[p x WRTB=OFF ]
-"52
-[p x WRTD=OFF ]
+[p x WRT3=OFF ]
+"53
+[p x WRTC=OFF ]
 "54
-[p x EBTR0=OFF ]
+[p x WRTB=OFF ]
 "55
-[p x EBTR1=OFF ]
-"56
-[p x EBTR2=OFF ]
+[p x WRTD=OFF ]
 "57
-[p x EBTR3=OFF ]
+[p x EBTR0=OFF ]
 "58
+[p x EBTR1=OFF ]
+"59
+[p x EBTR2=OFF ]
+"60
+[p x EBTR3=OFF ]
+"61
 [p x EBTRB=OFF ]
-"62
+"65
 [v _xn `i ~T0 @X0 1 e ]
 [i _xn
 -> 0 `i
 ]
-[; ;Main.c: 62: int xn=0;
-"63
+[; ;Main.c: 65: int xn=0;
+"66
 [v _ann `i ~T0 @X0 1 e ]
 [i _ann
 -> 0 `i
 ]
-[; ;Main.c: 63: int ann=0;
-"64
+[; ;Main.c: 66: int ann=0;
+"67
 [v _prev_edge `uc ~T0 @X0 1 e ]
 [i _prev_edge
 -> -> 0 `i `uc
 ]
-[; ;Main.c: 64: uint8_t prev_edge =0;
-"65
+[; ;Main.c: 67: uint8_t prev_edge =0;
+"68
 [v _cur_edge `uc ~T0 @X0 1 e ]
 [i _cur_edge
 -> -> 0 `i `uc
 ]
-[; ;Main.c: 65: uint8_t cur_edge =0;
-"66
+[; ;Main.c: 68: uint8_t cur_edge =0;
+"69
 [v _bv `ui ~T0 @X0 1 e ]
 [i _bv
--> -> 0 `i `ui
+-> -> 10 `i `ui
 ]
-[; ;Main.c: 66: uint16_t bv =0;
-"67
+[; ;Main.c: 69: uint16_t bv =10;
+"70
+[v _cv `ui ~T0 @X0 1 e ]
+[i _cv
+-> -> 10 `i `ui
+]
+[; ;Main.c: 70: uint16_t cv =10;
+"71
+[v _dv `ui ~T0 @X0 1 e ]
+[i _dv
+-> -> 10 `i `ui
+]
+[; ;Main.c: 71: uint16_t dv =10;
+"72
 [v _main `(v ~T0 @X0 1 ef ]
-"68
+"73
 {
-[; ;Main.c: 67: void main(void)
-[; ;Main.c: 68: {
+[; ;Main.c: 72: void main(void)
+[; ;Main.c: 73: {
 [e :U _main ]
 [f ]
-[; ;Main.c: 70: BeepInit();
-"70
-[e ( _BeepInit ..  ]
-[; ;Main.c: 75: LCD_backlight_init();
+[; ;Main.c: 75: BeepInit();
 "75
+[e ( _BeepInit ..  ]
+[; ;Main.c: 80: LCD_backlight_init();
+"80
 [e ( _LCD_backlight_init ..  ]
-[; ;Main.c: 84: MotorDriveInit();
-"84
-[e ( _MotorDriveInit ..  ]
-[; ;Main.c: 86: KEY_Init();
-"86
-[e ( _KEY_Init ..  ]
-[; ;Main.c: 89: AD_ch0_init();
+[; ;Main.c: 81: LCD_On();
+"81
+[e ( _LCD_On ..  ]
+[; ;Main.c: 89: MotorDriveInit();
 "89
-[e ( _AD_ch0_init ..  ]
-[; ;Main.c: 90: bv = get_AD_vaule();
-"90
-[e = _bv ( _get_AD_vaule ..  ]
-[; ;Main.c: 93: bv =0;
-"93
-[e = _bv -> -> 0 `i `ui ]
-[; ;Main.c: 94: bv = get_AD_vaule();
-"94
-[e = _bv ( _get_AD_vaule ..  ]
-[; ;Main.c: 97: bv =0;
-"97
-[e = _bv -> -> 0 `i `ui ]
-[; ;Main.c: 98: bv = get_AD_vaule();
-"98
-[e = _bv ( _get_AD_vaule ..  ]
-[; ;Main.c: 119: while(1)
-"119
+[e ( _MotorDriveInit ..  ]
+[; ;Main.c: 91: KEY_Init();
+"91
+[e ( _KEY_Init ..  ]
+[; ;Main.c: 137: Initial_LY096BG30();
+"137
+[e ( _Initial_LY096BG30 ..  ]
+[; ;Main.c: 140: while(1);
+"140
 [e :U 280 ]
-[; ;Main.c: 120: {
-"120
-{
-[; ;Main.c: 123: if(PORTDbits.RD6 == 0)
-"123
-[e $ ! == -> . . _PORTDbits 0 6 `i -> 0 `i 282  ]
-[; ;Main.c: 124: {
-"124
-{
-[; ;Main.c: 126: LCD_Blink();
-"126
-[e ( _LCD_Blink ..  ]
-"127
-}
-[e :U 282 ]
-[; ;Main.c: 127: }
-[; ;Main.c: 128: if(PORTDbits.RD7 == 0)
-"128
-[e $ ! == -> . . _PORTDbits 0 7 `i -> 0 `i 283  ]
-[; ;Main.c: 129: {
-"129
-{
-"131
-}
-[e :U 283 ]
-[; ;Main.c: 131: }
-[; ;Main.c: 132: if(PORTBbits.RB3 == 0)
-"132
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 284  ]
-[; ;Main.c: 133: {
-"133
-{
-"135
-}
-[e :U 284 ]
-[; ;Main.c: 135: }
-[; ;Main.c: 136: if(PORTBbits.RB4 == 0)
-"136
-[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 285  ]
-[; ;Main.c: 144: {
-"144
-{
-[; ;Main.c: 149: {
-"149
-{
-[; ;Main.c: 150: buzz();
-"150
-[e ( _buzz ..  ]
-"153
-}
-"155
-}
-[e :U 285 ]
-"157
-}
 [e :U 279 ]
-"119
 [e $U 280  ]
 [e :U 281 ]
-[; ;Main.c: 153: }
-[; ;Main.c: 155: }
-[; ;Main.c: 157: }
-[; ;Main.c: 275: while(1)
-"275
-[e :U 287 ]
-[; ;Main.c: 276: {
-"276
+[; ;Main.c: 176: while(0)
+"176
+[e $U 282  ]
+[e :U 283 ]
+[; ;Main.c: 177: {
+"177
 {
-[; ;Main.c: 281: delay(100);
-"281
-[e ( _delay (1 -> -> 100 `i `ui ]
-"285
+[; ;Main.c: 180: if(PORTDbits.RD6 == 0)
+"180
+[e $ ! == -> . . _PORTDbits 0 6 `i -> 0 `i 285  ]
+[; ;Main.c: 181: {
+"181
+{
+[; ;Main.c: 183: LCD_Blink();
+"183
+[e ( _LCD_Blink ..  ]
+"184
+}
+[e :U 285 ]
+[; ;Main.c: 184: }
+[; ;Main.c: 185: if(PORTDbits.RD7 == 0)
+"185
+[e $ ! == -> . . _PORTDbits 0 7 `i -> 0 `i 286  ]
+[; ;Main.c: 186: {
+"186
+{
+"188
 }
 [e :U 286 ]
-"275
-[e $U 287  ]
+[; ;Main.c: 188: }
+[; ;Main.c: 189: if(PORTBbits.RB3 == 0)
+"189
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 287  ]
+[; ;Main.c: 190: {
+"190
+{
+"192
+}
+[e :U 287 ]
+[; ;Main.c: 192: }
+[; ;Main.c: 193: if(PORTBbits.RB4 == 0)
+"193
+[e $ ! == -> . . _PORTBbits 0 4 `i -> 0 `i 288  ]
+[; ;Main.c: 201: {
+"201
+{
+[; ;Main.c: 206: {
+"206
+{
+[; ;Main.c: 207: buzz();
+"207
+[e ( _buzz ..  ]
+"210
+}
+"212
+}
 [e :U 288 ]
-[; ;Main.c: 285: }
-[; ;Main.c: 286: }
-"286
+"214
+}
+[e :U 282 ]
+"176
+[e $ != -> 0 `i -> 0 `i 283  ]
+[e :U 284 ]
+[; ;Main.c: 210: }
+[; ;Main.c: 212: }
+[; ;Main.c: 214: }
+[; ;Main.c: 332: while(1)
+"332
+[e :U 290 ]
+[; ;Main.c: 333: {
+"333
+{
+[; ;Main.c: 338: delay(100);
+"338
+[e ( _delay (1 -> -> 100 `i `ui ]
+"342
+}
+[e :U 289 ]
+"332
+[e $U 290  ]
+[e :U 291 ]
+[; ;Main.c: 342: }
+[; ;Main.c: 343: }
+"343
 [e :UE 278 ]
 }

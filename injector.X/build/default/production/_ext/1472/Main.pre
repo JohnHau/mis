@@ -3960,6 +3960,8 @@ uint8_t ee_CheckDevice(uint8_t _Address);
 
 uint8_t AD_ch0_init(void);
 uint16_t get_AD_vaule(void);
+uint16_t get_SenseA_AD_vaule(void);
+uint16_t get_SenseB_AD_vaule(void);
 
 
 void delay(unsigned int x);
@@ -3979,6 +3981,9 @@ void delay(unsigned int x);
 
 #pragma config CCP2MX = PORTC
 #pragma config PBADEN = OFF
+
+
+
 #pragma config LPT1OSC = OFF
 #pragma config MCLRE = ON
 
@@ -4015,7 +4020,9 @@ int xn=0;
 int ann=0;
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
-uint16_t bv =0;
+uint16_t bv =10;
+uint16_t cv =10;
+uint16_t dv =10;
 void main(void)
 {
 
@@ -4025,26 +4032,21 @@ BeepInit();
 
 
 LCD_backlight_init();
+LCD_On();
 
-# 84
+# 89
 MotorDriveInit();
 
 KEY_Init();
 
-
-AD_ch0_init();
-bv = get_AD_vaule();
-
-
-bv =0;
-bv = get_AD_vaule();
+# 137
+Initial_LY096BG30();
 
 
-bv =0;
-bv = get_AD_vaule();
+while(1);
 
-# 119
-while(1)
+# 176
+while(0)
 {
 
 
@@ -4063,7 +4065,7 @@ if(PORTBbits.RB3 == 0)
 }
 if(PORTBbits.RB4 == 0)
 
-# 144
+# 201
 {
 
 
@@ -4079,7 +4081,7 @@ buzz();
 
 }
 
-# 275
+# 332
 while(1)
 {
 

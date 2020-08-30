@@ -11,16 +11,15 @@ unsigned char KeyScanPeriod =0;
 #if 1
 void KEY_Init(void) //
 { 
-     
-    
-    
+   
+#if 1
     //LATB = 0;
    // PORTB = 0;
    // ADCON1 = 0x07;
     
     //ADCON0 = 0x00;
    // ADCON1 = 0x0f;
-    
+
     TRISBbits.RB3 =1;//KEY_V
     TRISBbits.RB4 =1;//KEY_WAKE
     
@@ -33,7 +32,12 @@ void KEY_Init(void) //
     
     TRISBbits.RB0 =1;//LP_BUTTON
 
+    
+    TRISAbits.RA3 =1;//STATUS_CHARGE
     //TRISB = 0xff;
+    
+#endif
+    
     
 #if 0
     //RCONbits.IPEN = 1;
@@ -55,57 +59,7 @@ void KEY_Init(void) //
 
     
     
-    
-    
-    
-    
-    
-    
-#if 0
-	DDRBbits.RB4 	=1;  	
-	DDRDbits.RD4  	=1;			
-	DDRDbits.RD7  	=1;			
-	DDRBbits.RB3  	=1;			
-	DDRBbits.RB5  	=1;			
-	
-	OnOffKey.NewValue =1;
-	OnOffKey.OldValue =1;
-	OnOffKey.SendValue =1;
-	OnOffKey.SendValueChangeFlag =0;
-	OnOffKey.FiterTimes =3;
-	OnOffKey.FiterTimesCount =OnOffKey.FiterTimes;
-	
-	UpKey.NewValue =1;
-	UpKey.OldValue =1;
-	UpKey.SendValue =1;
-	UpKey.SendValueChangeFlag =0;
-	UpKey.FiterTimes =3;
-	UpKey.FiterTimesCount =UpKey.FiterTimes;
-	
-	DownKey.NewValue =1;
-	DownKey.OldValue =1;
-	DownKey.SendValue =1;
-	DownKey.SendValueChangeFlag =0;
-	DownKey.FiterTimes =3;
-	DownKey.FiterTimesCount =DownKey.FiterTimes;
 
-	ConfirmKey.NewValue =1;
-	ConfirmKey.OldValue =1;
-	ConfirmKey.SendValue =1;
-	ConfirmKey.SendValueChangeFlag =0;
-	ConfirmKey.FiterTimes =3;
-	ConfirmKey.FiterTimesCount =ConfirmKey.FiterTimes;
-
-	StartInjectKey.NewValue =1;
-	StartInjectKey.OldValue =1;
-	StartInjectKey.SendValue =1;
-	StartInjectKey.SendValueChangeFlag =0;
-	StartInjectKey.FiterTimes =3;
-	StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
-#endif
-    
-    
-    
     
     
     

@@ -3815,7 +3815,7 @@ unsigned char KeyScanPeriod =0;
 void KEY_Init(void)
 {
 
-# 24
+# 23
 TRISBbits.RB3 =1;
 TRISBbits.RB4 =1;
 
@@ -3828,7 +3828,10 @@ TRISDbits.RD7 =1;
 
 TRISBbits.RB0 =1;
 
-# 123
+
+TRISAbits.RA3 =1;
+
+# 77
 }
 
 void KEY_Scan(void)

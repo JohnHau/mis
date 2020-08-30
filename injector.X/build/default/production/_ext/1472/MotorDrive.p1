@@ -103,6 +103,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S28 . . . . . . . . . . . ]
 "825
 [v _PORTEbits `VS28 ~T0 @X0 0 e@3972 ]
+"5349
+[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
+"4555
+[v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
 "1917
 [s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S67 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
@@ -114,6 +118,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S66 . . . ]
 "1938
 [v _TRISCbits `VS66 ~T0 @X0 0 e@3988 ]
+"5258
+[s S212 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S212 . T2CKPS TMR2ON T2OUTPS ]
+"5263
+[s S213 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S213 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"5272
+[s S214 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S214 . . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
+"5257
+[u S211 `S212 1 `S213 1 `S214 1 ]
+[n S211 . . . . ]
+"5280
+[v _T2CONbits `VS211 ~T0 @X0 0 e@4042 ]
+"4459
+[s S173 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S173 . CCP1M DC1B P1M ]
+"4464
+[s S174 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S174 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 CCP1Y CCP1X P1M0 P1M1 ]
+"4474
+[s S175 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S175 . . DC1B0 DC1B1 ]
+"4458
+[u S172 `S173 1 `S174 1 `S175 1 ]
+[n S172 . . . . ]
+"4480
+[v _CCP1CONbits `VS172 ~T0 @X0 0 e@4029 ]
+"5458
+[v _TMR2 `Vuc ~T0 @X0 0 e@4044 ]
 "2138
 [s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S73 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
@@ -3177,64 +3211,85 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 112: {
 [e :U _MotorDriveInit ]
 [f ]
-[; ;MotorDrive.c: 115: TRISCbits.RC2 =0;
-"115
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 116: TRISDbits.RD0 =0;
-"116
-[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 117: TRISDbits.RD1 =0;
+[; ;MotorDrive.c: 117: PR2= 99;
 "117
-[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 119: TRISCbits.RC1 =1;
-"119
-[e = . . _TRISCbits 1 1 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 120: TRISAbits.RA4 =1;
+[e = _PR2 -> -> 99 `i `uc ]
+[; ;MotorDrive.c: 118: CCPR1L= 10;
+"118
+[e = _CCPR1L -> -> 10 `i `uc ]
+[; ;MotorDrive.c: 120: TRISCbits.RC2 =0;
 "120
-[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 123: TRISCbits.RC0 =1;
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 121: T2CONbits.T2CKPS = 1;
+"121
+[e = . . _T2CONbits 0 0 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 122: CCP1CONbits.CCP1M = 0x0c;
+"122
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+[; ;MotorDrive.c: 123: TMR2 = 0;
 "123
-[e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 124: TRISBbits.RB2 =1;
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 124: T2CONbits.TMR2ON =1;
 "124
-[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 128: TRISDbits.RD4 =0;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 128: TRISCbits.RC2 =0;
 "128
-[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 129: TRISDbits.RD2 =0;
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 129: TRISDbits.RD0 =0;
 "129
-[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 130: TRISDbits.RD3 =0;
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 130: TRISDbits.RD1 =0;
 "130
-[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 133: LATCbits.LC2 =0;
+[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 132: TRISCbits.RC1 =1;
+"132
+[e = . . _TRISCbits 1 1 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 133: TRISAbits.RA4 =1;
 "133
-[e = . . _LATCbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 134: LATDbits.LD0 =0;
-"134
-[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 135: LATDbits.LD1 =0;
-"135
-[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 137: LATDbits.LD4 =0;
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 136: TRISCbits.RC0 =1;
+"136
+[e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 137: TRISBbits.RB2 =1;
 "137
-[e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 138: LATDbits.LD2 =0;
-"138
-[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 139: LATDbits.LD3 =0;
-"139
-[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 142: INTCON2bits.INTEDG2 = 0;
+[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 141: TRISDbits.RD4 =0;
+"141
+[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 142: TRISDbits.RD2 =0;
 "142
-[e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 143: INTCON3bits.INT2IF =0;
+[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 143: TRISDbits.RD3 =0;
 "143
+[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 146: LATCbits.LC2 =0;
+"146
+[e = . . _LATCbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 147: LATDbits.LD0 =0;
+"147
+[e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 148: LATDbits.LD1 =0;
+"148
+[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 150: LATDbits.LD4 =0;
+"150
+[e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 151: LATDbits.LD2 =0;
+"151
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 152: LATDbits.LD3 =0;
+"152
+[e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 155: INTCON2bits.INTEDG2 = 0;
+"155
+[e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 156: INTCON3bits.INT2IF =0;
+"156
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 144: INTCON3bits.INT2E = 1;
-"144
+[; ;MotorDrive.c: 157: INTCON3bits.INT2E = 1;
+"157
 [e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 182: }
-"182
+[; ;MotorDrive.c: 166: }
+"166
 [e :UE 286 ]
 }

@@ -3876,6 +3876,19 @@ void MotorDriveInit(void)
 {
 
 
+
+
+PR2= 99;
+CCPR1L= 10;
+
+TRISCbits.RC2 =0;
+T2CONbits.T2CKPS = 1;
+CCP1CONbits.CCP1M = 0x0c;
+TMR2 = 0;
+T2CONbits.TMR2ON =1;
+
+
+
 TRISCbits.RC2 =0;
 TRISDbits.RD0 =0;
 TRISDbits.RD1 =0;
@@ -3907,6 +3920,6 @@ INTCON2bits.INTEDG2 = 0;
 INTCON3bits.INT2IF =0;
 INTCON3bits.INT2E = 1;
 
-# 182
+# 166
 }
 

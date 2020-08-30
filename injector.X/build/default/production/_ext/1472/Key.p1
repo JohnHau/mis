@@ -24,6 +24,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S72 . . . ]
 "2159
 [v _TRISDbits `VS72 ~T0 @X0 0 e@3989 ]
+"1475
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"1485
+[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S56 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"1474
+[u S54 `S55 1 `S56 1 ]
+[n S54 . . . ]
+"1496
+[v _TRISAbits `VS54 ~T0 @X0 0 e@3986 ]
 "273
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S12 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
@@ -2933,694 +2944,697 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key.c: 13: {
 [e :U _KEY_Init ]
 [f ]
-[; ;Key.c: 24: TRISBbits.RB3 =1;
-"24
+[; ;Key.c: 23: TRISBbits.RB3 =1;
+"23
 [e = . . _TRISBbits 1 3 -> -> 1 `i `uc ]
-[; ;Key.c: 25: TRISBbits.RB4 =1;
-"25
+[; ;Key.c: 24: TRISBbits.RB4 =1;
+"24
 [e = . . _TRISBbits 1 4 -> -> 1 `i `uc ]
-[; ;Key.c: 29: TRISBbits.RB5 =1;
-"29
+[; ;Key.c: 28: TRISBbits.RB5 =1;
+"28
 [e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
-[; ;Key.c: 31: TRISDbits.RD6 =1;
-"31
+[; ;Key.c: 30: TRISDbits.RD6 =1;
+"30
 [e = . . _TRISDbits 1 6 -> -> 1 `i `uc ]
-[; ;Key.c: 32: TRISDbits.RD7 =1;
-"32
+[; ;Key.c: 31: TRISDbits.RD7 =1;
+"31
 [e = . . _TRISDbits 1 7 -> -> 1 `i `uc ]
-[; ;Key.c: 34: TRISBbits.RB0 =1;
-"34
+[; ;Key.c: 33: TRISBbits.RB0 =1;
+"33
 [e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-[; ;Key.c: 123: }
-"123
+[; ;Key.c: 36: TRISAbits.RA3 =1;
+"36
+[e = . . _TRISAbits 1 3 -> -> 1 `i `uc ]
+[; ;Key.c: 77: }
+"77
 [e :UE 278 ]
 }
-"125
+"79
 [v _KEY_Scan `(v ~T0 @X0 1 ef ]
-"126
+"80
 {
-[; ;Key.c: 125: void KEY_Scan(void)
-[; ;Key.c: 126: {
+[; ;Key.c: 79: void KEY_Scan(void)
+[; ;Key.c: 80: {
 [e :U _KEY_Scan ]
 [f ]
-[; ;Key.c: 127: if(!KeyScanPeriod)
-"127
+[; ;Key.c: 81: if(!KeyScanPeriod)
+"81
 [e $ ! ! != -> _KeyScanPeriod `i -> -> -> 0 `i `uc `i 280  ]
+[; ;Key.c: 82: {
+"82
+{
+[; ;Key.c: 83: KeyScanPeriod =10;
+"83
+[e = _KeyScanPeriod -> -> 10 `i `uc ]
+[; ;Key.c: 85: if(OnOffKey.NewValue !=PORTBbits.RB4)
+"85
+[e $ ! != -> . _OnOffKey 0 `i -> . . _PORTBbits 0 4 `i 281  ]
+[; ;Key.c: 86: {
+"86
+{
+[; ;Key.c: 87: OnOffKey.FiterTimesCount =OnOffKey.FiterTimes;
+"87
+[e = . _OnOffKey 4 . _OnOffKey 5 ]
+[; ;Key.c: 88: OnOffKey.NewValue =PORTBbits.RB4;
+"88
+[e = . _OnOffKey 0 . . _PORTBbits 0 4 ]
+"89
+}
+[; ;Key.c: 89: }
+[e $U 282  ]
+"90
+[e :U 281 ]
+[; ;Key.c: 90: else
+[; ;Key.c: 91: {
+"91
+{
+[; ;Key.c: 92: if(OnOffKey.NewValue ==PORTBbits.RB4)
+"92
+[e $ ! == -> . _OnOffKey 0 `i -> . . _PORTBbits 0 4 `i 283  ]
+[; ;Key.c: 93: {
+"93
+{
+[; ;Key.c: 94: if(OnOffKey.FiterTimesCount)
+"94
+[e $ ! != -> . _OnOffKey 4 `i -> -> -> 0 `i `uc `i 284  ]
+[; ;Key.c: 95: {
+"95
+{
+[; ;Key.c: 96: OnOffKey.FiterTimesCount--;
+"96
+[e -- . _OnOffKey 4 -> -> 1 `i `uc ]
+"97
+}
+[; ;Key.c: 97: }
+[e $U 285  ]
+"98
+[e :U 284 ]
+[; ;Key.c: 98: else
+[; ;Key.c: 99: {
+"99
+{
+[; ;Key.c: 100: OnOffKey.OldValue =OnOffKey.NewValue;
+"100
+[e = . _OnOffKey 1 . _OnOffKey 0 ]
+"101
+}
+[e :U 285 ]
+"102
+}
+[e :U 283 ]
+[; ;Key.c: 101: }
+[; ;Key.c: 102: }
+[; ;Key.c: 103: if(OnOffKey.OldValue!=OnOffKey.SendValue)
+"103
+[e $ ! != -> . _OnOffKey 1 `i -> . _OnOffKey 2 `i 286  ]
+[; ;Key.c: 104: {
+"104
+{
+[; ;Key.c: 105: OnOffKey.SendValue=OnOffKey.OldValue;
+"105
+[e = . _OnOffKey 2 . _OnOffKey 1 ]
+[; ;Key.c: 106: OnOffKey.SendValueChangeFlag =1;
+"106
+[e = . _OnOffKey 3 -> -> 1 `i `uc ]
+"107
+}
+[; ;Key.c: 107: }
+[e $U 287  ]
+"108
+[e :U 286 ]
+[; ;Key.c: 108: else
+[; ;Key.c: 109: {
+"109
+{
+"111
+}
+[e :U 287 ]
+"112
+}
+[e :U 282 ]
+[; ;Key.c: 111: }
+[; ;Key.c: 112: }
+[; ;Key.c: 114: if(UpKey.NewValue !=PORTDbits.RD4)
+"114
+[e $ ! != -> . _UpKey 0 `i -> . . _PORTDbits 0 4 `i 288  ]
+[; ;Key.c: 115: {
+"115
+{
+[; ;Key.c: 116: UpKey.FiterTimesCount =UpKey.FiterTimes;
+"116
+[e = . _UpKey 4 . _UpKey 5 ]
+[; ;Key.c: 117: UpKey.NewValue =PORTDbits.RD4;
+"117
+[e = . _UpKey 0 . . _PORTDbits 0 4 ]
+"118
+}
+[; ;Key.c: 118: }
+[e $U 289  ]
+"119
+[e :U 288 ]
+[; ;Key.c: 119: else
+[; ;Key.c: 120: {
+"120
+{
+[; ;Key.c: 121: if(UpKey.NewValue ==PORTDbits.RD4)
+"121
+[e $ ! == -> . _UpKey 0 `i -> . . _PORTDbits 0 4 `i 290  ]
+[; ;Key.c: 122: {
+"122
+{
+[; ;Key.c: 123: if(UpKey.FiterTimesCount)
+"123
+[e $ ! != -> . _UpKey 4 `i -> -> -> 0 `i `uc `i 291  ]
+[; ;Key.c: 124: {
+"124
+{
+[; ;Key.c: 125: UpKey.FiterTimesCount--;
+"125
+[e -- . _UpKey 4 -> -> 1 `i `uc ]
+"126
+}
+[; ;Key.c: 126: }
+[e $U 292  ]
+"127
+[e :U 291 ]
+[; ;Key.c: 127: else
 [; ;Key.c: 128: {
 "128
 {
-[; ;Key.c: 129: KeyScanPeriod =10;
+[; ;Key.c: 129: UpKey.OldValue =UpKey.NewValue;
 "129
-[e = _KeyScanPeriod -> -> 10 `i `uc ]
-[; ;Key.c: 131: if(OnOffKey.NewValue !=PORTBbits.RB4)
-"131
-[e $ ! != -> . _OnOffKey 0 `i -> . . _PORTBbits 0 4 `i 281  ]
-[; ;Key.c: 132: {
-"132
-{
-[; ;Key.c: 133: OnOffKey.FiterTimesCount =OnOffKey.FiterTimes;
-"133
-[e = . _OnOffKey 4 . _OnOffKey 5 ]
-[; ;Key.c: 134: OnOffKey.NewValue =PORTBbits.RB4;
-"134
-[e = . _OnOffKey 0 . . _PORTBbits 0 4 ]
-"135
-}
-[; ;Key.c: 135: }
-[e $U 282  ]
-"136
-[e :U 281 ]
-[; ;Key.c: 136: else
-[; ;Key.c: 137: {
-"137
-{
-[; ;Key.c: 138: if(OnOffKey.NewValue ==PORTBbits.RB4)
-"138
-[e $ ! == -> . _OnOffKey 0 `i -> . . _PORTBbits 0 4 `i 283  ]
-[; ;Key.c: 139: {
-"139
-{
-[; ;Key.c: 140: if(OnOffKey.FiterTimesCount)
-"140
-[e $ ! != -> . _OnOffKey 4 `i -> -> -> 0 `i `uc `i 284  ]
-[; ;Key.c: 141: {
-"141
-{
-[; ;Key.c: 142: OnOffKey.FiterTimesCount--;
-"142
-[e -- . _OnOffKey 4 -> -> 1 `i `uc ]
-"143
-}
-[; ;Key.c: 143: }
-[e $U 285  ]
-"144
-[e :U 284 ]
-[; ;Key.c: 144: else
-[; ;Key.c: 145: {
-"145
-{
-[; ;Key.c: 146: OnOffKey.OldValue =OnOffKey.NewValue;
-"146
-[e = . _OnOffKey 1 . _OnOffKey 0 ]
-"147
-}
-[e :U 285 ]
-"148
-}
-[e :U 283 ]
-[; ;Key.c: 147: }
-[; ;Key.c: 148: }
-[; ;Key.c: 149: if(OnOffKey.OldValue!=OnOffKey.SendValue)
-"149
-[e $ ! != -> . _OnOffKey 1 `i -> . _OnOffKey 2 `i 286  ]
-[; ;Key.c: 150: {
-"150
-{
-[; ;Key.c: 151: OnOffKey.SendValue=OnOffKey.OldValue;
-"151
-[e = . _OnOffKey 2 . _OnOffKey 1 ]
-[; ;Key.c: 152: OnOffKey.SendValueChangeFlag =1;
-"152
-[e = . _OnOffKey 3 -> -> 1 `i `uc ]
-"153
-}
-[; ;Key.c: 153: }
-[e $U 287  ]
-"154
-[e :U 286 ]
-[; ;Key.c: 154: else
-[; ;Key.c: 155: {
-"155
-{
-"157
-}
-[e :U 287 ]
-"158
-}
-[e :U 282 ]
-[; ;Key.c: 157: }
-[; ;Key.c: 158: }
-[; ;Key.c: 160: if(UpKey.NewValue !=PORTDbits.RD4)
-"160
-[e $ ! != -> . _UpKey 0 `i -> . . _PORTDbits 0 4 `i 288  ]
-[; ;Key.c: 161: {
-"161
-{
-[; ;Key.c: 162: UpKey.FiterTimesCount =UpKey.FiterTimes;
-"162
-[e = . _UpKey 4 . _UpKey 5 ]
-[; ;Key.c: 163: UpKey.NewValue =PORTDbits.RD4;
-"163
-[e = . _UpKey 0 . . _PORTDbits 0 4 ]
-"164
-}
-[; ;Key.c: 164: }
-[e $U 289  ]
-"165
-[e :U 288 ]
-[; ;Key.c: 165: else
-[; ;Key.c: 166: {
-"166
-{
-[; ;Key.c: 167: if(UpKey.NewValue ==PORTDbits.RD4)
-"167
-[e $ ! == -> . _UpKey 0 `i -> . . _PORTDbits 0 4 `i 290  ]
-[; ;Key.c: 168: {
-"168
-{
-[; ;Key.c: 169: if(UpKey.FiterTimesCount)
-"169
-[e $ ! != -> . _UpKey 4 `i -> -> -> 0 `i `uc `i 291  ]
-[; ;Key.c: 170: {
-"170
-{
-[; ;Key.c: 171: UpKey.FiterTimesCount--;
-"171
-[e -- . _UpKey 4 -> -> 1 `i `uc ]
-"172
-}
-[; ;Key.c: 172: }
-[e $U 292  ]
-"173
-[e :U 291 ]
-[; ;Key.c: 173: else
-[; ;Key.c: 174: {
-"174
-{
-[; ;Key.c: 175: UpKey.OldValue =UpKey.NewValue;
-"175
 [e = . _UpKey 1 . _UpKey 0 ]
-"176
+"130
 }
 [e :U 292 ]
-"177
+"131
 }
 [e :U 290 ]
-[; ;Key.c: 176: }
-[; ;Key.c: 177: }
-[; ;Key.c: 178: if(UpKey.OldValue!=UpKey.SendValue)
-"178
+[; ;Key.c: 130: }
+[; ;Key.c: 131: }
+[; ;Key.c: 132: if(UpKey.OldValue!=UpKey.SendValue)
+"132
 [e $ ! != -> . _UpKey 1 `i -> . _UpKey 2 `i 293  ]
-[; ;Key.c: 179: {
-"179
+[; ;Key.c: 133: {
+"133
 {
-[; ;Key.c: 180: UpKey.SendValue=UpKey.OldValue;
-"180
+[; ;Key.c: 134: UpKey.SendValue=UpKey.OldValue;
+"134
 [e = . _UpKey 2 . _UpKey 1 ]
-[; ;Key.c: 181: UpKey.SendValueChangeFlag =1;
-"181
+[; ;Key.c: 135: UpKey.SendValueChangeFlag =1;
+"135
 [e = . _UpKey 3 -> -> 1 `i `uc ]
-"182
+"136
 }
-[; ;Key.c: 182: }
+[; ;Key.c: 136: }
 [e $U 294  ]
-"183
+"137
 [e :U 293 ]
-[; ;Key.c: 183: else
-[; ;Key.c: 184: {
-"184
+[; ;Key.c: 137: else
+[; ;Key.c: 138: {
+"138
 {
-"186
+"140
 }
 [e :U 294 ]
-"187
+"141
 }
 [e :U 289 ]
-[; ;Key.c: 186: }
-[; ;Key.c: 187: }
-[; ;Key.c: 189: if(DownKey.NewValue !=PORTDbits.RD7)
-"189
+[; ;Key.c: 140: }
+[; ;Key.c: 141: }
+[; ;Key.c: 143: if(DownKey.NewValue !=PORTDbits.RD7)
+"143
 [e $ ! != -> . _DownKey 0 `i -> . . _PORTDbits 0 7 `i 295  ]
-[; ;Key.c: 190: {
-"190
+[; ;Key.c: 144: {
+"144
 {
-[; ;Key.c: 191: DownKey.FiterTimesCount =DownKey.FiterTimes;
-"191
+[; ;Key.c: 145: DownKey.FiterTimesCount =DownKey.FiterTimes;
+"145
 [e = . _DownKey 4 . _DownKey 5 ]
-[; ;Key.c: 192: DownKey.NewValue =PORTDbits.RD7;
-"192
+[; ;Key.c: 146: DownKey.NewValue =PORTDbits.RD7;
+"146
 [e = . _DownKey 0 . . _PORTDbits 0 7 ]
-"193
+"147
 }
-[; ;Key.c: 193: }
+[; ;Key.c: 147: }
 [e $U 296  ]
-"194
+"148
 [e :U 295 ]
-[; ;Key.c: 194: else
-[; ;Key.c: 195: {
-"195
+[; ;Key.c: 148: else
+[; ;Key.c: 149: {
+"149
 {
-[; ;Key.c: 196: if(DownKey.NewValue ==PORTDbits.RD7)
-"196
+[; ;Key.c: 150: if(DownKey.NewValue ==PORTDbits.RD7)
+"150
 [e $ ! == -> . _DownKey 0 `i -> . . _PORTDbits 0 7 `i 297  ]
-[; ;Key.c: 197: {
-"197
+[; ;Key.c: 151: {
+"151
 {
-[; ;Key.c: 198: if(DownKey.FiterTimesCount)
-"198
+[; ;Key.c: 152: if(DownKey.FiterTimesCount)
+"152
 [e $ ! != -> . _DownKey 4 `i -> -> -> 0 `i `uc `i 298  ]
+[; ;Key.c: 153: {
+"153
+{
+[; ;Key.c: 154: DownKey.FiterTimesCount--;
+"154
+[e -- . _DownKey 4 -> -> 1 `i `uc ]
+"155
+}
+[; ;Key.c: 155: }
+[e $U 299  ]
+"156
+[e :U 298 ]
+[; ;Key.c: 156: else
+[; ;Key.c: 157: {
+"157
+{
+[; ;Key.c: 158: DownKey.OldValue =DownKey.NewValue;
+"158
+[e = . _DownKey 1 . _DownKey 0 ]
+"159
+}
+[e :U 299 ]
+"160
+}
+[e :U 297 ]
+[; ;Key.c: 159: }
+[; ;Key.c: 160: }
+[; ;Key.c: 161: if(DownKey.OldValue!=DownKey.SendValue)
+"161
+[e $ ! != -> . _DownKey 1 `i -> . _DownKey 2 `i 300  ]
+[; ;Key.c: 162: {
+"162
+{
+[; ;Key.c: 163: DownKey.SendValue=DownKey.OldValue;
+"163
+[e = . _DownKey 2 . _DownKey 1 ]
+[; ;Key.c: 164: DownKey.SendValueChangeFlag =1;
+"164
+[e = . _DownKey 3 -> -> 1 `i `uc ]
+"165
+}
+[; ;Key.c: 165: }
+[e $U 301  ]
+"166
+[e :U 300 ]
+[; ;Key.c: 166: else
+[; ;Key.c: 167: {
+"167
+{
+"169
+}
+[e :U 301 ]
+"170
+}
+[e :U 296 ]
+[; ;Key.c: 169: }
+[; ;Key.c: 170: }
+[; ;Key.c: 175: if(ConfirmKey.NewValue !=PORTBbits.RB3)
+"175
+[e $ ! != -> . _ConfirmKey 0 `i -> . . _PORTBbits 0 3 `i 302  ]
+[; ;Key.c: 176: {
+"176
+{
+[; ;Key.c: 177: ConfirmKey.FiterTimesCount =ConfirmKey.FiterTimes;
+"177
+[e = . _ConfirmKey 4 . _ConfirmKey 5 ]
+[; ;Key.c: 178: ConfirmKey.NewValue =PORTBbits.RB3;
+"178
+[e = . _ConfirmKey 0 . . _PORTBbits 0 3 ]
+"179
+}
+[; ;Key.c: 179: }
+[e $U 303  ]
+"180
+[e :U 302 ]
+[; ;Key.c: 180: else
+[; ;Key.c: 181: {
+"181
+{
+[; ;Key.c: 182: if(ConfirmKey.NewValue ==PORTBbits.RB3)
+"182
+[e $ ! == -> . _ConfirmKey 0 `i -> . . _PORTBbits 0 3 `i 304  ]
+[; ;Key.c: 183: {
+"183
+{
+[; ;Key.c: 184: if(ConfirmKey.FiterTimesCount)
+"184
+[e $ ! != -> . _ConfirmKey 4 `i -> -> -> 0 `i `uc `i 305  ]
+[; ;Key.c: 185: {
+"185
+{
+[; ;Key.c: 186: ConfirmKey.FiterTimesCount--;
+"186
+[e -- . _ConfirmKey 4 -> -> 1 `i `uc ]
+"187
+}
+[; ;Key.c: 187: }
+[e $U 306  ]
+"188
+[e :U 305 ]
+[; ;Key.c: 188: else
+[; ;Key.c: 189: {
+"189
+{
+[; ;Key.c: 190: ConfirmKey.OldValue =ConfirmKey.NewValue;
+"190
+[e = . _ConfirmKey 1 . _ConfirmKey 0 ]
+"191
+}
+[e :U 306 ]
+"192
+}
+[e :U 304 ]
+[; ;Key.c: 191: }
+[; ;Key.c: 192: }
+[; ;Key.c: 193: if(ConfirmKey.OldValue!=ConfirmKey.SendValue)
+"193
+[e $ ! != -> . _ConfirmKey 1 `i -> . _ConfirmKey 2 `i 307  ]
+[; ;Key.c: 194: {
+"194
+{
+[; ;Key.c: 195: ConfirmKey.SendValue=ConfirmKey.OldValue;
+"195
+[e = . _ConfirmKey 2 . _ConfirmKey 1 ]
+[; ;Key.c: 196: ConfirmKey.SendValueChangeFlag =1;
+"196
+[e = . _ConfirmKey 3 -> -> 1 `i `uc ]
+"197
+}
+[; ;Key.c: 197: }
+[e $U 308  ]
+"198
+[e :U 307 ]
+[; ;Key.c: 198: else
 [; ;Key.c: 199: {
 "199
 {
-[; ;Key.c: 200: DownKey.FiterTimesCount--;
-"200
-[e -- . _DownKey 4 -> -> 1 `i `uc ]
 "201
 }
-[; ;Key.c: 201: }
-[e $U 299  ]
+[e :U 308 ]
 "202
-[e :U 298 ]
-[; ;Key.c: 202: else
-[; ;Key.c: 203: {
-"203
-{
-[; ;Key.c: 204: DownKey.OldValue =DownKey.NewValue;
-"204
-[e = . _DownKey 1 . _DownKey 0 ]
+}
+[e :U 303 ]
+[; ;Key.c: 201: }
+[; ;Key.c: 202: }
+[; ;Key.c: 205: if(StartInjectKey.NewValue !=PORTBbits.RB5)
 "205
-}
-[e :U 299 ]
+[e $ ! != -> . _StartInjectKey 0 `i -> . . _PORTBbits 0 5 `i 309  ]
+[; ;Key.c: 206: {
 "206
-}
-[e :U 297 ]
-[; ;Key.c: 205: }
-[; ;Key.c: 206: }
-[; ;Key.c: 207: if(DownKey.OldValue!=DownKey.SendValue)
-"207
-[e $ ! != -> . _DownKey 1 `i -> . _DownKey 2 `i 300  ]
-[; ;Key.c: 208: {
-"208
 {
-[; ;Key.c: 209: DownKey.SendValue=DownKey.OldValue;
+[; ;Key.c: 207: StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
+"207
+[e = . _StartInjectKey 4 . _StartInjectKey 5 ]
+[; ;Key.c: 208: StartInjectKey.NewValue =PORTBbits.RB5;
+"208
+[e = . _StartInjectKey 0 . . _PORTBbits 0 5 ]
 "209
-[e = . _DownKey 2 . _DownKey 1 ]
-[; ;Key.c: 210: DownKey.SendValueChangeFlag =1;
-"210
-[e = . _DownKey 3 -> -> 1 `i `uc ]
-"211
 }
-[; ;Key.c: 211: }
-[e $U 301  ]
+[; ;Key.c: 209: }
+[e $U 310  ]
+"210
+[e :U 309 ]
+[; ;Key.c: 210: else
+[; ;Key.c: 211: {
+"211
+{
+[; ;Key.c: 212: if(StartInjectKey.NewValue ==PORTBbits.RB5)
 "212
-[e :U 300 ]
-[; ;Key.c: 212: else
+[e $ ! == -> . _StartInjectKey 0 `i -> . . _PORTBbits 0 5 `i 311  ]
 [; ;Key.c: 213: {
 "213
 {
+[; ;Key.c: 214: if(StartInjectKey.FiterTimesCount)
+"214
+[e $ ! != -> . _StartInjectKey 4 `i -> -> -> 0 `i `uc `i 312  ]
+[; ;Key.c: 215: {
 "215
-}
-[e :U 301 ]
+{
+[; ;Key.c: 216: StartInjectKey.FiterTimesCount--;
 "216
+[e -- . _StartInjectKey 4 -> -> 1 `i `uc ]
+"217
 }
-[e :U 296 ]
-[; ;Key.c: 215: }
-[; ;Key.c: 216: }
-[; ;Key.c: 221: if(ConfirmKey.NewValue !=PORTBbits.RB3)
+[; ;Key.c: 217: }
+[e $U 313  ]
+"218
+[e :U 312 ]
+[; ;Key.c: 218: else
+[; ;Key.c: 219: {
+"219
+{
+[; ;Key.c: 220: StartInjectKey.OldValue =StartInjectKey.NewValue;
+"220
+[e = . _StartInjectKey 1 . _StartInjectKey 0 ]
 "221
-[e $ ! != -> . _ConfirmKey 0 `i -> . . _PORTBbits 0 3 `i 302  ]
-[; ;Key.c: 222: {
-"222
-{
-[; ;Key.c: 223: ConfirmKey.FiterTimesCount =ConfirmKey.FiterTimes;
-"223
-[e = . _ConfirmKey 4 . _ConfirmKey 5 ]
-[; ;Key.c: 224: ConfirmKey.NewValue =PORTBbits.RB3;
-"224
-[e = . _ConfirmKey 0 . . _PORTBbits 0 3 ]
-"225
 }
-[; ;Key.c: 225: }
-[e $U 303  ]
-"226
-[e :U 302 ]
-[; ;Key.c: 226: else
-[; ;Key.c: 227: {
-"227
+[e :U 313 ]
+"222
+}
+[e :U 311 ]
+[; ;Key.c: 221: }
+[; ;Key.c: 222: }
+[; ;Key.c: 223: if(StartInjectKey.OldValue!=StartInjectKey.SendValue)
+"223
+[e $ ! != -> . _StartInjectKey 1 `i -> . _StartInjectKey 2 `i 314  ]
+[; ;Key.c: 224: {
+"224
 {
-[; ;Key.c: 228: if(ConfirmKey.NewValue ==PORTBbits.RB3)
+[; ;Key.c: 225: StartInjectKey.SendValue=StartInjectKey.OldValue;
+"225
+[e = . _StartInjectKey 2 . _StartInjectKey 1 ]
+[; ;Key.c: 226: StartInjectKey.SendValueChangeFlag =1;
+"226
+[e = . _StartInjectKey 3 -> -> 1 `i `uc ]
+"227
+}
+[; ;Key.c: 227: }
+[e $U 315  ]
 "228
-[e $ ! == -> . _ConfirmKey 0 `i -> . . _PORTBbits 0 3 `i 304  ]
+[e :U 314 ]
+[; ;Key.c: 228: else
 [; ;Key.c: 229: {
 "229
 {
-[; ;Key.c: 230: if(ConfirmKey.FiterTimesCount)
-"230
-[e $ ! != -> . _ConfirmKey 4 `i -> -> -> 0 `i `uc `i 305  ]
-[; ;Key.c: 231: {
 "231
-{
-[; ;Key.c: 232: ConfirmKey.FiterTimesCount--;
-"232
-[e -- . _ConfirmKey 4 -> -> 1 `i `uc ]
-"233
-}
-[; ;Key.c: 233: }
-[e $U 306  ]
-"234
-[e :U 305 ]
-[; ;Key.c: 234: else
-[; ;Key.c: 235: {
-"235
-{
-[; ;Key.c: 236: ConfirmKey.OldValue =ConfirmKey.NewValue;
-"236
-[e = . _ConfirmKey 1 . _ConfirmKey 0 ]
-"237
-}
-[e :U 306 ]
-"238
-}
-[e :U 304 ]
-[; ;Key.c: 237: }
-[; ;Key.c: 238: }
-[; ;Key.c: 239: if(ConfirmKey.OldValue!=ConfirmKey.SendValue)
-"239
-[e $ ! != -> . _ConfirmKey 1 `i -> . _ConfirmKey 2 `i 307  ]
-[; ;Key.c: 240: {
-"240
-{
-[; ;Key.c: 241: ConfirmKey.SendValue=ConfirmKey.OldValue;
-"241
-[e = . _ConfirmKey 2 . _ConfirmKey 1 ]
-[; ;Key.c: 242: ConfirmKey.SendValueChangeFlag =1;
-"242
-[e = . _ConfirmKey 3 -> -> 1 `i `uc ]
-"243
-}
-[; ;Key.c: 243: }
-[e $U 308  ]
-"244
-[e :U 307 ]
-[; ;Key.c: 244: else
-[; ;Key.c: 245: {
-"245
-{
-"247
-}
-[e :U 308 ]
-"248
-}
-[e :U 303 ]
-[; ;Key.c: 247: }
-[; ;Key.c: 248: }
-[; ;Key.c: 251: if(StartInjectKey.NewValue !=PORTBbits.RB5)
-"251
-[e $ ! != -> . _StartInjectKey 0 `i -> . . _PORTBbits 0 5 `i 309  ]
-[; ;Key.c: 252: {
-"252
-{
-[; ;Key.c: 253: StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
-"253
-[e = . _StartInjectKey 4 . _StartInjectKey 5 ]
-[; ;Key.c: 254: StartInjectKey.NewValue =PORTBbits.RB5;
-"254
-[e = . _StartInjectKey 0 . . _PORTBbits 0 5 ]
-"255
-}
-[; ;Key.c: 255: }
-[e $U 310  ]
-"256
-[e :U 309 ]
-[; ;Key.c: 256: else
-[; ;Key.c: 257: {
-"257
-{
-[; ;Key.c: 258: if(StartInjectKey.NewValue ==PORTBbits.RB5)
-"258
-[e $ ! == -> . _StartInjectKey 0 `i -> . . _PORTBbits 0 5 `i 311  ]
-[; ;Key.c: 259: {
-"259
-{
-[; ;Key.c: 260: if(StartInjectKey.FiterTimesCount)
-"260
-[e $ ! != -> . _StartInjectKey 4 `i -> -> -> 0 `i `uc `i 312  ]
-[; ;Key.c: 261: {
-"261
-{
-[; ;Key.c: 262: StartInjectKey.FiterTimesCount--;
-"262
-[e -- . _StartInjectKey 4 -> -> 1 `i `uc ]
-"263
-}
-[; ;Key.c: 263: }
-[e $U 313  ]
-"264
-[e :U 312 ]
-[; ;Key.c: 264: else
-[; ;Key.c: 265: {
-"265
-{
-[; ;Key.c: 266: StartInjectKey.OldValue =StartInjectKey.NewValue;
-"266
-[e = . _StartInjectKey 1 . _StartInjectKey 0 ]
-"267
-}
-[e :U 313 ]
-"268
-}
-[e :U 311 ]
-[; ;Key.c: 267: }
-[; ;Key.c: 268: }
-[; ;Key.c: 269: if(StartInjectKey.OldValue!=StartInjectKey.SendValue)
-"269
-[e $ ! != -> . _StartInjectKey 1 `i -> . _StartInjectKey 2 `i 314  ]
-[; ;Key.c: 270: {
-"270
-{
-[; ;Key.c: 271: StartInjectKey.SendValue=StartInjectKey.OldValue;
-"271
-[e = . _StartInjectKey 2 . _StartInjectKey 1 ]
-[; ;Key.c: 272: StartInjectKey.SendValueChangeFlag =1;
-"272
-[e = . _StartInjectKey 3 -> -> 1 `i `uc ]
-"273
-}
-[; ;Key.c: 273: }
-[e $U 315  ]
-"274
-[e :U 314 ]
-[; ;Key.c: 274: else
-[; ;Key.c: 275: {
-"275
-{
-"277
 }
 [e :U 315 ]
-"278
+"232
 }
 [e :U 310 ]
-"280
+"234
 }
 [e :U 280 ]
-[; ;Key.c: 277: }
-[; ;Key.c: 278: }
-[; ;Key.c: 280: }
-[; ;Key.c: 282: if(StartInjectKey.OldValue ==0)
-"282
+[; ;Key.c: 231: }
+[; ;Key.c: 232: }
+[; ;Key.c: 234: }
+[; ;Key.c: 236: if(StartInjectKey.OldValue ==0)
+"236
 [e $ ! == -> . _StartInjectKey 1 `i -> 0 `i 316  ]
-[; ;Key.c: 283: {
-"283
+[; ;Key.c: 237: {
+"237
 {
-[; ;Key.c: 284: StartWorkFlag =1;
-"284
+[; ;Key.c: 238: StartWorkFlag =1;
+"238
 [e = _StartWorkFlag -> -> 1 `i `uc ]
-"285
+"239
 }
-[; ;Key.c: 285: }
+[; ;Key.c: 239: }
 [e $U 317  ]
-"286
+"240
 [e :U 316 ]
-[; ;Key.c: 286: else
-[; ;Key.c: 287: {
-"287
+[; ;Key.c: 240: else
+[; ;Key.c: 241: {
+"241
 {
-[; ;Key.c: 288: StartWorkFlag =0;
-"288
+[; ;Key.c: 242: StartWorkFlag =0;
+"242
 [e = _StartWorkFlag -> -> 0 `i `uc ]
-"289
+"243
 }
 [e :U 317 ]
-[; ;Key.c: 289: }
-[; ;Key.c: 290: }
-"290
+[; ;Key.c: 243: }
+[; ;Key.c: 244: }
+"244
 [e :UE 279 ]
 }
-"291
+"245
 [v _KeyFuction `(v ~T0 @X0 1 ef ]
-"292
+"246
 {
-[; ;Key.c: 291: void KeyFuction(void)
-[; ;Key.c: 292: {
+[; ;Key.c: 245: void KeyFuction(void)
+[; ;Key.c: 246: {
 [e :U _KeyFuction ]
 [f ]
-"293
+"247
 [v F3048 `uc ~T0 @X0 1 s store_key ]
 [i F3048
 -> -> 0 `i `uc
 ]
-[; ;Key.c: 293: static unsigned char store_key =0;
-[; ;Key.c: 294: if(OnOffKey.SendValueChangeFlag && (OnOffKey.SendValue==0))
-"294
+[; ;Key.c: 247: static unsigned char store_key =0;
+[; ;Key.c: 248: if(OnOffKey.SendValueChangeFlag && (OnOffKey.SendValue==0))
+"248
 [e $ ! && != -> . _OnOffKey 3 `i -> -> -> 0 `i `uc `i == -> . _OnOffKey 2 `i -> 0 `i 319  ]
-[; ;Key.c: 295: {
-"295
+[; ;Key.c: 249: {
+"249
 {
-[; ;Key.c: 296: OnOffKey.SendValueChangeFlag =0;
-"296
+[; ;Key.c: 250: OnOffKey.SendValueChangeFlag =0;
+"250
 [e = . _OnOffKey 3 -> -> 0 `i `uc ]
-[; ;Key.c: 297: OnOffKey.FiterTimes=OnOffKey.FiterTimes;
-"297
+[; ;Key.c: 251: OnOffKey.FiterTimes=OnOffKey.FiterTimes;
+"251
 [e = . _OnOffKey 5 . _OnOffKey 5 ]
-[; ;Key.c: 301: OnOffKey.SendValue =1;
-"301
+[; ;Key.c: 255: OnOffKey.SendValue =1;
+"255
 [e = . _OnOffKey 2 -> -> 1 `i `uc ]
-[; ;Key.c: 302: OnOffKey.SendValueChangeFlag =0;
-"302
+[; ;Key.c: 256: OnOffKey.SendValueChangeFlag =0;
+"256
 [e = . _OnOffKey 3 -> -> 0 `i `uc ]
-"303
+"257
 }
-[; ;Key.c: 303: }
+[; ;Key.c: 257: }
 [e $U 320  ]
-"304
+"258
 [e :U 319 ]
-[; ;Key.c: 304: else
-[; ;Key.c: 305: {
-"305
+[; ;Key.c: 258: else
+[; ;Key.c: 259: {
+"259
 {
-"307
+"261
 }
 [e :U 320 ]
-[; ;Key.c: 307: }
-[; ;Key.c: 309: if(UpKey.SendValueChangeFlag && (UpKey.SendValue==0))
-"309
+[; ;Key.c: 261: }
+[; ;Key.c: 263: if(UpKey.SendValueChangeFlag && (UpKey.SendValue==0))
+"263
 [e $ ! && != -> . _UpKey 3 `i -> -> -> 0 `i `uc `i == -> . _UpKey 2 `i -> 0 `i 321  ]
-[; ;Key.c: 310: {
-"310
+[; ;Key.c: 264: {
+"264
 {
-[; ;Key.c: 311: UpKey.SendValueChangeFlag =0;
-"311
+[; ;Key.c: 265: UpKey.SendValueChangeFlag =0;
+"265
 [e = . _UpKey 3 -> -> 0 `i `uc ]
-[; ;Key.c: 312: UpKey.FiterTimes=OnOffKey.FiterTimes;
-"312
+[; ;Key.c: 266: UpKey.FiterTimes=OnOffKey.FiterTimes;
+"266
 [e = . _UpKey 5 . _OnOffKey 5 ]
-[; ;Key.c: 316: UpKey.SendValue =1;
-"316
+[; ;Key.c: 270: UpKey.SendValue =1;
+"270
 [e = . _UpKey 2 -> -> 1 `i `uc ]
-[; ;Key.c: 317: UpKey.SendValueChangeFlag =0;
-"317
+[; ;Key.c: 271: UpKey.SendValueChangeFlag =0;
+"271
 [e = . _UpKey 3 -> -> 0 `i `uc ]
-"318
+"272
 }
-[; ;Key.c: 318: }
+[; ;Key.c: 272: }
 [e $U 322  ]
-"319
+"273
 [e :U 321 ]
-[; ;Key.c: 319: else
-[; ;Key.c: 320: {
-"320
+[; ;Key.c: 273: else
+[; ;Key.c: 274: {
+"274
 {
-"322
+"276
 }
 [e :U 322 ]
-[; ;Key.c: 322: }
-[; ;Key.c: 324: if(DownKey.SendValueChangeFlag && (DownKey.SendValue==0))
-"324
+[; ;Key.c: 276: }
+[; ;Key.c: 278: if(DownKey.SendValueChangeFlag && (DownKey.SendValue==0))
+"278
 [e $ ! && != -> . _DownKey 3 `i -> -> -> 0 `i `uc `i == -> . _DownKey 2 `i -> 0 `i 323  ]
-[; ;Key.c: 325: {
-"325
+[; ;Key.c: 279: {
+"279
 {
-[; ;Key.c: 326: DownKey.SendValueChangeFlag =0;
-"326
+[; ;Key.c: 280: DownKey.SendValueChangeFlag =0;
+"280
 [e = . _DownKey 3 -> -> 0 `i `uc ]
-[; ;Key.c: 327: DownKey.FiterTimes=DownKey.FiterTimes;
-"327
+[; ;Key.c: 281: DownKey.FiterTimes=DownKey.FiterTimes;
+"281
 [e = . _DownKey 5 . _DownKey 5 ]
-[; ;Key.c: 331: DownKey.SendValue =1;
-"331
+[; ;Key.c: 285: DownKey.SendValue =1;
+"285
 [e = . _DownKey 2 -> -> 1 `i `uc ]
-[; ;Key.c: 332: DownKey.SendValueChangeFlag =0;
-"332
+[; ;Key.c: 286: DownKey.SendValueChangeFlag =0;
+"286
 [e = . _DownKey 3 -> -> 0 `i `uc ]
-"333
+"287
 }
-[; ;Key.c: 333: }
+[; ;Key.c: 287: }
 [e $U 324  ]
-"334
+"288
 [e :U 323 ]
-[; ;Key.c: 334: else
-[; ;Key.c: 335: {
-"335
+[; ;Key.c: 288: else
+[; ;Key.c: 289: {
+"289
 {
-"337
+"291
 }
 [e :U 324 ]
-[; ;Key.c: 337: }
-[; ;Key.c: 339: if(ConfirmKey.SendValueChangeFlag && (ConfirmKey.SendValue==0))
-"339
+[; ;Key.c: 291: }
+[; ;Key.c: 293: if(ConfirmKey.SendValueChangeFlag && (ConfirmKey.SendValue==0))
+"293
 [e $ ! && != -> . _ConfirmKey 3 `i -> -> -> 0 `i `uc `i == -> . _ConfirmKey 2 `i -> 0 `i 325  ]
-[; ;Key.c: 340: {
-"340
+[; ;Key.c: 294: {
+"294
 {
-[; ;Key.c: 341: ConfirmKey.SendValueChangeFlag =0;
-"341
+[; ;Key.c: 295: ConfirmKey.SendValueChangeFlag =0;
+"295
 [e = . _ConfirmKey 3 -> -> 0 `i `uc ]
-[; ;Key.c: 342: ConfirmKey.FiterTimes=ConfirmKey.FiterTimes;
-"342
+[; ;Key.c: 296: ConfirmKey.FiterTimes=ConfirmKey.FiterTimes;
+"296
 [e = . _ConfirmKey 5 . _ConfirmKey 5 ]
-[; ;Key.c: 346: ConfirmKey.SendValue =1;
-"346
+[; ;Key.c: 300: ConfirmKey.SendValue =1;
+"300
 [e = . _ConfirmKey 2 -> -> 1 `i `uc ]
-[; ;Key.c: 347: ConfirmKey.SendValueChangeFlag =0;
-"347
+[; ;Key.c: 301: ConfirmKey.SendValueChangeFlag =0;
+"301
 [e = . _ConfirmKey 3 -> -> 0 `i `uc ]
-"348
+"302
 }
-[; ;Key.c: 348: }
+[; ;Key.c: 302: }
 [e $U 326  ]
-"349
+"303
 [e :U 325 ]
-[; ;Key.c: 349: else
-[; ;Key.c: 350: {
-"350
+[; ;Key.c: 303: else
+[; ;Key.c: 304: {
+"304
 {
-"352
+"306
 }
 [e :U 326 ]
-[; ;Key.c: 352: }
-[; ;Key.c: 354: if(StartInjectKey.SendValueChangeFlag && (StartInjectKey.SendValue==0))
-"354
+[; ;Key.c: 306: }
+[; ;Key.c: 308: if(StartInjectKey.SendValueChangeFlag && (StartInjectKey.SendValue==0))
+"308
 [e $ ! && != -> . _StartInjectKey 3 `i -> -> -> 0 `i `uc `i == -> . _StartInjectKey 2 `i -> 0 `i 327  ]
-[; ;Key.c: 355: {
-"355
+[; ;Key.c: 309: {
+"309
 {
-[; ;Key.c: 356: StartInjectKey.SendValueChangeFlag =0;
-"356
+[; ;Key.c: 310: StartInjectKey.SendValueChangeFlag =0;
+"310
 [e = . _StartInjectKey 3 -> -> 0 `i `uc ]
-[; ;Key.c: 357: StartInjectKey.FiterTimes=StartInjectKey.FiterTimes;
-"357
+[; ;Key.c: 311: StartInjectKey.FiterTimes=StartInjectKey.FiterTimes;
+"311
 [e = . _StartInjectKey 5 . _StartInjectKey 5 ]
-[; ;Key.c: 361: StartInjectKey.SendValue =1;
-"361
+[; ;Key.c: 315: StartInjectKey.SendValue =1;
+"315
 [e = . _StartInjectKey 2 -> -> 1 `i `uc ]
-[; ;Key.c: 362: StartInjectKey.SendValueChangeFlag =0;
-"362
+[; ;Key.c: 316: StartInjectKey.SendValueChangeFlag =0;
+"316
 [e = . _StartInjectKey 3 -> -> 0 `i `uc ]
-"363
+"317
 }
-[; ;Key.c: 363: }
+[; ;Key.c: 317: }
 [e $U 328  ]
-"364
+"318
 [e :U 327 ]
-[; ;Key.c: 364: else
-[; ;Key.c: 365: {
-"365
+[; ;Key.c: 318: else
+[; ;Key.c: 319: {
+"319
 {
-"367
+"321
 }
 [e :U 328 ]
-[; ;Key.c: 367: }
-[; ;Key.c: 368: }
-"368
+[; ;Key.c: 321: }
+[; ;Key.c: 322: }
+"322
 [e :UE 318 ]
 }
