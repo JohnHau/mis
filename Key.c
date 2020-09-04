@@ -1,7 +1,7 @@
 #include <xc.h>
-//#include <p18cxxx.h>
-
+#include "Beep.h"
 #include "Key.h"
+#include "Oled.h"
 //#include "PositionControl.h"
 
 KeyType OnOffKey={0},UpKey={0},DownKey={0},ConfirmKey={0},StartInjectKey={0};
@@ -53,281 +53,71 @@ void KEY_Init(void) //
     INTCONbits.GIE =1;
     
 #endif
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+       
 }
 
-void KEY_Scan(void)
-{
-
-
-#if 0	
-	if(!KeyScanPeriod)
-	{
-		KeyScanPeriod =KEY_SCAN_PERIOD_CONST;	
-
-			if(OnOffKey.NewValue !=ON_OFF_BUTTON_PIN)
-			{
-				OnOffKey.FiterTimesCount =OnOffKey.FiterTimes;
-				OnOffKey.NewValue =ON_OFF_BUTTON_PIN;
-			}
-			else
-			{
-					if(OnOffKey.NewValue ==ON_OFF_BUTTON_PIN)
-					{
-						if(OnOffKey.FiterTimesCount)//去除抖动次数未到
-						{
-							OnOffKey.FiterTimesCount--;
-						}
-						else//去除抖动次数到
-						{
-							OnOffKey.OldValue =OnOffKey.NewValue;
-						}
-					}
-					if(OnOffKey.OldValue!=OnOffKey.SendValue)
-					{
-						OnOffKey.SendValue=OnOffKey.OldValue;
-						OnOffKey.SendValueChangeFlag =1;
-					}
-					else
-					{
-
-					}
-				}
-		/////TM003_RESET
-			if(UpKey.NewValue !=UP_BUTTON_PIN)
-			{
-				UpKey.FiterTimesCount =UpKey.FiterTimes;
-				UpKey.NewValue =UP_BUTTON_PIN;
-			}
-			else
-			{
-					if(UpKey.NewValue ==UP_BUTTON_PIN)
-					{
-						if(UpKey.FiterTimesCount)//去除抖动次数未到
-						{
-							UpKey.FiterTimesCount--;
-						}
-						else//去除抖动次数到
-						{
-							UpKey.OldValue =UpKey.NewValue;
-						}
-					}
-					if(UpKey.OldValue!=UpKey.SendValue)
-					{
-						UpKey.SendValue=UpKey.OldValue;
-						UpKey.SendValueChangeFlag =1;
-					}
-					else
-					{
-
-					}
-			}
-		/////
-			if(DownKey.NewValue !=DOWN_BUTTON_PIN)
-			{
-				DownKey.FiterTimesCount =DownKey.FiterTimes;
-				DownKey.NewValue =DOWN_BUTTON_PIN;
-			}
-			else
-			{
-					if(DownKey.NewValue ==DOWN_BUTTON_PIN)
-					{
-						if(DownKey.FiterTimesCount)//去除抖动次数未到
-						{
-							DownKey.FiterTimesCount--;
-						}
-						else//去除抖动次数到
-						{
-							DownKey.OldValue =DownKey.NewValue;
-						}
-					}
-					if(DownKey.OldValue!=DownKey.SendValue)
-					{
-						DownKey.SendValue=DownKey.OldValue;
-						DownKey.SendValueChangeFlag =1;
-					}
-					else
-					{
-
-					}
-				}	
-
-
-
-		//CleanKey.NewValue= TM003_RESET;
-			if(ConfirmKey.NewValue !=COMFIRM_BUTTON_PIN)
-			{
-				ConfirmKey.FiterTimesCount =ConfirmKey.FiterTimes;
-				ConfirmKey.NewValue =COMFIRM_BUTTON_PIN;
-			}
-			else
-			{
-					if(ConfirmKey.NewValue ==COMFIRM_BUTTON_PIN)
-					{
-						if(ConfirmKey.FiterTimesCount)//去除抖动次数未到
-						{
-							ConfirmKey.FiterTimesCount--;
-						}
-						else//去除抖动次数到
-						{
-							ConfirmKey.OldValue =ConfirmKey.NewValue;
-						}
-					}
-					if(ConfirmKey.OldValue!=ConfirmKey.SendValue)
-					{
-						ConfirmKey.SendValue=ConfirmKey.OldValue;
-						ConfirmKey.SendValueChangeFlag =1;
-					}
-					else
-					{
-
-					}
-				}
-
-		//CleanKey.NewValue= TM003_RESET;
-			if(StartInjectKey.NewValue !=START_WORK_BUTTON_PIN)
-			{
-				StartInjectKey.FiterTimesCount =StartInjectKey.FiterTimes;
-				StartInjectKey.NewValue =START_WORK_BUTTON_PIN;
-			}
-			else
-			{
-					if(StartInjectKey.NewValue ==START_WORK_BUTTON_PIN)
-					{
-						if(StartInjectKey.FiterTimesCount)//去除抖动次数未到
-						{
-							StartInjectKey.FiterTimesCount--;
-						}
-						else//去除抖动次数到
-						{
-							StartInjectKey.OldValue =StartInjectKey.NewValue;
-						}
-					}
-					if(StartInjectKey.OldValue!=StartInjectKey.SendValue)
-					{
-						StartInjectKey.SendValue=StartInjectKey.OldValue;
-						StartInjectKey.SendValueChangeFlag =1;
-					}
-					else
-					{
-
-					}
-				}
-			
-			}
-
-			if(StartInjectKey.OldValue ==0)
-			{
-				StartWorkFlag =1;			
-			}
-			else
-			{
-				StartWorkFlag =0;				
-			}
-    
-    
-#endif
+uint8_t KEY_Scan(void)
+{           
+        if(KEY_UP == 0)
+        {
+           
+             delay_nms(10);
+            
+             if(KEY_UP == 0)
+             {
+                 while(KEY_UP == 0);
+                   buzz();
+                   
+                   return KEY_UP_PRESSED;
+             }
+        }
+        if(KEY_DOWN == 0)
+        {
+         
+             delay_nms(10);
+             if(KEY_DOWN == 0)
+             {
+                 while(KEY_DOWN == 0);
+                   buzz();
+                   
+                   return KEY_DOWN_PRESSED;
+             }
+            
+            
+            //buzz();
+        }
+        if(KEY_V == 0)
+        {
+              delay_nms(10);
+             if(KEY_V == 0)
+             {
+                 while(KEY_V == 0);
+                   buzz();
+                   
+                   return KEY_V_PRESSED;
+             }
+        }  
+        
+        
+        
+        return KEY_NOT_PRESSED;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 void KeyFuction(void)
 {
     
-#if 0
-	static unsigned char store_key =0;
-	if(OnOffKey.SendValueChangeFlag && (OnOffKey.SendValue==0))//按键被按下,切换到最初界面 实时显示数据
-	{
-		OnOffKey.SendValueChangeFlag =0;
-		OnOffKey.FiterTimes=OnOffKey.FiterTimes;
-		
-		//OnOffKey.NewValue=1;
-		//OnOffKey.OldValue =1;
-		OnOffKey.SendValue =1;
-		OnOffKey.SendValueChangeFlag =0;
-	}
-	else
-	{
 
-	}
-
-	if(UpKey.SendValueChangeFlag && (UpKey.SendValue==0))//按键被按下,切换到最初界面 实时显示数据
-	{
-		UpKey.SendValueChangeFlag =0;
-		UpKey.FiterTimes=OnOffKey.FiterTimes;
-		
-		//UpKey.NewValue=1;
-		//UpKey.OldValue =1;
-		UpKey.SendValue =1;
-		UpKey.SendValueChangeFlag =0;
-	}
-	else
-	{
-
-	}
-
-	if(DownKey.SendValueChangeFlag && (DownKey.SendValue==0))//按键被按下,切换到最初界面 实时显示数据
-	{
-		DownKey.SendValueChangeFlag =0;
-		DownKey.FiterTimes=DownKey.FiterTimes;
-		
-		//DownKey.NewValue=1;
-		//DownKey.OldValue =1;
-		DownKey.SendValue =1;
-		DownKey.SendValueChangeFlag =0;
-	}
-	else
-	{
-
-	}
-
-	if(ConfirmKey.SendValueChangeFlag && (ConfirmKey.SendValue==0))//按键被按下,切换到最初界面 实时显示数据
-	{
-		ConfirmKey.SendValueChangeFlag =0;
-		ConfirmKey.FiterTimes=ConfirmKey.FiterTimes;
-		
-		//ConfirmKey.NewValue=1;
-		//ConfirmKey.OldValue =1;
-		ConfirmKey.SendValue =1;
-		ConfirmKey.SendValueChangeFlag =0;
-	}
-	else
-	{
-
-	}
-
-	if(StartInjectKey.SendValueChangeFlag && (StartInjectKey.SendValue==0))//按键被按下,切换到最初界面 实时显示数据
-	{
-		StartInjectKey.SendValueChangeFlag =0;
-		StartInjectKey.FiterTimes=StartInjectKey.FiterTimes;
-		
-		//StartInjectKey.NewValue=1;
-		//StartInjectKey.OldValue =1;
-		StartInjectKey.SendValue =1;
-		StartInjectKey.SendValueChangeFlag =0;
-	}
-	else
-	{
-
-	}
-#endif
 }
 
 

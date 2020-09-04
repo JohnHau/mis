@@ -1,7 +1,6 @@
 #include <xc.h>
-//#include <p18cxxx.h>
 #include "Beep.h"
-
+#include "Oled.h"
 void BeepInit(void)
 {
 	//PORTBbits.RB1 =0;	//colse	
@@ -39,12 +38,16 @@ void buzz(void)
 {
     
     
-    	unsigned int  i,j;
+    	//unsigned int  i,j;
 //PORTEbits.RE2 =1;
 LATEbits.LE2 =1;
   
-    for(i=0;i<200;i++)
-       for(j=0;j<100;j++);
+    //for(i=0;i<200;i++)
+       //for(j=0;j<100;j++);
+       
+       
+        delay_nms(1);
+       
 //PORTEbits.RE2 =0;
 LATEbits.LE2 =0;
   //for(i=0;i<200;i++)

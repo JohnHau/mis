@@ -3,13 +3,11 @@
 #include"MotorDrive.h"
 #include "Timer.h"
 #include "Beep.h"
-//#include "Oled.h"
 //#include "PositionControl.h"
 #include "Key.h"
 #include "Timer.h"
 #include "Oled.h"
-//#include "bmp.h"
-//#include "oledfont.h"
+
 //#include "Display.h"
 //#include "PositionControl.h"
 
@@ -61,6 +59,16 @@
           
 
 
+
+
+
+
+
+
+
+
+
+
 int xn=0;
 int ann=0;
 uint8_t prev_edge =0;
@@ -72,6 +80,7 @@ void main(void)
 { 
 
 	BeepInit();
+   
     //BeepOn();
     //while(1);
     
@@ -89,7 +98,13 @@ void main(void)
 	//PositionCheckInit();
 	KEY_Init();
     
-  
+    Initial_LY096BG30();
+    TimerInit();
+
+   // while(xn<20)
+    //LCD_On();
+    //while(1);
+    
     
     
 #if 0
@@ -133,11 +148,6 @@ void main(void)
     
     
 
-    Initial_LY096BG30();
-   // while(xn<20)
-    //LCD_On();
-    while(1);
-    
     
 #if 0
    // FORWARD_RUN_A();   
@@ -172,24 +182,11 @@ void main(void)
     
     
     
-    while(0)
+    while(1)
     {
         
-        
-        if(KEY_UP == 0)//=============
-        {
-            //buzz();
-            LCD_Blink();
-        }
-        if(KEY_DOWN == 0)
-        {
-            //buzz();
-        }
-        if(KEY_V == 0)
-        {
-            //buzz();
-        }
-        if(KEY_WAKE == 0)
+
+       // if(KEY_WAKE == 0)
       
        
         //if(KEY_WAKE == 0 && KEY_UP == 1 && KEY_V == 1 && KEY_DOWN == 1)//==============
@@ -203,7 +200,7 @@ void main(void)
             //delay(100);
              //if(KEY_WAKE == 0 )
              {
-                buzz();
+                //buzz();
                // LCD_Blink();
                // break;
              }

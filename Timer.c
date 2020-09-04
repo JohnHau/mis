@@ -15,14 +15,84 @@ unsigned char LastInjectionFeedback =0;
 unsigned char flag =0;
 
 uint16_t mbcnt=0;
+uint8_t tflag =1;
 
 //void __interrupt(high_priority) ISR(void)
 //void __interrupt(high_priority) ISR(void)
 void __interrupt ISR(void)
 {
     uint8_t temp;
+    static uint32_t tcnt=0;
+    
+    
     
 #if 1
+    if(T0IF)
+    {
+    
+        tcnt ++;
+    if(interface_x.mode == MODE_BLINK  && interface_x.cnt_blink)
+    {
+           interface_x.cnt_blink --;
+
+
+    } 
+        
+        
+        //if(tcnt > 500*1000UL)
+        if(tcnt > 125)
+        {
+
+            //buzz();
+            
+            
+            if(tflag)
+            {
+             //BeepOn();
+            // LCD_On();
+                
+                
+                
+                 display_pattern(7,2,MODE_BLANK);
+                  display_pattern(6,0,MODE_BLANK);
+                   display_pattern(5,0,MODE_BLANK);
+                    display_pattern(4,0,MODE_BLANK);
+                    
+                 display_pattern(1,2,MODE_BLANK);
+                    
+             tflag =0;
+            
+            }
+            else if(tflag == 0)
+            {
+             //BeepOff();
+            // LCD_Off();
+                 display_pattern(7,2,MODE_REVERSE);
+                  display_pattern(6,0,MODE_REVERSE);
+                   display_pattern(5,0,MODE_REVERSE);
+                    display_pattern(4,0,MODE_REVERSE);
+                          
+                  display_pattern(1,2,MODE_REVERSE);
+             tflag =1;
+            }
+            
+            
+            
+            tcnt = 0;
+        }
+
+        T0IF = 0;
+    
+    }
+    
+    
+#endif
+    
+    
+    
+    
+    
+#if 0
     if(INTCONbits.RBIF)
     {
     
@@ -85,239 +155,7 @@ void __interrupt ISR(void)
     
     
 #endif
-    
-    //buzz();
-    
-    
-    
-    
-    
-    
-#if 0
-    
-  unsigned char i =0;
 
-  if(T0IE && T0IF) 
-  {
-#if 0
-	if(AdSampleTaskTime)
-	{
-		AdSampleTaskTime--;
-	}
-#endif
-	if(KeyScanPeriod)
-	{
-		KeyScanPeriod--;
-	}
-
-    i =NEEDLE_MOTOR_FEEDBACK2;
-    if(LastNeedleFeedback != i)
-	{
-		if(NeedleRunDir)//fan
-		{
-			NeedleMotorCurrentPosition--;		
-		}
-		else
-		{
-			NeedleMotorCurrentPosition++;		
-		}
-		LastNeedleFeedback = i;
-	}
-
-    i =INJECTION_MOTOR_FEEDBACK2;
-    if(LastInjectionFeedback != i)
-	{
-		InjectionMotorCurrentPosition++;
-		LastInjectionFeedback = i;
-	}
-
-	
-	if(StartWorkFlag ==1)
-	{
-		switch(CurrentWorkPara.InjectMode)
-		{
-			case CONTINUE_WORK_MODE:
-					
-					if(ContinueWorkState ==0)
-					{
-						NeedleRunDir =0;
-						//NeedleMotorForwardRun();			
-						CLEAR_L298N_INPUT3_PIN;    			
-						SET_L298N_INPUT4_PIN;  			
-						SET_L298N_B_ENABLE_PIN;  		
-						if((NeedleMotorCurrentPosition > NeedleMotorAimPosition) ||(NeedleMotorCurrentPosition == NeedleMotorAimPosition))
-						{
-							//NeedleMotorFastStop();
-							SET_L298N_INPUT3_PIN; 			
-							SET_L298N_INPUT4_PIN;  			
-							SET_L298N_B_ENABLE_PIN;  		
-
-							ContinueWorkState =1;
-						}
-					}
-					else if(ContinueWorkState == 1)
-					{
-						//InjectionMotorForwardRun();
-						SET_L298N_INPUT1_PIN;
-						CLEAR_L298N_INPUT2_PIN;
-						SET_L298N_A_ENABLE_PIN;
- 
-						if((InjectionMotorCurrentPosition > InjectionMotorAimPosition)||(InjectionMotorCurrentPosition == InjectionMotorAimPosition))
-						{
-							//InjectionMotorFastStop();
-							SET_L298N_INPUT1_PIN;
-							SET_L298N_INPUT2_PIN;
-							SET_L298N_A_ENABLE_PIN;
-  
-							ContinueWorkState =2;
-						}
-					}
-					else if(ContinueWorkState == 2)
-					{
-						NeedleRunDir =1;
-				
-						if((NeedleMotorCurrentPosition <  NeedleInitPosition)||(NeedleMotorCurrentPosition ==  NeedleInitPosition))
-						{
-							//NeedleMotorFastStop();
-							SET_L298N_INPUT3_PIN; 			
-							SET_L298N_INPUT4_PIN;  			
-							SET_L298N_B_ENABLE_PIN;  		
- 
-							ContinueWorkState =3;
-						}
-						else
-						{
-							//NeedleMotorReverseRun();	
-							SET_L298N_INPUT3_PIN; 			 			
-							CLEAR_L298N_INPUT4_PIN; 
-							SET_L298N_B_ENABLE_PIN;  		
-		
-						}			
-					}
-					else if(ContinueWorkState ==3)
-					{
-						ContinueWorkState =3;
-						if(!ContinueWorkTimeCount)
-						{
-							ContinueWorkTimeCount =ContinueWorkTimePeriod;
-							ContinueWorkState =0;
-							InjectionMotorAimPosition =InjectionMotorCurrentPosition + InjectionStepMotorStepPulseNum;//
-						}
-					}
-					else
-					{
-				
-					}
-					if(ContinueWorkTimeCount)
-					{
-						ContinueWorkTimeCount--;					
-					}
-			
-			break;	
-
-			case MICROSCALE_WORK_MODE:
-		
-			break;
-	
-			default:
-
-			break;
-	
-		}
-	}
-	else  
-	{
-		
-		if(!NeedleMotorFindZeroPosFlag)
-		{
-			if(NEEDLE_MOTOR_LI_POS_PIN ==0 )
-			{
-				//if(flag ==0)
-				{
-					//GIE=0;  
-					NeedleMotorCurrentPosition =0;
-					flag =1;
-					//GIE=1;  
-					//NeedleMotorForwardRun();	
-					CLEAR_L298N_INPUT3_PIN;    			
-					SET_L298N_INPUT4_PIN;  			 
-					SET_L298N_B_ENABLE_PIN;
-
-					if(CurrentWorkPara.NeedleLength ==4)
-					{
-						NeedleInitPosition =NEEDLE_LENGTH_4MM_ZERO_PULSE_NUM;
-						NeedleMotorAimPosition =NeedleInitPosition;
-					}
-					else if(CurrentWorkPara.NeedleLength ==6)
-					{
-						NeedleInitPosition =NEEDLE_LENGTH_6MM_ZERO_PULSE_NUM;
-						NeedleMotorAimPosition =NeedleInitPosition;
-					}
-					else if(CurrentWorkPara.NeedleLength ==13)
-					{
-						NeedleInitPosition =NEEDLE_LENGTH_13MM_ZERO_PULSE_NUM;
-						NeedleMotorAimPosition =NeedleInitPosition;
-					}
-					else
-					{
-						NeedleInitPosition =NEEDLE_LENGTH_13MM_ZERO_PULSE_NUM;
-						NeedleMotorAimPosition =NeedleInitPosition;
-					}  		 
-	
-				}
-	
-			}
-			else
-			{
-				if(flag ==1)
-				{
-					if((NeedleMotorCurrentPosition > NeedleMotorAimPosition)|| (NeedleMotorCurrentPosition == NeedleMotorAimPosition))
-					{
-						//NeedleMotorFastStop();
-						SET_L298N_INPUT3_PIN; 			
-						SET_L298N_INPUT4_PIN;  			
-						SET_L298N_B_ENABLE_PIN;  		
-						NeedleMotorFindZeroPosFlag =1;//
-						flag =0;
-					}
-				}
-				else
-				{
-					//NeedleMotorReverseRun();//
-					SET_L298N_INPUT3_PIN; 			  			
-					CLEAR_L298N_INPUT4_PIN; 
-					SET_L298N_B_ENABLE_PIN;  		
-		
-					flag =0;				
-				}
-
-			}	
-		}
-		else
-		{
-			//NeedleMotorFastStop();
-			SET_L298N_INPUT3_PIN; 			
-			SET_L298N_INPUT4_PIN;  			
-			SET_L298N_B_ENABLE_PIN;
-			//InjectionMotorFastStop();
-			SET_L298N_INPUT1_PIN;
-			SET_L298N_INPUT2_PIN;
-			SET_L298N_A_ENABLE_PIN; 		
-		}
- 
-	}
-
-
-
-  }
-    T0IF=0; // 
-    
-    
-#endif
-    
-    
-    
-    
     
     
     
@@ -328,9 +166,11 @@ void TimerInit(void)
 {
 	T0CS=0; //
 	PSA=0; // 
-	T0PS2=0;
+	T0PS2=1;
 	T0PS1=0;
-	T0PS0=0; // 
+	T0PS0=1; // 4ms
+    
+    
 	T08BIT =1;//
 	T0IF=0; // 
 	T0IE=1; // 

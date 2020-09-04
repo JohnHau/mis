@@ -1,8 +1,28 @@
-//#include<pic18.h> 
 #include<xc.h> 
-#include "Oled.h"
-//#include "oledfont.h"  	 
+#include "Oled.h"	 
 #include "Beep.h"
+#include "Key.h"	
+
+void delay_nms(uint32_t n)
+{
+    uint16_t i=0;
+    while(n)
+    {
+    
+        for(i=0;i<5000;i++)
+            NOP();
+        
+        n--;
+    }
+
+
+
+}
+
+
+
+
+
 
 void delay(unsigned int  x)
 {
@@ -663,51 +683,7 @@ uint16_t xtt=0;
 
 
 
-
-#define COL_PAGE0_PATTERN_A   71
-#define COL_PAGE1_PATTERN_A   71
-#define WIDTH_PATTERN_A       27
-
-
-#define COL_PAGE0_PATTERN_B   35
-#define COL_PAGE1_PATTERN_B   35
-#define WIDTH_PATTERN_B       27
-
-
-
-#define COL_PAGE0_PATTERN_C   0
-#define COL_PAGE1_PATTERN_C   0
-#define WIDTH_PATTERN_C       27
-
-
-#define COL_PAGE0_PATTERN_D   49
-#define COL_PAGE1_PATTERN_D   49
-#define WIDTH_PATTERN_D       48
-
-
-#define COL_PAGE0_PATTERN_E   0
-#define COL_PAGE1_PATTERN_E   0
-#define WIDTH_PATTERN_E       48
-
-
-#define COL_PAGE0_PATTERN_F   49
-#define COL_PAGE1_PATTERN_F   49
-#define WIDTH_PATTERN_F       48
-
-
-#define COL_PAGE0_PATTERN_G   0
-#define COL_PAGE1_PATTERN_G   0
-#define WIDTH_PATTERN_G       48
-
-
-
-
-
-
-
-
-
-const uint8_t pata[3][2][WIDTH_PATTERN_A]={
+const uint8_t pata[5][2][WIDTH_PATTERN_A]={
 
     
     0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
@@ -767,7 +743,7 @@ const uint8_t pata[3][2][WIDTH_PATTERN_A]={
 
 };
 
-const uint8_t patb[2][2][WIDTH_PATTERN_B]={
+const uint8_t patb[5][2][WIDTH_PATTERN_B]={
 
     
     0x3f, 0x40, 0x9f, 0x9f, 0x90, 0x9f, 0x9f, 0x90,
@@ -794,7 +770,7 @@ const uint8_t patb[2][2][WIDTH_PATTERN_B]={
 
 };
 
-const uint8_t patc[2][2][WIDTH_PATTERN_C]={
+const uint8_t patc[5][2][WIDTH_PATTERN_C]={
     
    0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 
    0x80, 0x8f, 0x88, 0xb8, 0xa0, 0xa0, 0xa0, 0xb8, 
@@ -814,7 +790,7 @@ const uint8_t patc[2][2][WIDTH_PATTERN_C]={
 
 
 
-const uint8_t patd [2][3][WIDTH_PATTERN_D]={
+const uint8_t patd [5][3][WIDTH_PATTERN_D]={
 
     0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
     0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
@@ -846,7 +822,7 @@ const uint8_t patd [2][3][WIDTH_PATTERN_D]={
 
 
 
-const uint8_t pate[2][3][WIDTH_PATTERN_E]={
+const uint8_t pate[5][3][WIDTH_PATTERN_E]={
   0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
   0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
   0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
@@ -875,7 +851,7 @@ const uint8_t pate[2][3][WIDTH_PATTERN_E]={
 };
 
 
-const uint8_t patf[2][3][WIDTH_PATTERN_F]={
+const uint8_t patf[5][3][WIDTH_PATTERN_F]={
     
     
     
@@ -981,7 +957,7 @@ const uint8_t patf[2][3][WIDTH_PATTERN_F]={
 };
 
 
-const uint8_t patg[3][3][WIDTH_PATTERN_G]={
+const uint8_t patg[5][3][WIDTH_PATTERN_G]={
     0x0f, 0x10, 0x20, 0x20, 0x20, 0x2f, 0x20, 0x2f, 
     0x24, 0x22, 0x24, 0x2f, 0x20, 0x20, 0x20, 0x20, 
     0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
@@ -1109,6 +1085,17 @@ const uint8_t patg[3][3][WIDTH_PATTERN_G]={
     
 
 };
+const uint8_t path[5][3][WIDTH_PATTERN_H]={0};
+
+//3
+//3
+//7
+//5
+//3
+
+
+
+//2
 
 
 
@@ -1149,36 +1136,23 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
                 setYX_LCD(0,COL_PAGE0_PATTERN_A);
                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
                 {
-                    
-                    
-                    
+
                     temp = *(pata[sub][0] + ms);
                     
-                    if(ms ==0)
+                    if(ms ==0 || ms == (WIDTH_PATTERN_A -1))
                     {
                         temp =0;
                     }
-                    else if(ms ==1)
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
                     {
                         temp = 0x3f;
-                    }
-                    else if(ms == (WIDTH_PATTERN_A -2))
-                    {
-                       temp = 0x3f;
-                        //temp = ~temp;
-                    }
-                    else if(ms == (WIDTH_PATTERN_A -1))
-                    {
-                        temp =0;
                     }
                     else
                     {
                     
                         temp = ~temp;
                     }
-                    
-                    
-                    
+
                      //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
                      ee_WriteBytes(&temp, 0x40, 1);
                 }
@@ -1206,6 +1180,59 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
                      ee_WriteBytes(&temp, 0x40, 1);
                  }
             
+            }
+            else if(mode == MODE_BLANK)
+            {
+                               setYX_LCD(0,COL_PAGE0_PATTERN_A);
+                for(ms=0;ms<WIDTH_PATTERN_A;ms++)
+                {
+
+                    temp = *(pata[sub][0] + ms);
+                    
+                    if(ms ==0 || ms == (WIDTH_PATTERN_A -1))
+                    {
+                        temp =0;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
+                    {
+                        temp = 0x3f;
+                        //temp = 0x1f;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        temp = 0x7f;
+                    }
+
+                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
+                 {
+                     temp = *(pata[sub][1] + ms);
+                    if(ms ==0  || ms == (WIDTH_PATTERN_A -1))
+                    {
+                        temp =0;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
+                    {
+                        temp = 0xfc;
+                       
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        temp = 0xfe;
+                    }
+                     
+                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+                
             }
                 
             
@@ -1402,6 +1429,92 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
             
             
             }
+            else if(mode == MODE_BLANK)
+            {
+                            
+            setYX_LCD(2,COL_PAGE0_PATTERN_D);
+            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
+            {
+                temp = *(patd[sub][0] + ms);
+                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
+                    {
+                        temp =0x0f;
+                       
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0x1f;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0x3f;
+                        
+                        //temp =0x3f;
+                        temp =0x1f;
+                        
+                        
+                        
+                        
+                    }
+                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+                    ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
+             {
+                  temp = *(patd[sub][1] + ms);
+                  
+                  if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
+                  {
+                      temp = 0xff;
+                  }
+                  else
+                  {
+                  //temp = ~temp;
+                  temp =0xff;
+                  }
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             setYX_LCD(4,COL_PAGE1_PATTERN_D);
+             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
+             {
+                 temp = *(patd[sub][2] + ms);
+                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
+                    {
+                        temp =0xe0;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0xf0;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0xf0;
+                        //temp |= 0x10;
+                        
+                        temp = 0xf0;
+                    }
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
@@ -1506,6 +1619,79 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
             
             
             }
+            else if(mode == MODE_BLANK)
+            {
+                
+                 setYX_LCD(2,COL_PAGE0_PATTERN_E);
+            for(ms=0;ms<WIDTH_PATTERN_E;ms++)
+            {
+                temp =*(pate[sub][0] + ms);
+                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
+                    {
+                        temp =0x0f;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0x1f;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0x3f;
+                        //temp = 0x3f;
+                        temp = 0x1f;
+                    }
+            //ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            setYX_LCD(3,COL_PAGE1_PATTERN_E);
+             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
+             {
+                 temp =*(pate[sub][1] + ms);
+                   if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
+                  {
+                      temp = 0xff;
+                  }
+                  else
+                  {
+                  //temp = ~temp;
+                       temp = 0xff;
+                  }
+                //ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             setYX_LCD(4,COL_PAGE1_PATTERN_E);
+             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
+             {
+                 temp =*(pate[sub][2] + ms);
+                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
+                    {
+                        temp =0xe0;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0xf0;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0xf0;
+                        //temp |= 0x10;
+                        
+                        temp = 0xf0;
+                        
+                    }
+                //ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+                
+            }
             
             
             break;
@@ -1600,6 +1786,83 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
              ee_WriteBytes(&temp, 0x40, 1);
             
              }
+            
+            
+            }
+            else if(mode == MODE_BLANK)
+            {
+            
+                       setYX_LCD(5,COL_PAGE0_PATTERN_F);
+            for(ms=0;ms<WIDTH_PATTERN_F;ms++)
+            {
+                temp = *(patf[sub][0] + ms);
+                if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
+                    {
+                        temp =0x0f;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0x1f;
+                    }
+                    else
+                    {
+                    
+                       // temp = ~temp;
+                       // temp &= 0x3f;
+                        
+                        //temp = 0x3f;
+                        temp = 0x1f;
+                    }
+            //ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            setYX_LCD(6,COL_PAGE1_PATTERN_F);
+             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
+             {
+                 temp = *(patf[sub][1] + ms);
+                    if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
+                  {
+                      temp = 0xff;
+                  }
+                  else
+                  {
+                 // temp = ~temp;
+                  temp = 0xff;
+                  }
+            //ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             setYX_LCD(7,COL_PAGE1_PATTERN_F);
+             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
+             {
+                 temp = *(patf[sub][2] + ms);
+                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
+                    {
+                        temp =0xe0;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0xf0;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0xf0;
+                        //temp |= 0x10;
+                        
+                        
+                        temp = 0xf0;
+                        
+                        
+                    }
+            //ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
+             ee_WriteBytes(&temp, 0x40, 1);
+            
+             }
+            
             
             
             }
@@ -1699,6 +1962,89 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
              }
             
             }
+            else if(mode == MODE_BLANK)
+            {
+                
+                
+                setYX_LCD(5,COL_PAGE0_PATTERN_G);
+            for(ms=0;ms<WIDTH_PATTERN_G;ms++)
+            {
+                temp =*(patg[sub][0] + ms);
+                     if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
+                    {
+                        temp =0x0f;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0x1f;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0x3f;
+                        
+                         //temp = 0x3f;
+                          temp = 0x1f;
+                        
+                    }
+            //ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
+             ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            setYX_LCD(6,COL_PAGE1_PATTERN_G);
+             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
+             {
+                 temp = *(patg[sub][1] + ms);
+                    if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
+                  {
+                      temp = 0xff;
+                  }
+                  else
+                  {
+                  //temp = ~temp;
+                  temp = 0xff;
+                  }
+            //ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             setYX_LCD(7,COL_PAGE1_PATTERN_G);
+             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
+             {
+                 temp = *(patg[sub][2] + ms);
+                 
+                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
+                    {
+                        temp =0xe0;
+                    }
+                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
+                    {
+                        temp = 0xf0;
+                    }
+                    else
+                    {
+                    
+                        //temp = ~temp;
+                        //temp &= 0xf0;
+                        //temp |= 0x10;
+                        
+                        
+                        temp =0xf0;
+                        
+                    }
+            //ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
+             ee_WriteBytes(&temp, 0x40, 1);
+             }
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             break;
         default:
@@ -1776,11 +2122,13 @@ delay(1);
 	ee_WriteBytes(write_buf, 0x00, 1);
     
     clear_device();
+    
     //display_pattern(1,0,0);
     //display_pattern(1,1,0);
     //display_pattern(1,2,0);
     //display_pattern(1,2,MODE_NORMAL);
-    display_pattern(1,2,MODE_REVERSE);
+    //display_pattern(1,2,MODE_REVERSE);
+    display_pattern(1,2,MODE_BLANK);
     
     //display_pattern(2,0,0);
     display_pattern(2,0,MODE_REVERSE);
@@ -1789,51 +2137,220 @@ delay(1);
      
      
      //display_pattern(4,0,0);
-     display_pattern(4,0,MODE_REVERSE);
+     //display_pattern(4,0,MODE_REVERSE);
+      display_pattern(4,0,MODE_BLANK);
      
      
      //display_pattern(5,0,0);
      //display_pattern(5,0,MODE_NORMAL);
-     display_pattern(5,0,MODE_REVERSE);
+     //display_pattern(5,0,MODE_REVERSE);
+     display_pattern(5,0,MODE_BLANK);
      
      
      
      //display_pattern(6,0,0);
      //display_pattern(6,0,MODE_NORMAL);
-      display_pattern(6,0,MODE_REVERSE);
+      //display_pattern(6,0,MODE_REVERSE);
+      display_pattern(6,0,MODE_BLANK);
      //display_pattern(7,0,0);
      //display_pattern(7,1,0);
       //display_pattern(7,2,0);
-       display_pattern(7,2,MODE_REVERSE);
+       //display_pattern(7,2,MODE_REVERSE);
        
+        display_pattern(7,2,MODE_BLANK);
+       
+       interface_x.focus =0;
+       interface_x.mode = 0;
+       interface_x.sub = 0;
+       interface_x.sub_lmt[0] = 5;
+       interface_x.sub_lmt[1] = 5;
+       interface_x.sub_lmt[2] = 5;
+       interface_x.sub_lmt[3] = 5;
+       interface_x.sub_lmt[4] = 5;
+       interface_x.sub_lmt[5] = 5;
+       interface_x.sub_lmt[6] = 5;
+       interface_x.sub_lmt[7] = 5;
+             
+             
+       interface_x.cnt_blink =0;
+       
+       interface_x.profile.inject_mode = 0;
+       interface_x.profile.para[0] = 0;
+       interface_x.profile.para[1] = 0;
+       interface_x.profile.para[2] = 0;
+       interface_x.profile.para[3] = 0;
+       interface_x.profile.para[4] = 0;
+       interface_x.profile.para[5] = 0;
+       interface_x.profile.para[6] = 0;
+       interface_x.profile.para[7] = 0;
        
 
 }
 
 
+interface_t interface_x ={0};
 
-
-    
-
-
-
-
-
-
-
-
-void xdelay(uint32_t x)
+uint8_t hg_interface(void)
 {
-uint32_t m,n;
-	while(x)
-	{
-	for(m=0;m<1000;m++)
-		for(n=0;n<1000;n++);
-		
-		x--;
-	}
+    
+    uint8_t key_value = KEY_NOT_PRESSED;
+    
+    key_value = KEY_Scan();
+    
+    
+    switch(key_value)
+    {
+    
+        case KEY_UP_PRESSED:
+            
+            if(interface_x.mode == MODE_BLINK)
+            {
+               interface_x.cnt_blink = TIMOUT_BLINK;//4s
+               //to do
+               //update parameters
+               
+               interface_x.sub ++;
+               
+               if(interface_x.sub == 2)        
+                        interface_x.sub = 0;
+               
+               
+            }
+            else
+            {
+            
+                interface_x.focus ++;
 
+                if(interface_x.profile.inject_mode == 2 && interface_x.focus == 2)
+                {
+                   interface_x.focus ++;
+                }
+
+
+                if(interface_x.focus == 8)
+                    interface_x.focus =1;
+
+                interface_x.mode = MODE_REVERSE;
+
+            }
+            
+            
+            
+            
+            break;
+            
+        case KEY_DOWN_PRESSED:
+            
+             if(interface_x.mode == MODE_BLINK)
+             {
+                 interface_x.cnt_blink = TIMOUT_BLINK;//4s
+                 
+                 //to do
+                 //update parameters
+                 
+             }
+             else
+             {
+                    interface_x.focus --;
+
+                    if(interface_x.profile.inject_mode == 2 && interface_x.focus == 2)
+                    {
+                       interface_x.focus --;
+                    }
+
+
+                    if(interface_x.focus == 0)
+                        interface_x.focus =7;
+
+                    interface_x.mode = MODE_REVERSE;
+            
+            
+             }
+            
+            
+            
+            
+            
+            
+            break;
+            
+        case KEY_V_PRESSED:
+            
+            if(interface_x.focus)
+            {
+              if(interface_x.mode == MODE_REVERSE)
+              {
+                interface_x.mode = MODE_BLINK;
+                interface_x.cnt_blink = TIMOUT_BLINK;//4s
+                
+                
+                
+                
+              }
+              else if(interface_x.mode == MODE_BLINK)
+              {
+              
+                  
+                  if(interface_x.focus ==1)
+                  {
+                        
+                      if(interface_x.profile.inject_mode == WMD_C)
+                      {
+                      //update sub limit
+                        interface_x.sub_lmt[0] =5;
+                      }
+                      else if(interface_x.profile.inject_mode == WMD_S_DROP)
+                      {
+                         //update sub limit
+                        interface_x.sub_lmt[0] =5;
+                      }
+                      else if(interface_x.profile.inject_mode == WMD_M_DROP)
+                      {
+                        //update sub limit
+                        interface_x.sub_lmt[0] =5;
+                      
+                      
+                      }
+                      
+                      
+                      
+                      
+                  }
+                  
+                  
+               interface_x.mode = MODE_NORMAL;
+               interface_x.focus =0;
+              
+              }
+            
+            
+            }
+            
+            break;  
+            
+                     
+    }
+    
+    
+    
+     if(interface_x.mode == MODE_BLINK)
+     {
+          if(interface_x.cnt_blink == 0)
+          {
+             interface_x.mode = MODE_NORMAL;
+             interface_x.focus =0;
+          }
+     
+     }
+      
+    
+    if(interface_x.mode == MODE_NORMAL || interface_x.mode == MODE_REVERSE)
+    {
+           display_pattern(interface_x.focus,interface_x.sub,interface_x.mode);
+    }
+    
+    
+    
+    
+    return 1;
 }
-
-
-

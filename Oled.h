@@ -13,6 +13,18 @@ void delay_ms(unsigned int ms);
 
 #define  MODE_NORMAL     1
 #define  MODE_REVERSE    2
+#define  MODE_BLINK      3
+#define  MODE_BLANK      4
+
+
+#define WMD_C          0x55
+#define WMD_S_DROP     0x56
+#define WMD_M_DROP     0x57
+
+
+
+
+
 
 
 //#define EEPROM_GPIO_PORT_I2C	GPIOA			
@@ -38,9 +50,93 @@ void delay_ms(unsigned int ms);
 //#define EEPROM_I2C_SDA_READ()  	  (PORTCbits.RC4)
 #define EEPROM_I2C_SDA_READ()  	  (PORTC & 0x10)
 
+//4 seconds
+#define TIMOUT_BLINK   1000
+
+typedef struct action_profile
+{
+
+    uint8_t  inject_mode;
+    uint8_t  para[8];
+}action_profile_t;
+
+typedef struct interface
+{
+   
+    uint8_t focus;
+    uint8_t mode;
+    uint8_t sub;
+    uint8_t sub_lmt[8];
+    uint16_t cnt_blink;
+    action_profile_t  profile;
+}interface_t;
 
 
 
+
+
+#define COL_PAGE0_PATTERN_A   71
+#define COL_PAGE1_PATTERN_A   71
+#define WIDTH_PATTERN_A       27
+
+
+#define COL_PAGE0_PATTERN_B   35
+#define COL_PAGE1_PATTERN_B   35
+#define WIDTH_PATTERN_B       27
+
+
+
+#define COL_PAGE0_PATTERN_C   0
+#define COL_PAGE1_PATTERN_C   0
+#define WIDTH_PATTERN_C       27
+
+
+#define COL_PAGE0_PATTERN_D   49
+#define COL_PAGE1_PATTERN_D   49
+#define WIDTH_PATTERN_D       48
+
+
+#define COL_PAGE0_PATTERN_E   0
+#define COL_PAGE1_PATTERN_E   0
+#define WIDTH_PATTERN_E       48
+
+
+#define COL_PAGE0_PATTERN_F   49
+#define COL_PAGE1_PATTERN_F   49
+#define WIDTH_PATTERN_F       48
+
+
+#define COL_PAGE0_PATTERN_G   0
+#define COL_PAGE1_PATTERN_G   0
+#define WIDTH_PATTERN_G       48
+
+
+#define COL_PAGE0_PATTERN_H   0
+#define COL_PAGE1_PATTERN_H   0
+#define WIDTH_PATTERN_H       48
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extern interface_t interface_x;
+
+void delay_nms(uint32_t n);
 
 
 
@@ -95,8 +191,8 @@ uint8_t AD_ch0_init(void);
 uint16_t get_AD_vaule(void);
 uint16_t get_SenseA_AD_vaule(void);
 uint16_t get_SenseB_AD_vaule(void);
-
-
+uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
+uint8_t hg_interface(void);
 void delay(unsigned int  x);
 
 

@@ -1,6 +1,6 @@
 #ifndef KEY_H
 #define KEY_H
-
+#include <stdint.h>
 
 #define ON_OFF_BUTTON_PIN 					PORTBbits.RB4  		
 #define UP_BUTTON_PIN  						PORTDbits.RD4  		
@@ -32,7 +32,11 @@
 
 
 
+#define KEY_UP_PRESSED        0xf1
+#define KEY_DOWN_PRESSED      0xf2
+#define KEY_V_PRESSED         0xf3
 
+#define KEY_NOT_PRESSED         0xff
 //==============================================================================
 
 
@@ -66,9 +70,9 @@ typedef struct
 
 extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
 
-extern void KEY_Init(void);//IO≥ı ºªØ
-extern void KEY_Scan(void);	
-extern void KeyFuction(void);
+void KEY_Init(void);
+uint8_t KEY_Scan(void);	
+void KeyFuction(void);
 
 
 #endif
