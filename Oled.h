@@ -229,9 +229,13 @@ uint8_t hg_interface(void);
 void delay(unsigned int  x);
 
 
+//==============================================================================
 
 
 
+uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_frame_fgh(uint8_t y,uint8_t x, uint8_t mode);
 
 
 

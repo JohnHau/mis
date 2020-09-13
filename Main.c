@@ -100,7 +100,7 @@ void main(void)
     //while(1);
     //LCD_Off();
 	
-    
+#if 0
     MotorDriveInit();
     
     ENABLE_AH();
@@ -112,15 +112,30 @@ void main(void)
     
 	//PositionCheckInit();
 	
+#endif
   
 #if 1
     KEY_Init();
-    //while(1)
-    {
-        //Initial_LY096BG30();
-    }
+
+    Initial_LY096BG30();
+    
+    //display_frame_a(0,COL_PAGE0_PATTERN_A, MODE_NORMAL);
+    display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_REVERSE);
+    display_frame_abc(0,COL_PAGE0_PATTERN_B, MODE_NORMAL);
+    display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_REVERSE);
+    
+    
+    display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);
+    display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+    
+    
+    display_frame_fgh(1,COL_PAGE0_PATTERN_F, MODE_NORMAL);
+   // display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    
+    
     // display_pattern(5,0,MODE_NORMAL);
-     //while(1);
+     while(1);
     //TimerInit();
 #endif
    // while(xn<20)
@@ -150,7 +165,7 @@ void main(void)
     
     
     
-#if 1
+#if 0
     AD_ch0_init();
     while(1)
     {
