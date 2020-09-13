@@ -1,5 +1,3 @@
-//#include <p18cxxx.h>
-//#include<pic18.h>  
 #include <xc.h>
 #include<stdint.h>	
 #include "Timer.h"
@@ -51,14 +49,20 @@ void __interrupt ISR(void)
              //BeepOn();
             // LCD_On();
                 
+                    if(interface_x.mode == MODE_BLINK  && interface_x.cnt_blink)
+                    {
+                         
+                            //display_pattern(interface_x.focus,interface_x.sub,interface_x.mode);
+                            display_pattern(interface_x.focus,interface_x.sub,MODE_REVERSE);
+
+                    } 
                 
-                
-                 display_pattern(7,2,MODE_BLANK);
-                  display_pattern(6,0,MODE_BLANK);
-                   display_pattern(5,0,MODE_BLANK);
-                    display_pattern(4,0,MODE_BLANK);
+                 //display_pattern(7,2,MODE_BLANK);
+                  //display_pattern(6,0,MODE_BLANK);
+                   //display_pattern(5,0,MODE_BLANK);
+                    //display_pattern(4,0,MODE_BLANK);
                     
-                 display_pattern(1,2,MODE_BLANK);
+                 //display_pattern(1,2,MODE_BLANK);
                     
              tflag =0;
             
@@ -67,12 +71,21 @@ void __interrupt ISR(void)
             {
              //BeepOff();
             // LCD_Off();
-                 display_pattern(7,2,MODE_REVERSE);
-                  display_pattern(6,0,MODE_REVERSE);
-                   display_pattern(5,0,MODE_REVERSE);
-                    display_pattern(4,0,MODE_REVERSE);
+                
+                    if(interface_x.mode == MODE_BLINK  && interface_x.cnt_blink)
+                    {
+                         
+                            //display_pattern(interface_x.focus,interface_x.sub,interface_x.mode);
+                            display_pattern(interface_x.focus,interface_x.sub,MODE_BLANK);
+
+                    } 
+                
+                 //display_pattern(7,2,MODE_REVERSE);
+                 // display_pattern(6,0,MODE_REVERSE);
+                  // display_pattern(5,0,MODE_REVERSE);
+                   // display_pattern(4,0,MODE_REVERSE);
                           
-                  display_pattern(1,2,MODE_REVERSE);
+                 // display_pattern(1,2,MODE_REVERSE);
              tflag =1;
             }
             

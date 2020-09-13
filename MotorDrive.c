@@ -112,7 +112,7 @@ void MotorDriveInit(void)
 {
 	
        //===========================================================
-    
+#if 0
     //CCPR2= 99;
     PR2= 99;
     CCPR1L= 10;
@@ -122,8 +122,11 @@ void MotorDriveInit(void)
     CCP1CONbits.CCP1M = 0x0c;//pwm mode
     TMR2 = 0;
     T2CONbits.TMR2ON =1;
-    
+#endif
     //===========================================================
+    
+    TRISAbits.RA5 =0;//motor power on
+    
     
     TRISCbits.RC2 =0;//enable A
     TRISDbits.RD0 =0;//input1
@@ -151,12 +154,15 @@ void MotorDriveInit(void)
     INPUT3_BL(); 
     INPUT4_BL(); 
     
-    
+    MPON();
+    //=========================================================
+#if 0
     INTCON2bits.INTEDG2 = 0;//falling edge
     INTCON3bits.INT2IF =0;
     INTCON3bits.INT2E = 1;//PHB_MB  
     
-    
+#endif
+    //=========================================================
     
     
  

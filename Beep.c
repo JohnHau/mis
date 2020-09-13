@@ -14,6 +14,9 @@ void BeepInit(void)
     LATEbits.LE2 =0;
     
     
+    TRISDbits.RD5 =0;//test led
+    LATDbits.LD5 =1;//test led off
+    
 }
 void BeepOn(void)
 {

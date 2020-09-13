@@ -34,7 +34,7 @@ void delay(unsigned int  x)
 static void i2c_Delay(void)
 {
 	uint32_t i;
-	//for (i = 0; i < 2; i++);
+	for (i = 0; i < 10; i++);
     
     
       	//unsigned int  i,j;
@@ -100,6 +100,7 @@ void i2c_SendByte(uint8_t _ucByte)
 
 uint8_t i2c_ReadByte(void)
 {
+#if 0
 	uint8_t i;
 	uint8_t value;
     
@@ -123,6 +124,7 @@ uint8_t i2c_ReadByte(void)
     // DDRCbits.RC4 =0;//====================come back to output mode
      TRISCbits.RC4 =1;
 	return value;
+#endif
 }
 
 
@@ -134,7 +136,14 @@ uint8_t i2c_WaitAck(void)
 	i2c_Delay();
 	EEPROM_I2C_SCL_1();
    // DDRCbits.RC4 =1;//====================sda input mode
-    TRISCbits.RC4 =1;
+    
+#if defined(ORIGINAL)
+    TRISCbits.RC4 =1;//original
+    
+#elif defined(LTEMP)
+    TRISCbits.RC3 =1;//temp
+#endif
+    
 	i2c_Delay();
 	if (EEPROM_I2C_SDA_READ())	
 	{
@@ -147,7 +156,16 @@ uint8_t i2c_WaitAck(void)
    
 	EEPROM_I2C_SCL_0();
     // DDRCbits.RC4 =0;//====================come back to output mode
-     TRISCbits.RC4 =0;
+
+     #if defined(ORIGINAL)
+    TRISCbits.RC4 =0;//original
+    
+    #elif defined(LTEMP)
+        TRISCbits.RC3 =0;//temp
+    #endif
+     
+     
+     
 	i2c_Delay();
     
 	return re;
@@ -199,9 +217,10 @@ void i2c_CfgGpio(void)
     TRISEbits.RE1 =0;
     //LATEbits.LE1 =1;
     // LATEbits.LATE1=1;
-  LATEbits.LATE1=0;
-
-    
+  //LATEbits.LATE1=0;
+  LATEbits.LATE1=1;
+  //delay(500);
+  delay(2);
     //PORTCbits.RC3 =1;//SCL
     //PORTCbits.RC4 =1;//SDA
     //i2c_Stop();
@@ -230,6 +249,7 @@ void delay_ms(unsigned int ms)
 
 unsigned int StartAndReadAdValue(unsigned char ch)
 {
+#if 0
 	unsigned int delay =1000;
 	unsigned int value =0; 
 
@@ -240,6 +260,7 @@ unsigned int StartAndReadAdValue(unsigned char ch)
 	value=((unsigned int)ADRESH <<2)|value; 
 		
 	return(value);	
+#endif
 }
 
 
@@ -327,7 +348,7 @@ uint16_t get_SenseB_AD_vaule(void)
    uint8_t lv=0; 
     uint8_t ts=0; 
    uint16_t rv=0;
-    ADCON0bits.CHS = 1;//choose channel 1
+    ADCON0bits.CHS = 2;//choose channel 1
    ADCON0bits.GO =1;
    while(ADCON0bits.GO);
 
@@ -360,6 +381,8 @@ uint16_t get_SenseB_AD_vaule(void)
 
 uint8_t ee_CheckDevice(uint8_t _Address)
 {
+    
+#if 1
 	uint8_t ucAck;
 	
 	i2c_Start();		
@@ -373,12 +396,17 @@ uint8_t ee_CheckDevice(uint8_t _Address)
 	i2c_NAck();	
 	
 	return ucAck;
+    
+    
+#endif
 }
 
 
 
 uint8_t ee_WaitStandby(void)
 {
+    
+#if 0
 	uint32_t wait_count = 0;
 	
 	while(ee_CheckDevice(EEPROM_DEV_ADDR))
@@ -390,11 +418,15 @@ uint8_t ee_WaitStandby(void)
 		}
 	}
 	return 0;
+    
+#endif
 }
 
 
 uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
 {
+    
+#if 0
 	uint16_t i;
 	
 	
@@ -453,6 +485,11 @@ uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
 cmd_fail: 
 	i2c_Stop();
 	return 0;
+    
+    
+    
+    
+#endif
 }
 
 //uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint16_t _usAddress, uint16_t _usSize)
@@ -534,6 +571,9 @@ uint8_t read_buf[EEPROM_SIZE];
 
 uint8_t ee_Test(void) 
 {
+    
+    
+#if 0
   uint16_t i;
 
   
@@ -590,6 +630,9 @@ uint8_t ee_Test(void)
 	}
   //printf("eeprom¶ÁÐ´²âÊÔ³É¹¦\r\n");
   return 1;
+  
+  
+#endif
 }
 
 
@@ -683,7 +726,7 @@ uint16_t xtt=0;
 
 
 
-const uint8_t pata[5][2][WIDTH_PATTERN_A]={
+const uint8_t pata[3][2][WIDTH_PATTERN_A]={
 
     
     0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
@@ -792,6 +835,37 @@ const uint8_t patc[5][2][WIDTH_PATTERN_C]={
 
 const uint8_t patd [5][3][WIDTH_PATTERN_D]={
 
+    
+    //---------------------------------------------------------------------
+    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23, 0x23,
+    0x20, 0x20, 0x20, 0x23, 0x23, 0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
+    
+    
+    
+    0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
+    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 
+    0x30, 0x30, 0x30, 0xf0, 0xf0, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0,
+    0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
+    
+    
+    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+
+
+    
+
+    
+#if 0
     0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
     0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
     0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
@@ -817,12 +891,124 @@ const uint8_t patd [5][3][WIDTH_PATTERN_D]={
     0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
     0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
     0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+#endif
+    
+//---------------------------------------------------------------    
+    
+    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x21, 0x23,
+    0x23, 0x23, 0x23, 0x23, 0x21,0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x20,0x20, 0x20, 0x20, 0x20, 
+    0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
+
+    
+0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 
+    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x9e, 0xbf, 
+    0x33, 0x33, 0x33, 0xff, 0xfe, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0, 
+    0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
+
+    
+
+0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+
+    
+
+    //--------------------------------------------------------------------------
+    
+    
+    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x21, 0x23, 0x23, 0x23, 0x23, 
+    0x21, 0x20, 0x20, 0x23, 0x23, 0x21, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
+    
+    
+    
+    0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 
+    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00, 
+    0x00, 0x00, 0x00, 0xde, 0xff, 0x33, 0x33, 0x87, 
+    0x86, 0x00, 0x03, 0xff, 0xff, 0x83, 0x00, 0x00, 
+    0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0, 
+    0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
+    
+    
+    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 };
 
 
 
 const uint8_t pate[5][3][WIDTH_PATTERN_E]={
+    
+    
+    
+    //-----------------------------------------------------------
+    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+    0x20, 0x20, 0x20, 0x20, 0x23, 0x23, 0x21, 0x20,
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+    0x20, 0x20, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
+
+    
+    0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
+    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x03, 0xff, 0xff, 0x83, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x04, 0x06, 0x07, 0x07, 0x70, 0x88, 0x88, 0x88, 
+    0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
+    
+    
+    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
+    0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 
+    0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
+
+
+    
+    
+    
+    
+    //-----------------------------------------------------------
+    
+    
+    
+    
   0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
   0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
   0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
@@ -2079,88 +2265,132 @@ uint8_t clear_device(void)
 void Initial_LY096BG30(void)
 {
 
-    
+
 i2c_CfgGpio();
   
 //delay(2000);
 
+#if 1
 //PORTEbits.RE1 =0;
  //LATEbits.LE1 =0;
  LATEbits.LATE1=0;
-delay(1);
+delay(2);//===============delay(1);//=====================
 //delay(2000);
 //delay(2000);
 
 //PORTEbits.RE1 =1;
 //LATEbits.LE1 =1;
 LATEbits.LATE1=1;
-delay(1);
+delay(2);
 
+#endif
+
+
+
+#if 0
+if (ee_CheckDevice(EEPROM_DEV_ADDR) == 0)
+{
+    buzz();
+}
+#endif
+
+//while(1);
+
+
+
+delay(10);
 
     write_buf[0]=0x21;  
-	ee_WriteBytes(write_buf, 0x00, 1);
+	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
     //ee_WriteBytes(write_buf, 0x80, 1);
 	
     write_buf[0]=0x15;
-    ee_WriteBytes(write_buf, 0x00, 1);
+    ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
 
     write_buf[0]=0x08;
-	ee_WriteBytes(write_buf, 0x00, 1);
+	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
 
     write_buf[0]=0x9f;
-	ee_WriteBytes(write_buf, 0x00, 1);
+	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
     
     write_buf[0]=0x20;
-	ee_WriteBytes(write_buf, 0x00, 1);
+	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
     
     write_buf[0]=0x05;
-	ee_WriteBytes(write_buf, 0x00, 1);
+	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
 
     write_buf[0]=0x0c;//normal
      //write_buf[0]=0x08;//blank
    // write_buf[0]=0x0d;//reverse
-	ee_WriteBytes(write_buf, 0x00, 1);
+	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
     
-    clear_device();
+    //clear_device();
     
-    //display_pattern(1,0,0);
+    
+    
+
+         clear_device();
+    for(ss=1;ss<8;ss++)
+    {
+       
+       display_pattern(ss,0,MODE_NORMAL);
+    }
+    
+
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+    //display_pattern(1,0,MODE_NORMAL);
     //display_pattern(1,1,0);
     //display_pattern(1,2,0);
     //display_pattern(1,2,MODE_NORMAL);
     //display_pattern(1,2,MODE_REVERSE);
-    display_pattern(1,2,MODE_BLANK);
+    //display_pattern(1,2,MODE_BLANK);
     
-    //display_pattern(2,0,0);
-    display_pattern(2,0,MODE_REVERSE);
+    //display_pattern(2,0,MODE_NORMAL);
+    //display_pattern(2,0,MODE_REVERSE);
     
-     display_pattern(3,0,0);
+     //display_pattern(3,0,MODE_NORMAL);
      
      
-     //display_pattern(4,0,0);
+     //display_pattern(4,0,MODE_NORMAL);
      //display_pattern(4,0,MODE_REVERSE);
-      display_pattern(4,0,MODE_BLANK);
+      //display_pattern(4,0,MODE_BLANK);
      
      
-     //display_pattern(5,0,0);
+     //display_pattern(5,0,MODE_NORMAL);
      //display_pattern(5,0,MODE_NORMAL);
      //display_pattern(5,0,MODE_REVERSE);
-     display_pattern(5,0,MODE_BLANK);
+     //display_pattern(5,0,MODE_BLANK);
      
      
      
-     //display_pattern(6,0,0);
+     //display_pattern(6,0,MODE_NORMAL);
      //display_pattern(6,0,MODE_NORMAL);
       //display_pattern(6,0,MODE_REVERSE);
-      display_pattern(6,0,MODE_BLANK);
-     //display_pattern(7,0,0);
+      //display_pattern(6,0,MODE_BLANK);
+     
+     
+     //display_pattern(7,0,MODE_NORMAL);
      //display_pattern(7,1,0);
       //display_pattern(7,2,0);
        //display_pattern(7,2,MODE_REVERSE);
        
-        display_pattern(7,2,MODE_BLANK);
+        //display_pattern(7,2,MODE_BLANK);
        
        interface_x.focus =0;
        interface_x.mode = 0;
+       
+       interface_x.sub_old = 0;
        interface_x.sub = 0;
        interface_x.sub_lmt[0] = 5;
        interface_x.sub_lmt[1] = 5;
@@ -2188,6 +2418,27 @@ delay(1);
 }
 
 
+//c mode
+//4  6  13                 //0  1  2  3  4
+//1  2  2.5  5  10         //3
+
+
+//m drop
+//4  6  13                // 0  1  2  3  4
+//1  2  2.5  5  10        //100   150  200  250   300
+
+
+//s  drop
+//4  6  13                //0  1  2  3  4
+//1  2  2.5  5  10        //0  1  2  3
+
+
+
+
+
+
+
+
 interface_t interface_x ={0};
 
 uint8_t hg_interface(void)
@@ -2211,13 +2462,36 @@ uint8_t hg_interface(void)
                
                interface_x.sub ++;
                
-               if(interface_x.sub == 2)        
-                        interface_x.sub = 0;
+               
+               
+               if(interface_x.focus ==1)
+               {
+                    if(interface_x.sub == 3)        
+                             interface_x.sub = 0;
+               }
+               
+               
+                if(interface_x.focus ==2 || interface_x.focus ==3)
+               {
+                    if(interface_x.sub == 5)        
+                             interface_x.sub = 0;
+               }
+               
+               
+               
+               
                
                
             }
             else
             {
+                
+                
+                if(interface_x.focus)//turn back the previous snap
+                {
+                   display_pattern(interface_x.focus,interface_x.sub_old,MODE_NORMAL);
+                }
+                
             
                 interface_x.focus ++;
 
@@ -2251,8 +2525,38 @@ uint8_t hg_interface(void)
              }
              else
              {
-                    interface_x.focus --;
+                 
+                if(interface_x.focus)//turn back the previous snap
+                {
+                   display_pattern(interface_x.focus,interface_x.sub_old,MODE_NORMAL);
+                }
+                 
+                 
+                 
+                    if(interface_x.focus ==1)
+                    {
+                         if(interface_x.sub == 3)        
+                                  interface_x.sub = 0;
+                    }
 
+
+                     if(interface_x.focus ==2 || interface_x.focus ==3)
+                    {
+                         if(interface_x.sub == 5)        
+                                  interface_x.sub = 0;
+                    }
+                 
+                    
+                    if(interface_x.focus == 0)
+                    {
+                         interface_x.focus = 8;
+                    }
+                    else
+                    {
+                        interface_x.focus --;
+                    }
+                    
+                    
                     if(interface_x.profile.inject_mode == 2 && interface_x.focus == 2)
                     {
                        interface_x.focus --;
@@ -2318,6 +2622,22 @@ uint8_t hg_interface(void)
                   }
                   
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                interface_x.mode = MODE_NORMAL;
                interface_x.focus =0;
               
@@ -2338,6 +2658,10 @@ uint8_t hg_interface(void)
           if(interface_x.cnt_blink == 0)
           {
              interface_x.mode = MODE_NORMAL;
+             //display_pattern(interface_x.focus,interface_x.sub,interface_x.mode);
+             display_pattern(interface_x.focus,interface_x.sub_old,interface_x.mode);
+             
+             interface_x.sub = interface_x.sub_old;
              interface_x.focus =0;
           }
      

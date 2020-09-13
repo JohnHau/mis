@@ -36,19 +36,51 @@ void delay_ms(unsigned int ms);
 //#define EEPROM_I2C_SCL_PIN		GPIO_Pin_2			
 //#define EEPROM_I2C_SDA_PIN		GPIO_Pin_3			
 #define EEPROM_I2C_SCL_PIN			
-#define EEPROM_I2C_SDA_PIN		
+#define EEPROM_I2C_SDA_PIN	
 
 
+//#define ORIGINAL  1
+#define LTEMP  1
 
-
+#if defined(ORIGINAL)
 #define EEPROM_I2C_SCL_1()  	 LATCbits.LC3 =1
 #define EEPROM_I2C_SCL_0()  	 LATCbits.LC3 =0
 	
 #define EEPROM_I2C_SDA_1()  	LATCbits.LC4 =1
 #define EEPROM_I2C_SDA_0()  	LATCbits.LC4 =0
+
+#elif defined(LTEMP)
+
+
+#define EEPROM_I2C_SCL_1()  	 LATCbits.LC4 =1
+#define EEPROM_I2C_SCL_0()  	 LATCbits.LC4 =0
+	
+#define EEPROM_I2C_SDA_1()  	LATCbits.LC3 =1
+#define EEPROM_I2C_SDA_0()  	LATCbits.LC3 =0
+
+#endif
+
+
+
+
+
+
+
+
+
 	
 //#define EEPROM_I2C_SDA_READ()  	  (PORTCbits.RC4)
+
+
+#if defined(ORIGINAL)
 #define EEPROM_I2C_SDA_READ()  	  (PORTC & 0x10)
+
+#elif defined(LTEMP)
+
+#define EEPROM_I2C_SDA_READ()  	  (PORTC & 0x08)
+#endif
+
+
 
 //4 seconds
 #define TIMOUT_BLINK   1000
@@ -65,6 +97,7 @@ typedef struct interface
    
     uint8_t focus;
     uint8_t mode;
+    uint8_t sub_old;
     uint8_t sub;
     uint8_t sub_lmt[8];
     uint16_t cnt_blink;

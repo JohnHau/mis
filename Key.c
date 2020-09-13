@@ -15,20 +15,20 @@ void KEY_Init(void) //
 #if 1
     //LATB = 0;
    // PORTB = 0;
-   // ADCON1 = 0x07;
+    //ADCON1 = 0x00;
     
     //ADCON0 = 0x00;
-   // ADCON1 = 0x0f;
+    ADCON1 = 0x0C;
 
     TRISBbits.RB3 =1;//KEY_V
     TRISBbits.RB4 =1;//KEY_WAKE
     
-    
+    TRISDbits.RD6 =1;//KEY_UP
+    TRISDbits.RD7 =1;//KEY_DOWN
     
     TRISBbits.RB5 =1;//ACTION_BUTTON
     
-    TRISDbits.RD6 =1;//KEY_UP
-    TRISDbits.RD7 =1;//KEY_DOWN
+
     
     TRISBbits.RB0 =1;//LP_BUTTON
 

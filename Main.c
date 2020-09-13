@@ -24,7 +24,7 @@
 
 #pragma config CCP2MX = PORTC				//ccp2 mux bit
 #pragma config PBADEN = OFF				//portb AD enble bit
-
+//#pragma config PBADEN = ON				//portb AD enble bit
 
 
 #pragma config LPT1OSC = OFF				//low-power timer1 oscillator enable bit
@@ -81,26 +81,48 @@ void main(void)
 
 	BeepInit();
    
-    //BeepOn();
-    //while(1);
+#if 0
+    BeepOn();
+    /elay_nms(100);
+    BeepOff();
     
+    while(1);
+#endif 
     
+#if 1
     LCD_backlight_init();
     LCD_On();
-    
+#endif
    //delay(2000);
    //delay(2000);
    //delay(2000);
        //buzz();
     //while(1);
     //LCD_Off();
-	MotorDriveInit();
-	//PositionCheckInit();
-	KEY_Init();
+	
     
-    Initial_LY096BG30();
-    TimerInit();
-
+    MotorDriveInit();
+    
+    ENABLE_AH();
+    ENABLE_BH();
+    
+    
+    FORWARD_RUN_A();   
+    FORWARD_RUN_B();   
+    
+	//PositionCheckInit();
+	
+  
+#if 1
+    KEY_Init();
+    //while(1)
+    {
+        //Initial_LY096BG30();
+    }
+    // display_pattern(5,0,MODE_NORMAL);
+     //while(1);
+    //TimerInit();
+#endif
    // while(xn<20)
     //LCD_On();
     //while(1);
@@ -108,12 +130,18 @@ void main(void)
     
     
 #if 0
+   // TEST_LED_ON(); 
     while(1)
     {
     
-           if(STATUS_CHARGE  == 1)
+           if(STATUS_CHARGE  == 0)
            {
-               buzz();
+              // buzz();
+               TEST_LED_ON(); 
+           }
+           else
+           {
+              TEST_LED_OFF(); 
            }
     
     }
@@ -122,23 +150,37 @@ void main(void)
     
     
     
-#if 0
+#if 1
     AD_ch0_init();
     while(1)
     {
+        
+        if(STATUS_CHARGE  == 0)
+        {
+            // buzz();
+            TEST_LED_ON(); 
+        }
+        else
+        {
+            TEST_LED_OFF(); 
+        }
+     
+        
+        
+        
     bv = get_AD_vaule();
-    bv = get_SenseA_AD_vaule();
-    bv = get_SenseB_AD_vaule();
+    //bv = get_SenseA_AD_vaule();
+    //bv = get_SenseB_AD_vaule();
     
     
     cv =0;
-    cv = get_AD_vaule();
+    //cv = get_AD_vaule();
     cv = get_SenseA_AD_vaule();
-    cv = get_SenseB_AD_vaule();
+    //cv = get_SenseB_AD_vaule();
     
     dv =0;
-    dv = get_AD_vaule();
-    dv = get_SenseA_AD_vaule();
+    //dv = get_AD_vaule();
+    //dv = get_SenseA_AD_vaule();
     dv = get_SenseB_AD_vaule();
     }
 #endif
@@ -150,9 +192,11 @@ void main(void)
 
     
 #if 0
-   // FORWARD_RUN_A();   
+    ENABLE_AH();
+    FORWARD_RUN_A();   
    // delay(100);//delay(2000);//delay(2000);delay(2000);
     
+    //ENABLE_BH();
     //FORWARD_RUN_B();     
     while(1)
     {
@@ -163,7 +207,7 @@ void main(void)
         //delay(100);//delay(2000);//delay(2000);delay(2000);
         
         
-        FORWARD_RUN_A();   
+        //FORWARD_RUN_A();   
         delay(100);//delay(2000);//delay(2000);delay(2000);
         
         bv += 10;
@@ -176,24 +220,68 @@ void main(void)
     
 #if 0
     //injector
+    TEST_LED_ON(); 
     ENABLE_BH();
-    FORWARD_RUN_B();        
+    FORWARD_RUN_B();     
+    while(1);
 #endif
     
     
     
+#if 0
+    
     while(1)
     {
         
-
+        
+           if(STATUS_CHARGE  == 0)
+           {
+              // buzz();
+               TEST_LED_ON(); 
+           }
+           else
+           {
+              TEST_LED_OFF(); 
+           }
+        
+        
+        
+        //hg_interface();
        // if(KEY_WAKE == 0)
       
        
         //if(KEY_WAKE == 0 && KEY_UP == 1 && KEY_V == 1 && KEY_DOWN == 1)//==============
         //if((PORTB &0x10) == 0)
         //    if((LATB &0x10) == 0)
-        //if(ACTION_BUTTON == 0)
-        //if(LP_BUTTON == 0)
+        
+        
+        if(KEY_WAKE == 0)
+        {
+            buzz();
+        }
+            
+            
+        if(KEY_UP == 0)
+        {
+            buzz();
+        }
+        
+        
+        if(KEY_DOWN == 0)
+        {
+            buzz();
+        }
+            
+        if(KEY_V == 0)
+        {
+            buzz();
+        }
+        
+        if(ACTION_BUTTON == 0)
+        {
+            buzz();
+        }
+        if(LP_BUTTON == 0)
         {
                 //LATB = 0xff;
             //PORTB =0xff;
@@ -204,12 +292,12 @@ void main(void)
                // LCD_Blink();
                // break;
              }
-
+             buzz();
         }
     
     }
     
-    
+#endif
     
     
     
