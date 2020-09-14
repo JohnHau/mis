@@ -107,6 +107,12 @@ typedef struct interface
 
 
 
+#define MLENGTH    23
+
+#define COL_PAGE0_MDROPS   (COL_PAGE0_PATTERN_A + 2)
+//==============================================================================
+//==============================================================================
+
 
 #define COL_PAGE0_PATTERN_A   71
 #define COL_PAGE1_PATTERN_A   71
@@ -230,6 +236,14 @@ void delay(unsigned int  x);
 
 
 //==============================================================================
+
+
+
+
+void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
+void display_drops(uint8_t y,uint8_t x,uint8_t mode);
+void display_drop(uint8_t y,uint8_t x,uint8_t mode);
+void display_blank_mode(uint8_t y,uint8_t x,uint8_t mode);
 
 
 

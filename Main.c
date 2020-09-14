@@ -119,19 +119,54 @@ void main(void)
 
     Initial_LY096BG30();
     
-    //display_frame_a(0,COL_PAGE0_PATTERN_A, MODE_NORMAL);
-    display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_REVERSE);
-    display_frame_abc(0,COL_PAGE0_PATTERN_B, MODE_NORMAL);
-    display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_REVERSE);
+    
+    display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_NORMAL);
+    //display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_REVERSE);
+    //display_frame_abc(0,COL_PAGE0_PATTERN_B, MODE_NORMAL);
+    //display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_REVERSE);
     
     
-    display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);
-    display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+    
+    //display_drops(0,COL_PAGE0_MDROPS,MODE_NORMAL);
+    //display_cmode(0,COL_PAGE0_MDROPS,MODE_NORMAL);
+    //display_drop(0,COL_PAGE0_MDROPS,MODE_NORMAL);
+    
+    //display_cmode(0,COL_PAGE0_MDROPS,MODE_REVERSE);
+    ///display_drops(0,COL_PAGE0_MDROPS,MODE_REVERSE);
+    
+    while(1)
+    {
+    //display_drop(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
+    //display_blank_mode(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
     
     
-    display_frame_fgh(1,COL_PAGE0_PATTERN_F, MODE_NORMAL);
-   // display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
-    display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+     display_drop(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
+    display_blank_mode(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
+    }
+    //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);delay(30);
+    //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_REVERSE);delay(30);
+    
+    
+    
+    
+    
+    
+    //display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+    //display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_REVERSE);
+    
+    
+    //display_frame_fgh(1,COL_PAGE0_PATTERN_F, MODE_NORMAL);
+    //display_frame_fgh(1,COL_PAGE0_PATTERN_F, MODE_REVERSE);
+    
+    
+    
+    //display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    //display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_REVERSE);
+    
+    
+    
+    //display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    //display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_REVERSE);
     
     
     // display_pattern(5,0,MODE_NORMAL);
