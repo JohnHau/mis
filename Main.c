@@ -120,11 +120,26 @@ void main(void)
     Initial_LY096BG30();
     
     
-    display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_NORMAL);
+    //display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_NORMAL);
     //display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_REVERSE);
+    
+    
     //display_frame_abc(0,COL_PAGE0_PATTERN_B, MODE_NORMAL);
+    
+    //display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_NORMAL);
     //display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_REVERSE);
     
+    
+    //display_frame_abc(0,COL_PAGE0_PATTERN_B, MODE_REVERSE);
+    
+    //display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_REVERSE);
+    
+    //display_mem(0,COL_PAGE0_MEM,MODE_NORMAL);
+    //display_mem(0,COL_PAGE0_MEM,MODE_REVERSE);
+    
+    
+    //display_bat(0,COL_PAGE0_BAT,MODE_NORMAL);
+    //display_bat(0,COL_PAGE0_BAT,MODE_REVERSE);
     
     
     //display_drops(0,COL_PAGE0_MDROPS,MODE_NORMAL);
@@ -134,19 +149,15 @@ void main(void)
     //display_cmode(0,COL_PAGE0_MDROPS,MODE_REVERSE);
     ///display_drops(0,COL_PAGE0_MDROPS,MODE_REVERSE);
     
-    while(1)
-    {
-    //display_drop(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
-    //display_blank_mode(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
     
     
-     display_drop(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
-    display_blank_mode(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
-    }
+    
     //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);delay(30);
     //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_REVERSE);delay(30);
+    //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_REVERSE);delay(30);
     
-    
+    //display_n13(0,COL_PAGE0_DN, MODE_NORMAL);
+    //display_n13(0,COL_PAGE0_DN, MODE_REVERSE);
     
     
     
@@ -167,6 +178,84 @@ void main(void)
     
     //display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_NORMAL);
     //display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_REVERSE);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    while(1)
+    {
+        
+        for(bv=0;bv<10;bv++)
+        {
+        //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_BLANK);
+        //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);
+        //display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+        //display_frame_fgh(1,COL_PAGE0_PATTERN_F, MODE_NORMAL);
+        display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+        
+          //display_n13(0,COL_PAGE0_DN, MODE_NORMAL);delay(20);
+          //display_n4(0,COL_PAGE0_DN, MODE_NORMAL);delay(20);
+          //display_n4(0,COL_PAGE0_EN, MODE_NORMAL);delay(20);
+          //display_n5(0,COL_PAGE0_FN, MODE_NORMAL);delay(20);
+          
+          display_n250(0,COL_PAGE0_GN, MODE_NORMAL);delay(20);
+        //display_n_blank(0,COL_PAGE0_DN, MODE_NORMAL);delay(20);
+        //display_n_blank(2,COL_PAGE0_FN, MODE_NORMAL);delay(20);
+        display_n_blank(2,COL_PAGE0_GN, MODE_NORMAL);delay(20);
+        }
+        
+#if 1
+         for(bv=0;bv<10;bv++)
+         {
+         //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_BLANK);
+        //display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_REVERSE);
+         //display_frame_fgh(1,COL_PAGE0_PATTERN_F, MODE_REVERSE);
+         
+          display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_REVERSE);
+        //display_n13(0,COL_PAGE0_DN, MODE_REVERSE);delay(20);
+        //display_n4(0,COL_PAGE0_EN, MODE_REVERSE);delay(20);
+         //display_n5(0,COL_PAGE0_FN, MODE_REVERSE);delay(20);
+         display_n250(0,COL_PAGE0_GN, MODE_REVERSE);delay(20);
+        //display_n_blank(0,COL_PAGE0_EN, MODE_REVERSE);delay(20);
+        //display_n_blank(2,COL_PAGE0_FN, MODE_REVERSE);delay(20);
+        display_n_blank(2,COL_PAGE0_GN, MODE_REVERSE);delay(20);
+         }
+#endif
+        
+        //display_n13(0,COL_PAGE0_DN, MODE_REVERSE);delay(20);
+        //display_n_blank(0,COL_PAGE0_DN, MODE_REVERSE);delay(20);
+        
+        //display_bat(0,COL_PAGE0_BAT,MODE_NORMAL);delay(20);
+        //display_blank_mode_pa(0,COL_PAGE0_BAT,MODE_NORMAL);delay(20);
+        
+        //display_bat(0,COL_PAGE0_BAT,MODE_REVERSE);delay(20);
+        //display_blank_mode_pa(0,COL_PAGE0_BAT,MODE_REVERSE);delay(20);
+        
+        //display_mem(0,COL_PAGE0_MEM,MODE_REVERSE);delay(30);
+        //display_blank_mode_pa(0,COL_PAGE0_MEM,MODE_REVERSE);delay(30);
+        
+        
+        //display_mem(0,COL_PAGE0_MEM,MODE_NORMAL);delay(30);
+        //display_blank_mode_pa(0,COL_PAGE0_MEM,MODE_NORMAL);delay(30);
+        
+        
+        
+     //display_cmode(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
+     //display_drops(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);    
+    //display_drop(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
+    //display_blank_mode_pa(0,COL_PAGE0_MDROPS,MODE_REVERSE);delay(30);
+    
+    //display_cmode(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
+    //display_drops(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
+     //display_drop(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
+    //display_blank_mode_pa(0,COL_PAGE0_MDROPS,MODE_NORMAL);delay(30);
+    }
+
     
     
     // display_pattern(5,0,MODE_NORMAL);

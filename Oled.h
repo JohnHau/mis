@@ -107,9 +107,7 @@ typedef struct interface
 
 
 
-#define MLENGTH    23
 
-#define COL_PAGE0_MDROPS   (COL_PAGE0_PATTERN_A + 2)
 //==============================================================================
 //==============================================================================
 
@@ -119,9 +117,22 @@ typedef struct interface
 #define WIDTH_PATTERN_A       27
 
 
+
+
+#define MLENGTH    23
+
+#define COL_PAGE0_MDROPS   (COL_PAGE0_PATTERN_A + 2)
+
+
+
 #define COL_PAGE0_PATTERN_B   35
 #define COL_PAGE1_PATTERN_B   35
 #define WIDTH_PATTERN_B       27
+
+
+
+#define COL_PAGE0_MEM   (COL_PAGE0_PATTERN_B + 2)
+
 
 
 
@@ -130,9 +141,20 @@ typedef struct interface
 #define WIDTH_PATTERN_C       27
 
 
+#define COL_PAGE0_BAT   (COL_PAGE0_PATTERN_C + 2)
+
+
+
 #define COL_PAGE0_PATTERN_D   49
 #define COL_PAGE1_PATTERN_D   49
 #define WIDTH_PATTERN_D       48
+
+
+#define DEFG_LENGTH    19
+#define COL_PAGE0_DN   (COL_PAGE0_PATTERN_D + 14)
+
+
+
 
 
 #define COL_PAGE0_PATTERN_E   0
@@ -140,9 +162,15 @@ typedef struct interface
 #define WIDTH_PATTERN_E       48
 
 
+#define COL_PAGE0_EN   (COL_PAGE0_PATTERN_E + 14)
+
+
 #define COL_PAGE0_PATTERN_F   49
 #define COL_PAGE1_PATTERN_F   49
 #define WIDTH_PATTERN_F       48
+
+
+#define COL_PAGE0_FN   (COL_PAGE0_PATTERN_F + 14)
 
 
 #define COL_PAGE0_PATTERN_G   0
@@ -150,12 +178,16 @@ typedef struct interface
 #define WIDTH_PATTERN_G       48
 
 
+
+#define COL_PAGE0_GN   (COL_PAGE0_PATTERN_G + 17)
+
+
 #define COL_PAGE0_PATTERN_H   0
 #define COL_PAGE1_PATTERN_H   0
 #define WIDTH_PATTERN_H       48
 
 
-
+#define COL_PAGE0_HN   (COL_PAGE0_PATTERN_H + 14)
 
 
 
@@ -243,8 +275,13 @@ void delay(unsigned int  x);
 void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
 void display_drops(uint8_t y,uint8_t x,uint8_t mode);
 void display_drop(uint8_t y,uint8_t x,uint8_t mode);
-void display_blank_mode(uint8_t y,uint8_t x,uint8_t mode);
+void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 
+
+
+
+void display_mem(uint8_t y,uint8_t x,uint8_t mode);
+void display_bat(uint8_t y,uint8_t x,uint8_t mode);
 
 
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
@@ -253,9 +290,11 @@ uint8_t display_frame_fgh(uint8_t y,uint8_t x, uint8_t mode);
 
 
 
-
-
-
+uint8_t display_n4(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n5(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n250(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n13(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 
 
 

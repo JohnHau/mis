@@ -783,9 +783,839 @@ const uint8_t drop_m[2][23] ={
 
 };
 
+//==============================================================================
 
 
-void display_blank_mode(uint8_t y,uint8_t x,uint8_t mode)
+const uint8_t mem_m [2][23]={
+    0x9f, 0x9f, 0x90, 0x9f, 0x9f, 0x90, 0x9f, 0x9f, 
+    0x80, 0x9d, 0x95, 0x95, 0x9f, 0x8e, 0x80, 0xbf, 
+    0xbf, 0x90, 0x88, 0x90, 0xbf, 0xbf, 0x80,
+    
+    0x01, 0x01, 0x01, 0x01, 0x01, 0x51, 0x7d, 0x3d, 
+    0x01, 0x51, 0x7d, 0x3d, 0x01, 0x39, 0x7d, 0x45, 
+    0x7d, 0x39, 0x01, 0x01, 0x01, 0x01, 0x01,
+
+    
+
+};
+
+const uint8_t bat_m[2][23]={
+    0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x8f, 
+    0x8b, 0xbb, 0xa3, 0xa3, 0xa3, 0xbb, 0x8b, 0x8f, 
+    0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+    
+    0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0xfd, 
+    0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 
+    0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
+
+
+};
+
+
+
+const uint8_t n_blank_m[3][19]={
+  
+0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
+0x20, 0x20, 0x20,
+
+    
+    
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+0x00, 0x00, 0x00,
+
+    
+    
+    0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+    0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+    0x10,0x10,0x10
+
+    
+    
+    
+};
+
+
+
+const uint8_t n_4_m[3][19]={
+0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x27, 0x27, 
+0x20, 0x20, 0x20, 0x27, 0x27, 0x20, 0x20, 0x20, 
+0x20, 0x20, 0x20,
+
+
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 
+0x60, 0x60, 0x60, 0xe0, 0xe0, 0x00, 0x00, 0x00, 
+0x00, 0x00, 0x00,
+
+
+0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+0x10,0x10,0x10
+
+
+
+};
+
+
+
+
+
+const uint8_t n_5_m[3][19]={
+
+0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x26, 0x26, 
+0x26, 0x26, 0x26, 0x27, 0x27, 0x20, 0x20, 0x20, 
+0x20, 0x20, 0x20,
+
+
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3e, 0x7f, 
+0x63, 0x63, 0x63, 0xe3, 0xe3, 0x00, 0x00, 0x00, 
+0x00, 0x00, 0x00,
+
+0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+0x10,0x10,0x10
+
+};
+
+
+
+
+
+
+
+
+
+const uint8_t n_13_m[3][19]={
+  
+0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23, 0x27, 
+0x26, 0x26, 0x27, 0x23, 0x20, 0x20, 0x20, 0x27, 
+0x27, 0x23, 0x20,
+
+    
+    
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xde, 0xff,
+0x63, 0x63, 0x07, 0x06, 0x00, 0x00, 0x03, 0xff, 
+0xff, 0x03, 0x00,
+
+    
+    
+    0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+    0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+    0x10,0x10,0x10
+
+    
+    
+    
+};
+
+
+
+
+
+const uint8_t n_250_m[3][19]={
+  
+    0x23, 0x27, 0x26, 0x27, 0x23, 0x20, 0x26, 0x26, 
+    0x26, 0x27, 0x27, 0x20, 0x23, 0x27, 0x26, 0x26, 
+    0x27, 0x23, 0x20,
+    
+    0xfe, 0xff, 0x03, 0xff, 0xfe, 0x00, 0x3e, 0x7f, 
+    0x63, 0xe3, 0xc3, 0x00, 0x83, 0xc3, 0x63, 0x33, 
+    0x1f, 0x0f, 0x00,
+
+     0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+    0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
+    0x10,0x10,0x10
+    
+
+    
+    
+    
+};
+
+
+
+
+
+
+
+uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
+{
+    uint8_t temp =0;
+    uint8_t tori =0;
+    if(y==1)
+    {
+            if(mode == MODE_NORMAL)
+            {         
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(2,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_blank_m[0][ms];
+            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             setYX_LCD(3,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_blank_m[1][ms];
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+              setYX_LCD(4,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_blank_m[2][ms];
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            }
+            else if(mode == MODE_REVERSE)
+            {
+            
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(2,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_blank_m[0][ms];
+                tori = temp;
+                
+                temp = ~temp;
+                temp &= 0x3f;
+  
+                ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            setYX_LCD(3,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_blank_m[1][ms];
+                  tori = temp;
+
+                  temp = ~temp;
+
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+               setYX_LCD(4,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_blank_m[2][ms];
+                 tori = temp;
+                 //temp = ~temp;
+                 //temp |= tori;
+                 //temp &= 0xe0;
+                 
+                 temp = 0xf0;
+                
+                    
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+            
+            }
+    }
+    else if(y ==2)
+    {
+    
+            if(mode == MODE_NORMAL)
+            {         
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(5,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_blank_m[0][ms];
+            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             setYX_LCD(6,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_blank_m[1][ms];
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+              setYX_LCD(7,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_blank_m[2][ms];
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            }
+            else if(mode == MODE_REVERSE)
+            {
+            
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(5,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_blank_m[0][ms];
+                tori = temp;
+                
+                temp = ~temp;
+                temp &= 0x3f;
+  
+                ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            setYX_LCD(6,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_blank_m[1][ms];
+                  tori = temp;
+
+                  temp = ~temp;
+
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+               setYX_LCD(7,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_blank_m[2][ms];
+                 tori = temp;
+                 //temp = ~temp;
+                 //temp |= tori;
+                 //temp &= 0xe0;
+                 
+                 temp = 0xf0;
+                
+                    
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+            
+            }
+    
+    
+    }
+
+}
+
+
+uint8_t display_n4(uint8_t y,uint8_t x, uint8_t mode)
+{
+    uint8_t temp =0;
+    uint8_t tori =0;
+
+            if(mode == MODE_NORMAL)
+            {         
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(2,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_4_m[0][ms];
+            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             setYX_LCD(3,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_4_m[1][ms];
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+              setYX_LCD(4,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_4_m[2][ms];
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            }
+            else if(mode == MODE_REVERSE)
+            {
+            
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(2,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_4_m[0][ms];
+                tori = temp;
+                
+                temp = ~temp;
+                temp &= 0x3f;
+  
+                ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            setYX_LCD(3,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_4_m[1][ms];
+                  tori = temp;
+
+                  temp = ~temp;
+
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+               setYX_LCD(4,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_4_m[2][ms];
+                 tori = temp;
+                 //temp = ~temp;
+                 //temp |= tori;
+                 //temp &= 0xe0;
+                 
+                 temp = 0xf0;
+                
+                    
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+            
+            }
+    
+
+}
+
+
+
+uint8_t display_n5(uint8_t y,uint8_t x, uint8_t mode)
+{
+    uint8_t temp =0;
+    uint8_t tori =0;
+
+            if(mode == MODE_NORMAL)
+            {         
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(5,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_5_m[0][ms];
+            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             setYX_LCD(6,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_5_m[1][ms];
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+              setYX_LCD(7,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_5_m[2][ms];
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            }
+            else if(mode == MODE_REVERSE)
+            {
+            
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(5,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_5_m[0][ms];
+                tori = temp;
+                
+                temp = ~temp;
+                temp &= 0x3f;
+  
+                ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            setYX_LCD(6,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_5_m[1][ms];
+                  tori = temp;
+
+                  temp = ~temp;
+
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+               setYX_LCD(7,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_5_m[2][ms];
+                 tori = temp;
+                 //temp = ~temp;
+                 //temp |= tori;
+                 //temp &= 0xe0;
+                 
+                 temp = 0xf0;
+                
+                    
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+            
+            }
+    
+
+}
+
+
+
+uint8_t display_n250(uint8_t y,uint8_t x, uint8_t mode)
+{
+    uint8_t temp =0;
+    uint8_t tori =0;
+
+            if(mode == MODE_NORMAL)
+            {         
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(5,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_250_m[0][ms];
+            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             setYX_LCD(6,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_250_m[1][ms];
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+              setYX_LCD(7,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_250_m[2][ms];
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            }
+            else if(mode == MODE_REVERSE)
+            {
+            
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(5,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_250_m[0][ms];
+                tori = temp;
+                
+                temp = ~temp;
+                temp &= 0x3f;
+  
+                ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            setYX_LCD(6,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_250_m[1][ms];
+                  tori = temp;
+
+                  temp = ~temp;
+
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+               setYX_LCD(7,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_250_m[2][ms];
+                 tori = temp;
+                 //temp = ~temp;
+                 //temp |= tori;
+                 //temp &= 0xe0;
+                 
+                 temp = 0xf0;
+                
+                    
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+            
+            }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+uint8_t display_n13(uint8_t y,uint8_t x, uint8_t mode)
+{
+    uint8_t temp =0;
+    uint8_t tori =0;
+
+            if(mode == MODE_NORMAL)
+            {         
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(2,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_13_m[0][ms];
+            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+            ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+             setYX_LCD(3,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_13_m[1][ms];
+                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+              setYX_LCD(4,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_13_m[2][ms];
+                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            }
+            else if(mode == MODE_REVERSE)
+            {
+            
+            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+             setYX_LCD(2,x);
+            for(ms=0;ms<DEFG_LENGTH;ms++)
+            {
+                temp = n_13_m[0][ms];
+                tori = temp;
+                
+                temp = ~temp;
+                temp &= 0x3f;
+  
+                ee_WriteBytes(&temp, 0x40, 1);
+            }
+            
+            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            setYX_LCD(3,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                  temp = n_13_m[1][ms];
+                  tori = temp;
+
+                  temp = ~temp;
+
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+               setYX_LCD(4,x);
+             for(ms=0;ms<DEFG_LENGTH;ms++)
+             {
+                 temp = n_13_m[2][ms];
+                 tori = temp;
+                 //temp = ~temp;
+                 //temp |= tori;
+                 //temp &= 0xe0;
+                 
+                 temp = 0xf0;
+                
+                    
+                ee_WriteBytes(&temp, 0x40, 1);
+             }
+            
+            
+            
+            }
+    
+
+}
+
+
+
+
+
+
+
+
+void display_bat(uint8_t y,uint8_t x,uint8_t mode)
+{
+
+  uint8_t temp =0;
+    uint8_t tori =0;
+    switch(mode)
+    {
+    
+        case MODE_NORMAL:
+            
+             // setYX_LCD(0,COL_PAGE0_PATTERN_A);
+                setYX_LCD(0,x);
+                for(ms=0;ms<MLENGTH;ms++)
+                {
+                    
+                    temp =bat_m[0][ms];
+                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                setYX_LCD(1,x);
+                 for(ms=0;ms<MLENGTH;ms++)
+                 {
+                     temp = bat_m[1][ms];
+                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+            
+            
+            break;
+            
+         case MODE_REVERSE:
+             
+             //setYX_LCD(0,COL_PAGE0_PATTERN_A);
+              setYX_LCD(0,x);
+                for(ms=0;ms<MLENGTH;ms++)
+                {
+
+                    temp = bat_m[0][ms];
+                    tori = temp;
+                    
+                    temp = ~temp;
+                    //temp |= tori;
+
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                setYX_LCD(1,x);
+                 for(ms=0;ms<MLENGTH;ms++)
+                 {
+                     temp = bat_m[1][ms];
+                     tori =temp;
+
+                     temp = ~temp;
+                    // temp |= tori;
+
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+
+            break;    
+
+    }
+
+}
+
+
+void display_mem(uint8_t y,uint8_t x,uint8_t mode)
+{
+
+  uint8_t temp =0;
+    uint8_t tori =0;
+    switch(mode)
+    {
+    
+        case MODE_NORMAL:
+            
+             // setYX_LCD(0,COL_PAGE0_PATTERN_A);
+                setYX_LCD(0,x);
+                for(ms=0;ms<MLENGTH;ms++)
+                {
+                    
+                    temp =mem_m[0][ms];
+                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                setYX_LCD(1,x);
+                 for(ms=0;ms<MLENGTH;ms++)
+                 {
+                     temp = mem_m[1][ms];
+                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+            
+            
+            break;
+            
+         case MODE_REVERSE:
+             
+             //setYX_LCD(0,COL_PAGE0_PATTERN_A);
+              setYX_LCD(0,x);
+                for(ms=0;ms<MLENGTH;ms++)
+                {
+
+                    temp = mem_m[0][ms];
+                    tori = temp;
+                    
+                    temp = ~temp;
+                    //temp |= tori;
+
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                setYX_LCD(1,x);
+                 for(ms=0;ms<MLENGTH;ms++)
+                 {
+                     temp = mem_m[1][ms];
+                     tori =temp;
+
+                     temp = ~temp;
+                    // temp |= tori;
+
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+
+            break;    
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode)
 {
 
   uint8_t temp =0;
@@ -1367,10 +2197,7 @@ uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode)
              
              
             break;    
-            
-    
-    
-    
+             
     
     }
 
