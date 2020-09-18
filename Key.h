@@ -36,7 +36,7 @@
 #define KEY_DOWN_PRESSED      0xf2
 #define KEY_V_PRESSED         0xf3
 
-#define KEY_NOT_PRESSED         0xff
+#define KEY_NOT_PRESSED         0x00
 //==============================================================================
 
 

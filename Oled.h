@@ -179,7 +179,7 @@ typedef struct interface
 
 
 
-#define COL_PAGE0_GN   (COL_PAGE0_PATTERN_G + 17)
+#define COL_PAGE0_GN   (COL_PAGE0_PATTERN_G + 14)
 
 
 #define COL_PAGE0_PATTERN_H   0
@@ -286,7 +286,7 @@ void display_bat(uint8_t y,uint8_t x,uint8_t mode);
 
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
-uint8_t display_frame_fgh(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
 
 
 
