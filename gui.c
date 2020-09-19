@@ -5,6 +5,12 @@
 #include "gui.h"
 
 uint8_t focus =0;
+uint8_t flip =0;
+uint8_t work_mode =0;
+uint8_t needle_len =4;
+
+
+
 MENU menu[8]={0};
 
 
@@ -19,7 +25,7 @@ void HG_init(void)
     init_menu();
     KEY_Init();
 
-   
+    TimerInit();
     
     
     
@@ -52,6 +58,24 @@ void menu0_MsgHandlle(uint8_t key)
             if(menu[0].mode == MODE_BLINK)
             {
                 
+                work_mode ++;
+                
+                if(work_mode == 3)work_mode = WORK_MODE_C;
+             
+                 display_frame_abc(0,COL_PAGE0_PATTERN_A, menu[0].mode);
+                    if(work_mode == WORK_MODE_C)
+                    {
+                        display_cmode(0,COL_PAGE0_MDROPS, menu[0].mode);
+                    }
+                    else if(work_mode == WORK_MODE_DROPS)
+                    {
+                        display_drops(0,COL_PAGE0_MDROPS, menu[0].mode);
+                    }
+                    else if(work_mode == WORK_MODE_DROP)
+                    {
+                        display_drop(0,COL_PAGE0_MDROPS, menu[0].mode);
+                    }                      
+                    menu[0].cur_mode = menu[0].mode;  
             }
             else
             {
@@ -85,6 +109,62 @@ void menu0_MsgHandlle(uint8_t key)
             break;
             
         case KEY_V_PRESSED:
+            
+            if(menu[0].mode == MODE_REVERSE)
+            {    
+                menu[0].mode = MODE_BLINK;      
+                flip = 1;
+            }
+            else if(menu[0].mode == MODE_BLINK)
+            {
+                
+               display_frame_fghi(3,COL_PAGE0_PATTERN_H, MODE_NORMAL);
+               display_n250(0,COL_PAGE0_HN, MODE_NORMAL);
+                
+               menu[0].mode = MODE_NORMAL;     
+            }
+            
+             if(menu[0].cur_mode != menu[0].mode)
+             //if(1)
+             {
+                 if(menu[0].mode == MODE_NORMAL)
+                 {
+                    display_frame_abc(0,COL_PAGE0_PATTERN_A, menu[0].mode);
+                    if(work_mode == WORK_MODE_C)
+                    {
+                        display_cmode(0,COL_PAGE0_MDROPS, menu[0].mode);
+                    }
+                    else if(work_mode == WORK_MODE_DROPS)
+                    {
+                        display_drops(0,COL_PAGE0_MDROPS, menu[0].mode);
+                        //
+                        //
+                        //
+                        
+                        
+                    }
+                    else if(work_mode == WORK_MODE_DROP)
+                    {
+                        display_drop(0,COL_PAGE0_MDROPS, menu[0].mode);
+                        //
+                        //
+                        //
+                        
+                        
+                    }      
+                    
+                 }
+                    menu[0].cur_mode = menu[0].mode;
+                    
+                    
+              }
+            
+            
+            
+            
+            
+            
+            
             break;   
     }
 
@@ -195,11 +275,12 @@ void menu3_MsgHandlle(uint8_t key)
             
             if(menu[3].mode == MODE_BLINK)
             {
-                
+                menu[3].parameter ++;  
+                if(menu[3].parameter == 2) menu[3].parameter = 0;
             }
             else
             {
-                if(focus ==4)
+                if(focus == 4)
                 {
                     menu[3].mode = MODE_REVERSE;
                 }
@@ -211,9 +292,20 @@ void menu3_MsgHandlle(uint8_t key)
                 
                  if(menu[3].cur_mode != menu[3].mode)
                  {
-                display_frame_de(1,COL_PAGE0_PATTERN_D, menu[3].mode);
-                display_n4(0,COL_PAGE0_DN, menu[3].mode);
-                menu[3].cur_mode = menu[3].mode;
+                    display_frame_de(1,COL_PAGE0_PATTERN_D, menu[3].mode);
+                    
+                    
+                    if( menu[3].parameter == 0)
+                    {
+                      display_n4(0,COL_PAGE0_DN, menu[3].mode);
+                    }
+                    else if( menu[3].parameter == 1)
+                    {
+                      display_n13(0,COL_PAGE0_DN, menu[3].mode);
+                    }
+                    
+                    
+                    menu[3].cur_mode = menu[3].mode;
                  }
             }
             
@@ -224,6 +316,48 @@ void menu3_MsgHandlle(uint8_t key)
             break;
             
         case KEY_V_PRESSED:
+            
+            
+            if(menu[3].mode == MODE_REVERSE)
+            {    
+                menu[3].mode = MODE_BLINK;      
+                flip = 1;
+            }
+            else if(menu[3].mode == MODE_BLINK)
+            {   
+               menu[3].mode = MODE_NORMAL;     
+            }
+            
+             if(menu[3].cur_mode != menu[3].mode)
+             //if(1)
+             {
+                 if(menu[3].mode == MODE_NORMAL)
+                 {
+                    display_frame_de(1,COL_PAGE0_PATTERN_D,MODE_NORMAL);
+                    if(menu[3].parameter == 0)
+                    {
+                        display_n4(0,COL_PAGE0_DN, MODE_NORMAL);
+                        needle_len = 4;
+                    }
+                    else if(menu[3].parameter == 1)
+                    {
+                        display_n13(0,COL_PAGE0_DN, MODE_NORMAL);
+                        needle_len = 13;
+                        //
+                        //
+                        //
+                        
+                        
+                    }
+                    
+                 }
+                    menu[3].cur_mode = menu[3].mode;
+                    
+                    
+              }
+            
+            
+            
             break;   
     }
 
@@ -359,6 +493,7 @@ void init_menu(void)
     menu[0].mode = MODE_NORMAL;
     menu[0].cur_mode =menu[0].mode;
     menu[0].value = 0;
+    menu[0].parameter =0;
     menu[0].MsgHandlle = menu0_MsgHandlle;
     
     
@@ -367,6 +502,7 @@ void init_menu(void)
     menu[1].mode = MODE_NORMAL;
     menu[1].cur_mode =menu[1].mode;
     menu[1].value = 0;
+    menu[1].parameter =0;
     menu[1].MsgHandlle = menu1_MsgHandlle;
     
     menu[2].menu_no=0;
@@ -374,6 +510,7 @@ void init_menu(void)
     menu[2].mode = MODE_NORMAL;
     menu[2].cur_mode =menu[2].mode;
     menu[2].value = 0;
+    menu[2].parameter =0;
     menu[2].MsgHandlle = menu2_MsgHandlle;
     
     
@@ -382,6 +519,7 @@ void init_menu(void)
     menu[3].mode = MODE_NORMAL;
     menu[3].cur_mode =menu[3].mode;
     menu[3].value = 0;
+    menu[3].parameter =0;
     menu[3].MsgHandlle = menu3_MsgHandlle;
     
     
@@ -390,6 +528,7 @@ void init_menu(void)
     menu[4].mode = MODE_NORMAL;
     menu[4].cur_mode =menu[4].mode;
     menu[4].value = 0;
+    menu[4].parameter =0;
     menu[4].MsgHandlle = menu4_MsgHandlle;
     
     menu[5].menu_no=0;
@@ -397,6 +536,7 @@ void init_menu(void)
     menu[5].mode = MODE_NORMAL;
     menu[5].cur_mode =menu[5].mode;
     menu[5].value = 0;
+    menu[5].parameter =0;
     menu[5].MsgHandlle = menu5_MsgHandlle;
     
     
@@ -405,6 +545,7 @@ void init_menu(void)
     menu[6].mode = MODE_NORMAL;
     menu[6].cur_mode =menu[6].mode;
     menu[6].value = 0;
+    menu[6].parameter =0;
     menu[6].MsgHandlle = menu6_MsgHandlle;
     
     menu[7].menu_no=0;
@@ -412,10 +553,12 @@ void init_menu(void)
     menu[7].mode = MODE_NORMAL;
     menu[7].cur_mode =menu[0].mode;
     menu[7].value = 0;
+    menu[7].parameter =0;
     menu[7].MsgHandlle = menu7_MsgHandlle;
     
-    
-    
+    focus =0;
+    flip =0;
+    work_mode = WORK_MODE_C;
     
 }
 
@@ -432,7 +575,7 @@ for(i=0;i<8;i++)
        {
            case KEY_UP_PRESSED:
                
-               if(focus == 8)
+               if(focus == 5)
                    focus =1;
                else
                    focus++;
@@ -467,7 +610,7 @@ void HG_interface(void)
     kv = KEY_Scan();
     update_focus(kv); 
     
-    
+
 #if 1
     if(kv)
     {

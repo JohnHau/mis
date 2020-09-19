@@ -3,13 +3,11 @@
 #include"MotorDrive.h"
 #include "Timer.h"
 #include "Beep.h"
-//#include "PositionControl.h"
 #include "Key.h"
 #include "Timer.h"
 #include "Oled.h"
 #include "gui.h"
-//#include "Display.h"
-//#include "PositionControl.h"
+
 
 #pragma config OSC = HS					//Oscillator Selection bits
 #pragma config FCMEN = OFF				//Fail-Safe clock Monitor enable bit
@@ -81,6 +79,39 @@ void main(void)
 
     
     HG_init();
+    
+    
+    MotorDriveInit();
+    
+    cur_state_phb_ma=0;
+    prev_state_phb_ma=0;
+    cnt_ma = 0;
+#if 0
+    ENABLE_AH();
+    FORWARD_RUN_A();   
+    
+    while(cnt_ma < 6000)
+    {
+        cur_state_phb_ma = READ_PHB_MA();
+        if(cur_state_phb_ma != prev_state_phb_ma)
+        {
+           cnt_ma ++;
+           prev_state_phb_ma = cur_state_phb_ma;   
+        }
+    
+    }
+    
+    STOP_A();
+    ENABLE_AL();
+    
+    ENABLE_BH(); 
+    FORWARD_RUN_B();   
+    
+#endif
+    
+    
+    
+    
     
     while(1)
     {
@@ -193,13 +224,13 @@ void main(void)
       display_n5(0,COL_PAGE0_HN, MODE_REVERSE);delay(20);
      while(1);
     
-    //display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
-    //display_frame_fgh(2,COL_PAGE0_PATTERN_G, MODE_REVERSE);
+    //display_frame_fghi(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    //display_frame_fghi(2,COL_PAGE0_PATTERN_G, MODE_REVERSE);
     
     
     
-    //display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_NORMAL);
-    //display_frame_fgh(3,COL_PAGE0_PATTERN_G, MODE_REVERSE);
+    //display_frame_fghi(3,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    //display_frame_fghi(3,COL_PAGE0_PATTERN_G, MODE_REVERSE);
     
     
     

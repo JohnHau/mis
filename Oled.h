@@ -187,7 +187,7 @@ typedef struct interface
 #define WIDTH_PATTERN_H       48
 
 
-#define COL_PAGE0_HN   (COL_PAGE0_PATTERN_H + 14)
+#define COL_PAGE0_HN   (COL_PAGE0_PATTERN_H + 17)
 
 
 

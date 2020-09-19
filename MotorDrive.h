@@ -1,6 +1,9 @@
 #ifndef   MOTO_DRIVE_H
 #define   MOTO_DRIVE_H
 
+#include <stdint.h>
+
+
 
 #define SET_MOTOR_VCC_CONTROL_PIN_DIR_OUT		(DDRAbits.RA5  =0)	
 #define SET_MOTOR_VCC_CONTROL_PIN  				(PORTAbits.RA5 =0)  
@@ -83,6 +86,12 @@
 
 
 
+
+extern uint8_t prev_state_phb_ma;
+extern uint8_t cur_state_phb_ma;
+
+extern uint32_t cnt_ma;
+extern uint32_t cnt_mb;
 
 
 
