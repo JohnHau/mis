@@ -94,15 +94,23 @@ extern uint32_t cnt_ma;
 extern uint32_t cnt_mb;
 
 
+extern uint32_t cnt_mb_sa;
+extern uint32_t cnt_mb_sb;
 
 
 
 
+extern uint8_t flag_inject;
 
+extern uint8_t flag_mreset;
+extern uint8_t flag_mreset_hit_lp;
 
+extern uint8_t flag_inject_sa;
+extern uint8_t flag_inject_sb;
 
+extern uint8_t flag_push;
 
-
+extern uint8_t flag_action;
 
 
 

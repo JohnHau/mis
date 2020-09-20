@@ -86,6 +86,7 @@ void main(void)
     cur_state_phb_ma=0;
     prev_state_phb_ma=0;
     cnt_ma = 0;
+    cnt_mb = 0;
 #if 0
     ENABLE_AH();
     FORWARD_RUN_A();   
@@ -112,9 +113,117 @@ void main(void)
     
     
     
-    
+    flag_mreset =1;
     while(1)
     {
+        
+#if 1
+        
+        if(flag_mreset ==0 && flag_mreset_hit_lp ==0 )
+        {
+            if(ACTION_BUTTON  == 1)
+            {
+                 cnt_mb = 0;
+                 
+                 flag_action =0;
+                 flag_push =0;
+                 flag_inject_sa =0;
+                 flag_inject_sb =0;
+                 STOP_B();
+
+            }
+        }
+#endif
+        
+
+        
+        
+        
+        
+        
+        
+        
+        if(flag_mreset)
+        {
+            ENABLE_BH(); 
+            //FORWARD_RUN_B();   
+            REVERSE_RUN_B();  
+        }
+        
+        
+        
+        
+        if(flag_push)
+        {
+            #if 1
+
+                prev_edge =0;
+                cur_edge =0;
+                cnt_ma =0;
+                ENABLE_AH();
+                FORWARD_RUN_A();   
+
+                while(cnt_ma < 100)
+                {
+                    cur_state_phb_ma = READ_PHB_MA();
+                    if(cur_state_phb_ma != prev_state_phb_ma)
+                    {
+                       cnt_ma ++;
+                       prev_state_phb_ma = cur_state_phb_ma;   
+                    }
+
+                }
+               
+                STOP_A();
+                //ENABLE_AL();
+
+                #if 0 
+               prev_edge =0;
+                cur_edge =0;
+                cnt_ma =0;
+                ENABLE_AH();
+                REVERSE_RUN_A();   
+                while(cnt_ma < 100)
+                {
+                    cur_state_phb_ma = READ_PHB_MA();
+                    if(cur_state_phb_ma != prev_state_phb_ma)
+                    {
+                       cnt_ma ++;
+                       prev_state_phb_ma = cur_state_phb_ma;   
+                    }
+
+                }
+                
+                STOP_A();
+                ENABLE_AL();
+                #endif
+   
+                flag_push = 0;
+                flag_inject_sa =0;
+                flag_inject_sb =1;
+          
+#if 1
+                cnt_mb = 0;
+                
+                cnt_mb_sa =0;
+                cnt_mb_sb =0;
+                ENABLE_BH();
+                FORWARD_RUN_B(); 
+                
+#endif
+                
+                
+                
+                //ENABLE_BH(); 
+                //FORWARD_RUN_B();   
+    
+            #endif
+        
+        
+        }
+        
+
+        
         HG_interface();
         //while(1);
     }

@@ -2,11 +2,34 @@
 #include <stdint.h>
 #include"MotorDrive.h"
 
+
+//needle length         pos 
+//  4mm                 9.7mm
+//  9mm                 4.7mm
+//  13mm                0.7mm
+
+
 uint8_t prev_state_phb_ma =0;
 uint8_t cur_state_phb_ma =0;
 
 uint32_t cnt_ma =0;
 uint32_t cnt_mb =0;
+
+
+uint32_t cnt_mb_sa =0;
+uint32_t cnt_mb_sb =0;
+
+uint8_t flag_mreset =1;
+uint8_t flag_mreset_hit_lp =0;
+
+uint8_t flag_inject =0;
+
+uint8_t flag_inject_sa =0;
+uint8_t flag_inject_sb =0;
+
+uint8_t flag_push =0;
+
+uint8_t flag_action =0;
 
 void OpenMotorPower(void)
 {
