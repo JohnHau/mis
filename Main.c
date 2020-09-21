@@ -71,13 +71,13 @@ int xn=0;
 int ann=0;
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
-uint16_t bv =10;
+uint16_t bv =0;
 uint16_t cv =10;
 uint16_t dv =10;
 void main(void)                
 { 
 
-    
+    //delay_nms(100);
     HG_init();
     
     
@@ -87,6 +87,8 @@ void main(void)
     prev_state_phb_ma=0;
     cnt_ma = 0;
     cnt_mb = 0;
+    
+    
 #if 0
     ENABLE_AH();
     FORWARD_RUN_A();   
@@ -113,19 +115,27 @@ void main(void)
     
     
     
-    flag_mreset =1;
+    flag_mreset =0;
     while(1)
     {
         
         if(flag_go_to_sleep ==1)
         {
         
-            //SLEEP();
-            NOP();
-            NOP();  
-            LCD_Off();
-            SLEEP();
-            
+            //delay_nms(5);
+            //if(KEY_WAKE  == 0)
+            {
+                //SLEEP();
+                NOP();
+                NOP();  
+                LCD_Off();
+                SLEEP();
+            }
+            //else
+            {
+              //flag_go_to_sleep = 0;
+            }
+
         
         }
         

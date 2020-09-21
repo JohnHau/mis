@@ -118,6 +118,8 @@ void __interrupt ISR(void)
        
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
+            
+            
             buzz();
             if(flag_go_to_sleep == 0)
             {
@@ -160,6 +162,9 @@ void __interrupt ISR(void)
         
         if(ACTION_BUTTON  == 0)
         {
+         
+            if(flag_go_to_sleep == 0)
+            {
             buzz();
             flag_do_reset_in_drops_mode = 0;
             flag_action =1;
@@ -172,11 +177,11 @@ void __interrupt ISR(void)
             flag_inject_sa =1;    
             flag_inject_sb =0;    
             flag_push =0;
-            ENABLE_BH(); 
+            //ENABLE_BH(); 
             //FORWARD_RUN_B();   
             REVERSE_RUN_B();  
 #endif
-
+            } 
         }
         //buzz();
         //temp = PORTB;
@@ -221,7 +226,7 @@ void __interrupt ISR(void)
                         //mbcnt++;
                         cnt_mb ++;
 
-                        if(cnt_mb == 100) 
+                        if(cnt_mb == 200) 
                         {
                             
                             STOP_B();
@@ -254,7 +259,7 @@ void __interrupt ISR(void)
               {
                   //FORWARD_RUN_B();
                   
-                  //for(tmcnt =0;tmcnt<2;tmcnt)
+                  //for(tmcnt =0;tmcnt<2;tmcnt++)
                   {
                     //NOP();NOP(); NOP();NOP(); NOP();NOP(); NOP();NOP();
                     //NOP();NOP(); NOP();NOP(); NOP();NOP(); NOP();NOP();
@@ -295,7 +300,7 @@ void __interrupt ISR(void)
                    
                   //if(mbcnt == 30000)
                   //if(cnt_mb == 30) 
-                  if(cnt_mb_sb == (100 + 10)) 
+                  if(cnt_mb_sb == (100)) 
                   {
                       //ENABLE_BL();//STOP_B();
                       //cnt_mb = 0;

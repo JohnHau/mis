@@ -151,7 +151,7 @@ void MotorDriveInit(void)
 #if 0
     //CCPR2= 99;
     PR2= 99;
-    CCPR1L= 10;
+    CCPR1L= 100;
     //CCP1CON = 
     TRISCbits.RC2 =0;//enable A
     T2CONbits.T2CKPS = 1;//prescaler is 4
@@ -181,12 +181,13 @@ void MotorDriveInit(void)
     TRISDbits.RD2 =0;//input3
     TRISDbits.RD3 =0;//input4
     
-    
-    ENABLE_AL();   
+    STOP_A();
+    STOP_B();
+    ENABLE_AH();   
     INPUT1_AL(); 
     INPUT2_AL(); 
     
-    ENABLE_BL();   
+    ENABLE_BH();   
     INPUT3_BL(); 
     INPUT4_BL(); 
     
