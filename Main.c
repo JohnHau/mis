@@ -117,6 +117,24 @@ void main(void)
     while(1)
     {
         
+        if(flag_go_to_sleep ==1)
+        {
+        
+            //SLEEP();
+            NOP();
+            NOP();  
+            LCD_Off();
+            SLEEP();
+            
+        
+        }
+        
+        
+        
+        
+        
+        
+        
 #if 1
         
         if(flag_mreset ==0 && flag_mreset_hit_lp ==0 )
@@ -131,6 +149,18 @@ void main(void)
                  flag_inject_sb =0;
                  STOP_B();
 
+                if(flag_do_reset_in_drops_mode == 0)
+                {
+                    flag_mreset = 1;
+                    flag_mreset_hit_lp = 0;
+                }
+                 
+                 
+                 
+                 
+                 
+                 
+                 
             }
         }
 #endif
@@ -223,6 +253,7 @@ void main(void)
         }
         
 
+        
         
         HG_interface();
         //while(1);

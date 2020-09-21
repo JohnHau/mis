@@ -18,8 +18,8 @@
 
 #define KEY_DOWN                 PORTDbits.RD7  	
 #define KEY_V                    PORTBbits.RB3 
-//#define KEY_WAKE                 PORTBbits.RB4	
-#define KEY_WAKE                 (PORTB & 0x10)	
+#define KEY_WAKE                 PORTBbits.RB4	
+//#define KEY_WAKE                 (PORTB & 0x10)	
 
 #define ACTION_BUTTON            PORTBbits.RB5
 

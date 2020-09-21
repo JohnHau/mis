@@ -116,12 +116,27 @@ void __interrupt ISR(void)
     {
     
        
-        if(KEY_WAKE  == 0)
+        if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
-            
+            buzz();
+            if(flag_go_to_sleep == 0)
+            {
+                flag_go_to_sleep  =1;
+            }
+            else  if(flag_go_to_sleep == 1)
+            {
+                flag_go_to_sleep  =0;
+                LCD_On();
+                
+                flag_mreset = 1;
+                flag_mreset_hit_lp = 0;
+                
+                
+                
+            }
              //delay_nms(10);
             
-            if(KEY_WAKE  == 0)
+            //if(KEY_WAKE  == 0)
             {
                 
 #if 0
@@ -146,7 +161,7 @@ void __interrupt ISR(void)
         if(ACTION_BUTTON  == 0)
         {
             buzz();
-            
+            flag_do_reset_in_drops_mode = 0;
             flag_action =1;
 #if 1
             //flag_inject = 1;
@@ -180,9 +195,9 @@ void __interrupt ISR(void)
          {
             flag_mreset = 0;
             STOP_B();
-            ENABLE_BL();
+            //ENABLE_BL();
             NOP();NOP();
-            ENABLE_BH();
+            //ENABLE_BH();
             //ENABLE_BH();
             cnt_mb = 0;
             flag_mreset_hit_lp =1;
@@ -210,10 +225,14 @@ void __interrupt ISR(void)
                         {
                             
                             STOP_B();
-                            ENABLE_BL();
+                            //ENABLE_BL();
                             cnt_mb = 0;
                             flag_mreset_hit_lp =0;
                             flag_mreset =0;
+                            
+                            flag_do_reset_in_drops_mode = 1;
+                            
+                            
                             //flag_inject = 1;
                         }
                  }
@@ -231,7 +250,7 @@ void __interrupt ISR(void)
                
               //if(mbcnt == 30000)
               //if(cnt_mb == 30) 
-              if(cnt_mb_sa == (300 )) 
+              if(cnt_mb_sa == (100 )) 
               {
                   //FORWARD_RUN_B();
                   
@@ -243,7 +262,8 @@ void __interrupt ISR(void)
                   //ENABLE_BL();//
                   STOP_B();
                   cnt_mb = 0;
-                  //cnt_mb_sa =0;//=================
+                  cnt_mb_sa =0;//=================
+                  cnt_mb_sb =0;
                   //STOP_B(); //ENABLE_BL();
                   //ENABLE_BL();
                   //NOP();NOP();
@@ -275,10 +295,11 @@ void __interrupt ISR(void)
                    
                   //if(mbcnt == 30000)
                   //if(cnt_mb == 30) 
-                  if(cnt_mb_sb == (300 + 10)) 
+                  if(cnt_mb_sb == (100 + 10)) 
                   {
                       //ENABLE_BL();//STOP_B();
                       //cnt_mb = 0;
+                      cnt_mb_sa =0;
                       cnt_mb_sb =0;
                       //ENABLE_BL();STOP_B();//STOP_B();//ENABLE_BL();
 

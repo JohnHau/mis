@@ -31,6 +31,14 @@ uint8_t flag_push =0;
 
 uint8_t flag_action =0;
 
+uint8_t flag_go_to_sleep =1;
+
+uint8_t flag_wake_up =1;
+
+uint8_t flag_action_button =0;
+        
+uint8_t flag_do_reset_in_drops_mode =0;  
+        
 void OpenMotorPower(void)
 {
 	//SET_MOTOR_VCC_CONTROL_PIN;

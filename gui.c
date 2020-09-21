@@ -19,7 +19,7 @@ void HG_init(void)
 {
     BeepInit();
     LCD_backlight_init();
-    LCD_On();
+    //LCD_On();
     
     Initial_LY096BG30();
     init_menu();

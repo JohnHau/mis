@@ -113,8 +113,13 @@ extern uint8_t flag_push;
 extern uint8_t flag_action;
 
 
+extern uint8_t flag_go_to_sleep;
 
+extern uint8_t flag_wake_up;
 
+extern uint8_t flag_do_reset_in_drops_mode;  
+
+extern uint8_t flag_action_button;
 
 
 extern void MotorDriveInit(void);
