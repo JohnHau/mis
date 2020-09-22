@@ -226,7 +226,7 @@ void __interrupt ISR(void)
                         //mbcnt++;
                         cnt_mb ++;
 
-                        if(cnt_mb == 200) 
+                        if(cnt_mb == 300) 
                         {
                             
                             STOP_B();
@@ -306,7 +306,7 @@ void __interrupt ISR(void)
                    
                   //if(mbcnt == 30000)
                   //if(cnt_mb == 30) 
-                  if(cnt_mb_sb == (100 + 10)) 
+                  if(cnt_mb_sb == (100 +12)) 
                   {
                       //ENABLE_BL();//STOP_B();
                       //cnt_mb = 0;
