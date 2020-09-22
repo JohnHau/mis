@@ -88,7 +88,25 @@ void main(void)
     cnt_ma = 0;
     cnt_mb = 0;
     
+    //====================================
     
+#if defined(TEST_CODER)
+    cnt_ma = 0;
+    cnt_mb = 0;
+    cnt_mb_sa =0;
+    cnt_mb_sb =0;
+    flag_inject_sa =1;
+    REVERSE_RUN_B();
+    while(1)
+    {
+    delay_nms(100);
+    
+    delay_nms(100);
+    delay_nms(100);
+    delay_nms(100);
+    }
+#endif
+    //======================================
 #if 0
     ENABLE_AH();
     FORWARD_RUN_A();   
@@ -190,16 +208,24 @@ void main(void)
             REVERSE_RUN_B();  
         }
         
+
+        
+        
+        
+        
         
         
         
         if(flag_push)
         {
             #if 1
-
+                delay_nms(2);
                 prev_edge =0;
                 cur_edge =0;
                 cnt_ma =0;
+                
+                
+                
                 ENABLE_AH();
                 FORWARD_RUN_A();   
 
