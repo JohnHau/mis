@@ -17,6 +17,24 @@ typedef struct xmenu
 
 
 
+
+
+
+typedef struct _hg_op
+{
+    uint8_t working_mode;
+    uint8_t working_op;
+    uint8_t status_powerup;
+
+}HG_OP;
+
+extern HG_OP  hg_op;
+#define STATUS_SLEEP   0x00
+#define STATUS_WAKE    0x01
+
+
+
+
 #define WORK_MODE_C  0x00
 #define WORK_MODE_DROPS  0x01
 #define WORK_MODE_DROP  0x02

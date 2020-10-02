@@ -1,6 +1,80 @@
 #include <xc.h>
+#include <stdio.h>
 #include "Beep.h"
 #include "Oled.h"
+
+
+
+
+void uart_init(void)
+{
+
+    TRISCbits.RC7 =1;//RX  input mode
+    TRISCbits.RC6 =0;//TX  output mode
+
+    SPBRG = 25;
+
+    RCSTAbits.SPEN =1;
+    //RCSTAbits.CREN =1;//
+    
+    //TXSTAbits.BRGH =1;
+    
+   TXSTAbits.TXEN =1;
+
+    
+
+}
+
+void put_byte_uart(uint8_t n)
+{
+    
+    PIR1bits.TXIF =0;
+    TXREG = n;
+    
+    while( TXSTAbits.TRMT ==0);
+    
+    while( PIR1bits.TXIF ==0);
+     PIR1bits.TXIF =0;
+}
+
+void put_bytes_uart(uint8_t *arr,uint8_t n)
+{
+    
+    uint8_t i=0;
+    for(i=0;i<n;i++)
+    {
+        put_byte_uart(arr[i]);
+    }
+    
+    
+    
+}
+
+
+
+
+void putch(uint8_t c)
+{
+     TXREG = c;
+    
+    while( TXSTAbits.TRMT ==0);
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 void BeepInit(void)
 {
 	//PORTBbits.RB1 =0;	//colse	

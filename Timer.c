@@ -119,8 +119,23 @@ void __interrupt ISR(void)
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
             
+            delay_nms(4);
+            if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
+            {
+                buzz();
+                if(hg_op.status_powerup == STATUS_SLEEP)
+                {
+                   hg_op.status_powerup = STATUS_WAKE;
+                   LCD_On();
+                }
+                else if(hg_op.status_powerup == STATUS_WAKE)
+                {
+                    hg_op.status_powerup = STATUS_SLEEP;
+                    LCD_Off();
+                }
+            }
             
-            buzz();
+#if 0
             if(flag_go_to_sleep == 0)
             {
                 flag_go_to_sleep  =1;
@@ -133,9 +148,10 @@ void __interrupt ISR(void)
                 flag_mreset = 1;
                 flag_mreset_hit_lp = 0;
                 
-                
-                
             }
+            
+#endif
+            
              //delay_nms(10);
             
             //if(KEY_WAKE  == 0)
@@ -361,7 +377,11 @@ void TimerInit(void)
     
 	T08BIT =1;//
 	T0IF=0; // 
+    TMR0=0; // 
+    
+    
 	T0IE=1; // 
 	GIE=1;  // 
-	TMR0=0; // 
+    T0CONbits.TMR0ON =1;
+
 }

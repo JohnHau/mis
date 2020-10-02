@@ -13,7 +13,7 @@ uint8_t needle_len =4;
 
 MENU menu[8]={0};
 
-
+HG_OP  hg_op={0};
 
 void HG_init(void)
 {

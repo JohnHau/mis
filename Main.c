@@ -1,4 +1,5 @@
  #include <xc.h>
+ #include <stdio.h>
 //#include "Ad.h"
 #include"MotorDrive.h"
 #include "Timer.h"
@@ -74,12 +75,13 @@ uint8_t cur_edge =0;
 uint16_t bv =0;
 uint16_t cv =10;
 uint16_t dv =10;
+uint32_t msleep =0;
 void main(void)                
 { 
 
     //delay_nms(100);
     HG_init();
-    
+    uart_init();
     
     MotorDriveInit();
     
@@ -89,6 +91,31 @@ void main(void)
     cnt_mb = 0;
     
     //====================================
+#if 0
+    //uart_init();delay_nms(10);
+    while(1)
+    {
+#if 0
+        put_byte_uart(0x31); //delay_nms(10);
+        put_byte_uart(0x32);//delay_nms(10);
+        put_byte_uart(0x33);//delay_nms(10);
+        put_byte_uart(0x34);//delay_nms(40);
+        
+        printf("hello pic18\r\n");
+        delay_nms(100);
+#endif
+        
+        
+       
+        
+        
+    }
+    
+#endif
+    
+    
+    
+    
     
 #if defined(TEST_CODER)
     cnt_ma = 0;
@@ -136,7 +163,8 @@ void main(void)
     flag_mreset =0;
     while(1)
     {
-        
+    
+#if 0
         if(flag_go_to_sleep ==1)
         {
         
@@ -156,7 +184,7 @@ void main(void)
 
         
         }
-        
+#endif
         
         
         
@@ -182,13 +210,7 @@ void main(void)
                     flag_mreset = 1;
                     flag_mreset_hit_lp = 0;
                 }
-                 
-                 
-                 
-                 
-                 
-                 
-                 
+
             }
         }
 #endif
@@ -200,11 +222,6 @@ void main(void)
         
         
         //===============================================
-        
-        
-        
-        
-        
         
         if(flag_mreset)
         {
@@ -297,6 +314,18 @@ void main(void)
         
         
         HG_interface();
+        printf("heart beat %d\r\n",++msleep);
+
+        if( hg_op.status_powerup == STATUS_SLEEP)
+        {
+            //T0CONbits.TMR0ON =0;
+            //T0IE=0;
+            //asm(" sleep");
+            SLEEP();//delay_nms(5);
+            printf("sleep mode\r\n");
+            //flag_go_to_sleep =0;
+            //NOP();
+        }
         //while(1);
     }
     
