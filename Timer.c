@@ -127,6 +127,7 @@ void __interrupt ISR(void)
                 {
                    hg_op.status_powerup = STATUS_WAKE;
                    LCD_On();
+                   hg_op.need_reset =1;
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
                 {
@@ -135,45 +136,6 @@ void __interrupt ISR(void)
                 }
             }
             
-#if 0
-            if(flag_go_to_sleep == 0)
-            {
-                flag_go_to_sleep  =1;
-            }
-            else  if(flag_go_to_sleep == 1)
-            {
-                flag_go_to_sleep  =0;
-                LCD_On();
-                
-                flag_mreset = 1;
-                flag_mreset_hit_lp = 0;
-                
-            }
-            
-#endif
-            
-             //delay_nms(10);
-            
-            //if(KEY_WAKE  == 0)
-            {
-                
-#if 0
-                if(ttte)
-                {
-                    TEST_LED_ON(); 
-                    ttte =0;
-                }
-                else if (ttte == 0)
-                {
-                    ttte = 1;
-                     TEST_LED_OFF(); 
-                }
-                
-#endif
-            }
-            //LCD_On();
-             //LCD_Blink();
-            //buzz();
         }
         
         if(ACTION_BUTTON  == 0)
@@ -209,9 +171,11 @@ void __interrupt ISR(void)
            
      if(INTCONbits.INT0IF)//LP_BUTTON
      {   
-            //buzz();
-    
+            //buzz();     
+         hg_op.status_hit_lp =1;
          
+         
+#if 0
          if(flag_mreset)
          {
             flag_mreset = 0;
@@ -225,7 +189,7 @@ void __interrupt ISR(void)
             FORWARD_RUN_B(); 
                 
          }
-
+#endif
            // INTCON3bits.INT2IF = 0;////for test
              
             INTCONbits.INT0IF = 0;
@@ -236,6 +200,27 @@ void __interrupt ISR(void)
     if(INTCON3bits.INT2IF)
     {
              
+        
+         if(hg_op.need_reset)
+         {
+             
+             if(hg_op.status_hit_lp == 1 )
+             {
+                hg_op.cnt_posa ++;
+
+                if( hg_op.cnt_posa == 300)
+                {
+                    hg_op.posa =1;
+
+                }
+             }
+         }
+        
+        
+        
+        
+#if 0
+        
                  if(flag_mreset_hit_lp)
                  {
                     //buzz();
@@ -258,7 +243,8 @@ void __interrupt ISR(void)
                         }
                  }
 
-            
+#endif
+         
       
         
       

@@ -3,7 +3,7 @@
 #include<stdint.h>		  	 
 
 void delay_ms(unsigned int ms);
-
+void delay_pwm(uint16_t  n);
 
 #define EEPROM_I2C_WR	0		
 #define EEPROM_I2C_RD	1		

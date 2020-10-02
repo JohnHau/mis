@@ -79,7 +79,7 @@ uint32_t msleep =0;
 void main(void)                
 { 
 
-    //delay_nms(100);
+   // delay_nms(100);
     HG_init();
     uart_init();
     
@@ -161,37 +161,65 @@ void main(void)
     
     
     flag_mreset =0;
+    hg_op.need_reset =1;
     while(1)
     {
     
-#if 0
-        if(flag_go_to_sleep ==1)
-        {
-        
-            //delay_nms(5);
-            //if(KEY_WAKE  == 0)
-            {
-                //SLEEP();
-                NOP();
-                NOP();  
-                LCD_Off();
-                SLEEP();
-            }
-            //else
-            {
-              //flag_go_to_sleep = 0;
-            }
 
-        
+        if(hg_op.need_reset)
+        {
+           
+            STOP_B(); 
+            if(LP_BUTTON == 0)
+            { 
+                hg_op.posa = 0;
+                hg_op.cnt_posa =0;
+                while(hg_op.posa == 0)
+                {
+                    INPUT3_BH();
+                    delay_pwm(16);
+                    INPUT3_BL();
+                    delay_pwm(16);
+                }
+                
+                hg_op.posa = 0;
+                hg_op.cnt_posa =0;
+                        
+            }
+            
+   
+            STOP_B(); 
+            while(hg_op.status_hit_lp == 0)
+            {
+                INPUT4_BH();
+                delay_pwm(128);
+                INPUT4_BL();
+                delay_pwm(128);
+            }
+            
+            STOP_B();    
+            while(hg_op.posa == 0)
+            {
+                INPUT3_BH();
+                delay_pwm(16);
+                INPUT3_BL();
+                delay_pwm(16);
+            }
+            STOP_B(); 
+            hg_op.need_reset =0;
+            hg_op.status_hit_lp =0;
+            hg_op.cnt_posa =0;
+            hg_op.posa =0;
         }
-#endif
         
         
+        if(hg_op.status_hit_lp == 1)
+        {
+            hg_op.need_reset =1;    
+        }
         
         
-        
-        
-#if 1
+#if 0
         
         if(flag_mreset ==0 && flag_mreset_hit_lp ==0 )
         {
@@ -222,7 +250,8 @@ void main(void)
         
         
         //===============================================
-        
+   
+#if 0
         if(flag_mreset)
         {
             ENABLE_BH(); 
@@ -230,7 +259,7 @@ void main(void)
             REVERSE_RUN_B();  
         }
         
-
+#endif
         
         
         
@@ -238,7 +267,9 @@ void main(void)
         
         
         
-        if(flag_push)
+#if 0  
+        //if(flag_push)
+              if(0)
         {
             #if 1
                 delay_nms(2);
@@ -310,23 +341,20 @@ void main(void)
         
         }
         
-
+#endif
         
         
         HG_interface();
         printf("heart beat %d\r\n",++msleep);
 
+#if 0
         if( hg_op.status_powerup == STATUS_SLEEP)
         {
-            //T0CONbits.TMR0ON =0;
-            //T0IE=0;
-            //asm(" sleep");
-            SLEEP();//delay_nms(5);
+            SLEEP();
             printf("sleep mode\r\n");
-            //flag_go_to_sleep =0;
-            //NOP();
         }
-        //while(1);
+#endif
+        
     }
     
 	

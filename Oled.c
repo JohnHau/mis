@@ -21,7 +21,14 @@ void delay_nms(uint32_t n)
 
 
 
-
+void delay_pwm(uint16_t  n)
+{
+    while(n)
+    {
+         NOP(); NOP();
+         n--;
+    }
+}
 
 
 void delay(unsigned int  x)

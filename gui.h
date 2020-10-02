@@ -25,6 +25,15 @@ typedef struct _hg_op
     uint8_t working_mode;
     uint8_t working_op;
     uint8_t status_powerup;
+    uint8_t need_reset;
+    uint8_t status_hit_lp;
+    uint8_t posa;
+    uint8_t posb;
+    uint8_t posc;
+    
+    uint16_t cnt_posa;
+    uint16_t cnt_posb;
+    uint16_t cnt_posc;
 
 }HG_OP;
 
