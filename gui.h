@@ -59,6 +59,13 @@ extern HG_OP  hg_op;
 #define WORK_MODE_DROPS  0x01
 #define WORK_MODE_DROP  0x02
 
+
+
+
+#define INC_DOUBLE    300
+
+
+
 extern uint8_t focus;
 extern uint8_t flip;
 extern uint8_t work_mode;

@@ -224,6 +224,14 @@ void __interrupt ISR(void)
         
     if(INTCON3bits.INT2IF)
     {
+         if(INTCON2bits.INTEDG2 == 0)
+         {
+             INTCON2bits.INTEDG2 = 1;
+         }
+         else if(INTCON2bits.INTEDG2 == 1)
+         {
+              INTCON2bits.INTEDG2 = 0;
+         }
              
         
          if(hg_op.need_reset)
@@ -233,7 +241,7 @@ void __interrupt ISR(void)
              {
                 hg_op.cnt_posrst ++;
 
-                if( hg_op.cnt_posrst == 300)
+                if( hg_op.cnt_posrst == (300 + 300))
                 {
                     hg_op.posrst =1;
 
@@ -241,15 +249,14 @@ void __interrupt ISR(void)
              }
          }
          else
-         {
-             
+         {      
                 if(hg_op.working_mode == WORK_MODE_DROPS)
                 {
                     if(hg_op.drops_sa == 1)
                     {
                         hg_op.cnt_posa ++;
                         
-                        if(hg_op.cnt_posa == 100)
+                        if(hg_op.cnt_posa == (100 + 100))
                         {
                                 STOP_B();
                                 hg_op.drops_sa = 0;
@@ -261,7 +268,7 @@ void __interrupt ISR(void)
                     else if(hg_op.drops_sb == 1)
                     {
                          hg_op.cnt_posb ++;
-                         if(hg_op.cnt_posb == (100 + 2))
+                         if(hg_op.cnt_posb == (100 + 100 + 0))
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;
