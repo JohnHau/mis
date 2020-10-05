@@ -44,7 +44,7 @@ typedef struct _hg_op
     uint16_t cnt_posc;
     
     uint16_t cnt_posrst;
-    
+    uint16_t cnt_target_posrst;
 
 }HG_OP;
 

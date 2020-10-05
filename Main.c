@@ -164,14 +164,13 @@ void main(void)
     
     hg_op.need_reset =1;
     hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
-                 
+    hg_op.cnt_target_posrst = POS_13_RST;       
     while(1)
     {
     
 
         if(hg_op.need_reset)
         {
-           
            
             if(LP_BUTTON == 0)
             { 
@@ -275,8 +274,8 @@ void main(void)
                                STOP_A();
 
                               prev_edge =0;
-                               cur_edge =0;
-                               cnt_push =0;
+                              cur_edge =0;
+                              cnt_push =0;
 
                                REVERSE_RUN_A();   
                                while(cnt_push < 100)

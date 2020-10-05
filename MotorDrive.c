@@ -39,40 +39,7 @@ uint8_t flag_action_button =0;
         
 uint8_t flag_do_reset_in_drops_mode =0;  
         
-void OpenMotorPower(void)
-{
-}
-void CloseMotorPower(void)
-{
-}
 
-void NeedleMotorForwardRun(void)
-{
-}
-void NeedleMotorReverseRun(void)
-{
-}
-void NeedleMotorFastStop(void)
-{	
-}
-void NeedleMotorFreeStop(void)
-{
-}
-
-void InjectionMotorForwardRun(void)
-{	
-}
-
-void InjectionMotorReverseRun(void)
-{	    		
-}
-
-void InjectionMotorFastStop(void)
-{	
-}
-void InjectionMotorFreeStop(void)
-{
-}
 
 void MotorDriveInit(void)
 {
