@@ -1,5 +1,6 @@
 #include <xc.h>
 #include<stdint.h>	
+ #include <stdio.h>
 #include "Timer.h"
 //#include "Ad.h"
 #include "Key.h"
@@ -197,6 +198,7 @@ void __interrupt ISR(void)
      if(INTCONbits.INT0IF)//LP_BUTTON
      {   
             //buzz();     
+         STOP_B(); 
          hg_op.status_hit_lp =1;
          
          
@@ -224,7 +226,9 @@ void __interrupt ISR(void)
         
     if(INTCON3bits.INT2IF)
     {
-         if(INTCON2bits.INTEDG2 == 0)
+        
+#if 1
+        if(INTCON2bits.INTEDG2 == 0)
          {
              INTCON2bits.INTEDG2 = 1;
          }
@@ -232,8 +236,10 @@ void __interrupt ISR(void)
          {
               INTCON2bits.INTEDG2 = 0;
          }
-             
+#endif
         
+        //-> L
+        //<- H
          if(hg_op.need_reset)
          {
              
@@ -241,11 +247,38 @@ void __interrupt ISR(void)
              {
                 hg_op.cnt_posrst ++;
 
-                if( hg_op.cnt_posrst == (300 + 300))
+              
+                    
+                if( hg_op.cnt_posrst == (300 *4 + 0))
                 {
                     hg_op.posrst =1;
+                    STOP_B();
 
                 }
+                
+                
+                
+                 if(INTCON2bits.INTEDG2 == 1)
+                 {
+                    while(READ_PHA_MB() == 0);
+                    hg_op.cnt_posrst ++;
+                 }
+                 else if(INTCON2bits.INTEDG2 == 0)
+                 {
+                        while(READ_PHA_MB() == 1);
+                        hg_op.cnt_posrst ++;
+                 }
+                  
+                  
+                 if( hg_op.cnt_posrst == (300 * 4 + 0))
+                {
+                    hg_op.posrst =1;
+                    STOP_B();
+
+                }
+                  
+                  
+                
              }
          }
          else
@@ -256,25 +289,69 @@ void __interrupt ISR(void)
                     {
                         hg_op.cnt_posa ++;
                         
-                        if(hg_op.cnt_posa == (100 + 100))
+                        if(hg_op.cnt_posa == (100 * 4))
                         {
                                 STOP_B();
                                 hg_op.drops_sa = 0;
                                 hg_op.drops_push =1;;
                         
                         }
+                        
+                        if(INTCON2bits.INTEDG2 == 1)
+                        {
+                            while(READ_PHA_MB() == 1);
+                            hg_op.cnt_posa ++;
+                        }
+                        else if(INTCON2bits.INTEDG2 == 0)
+                        {
+                            while(READ_PHA_MB() == 0);
+                            hg_op.cnt_posa ++;
+                        }
+                        
+                        if(hg_op.cnt_posa == (100 * 4))
+                        {
+                                STOP_B();
+                                hg_op.drops_sa = 0;
+                                hg_op.drops_push =1;;
+                        
+                        }
+                        
+                        
     
                     }
                     else if(hg_op.drops_sb == 1)
                     {
                          hg_op.cnt_posb ++;
-                         if(hg_op.cnt_posb == (100 + 100 + 0))
+                         if(hg_op.cnt_posb == (100 * 4 + 0))
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;
                                 hg_op.drops_sa  =1;
                         
                         }
+                         
+                        if(INTCON2bits.INTEDG2 == 1)
+                        {
+                           while(READ_PHA_MB() == 0);
+                           hg_op.cnt_posb ++;
+                        }
+                        else if(INTCON2bits.INTEDG2 == 0)
+                        {
+                               while(READ_PHA_MB() == 1);
+                               hg_op.cnt_posb ++;
+                        }
+                   
+                         
+                        if(hg_op.cnt_posb == (100 * 4 + 0))
+                        {
+                                STOP_B();
+                                hg_op.drops_sb = 0;
+                                hg_op.drops_sa  =1;
+                        
+                        }
+                         
+                         
+                         
                         
                     }
 

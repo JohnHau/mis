@@ -477,7 +477,7 @@ void main(void)
         
         
         HG_interface();
-        printf("heart beat %d\r\n",++msleep);
+        //printf("heart beat %d\r\n",++msleep);
 
 #if 1
         if( hg_op.status_powerup == STATUS_SLEEP)
