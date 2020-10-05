@@ -72,6 +72,10 @@ int xn=0;
 int ann=0;
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
+uint16_t cnt_push =0;
+
+
+
 uint16_t bv =0;
 uint16_t cv =10;
 uint16_t dv =10;
@@ -158,10 +162,9 @@ void main(void)
 #endif
     
     
-    
-    
-    flag_mreset =0;
     hg_op.need_reset =1;
+    hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
+                 
     while(1)
     {
     
@@ -169,12 +172,13 @@ void main(void)
         if(hg_op.need_reset)
         {
            
-            STOP_B(); 
+           
             if(LP_BUTTON == 0)
             { 
-                hg_op.posa = 0;
-                hg_op.cnt_posa =0;
-                while(hg_op.posa == 0)
+                STOP_B(); 
+                hg_op.posrst = 0;
+                hg_op.cnt_posrst =0;
+                while(hg_op.posrst == 0)
                 {
                     INPUT3_BH();
                     delay_pwm(16);
@@ -182,13 +186,16 @@ void main(void)
                     delay_pwm(16);
                 }
                 
-                hg_op.posa = 0;
-                hg_op.cnt_posa =0;
-                        
+                hg_op.posrst = 0;
+                hg_op.cnt_posrst =0;
+                  
+              
+                
             }
             
    
             STOP_B(); 
+            hg_op.status_hit_lp = 0;
             while(hg_op.status_hit_lp == 0)
             {
                 INPUT4_BH();
@@ -198,7 +205,7 @@ void main(void)
             }
             
             STOP_B();    
-            while(hg_op.posa == 0)
+            while(hg_op.posrst == 0)
             {
                 INPUT3_BH();
                 delay_pwm(16);
@@ -208,15 +215,140 @@ void main(void)
             STOP_B(); 
             hg_op.need_reset =0;
             hg_op.status_hit_lp =0;
+            hg_op.cnt_posrst =0;
+            hg_op.posrst =0;
+        }
+        
+#if 0  
+        if(hg_op.status_hit_lp == 1)
+        {
+            hg_op.need_reset =1;  
+            hg_op.status_hit_lp =0;
             hg_op.cnt_posa =0;
             hg_op.posa =0;
         }
-        
-        
-        if(hg_op.status_hit_lp == 1)
+#endif
+        else
         {
-            hg_op.need_reset =1;    
+            
+            if(hg_op.working_mode == WORK_MODE_DROPS)
+            {
+                
+                if(ACTION_BUTTON  == 1)
+                {
+                    STOP_B();
+                    hg_op.working_mode = WORK_MODE_STOP; 
+                    hg_op.need_reset =1;  
+                    
+                }
+                else
+                {
+                        if(hg_op.drops_sa == 1)
+                        {
+                            hg_op.cnt_posa =0;
+                            REVERSE_RUN_B();  
+
+                            while(hg_op.drops_sa == 1);
+                        }
+                        else if(hg_op.drops_push == 1)
+                        {
+
+                           #if 1
+
+                               prev_edge =0;
+                               cur_edge =0;
+                               cnt_push =0;
+
+                               FORWARD_RUN_A();   
+
+                               while(cnt_push < 100)
+                               {
+                                   cur_state_phb_ma = READ_PHB_MA();
+                                   if(cur_state_phb_ma != prev_state_phb_ma)
+                                   {
+                                      cnt_push ++;
+                                      prev_state_phb_ma = cur_state_phb_ma;   
+                                   }
+
+                               }
+
+                               STOP_A();
+
+                              prev_edge =0;
+                               cur_edge =0;
+                               cnt_push =0;
+
+                               REVERSE_RUN_A();   
+                               while(cnt_push < 100)
+                               {
+                                   cur_state_phb_ma = READ_PHB_MA();
+                                   if(cur_state_phb_ma != prev_state_phb_ma)
+                                   {
+                                      cnt_push ++;
+                                      prev_state_phb_ma = cur_state_phb_ma;   
+                                   }
+
+                               }
+
+                               STOP_A();
+
+                           #endif
+
+                            hg_op.drops_push = 0;
+
+                            hg_op.drops_sb = 1;
+
+
+                        }
+                        else if(hg_op.drops_sb == 1)
+                        {
+                             hg_op.cnt_posb =0;
+                             FORWARD_RUN_B();  
+
+                            while(hg_op.drops_sb == 1);
+
+                        }
+                 
+                }
+                
+                
+                
+            }
+            else if(hg_op.working_mode == WORK_MODE_DROP)
+            {
+                
+            }
+            else if(hg_op.working_mode == WORK_MODE_C)
+            {
+                
+                
+            }
+            else
+            {
+                
+                
+                
+            }
+                
+            
+            
+            
+            
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
 #if 0
@@ -347,7 +479,7 @@ void main(void)
         HG_interface();
         printf("heart beat %d\r\n",++msleep);
 
-#if 0
+#if 1
         if( hg_op.status_powerup == STATUS_SLEEP)
         {
             SLEEP();

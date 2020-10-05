@@ -23,10 +23,18 @@ typedef struct xmenu
 typedef struct _hg_op
 {
     uint8_t working_mode;
+    uint8_t cur_working_mode;
     uint8_t working_op;
     uint8_t status_powerup;
     uint8_t need_reset;
     uint8_t status_hit_lp;
+    
+    uint8_t drops_sa;
+    uint8_t drops_sb;
+    uint8_t drops_push;
+    
+     uint8_t posrst;
+    
     uint8_t posa;
     uint8_t posb;
     uint8_t posc;
@@ -34,6 +42,9 @@ typedef struct _hg_op
     uint16_t cnt_posa;
     uint16_t cnt_posb;
     uint16_t cnt_posc;
+    
+    uint16_t cnt_posrst;
+    
 
 }HG_OP;
 
@@ -43,7 +54,7 @@ extern HG_OP  hg_op;
 
 
 
-
+#define WORK_MODE_STOP  0x03
 #define WORK_MODE_C  0x00
 #define WORK_MODE_DROPS  0x01
 #define WORK_MODE_DROP  0x02

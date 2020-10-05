@@ -140,7 +140,26 @@ void __interrupt ISR(void)
         
         if(ACTION_BUTTON  == 0)
         {
-         
+           
+             if(hg_op.status_powerup == STATUS_WAKE)
+             {
+                  buzz();
+                  hg_op.drops_sa =1;
+                  hg_op.drops_sb =0;
+                  hg_op.drops_push =0;
+                  
+                  hg_op.working_mode = hg_op.cur_working_mode ;
+               
+      
+             }
+            
+            
+            
+            
+            
+            
+#if 0      
+            
             if(flag_go_to_sleep == 0)
             {
             buzz();
@@ -160,6 +179,12 @@ void __interrupt ISR(void)
             REVERSE_RUN_B();  
 #endif
             } 
+             
+             
+#endif
+             
+             
+             
         }
         //buzz();
         //temp = PORTB;
@@ -206,14 +231,68 @@ void __interrupt ISR(void)
              
              if(hg_op.status_hit_lp == 1 )
              {
-                hg_op.cnt_posa ++;
+                hg_op.cnt_posrst ++;
 
-                if( hg_op.cnt_posa == 300)
+                if( hg_op.cnt_posrst == 300)
                 {
-                    hg_op.posa =1;
+                    hg_op.posrst =1;
 
                 }
              }
+         }
+         else
+         {
+             
+                if(hg_op.working_mode == WORK_MODE_DROPS)
+                {
+                    if(hg_op.drops_sa == 1)
+                    {
+                        hg_op.cnt_posa ++;
+                        
+                        if(hg_op.cnt_posa == 100)
+                        {
+                                STOP_B();
+                                hg_op.drops_sa = 0;
+                                hg_op.drops_push =1;;
+                        
+                        }
+    
+                    }
+                    else if(hg_op.drops_sb == 1)
+                    {
+                         hg_op.cnt_posb ++;
+                         if(hg_op.cnt_posb == (100 + 2))
+                        {
+                                STOP_B();
+                                hg_op.drops_sb = 0;
+                                hg_op.drops_sa  =1;
+                        
+                        }
+                        
+                    }
+
+                }
+                else if(hg_op.working_mode == WORK_MODE_DROP)
+                {
+
+                }
+                else if(hg_op.working_mode == WORK_MODE_C)
+                {
+
+                }
+                else
+                {
+
+                }
+                
+            
+             
+             
+             
+             
+             
+             
+             
          }
         
         
