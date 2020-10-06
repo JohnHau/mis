@@ -20,6 +20,10 @@ uint8_t ttte =0;
 
 uint32_t  tmcnt =0;
 
+extern uint16_t bv;
+extern uint16_t cv;
+extern uint16_t dv;
+
 
 //void __interrupt(high_priority) ISR(void)
 //void __interrupt(high_priority) ISR(void)
@@ -41,7 +45,40 @@ void __interrupt ISR(void)
         //if(tcnt > 500*1000UL)
         if(tcnt > 125)
         {
-
+#if 0
+            dv =0;
+            dv = get_AD_vaule();
+            printf("dv is %d\r\n",dv);
+            
+            bv =0;
+            bv = get_SenseA_AD_vaule();
+            printf("bv is %d\r\n",bv);
+            
+            cv =0;
+            cv = get_SenseB_AD_vaule();
+            printf("cv is %d\r\n",cv);
+#endif
+            
+        
+#if 0
+            if(STATUS_CHARGE == 0)
+            {
+                printf("charging\r\n");
+            }
+            else
+            {
+                printf("not charging\r\n");
+            }
+            
+#endif
+            
+            
+            
+            
+            
+            
+            
+            
             //buzz();
             
             if(menu[0].mode == MODE_BLINK)

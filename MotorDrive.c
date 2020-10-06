@@ -77,18 +77,14 @@ void MotorDriveInit(void)
     TRISDbits.RD4 =0;//enable B
     TRISDbits.RD2 =0;//input3
     TRISDbits.RD3 =0;//input4
-    
+    MPON();
     STOP_A();
     STOP_B();
     ENABLE_AH();   
-    INPUT1_AL(); 
-    INPUT2_AL(); 
-    
     ENABLE_BH();   
-    INPUT3_BL(); 
-    INPUT4_BL(); 
+
     
-    MPON();
+    
     //=========================================================
 #if 1
     INTCON2bits.INTEDG2 = 0;//falling edge

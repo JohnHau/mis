@@ -86,8 +86,39 @@ void main(void)
    // delay_nms(100);
     HG_init();
     uart_init();
-    
+    AD_init();
     MotorDriveInit();
+    
+    
+    
+    //===============================================
+#if 0
+    //REVERSE_RUN_A();   
+    //FORWARD_RUN_A();  
+     T0CONbits.TMR0ON =0;
+    while(1)
+    {
+        
+            dv =0;
+            dv = get_AD_vaule();
+            //printf("dv is %d\r\n",dv);
+            
+            bv =0;
+            bv = get_SenseA_AD_vaule();
+            printf("bv is %d\r\n",bv);
+            
+            cv =0;
+            cv = get_SenseB_AD_vaule();
+            printf("cv is %d\r\n",cv);
+        
+        delay_nms(100);
+    }
+    
+#endif
+    
+    
+    //==============================================
+    
     
     cur_state_phb_ma=0;
     prev_state_phb_ma=0;
@@ -201,6 +232,8 @@ void main(void)
                 delay_pwm(128);
                 INPUT4_BL();
                 delay_pwm(128);
+                
+                
             }
             
             STOP_B();    
@@ -229,6 +262,7 @@ void main(void)
 #endif
         else
         {
+       
             
             if(hg_op.working_mode == WORK_MODE_DROPS)
             {
