@@ -71,11 +71,11 @@ extern HG_OP  hg_op;
 //#define POS_13_RST   (100 * 4)
 //#define POS_13_RST   (25 * 4)
 
-//#define POS_13_RST   (8 * 4)
 #define POS_13_RST   (8 * 4)
 
-#define POS_INJECT_F  (30 * 4 + 8)
-#define POS_INJECT_R  (30 * 4 + 0)
+
+#define POS_INJECT_F  (30 * 4 + 0)
+#define POS_INJECT_R  (30 * 4 + 12)
 
 
 extern uint8_t focus;

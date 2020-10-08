@@ -217,6 +217,7 @@ void __interrupt ISR(void)
     if(INTCON3bits.INT2IF)
     {
         
+         
 #if 1
         if(INTCON2bits.INTEDG2 == 0)
          {
@@ -226,7 +227,7 @@ void __interrupt ISR(void)
          {
               INTCON2bits.INTEDG2 = 0;
          }
-#endif
+#endif 
         
         //-> L
         //<- H
@@ -248,18 +249,30 @@ void __interrupt ISR(void)
                 }
                 
                 
-                
+#if 0          
                  if(INTCON2bits.INTEDG2 == 1)
                  {
-                    while(READ_PHA_MB() == 0);
+                     temp = READ_PHA_MB();
+                     while(READ_PHA_MB() == temp);
                     hg_op.cnt_posrst ++;
                  }
                  else if(INTCON2bits.INTEDG2 == 0)
                  {
-                        while(READ_PHB_MB() == 1);
+                     temp = READ_PHA_MB();   
+                     while(READ_PHA_MB() == temp);
                         hg_op.cnt_posrst ++;
                  }
-                  
+#endif
+           
+#if 1            
+                   temp = READ_PHA_MB();   
+                   while(READ_PHA_MB() == temp);
+                   hg_op.cnt_posrst ++;
+                
+#endif
+                        
+                
+                
                   
                  //if( hg_op.cnt_posrst == (300 * 4 + 0))
                  if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
@@ -288,7 +301,7 @@ void __interrupt ISR(void)
                                 hg_op.drops_push =1;
                         
                         }
-                        
+#if 0
                         if(INTCON2bits.INTEDG2 == 1)
                         {
                             while(READ_PHA_MB() == 1);
@@ -296,9 +309,18 @@ void __interrupt ISR(void)
                         }
                         else if(INTCON2bits.INTEDG2 == 0)
                         {
-                            while(READ_PHB_MB() == 0);
+                            while(READ_PHA_MB() == 0);
                             hg_op.cnt_posa ++;
                         }
+#endif
+                        
+#if 1            
+                   temp = READ_PHA_MB();   
+                   while(READ_PHA_MB() == temp);
+                   hg_op.cnt_posa ++;
+                
+#endif
+                        
                         
                         if(hg_op.cnt_posa == POS_INJECT_F)
                         {
@@ -321,7 +343,8 @@ void __interrupt ISR(void)
                                 hg_op.drops_sa  =1;
                         
                         }
-                         
+               
+#if 0
                         if(INTCON2bits.INTEDG2 == 1)
                         {
                            while(READ_PHA_MB() == 0);
@@ -329,12 +352,20 @@ void __interrupt ISR(void)
                         }
                         else if(INTCON2bits.INTEDG2 == 0)
                         {
-                               while(READ_PHB_MB() == 1);
+                               while(READ_PHA_MB() == 1);
                                hg_op.cnt_posb ++;
                         }
-                   
+#endif
                          
-                        if(hg_op.cnt_posb == POS_INJECT_R)
+#if 1            
+                   temp = READ_PHA_MB();   
+                   while(READ_PHA_MB() == temp);
+                   hg_op.cnt_posb ++;
+                
+#endif
+          
+                         
+                     if(hg_op.cnt_posb == POS_INJECT_R)
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;
@@ -363,7 +394,11 @@ void __interrupt ISR(void)
 
              
          }
-               
+          
+         
+
+         
+         
        INTCON3bits.INT2IF = 0;
     }
     

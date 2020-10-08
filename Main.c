@@ -243,9 +243,9 @@ void main(void)
             while(hg_op.posrst == 0)
             {
                 INPUT3_BH();
-                delay_pwm(16);
+                delay_pwm(128);
                 INPUT3_BL();
-                delay_pwm(16);
+                delay_pwm(128);
             }
             STOP_B(); 
             hg_op.need_reset =0;
@@ -265,7 +265,19 @@ void main(void)
 #endif
         else
         {
-       
+       //=================================================
+#if 0
+            if(LP_BUTTON == 0)
+            { 
+                STOP_B(); 
+                hg_op.cur_working_mode = WORK_MODE_STOP;
+                hg_op.need_reset =1;
+                
+             }
+#endif
+            
+            
+        //================================================    
             
             if(hg_op.working_mode == WORK_MODE_DROPS)
             {
@@ -279,14 +291,16 @@ void main(void)
                 }
                 else
                 {
-                        if(hg_op.drops_sa == 1)
+                       
+                    
+                       if(hg_op.drops_sa == 1)
                         {
                             hg_op.cnt_posa =0;
                             //REVERSE_RUN_B();  
                             FORWARD_RUN_B();  
 
                             while(hg_op.drops_sa == 1);
-                            delay_f(10);
+                            delay_f(20);
                         }
                         else if(hg_op.drops_push == 1)
                         {
@@ -345,7 +359,7 @@ void main(void)
                              REVERSE_RUN_B();  
 
                             while(hg_op.drops_sb == 1);
-                            delay_f(10);
+                            delay_f(20);
                         }
                  
                 }
