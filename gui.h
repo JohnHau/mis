@@ -66,6 +66,15 @@ extern HG_OP  hg_op;
 
 #define INC_DOUBLE    300
 
+//#define POS_13_RST   (300 * 4)
+//#define POS_13_RST   (150 * 4)
+//#define POS_13_RST   (100 * 4)
+//#define POS_13_RST   (25 * 4)
+
+//#define POS_13_RST   (8 * 4)
+#define POS_13_RST   (8 * 4)
+
+#define POS_INJECT  (25 * 4)
 
 
 extern uint8_t focus;

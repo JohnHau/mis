@@ -208,12 +208,15 @@ void main(void)
                 STOP_B(); 
                 hg_op.posrst = 0;
                 hg_op.cnt_posrst =0;
-                while(hg_op.posrst == 0)
+                //while(hg_op.posrst == 0)
+                while(hg_op.cnt_posrst < 600)
                 {
                     INPUT3_BH();
                     delay_pwm(16);
                     INPUT3_BL();
                     delay_pwm(16);
+                    
+                    hg_op.cnt_posrst ++;
                 }
                 
                 hg_op.posrst = 0;
@@ -279,7 +282,8 @@ void main(void)
                         if(hg_op.drops_sa == 1)
                         {
                             hg_op.cnt_posa =0;
-                            REVERSE_RUN_B();  
+                            //REVERSE_RUN_B();  
+                            FORWARD_RUN_B();  
 
                             while(hg_op.drops_sa == 1);
                         }
@@ -336,7 +340,8 @@ void main(void)
                         else if(hg_op.drops_sb == 1)
                         {
                              hg_op.cnt_posb =0;
-                             FORWARD_RUN_B();  
+                             //FORWARD_RUN_B();  
+                             REVERSE_RUN_B();  
 
                             while(hg_op.drops_sb == 1);
 

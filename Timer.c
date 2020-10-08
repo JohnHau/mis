@@ -200,8 +200,10 @@ void __interrupt ISR(void)
            
      if(INTCONbits.INT0IF)//LP_BUTTON
      {   
-            //buzz();     
+            //buzz();  
+         delay_pwm(1000);
          STOP_B(); 
+        
          hg_op.status_hit_lp =1;
          
 
@@ -259,7 +261,8 @@ void __interrupt ISR(void)
                  }
                   
                   
-                 if( hg_op.cnt_posrst == (300 * 4 + 0))
+                 //if( hg_op.cnt_posrst == (300 * 4 + 0))
+                 if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
                 {
                     hg_op.posrst =1;
                     STOP_B();
@@ -278,11 +281,11 @@ void __interrupt ISR(void)
                     {
                         hg_op.cnt_posa ++;
                         
-                        if(hg_op.cnt_posa == (100 * 4))
+                        if(hg_op.cnt_posa == POS_INJECT)
                         {
                                 STOP_B();
                                 hg_op.drops_sa = 0;
-                                hg_op.drops_push =1;;
+                                hg_op.drops_push =1;
                         
                         }
                         
@@ -297,7 +300,7 @@ void __interrupt ISR(void)
                             hg_op.cnt_posa ++;
                         }
                         
-                        if(hg_op.cnt_posa == (100 * 4))
+                        if(hg_op.cnt_posa == POS_INJECT)
                         {
                                 STOP_B();
                                 hg_op.drops_sa = 0;
@@ -311,7 +314,7 @@ void __interrupt ISR(void)
                     else if(hg_op.drops_sb == 1)
                     {
                          hg_op.cnt_posb ++;
-                         if(hg_op.cnt_posb == (100 * 4 + 0))
+                         if(hg_op.cnt_posb == POS_INJECT)
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;
@@ -331,7 +334,7 @@ void __interrupt ISR(void)
                         }
                    
                          
-                        if(hg_op.cnt_posb == (100 * 4 + 0))
+                        if(hg_op.cnt_posb == POS_INJECT)
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;
