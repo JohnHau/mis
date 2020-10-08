@@ -25,7 +25,7 @@ void HG_init(void)
     init_menu();
     KEY_Init();
 
-    //TimerInit();
+    TimerInit();
     
     
     

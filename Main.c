@@ -286,6 +286,7 @@ void main(void)
                             FORWARD_RUN_B();  
 
                             while(hg_op.drops_sa == 1);
+                            delay_f(10);
                         }
                         else if(hg_op.drops_push == 1)
                         {
@@ -316,7 +317,7 @@ void main(void)
                               cnt_push =0;
 
                                REVERSE_RUN_A();   
-                               while(cnt_push < 100)
+                               while(cnt_push < 10)
                                {
                                    cur_state_phb_ma = READ_PHB_MA();
                                    if(cur_state_phb_ma != prev_state_phb_ma)
@@ -344,7 +345,7 @@ void main(void)
                              REVERSE_RUN_B();  
 
                             while(hg_op.drops_sb == 1);
-
+                            delay_f(10);
                         }
                  
                 }

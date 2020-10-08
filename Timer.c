@@ -256,7 +256,7 @@ void __interrupt ISR(void)
                  }
                  else if(INTCON2bits.INTEDG2 == 0)
                  {
-                        while(READ_PHA_MB() == 1);
+                        while(READ_PHB_MB() == 1);
                         hg_op.cnt_posrst ++;
                  }
                   
@@ -281,7 +281,7 @@ void __interrupt ISR(void)
                     {
                         hg_op.cnt_posa ++;
                         
-                        if(hg_op.cnt_posa == POS_INJECT)
+                        if(hg_op.cnt_posa == POS_INJECT_F)
                         {
                                 STOP_B();
                                 hg_op.drops_sa = 0;
@@ -296,11 +296,11 @@ void __interrupt ISR(void)
                         }
                         else if(INTCON2bits.INTEDG2 == 0)
                         {
-                            while(READ_PHA_MB() == 0);
+                            while(READ_PHB_MB() == 0);
                             hg_op.cnt_posa ++;
                         }
                         
-                        if(hg_op.cnt_posa == POS_INJECT)
+                        if(hg_op.cnt_posa == POS_INJECT_F)
                         {
                                 STOP_B();
                                 hg_op.drops_sa = 0;
@@ -314,7 +314,7 @@ void __interrupt ISR(void)
                     else if(hg_op.drops_sb == 1)
                     {
                          hg_op.cnt_posb ++;
-                         if(hg_op.cnt_posb == POS_INJECT)
+                         if(hg_op.cnt_posb == POS_INJECT_R)
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;
@@ -329,12 +329,12 @@ void __interrupt ISR(void)
                         }
                         else if(INTCON2bits.INTEDG2 == 0)
                         {
-                               while(READ_PHA_MB() == 1);
+                               while(READ_PHB_MB() == 1);
                                hg_op.cnt_posb ++;
                         }
                    
                          
-                        if(hg_op.cnt_posb == POS_INJECT)
+                        if(hg_op.cnt_posb == POS_INJECT_R)
                         {
                                 STOP_B();
                                 hg_op.drops_sb = 0;

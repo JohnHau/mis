@@ -2,8 +2,6 @@
 #define __OLED_H
 #include<stdint.h>		  	 
 
-void delay_ms(unsigned int ms);
-void delay_pwm(uint16_t  n);
 
 #define EEPROM_I2C_WR	0		
 #define EEPROM_I2C_RD	1		
@@ -207,7 +205,6 @@ typedef struct interface
 
 extern interface_t interface_x;
 
-void delay_nms(uint32_t n);
 
 
 
@@ -295,6 +292,13 @@ uint8_t display_n5(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_n250(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_n13(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
+
+
+
+void delay_nms(uint32_t n);
+void delay_ms(unsigned int ms);
+void delay_pwm(uint16_t  n);
+void delay_f(uint32_t n);
 
 
 

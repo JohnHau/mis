@@ -15,9 +15,26 @@ void delay_nms(uint32_t n)
         n--;
     }
 
+}
 
+void delay_f(uint32_t n)
+{
+    uint16_t i=0;
+    while(n)
+    {
+    
+        for(i=0;i<500;i++)
+            NOP();
+        
+        n--;
+    }
 
 }
+
+
+
+
+
 
 
 
