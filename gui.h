@@ -88,7 +88,7 @@ extern HG_OP  hg_op;
 
 
 #define  STARTUP_PWM   300
-#define  INTERVAL_F    20
+#define  INTERVAL_F    2
 
 
 extern uint8_t focus;

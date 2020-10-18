@@ -383,7 +383,7 @@ void main(void)
                                  else if(hg_op.cnt_posa  > 70)
                                  {
                                      ann =STARTUP_PWM +1900;
-                                     xn = 200;
+                                     xn = 260;
                                  }
                                  else if(hg_op.cnt_posa  > 60)
                                  {
@@ -454,12 +454,13 @@ void main(void)
                             printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             hg_op.drops_sa = 0;
                             hg_op.drops_sb = 1;
+                            hg_op.drops_push = 1;
                         }
-                        //else if(hg_op.drops_push == 1)
-                        else if(0)
+                        else if(hg_op.drops_push == 1)
+                        //else if(0)
                         {
 
-                           #if 0
+                           #if 1
 
                                prev_edge =0;
                                cur_edge =0;
@@ -500,8 +501,9 @@ void main(void)
 
                            #endif
 
+                            
+                            //delay_f(INTERVAL_F);
                             hg_op.drops_push = 0;
-                            delay_f(INTERVAL_F);
                             hg_op.drops_sb = 1;
 
 
@@ -542,12 +544,12 @@ void main(void)
                                  else if(hg_op.cnt_posb  > 70)
                                  {
                                      ann =STARTUP_PWM +1900;
-                                     xn = 200;
+                                     xn = 300;
                                  }
                                  else if(hg_op.cnt_posb  > 60)
                                  {
                                      ann =STARTUP_PWM +1800;
-                                     xn = 180;
+                                     xn = 300;
                                  }
                                  else if(hg_op.cnt_posb  > 50)
                                  {
@@ -559,7 +561,9 @@ void main(void)
                                      ann =STARTUP_PWM +1600;
                                      xn = 160;
                                  }
-                                 else if(hg_op.cnt_posb  > 32)
+                                 //else if(hg_op.cnt_posb  > 32)
+                                 else if(hg_op.cnt_posb  > 28)
+                                 //else if(hg_op.cnt_posb  > 24)
                                  {
                                      ann = STARTUP_PWM + 1500;
                                      xn = 150;
