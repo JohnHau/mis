@@ -29,6 +29,9 @@ typedef struct _hg_op
     uint8_t status_charging;
     uint8_t need_reset;
     uint8_t status_hit_lp;
+    uint8_t needle_len;
+    
+    
     
     uint8_t drops_sa;
     uint8_t drops_sb;
@@ -63,6 +66,8 @@ extern HG_OP  hg_op;
 
 
 
+#define LEN_9_MM       9
+#define LEN_13_MM     13
 
 #define INC_DOUBLE    300
 
@@ -71,11 +76,19 @@ extern HG_OP  hg_op;
 //#define POS_13_RST   (100 * 4)
 //#define POS_13_RST   (25 * 4)
 
-#define POS_13_RST   (8 * 4)
+#define POS_13_RST   (8 * 4)  //ignored
+
+#define POS_RST   (150 * 4)
+
 
 
 #define POS_INJECT_F  (30 * 4 + 0)
-#define POS_INJECT_R  (30 * 4 + 12)
+#define POS_INJECT_R  (30 * 4 + 0)
+//#define POS_INJECT_R  (30 * 4 + 12)
+
+
+#define  STARTUP_PWM   300
+#define  INTERVAL_F    20
 
 
 extern uint8_t focus;

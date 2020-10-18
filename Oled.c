@@ -42,7 +42,7 @@ void delay_pwm(uint16_t  n)
 {
     while(n)
     {
-         NOP(); NOP();
+         NOP();
          n--;
     }
 }

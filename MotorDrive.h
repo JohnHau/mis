@@ -54,10 +54,10 @@
 #define INPUT2_AH()    LATDbits.LD1 =1
 #define INPUT2_AL()    LATDbits.LD1 =0
 
-#define STOP_A()      do{INPUT1_AL();INPUT2_AL(); }while(0)
+#define STOP_A()      do{INPUT1_AL();INPUT2_AL(); ENABLE_AL();}while(0)
 
-#define FORWARD_RUN_A()   do{STOP_A();INPUT1_AH();INPUT2_AL(); }while(0)
-#define REVERSE_RUN_A()   do{STOP_A();INPUT1_AL();INPUT2_AH(); }while(0)
+#define FORWARD_RUN_A()   do{STOP_A();INPUT1_AH();INPUT2_AL(); ENABLE_AH(); }while(0)
+#define REVERSE_RUN_A()   do{STOP_A();INPUT1_AL();INPUT2_AH(); ENABLE_AH();}while(0)
 
 
 
@@ -78,10 +78,11 @@
 #define INPUT4_BH()    LATDbits.LD3 =1
 #define INPUT4_BL()    LATDbits.LD3 =0
 
-#define STOP_B()      do{INPUT3_BL();INPUT4_BL(); }while(0)
+//#define STOP_B()      do{INPUT3_BL();INPUT4_BL(); ENABLE_BL(); }while(0)
+#define STOP_B()      do{INPUT3_BL();INPUT4_BL();}while(0)
 
-#define FORWARD_RUN_B()   do{STOP_B();INPUT3_BH();INPUT4_BL(); }while(0)
-#define REVERSE_RUN_B()   do{STOP_B();INPUT3_BL();INPUT4_BH(); }while(0)
+#define FORWARD_RUN_B()   do{STOP_B();INPUT3_BH();INPUT4_BL(); ENABLE_BH();}while(0)
+#define REVERSE_RUN_B()   do{STOP_B();INPUT3_BL();INPUT4_BH(); ENABLE_BH();}while(0)
 
 
 
