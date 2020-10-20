@@ -457,6 +457,6 @@ void TimerInit(void)
     
 	T0IE=1; // 
 	GIE=1;  // 
-    //T0CONbits.TMR0ON =1;
+    T0CONbits.TMR0ON =1;
 
 }

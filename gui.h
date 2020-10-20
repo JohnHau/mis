@@ -87,8 +87,20 @@ extern HG_OP  hg_op;
 //#define POS_INJECT_R  (30 * 4 + 12)
 
 
-#define  STARTUP_PWM   300
-#define  INTERVAL_F    2
+#define  STARTUP_PWM_MA   30
+#define  STARTUP_PWM_MB   30
+
+#define  STARTUP_PWM   10
+
+#define  STARTUP_THR_MA  12
+#define  STARTUP_THR_MB  12
+
+
+#define STARTUP_CNT_MA   15
+#define STARTUP_CNT_MB   15
+
+
+#define  INTERVAL_F    20
 
 
 extern uint8_t focus;
