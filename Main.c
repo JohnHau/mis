@@ -501,7 +501,7 @@ void main(void)
                                
                                 
 #if 1   
-                               while(cnt_push < 10)
+                               while(cnt_push < 140)//146
                                {
                                    while(READ_PHB_MA() == 0);
                                    cnt_push ++;
