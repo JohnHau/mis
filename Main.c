@@ -219,7 +219,8 @@ void main(void)
 #endif
     
     
-    hg_op.need_reset =1;
+    //hg_op.need_reset =1;
+    hg_op.need_reset =0;
     hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
     hg_op.cnt_target_posrst = POS_RST;     //len=9mm
     hg_op.needle_len = LEN_9_MM;
@@ -491,15 +492,19 @@ void main(void)
                                cnt_push =0;
 
                                FORWARD_RUN_A();   
-                               
-                               while(cnt_push < 20)
+                               delay_pwm(300 * 33);
+                               STOP_A();
+                                
+#if 0      
+                               while(cnt_push < 2000)
                                {
                                    while(READ_PHB_MA() == 0);
                                    cnt_push ++;
-                                   while(READ_PHB_MA() == 1);
-                                   cnt_push ++;
+                                   //while(READ_PHB_MA() == 1);
+                                   //cnt_push ++;
 
                                }
+#endif
                                
 #if 0
                                while(cnt_push < 20)

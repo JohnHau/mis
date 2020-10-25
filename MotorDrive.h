@@ -54,7 +54,8 @@
 #define INPUT2_AH()    LATDbits.LD1 =1
 #define INPUT2_AL()    LATDbits.LD1 =0
 
-#define STOP_A()      do{INPUT1_AL();INPUT2_AL(); ENABLE_AL();}while(0)
+//#define STOP_A()      do{INPUT1_AL();INPUT2_AL(); ENABLE_AL();}while(0)
+#define STOP_A()      do{INPUT1_AL();INPUT2_AL();}while(0)
 
 #define FORWARD_RUN_A()   do{STOP_A();INPUT1_AH();INPUT2_AL(); ENABLE_AH(); }while(0)
 #define REVERSE_RUN_A()   do{STOP_A();INPUT1_AL();INPUT2_AH(); ENABLE_AH();}while(0)
