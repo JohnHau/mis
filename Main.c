@@ -492,16 +492,21 @@ void main(void)
                                cnt_push =0;
 
                                FORWARD_RUN_A();   
+                               
+#if 0
                                delay_pwm(300 * 33);
                                STOP_A();
+                               
+#endif
+                               
                                 
-#if 0      
-                               while(cnt_push < 2000)
+#if 1   
+                               while(cnt_push < 10)
                                {
                                    while(READ_PHB_MA() == 0);
                                    cnt_push ++;
-                                   //while(READ_PHB_MA() == 1);
-                                   //cnt_push ++;
+                                   while(READ_PHB_MA() == 1);
+                                   cnt_push ++;
 
                                }
 #endif
