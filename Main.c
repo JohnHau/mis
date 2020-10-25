@@ -246,7 +246,8 @@ void main(void)
         if(hg_op.need_reset)
         {
            
-            if(LP_BUTTON == 0)
+            //if(LP_BUTTON == 0)
+            if(0)//bug to fix
             { 
                 STOP_B(); 
                 hg_op.posrst = 0;
@@ -255,7 +256,7 @@ void main(void)
                 while(hg_op.cnt_posrst < 600)
                 {
                     INPUT3_BH();
-                    delay_pwm(16);
+                    delay_pwm(16*5);
                     INPUT3_BL();
                     delay_pwm(16);
                     
@@ -273,12 +274,12 @@ void main(void)
             STOP_B(); 
             hg_op.status_hit_lp = 0;
             ENABLE_BH();
-            while(hg_op.status_hit_lp == 0)
+            while(hg_op.status_hit_lp == 0)// search for  lp point
             {
                 INPUT4_BH();
-                delay_pwm(128);
+                delay_pwm(16*7);
                 INPUT4_BL();
-                delay_pwm(128);        
+                delay_pwm(16);        
             }
             
             STOP_B();    
@@ -294,9 +295,9 @@ void main(void)
                 while(hg_op.posrst == 0)
                 {
                     INPUT3_BH();
-                    delay_pwm(128);
+                    delay_pwm(16*7);
                     INPUT3_BL();
-                    delay_pwm(128);
+                    delay_pwm(16);
                 }
                 STOP_B(); 
             }
@@ -338,6 +339,14 @@ void main(void)
                 if(ACTION_BUTTON  == 1)
                 {
                     STOP_B();
+                    //==========================================================
+                    REVERSE_RUN_A();   
+                    delay_pwm(300 * 16);
+                    STOP_A();
+                    
+                    //==========================================================
+                    
+                    hg_op.acting_flag =0;
                     hg_op.working_mode = WORK_MODE_STOP; 
                     hg_op.need_reset =1;  
                     
@@ -356,9 +365,10 @@ void main(void)
                             //di();
                             //FORWARD_RUN_B(); 
                             
-                           ann =0; xn = 0;ENABLE_BH();INPUT3_BH();delay_pwm(STARTUP_PWM_MA * STARTUP_CNT_MA);
+                           ann =0; xn = 0;ENABLE_BH();INPUT3_BH();delay_pwm(300 * STARTUP_CNT_MA);/*delay_pwm(STARTUP_PWM_MA * STARTUP_CNT_MA);*/
                             //while( xn < 1000 && hg_op.cnt_posa < 40)
-                            while(hg_op.cnt_posa < 120)
+                            //while(hg_op.cnt_posa < 120)
+                            while(0)
                             {
                                  if(hg_op.cnt_posa  > 110) 
                                  {
@@ -467,6 +477,13 @@ void main(void)
                         //else if(0)
                         {
 
+                            
+                            
+                             //FORWARD_RUN_A();   
+                             //delay_pwm(300 * 30);
+                             //STOP_A();
+                             
+                             
                            #if 1
 
                                prev_edge =0;
@@ -474,8 +491,18 @@ void main(void)
                                cnt_push =0;
 
                                FORWARD_RUN_A();   
+                               
+                               while(cnt_push < 20)
+                               {
+                                   while(READ_PHB_MA() == 0);
+                                   cnt_push ++;
+                                   while(READ_PHB_MA() == 1);
+                                   cnt_push ++;
 
-                               while(cnt_push < 100)
+                               }
+                               
+#if 0
+                               while(cnt_push < 20)
                                {
                                    cur_state_phb_ma = READ_PHB_MA();
                                    if(cur_state_phb_ma != prev_state_phb_ma)
@@ -485,9 +512,13 @@ void main(void)
                                    }
 
                                }
-
+#endif
                                STOP_A();
-
+                               
+                               
+                               
+                               
+#if 0
                               prev_edge =0;
                               cur_edge =0;
                               cnt_push =0;
@@ -505,7 +536,7 @@ void main(void)
                                }
 
                                STOP_A();
-
+#endif
                            #endif
 
                             
@@ -526,8 +557,11 @@ void main(void)
                             //REVERSE_RUN_B();  
                             
                             ann = 0;xn =0; ENABLE_BH();INPUT4_BH();delay_pwm(300 * STARTUP_CNT_MB);
+                            
+
                             //while( xn < 1000 &&  hg_op.cnt_posb < 40 )
-                            while(hg_op.cnt_posb < 120)
+                            //while(hg_op.cnt_posb < 120)
+                            while(0)
                             {
                                  if(hg_op.cnt_posb  > 110) 
                                  {
@@ -1092,7 +1126,7 @@ void main(void)
         
         bv += 10;
          CCPR1L= bv;
-         buzz();
+         //buzz();
     }
     
 #endif
@@ -1137,29 +1171,29 @@ void main(void)
         
         if(KEY_WAKE == 0)
         {
-            buzz();
+            //buzz();
         }
             
             
         if(KEY_UP == 0)
         {
-            buzz();
+            //buzz();
         }
         
         
         if(KEY_DOWN == 0)
         {
-            buzz();
+            //buzz();
         }
             
         if(KEY_V == 0)
         {
-            buzz();
+            //buzz();
         }
         
         if(ACTION_BUTTON == 0)
         {
-            buzz();
+            //buzz();
         }
         if(LP_BUTTON == 0)
         {
@@ -1172,7 +1206,7 @@ void main(void)
                // LCD_Blink();
                // break;
              }
-             buzz();
+             //buzz();
         }
     
     }
@@ -1205,7 +1239,7 @@ void main(void)
     }
     STOP_A();
     ENABLE_AL();
-    buzz();
+    //buzz();
     
             
 #endif       
@@ -1229,7 +1263,7 @@ void main(void)
     }
     STOP_B();
     ENABLE_BL();
-    buzz();
+    //buzz();
         
 #endif   
     
@@ -1245,11 +1279,11 @@ void main(void)
     FORWARD_RUN_A();
     delay(400);
     STOP_A();
-     buzz();
+     //buzz();
     REVERSE_RUN_A();
     delay(400);
     STOP_A();
-    buzz();
+    //buzz();
 #endif
     
     
@@ -1258,11 +1292,11 @@ void main(void)
     FORWARD_RUN_B();
     delay(400);
     STOP_B();
-     buzz();
+    // buzz();
     REVERSE_RUN_B();
     delay(400);
     STOP_B();
-    buzz();
+    //buzz();
 #endif
     
     

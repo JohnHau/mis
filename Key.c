@@ -67,7 +67,7 @@ uint8_t KEY_Scan(void)
              if(KEY_UP == 0)
              {
                  while(KEY_UP == 0);
-                  buzz();
+                  //buzz();
                    
                    return KEY_UP_PRESSED;
              }
@@ -80,7 +80,7 @@ uint8_t KEY_Scan(void)
              if(KEY_DOWN == 0)
              {
                  while(KEY_DOWN == 0);
-                  buzz();
+                  //buzz();
                    
                    return KEY_DOWN_PRESSED;
              }
@@ -95,7 +95,7 @@ uint8_t KEY_Scan(void)
              if(KEY_V == 0)
              {
                  while(KEY_V == 0);
-                 buzz();
+                 //buzz();
                    
                    return KEY_V_PRESSED;
              }

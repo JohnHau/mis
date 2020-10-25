@@ -33,6 +33,9 @@ typedef struct _hg_op
     
     
     
+    
+    uint8_t acting_flag;
+    
     uint8_t drops_sa;
     uint8_t drops_sb;
     uint8_t drops_push;
@@ -78,8 +81,8 @@ extern HG_OP  hg_op;
 
 #define POS_13_RST   (8 * 4)  //ignored
 
-#define POS_RST   (150 * 4)
-
+//#define POS_RST   (150 * 4)
+#define POS_RST   (150 * 2)
 
 
 #define POS_INJECT_F  (30 * 4 + 0)
@@ -96,11 +99,11 @@ extern HG_OP  hg_op;
 #define  STARTUP_THR_MB  12
 
 
-#define STARTUP_CNT_MA   15
-#define STARTUP_CNT_MB   15
+#define STARTUP_CNT_MA   15 /*20*/ /*15*/
+#define STARTUP_CNT_MB   15 /*20*/ /*15*/
 
 
-#define  INTERVAL_F    20
+#define  INTERVAL_F    40/*20*/
 
 
 extern uint8_t focus;

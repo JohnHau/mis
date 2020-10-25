@@ -193,13 +193,17 @@ void __interrupt ISR(void)
            
              if(hg_op.status_powerup == STATUS_WAKE)
              {
-                  buzz();
-                  hg_op.drops_sa =1;
-                  hg_op.drops_sb =0;
-                  hg_op.drops_push =0;
-                  
-                  hg_op.working_mode = hg_op.cur_working_mode ;
-               
+                 
+                 if(hg_op.acting_flag ==0)
+                 {
+                    hg_op.acting_flag =1;
+                    buzz();
+                    hg_op.drops_sa =1;
+                    hg_op.drops_sb =0;
+                    hg_op.drops_push =0;
+
+                    hg_op.working_mode = hg_op.cur_working_mode ;
+                 }
       
              }
 
