@@ -25,12 +25,20 @@ extern uint16_t cv;
 extern uint16_t dv;
 
 
+#if defined (TEST_MODE)     
+    static uint32_t test_mode_cnt=0;
+    static uint32_t test_mode_break_cnt=0;
+#endif
+
 //void __interrupt(high_priority) ISR(void)
 //void __interrupt(high_priority) ISR(void)
 void __interrupt ISR(void)
 {
     uint8_t temp;
     static uint32_t tcnt=0;
+    
+    
+
 
 //===============================
 #if 1    
@@ -41,7 +49,7 @@ void __interrupt ISR(void)
     {
     
         tcnt ++;
-            
+
         //if(tcnt > 500*1000UL)
         if(tcnt > 125)
         {
@@ -151,7 +159,8 @@ void __interrupt ISR(void)
     if(INTCONbits.RBIF)
     {
     
-       
+        
+
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
             
@@ -159,6 +168,11 @@ void __interrupt ISR(void)
             if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
             {
                 buzz();
+                test_mode =0;
+                test_mode_cnt=0;
+                test_mode_break_cnt=0;
+                flag_test_mode_break =0;
+                
                 if(hg_op.status_powerup == STATUS_SLEEP)
                 {
                    hg_op.status_powerup = STATUS_WAKE;
@@ -187,8 +201,25 @@ void __interrupt ISR(void)
             }
             
         }
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
         
-        if(ACTION_BUTTON  == 0)
+        if(ACTION_BUTTON  == 0 && test_mode == 0)
         {
            
              if(hg_op.status_powerup == STATUS_WAKE)
@@ -290,7 +321,7 @@ void __interrupt ISR(void)
                         
                 
                 
-#if 1       
+#if 0       
                  //if( hg_op.cnt_posrst == (300 * 4 + 0))
                  if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
                 {
@@ -301,13 +332,6 @@ void __interrupt ISR(void)
                   
 #endif
                    
-                if(hg_op.drops_sb == 1 && hg_op.needle_len == LEN_13_MM)   
-                {
-                     hg_op.cnt_posb ++;
-                }
-                   
-                
-             
              }
          }
          else

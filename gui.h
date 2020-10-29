@@ -1,7 +1,7 @@
 #ifndef GUI_H
 #define GUI_H
 
-
+#define TEST_MODE    0
 
 typedef struct xmenu
 {
@@ -57,6 +57,9 @@ typedef struct _hg_op
 }HG_OP;
 
 extern HG_OP  hg_op;
+extern uint8_t test_mode;
+extern uint8_t flag_test_mode_break;
+
 #define STATUS_SLEEP   0x00
 #define STATUS_WAKE    0x01
 
@@ -82,12 +85,17 @@ extern HG_OP  hg_op;
 #define POS_13_RST   (8 * 4)  //ignored
 
 #define POS_13MM_SB   (156) 
+#define POS_13MM_SA   (156) 
 
 //#define POS_RST   (150 * 4)
 #define POS_RST   (150 * 2)
 //#define POS_4_RST   (150 * 2)
 //#define POS_4_RST   (520 *2)
-#define POS_4_RST   (482 *2)
+//#define POS_4_RST   (482 *2)
+//#define POS_4_RST   (482 )
+#define POS_4_RST   (412 )
+
+
 
 #define POS_INJECT_F  (30 * 4 + 0)
 #define POS_INJECT_R  (30 * 4 + 0)

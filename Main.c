@@ -254,6 +254,8 @@ void main(void)
     hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = LEN_9_MM;
     hg_op.status_powerup = STATUS_SLEEP;
+    
+    
     while(1)
     {
     
@@ -266,11 +268,6 @@ void main(void)
            
         }
        #endif
-        
-        
-        
-        
-        
         
 
         if(hg_op.need_reset)
@@ -296,8 +293,6 @@ void main(void)
                 hg_op.posrst = 0;
                 hg_op.cnt_posrst =0;
                   
-              
-                
             }
             
    
@@ -378,19 +373,22 @@ void main(void)
             if(hg_op.working_mode == WORK_MODE_DROPS)
             {
                 
-                if(ACTION_BUTTON  == 1)
+                //if(ACTION_BUTTON  == 1)
+                if(0)
                 {
-                    STOP_B();
-                    //==========================================================
-                    REVERSE_RUN_A();   
-                    delay_pwm(300 * 16);
-                    STOP_A();
+                        STOP_B();
+                        //==========================================================
+                        REVERSE_RUN_A();   
+                        //delay_pwm(300 * 16);
+                        delay_pwm(300 * 30);
+                        STOP_A();
+
+                        //==========================================================
+
+                        hg_op.acting_flag =0;
+                        hg_op.working_mode = WORK_MODE_STOP; 
+                        hg_op.need_reset =1;  
                     
-                    //==========================================================
-                    
-                    hg_op.acting_flag =0;
-                    hg_op.working_mode = WORK_MODE_STOP; 
-                    hg_op.need_reset =1;  
                     
                 }
                 else
@@ -399,93 +397,31 @@ void main(void)
                     
                        if(hg_op.drops_sa == 1)
                         {
-                          
-                            
+                           
+                           
                            hg_op.cnt_posa =0;
                            //printf("sa begin %d\r\n",hg_op.cnt_posa); 
                             //REVERSE_RUN_B();  
                             //di();
                             //FORWARD_RUN_B(); 
                             
-                          // ann =0; xn = 0;
-                           ENABLE_BH();INPUT3_BH();delay_pwm(300 * STARTUP_CNT_MA);/*delay_pwm(STARTUP_PWM_MA * STARTUP_CNT_MA);*/     
+                            if( hg_op.needle_len == LEN_13_MM)   
+                            {
+                                
+                                ENABLE_BH();INPUT3_BH();
+                                while(hg_op.cnt_posa < POS_13MM_SA);
+                            }
+                            else
+                            {
+                           
+                                // ann =0; xn = 0;
+                                 ENABLE_BH();INPUT3_BH();
+                                 delay_pwm(300 * STARTUP_CNT_MA);/*delay_pwm(STARTUP_PWM_MA * STARTUP_CNT_MA);*/  
+                            }
                            STOP_B();
                            //while( xn < 1000 && hg_op.cnt_posa < 40)
                             //while(hg_op.cnt_posa < 120)
-#if 0
-                            while(0)
-                            {
-                                 if(hg_op.cnt_posa  > 110) 
-                                 {
-                                    ann = STARTUP_PWM_MA * 512;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posa  > 100)
-                                 {
-                                     ann = STARTUP_PWM_MA * 128;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posa  > 90)
-                                 {
-                                     ann = STARTUP_PWM_MA * 96;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posa  > 80)
-                                 {
-                                     ann = STARTUP_PWM_MA * 64;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posa  > 70)
-                                 {
-                                     ann = STARTUP_PWM_MA * 32;
-                                     xn = 260;
-                                 }
-                                 else if(hg_op.cnt_posa  > 60)
-                                 {
-                                     ann = STARTUP_PWM_MA * 8;
-                                     xn = 180;
-                                 }
-                                 else if(hg_op.cnt_posa  > 50)
-                                 {
-                                     ann = STARTUP_PWM_MA * 6;
-                                     xn = 170;
-                                 }
-                                 else if(hg_op.cnt_posa  > 40)
-                                 {
-                                     ann = STARTUP_PWM_MA * 4;
-                                     xn = 160;
-                                 }
-                                 //else if(hg_op.cnt_posa  > 20)
-                                 else if(hg_op.cnt_posa  > STARTUP_THR_MA)
-                                 {
-                                     ann = STARTUP_PWM_MA * 1;
-                                     xn = 150;
-                                 }
-                                 else 
-                                 {
-                                     ann =0;
-                                     xn = 0;
-                                 } 
-                                     
-                                
-                                //INPUT3_BH(); delay_pwm(STARTUP_PWM_MA - xn);
-                                //INPUT3_BL(); delay_pwm(STARTUP_PWM_MA + ann);
-                                
-                                INPUT3_BH(); delay_pwm(STARTUP_PWM_MA);
-                                //INPUT3_BL(); delay_pwm(STARTUP_PWM_MA +  ann);
-                                INPUT3_BL(); delay_pwm(STARTUP_PWM +  ann);
-                                
-                                //INPUT3_BL(); delay_pwm(STARTUP_PWM);
-                                //xn ++;
-                            }
-
-                            STOP_B();
-#endif
-                            
-                            
-                            
-                            
-                            
+       
                             
                             //printf("c===-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             //printf("here\r\n");
@@ -493,30 +429,13 @@ void main(void)
                              //INPUT3_BH();
                             //while(1);
                             
-#if 0
-                            xn = 0;
-                             while(hg_op.drops_sa == 1 && xn < 1400)
-                             {
-                                 //delay_pwm(300);//300 is 1ms
-                                 delay_pwm(3);//3 is 1/100ms
-                                 xn ++;
-                             }
-                            
-                            
-                            
-                            //delay_pwm(300*15);
-                            INPUT3_BL();
-                            printf("a-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
-                            delay_pwm(300*50);
-                            printf("b-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
-                            INPUT3_BH();
-#endif
+
                             //while(hg_op.drops_sa == 1);
                             //delay_f(INTERVAL_F);
                              delay_pwm(300 * INTERVAL_F);
                             printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             hg_op.drops_sa = 0;
-                            hg_op.drops_sb = 1;
+                            hg_op.drops_sb = 0;
                             hg_op.drops_push = 1;
                         }
                         else if(hg_op.drops_push == 1)
@@ -597,6 +516,7 @@ void main(void)
                             
                             //delay_f(INTERVAL_F);
                             delay_pwm(300 * INTERVAL_F);
+                            hg_op.drops_sa = 0;
                             hg_op.drops_push = 0;
                             hg_op.drops_sb = 1;
 
@@ -615,7 +535,9 @@ void main(void)
                             if(hg_op.needle_len == LEN_13_MM)
                             {
                                 ENABLE_BH();INPUT4_BH();
-                                while( hg_op.cnt_posb < POS_13MM_SB);
+                                //while( hg_op.cnt_posb < POS_13MM_SB);
+                                
+                                while(LP_BUTTON == 1);
                                 
                                 
                             }
@@ -627,79 +549,7 @@ void main(void)
                             STOP_B();
                             //while( xn < 1000 &&  hg_op.cnt_posb < 40 )
                             //while(hg_op.cnt_posb < 120)
-#if 0
-                            while(0)
-                            {
-                                 if(hg_op.cnt_posb  > 110) 
-                                 {
-                                      ann = STARTUP_PWM_MB * 512;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posb  > 100)
-                                 {
-                                       ann = STARTUP_PWM_MB * 128;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posb  > 90)
-                                 {
-                                     ann = STARTUP_PWM_MB * 96;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posb  > 80)
-                                 {
-                                       ann = STARTUP_PWM_MB * 64;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posb  > 70)
-                                 {
-                                       ann = STARTUP_PWM_MB * 32;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posb  > 60)
-                                 {
-                                      ann = STARTUP_PWM_MB * 8;
-                                     xn = 300;
-                                 }
-                                 else if(hg_op.cnt_posb  > 50)
-                                 {
-                                      ann = STARTUP_PWM_MB * 6;
-                                     xn = 170;
-                                 }
-                                 else if(hg_op.cnt_posb  > 40)
-                                 {
-                                       ann = STARTUP_PWM_MB * 4;
-                                     xn = 160;
-                                 }
-                                 //else if(hg_op.cnt_posb  > 32)
-                                 //else if(hg_op.cnt_posb  > 28)
-                                 else if(hg_op.cnt_posb  > STARTUP_THR_MB)
-                                 //else if(hg_op.cnt_posb  > 24)
-                                 {
-                                     ann = STARTUP_PWM_MB * 1;
-                                     xn = 150;
-                                 }
-                                 else 
-                                 {
-                                     ann = 0;
-                                     xn = 0;
-                                 } 
-                                
-                                
-                                
-                                
-                                //INPUT4_BH(); delay_pwm(STARTUP_PWM_MB - xn);
-                                //INPUT4_BL(); delay_pwm(STARTUP_PWM_MB + ann);
-                                
-                                
-                                INPUT4_BH();delay_pwm(STARTUP_PWM_MB);
-                                //INPUT4_BL();delay_pwm(STARTUP_PWM_MB + ann);
-                                INPUT4_BL();delay_pwm(STARTUP_PWM + ann);
-                                
-                                //INPUT4_BL(); delay_pwm(STARTUP_PWM);
-                                //xn ++;
-                            }
-                            STOP_B();
-#endif
+
                             
                             //printf("z===-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                             //INPUT4_BH();
@@ -725,8 +575,49 @@ void main(void)
                             //while(hg_op.drops_sb == 1);
                             delay_pwm(300 * INTERVAL_F);
                             printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
-                            hg_op.drops_sa = 1;
-                            hg_op.drops_sb = 0;
+                           
+                            //hg_op.drops_sb = 0;
+                            //hg_op.drops_push =0;
+                            //hg_op.drops_sa = 1;
+                            
+                           //===================================================
+                             if(ACTION_BUTTON  == 1)
+                             {
+                        
+                                    STOP_B();
+                                    STOP_A();
+                                //==========================================================
+                                   REVERSE_RUN_A();   
+                                   //delay_pwm(300 * 16);
+                                   //delay_pwm(300 * 30);
+                                   delaynus(30* 1000);
+                                   STOP_A();
+
+                               //==========================================================
+                                    
+     
+
+                                    hg_op.drops_sa = 0;
+                                    hg_op.drops_sb = 0;
+                                    hg_op.drops_push = 0;
+                                    
+                                    
+                                    hg_op.acting_flag =0;
+                                    hg_op.working_mode = WORK_MODE_STOP; 
+                                    hg_op.need_reset =0;  
+                    
+                    
+                             }
+                             else if(ACTION_BUTTON  == 0)
+                             {
+                                  hg_op.drops_sb = 0;
+                                  hg_op.drops_push =0;
+                                  hg_op.drops_sa = 1;
+                             }
+                           
+                            
+                           //===================================================
+                            
                         }
                  
                 }
@@ -750,9 +641,6 @@ void main(void)
                 
             }
                 
-            
-            
-            
             
         }
         

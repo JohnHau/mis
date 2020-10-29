@@ -9,6 +9,8 @@ uint8_t flip =0;
 uint8_t work_mode =0;
 uint8_t needle_len =4;
 
+uint8_t test_mode =0;
+uint8_t flag_test_mode_break =0;
 
 
 MENU menu[8]={0};
@@ -99,9 +101,7 @@ void menu0_MsgHandlle(uint8_t key)
                 }
                 
                 
-            }
-            
-            
+            }    
             
             break;
             
