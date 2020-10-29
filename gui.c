@@ -133,6 +133,9 @@ void menu0_MsgHandlle(uint8_t key)
                     if(work_mode == WORK_MODE_C)
                     {
                         display_cmode(0,COL_PAGE0_MDROPS, menu[0].mode);
+                        
+                        //hg_op.working_mode = WORK_MODE_C;
+                        hg_op.cur_working_mode = WORK_MODE_C;
                     }
                     else if(work_mode == WORK_MODE_DROPS)
                     {
@@ -140,8 +143,8 @@ void menu0_MsgHandlle(uint8_t key)
                         //
                         //
                         //
-                        
-                        
+                        //hg_op.working_mode = WORK_MODE_DROPS;
+                        hg_op.cur_working_mode = WORK_MODE_DROPS;
                     }
                     else if(work_mode == WORK_MODE_DROP)
                     {
@@ -149,8 +152,8 @@ void menu0_MsgHandlle(uint8_t key)
                         //
                         //
                         //
-                        
-                        
+                        //hg_op.working_mode = WORK_MODE_DROP;
+                        hg_op.cur_working_mode = WORK_MODE_DROP;
                     }      
                     
                  }
@@ -338,11 +341,19 @@ void menu3_MsgHandlle(uint8_t key)
                     {
                         display_n4(0,COL_PAGE0_DN, MODE_NORMAL);
                         needle_len = 4;
+                         hg_op.needle_len = LEN_4_MM;
+                         hg_op.cnt_target_posrst = POS_4_RST; 
+                          hg_op.need_reset =1;
                     }
                     else if(menu[3].parameter == 1)
                     {
                         display_n13(0,COL_PAGE0_DN, MODE_NORMAL);
                         needle_len = 13;
+                         hg_op.needle_len = LEN_13_MM;
+                         
+                         hg_op.cnt_target_posrst = POS_13_RST; 
+                         hg_op.need_reset =1;
+                         
                         //
                         //
                         //

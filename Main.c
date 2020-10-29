@@ -83,17 +83,46 @@ uint32_t msleep =0;
 void main(void)                
 { 
 
+    
+    
+    
+    
    // delay_nms(100);
     HG_init();
     uart_init();
     AD_init();
     MotorDriveInit();
-    
+    Timer1Init();
     
     
     //===============================================
 
 
+    
+    
+#if 0
+    while(1)
+    {
+       delaynus(50000);delaynus(50000);
+        delaynus(50000);delaynus(50000);
+         delaynus(50000);delaynus(50000);
+          delaynus(50000);delaynus(50000);
+           delaynus(50000);delaynus(50000);
+           
+           TEST_LED_ON();
+           
+                  delaynus(50000);delaynus(50000);
+        delaynus(50000);delaynus(50000);
+         delaynus(50000);delaynus(50000);
+          delaynus(50000);delaynus(50000);
+           delaynus(50000);delaynus(50000);
+           
+           TEST_LED_OFF();
+           
+    }
+    
+#endif
+    
     
     
 #if 0
@@ -222,7 +251,7 @@ void main(void)
     //hg_op.need_reset =1;
     hg_op.need_reset =0;
     hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
-    hg_op.cnt_target_posrst = POS_RST;     //len=9mm
+    hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = LEN_9_MM;
     hg_op.status_powerup = STATUS_SLEEP;
     while(1)
@@ -261,7 +290,7 @@ void main(void)
                     INPUT3_BL();
                     delay_pwm(16);
                     
-                    hg_op.cnt_posrst ++;
+                    //hg_op.cnt_posrst ++;
                 }
                 
                 hg_op.posrst = 0;
@@ -293,6 +322,12 @@ void main(void)
             else
             {
                 ENABLE_BH();
+                
+                
+#if 1      
+              
+                hg_op.posrst = 0;
+                hg_op.cnt_posrst =0;
                 while(hg_op.posrst == 0)
                 {
                     INPUT3_BH();
@@ -300,6 +335,12 @@ void main(void)
                     INPUT3_BL();
                     delay_pwm(16);
                 }
+#endif
+                
+              
+       
+                
+                
                 STOP_B(); 
             }
            
@@ -366,9 +407,12 @@ void main(void)
                             //di();
                             //FORWARD_RUN_B(); 
                             
-                           ann =0; xn = 0;ENABLE_BH();INPUT3_BH();delay_pwm(300 * STARTUP_CNT_MA);/*delay_pwm(STARTUP_PWM_MA * STARTUP_CNT_MA);*/
-                            //while( xn < 1000 && hg_op.cnt_posa < 40)
+                          // ann =0; xn = 0;
+                           ENABLE_BH();INPUT3_BH();delay_pwm(300 * STARTUP_CNT_MA);/*delay_pwm(STARTUP_PWM_MA * STARTUP_CNT_MA);*/     
+                           STOP_B();
+                           //while( xn < 1000 && hg_op.cnt_posa < 40)
                             //while(hg_op.cnt_posa < 120)
+#if 0
                             while(0)
                             {
                                  if(hg_op.cnt_posa  > 110) 
@@ -436,6 +480,7 @@ void main(void)
                             }
 
                             STOP_B();
+#endif
                             
                             
                             
@@ -566,11 +611,23 @@ void main(void)
                              //FORWARD_RUN_B();  
                             //REVERSE_RUN_B();  
                             
-                            ann = 0;xn =0; ENABLE_BH();INPUT4_BH();delay_pwm(300 * STARTUP_CNT_MB);
                             
-
+                            if(hg_op.needle_len == LEN_13_MM)
+                            {
+                                ENABLE_BH();INPUT4_BH();
+                                while( hg_op.cnt_posb < POS_13MM_SB);
+                                
+                                
+                            }
+                            else
+                            {
+                                //ann = 0;xn =0; 
+                                ENABLE_BH();INPUT4_BH();delay_pwm(300 * STARTUP_CNT_MB);
+                            }
+                            STOP_B();
                             //while( xn < 1000 &&  hg_op.cnt_posb < 40 )
                             //while(hg_op.cnt_posb < 120)
+#if 0
                             while(0)
                             {
                                  if(hg_op.cnt_posb  > 110) 
@@ -641,8 +698,9 @@ void main(void)
                                 //INPUT4_BL(); delay_pwm(STARTUP_PWM);
                                 //xn ++;
                             }
-                            
                             STOP_B();
+#endif
+                            
                             //printf("z===-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                             //INPUT4_BH();
                             

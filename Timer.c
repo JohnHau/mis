@@ -290,7 +290,7 @@ void __interrupt ISR(void)
                         
                 
                 
-                  
+#if 1       
                  //if( hg_op.cnt_posrst == (300 * 4 + 0))
                  if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
                 {
@@ -299,7 +299,13 @@ void __interrupt ISR(void)
 
                 }
                   
-                  
+#endif
+                   
+                if(hg_op.drops_sb == 1 && hg_op.needle_len == LEN_13_MM)   
+                {
+                     hg_op.cnt_posb ++;
+                }
+                   
                 
              
              }
@@ -463,4 +469,55 @@ void TimerInit(void)
 	GIE=1;  // 
     T0CONbits.TMR0ON =1;
 
+}
+
+void Timer1Init(void)
+{
+	
+    
+    T1CONbits.T1CKPS = 2;//scale 4
+    T1CONbits.RD16 =1;
+    T1CONbits.TMR1ON =0;
+    
+    
+    
+    //===============================
+#if 0
+    T0CS=0; //
+	PSA=0; // 
+	T0PS2=1;
+	T0PS1=0;
+	T0PS0=1; // 4ms
+    
+    
+	T08BIT =1;//
+	T0IF=0; // 
+    TMR0=0; // 
+    
+    
+	T0IE=1; // 
+	GIE=1;  // 
+    T0CONbits.TMR0ON =1;
+#endif
+
+}
+
+
+
+
+
+
+
+
+void delaynus(uint16_t n)
+{
+ 
+    TMR1 =0;
+    T1CONbits.TMR1ON =1;
+    
+    while(TMR1 < n);
+    
+    T1CONbits.TMR1ON =0;
+    
+    
 }

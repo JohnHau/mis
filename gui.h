@@ -68,7 +68,7 @@ extern HG_OP  hg_op;
 #define WORK_MODE_DROP  0x02
 
 
-
+#define LEN_4_MM       4
 #define LEN_9_MM       9
 #define LEN_13_MM     13
 
@@ -81,9 +81,13 @@ extern HG_OP  hg_op;
 
 #define POS_13_RST   (8 * 4)  //ignored
 
+#define POS_13MM_SB   (156) 
+
 //#define POS_RST   (150 * 4)
 #define POS_RST   (150 * 2)
-
+//#define POS_4_RST   (150 * 2)
+//#define POS_4_RST   (520 *2)
+#define POS_4_RST   (482 *2)
 
 #define POS_INJECT_F  (30 * 4 + 0)
 #define POS_INJECT_R  (30 * 4 + 0)
