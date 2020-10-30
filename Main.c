@@ -83,11 +83,6 @@ uint32_t msleep =0;
 void main(void)                
 { 
 
-    
-    
-    
-    
-   // delay_nms(100);
     HG_init();
     uart_init();
     AD_init();
@@ -98,6 +93,49 @@ void main(void)
     //===============================================
 
 
+    
+#if 1
+    LCD_On();
+    //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);delay(30);
+    //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_REVERSE);delay(30);
+    //display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_REVERSE);delay(30);
+    
+    //display_n13(0,COL_PAGE0_DN, MODE_NORMAL);
+    //display_n13(0,COL_PAGE0_DN, MODE_REVERSE);
+    //display_n6(0,COL_PAGE0_DN, MODE_NORMAL);
+    
+        //==========================================
+     //display_n6(0,COL_PAGE0_DN, MODE_NORMAL);
+     //display_n0(0,COL_PAGE0_DN, MODE_NORMAL);
+     //display_n1(0,COL_PAGE0_DN, MODE_NORMAL);
+     
+     //display_n3(0,COL_PAGE0_DN, MODE_NORMAL);
+     //display_n10(0,COL_PAGE0_DN, MODE_NORMAL);
+     //display_n2(0,COL_PAGE0_DN, MODE_NORMAL);
+     
+     //display_n200(0,COL_PAGE0_DN, MODE_NORMAL);
+     //display_n100(0,COL_PAGE0_DN, MODE_NORMAL);
+     //display_n300(0,COL_PAGE0_DN, MODE_NORMAL);
+     
+    // display_n150(0,COL_PAGE0_DN, MODE_NORMAL);
+     
+      //display_n1P5(0,COL_PAGE0_DN, MODE_NORMAL);
+      display_n2P5(0,COL_PAGE0_DN, MODE_NORMAL);
+    //==========================================
+    
+    
+    while(1);
+    
+    
+#endif
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 #if 0

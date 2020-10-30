@@ -30,22 +30,6 @@ void HG_init(void)
     TimerInit();
     
     
-    
-    
-#if 0
-    MotorDriveInit();
-    
-    ENABLE_AH();
-    ENABLE_BH();
-    
-    
-    FORWARD_RUN_A();   
-    FORWARD_RUN_B();   
-    
-	//PositionCheckInit();
-	
-#endif
-    
 }
 
 

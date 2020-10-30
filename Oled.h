@@ -289,11 +289,31 @@ uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
 
 uint8_t display_n4(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_n5(uint8_t y,uint8_t x, uint8_t mode);
-uint8_t display_n250(uint8_t y,uint8_t x, uint8_t mode);
+
 uint8_t display_n13(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 
 
+uint8_t display_n0(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n1(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n2(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n3(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n6(uint8_t y,uint8_t x, uint8_t mode);
+
+uint8_t display_n10(uint8_t y,uint8_t x, uint8_t mode);
+
+
+
+uint8_t display_n100(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n150(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n200(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n250(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n300(uint8_t y,uint8_t x, uint8_t mode);
+
+
+
+uint8_t display_n1P5(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_n2P5(uint8_t y,uint8_t x, uint8_t mode);
 
 void delay_nms(uint32_t n);
 void delay_ms(unsigned int ms);
