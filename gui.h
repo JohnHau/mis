@@ -29,9 +29,13 @@ typedef struct _hg_op
     uint8_t status_charging;
     uint8_t need_reset;
     uint8_t status_hit_lp;
+    
     uint8_t needle_len;
+    uint8_t inject_len;
+    uint8_t tube_cap;
+    uint8_t work_freq;
     
-    
+    uint8_t push_len;
     
     
     uint8_t acting_flag;
@@ -40,7 +44,7 @@ typedef struct _hg_op
     uint8_t drops_sb;
     uint8_t drops_push;
     
-     uint8_t posrst;
+    uint8_t posrst;
     
     uint8_t posa;
     uint8_t posb;
@@ -65,15 +69,56 @@ extern uint8_t flag_test_mode_break;
 
 
 
-#define WORK_MODE_STOP  0x03
-#define WORK_MODE_C  0x00
-#define WORK_MODE_DROPS  0x01
-#define WORK_MODE_DROP  0x02
+
+#define WORK_MODE_C           0x00
+#define WORK_MODE_DROPS       0x01
+#define WORK_MODE_DROP        0x02
+#define WORK_MODE_STOP        0x03
 
 
-#define LEN_4_MM       4
-#define LEN_9_MM       9
-#define LEN_13_MM     13
+
+
+#define NEEDLE_LEN_4_MM       4
+#define NEEDLE_LEN_6_MM       6
+#define NEEDLE_LEN_9_MM       9
+#define NEEDLE_LEN_13_MM     13
+
+
+
+#define INJECT_LEN_0_MM  0
+#define INJECT_LEN_1_MM  1
+#define INJECT_LEN_2_MM  2
+#define INJECT_LEN_3_MM  3
+#define INJECT_LEN_4_MM  4
+
+
+
+
+#define TUBE_CAP_2P5_ML   0
+#define TUBE_CAP_1P5_ML   1
+#define TUBE_CAP_5_ML     2
+
+
+
+#define DROPS_MODE_100_FREQ     80
+#define DROPS_MODE_150_FREQ     70
+#define DROPS_MODE_200_FREQ     60
+#define DROPS_MODE_250_FREQ     50
+#define DROPS_MODE_300_FREQ     40
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #define INC_DOUBLE    300
 
@@ -82,7 +127,8 @@ extern uint8_t flag_test_mode_break;
 //#define POS_13_RST   (100 * 4)
 //#define POS_13_RST   (25 * 4)
 
-#define POS_13_RST   (8 * 4)  //ignored
+//#define POS_13_RST   (8 * 4)  //ignored
+#define POS_13_RST   (1)  //ignored
 
 #define POS_13MM_SB   (156) 
 #define POS_13MM_SA   (156) 
@@ -94,7 +140,7 @@ extern uint8_t flag_test_mode_break;
 //#define POS_4_RST   (482 *2)
 //#define POS_4_RST   (482 )
 #define POS_4_RST   (412 )
-
+#define POS_6_RST   (412 )
 
 
 #define POS_INJECT_F  (30 * 4 + 0)
@@ -112,7 +158,8 @@ extern uint8_t flag_test_mode_break;
 
 
 #define STARTUP_CNT_MA   15 /*20*/ /*15*/
-#define STARTUP_CNT_MB   15 /*20*/ /*15*/
+//#define STARTUP_CNT_MB   15 /*20*/ /*15*/
+#define STARTUP_CNT_MB   14 /*20*/ /*15*/
 
 
 #define  INTERVAL_F    40/*20*/

@@ -4,7 +4,7 @@
 #include "Oled.h"	 
 #include "Beep.h"
 #include "Key.h"	
-
+#include "gui.h"	
 void delay_nms(uint32_t n)
 {
     uint16_t i=0;
@@ -575,8 +575,8 @@ cmd_fail:
 
 
 
-uint8_t write_buf[EEPROM_SIZE];
-uint8_t read_buf[EEPROM_SIZE];
+uint8_t write_buf[256];
+uint8_t read_buf[256];
 
 uint8_t ee_Test(void) 
 {
@@ -2619,10 +2619,78 @@ uint8_t clear_screen(void)
 
 }
 
+void initial_work_setting(void)
+{
+    
+    
+    
+}
+
+
+void initial_ui_setting(void)
+{
+    #if 1
+    display_frame_abc(LEFT,COL_PAGE0_PATTERN_A, MODE_NORMAL);
+    display_cmode(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
+    
+    display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, MODE_NORMAL);
+    display_mem(LEFT,COL_PAGE0_MEM,MODE_NORMAL);
+
+    display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, MODE_NORMAL);
+    display_bat(LEFT,COL_PAGE0_BAT,MODE_NORMAL);
+    
+    //------------------------------------------------------------
+    
+    display_frame_de(LEFT,COL_PAGE0_PATTERN_D, MODE_NORMAL);
+    display_num(MIDDLE,COL_PAGE0_DN, NUM_4);
+  
+    
+    
+    display_frame_de(RIGHT,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+    display_num(MIDDLE,COL_PAGE0_EN, NUM_1);
+
+    //-------------------------------------------------------------------
+
+    display_frame_fghi(TYPE_F,COL_PAGE0_PATTERN_F, MODE_NORMAL);
+    display_num(BOTTOM,COL_PAGE0_FN, NUM_2P5);
+    
+    
+    display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
+ 
+#endif
+    
+    
+    hg_op.cur_working_mode = WORK_MODE_C;//now we assume working in DROPS ;
+    hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
+    hg_op.needle_len = NEEDLE_LEN_4_MM;
+    
+    hg_op.inject_len = INJECT_LEN_1_MM;
+    
+    hg_op.tube_cap = TUBE_CAP_2P5_ML;
+    hg_op.work_freq = DROPS_MODE_250_FREQ;
+    
+    hg_op.push_len = 140;//146
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
 void Initial_LY096BG30(void)
 {
-
-
+    
 i2c_CfgGpio();
   
 
@@ -2661,7 +2729,8 @@ delay(1);
 	ee_WriteBytes(write_buf, 0x00, 1);
     
     clear_screen();
-#if 1
+    initial_ui_setting();
+#if 0
     display_frame_abc(LEFT,COL_PAGE0_PATTERN_A, MODE_NORMAL);
     display_cmode(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
     
@@ -2689,18 +2758,6 @@ delay(1);
     
     display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
     display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
  
 #endif
     

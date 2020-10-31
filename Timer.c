@@ -81,17 +81,8 @@ void __interrupt ISR(void)
 #endif
             
             
-            
-            
-            
-            
-            
-            
-            //buzz();
-            
             if(menu[0].mode == MODE_BLINK)
-            {
-                
+            { 
                 if(flip == 1)
                 {
                     display_blank_mode_pa(0,COL_PAGE0_MDROPS,MODE_REVERSE);
@@ -126,14 +117,15 @@ void __interrupt ISR(void)
                 {
                     flip =1;
                     if(menu[3].parameter == 0)
-                    {
-                        //display_n4(0,COL_PAGE0_DN, MODE_REVERSE);
-                        
+                    {   
                         display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_4);
                     }
                     else if(menu[3].parameter == 1)
                     {
-                        //display_n13(0,COL_PAGE0_DN, MODE_REVERSE);
+                        display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_6);
+                    }
+                    else if(menu[3].parameter == 2)
+                    {
                         display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_13);
                     }
  
@@ -152,12 +144,10 @@ void __interrupt ISR(void)
                     flip =1;
                     if(menu[4].parameter == 0)
                     {
-                        //display_n1(0,COL_PAGE0_EN, MODE_REVERSE);
                         display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_1);
                     }
                     else if(menu[4].parameter == 1)
                     {
-                        //display_n2(0,COL_PAGE0_EN, MODE_REVERSE);
                         display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_2);
                     }
  
@@ -176,15 +166,16 @@ void __interrupt ISR(void)
                     flip =1;
                     if(menu[5].parameter == 0)
                     {
-                        //display_n1(0,COL_PAGE0_FN, MODE_REVERSE);
                         display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
                     }
                     else if(menu[5].parameter == 1)
                     {
-                        //display_n2(0,COL_PAGE0_FN, MODE_REVERSE);
                         display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1P5);
                     }
- 
+                    else if(menu[5].parameter == 2)
+                    {
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_5);
+                    }
                 }
             }
             else if(menu[6].mode == MODE_BLINK)
@@ -219,6 +210,17 @@ void __interrupt ISR(void)
                        }
                     }
                     else if(menu[6].parameter == 1)
+                    {
+                         if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                         {
+                           display_num(BOTTOM,COL_PAGE0_GN, MODE_REVERSE | NUM_3);
+                         }
+                         else if(work_mode == WORK_MODE_DROPS) 
+                         {
+                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_100);
+                          }
+                    }
+                    else if(menu[6].parameter == 2)
                     {
                          if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
                          {
@@ -275,8 +277,6 @@ void __interrupt ISR(void)
 #if 1
     if(INTCONbits.RBIF)
     {
-    
-        
 
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
@@ -301,6 +301,10 @@ void __interrupt ISR(void)
                    printf("wake up\r\n");
                    hg_op.status_hit_lp = 0;
                    hg_op.need_reset =1;
+                   
+                   initial_ui_setting();
+                   
+                   
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
                 {
@@ -319,39 +323,47 @@ void __interrupt ISR(void)
             
         }
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        
-        if(ACTION_BUTTON  == 0 && test_mode == 0)
+
+        if(ACTION_BUTTON  == 0)
         {
-           
+            buzz();
              if(hg_op.status_powerup == STATUS_WAKE)
              {
                  
-                 if(hg_op.acting_flag ==0)
+                 //if(hg_op.acting_flag ==0)
+                 if(hg_op.cur_working_mode == WORK_MODE_DROPS)
                  {
                     hg_op.acting_flag =1;
-                    buzz();
+                   
                     hg_op.drops_sa =1;
                     hg_op.drops_sb =0;
                     hg_op.drops_push =0;
 
-                    hg_op.working_mode = hg_op.cur_working_mode ;
+                    hg_op.working_mode = hg_op.cur_working_mode;
                  }
+                 else if(hg_op.cur_working_mode == WORK_MODE_C)
+                 {
+                    
+                    hg_op.drops_sa =1;
+                    hg_op.drops_sb =0;
+                    hg_op.drops_push =0;
+ 
+                    hg_op.working_mode = hg_op.cur_working_mode;
+                 }
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
       
              }
 
@@ -399,12 +411,11 @@ void __interrupt ISR(void)
          if(hg_op.need_reset)
          {
              
-             if(hg_op.status_hit_lp == 1 )
+             //if(hg_op.status_hit_lp == 1 )
+             if(1)
              {
                  
-                 hg_op.cnt_posrst ++;
-
-                //if( hg_op.cnt_posrst == (300 *4 + 0))
+                hg_op.cnt_posrst ++;
                 if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
                 {
                     hg_op.posrst =1;
@@ -458,16 +469,7 @@ void __interrupt ISR(void)
                     if(hg_op.drops_sa == 1)
                     {
                         hg_op.cnt_posa ++;
-#if 0        
-                        if(hg_op.cnt_posa >= POS_INJECT_F)
-                        {
-                                STOP_B();
-                                hg_op.drops_sa = 0;
-                                hg_op.drops_push =1;
-                        
-                        }
-#endif
-                        
+             
                         //if( hg_op.drops_sa == 1)
                         if(0)
                         {
@@ -508,16 +510,6 @@ void __interrupt ISR(void)
                     {
                          hg_op.cnt_posb ++;
                          
-#if 0
-                         if(hg_op.cnt_posb >= POS_INJECT_R)
-                        {
-                                STOP_B();
-                                hg_op.drops_sb = 0;
-                                //hg_op.drops_sa  =1;
-                        
-                        }
-                         
-#endif
                          //if(hg_op.drops_sb == 1)
                          if(0)
                          {
@@ -542,7 +534,7 @@ void __interrupt ISR(void)
                 
 #endif
           
-                         
+#if 0
                      if(hg_op.cnt_posb >= POS_INJECT_R)
                         {
                                 STOP_B();
@@ -550,6 +542,7 @@ void __interrupt ISR(void)
                                 hg_op.drops_sa  =1;
                         
                         }
+#endif
                          
                          }
                          

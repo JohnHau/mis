@@ -40,21 +40,13 @@ void HG_init(void)
 
 void menu0_MsgHandlle(uint8_t key)
 {
-    
-    
-    
-
-    
-    
-    
-    
     switch(key)
     {
         case KEY_UP_PRESSED:     
             if(menu[0].mode == MODE_BLINK)
             {    
                 work_mode ++;
-                if(work_mode== 3)
+                if(work_mode == 3)
                 {
                     work_mode = WORK_MODE_C;    
                 }
@@ -212,9 +204,6 @@ void menu0_MsgHandlle(uint8_t key)
                 }
                 
                menu[0].mode = MODE_NORMAL;     
-               
-               
-               
                
             }
             
@@ -435,7 +424,7 @@ void menu3_MsgHandlle(uint8_t key)
             if(menu[3].mode == MODE_BLINK)
             {
                 menu[3].parameter ++;  
-                if(menu[3].parameter == 2) menu[3].parameter = 0;
+                if(menu[3].parameter == 3) menu[3].parameter = 0;//4 6 13
             }
             else
             {
@@ -462,9 +451,12 @@ void menu3_MsgHandlle(uint8_t key)
                     else if( menu[3].parameter == 1)
                     {
                       //display_n13(0,COL_PAGE0_DN, menu[3].mode);
-                      display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
+                      display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_6);
                     }
-                    
+                    else if( menu[3].parameter == 2)
+                    {
+                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
+                    }
                     
                     menu[3].cur_mode = menu[3].mode;
                  }
@@ -479,7 +471,7 @@ void menu3_MsgHandlle(uint8_t key)
             if(menu[3].mode == MODE_BLINK)
             {
                 menu[3].parameter --;  
-                if(menu[3].parameter == -1) menu[3].parameter = 1;
+                if(menu[3].parameter == -1) menu[3].parameter = 2;
             }
             else
             {
@@ -500,22 +492,23 @@ void menu3_MsgHandlle(uint8_t key)
                     
                     if( menu[3].parameter == 0)
                     {
-                      //display_n4(0,COL_PAGE0_DN, menu[3].mode);
+                      
                       display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_4);
                     }
                     else if( menu[3].parameter == 1)
                     {
-                      //display_n13(0,COL_PAGE0_DN, menu[3].mode);
-                      display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
-                    }
                     
+                      display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_6);
+                    }
+                    else if( menu[3].parameter == 2)
+                    {
+                        display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
+                    }
                     
                     menu[3].cur_mode = menu[3].mode;
                  }
             }
-            
-            
-            
+
             break;
             
         case KEY_V_PRESSED:
@@ -532,30 +525,26 @@ void menu3_MsgHandlle(uint8_t key)
             }
             
              if(menu[3].cur_mode != menu[3].mode)
-             //if(1)
              {
                  if(menu[3].mode == MODE_NORMAL)
                  {
                     display_frame_de(LEFT,COL_PAGE0_PATTERN_D,MODE_NORMAL);
                     if(menu[3].parameter == 0)
                     {
-                        //display_n4(0,COL_PAGE0_DN, MODE_NORMAL);
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_4);
                         
-                        needle_len = 4;
-                         hg_op.needle_len = LEN_4_MM;
+                         needle_len = 4;
+                         hg_op.needle_len = NEEDLE_LEN_4_MM;
                          hg_op.cnt_target_posrst = POS_4_RST; 
                           hg_op.need_reset =1;
                     }
                     else if(menu[3].parameter == 1)
                     {
-                        //display_n13(0,COL_PAGE0_DN, MODE_NORMAL);
-                        //display_num(MIDDLE,COL_PAGE0_DN,NUM_4);
-                        display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
-                        needle_len = 13;
-                         hg_op.needle_len = LEN_13_MM;
+                        display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_6);
+                        needle_len = 6;
+                         hg_op.needle_len = NEEDLE_LEN_6_MM;
                          
-                         hg_op.cnt_target_posrst = POS_13_RST; 
+                         hg_op.cnt_target_posrst = POS_6_RST; 
                          hg_op.need_reset =1;
                          
                         //
@@ -564,6 +553,21 @@ void menu3_MsgHandlle(uint8_t key)
                         
                         
                     }
+                     else if(menu[3].parameter == 2)
+                     {
+                        display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
+                        needle_len = 13;
+                         hg_op.needle_len = NEEDLE_LEN_13_MM;
+                         
+                         hg_op.cnt_target_posrst = POS_13_RST; 
+                         hg_op.need_reset =1;
+                         
+                        //
+                        //
+                        //
+                         
+                         
+                     }
                     
                  }
                     menu[3].cur_mode = menu[3].mode;
@@ -670,13 +674,6 @@ void menu4_MsgHandlle(uint8_t key)
                 
             }
             
-            
-            
-            
-            
-            
-            
-            
             break;
             
         case KEY_V_PRESSED:
@@ -746,7 +743,7 @@ void menu5_MsgHandlle(uint8_t key)
             if(menu[5].mode == MODE_BLINK)
             {
                 menu[5].parameter ++;  
-                if(menu[5].parameter == 2) menu[5].parameter = 0;
+                if(menu[5].parameter == 3) menu[5].parameter = 0;
             }
             else
             {
@@ -766,17 +763,17 @@ void menu5_MsgHandlle(uint8_t key)
     
                     
                     if( menu[5].parameter == 0)
-                    {
-                      
-                      
+                    {          
                       display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2P5);
                     }
                     else if( menu[5].parameter == 1)
-                    {
-                      
+                    {  
                       display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_1P5);
                     }
-                    
+                     else if( menu[5].parameter == 2)
+                     {
+                        display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_5);
+                     }
                     
                     menu[5].cur_mode = menu[5].mode;
                  }
@@ -791,7 +788,7 @@ void menu5_MsgHandlle(uint8_t key)
             if(menu[5].mode == MODE_BLINK)
             {
                 menu[5].parameter --;  
-                if(menu[5].parameter == -1) menu[5].parameter = 1;
+                if(menu[5].parameter == -1) menu[5].parameter = 2;
             }
             else
             {
@@ -811,28 +808,24 @@ void menu5_MsgHandlle(uint8_t key)
     
                     
                     if( menu[5].parameter == 0)
-                    {
-                      
-                      
+                    {     
                       display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2P5);
                     }
                     else if( menu[5].parameter == 1)
-                    {
-                      
+                    { 
                       display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_1P5);
                     }
+                    else if( menu[5].parameter == 2)
+                    {
+                       display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_5);
+                    }
+                        
                     
                     
                     menu[5].cur_mode = menu[5].mode;
                  }
                 
             }
-            
-            
-            
-            
-            
-            
             
             
             break;
@@ -864,6 +857,8 @@ void menu5_MsgHandlle(uint8_t key)
                         // hg_op.needle_len = LEN_4_MM;
                          //hg_op.cnt_target_posrst = POS_4_RST; 
                           //hg_op.need_reset =1;
+                        
+                        hg_op.push_len = 140;
                     }
                     else if(menu[5].parameter == 1)
                     {
@@ -875,13 +870,19 @@ void menu5_MsgHandlle(uint8_t key)
                          
                          //hg_op.cnt_target_posrst = POS_13_RST; 
                          //hg_op.need_reset =1;
-                         
+                          hg_op.push_len = 130;
                         //
                         //
                         //
                         
                         
                     }
+                     else if(menu[5].parameter == 2)
+                     {
+                          display_num(BOTTOM,COL_PAGE0_FN,NUM_5);
+                          
+                           hg_op.push_len = 160;
+                     }
                     
                  }
                     menu[5].cur_mode = menu[5].mode;
@@ -908,7 +909,7 @@ void menu6_MsgHandlle(uint8_t key)
             if(menu[6].mode == MODE_BLINK)
             {
                 menu[6].parameter ++;  
-                if(menu[6].parameter == 2) menu[6].parameter = 0;
+                if(menu[6].parameter == 3) menu[6].parameter = 0;
             }
             else
             {
@@ -956,8 +957,21 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
+                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_100);
+                      }
+                    }
+                    else if( menu[6].parameter == 2) 
+                    {
+                        
+                      if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                      {
+                         display_num(BOTTOM,COL_PAGE0_GN, menu[6].mode | NUM_3);
+                      }
+                      else if(work_mode == WORK_MODE_DROPS) 
+                      {
                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_200);
                       }
+                        
                     }
                     
                     
@@ -972,7 +986,7 @@ void menu6_MsgHandlle(uint8_t key)
             if(menu[6].mode == MODE_BLINK)
             {
                 menu[6].parameter --;  
-                if(menu[6].parameter == -1) menu[6].parameter = 1;
+                if(menu[6].parameter == -1) menu[6].parameter = 2;
             }
             else
             {
@@ -1013,6 +1027,17 @@ void menu6_MsgHandlle(uint8_t key)
                           
                     }
                     else if( menu[6].parameter == 1)
+                    {
+                      if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                      {
+                         display_num(BOTTOM,COL_PAGE0_GN, menu[6].mode | NUM_3);
+                      }
+                      else if(work_mode == WORK_MODE_DROPS) 
+                      {
+                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_100);
+                      }
+                    }
+                    else if( menu[6].parameter == 2)
                     {
                       if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
                       {
@@ -1050,9 +1075,7 @@ void menu6_MsgHandlle(uint8_t key)
              {
                  if(menu[6].mode == MODE_NORMAL)
                  {
-                    
-                     
-                     
+
                     if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
                     {
                         display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G,MODE_NORMAL);
@@ -1072,6 +1095,11 @@ void menu6_MsgHandlle(uint8_t key)
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
                              display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_250);
+                             
+                             
+                             
+                             
+                             
                         }
                         
                         //needle_len = 4;
@@ -1088,7 +1116,7 @@ void menu6_MsgHandlle(uint8_t key)
                          }
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
-                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_200);
+                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_100);
                         }
                         
                         
@@ -1104,6 +1132,19 @@ void menu6_MsgHandlle(uint8_t key)
                         
                         
                     }
+                     else if(menu[6].parameter == 2)
+                     {
+                         
+                         if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                         {
+                            display_num(BOTTOM,COL_PAGE0_GN,NUM_3);
+                         }
+                        else if(work_mode == WORK_MODE_DROPS) 
+                        {
+                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_200);
+                        }
+                         
+                     }
                     
                  }
                     menu[6].cur_mode = menu[6].mode;
