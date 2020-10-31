@@ -10,7 +10,7 @@ typedef struct xmenu
     uint8_t cur_mode;
     uint8_t frame;
     uint8_t value;
-    uint8_t parameter;
+    int8_t parameter;
      void (*MsgHandlle)(uint8_t key);
     
 }MENU;
@@ -120,7 +120,7 @@ extern uint8_t flag_test_mode_break;
 
 extern uint8_t focus;
 extern uint8_t flip;
-extern uint8_t work_mode;
+extern int8_t work_mode;
 extern MENU menu[8];
 
 void init_menu(void);

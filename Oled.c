@@ -1,4 +1,6 @@
 #include<xc.h> 
+#include <stdio.h>
+#include<stdlib.h> 
 #include "Oled.h"	 
 #include "Beep.h"
 #include "Key.h"	
@@ -788,9 +790,7 @@ const uint8_t n_0_m[3][19]={
 
 const uint8_t n_1_m[3][19]={
 
-          
-          
-            0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
   0x27, 0x27, 0x23, 0x20, 0x20, 0x20, 0x20, 0x20, 
   0x20, 0x20, 0x20,
           
@@ -800,16 +800,10 @@ const uint8_t n_1_m[3][19]={
   0x00, 0x00, 0x00, 
 
 
-            0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
+  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
   0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
   0x10, 0x10, 0x10, 
-          
-          
-          
-          
-          
-          
-          
+             
 
 };
 
@@ -1177,37 +1171,30 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
     {
             if(mode == MODE_NORMAL)
             {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
              setYX_LCD(2,x);
             for(ms=0;ms<DEFG_LENGTH;ms++)
             {
-                temp = n_blank_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
+              temp = n_blank_m[0][ms];
+              ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
              setYX_LCD(3,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                  temp = n_blank_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                temp = n_blank_m[1][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
+             setYX_LCD(4,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                 temp = n_blank_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                temp = n_blank_m[2][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             }
             else if(mode == MODE_REVERSE)
             {
             
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
              setYX_LCD(2,x);
             for(ms=0;ms<DEFG_LENGTH;ms++)
             {
@@ -1220,7 +1207,6 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
                 ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
             setYX_LCD(3,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
@@ -1232,23 +1218,14 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
+             setYX_LCD(4,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
                  temp = n_blank_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
+                 tori = temp; 
+                 temp = 0xf0;        
+                 ee_WriteBytes(&temp, 0x40, 1);
              }
-            
-            
             
             }
     }
@@ -1257,38 +1234,31 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
     
             if(mode == MODE_NORMAL)
             {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
              setYX_LCD(5,x);
             for(ms=0;ms<DEFG_LENGTH;ms++)
             {
-                temp = n_blank_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
+              temp = n_blank_m[0][ms];
+              ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
              setYX_LCD(6,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                  temp = n_blank_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                temp = n_blank_m[1][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
+             setYX_LCD(7,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                 temp = n_blank_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                temp = n_blank_m[2][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             }
             else if(mode == MODE_REVERSE)
             {
             
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
+            setYX_LCD(5,x);
             for(ms=0;ms<DEFG_LENGTH;ms++)
             {
                 temp = n_blank_m[0][ms];
@@ -1300,7 +1270,6 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
                 ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
             setYX_LCD(6,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
@@ -1311,17 +1280,12 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
 
                 ee_WriteBytes(&temp, 0x40, 1);
              }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
+           
+             setYX_LCD(7,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
                  temp = n_blank_m[2][ms];
                  tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
                  temp = 0xf0;
                 
                     
@@ -1340,226 +1304,126 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
 
 
 
-uint8_t display_n0(uint8_t y,uint8_t x, uint8_t mode)
+//==============================================================================
+//uint8_t n_x_m[3][19]={0};
+uint8_t (*n_x_m)[19] = NULL;
+//uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode)
+uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode)
 {
     uint8_t temp =0;
     uint8_t tori =0;
 
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_0_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_0_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_0_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_0_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_0_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_0_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
+    switch(mode&0x7f)
+    {
+        
+        case NUM_0:
+        n_x_m = n_0_m;
+        break;
+        
+        case NUM_1:
+        n_x_m = n_1_m;
+        break;
+        
+        case NUM_2:
+        n_x_m = n_2_m;
+        break;
+        
+        case NUM_3:
+            n_x_m = n_3_m;
+        break;
+        
+        case NUM_4:
+            n_x_m = n_4_m;
+        break;
+        
+        case NUM_5:
+            n_x_m = n_5_m;
+        break;
+        
+        case NUM_6:
+            n_x_m = n_6_m;
+        break;
+        
+        case NUM_10:
+            n_x_m = n_10_m;
+        break;
+        
+        case NUM_13:
+            n_x_m = n_13_m;
+        break;
+        
+        case NUM_100:
+            n_x_m = n_100_m;
+        break;
+        
+        case NUM_150:
+            n_x_m = n_150_m;
+        break;
+        
+        case NUM_200:
+            n_x_m = n_200_m;
+        break;
+        
+        case NUM_250:
+            n_x_m = n_250_m;
+        break;
+        
+        case NUM_300:
+            n_x_m = n_300_m;
+        break;
+        
+        case NUM_1P5:
+            n_x_m = n_1P5_m;
+        break;
+        
+        case NUM_2P5:
+             n_x_m = n_2P5_m;
+        break;
+        
+    }
     
-
-}
-
-
-
-uint8_t display_n1(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_1_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_1_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_1_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_1_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_1_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_1_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
     
-
-}
-
-
-
-
-
-
-
-uint8_t display_n2(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
+            if((mode&0x80) == MODE_NORMAL)
             {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
+         
+             //setYX_LCD(5,x);
+            setYX_LCD(2+y,x);
             for(ms=0;ms<DEFG_LENGTH;ms++)
             {
-                temp = n_2_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
+               //temp = n_300_m[0][ms];
+               temp = n_x_m[0][ms];
+               ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
+             //setYX_LCD(6,x);
+             setYX_LCD(3+y,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                  temp = n_2_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                  //temp = n_300_m[1][ms];
+                  temp = n_x_m[1][ms];
+       
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
+           
+              //setYX_LCD(7,x);
+              setYX_LCD(4+y,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                 temp = n_2_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                //temp = n_300_m[2][ms];
+                temp = n_x_m[2][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             }
-            else if(mode == MODE_REVERSE)
+            else if((mode&0x80) == MODE_REVERSE)
             {
             
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
+             //setYX_LCD(5,x);
+             setYX_LCD(2+y,x);
             for(ms=0;ms<DEFG_LENGTH;ms++)
             {
-                temp = n_2_m[0][ms];
+                //temp = n_300_m[0][ms];
+                temp = n_x_m[0][ms];
                 tori = temp;
                 
                 temp = ~temp;
@@ -1568,11 +1432,12 @@ uint8_t display_n2(uint8_t y,uint8_t x, uint8_t mode)
                 ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
+            //setYX_LCD(6,x);
+             setYX_LCD(3+y,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                  temp = n_2_m[1][ms];
+                  //temp = n_300_m[1][ms];
+                  temp = n_x_m[1][ms];
                   tori = temp;
 
                   temp = ~temp;
@@ -1580,1081 +1445,14 @@ uint8_t display_n2(uint8_t y,uint8_t x, uint8_t mode)
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
+               //setYX_LCD(7,x);
+               setYX_LCD(4+y,x);
              for(ms=0;ms<DEFG_LENGTH;ms++)
              {
-                 temp = n_2_m[2][ms];
+                 //temp = n_300_m[2][ms];
+                 temp = n_x_m[2][ms];
                  tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
 
-}
-
-
-
-
-
-
-
-
-
-
-uint8_t display_n3(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_3_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_3_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_3_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_3_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_3_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_3_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-uint8_t display_n4(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_4_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_4_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_4_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_4_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_4_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_4_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-uint8_t display_n5(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_5_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_5_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_5_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_5_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_5_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_5_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-uint8_t display_n6(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_6_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_6_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_6_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_6_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_6_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_6_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-uint8_t display_n10(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_10_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_10_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_10_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_10_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_10_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_10_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-
-
-
-
-
-uint8_t display_n1P5(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_1P5_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_1P5_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_1P5_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_1P5_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_1P5_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_1P5_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-uint8_t display_n2P5(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_2P5_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_2P5_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_2P5_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_2P5_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_2P5_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_2P5_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-
-
-
-
-
-
-uint8_t display_n100(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_100_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_100_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_100_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_100_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_100_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_100_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-uint8_t display_n150(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_150_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_150_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_150_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_150_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_150_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_150_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-uint8_t display_n200(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_200_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_200_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_200_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_200_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_200_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_200_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-
-uint8_t display_n250(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_250_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_250_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_250_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_250_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_250_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_250_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-uint8_t display_n300(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
-
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_300_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_300_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_300_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_300_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_300_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_300_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
                  temp = 0xf0;
                 
                     
@@ -2678,96 +1476,8 @@ uint8_t display_n300(uint8_t y,uint8_t x, uint8_t mode)
 
 
 
-uint8_t display_n13(uint8_t y,uint8_t x, uint8_t mode)
-{
-    uint8_t temp =0;
-    uint8_t tori =0;
 
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_13_m[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_13_m[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_13_m[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
-            for(ms=0;ms<DEFG_LENGTH;ms++)
-            {
-                temp = n_13_m[0][ms];
-                tori = temp;
-                
-                temp = ~temp;
-                temp &= 0x3f;
-  
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(3,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                  temp = n_13_m[1][ms];
-                  tori = temp;
-
-                  temp = ~temp;
-
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
-             for(ms=0;ms<DEFG_LENGTH;ms++)
-             {
-                 temp = n_13_m[2][ms];
-                 tori = temp;
-                 //temp = ~temp;
-                 //temp |= tori;
-                 //temp &= 0xe0;
-                 
-                 temp = 0xf0;
-                
-                    
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
-
-}
-
-
-
-
-
-
+//==============================================================================
 
 
 void display_bat(uint8_t y,uint8_t x,uint8_t mode)
@@ -3000,22 +1710,22 @@ void display_cmode(uint8_t y,uint8_t x,uint8_t mode)
     
         case MODE_NORMAL:
             
-             // setYX_LCD(0,COL_PAGE0_PATTERN_A);
+          
                 setYX_LCD(0,x);
                 for(ms=0;ms<MLENGTH;ms++)
                 {
                     
                     temp =c_m[0][ms];
-                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+                 
                      ee_WriteBytes(&temp, 0x40, 1);
                 }
 
-                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+             
                 setYX_LCD(1,x);
                  for(ms=0;ms<MLENGTH;ms++)
                  {
                      temp = c_m[1][ms];
-                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+                
                      ee_WriteBytes(&temp, 0x40, 1);
                  }
             
@@ -3024,7 +1734,7 @@ void display_cmode(uint8_t y,uint8_t x,uint8_t mode)
             
          case MODE_REVERSE:
              
-             //setYX_LCD(0,COL_PAGE0_PATTERN_A);
+       
               setYX_LCD(0,x);
                 for(ms=0;ms<MLENGTH;ms++)
                 {
@@ -3033,12 +1743,12 @@ void display_cmode(uint8_t y,uint8_t x,uint8_t mode)
                     tori = temp;
                     
                     temp = ~temp;
-                    //temp |= tori;
+                
 
                      ee_WriteBytes(&temp, 0x40, 1);
                 }
 
-                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+         
                 setYX_LCD(1,x);
                  for(ms=0;ms<MLENGTH;ms++)
                  {
@@ -3046,8 +1756,7 @@ void display_cmode(uint8_t y,uint8_t x,uint8_t mode)
                      tori =temp;
 
                      temp = ~temp;
-                    // temp |= tori;
-
+                
                      ee_WriteBytes(&temp, 0x40, 1);
                  }
 
@@ -3443,22 +2152,22 @@ uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode)
     
         case MODE_NORMAL:
             
-             // setYX_LCD(0,COL_PAGE0_PATTERN_A);
+           
                 setYX_LCD(0,x);
                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
                 {
                     
                     temp =ptna_frame[0][ms];
-                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+                   
                      ee_WriteBytes(&temp, 0x40, 1);
                 }
 
-                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+               
                 setYX_LCD(1,x);
                  for(ms=0;ms<WIDTH_PATTERN_A;ms++)
                  {
                      temp = ptna_frame[1][ms];
-                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+                    
                      ee_WriteBytes(&temp, 0x40, 1);
                  }
             
@@ -3467,7 +2176,7 @@ uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode)
             
          case MODE_REVERSE:
              
-             //setYX_LCD(0,COL_PAGE0_PATTERN_A);
+           
               setYX_LCD(0,x);
                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
                 {
@@ -3499,7 +2208,7 @@ uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode)
                      ee_WriteBytes(&temp, 0x40, 1);
                 }
 
-                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+              
                 setYX_LCD(1,x);
                  for(ms=0;ms<WIDTH_PATTERN_A;ms++)
                  {
@@ -3554,38 +2263,31 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
     {
             if(mode == MODE_NORMAL)
             {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
              setYX_LCD(2,x);
             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
             {
                 temp = ptnd_frame[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
+                ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
              setYX_LCD(3,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                  temp = ptnd_frame[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                temp = ptnd_frame[1][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
+     
+             setYX_LCD(4,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                 temp = ptnd_frame[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                temp = ptnd_frame[2][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             }
             else if(mode == MODE_REVERSE)
             {
             
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(2,x);
+            setYX_LCD(2,x);
             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
             {
                 temp = ptnd_frame[0][ms];
@@ -3603,11 +2305,9 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
                         temp = ~temp;
                         temp &= 0x3f;
                     }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
                     ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
             setYX_LCD(3,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
@@ -3621,12 +2321,10 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
                   {
                   temp = ~temp;
                   }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(4,x);
+             setYX_LCD(4,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
                  temp = ptnd_frame[2][ms];
@@ -3645,49 +2343,39 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
                         temp &= 0xf0;
                         temp |= 0x10;
                     }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
                 ee_WriteBytes(&temp, 0x40, 1);
              }
-            
-            
             
             }
     }
     else if(y == 2)
     {
       if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+        {         
+           
              setYX_LCD(2,x);
             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
             {
-                temp = ptne_frame[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
+              temp = ptne_frame[0][ms];
+              ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
              setYX_LCD(3,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                  temp = ptne_frame[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                temp = ptne_frame[1][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(4,x);
+             setYX_LCD(4,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                 temp = ptne_frame[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                temp = ptne_frame[2][ms];
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             }
             else if(mode == MODE_REVERSE)
             {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
              setYX_LCD(2,x);
             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
             {
@@ -3706,11 +2394,11 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
                         temp = ~temp;
                         temp &= 0x3f;
                     }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+                    
                     ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+           
             setYX_LCD(3,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
@@ -3724,11 +2412,11 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
                   {
                   temp = ~temp;
                   }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+             
                setYX_LCD(4,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
@@ -3748,7 +2436,7 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
                         temp &= 0xf0;
                         temp |= 0x10;
                     }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+               
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
@@ -3761,55 +2449,69 @@ uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode)
 
 }
 
-
-
-
-
+//==============================================================================
+uint8_t (*ptnx_frame)[WIDTH_PATTERN_D]=NULL;
 uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode)
 {
     uint8_t temp =0;
     uint8_t tori =0;
      
-    
-    if(y==1)
+    switch(y)
     {
+        case TYPE_F:
+            ptnx_frame = ptnf_frame;
+            break;
+            
+        case TYPE_G:
+            ptnx_frame = ptng_frame;
+            break;  
+            
+        case TYPE_H:
+            ptnx_frame = ptnh_frame;
+            break;
+        
+          case TYPE_I:
+              ptnx_frame = ptni_frame;
+            break;
+        
+    }
+
     if(mode == MODE_NORMAL)
             {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+           
              setYX_LCD(5,x);
             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
             {
-                temp = ptnf_frame[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
+               temp = ptnx_frame[0][ms];
+               ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+            
              setYX_LCD(6,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                  temp = ptnf_frame[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+                  temp = ptnx_frame[1][ms];
+              
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+             
               setYX_LCD(7,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                 temp = ptnf_frame[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+                 temp = ptnx_frame[2][ms];
+               
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             }
             else if(mode == MODE_REVERSE)
             {
             
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
+            
              setYX_LCD(5,x);
             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
             {
-                temp = ptnf_frame[0][ms];
+                temp = ptnx_frame[0][ms];
                     if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
                     {
                         temp =0x0f;
@@ -3824,15 +2526,15 @@ uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode)
                         temp = ~temp;
                         temp &= 0x3f;
                     }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
+                   
                     ee_WriteBytes(&temp, 0x40, 1);
             }
             
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
+           
             setYX_LCD(6,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                  temp = ptnf_frame[1][ms];
+                  temp = ptnx_frame[1][ms];
                   
                   if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
                   {
@@ -3842,15 +2544,15 @@ uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode)
                   {
                   temp = ~temp;
                   }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
+              
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
+           
                setYX_LCD(7,x);
              for(ms=0;ms<WIDTH_PATTERN_D;ms++)
              {
-                 temp = ptnf_frame[2][ms];
+                 temp = ptnx_frame[2][ms];
                     if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
                     {
                         temp =0xe0;
@@ -3866,213 +2568,7 @@ uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode)
                         temp &= 0xf0;
                         temp |= 0x10;
                     }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    }
-    else if (y == 2)
-    {
-            if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = ptng_frame[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = ptng_frame[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = ptng_frame[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = ptng_frame[0][ms];
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-                    ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = ptng_frame[1][ms];
-                  
-                  if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = ptng_frame[2][ms];
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    }
-    else if(y == 3)
-    {
-      if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = ptnh_frame[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = ptnh_frame[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = ptnh_frame[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = ptnh_frame[0][ms];
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-                    ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = ptnh_frame[1][ms];
-                  
-                  if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = ptnh_frame[2][ms];
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
+             
                 ee_WriteBytes(&temp, 0x40, 1);
              }
             
@@ -4081,112 +2577,7 @@ uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode)
             }
     
 
-    }
-    else if(y == 4)
-    {
-      if(mode == MODE_NORMAL)
-            {         
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = ptni_frame[0][ms];
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             setYX_LCD(6,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = ptni_frame[1][ms];
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-              setYX_LCD(7,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = ptni_frame[2][ms];
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            //setYX_LCD(2,COL_PAGE0_PATTERN_D);
-             setYX_LCD(5,x);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = ptni_frame[0][ms];
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-                    ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            //setYX_LCD(3,COL_PAGE1_PATTERN_D);
-            setYX_LCD(6,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = ptni_frame[1][ms];
-                  
-                  if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             //setYX_LCD(4,COL_PAGE1_PATTERN_D);
-               setYX_LCD(7,x);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = ptni_frame[2][ms];
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-    
 
-    }
 
 }
 
@@ -4194,391 +2585,6 @@ uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode)
 
 
 
-
-
-
-const uint8_t pata[3][2][WIDTH_PATTERN_A]={
-
-    
-    0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-    0x80, 0x80, 0x98, 0xb8, 0xb0, 0xb0, 0xb0, 0xb0, 
-    0xb8, 0x9c, 0x8f, 0x83, 0x80, 0x80, 0x80, 0x80, 
-    0x80, 0x40, 0x3f,
-    
-    
-    0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-    0x01, 0x01, 0x31, 0x39, 0x19, 0x19, 0x19, 0x19,
-    0x39, 0x71, 0xe1, 0x81, 0x01, 0x01, 0x01, 0x01, 
-    0x01, 0x02, 0xfc,
-
-
-    
-    //--------------------------------------
-    
-    
-    
-    
-    
-    
-    
-    
-0x3f, 0x40, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83, 
-0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83, 
-0x80, 0x80, 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83, 
-0x80, 0x40, 0x3f,
-
-
-
-0xfc, 0x02, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9,
-0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9, 
-0xf1, 0x01, 0xf1, 0xf9, 0xfd, 0xfd, 0xfd, 0xf9, 
-0xf1, 0x02, 0xfc,
-
-
-
-
-
-//----------------------------------------------
-
-0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 
-    0x80, 0x81, 0x83, 0x86, 0x9d, 0xbd, 0x9d, 0x86,
-    0x83, 0x81, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
-    0x80, 0x40, 0x3f,
-
-
-
-0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 
-    0x01, 0xf1, 0xf9, 0xcd, 0xb5, 0xb5, 0xb5, 0x6d,
-    0xf9, 0xf1, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 
-    0x01, 0x02, 0xfc,
-
-
-
-
-};
-
-const uint8_t patb[5][2][WIDTH_PATTERN_B]={
-
-    
-    0x3f, 0x40, 0x9f, 0x9f, 0x90, 0x9f, 0x9f, 0x90,
-    0x9f, 0x9f, 0x80, 0x8d, 0x95, 0x95, 0x95, 0x8e,
-    0x80, 0xbf, 0x9f, 0x88, 0x84, 0x88, 0x9f, 0xbf,
-    0x80, 0x40, 0x3f,
-    
-    
-    
-    0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x51, 0x7d,
-    0x3d, 0x01, 0x51, 0x7d, 0x3d, 0x01, 0x39, 0x7d, 
-    0x45, 0x7d, 0x39, 0x01, 0x01, 0x01, 0x01, 0x01, 
-    0x01, 0x02, 0xfc,
-
-
-
-    
-    
-    
-    
-    
-    
-    
-
-};
-
-const uint8_t patc[5][2][WIDTH_PATTERN_C]={
-    
-   0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 
-   0x80, 0x8f, 0x88, 0xb8, 0xa0, 0xa0, 0xa0, 0xb8, 
-   0x88, 0x8f, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 
-   0x80, 0x40, 0x3f,
-
-
-   0xfc, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-   0x01, 0xfd, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d, 0x7d, 
-   0x7d, 0xfd, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-   0x01, 0x02, 0xfc,
-
-
-    
-    
-};
-
-
-
-const uint8_t patd [5][3][WIDTH_PATTERN_D]={
-
-    
-    //---------------------------------------------------------------------
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23, 0x23,
-    0x20, 0x20, 0x20, 0x23, 0x23, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-    
-    
-    
-    0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 
-    0x30, 0x30, 0x30, 0xf0, 0xf0, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0,
-    0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
-    
-    
-    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-
-    
-
-
-//---------------------------------------------------------------    
-    
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x21, 0x23,
-    0x23, 0x23, 0x23, 0x23, 0x21,0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20,0x20, 0x20, 0x20, 0x20, 
-    0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-
-    
-0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 
-    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x9e, 0xbf, 
-    0x33, 0x33, 0x33, 0xff, 0xfe, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0, 
-    0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
-
-    
-
-0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-    
-
-    //--------------------------------------------------------------------------
-    
-    
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x21, 0x23, 0x23, 0x23, 0x23, 
-    0x21, 0x20, 0x20, 0x23, 0x23, 0x21, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x21, 0x23, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-    
-    
-    
-    0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 
-    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0xde, 0xff, 0x33, 0x33, 0x87, 
-    0x86, 0x00, 0x03, 0xff, 0xff, 0x83, 0x00, 0x00, 
-    0x00, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0xe0, 
-    0xe0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0xff,
-    
-    
-    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-};
-
-
-
-const uint8_t pate[5][3][WIDTH_PATTERN_E]={
-    
-    
-    
-    //-----------------------------------------------------------
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x23, 0x23, 0x21, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-
-    
-    0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x03, 0xff, 0xff, 0x83, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x04, 0x06, 0x07, 0x07, 0x70, 0x88, 0x88, 0x88, 
-    0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
-    
-    
-    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 
-    0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-
-    
-    
-    
-    
-    //-----------------------------------------------------------
-    
-    
-    
-    
-  0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-  0x20, 0x20, 0x2f, 0x27, 0x23, 0x21, 0x10, 0x0f,
-  
-  
-  
-  0xff, 0x00, 0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00,
-  0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00, 
-  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-  0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-  0x04, 0x06, 0x07, 0x07, 0x70, 0x88, 0x88, 0x88, 
-  0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff,
-
-  
-  0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-  0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 
-  0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-  
-};
-
-
-const uint8_t patf[5][3][WIDTH_PATTERN_F]={
-    
-    
-    
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x25, 
-    0x22, 0x21, 0x2a, 0x24, 0x22, 0x20, 0x10, 0x0f,
-    
-    
-    0xff, 0x00, 0x00, 0x00, 0x01, 0x01, 0x1f, 0x00,
-    0x1f, 0x08, 0x04, 0x08, 0x1f, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 
-    0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00, 
-    0x00, 0x01, 0x0e, 0x12, 0x22, 0x44, 0x88, 0x10, 
-    0x20, 0x40, 0x80, 0x40, 0x00, 0x00, 0x00, 0xff,
-    
-    
-    
-    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-  
-  
-};
-
-
-const uint8_t patg[5][3][WIDTH_PATTERN_G]={
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x2f, 0x20, 0x2f, 
-    0x24, 0x22, 0x24, 0x2f, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x28, 0x29, 0x2f, 
-    0x2f, 0x29, 0x28, 0x20, 0x21, 0x23, 0x10, 0x0f,
-    
-    
-    
-    0xff, 0x00, 0x23, 0xa2, 0xa3, 0xa0, 0x2b, 0xa0,
-    0x2f, 0x24, 0x26, 0xa4, 0x2f, 0x00, 0x00, 0x00, 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff,
-    0x18, 0x18, 0x18, 0xf8, 0xf8, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x7a, 0xf9, 0xc0, 0xc0, 0xe0, 0xf0, 
-    0xf0, 0xe0, 0xc0, 0xc0, 0xe0, 0xf0, 0x00, 0xff,
-
-    
-    0xc0, 0x20, 0x90, 0x10, 0x90, 0x10, 0x90, 0x10, 
-    0x90, 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10, 0x10,
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
-
-    
-    
-    
-    
-    
-    //------------------------------------------------------------------fcs
-    0x0f, 0x10, 0x20, 0x20, 0x25, 0x25, 0x27, 0x20,
-    0x27, 0x25, 0x27, 0x20, 0x24, 0x24, 0x27, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x21, 0x23, 0x23, 0x23, 
-    0x21, 0x20, 0x21, 0x23, 0x23, 0x23, 0x21, 0x20, 
-    0x21, 0x23, 0x23, 0x23, 0x23, 0x21, 0x20, 0x26, 
-    0x26, 0x26, 0x26, 0x26, 0x27, 0x27, 0x10, 0x0f,
-
-    
-    0xff, 0x00, 0x00, 0x10, 0xd1, 0x51, 0x51, 0x10, 
-    0x15, 0x10, 0xd7, 0x12, 0x51, 0x52, 0xd7, 0x10, 
-    0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0x81, 0xff, 
-    0xff, 0x00, 0xff, 0xff, 0x01, 0xff, 0xff, 0x00, 
-    0xcf, 0xff, 0x31, 0x31, 0x83, 0x83, 0x00, 0x00, 
-    0x60, 0x60, 0x60, 0x60, 0xff, 0xff, 0x00, 0xff,
-
-    0xc0, 0x20, 0x10, 0x10, 0xd0, 0x10, 0xd0, 0x10, 
-    0xd0, 0x10, 0xd0, 0x10, 0x10, 0x10, 0xd0, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x90, 
-    0x10, 0x10, 0x10, 0x90, 0x90, 0x90, 0x10, 0x10, 
-    0x10, 0x90, 0x90, 0x90, 0x90, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x20, 0xc0,
-
-    
-    //--------------------------------------------//sec
-    
-    0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-    0x21, 0x23, 0x23, 0x23, 0x23, 0x23, 0x21, 0x20, 
-    0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 
-    0x20,0x20, 0x20, 0x20, 0x24, 0x27, 0x24, 0x24, 
-    0x24, 0x24, 0x24, 0x27, 0x24, 0x20, 0x10, 0x0f,
-    
-    
-    
-    0xff, 0x00, 0x00, 0x00, 0x00, 0x13, 0x24, 0x24,
-    0x24, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
-    0xff, 0xff, 0x01, 0x01, 0x01, 0xff, 0xff, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x8b, 0xd3, 
-    0xe3, 0xd3, 0x8b, 0x07, 0x00, 0x00, 0x00, 0xff,
-
-
-    
-    0xc0, 0x20, 0x10, 0x10, 0x10, 0x10, 0x90, 0x90,
-    0x90, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x90, 0x90, 0x90, 0x90, 0x90, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 
-    0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x90, 0x90, 
-    0x90, 0x90, 0x90, 0x90, 0x90, 0x10, 0x20, 0xc0,
-
-
-
-};
-const uint8_t path[5][3][WIDTH_PATTERN_H]={0};
 
 //3
 //3
@@ -4594,947 +2600,7 @@ const uint8_t path[5][3][WIDTH_PATTERN_H]={0};
 
 
 
-uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode)
-{
-    
-    uint8_t temp=0;
-    
-    
-    switch(num)
-    {
-        case 1:       
-            
-            if(mode == MODE_NORMAL)
-            {
-                setYX_LCD(0,COL_PAGE0_PATTERN_A);
-                for(ms=0;ms<WIDTH_PATTERN_A;ms++)
-                {
-                    
-                    temp = *(pata[sub][0] + ms);
-                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
-                     ee_WriteBytes(&temp, 0x40, 1);
-                }
-
-                setYX_LCD(1,COL_PAGE1_PATTERN_A);
-                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
-                 {
-                     temp = *(pata[sub][1] + ms);
-                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
-                     ee_WriteBytes(&temp, 0x40, 1);
-                 }
-            
-            }
-            else if(mode == MODE_REVERSE)
-            {
-                setYX_LCD(0,COL_PAGE0_PATTERN_A);
-                for(ms=0;ms<WIDTH_PATTERN_A;ms++)
-                {
-
-                    temp = *(pata[sub][0] + ms);
-                    
-                    if(ms ==0 || ms == (WIDTH_PATTERN_A -1))
-                    {
-                        temp =0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
-                    {
-                        temp = 0x3f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                    }
-
-                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
-                     ee_WriteBytes(&temp, 0x40, 1);
-                }
-
-                setYX_LCD(1,COL_PAGE1_PATTERN_A);
-                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
-                 {
-                     temp = *(pata[sub][1] + ms);
-                    if(ms ==0  || ms == (WIDTH_PATTERN_A -1))
-                    {
-                        temp =0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
-                    {
-                        temp = 0xfc;
-                       
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                    }
-                     
-                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
-                     ee_WriteBytes(&temp, 0x40, 1);
-                 }
-            
-            }
-            else if(mode == MODE_BLANK)
-            {
-                               setYX_LCD(0,COL_PAGE0_PATTERN_A);
-                for(ms=0;ms<WIDTH_PATTERN_A;ms++)
-                {
-
-                    temp = *(pata[sub][0] + ms);
-                    
-                    if(ms ==0 || ms == (WIDTH_PATTERN_A -1))
-                    {
-                        temp =0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
-                    {
-                        temp = 0x3f;
-                        //temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        temp = 0x7f;
-                    }
-
-                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
-                     ee_WriteBytes(&temp, 0x40, 1);
-                }
-
-                setYX_LCD(1,COL_PAGE1_PATTERN_A);
-                 for(ms=0;ms<WIDTH_PATTERN_A;ms++)
-                 {
-                     temp = *(pata[sub][1] + ms);
-                    if(ms ==0  || ms == (WIDTH_PATTERN_A -1))
-                    {
-                        temp =0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_A -2))
-                    {
-                        temp = 0xfc;
-                       
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        temp = 0xfe;
-                    }
-                     
-                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
-                     ee_WriteBytes(&temp, 0x40, 1);
-                 }
-                
-            }
-                
-            
-            
-            break;
-        case 2:
-            
-            if(mode == MODE_NORMAL)  
-            {
-            setYX_LCD(0,COL_PAGE0_PATTERN_B);
-            for(ms=0;ms<WIDTH_PATTERN_B;ms++)
-            {
-                temp = *(patb[sub][0] + ms);
-                //ee_WriteBytes(patb[sub][0] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(1,COL_PAGE1_PATTERN_B);
-             for(ms=0;ms<WIDTH_PATTERN_B;ms++)
-             {
-                temp = *(patb[sub][1] + ms);
-                //ee_WriteBytes(patb[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-                
-            setYX_LCD(0,COL_PAGE0_PATTERN_B);
-            for(ms=0;ms<WIDTH_PATTERN_B;ms++)
-            {
-                temp = *(patb[sub][0] + ms);
-                    if(ms ==0 || ms == (WIDTH_PATTERN_B -1))
-                    {
-                        temp =0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_B -2))
-                    {
-                        temp = 0x3f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                    }
-                    
-                //ee_WriteBytes(patb[sub][0] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(1,COL_PAGE1_PATTERN_B);
-             for(ms=0;ms<WIDTH_PATTERN_B;ms++)
-             {
-                temp = *(patb[sub][1] + ms);
-                    if(ms ==0 || ms == (WIDTH_PATTERN_B -1))
-                    {
-                        temp =0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_B -2))
-                    {
-                        temp = 0xfc;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                    }
-                    
-                //ee_WriteBytes(patb[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-                
-                
-                
-                
-            }
-            
-            break;
-        case 3:
-            
-            
-            
-            setYX_LCD(0,COL_PAGE0_PATTERN_C);
-            for(ms=0;ms<WIDTH_PATTERN_C;ms++)
-            ee_WriteBytes(patc[sub][0] + ms, 0x40, 1);
-            
-            
-            setYX_LCD(1,COL_PAGE1_PATTERN_C);
-             for(ms=0;ms<WIDTH_PATTERN_C;ms++)
-            ee_WriteBytes(patc[sub][1] + ms, 0x40, 1);
-
-            
-            break;
-        case 4:
-            
-            if(mode == MODE_NORMAL)
-            {         
-            setYX_LCD(2,COL_PAGE0_PATTERN_D);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = *(patd[sub][0] + ms);
-            //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = *(patd[sub][1] + ms);
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(4,COL_PAGE1_PATTERN_D);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = *(patd[sub][2] + ms);
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-            
-            setYX_LCD(2,COL_PAGE0_PATTERN_D);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = *(patd[sub][0] + ms);
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-                    ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = *(patd[sub][1] + ms);
-                  
-                  if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(4,COL_PAGE1_PATTERN_D);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = *(patd[sub][2] + ms);
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            }
-            else if(mode == MODE_BLANK)
-            {
-                            
-            setYX_LCD(2,COL_PAGE0_PATTERN_D);
-            for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-            {
-                temp = *(patd[sub][0] + ms);
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                       
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0x3f;
-                        
-                        //temp =0x3f;
-                        temp =0x1f;
-                        
-                        
-                        
-                        
-                    }
-                    //ee_WriteBytes(patd[sub][0] + ms, 0x40, 1);
-                    ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(3,COL_PAGE1_PATTERN_D);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                  temp = *(patd[sub][1] + ms);
-                  
-                  if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  //temp = ~temp;
-                  temp =0xff;
-                  }
-                //ee_WriteBytes(patd[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(4,COL_PAGE1_PATTERN_D);
-             for(ms=0;ms<WIDTH_PATTERN_D;ms++)
-             {
-                 temp = *(patd[sub][2] + ms);
-                    if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0xf0;
-                        //temp |= 0x10;
-                        
-                        temp = 0xf0;
-                    }
-                //ee_WriteBytes(patd[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            }
-            
-            
-            
-            
-            
-            break;
-        case 5:
-            
-            
-            if(mode == MODE_NORMAL)
-            {
-            setYX_LCD(2,COL_PAGE0_PATTERN_E);
-            for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-            {
-                temp =*(pate[sub][0] + ms);
-               
-            //ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(3,COL_PAGE1_PATTERN_E);
-             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-             {
-                 temp =*(pate[sub][1] + ms);
-                
-                //ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(4,COL_PAGE1_PATTERN_E);
-             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-             {
-                 temp =*(pate[sub][2] + ms);
-                //ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-                      setYX_LCD(2,COL_PAGE0_PATTERN_E);
-            for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-            {
-                temp =*(pate[sub][0] + ms);
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-            //ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(3,COL_PAGE1_PATTERN_E);
-             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-             {
-                 temp =*(pate[sub][1] + ms);
-                   if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-                //ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(4,COL_PAGE1_PATTERN_E);
-             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-             {
-                 temp =*(pate[sub][2] + ms);
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-                //ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-            
-            
-            }
-            else if(mode == MODE_BLANK)
-            {
-                
-                 setYX_LCD(2,COL_PAGE0_PATTERN_E);
-            for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-            {
-                temp =*(pate[sub][0] + ms);
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0x3f;
-                        //temp = 0x3f;
-                        temp = 0x1f;
-                    }
-            //ee_WriteBytes(pate[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(3,COL_PAGE1_PATTERN_E);
-             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-             {
-                 temp =*(pate[sub][1] + ms);
-                   if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  //temp = ~temp;
-                       temp = 0xff;
-                  }
-                //ee_WriteBytes(pate[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(4,COL_PAGE1_PATTERN_E);
-             for(ms=0;ms<WIDTH_PATTERN_E;ms++)
-             {
-                 temp =*(pate[sub][2] + ms);
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0xf0;
-                        //temp |= 0x10;
-                        
-                        temp = 0xf0;
-                        
-                    }
-                //ee_WriteBytes(pate[sub][2] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            
-                
-            }
-            
-            
-            break;
-        case 6:
-            
-            if(mode == MODE_NORMAL)
-            {
-            setYX_LCD(5,COL_PAGE0_PATTERN_F);
-            for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-            {
-                temp =*(patf[sub][0] + ms);
-            //ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(6,COL_PAGE1_PATTERN_F);
-             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-             {
-                 temp = *(patf[sub][1] + ms);
-                //ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
-                ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(7,COL_PAGE1_PATTERN_F);
-             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-             {
-                 temp =*(patf[sub][2] + ms);
-               //ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
-               ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-                 setYX_LCD(5,COL_PAGE0_PATTERN_F);
-            for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-            {
-                temp = *(patf[sub][0] + ms);
-                if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-            //ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(6,COL_PAGE1_PATTERN_F);
-             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-             {
-                 temp = *(patf[sub][1] + ms);
-                    if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-            //ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(7,COL_PAGE1_PATTERN_F);
-             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-             {
-                 temp = *(patf[sub][2] + ms);
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-            //ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-            
-             }
-            
-            
-            }
-            else if(mode == MODE_BLANK)
-            {
-            
-                       setYX_LCD(5,COL_PAGE0_PATTERN_F);
-            for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-            {
-                temp = *(patf[sub][0] + ms);
-                if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                       // temp = ~temp;
-                       // temp &= 0x3f;
-                        
-                        //temp = 0x3f;
-                        temp = 0x1f;
-                    }
-            //ee_WriteBytes(patf[sub][0] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(6,COL_PAGE1_PATTERN_F);
-             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-             {
-                 temp = *(patf[sub][1] + ms);
-                    if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                 // temp = ~temp;
-                  temp = 0xff;
-                  }
-            //ee_WriteBytes(patf[sub][1] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(7,COL_PAGE1_PATTERN_F);
-             for(ms=0;ms<WIDTH_PATTERN_F;ms++)
-             {
-                 temp = *(patf[sub][2] + ms);
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0xf0;
-                        //temp |= 0x10;
-                        
-                        
-                        temp = 0xf0;
-                        
-                        
-                    }
-            //ee_WriteBytes(patf[sub][2] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-            
-             }
-            
-            
-            
-            }
-            
-            break;
-        case 7:
-            
-            if(mode == MODE_NORMAL)
-            {
-            setYX_LCD(5,COL_PAGE0_PATTERN_G);
-            for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-            {
-                temp =*(patg[sub][0] + ms);
-           
-            //ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(6,COL_PAGE1_PATTERN_G);
-             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-             {
-                 temp = *(patg[sub][1] + ms);
-            //ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(7,COL_PAGE1_PATTERN_G);
-             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-             {
-                 temp = *(patg[sub][2] + ms);
-            //ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-             }
-            }
-            else if(mode == MODE_REVERSE)
-            {
-                    setYX_LCD(5,COL_PAGE0_PATTERN_G);
-            for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-            {
-                temp =*(patg[sub][0] + ms);
-                     if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0x3f;
-                    }
-            //ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(6,COL_PAGE1_PATTERN_G);
-             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-             {
-                 temp = *(patg[sub][1] + ms);
-                    if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  temp = ~temp;
-                  }
-            //ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(7,COL_PAGE1_PATTERN_G);
-             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-             {
-                 temp = *(patg[sub][2] + ms);
-                 
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        temp = ~temp;
-                        temp &= 0xf0;
-                        temp |= 0x10;
-                    }
-            //ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-            }
-            else if(mode == MODE_BLANK)
-            {
-                
-                
-                setYX_LCD(5,COL_PAGE0_PATTERN_G);
-            for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-            {
-                temp =*(patg[sub][0] + ms);
-                     if(ms ==0 || ms == (WIDTH_PATTERN_D -1))
-                    {
-                        temp =0x0f;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0x1f;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0x3f;
-                        
-                         //temp = 0x3f;
-                          temp = 0x1f;
-                        
-                    }
-            //ee_WriteBytes(patg[sub][0] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-            }
-            
-            setYX_LCD(6,COL_PAGE1_PATTERN_G);
-             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-             {
-                 temp = *(patg[sub][1] + ms);
-                    if(ms == 0  || ms == (WIDTH_PATTERN_D - 1))
-                  {
-                      temp = 0xff;
-                  }
-                  else
-                  {
-                  //temp = ~temp;
-                  temp = 0xff;
-                  }
-            //ee_WriteBytes(patg[sub][1] + ms, 0x40, 1);
-            ee_WriteBytes(&temp, 0x40, 1);
-             }
-            
-             setYX_LCD(7,COL_PAGE1_PATTERN_G);
-             for(ms=0;ms<WIDTH_PATTERN_G;ms++)
-             {
-                 temp = *(patg[sub][2] + ms);
-                 
-                  if(ms ==0 || ms == (WIDTH_PATTERN_D -1) )
-                    {
-                        temp =0xe0;
-                    }
-                    else if(ms ==1 || ms == (WIDTH_PATTERN_D -2))
-                    {
-                        temp = 0xf0;
-                    }
-                    else
-                    {
-                    
-                        //temp = ~temp;
-                        //temp &= 0xf0;
-                        //temp |= 0x10;
-                        
-                        
-                        temp =0xf0;
-                        
-                    }
-            //ee_WriteBytes(patg[sub][2] + ms, 0x40, 1);
-             ee_WriteBytes(&temp, 0x40, 1);
-             }
-                
-                
-                
-                
-                
-                
-                
-                
-            }
-            
-            break;
-        default:
-            break;
-    }
-
-
-
-    return 1;
-}
-
-
-uint8_t clear_device(void)
+uint8_t clear_screen(void)
 {
     
     
@@ -5559,143 +2625,86 @@ void Initial_LY096BG30(void)
 
 i2c_CfgGpio();
   
-//delay(2000);
 
 #if 1
-//PORTEbits.RE1 =0;
- //LATEbits.LE1 =0;
+
  LATEbits.LATE1=0;
  delay(1);//=====================
-//delay(2000);
-//delay(2000);
 
-//PORTEbits.RE1 =1;
-//LATEbits.LE1 =1;
 LATEbits.LATE1=1;
 delay(1);
 
 #endif
 
     write_buf[0]=0x21;  
-	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+	ee_WriteBytes(write_buf, 0x00, 1);
     //ee_WriteBytes(write_buf, 0x80, 1);
 	
     write_buf[0]=0x15;
-    ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+    ee_WriteBytes(write_buf, 0x00, 1);
 
     write_buf[0]=0x08;
-	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+	ee_WriteBytes(write_buf, 0x00, 1);
 
     write_buf[0]=0x9f;
-	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+	ee_WriteBytes(write_buf, 0x00, 1);
     
     write_buf[0]=0x20;
-	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+	ee_WriteBytes(write_buf, 0x00, 1);
     
     write_buf[0]=0x05;
-	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+	ee_WriteBytes(write_buf, 0x00, 1);
 
     write_buf[0]=0x0c;//normal
      //write_buf[0]=0x08;//blank
    // write_buf[0]=0x0d;//reverse
-	ee_WriteBytes(write_buf, 0x00, 1);//delay(10);
+	ee_WriteBytes(write_buf, 0x00, 1);
     
-    clear_device();
+    clear_screen();
 #if 1
-    display_frame_abc(0,COL_PAGE0_PATTERN_A, MODE_NORMAL);
-    display_cmode(0,COL_PAGE0_MDROPS,MODE_NORMAL);
+    display_frame_abc(LEFT,COL_PAGE0_PATTERN_A, MODE_NORMAL);
+    display_cmode(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
     
-    display_frame_abc(0,COL_PAGE0_PATTERN_B, MODE_NORMAL);
-    display_mem(0,COL_PAGE0_MEM,MODE_NORMAL);
+    display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, MODE_NORMAL);
+    display_mem(LEFT,COL_PAGE0_MEM,MODE_NORMAL);
+
+    display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, MODE_NORMAL);
+    display_bat(LEFT,COL_PAGE0_BAT,MODE_NORMAL);
+    
+    //------------------------------------------------------------
+    
+    display_frame_de(LEFT,COL_PAGE0_PATTERN_D, MODE_NORMAL);
+    display_num(MIDDLE,COL_PAGE0_DN, NUM_4);
+  
     
     
-    display_frame_abc(0,COL_PAGE0_PATTERN_C, MODE_NORMAL);
-    display_bat(0,COL_PAGE0_BAT,MODE_NORMAL);
+    display_frame_de(RIGHT,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+    display_num(MIDDLE,COL_PAGE0_EN, NUM_1);
+
+    //-------------------------------------------------------------------
+
+    display_frame_fghi(TYPE_F,COL_PAGE0_PATTERN_F, MODE_NORMAL);
+    display_num(BOTTOM,COL_PAGE0_FN, NUM_2P5);
     
     
-    display_frame_de(1,COL_PAGE0_PATTERN_D, MODE_NORMAL);
-    display_n4(0,COL_PAGE0_DN, MODE_NORMAL);
+    display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+    display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
+
     
 
     
     
-    display_frame_de(2,COL_PAGE0_PATTERN_E, MODE_NORMAL);
-    display_n4(0,COL_PAGE0_EN, MODE_NORMAL);
     
     
     
-    display_frame_fghi(1,COL_PAGE0_PATTERN_F, MODE_NORMAL);
-    display_n5(0,COL_PAGE0_FN, MODE_NORMAL);
     
     
-    display_frame_fghi(2,COL_PAGE0_PATTERN_G, MODE_NORMAL);
-    display_n5(0,COL_PAGE0_GN, MODE_NORMAL);
     
     
+ 
 #endif
     
-#if 0
 
-    clear_device();
-    for(ss=1;ss<8;ss++)
-    {
-       
-       display_pattern(ss,0,MODE_NORMAL);
-    }
-    
-
-#endif    
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-    //display_pattern(1,0,MODE_NORMAL);
-    //display_pattern(1,1,0);
-    //display_pattern(1,2,0);
-    //display_pattern(1,2,MODE_NORMAL);
-    //display_pattern(1,2,MODE_REVERSE);
-    //display_pattern(1,2,MODE_BLANK);
-    
-    //display_pattern(2,0,MODE_NORMAL);
-    //display_pattern(2,0,MODE_REVERSE);
-    
-     //display_pattern(3,0,MODE_NORMAL);
-     
-     
-     //display_pattern(4,0,MODE_NORMAL);
-     //display_pattern(4,0,MODE_REVERSE);
-      //display_pattern(4,0,MODE_BLANK);
-     
-     
-     //display_pattern(5,0,MODE_NORMAL);
-     //display_pattern(5,0,MODE_NORMAL);
-     //display_pattern(5,0,MODE_REVERSE);
-     //display_pattern(5,0,MODE_BLANK);
-     
-     
-     
-     //display_pattern(6,0,MODE_NORMAL);
-     //display_pattern(6,0,MODE_NORMAL);
-      //display_pattern(6,0,MODE_REVERSE);
-      //display_pattern(6,0,MODE_BLANK);
-     
-     
-     //display_pattern(7,0,MODE_NORMAL);
-     //display_pattern(7,1,0);
-      //display_pattern(7,2,0);
-       //display_pattern(7,2,MODE_REVERSE);
-       
-        //display_pattern(7,2,MODE_BLANK);
-   
-
-       
 }
 
 
@@ -5719,243 +2728,12 @@ delay(1);
 
 
 
-
+#if 0
 interface_t interface_x ={0};
 
 uint8_t hg_interface(void)
 {
     
-    uint8_t key_value = KEY_NOT_PRESSED;
-    
-    key_value = KEY_Scan();
-    
-    
-    switch(key_value)
-    {
-    
-        case KEY_UP_PRESSED:
-            
-            if(interface_x.mode == MODE_BLINK)
-            {
-               interface_x.cnt_blink = TIMOUT_BLINK;//4s
-               //to do
-               //update parameters
-               
-               interface_x.sub ++;
-               
-               
-               
-               if(interface_x.focus ==1)
-               {
-                    if(interface_x.sub == 3)        
-                             interface_x.sub = 0;
-               }
-               
-               
-                if(interface_x.focus ==2 || interface_x.focus ==3)
-               {
-                    if(interface_x.sub == 5)        
-                             interface_x.sub = 0;
-               }
-               
-               
-               
-               
-               
-               
-            }
-            else
-            {
-                
-                
-                if(interface_x.focus)//turn back the previous snap
-                {
-                   display_pattern(interface_x.focus,interface_x.sub_old,MODE_NORMAL);
-                }
-                
-            
-                interface_x.focus ++;
-
-                if(interface_x.profile.inject_mode == 2 && interface_x.focus == 2)
-                {
-                   interface_x.focus ++;
-                }
-
-
-                if(interface_x.focus == 8)
-                    interface_x.focus =1;
-
-                interface_x.mode = MODE_REVERSE;
-
-            }
-            
-            
-            
-            
-            break;
-            
-        case KEY_DOWN_PRESSED:
-            
-             if(interface_x.mode == MODE_BLINK)
-             {
-                 interface_x.cnt_blink = TIMOUT_BLINK;//4s
-                 
-                 //to do
-                 //update parameters
-                 
-             }
-             else
-             {
-                 
-                if(interface_x.focus)//turn back the previous snap
-                {
-                   display_pattern(interface_x.focus,interface_x.sub_old,MODE_NORMAL);
-                }
-                 
-                 
-                 
-                    if(interface_x.focus ==1)
-                    {
-                         if(interface_x.sub == 3)        
-                                  interface_x.sub = 0;
-                    }
-
-
-                     if(interface_x.focus ==2 || interface_x.focus ==3)
-                    {
-                         if(interface_x.sub == 5)        
-                                  interface_x.sub = 0;
-                    }
-                 
-                    
-                    if(interface_x.focus == 0)
-                    {
-                         interface_x.focus = 8;
-                    }
-                    else
-                    {
-                        interface_x.focus --;
-                    }
-                    
-                    
-                    if(interface_x.profile.inject_mode == 2 && interface_x.focus == 2)
-                    {
-                       interface_x.focus --;
-                    }
-
-
-                    if(interface_x.focus == 0)
-                        interface_x.focus =7;
-
-                    interface_x.mode = MODE_REVERSE;
-            
-            
-             }
-            
-            
-            
-            
-            
-            
-            break;
-            
-        case KEY_V_PRESSED:
-            
-            if(interface_x.focus)
-            {
-              if(interface_x.mode == MODE_REVERSE)
-              {
-                interface_x.mode = MODE_BLINK;
-                interface_x.cnt_blink = TIMOUT_BLINK;//4s
-                
-                
-                
-                
-              }
-              else if(interface_x.mode == MODE_BLINK)
-              {
-              
-                  
-                  if(interface_x.focus ==1)
-                  {
-                        
-                      if(interface_x.profile.inject_mode == WMD_C)
-                      {
-                      //update sub limit
-                        interface_x.sub_lmt[0] =5;
-                      }
-                      else if(interface_x.profile.inject_mode == WMD_S_DROP)
-                      {
-                         //update sub limit
-                        interface_x.sub_lmt[0] =5;
-                      }
-                      else if(interface_x.profile.inject_mode == WMD_M_DROP)
-                      {
-                        //update sub limit
-                        interface_x.sub_lmt[0] =5;
-                      
-                      
-                      }
-                      
-                      
-                      
-                      
-                  }
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-               interface_x.mode = MODE_NORMAL;
-               interface_x.focus =0;
-              
-              }
-            
-            
-            }
-            
-            break;  
-            
-                     
-    }
-    
-    
-    
-     if(interface_x.mode == MODE_BLINK)
-     {
-          if(interface_x.cnt_blink == 0)
-          {
-             interface_x.mode = MODE_NORMAL;
-             //display_pattern(interface_x.focus,interface_x.sub,interface_x.mode);
-             display_pattern(interface_x.focus,interface_x.sub_old,interface_x.mode);
-             
-             interface_x.sub = interface_x.sub_old;
-             interface_x.focus =0;
-          }
-     
-     }
-      
-    
-    if(interface_x.mode == MODE_NORMAL || interface_x.mode == MODE_REVERSE)
-    {
-           display_pattern(interface_x.focus,interface_x.sub,interface_x.mode);
-    }
-    
-    
-    
-    
     return 1;
 }
+#endif

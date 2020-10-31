@@ -127,20 +127,137 @@ void __interrupt ISR(void)
                     flip =1;
                     if(menu[3].parameter == 0)
                     {
-                        display_n4(0,COL_PAGE0_DN, MODE_REVERSE);
+                        //display_n4(0,COL_PAGE0_DN, MODE_REVERSE);
+                        
+                        display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_4);
                     }
                     else if(menu[3].parameter == 1)
                     {
-                        display_n13(0,COL_PAGE0_DN, MODE_REVERSE);
+                        //display_n13(0,COL_PAGE0_DN, MODE_REVERSE);
+                        display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_13);
                     }
  
                 }
             }
-            
-            
-            
-
-            
+            else if(menu[4].mode == MODE_BLINK)
+            {
+                
+                if(flip == 1)
+                {
+                    display_n_blank(1,COL_PAGE0_EN, MODE_REVERSE);
+                    flip =0;
+                }
+                else if(flip == 0)
+                {
+                    flip =1;
+                    if(menu[4].parameter == 0)
+                    {
+                        //display_n1(0,COL_PAGE0_EN, MODE_REVERSE);
+                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_1);
+                    }
+                    else if(menu[4].parameter == 1)
+                    {
+                        //display_n2(0,COL_PAGE0_EN, MODE_REVERSE);
+                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_2);
+                    }
+ 
+                }
+            }
+            else if(menu[5].mode == MODE_BLINK)
+            {
+                
+                if(flip == 1)
+                {
+                    display_n_blank(2,COL_PAGE0_FN, MODE_REVERSE);
+                    flip =0;
+                }
+                else if(flip == 0)
+                {
+                    flip =1;
+                    if(menu[5].parameter == 0)
+                    {
+                        //display_n1(0,COL_PAGE0_FN, MODE_REVERSE);
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
+                    }
+                    else if(menu[5].parameter == 1)
+                    {
+                        //display_n2(0,COL_PAGE0_FN, MODE_REVERSE);
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1P5);
+                    }
+ 
+                }
+            }
+            else if(menu[6].mode == MODE_BLINK)
+            {
+                
+                if(flip == 1)
+                {
+                    
+                    
+                    if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                    {
+                        display_n_blank(2,COL_PAGE0_GN, MODE_REVERSE);
+                    }
+                     else if(work_mode == WORK_MODE_DROPS) 
+                     {
+                         display_n_blank(2,COL_PAGE0_HN, MODE_REVERSE);
+                     }
+                    flip =0;
+                }
+                else if(flip == 0)
+                {
+                    flip =1;
+                    if(menu[6].parameter == 0)
+                    {
+                       if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                       {
+                        display_num(BOTTOM,COL_PAGE0_GN, MODE_REVERSE | NUM_3);
+                       }
+                       else if(work_mode == WORK_MODE_DROPS) 
+                       {
+                           display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_250);
+                       }
+                    }
+                    else if(menu[6].parameter == 1)
+                    {
+                         if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
+                         {
+                           display_num(BOTTOM,COL_PAGE0_GN, MODE_REVERSE | NUM_3);
+                         }
+                         else if(work_mode == WORK_MODE_DROPS) 
+                         {
+                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_200);
+                          }
+                    }
+ 
+                }
+            }
+#if 0
+            else if(menu[7].mode == MODE_BLINK)
+            {
+                
+                if(flip == 1)
+                {
+                    display_n_blank(2,COL_PAGE0_HN, MODE_REVERSE);
+                    flip =0;
+                }
+                else if(flip == 0)
+                {
+                    flip =1;
+                    if(menu[7].parameter == 0)
+                    {
+                        //display_n1(0,COL_PAGE0_HN, MODE_REVERSE);
+                        display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_250);
+                    }
+                    else if(menu[7].parameter == 1)
+                    {
+                        //display_n2(0,COL_PAGE0_HN, MODE_REVERSE);
+                        display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_200);
+                    }
+ 
+                }
+            }
+#endif
             tcnt = 0;
         }
 

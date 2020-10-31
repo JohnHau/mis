@@ -9,8 +9,8 @@
 
 
 
-#define  MODE_NORMAL     1
-#define  MODE_REVERSE    2
+#define  MODE_NORMAL     0
+#define  MODE_REVERSE    0x80
 #define  MODE_BLINK      3
 #define  MODE_BLANK      4
 
@@ -187,6 +187,7 @@ typedef struct interface
 
 #define COL_PAGE0_HN   (COL_PAGE0_PATTERN_H + 17)
 
+//#define COL_PAGE0_HN   (COL_PAGE0_PATTERN_H + 14)
 
 
 
@@ -195,8 +196,38 @@ typedef struct interface
 
 
 
+#define NUM_0     0
+#define NUM_1     1
+#define NUM_2     2
+#define NUM_3     3
+#define NUM_4     4
+#define NUM_5     5
+#define NUM_6     6
+#define NUM_10    10
+#define NUM_13    13
+#define NUM_100   100
+
+#define NUM_150   101
+#define NUM_200   102
+#define NUM_250   103
+#define NUM_300   104
+
+#define NUM_1P5   105
+#define NUM_2P5   106
 
 
+#define MIDDLE   0
+#define BOTTOM   3
+
+
+#define LEFT     1
+#define RIGHT    2
+
+
+#define TYPE_F     1
+#define TYPE_G     2
+#define TYPE_H     3
+#define TYPE_I     4
 
 
 
@@ -314,6 +345,17 @@ uint8_t display_n300(uint8_t y,uint8_t x, uint8_t mode);
 
 uint8_t display_n1P5(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_n2P5(uint8_t y,uint8_t x, uint8_t mode);
+
+
+
+
+uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
+
+
+
+
+
+
 
 void delay_nms(uint32_t n);
 void delay_ms(unsigned int ms);
