@@ -1,12 +1,10 @@
 #include <xc.h>
+#include <stdio.h>
 #include "Beep.h"
 #include "Key.h"
 #include "Oled.h"
-//#include "PositionControl.h"
-
-KeyType OnOffKey={0},UpKey={0},DownKey={0},ConfirmKey={0},StartInjectKey={0};
-
-unsigned char KeyScanPeriod =0;
+#include "gui.h"
+#include "Timer.h"
 
 #if 1
 void KEY_Init(void) //
@@ -57,47 +55,59 @@ void KEY_Init(void) //
 }
 
 uint8_t KEY_Scan(void)
-{           
+{    
+    
+    uint16_t tm_cnt=0;
         if(KEY_UP == 0)
         {
-           
-             //delay_nms(10);
              delay_nms(5);
             
              if(KEY_UP == 0)
              {
-                 while(KEY_UP == 0);
-                  //buzz();
-                   
-                   return KEY_UP_PRESSED;
+                 
+              
+                 while(KEY_UP == 0)
+                 {
+                     tm_cnt ++;
+                     
+                     delaynus(50 * 1000);
+                 }
+                 buzz();
+                 
+                 if(tm_cnt > 100)
+                 {
+                   test_mode =1;
+                   printf("enter test mode\r\n");
+                   //hg_op.working_mode = WORK_MODE_TEST;
+                   hg_op.cur_working_mode = WORK_MODE_TEST;
+                   return KEY_NOT_PRESSED;
+                 
+                 }
+                 
+                 
+                 return KEY_UP_PRESSED;
              }
         }
         if(KEY_DOWN == 0)
         {
-         
-             //delay_nms(10);
              delay_nms(5);
              if(KEY_DOWN == 0)
              {
                  while(KEY_DOWN == 0);
-                  //buzz();
+                 buzz();
                    
                    return KEY_DOWN_PRESSED;
              }
-            
-            
-            //buzz();
         }
         if(KEY_V == 0)
         {
-              //delay_nms(10);
-              delay_nms(5);
+             delay_nms(5);
              if(KEY_V == 0)
              {
                  while(KEY_V == 0);
-                 //buzz();
+                 buzz();
                    
-                   return KEY_V_PRESSED;
+                 return KEY_V_PRESSED;
              }
         }  
         

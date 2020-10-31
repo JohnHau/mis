@@ -445,12 +445,12 @@ void menu3_MsgHandlle(uint8_t key)
                     
                     if( menu[3].parameter == 0)
                     {
-                      //display_n4(0,COL_PAGE0_DN, menu[3].mode);
+                      
                       display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_4);
                     }
                     else if( menu[3].parameter == 1)
                     {
-                      //display_n13(0,COL_PAGE0_DN, menu[3].mode);
+                      
                       display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_6);
                     }
                     else if( menu[3].parameter == 2)
@@ -536,7 +536,7 @@ void menu3_MsgHandlle(uint8_t key)
                          needle_len = 4;
                          hg_op.needle_len = NEEDLE_LEN_4_MM;
                          hg_op.cnt_target_posrst = POS_4_RST; 
-                          hg_op.need_reset =1;
+                         hg_op.need_reset =1;
                     }
                     else if(menu[3].parameter == 1)
                     {
@@ -547,10 +547,7 @@ void menu3_MsgHandlle(uint8_t key)
                          hg_op.cnt_target_posrst = POS_6_RST; 
                          hg_op.need_reset =1;
                          
-                        //
-                        //
-                        //
-                        
+
                         
                     }
                      else if(menu[3].parameter == 2)

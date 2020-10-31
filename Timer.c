@@ -25,6 +25,8 @@ extern uint16_t cv;
 extern uint16_t dv;
 
 
+uint16_t action_btn_cnt =0;
+
 #if defined (TEST_MODE)     
     static uint32_t test_mode_cnt=0;
     static uint32_t test_mode_break_cnt=0;
@@ -53,6 +55,9 @@ void __interrupt ISR(void)
         //if(tcnt > 500*1000UL)
         if(tcnt > 125)
         {
+            
+            
+            printf("timer is up \r\n");
 #if 0
             dv =0;
             dv = get_AD_vaule();
@@ -277,19 +282,14 @@ void __interrupt ISR(void)
 #if 1
     if(INTCONbits.RBIF)
     {
-
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
-            
             delay_nms(4);
             if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
             {
                 buzz();
                 test_mode =0;
-                test_mode_cnt=0;
-                test_mode_break_cnt=0;
-                flag_test_mode_break =0;
-                
+
                 if(hg_op.status_powerup == STATUS_SLEEP)
                 {
                    hg_op.status_powerup = STATUS_WAKE;
@@ -303,8 +303,7 @@ void __interrupt ISR(void)
                    hg_op.need_reset =1;
                    
                    initial_ui_setting();
-                   
-                   
+
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
                 {
@@ -323,10 +322,11 @@ void __interrupt ISR(void)
             
         }
 
-
         if(ACTION_BUTTON  == 0)
         {
             buzz();
+            
+            action_btn_cnt ++;
              if(hg_op.status_powerup == STATUS_WAKE)
              {
                  
@@ -350,20 +350,18 @@ void __interrupt ISR(void)
  
                     hg_op.working_mode = hg_op.cur_working_mode;
                  }
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
-                 
+                  else if(hg_op.cur_working_mode == WORK_MODE_TEST)
+                  {
+                    hg_op.drops_sa =1;
+                    hg_op.drops_sb =0;
+                    hg_op.drops_push =0;
+ 
+                    hg_op.working_mode = hg_op.cur_working_mode;
+                    
+                    //printf("action test mode\r\n");
+                    
+                    
+                  }
       
              }
 

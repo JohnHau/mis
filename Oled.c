@@ -2779,18 +2779,3 @@ delay(1);
 //4  6  13                //0  1  2  3  4
 //1  2  2.5  5  10        //0  1  2  3
 
-
-
-
-
-
-
-#if 0
-interface_t interface_x ={0};
-
-uint8_t hg_interface(void)
-{
-    
-    return 1;
-}
-#endif

@@ -74,7 +74,7 @@ extern uint8_t flag_test_mode_break;
 #define WORK_MODE_DROPS       0x01
 #define WORK_MODE_DROP        0x02
 #define WORK_MODE_STOP        0x03
-
+#define WORK_MODE_TEST        0x04
 
 
 
@@ -158,8 +158,8 @@ extern uint8_t flag_test_mode_break;
 
 
 #define STARTUP_CNT_MA   15 /*20*/ /*15*/
-//#define STARTUP_CNT_MB   15 /*20*/ /*15*/
-#define STARTUP_CNT_MB   14 /*20*/ /*15*/
+#define STARTUP_CNT_MB   15 /*20*/ /*15*/
+//#define STARTUP_CNT_MB   14 /*20*/ /*15*/
 
 
 #define  INTERVAL_F    40/*20*/

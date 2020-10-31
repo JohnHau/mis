@@ -198,7 +198,7 @@ void main(void)
         {
             if(hg_op.working_mode == WORK_MODE_DROPS)
             {
-                
+                printf("in in drops mode\r\n");
                 //if(ACTION_BUTTON  == 1)
                 if(0)
                 {
@@ -214,17 +214,11 @@ void main(void)
                         hg_op.acting_flag =0;
                         hg_op.working_mode = WORK_MODE_STOP; 
                         hg_op.need_reset =1;  
-                    
-                    
                 }
                 else
                 {
-                       
-                    
                        if(hg_op.drops_sa == 1)
                         {
-                           
-                           
                            hg_op.cnt_posa =0;
                            //printf("sa begin %d\r\n",hg_op.cnt_posa); 
                             //REVERSE_RUN_B();  
@@ -240,8 +234,8 @@ void main(void)
                             else
                             {
                                  ENABLE_BH();INPUT3_BH();
-                                 //delay_pwm(300 * STARTUP_CNT_MA);
-                                 delaynus(STARTUP_CNT_MA * 1000);
+                                 delay_pwm(300 * STARTUP_CNT_MA);
+                                 //delaynus(STARTUP_CNT_MA * 1000);
                             }
                            STOP_B();
                            
@@ -258,13 +252,10 @@ void main(void)
                         else if(hg_op.drops_push == 1)
                         {
 
-                            
-                            
                              //FORWARD_RUN_A();   
                              //delay_pwm(300 * 30);
                              //STOP_A();
-                             
-                             
+
                            #if 1
 
                                //prev_edge =0;
@@ -347,8 +338,8 @@ void main(void)
                             {
                                 ENABLE_BH();
                                 INPUT4_BH();
-                                //delay_pwm(300 * STARTUP_CNT_MB);
-                                 delaynus(STARTUP_CNT_MB * 1000);
+                                delay_pwm(300 * STARTUP_CNT_MB);
+                                 //delaynus(STARTUP_CNT_MB * 1000);
                             }
                             STOP_B();
 
@@ -379,7 +370,6 @@ void main(void)
                            
                              if(ACTION_BUTTON  == 1)
                              {
-                        
                                     STOP_B();
                                     STOP_A();
 
@@ -423,17 +413,18 @@ void main(void)
                              }
                            
                             
+                            
+                            
                            //===================================================
                             
                         }
                  
                 }
-                
-                
-                
+                  
             }
             else if(hg_op.working_mode == WORK_MODE_C)
             {
+                 printf("in in C mode\r\n");
                 //if(ACTION_BUTTON  == 1)
                 if(0)
                 {
@@ -448,9 +439,7 @@ void main(void)
 
                         hg_op.acting_flag =0;
                         hg_op.working_mode = WORK_MODE_STOP; 
-                        hg_op.need_reset =1;  
-                    
-                    
+                        hg_op.need_reset =1;    
                 }
                 else
                 {
@@ -642,24 +631,162 @@ void main(void)
             }
             else if(hg_op.working_mode == WORK_MODE_DROP)
             {
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+ 
+            }
+            else if(hg_op.working_mode == WORK_MODE_TEST)
+            {
+                printf("in in test mode\r\n");
+                //if(ACTION_BUTTON  == 1)
+                if(0)
+                {
+                        STOP_B();
+                        //==========================================================
+                        REVERSE_RUN_A();   
+                        //delay_pwm(300 * 16);
+                        delay_pwm(300 * 30);
+                        STOP_A();
+
+                        //==========================================================
+
+                        hg_op.acting_flag =0;
+                        hg_op.working_mode = WORK_MODE_STOP; 
+                        hg_op.need_reset =1;  
+                }
+                else
+                {
+                       if(hg_op.drops_sa == 1)
+                        {
+                           hg_op.cnt_posa =0;
+                            
+                            if( hg_op.needle_len == NEEDLE_LEN_13_MM)   
+                            {
+                                
+                                ENABLE_BH();
+                                INPUT3_BH();
+                                while(hg_op.cnt_posa < POS_13MM_SA);
+                            }
+                            else
+                            {
+                                 ENABLE_BH();INPUT3_BH();
+                                 //delay_pwm(300 * STARTUP_CNT_MA);
+                                 delaynus(STARTUP_CNT_MA * 1000);
+                            }
+                           STOP_B();
+                           
+                            delaynus(hg_op.work_freq * 1000);
+                            //printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
+                            hg_op.drops_sa = 0;
+                            hg_op.drops_sb = 0;
+                            hg_op.drops_push = 1;
+                        }
+                        else if(hg_op.drops_push == 1)
+                        {
+                           #if 1
+
+                               //prev_edge =0;
+                               //cur_edge =0;
+                               cnt_push =0;
+
+                               FORWARD_RUN_A();                           
+#if 1   
+                               //while(cnt_push < 140)//146
+                               while(cnt_push < hg_op.push_len)//146
+                               {
+                                   while(READ_PHB_MA() == 0);
+                                   cnt_push ++;
+                                   while(READ_PHB_MA() == 1);
+                                   cnt_push ++;
+
+                               }
+#endif
+                               
+                               STOP_A();
+                               
+                           #endif
+
+                            delaynus(hg_op.work_freq * 1000);
+                            hg_op.drops_sa = 0;
+                            hg_op.drops_push = 0;
+                            hg_op.drops_sb = 1;
+
+
+                        }
+                        else if(hg_op.drops_sb == 1)
+                        {
+                            hg_op.cnt_posb =0;
+
+                            if(hg_op.needle_len == NEEDLE_LEN_13_MM)
+                            {
+                                ENABLE_BH();INPUT4_BH();
+                                while(LP_BUTTON == 1);
+                            }
+                            else
+                            {
+                                ENABLE_BH();
+                                INPUT4_BH();
+                                //delay_pwm(300 * STARTUP_CNT_MB);
+                                 delaynus(STARTUP_CNT_MB * 1000);
+                            }
+                            STOP_B();
+
+                            delaynus(hg_op.work_freq * 1000);
+                            //printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+                           printf("in test mode\r\n");
+                             //if(ACTION_BUTTON  == 1)
+                             if(action_btn_cnt%2 == 0)
+                             {
+                                    STOP_B();
+                                    STOP_A();
+
+                                   REVERSE_RUN_A();   
+                                   //delaynus(30* 1000);
+                                   
+                                   while(cnt_push < 14)
+                                   {
+                                        while(READ_PHB_MA() == 0);
+                                        cnt_push ++;
+                                        while(READ_PHB_MA() == 1);
+                                        cnt_push ++;
+
+                                    }
+                                   
+                                   STOP_A();
+
+                                    hg_op.drops_sa = 0;
+                                    hg_op.drops_sb = 0;
+                                    hg_op.drops_push = 0;
+                                    
+                                    
+                                    hg_op.acting_flag =0;
+                               
+                                    
+                                     if(hg_op.needle_len == NEEDLE_LEN_13_MM)
+                                     {
+                                       hg_op.need_reset =0;  
+                                     }
+                                     else
+                                     {
+                                       hg_op.need_reset =1;  
+                                     }
+                    
+                             }
+                             //else if(ACTION_BUTTON  == 0)
+                             else
+                             {
+                                  hg_op.drops_sb = 0;
+                                  hg_op.drops_push =0;
+                                  hg_op.drops_sa = 1;
+                             }
+                           
+                        }
+                 
+                }
+                  
                 
                 
             }
             else
             {
-                
-                
                 
             }
                 
