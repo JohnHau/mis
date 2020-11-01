@@ -42,7 +42,7 @@ void delay_f(uint32_t n)
 
 
 
-void delay_pwm(uint16_t  n)
+void delay_pwm(uint32_t  n)
 {
     while(n)
     {

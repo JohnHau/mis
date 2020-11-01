@@ -134,7 +134,8 @@ void main(void)
                 while(hg_op.cnt_posrst < 300)
                 {
                     INPUT3_BH();
-                    delay_pwm(16*5);
+                    //delay_pwm(16*5);
+                    delay_pwm(16*2);
                     INPUT3_BL();
                     delay_pwm(16);
                 }
@@ -165,7 +166,8 @@ void main(void)
             while(hg_op.status_hit_lp == 0)// search for  lp point
             {
                 INPUT4_BH();
-                delay_pwm(16*7);
+                //delay_pwm(16*7);
+                delay_pwm(16*2);
                 INPUT4_BL();
                 delay_pwm(16);        
             }
@@ -183,7 +185,8 @@ void main(void)
                 while(hg_op.posrst == 0)
                 {
                     INPUT3_BH();
-                    delay_pwm(16*7);
+                    //delay_pwm(16*7);
+                    delay_pwm(16*2);
                     INPUT3_BL();
                     delay_pwm(16);
                 }
@@ -246,7 +249,8 @@ void main(void)
                             //printf("c===-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             //printf("here\r\n");
                              
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                            //delay_pwm(hg_op.work_freq * 300);
                             printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             hg_op.drops_sa = 0;
                             hg_op.drops_sb = 0;
@@ -266,7 +270,6 @@ void main(void)
                                cnt_push =0;
 
                                FORWARD_RUN_A();                           
-#if 1   
                                //while(cnt_push < 140)//146
                                while(cnt_push < hg_op.push_len)//146
                                {
@@ -276,48 +279,18 @@ void main(void)
                                    cnt_push ++;
 
                                }
-#endif
                                
-#if 0
-                               while(cnt_push < 20)
-                               {
-                                   cur_state_phb_ma = READ_PHB_MA();
-                                   if(cur_state_phb_ma != prev_state_phb_ma)
-                                   {
-                                      cnt_push ++;
-                                      prev_state_phb_ma = cur_state_phb_ma;   
-                                   }
-
-                               }
-#endif
-                               STOP_A();
-                               
-                               
-                               
-                               
-#if 0
-                              prev_edge =0;
-                              cur_edge =0;
-                              cnt_push =0;
-
-                               REVERSE_RUN_A();   
-                               while(cnt_push < 10)
-                               {
-                                   cur_state_phb_ma = READ_PHB_MA();
-                                   if(cur_state_phb_ma != prev_state_phb_ma)
-                                   {
-                                      cnt_push ++;
-                                      prev_state_phb_ma = cur_state_phb_ma;   
-                                   }
-
-                               }
 
                                STOP_A();
-#endif
+                               
+                               
+                               
+
                            #endif
 
 
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                            //delay_pwm(hg_op.work_freq * 300);
                             hg_op.drops_sa = 0;
                             hg_op.drops_push = 0;
                             hg_op.drops_sb = 1;
@@ -368,7 +341,8 @@ void main(void)
 #endif
                             
                             //delay_pwm(300 * INTERVAL_F);
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                            delay_pwm(hg_op.work_freq * 300);
                             printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                            
                              if(ACTION_BUTTON  == 1)
@@ -379,7 +353,8 @@ void main(void)
                                    REVERSE_RUN_A();   
                                    //delaynus(30* 1000);
                                    
-                                   while(cnt_push < 14)
+                                   //while(cnt_push < 14)
+                                   while(cnt_push < 260)
                                    {
                                         while(READ_PHB_MA() == 0);
                                         cnt_push ++;
@@ -417,10 +392,6 @@ void main(void)
                                   hg_op.drops_sa = 1;
                              }
                            
-                            
-                            
-                            
-                           //===================================================
                             
                         }
                  
@@ -494,74 +465,43 @@ void main(void)
                              //delay_pwm(300 * 30);
                              //STOP_A();
                              
-                             
-                           #if 1
 
                                //prev_edge =0;
                                //cur_edge =0;
-                               cnt_push =0;
-
-                               FORWARD_RUN_A();    
-                               while(ACTION_BUTTON == 0);
-#if 0   
-                               //while(cnt_push < 140)//146
-                               while(cnt_push < hg_op.push_len)//146
+                            
+                               //cnt_push =0;
+                               //FORWARD_RUN_A();    
+                               while(ACTION_BUTTON == 0)
                                {
-                                   while(READ_PHB_MA() == 0);
-                                   cnt_push ++;
-                                   while(READ_PHB_MA() == 1);
-                                   cnt_push ++;
+                                       cnt_push =0;
+                                       FORWARD_RUN_A();    
+                                       //while(cnt_push < hg_op.push_len)//146
+                                       while(cnt_push < 146)//146
+                                       {
+                                            while(READ_PHB_MA() == 0);
+                                            cnt_push ++;
+                                            while(READ_PHB_MA() == 1);
+                                            cnt_push ++;
 
+                                       }
+                                       STOP_A();
+                                       delaynus(50 * 1000);
+                                       delaynus(50 * 1000);
+                                       delaynus(50 * 1000);
+                                       delaynus(50 * 1000);
+                                       delaynus(50 * 1000);
+                                       delaynus(50 * 1000);
+                                   
                                }
-#endif
-                               
-#if 0
-                               while(cnt_push < 20)
-                               {
-                                   cur_state_phb_ma = READ_PHB_MA();
-                                   if(cur_state_phb_ma != prev_state_phb_ma)
-                                   {
-                                      cnt_push ++;
-                                      prev_state_phb_ma = cur_state_phb_ma;   
-                                   }
-
-                               }
-#endif
                                STOP_A();
-                               
-                               
-                               
-                               
-#if 0
-                              prev_edge =0;
-                              cur_edge =0;
-                              cnt_push =0;
-
-                               REVERSE_RUN_A();   
-                               while(cnt_push < 10)
-                               {
-                                   cur_state_phb_ma = READ_PHB_MA();
-                                   if(cur_state_phb_ma != prev_state_phb_ma)
-                                   {
-                                      cnt_push ++;
-                                      prev_state_phb_ma = cur_state_phb_ma;   
-                                   }
-
-                               }
-
-                               STOP_A();
-#endif
-                           #endif
-
-
+ 
                             delaynus(50* 1000);
                             delaynus(50* 1000);
                             hg_op.drops_sa = 0;
                             hg_op.drops_push = 0;
                             hg_op.drops_sb = 1;
-
-
                         }
+                       
                         if(hg_op.drops_sb == 1)
                         { 
                             hg_op.cnt_posb =0;
@@ -585,7 +525,8 @@ void main(void)
                             //INPUT4_BH();
                             
 
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                            delay_pwm(hg_op.work_freq * 300);
                             printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                            
                              if(ACTION_BUTTON  == 1)
@@ -597,8 +538,9 @@ void main(void)
 
                                    REVERSE_RUN_A();   
                                    //delaynus(30* 1000);
-                                   
-                                   while(cnt_push < 14)
+                                   cnt_push = 0;
+                                   //while(cnt_push < 14)
+                                   while(cnt_push < 120)
                                    {
                                         while(READ_PHB_MA() == 0);
                                         cnt_push ++;
@@ -679,7 +621,8 @@ void main(void)
                             }
                            STOP_B();
                            
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                             delay_pwm(hg_op.work_freq * 300);
                             //printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             hg_op.drops_sa = 0;
                             hg_op.drops_sb = 0;
@@ -710,7 +653,8 @@ void main(void)
                                
                            #endif
 
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                             delay_pwm(hg_op.work_freq * 300);
                             hg_op.drops_sa = 0;
                             hg_op.drops_push = 0;
                             hg_op.drops_sb = 1;
@@ -735,7 +679,8 @@ void main(void)
                             }
                             STOP_B();
 
-                            delaynus(hg_op.work_freq * 1000);
+                            //delaynus(hg_op.work_freq * 1000);
+                             delay_pwm(hg_op.work_freq * 300);
                             //printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                            printf("in test mode\r\n");
                              //if(ACTION_BUTTON  == 1)

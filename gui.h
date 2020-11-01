@@ -33,7 +33,7 @@ typedef struct _hg_op
     uint8_t needle_len;
     uint8_t inject_len;
     uint8_t tube_cap;
-    uint8_t work_freq;
+    uint16_t work_freq;
     
     uint8_t push_len;
     
@@ -100,11 +100,11 @@ extern uint8_t flag_test_mode_break;
 
 
 
-#define DROPS_MODE_100_FREQ     80
-#define DROPS_MODE_150_FREQ     70
-#define DROPS_MODE_200_FREQ     60
-#define DROPS_MODE_250_FREQ     50
-#define DROPS_MODE_300_FREQ     40
+#define DROPS_MODE_100_FREQ     200
+#define DROPS_MODE_150_FREQ     120
+#define DROPS_MODE_200_FREQ     100
+#define DROPS_MODE_250_FREQ     20
+#define DROPS_MODE_300_FREQ     30
 
 
 

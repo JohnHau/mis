@@ -1094,7 +1094,7 @@ void menu6_MsgHandlle(uint8_t key)
                         {
                              display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_250);
                              
-                             
+                             hg_op.work_freq = DROPS_MODE_250_FREQ;
                              
                              
                              
@@ -1115,6 +1115,9 @@ void menu6_MsgHandlle(uint8_t key)
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
                             display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_100);
+                            
+                             hg_op.work_freq = DROPS_MODE_100_FREQ;
+                            
                         }
                         
                         
@@ -1140,6 +1143,7 @@ void menu6_MsgHandlle(uint8_t key)
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
                             display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_200);
+                             hg_op.work_freq = DROPS_MODE_200_FREQ;
                         }
                          
                      }

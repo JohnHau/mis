@@ -330,7 +330,7 @@ void initial_ui_setting(void);
 
 void delay_nms(uint32_t n);
 void delay_ms(unsigned int ms);
-void delay_pwm(uint16_t  n);
+void delay_pwm(uint32_t  n);
 void delay_f(uint32_t n);
 
 

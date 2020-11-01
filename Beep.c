@@ -2801,15 +2801,91 @@ uint8_t display_n13(uint8_t y,uint8_t x, uint8_t mode)
     
     
     
+    #if 0   
+                               //while(cnt_push < 140)//146
+                               while(cnt_push < hg_op.push_len)//146
+                               {
+                                   while(READ_PHB_MA() == 0);
+                                   cnt_push ++;
+                                   while(READ_PHB_MA() == 1);
+                                   cnt_push ++;
+
+                               }
+#endif
     
     
     
+    #if 0
+                               while(cnt_push < 20)
+                               {
+                                   cur_state_phb_ma = READ_PHB_MA();
+                                   if(cur_state_phb_ma != prev_state_phb_ma)
+                                   {
+                                      cnt_push ++;
+                                      prev_state_phb_ma = cur_state_phb_ma;   
+                                   }
+
+                               }
+#endif
+
+
+                               
+#if 0
+                              prev_edge =0;
+                              cur_edge =0;
+                              cnt_push =0;
+
+                               REVERSE_RUN_A();   
+                               while(cnt_push < 10)
+                               {
+                                   cur_state_phb_ma = READ_PHB_MA();
+                                   if(cur_state_phb_ma != prev_state_phb_ma)
+                                   {
+                                      cnt_push ++;
+                                      prev_state_phb_ma = cur_state_phb_ma;   
+                                   }
+
+                               }
+
+                               STOP_A();
+#endif
+                               
+                               
+                               
     
+    #if 0
+                               while(cnt_push < 20)
+                               {
+                                   cur_state_phb_ma = READ_PHB_MA();
+                                   if(cur_state_phb_ma != prev_state_phb_ma)
+                                   {
+                                      cnt_push ++;
+                                      prev_state_phb_ma = cur_state_phb_ma;   
+                                   }
+
+                               }
+#endif
     
-    
-    
-    
-    
+                                   
+#if 0
+                              prev_edge =0;
+                              cur_edge =0;
+                              cnt_push =0;
+
+                               REVERSE_RUN_A();   
+                               while(cnt_push < 10)
+                               {
+                                   cur_state_phb_ma = READ_PHB_MA();
+                                   if(cur_state_phb_ma != prev_state_phb_ma)
+                                   {
+                                      cnt_push ++;
+                                      prev_state_phb_ma = cur_state_phb_ma;   
+                                   }
+
+                               }
+
+                               STOP_A();
+#endif
     
     
     
