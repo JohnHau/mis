@@ -101,10 +101,18 @@ void main(void)
     //hg_op.need_reset =1;
     hg_op.need_reset =0;
     hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
+    //hg_op.cur_working_mode = WORK_MODE_C;
     hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = NEEDLE_LEN_4_MM;
     hg_op.status_powerup = STATUS_SLEEP;
     hg_op.working_mode = WORK_MODE_STOP;
+    
+    
+    T0IE=0; // 
+    T0CONbits.TMR0ON =0;
+    
+    
+    
     
     while(1)
     {
@@ -116,7 +124,6 @@ void main(void)
             SLEEP();
             NOP();NOP();NOP();
             
-            //Initial_LY096BG30();
            
         }
         
@@ -239,19 +246,20 @@ void main(void)
                             }
                             else
                             {
-                                 ENABLE_BH();INPUT3_BH();
-                                 delay_pwm(300 * STARTUP_CNT_MA);
-                                 //delaynus(STARTUP_CNT_MA * 1000);
+                                INPUT3_BH();
+                                ENABLE_BH();
+                                 //delay_pwm(300 * STARTUP_CNT_MA);
+                                 delaynus(STARTUP_CNT_MA * 100);
                             }
                            STOP_B();
                            
                             
-                            //printf("c===-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
+                            printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             //printf("here\r\n");
                              
                             //delaynus(hg_op.work_freq * 1000);
-                            //delay_pwm(hg_op.work_freq * 300);
-                            printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
+                            delay_pwm(10 * 300);
+                            printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             hg_op.drops_sa = 0;
                             hg_op.drops_sb = 0;
                             hg_op.drops_push = 1;
@@ -312,14 +320,16 @@ void main(void)
                             }
                             else
                             {
-                                ENABLE_BH();
+                                
+                                
                                 INPUT4_BH();
-                                delay_pwm(300 * STARTUP_CNT_MB);
-                                 //delaynus(STARTUP_CNT_MB * 1000);
+                                ENABLE_BH();
+                                
+                                //delay_pwm(300 * STARTUP_CNT_MB);
+                                 delaynus(STARTUP_CNT_MB * 100);
                             }
-                            STOP_B();
-
-                            //printf("z===-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+                            STOP_B();   
+                            printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                             //INPUT4_BH();
                             
                             
@@ -342,8 +352,9 @@ void main(void)
                             
                             //delay_pwm(300 * INTERVAL_F);
                             //delaynus(hg_op.work_freq * 1000);
-                            delay_pwm(hg_op.work_freq * 300);
-                            printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+                            //delay_pwm(hg_op.work_freq * 300);
+                            delay_pwm(10* 300);
+                            printf("999-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                            
                              if(ACTION_BUTTON  == 1)
                              {
@@ -491,10 +502,12 @@ void main(void)
                                        delaynus(50 * 1000);
                                        delaynus(50 * 1000);
                                        delaynus(50 * 1000);
-                                   
+                                   printf("cycle push\r\n");
                                }
+                               
+                                printf("should be here\r\n");
                                STOP_A();
- 
+                           
                             delaynus(50* 1000);
                             delaynus(50* 1000);
                             hg_op.drops_sa = 0;
@@ -531,7 +544,9 @@ void main(void)
                            
                              if(ACTION_BUTTON  == 1)
                              {
-                        
+                                   delaynus(15 * 1000);
+                                    if(ACTION_BUTTON  == 1)
+                                    {
                                     STOP_B();
                                     STOP_A();
 
@@ -570,7 +585,7 @@ void main(void)
                                     
                                      hg_op.working_mode = WORK_MODE_STOP;
                              }
-                            
+                             }
                         }
                  
                 }
@@ -738,12 +753,12 @@ void main(void)
             }
             else
             {
-                
+                printf("in stop mode\r\n");
             }
                 
             
         }
-        
+        printf("running free\r\n");
         HG_interface();
 
     }

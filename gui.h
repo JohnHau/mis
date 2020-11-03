@@ -157,8 +157,8 @@ extern uint8_t flag_test_mode_break;
 #define  STARTUP_THR_MB  12
 
 
-#define STARTUP_CNT_MA   15 /*20*/ /*15*/
-#define STARTUP_CNT_MB   15 /*20*/ /*15*/
+#define STARTUP_CNT_MA   93 /*20*/ /*15*/
+#define STARTUP_CNT_MB   100 /*20*/ /*15*/
 //#define STARTUP_CNT_MB   14 /*20*/ /*15*/
 
 

@@ -307,9 +307,6 @@ void __interrupt ISR(void)
                    config_LCD();
                    initial_ui_setting();
                    
-                   
-                   
-
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
                 {
@@ -335,16 +332,26 @@ void __interrupt ISR(void)
 
         if(ACTION_BUTTON  == 0)
         {
+            	
+            delaynus(15 * 1000);
+            if(ACTION_BUTTON  == 0)
+            {
+                //while(ACTION_BUTTON == 0);
+            //T0IE=0; // 
+            //T0CONbits.TMR0ON =0;
+            
+            
             buzz();
             
-            action_btn_cnt ++;
+           
              if(hg_op.status_powerup == STATUS_WAKE)
              {
-                 
+                 printf("action\r\n");
                  //if(hg_op.acting_flag ==0)
                  if(hg_op.cur_working_mode == WORK_MODE_DROPS)
                  {
-                    hg_op.acting_flag =1;
+                     printf("drops mode\r\n");
+                     hg_op.acting_flag =1;
                    
                     hg_op.drops_sa =1;
                     hg_op.drops_sb =0;
@@ -354,15 +361,18 @@ void __interrupt ISR(void)
                  }
                  else if(hg_op.cur_working_mode == WORK_MODE_C)
                  {
-                    
+                      printf("c mode\r\n");
                     hg_op.drops_sa =1;
                     hg_op.drops_sb =0;
                     hg_op.drops_push =0;
  
                     hg_op.working_mode = hg_op.cur_working_mode;
+                    hg_op.working_mode = WORK_MODE_C;
                  }
                   else if(hg_op.cur_working_mode == WORK_MODE_TEST)
                   {
+                     action_btn_cnt ++;
+                      printf("test mode\r\n");
                     hg_op.drops_sa =1;
                     hg_op.drops_sb =0;
                     hg_op.drops_push =0;
@@ -376,6 +386,7 @@ void __interrupt ISR(void)
       
              }
 
+        }
         }
         //buzz();
         //temp = PORTB;
@@ -565,8 +576,26 @@ void __interrupt ISR(void)
                 }
                 else if(hg_op.working_mode == WORK_MODE_C)
                 {
-
+                    if(hg_op.drops_sa == 1)
+                    {
+                        hg_op.cnt_posa ++;
+                    }
+                    else if(hg_op.drops_sb == 1)
+                    {
+                         hg_op.cnt_posb ++;
+                    }
                 }
+                else if(hg_op.working_mode == WORK_MODE_TEST)
+                {
+                    if(hg_op.drops_sa == 1)
+                    {
+                        hg_op.cnt_posa ++;
+                    }
+                    else if(hg_op.drops_sb == 1)
+                    {
+                         hg_op.cnt_posb ++;
+                    }
+                 }
                 else
                 {
 

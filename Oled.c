@@ -2925,7 +2925,8 @@ void initial_ui_setting(void)
 #endif
     
     
-    hg_op.cur_working_mode = WORK_MODE_C;//now we assume working in DROPS ;
+    //hg_op.cur_working_mode = WORK_MODE_C;//now we assume working in DROPS ;
+    hg_op.cur_working_mode = WORK_MODE_DROPS;
     hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = NEEDLE_LEN_4_MM;
     
