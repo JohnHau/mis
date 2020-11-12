@@ -38,7 +38,7 @@ void __interrupt ISR(void)
 {
     uint8_t temp;
     static uint32_t tcnt=0;
-    
+    static uint8_t cnt_action_btn =0;
     
 
 
@@ -171,11 +171,13 @@ void __interrupt ISR(void)
                     flip =1;
                     if(menu[5].parameter == 0)
                     {
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
+                        //display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2);
                     }
                     else if(menu[5].parameter == 1)
                     {
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1P5);
+                        //display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1P5);
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_3);
                     }
                     else if(menu[5].parameter == 2)
                     {
@@ -307,6 +309,11 @@ void __interrupt ISR(void)
                    config_LCD();
                    initial_ui_setting();
                    
+                   #if 1
+                    T0IE=1; // 
+                    T0CONbits.TMR0ON =1;
+                   #endif
+                   
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
                 {
@@ -332,16 +339,27 @@ void __interrupt ISR(void)
 
         if(ACTION_BUTTON  == 0)
         {
-            	
-            delaynus(15 * 1000);
+          
+            //delaynus(50 * 1000);
+            hg_op.acting_flag = 1;
+//-----------------------------------------------------------------------------
+#if 0     
+            
             if(ACTION_BUTTON  == 0)
             {
                 //while(ACTION_BUTTON == 0);
             //T0IE=0; // 
             //T0CONbits.TMR0ON =0;
-            
-            
+
+
             buzz();
+            
+            #if 1
+            T0IE=0; // 
+            T0CONbits.TMR0ON =0;
+            #endif
+            
+            
             
            
              if(hg_op.status_powerup == STATUS_WAKE)
@@ -386,7 +404,12 @@ void __interrupt ISR(void)
       
              }
 
-        }
+        
+            }
+#endif
+//------------------------------------------------------------------------------            
+            
+            
         }
         //buzz();
         //temp = PORTB;

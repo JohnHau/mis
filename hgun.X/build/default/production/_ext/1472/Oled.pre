@@ -4173,7 +4173,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 168
+# 174
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -6666,13 +6666,14 @@ display_num(0,(0 + 14), 1);
 
 
 display_frame_fghi(1,49, 0);
-display_num(3,(49 + 14), 106);
+
+display_num(3,(49 + 14), 2);
 
 
 display_frame_fghi(2,0, 0);
 display_num(3,(0 + 14), 3);
 
-# 2929
+# 2930
 hg_op.cur_working_mode = 0x01;
 hg_op.cnt_target_posrst = (412 );
 hg_op.needle_len = 4;
@@ -6692,6 +6693,7 @@ void config_LCD(void)
 {
 
 write_buf[0]=0x21;
+
 ee_WriteBytes(write_buf, 0x00, 1);
 
 
@@ -6715,9 +6717,10 @@ write_buf[0]=0x0c;
 
 ee_WriteBytes(write_buf, 0x00, 1);
 
+# 2979
 }
 
-# 2977
+# 2985
 void Initial_LY096BG30(void)
 {
 
@@ -6732,11 +6735,10 @@ delay(1);
 LATEbits.LATE1=1;
 delay(1);
 
-# 3024
-config_LCD();
+# 3038
+write_buf[0]=0x25;
+ee_WriteBytes(write_buf, 0x00, 1);
 
-initial_ui_setting();
-
-# 3061
+# 3076
 }
 

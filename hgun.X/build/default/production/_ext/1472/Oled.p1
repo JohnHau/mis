@@ -3122,20 +3122,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 63: extern HG_OP hg_op;
 [; ;gui.h: 64: extern uint8_t test_mode;
 [; ;gui.h: 65: extern uint8_t flag_test_mode_break;
-[; ;gui.h: 168: extern uint8_t focus;
-[; ;gui.h: 169: extern uint8_t flip;
-[; ;gui.h: 170: extern int8_t work_mode;
-[; ;gui.h: 171: extern MENU menu[8];
-[; ;gui.h: 173: void init_menu(void);
-[; ;gui.h: 174: void HG_interface(void);
-[; ;gui.h: 176: void menu0_MsgHandlle(uint8_t key);
-[; ;gui.h: 177: void menu1_MsgHandlle(uint8_t key);
-[; ;gui.h: 178: void menu2_MsgHandlle(uint8_t key);
-[; ;gui.h: 179: void menu3_MsgHandlle(uint8_t key);
-[; ;gui.h: 180: void menu4_MsgHandlle(uint8_t key);
-[; ;gui.h: 181: void menu5_MsgHandlle(uint8_t key);
-[; ;gui.h: 182: void menu6_MsgHandlle(uint8_t key);
-[; ;gui.h: 183: void menu7_MsgHandlle(uint8_t key);
+[; ;gui.h: 174: extern uint8_t focus;
+[; ;gui.h: 175: extern uint8_t flip;
+[; ;gui.h: 176: extern int8_t work_mode;
+[; ;gui.h: 177: extern MENU menu[8];
+[; ;gui.h: 179: void init_menu(void);
+[; ;gui.h: 180: void HG_interface(void);
+[; ;gui.h: 182: void menu0_MsgHandlle(uint8_t key);
+[; ;gui.h: 183: void menu1_MsgHandlle(uint8_t key);
+[; ;gui.h: 184: void menu2_MsgHandlle(uint8_t key);
+[; ;gui.h: 185: void menu3_MsgHandlle(uint8_t key);
+[; ;gui.h: 186: void menu4_MsgHandlle(uint8_t key);
+[; ;gui.h: 187: void menu5_MsgHandlle(uint8_t key);
+[; ;gui.h: 188: void menu6_MsgHandlle(uint8_t key);
+[; ;gui.h: 189: void menu7_MsgHandlle(uint8_t key);
 [; ;Timer.h: 8: extern uint16_t action_btn_cnt;
 [; ;Timer.h: 15: extern void TimerInit(void);
 [; ;Timer.h: 16: extern void Timer1Init(void);
@@ -11993,124 +11993,124 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.c: 2918: display_frame_fghi(1,49, 0);
 "2918
 [e ( _display_frame_fghi (3 , , -> -> 1 `i `uc -> -> 49 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 2919: display_num(3,(49 + 14), 106);
-"2919
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> -> 106 `i `uc ]
-[; ;Oled.c: 2922: display_frame_fghi(2,0, 0);
-"2922
-[e ( _display_frame_fghi (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Oled.c: 2923: display_num(3,(0 + 14), 3);
+[; ;Oled.c: 2920: display_num(3,(49 + 14), 2);
+"2920
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> -> 2 `i `uc ]
+[; ;Oled.c: 2923: display_frame_fghi(2,0, 0);
 "2923
+[e ( _display_frame_fghi (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;Oled.c: 2924: display_num(3,(0 + 14), 3);
+"2924
 [e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> -> 3 `i `uc ]
-[; ;Oled.c: 2929: hg_op.cur_working_mode = 0x01;
-"2929
-[e = . _hg_op 1 -> -> 1 `i `uc ]
-[; ;Oled.c: 2930: hg_op.cnt_target_posrst = (412 );
+[; ;Oled.c: 2930: hg_op.cur_working_mode = 0x01;
 "2930
-[e = . _hg_op 24 -> -> 412 `i `ui ]
-[; ;Oled.c: 2931: hg_op.needle_len = 4;
+[e = . _hg_op 1 -> -> 1 `i `uc ]
+[; ;Oled.c: 2931: hg_op.cnt_target_posrst = (412 );
 "2931
+[e = . _hg_op 24 -> -> 412 `i `ui ]
+[; ;Oled.c: 2932: hg_op.needle_len = 4;
+"2932
 [e = . _hg_op 7 -> -> 4 `i `uc ]
-[; ;Oled.c: 2933: hg_op.inject_len = 1;
-"2933
+[; ;Oled.c: 2934: hg_op.inject_len = 1;
+"2934
 [e = . _hg_op 8 -> -> 1 `i `uc ]
-[; ;Oled.c: 2935: hg_op.tube_cap = 0;
-"2935
-[e = . _hg_op 9 -> -> 0 `i `uc ]
-[; ;Oled.c: 2936: hg_op.work_freq = 20;
+[; ;Oled.c: 2936: hg_op.tube_cap = 0;
 "2936
+[e = . _hg_op 9 -> -> 0 `i `uc ]
+[; ;Oled.c: 2937: hg_op.work_freq = 20;
+"2937
 [e = . _hg_op 10 -> -> 20 `i `ui ]
-[; ;Oled.c: 2938: hg_op.push_len = 140;
-"2938
+[; ;Oled.c: 2939: hg_op.push_len = 140;
+"2939
 [e = . _hg_op 11 -> -> 140 `i `uc ]
-[; ;Oled.c: 2941: }
-"2941
+[; ;Oled.c: 2942: }
+"2942
 [e :UE 698 ]
 }
-"2944
-[v _config_LCD `(v ~T0 @X0 1 ef ]
 "2945
+[v _config_LCD `(v ~T0 @X0 1 ef ]
+"2946
 {
-[; ;Oled.c: 2944: void config_LCD(void)
-[; ;Oled.c: 2945: {
+[; ;Oled.c: 2945: void config_LCD(void)
+[; ;Oled.c: 2946: {
 [e :U _config_LCD ]
 [f ]
-[; ;Oled.c: 2947: write_buf[0]=0x21;
-"2947
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 33 `i `uc ]
-[; ;Oled.c: 2948: ee_WriteBytes(write_buf, 0x00, 1);
+[; ;Oled.c: 2948: write_buf[0]=0x21;
 "2948
+[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 33 `i `uc ]
+[; ;Oled.c: 2950: ee_WriteBytes(write_buf, 0x00, 1);
+"2950
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2951: write_buf[0]=0x15;
-"2951
+[; ;Oled.c: 2953: write_buf[0]=0x15;
+"2953
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 21 `i `uc ]
-[; ;Oled.c: 2952: ee_WriteBytes(write_buf, 0x00, 1);
-"2952
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2954: write_buf[0]=0x08;
+[; ;Oled.c: 2954: ee_WriteBytes(write_buf, 0x00, 1);
 "2954
+[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Oled.c: 2956: write_buf[0]=0x08;
+"2956
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 8 `i `uc ]
-[; ;Oled.c: 2955: ee_WriteBytes(write_buf, 0x00, 1);
-"2955
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2957: write_buf[0]=0x9f;
+[; ;Oled.c: 2957: ee_WriteBytes(write_buf, 0x00, 1);
 "2957
+[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Oled.c: 2959: write_buf[0]=0x9f;
+"2959
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 159 `i `uc ]
-[; ;Oled.c: 2958: ee_WriteBytes(write_buf, 0x00, 1);
-"2958
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2960: write_buf[0]=0x20;
+[; ;Oled.c: 2960: ee_WriteBytes(write_buf, 0x00, 1);
 "2960
+[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Oled.c: 2962: write_buf[0]=0x20;
+"2962
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 32 `i `uc ]
-[; ;Oled.c: 2961: ee_WriteBytes(write_buf, 0x00, 1);
-"2961
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2963: write_buf[0]=0x05;
+[; ;Oled.c: 2963: ee_WriteBytes(write_buf, 0x00, 1);
 "2963
+[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Oled.c: 2965: write_buf[0]=0x05;
+"2965
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 5 `i `uc ]
-[; ;Oled.c: 2964: ee_WriteBytes(write_buf, 0x00, 1);
-"2964
-[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2966: write_buf[0]=0x0c;
+[; ;Oled.c: 2966: ee_WriteBytes(write_buf, 0x00, 1);
 "2966
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 12 `i `uc ]
-[; ;Oled.c: 2969: ee_WriteBytes(write_buf, 0x00, 1);
-"2969
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Oled.c: 2971: }
+[; ;Oled.c: 2968: write_buf[0]=0x0c;
+"2968
+[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 12 `i `uc ]
+[; ;Oled.c: 2971: ee_WriteBytes(write_buf, 0x00, 1);
 "2971
+[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Oled.c: 2979: }
+"2979
 [e :UE 702 ]
 }
-"2977
+"2985
 [v _Initial_LY096BG30 `(v ~T0 @X0 1 ef ]
-"2978
+"2986
 {
-[; ;Oled.c: 2977: void Initial_LY096BG30(void)
-[; ;Oled.c: 2978: {
+[; ;Oled.c: 2985: void Initial_LY096BG30(void)
+[; ;Oled.c: 2986: {
 [e :U _Initial_LY096BG30 ]
 [f ]
-[; ;Oled.c: 2980: i2c_CfgGpio();
-"2980
-[e ( _i2c_CfgGpio ..  ]
-[; ;Oled.c: 2985: LATEbits.LATE1=0;
-"2985
-[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-[; ;Oled.c: 2986: delay(1);
-"2986
-[e ( _delay (1 -> -> 1 `i `ui ]
-[; ;Oled.c: 2988: LATEbits.LATE1=1;
+[; ;Oled.c: 2988: i2c_CfgGpio();
 "2988
-[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
-[; ;Oled.c: 2989: delay(1);
-"2989
+[e ( _i2c_CfgGpio ..  ]
+[; ;Oled.c: 2993: LATEbits.LATE1=0;
+"2993
+[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
+[; ;Oled.c: 2994: delay(1);
+"2994
 [e ( _delay (1 -> -> 1 `i `ui ]
-[; ;Oled.c: 3024: config_LCD();
-"3024
-[e ( _config_LCD ..  ]
-[; ;Oled.c: 3026: initial_ui_setting();
-"3026
-[e ( _initial_ui_setting ..  ]
-[; ;Oled.c: 3061: }
-"3061
+[; ;Oled.c: 2996: LATEbits.LATE1=1;
+"2996
+[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
+[; ;Oled.c: 2997: delay(1);
+"2997
+[e ( _delay (1 -> -> 1 `i `ui ]
+[; ;Oled.c: 3038: write_buf[0]=0x25;
+"3038
+[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 37 `i `uc ]
+[; ;Oled.c: 3039: ee_WriteBytes(write_buf, 0x00, 1);
+"3039
+[e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Oled.c: 3076: }
+"3076
 [e :UE 703 ]
 }

@@ -94,7 +94,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_posrst cnt_target_posrst qec ]
 "63
 [v _hg_op `S281 ~T0 @X0 0 e ]
-"273 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+"7817 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[v _T0IE `Vb ~T0 @X0 0 e@32661 ]
+"6100
+[s S257 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S257 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"6108
+[s S258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S258 . T0PS0 T0PS1 T0PS2 T0PS3 . T016BIT ]
+"6099
+[u S256 `S257 1 `S258 1 ]
+[n S256 . . . ]
+"6117
+[v _T0CONbits `VS256 ~T0 @X0 0 e@4053 ]
+"273
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S12 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
 "283
@@ -3076,20 +3089,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 63: extern HG_OP hg_op;
 [; ;gui.h: 64: extern uint8_t test_mode;
 [; ;gui.h: 65: extern uint8_t flag_test_mode_break;
-[; ;gui.h: 168: extern uint8_t focus;
-[; ;gui.h: 169: extern uint8_t flip;
-[; ;gui.h: 170: extern int8_t work_mode;
-[; ;gui.h: 171: extern MENU menu[8];
-[; ;gui.h: 173: void init_menu(void);
-[; ;gui.h: 174: void HG_interface(void);
-[; ;gui.h: 176: void menu0_MsgHandlle(uint8_t key);
-[; ;gui.h: 177: void menu1_MsgHandlle(uint8_t key);
-[; ;gui.h: 178: void menu2_MsgHandlle(uint8_t key);
-[; ;gui.h: 179: void menu3_MsgHandlle(uint8_t key);
-[; ;gui.h: 180: void menu4_MsgHandlle(uint8_t key);
-[; ;gui.h: 181: void menu5_MsgHandlle(uint8_t key);
-[; ;gui.h: 182: void menu6_MsgHandlle(uint8_t key);
-[; ;gui.h: 183: void menu7_MsgHandlle(uint8_t key);
+[; ;gui.h: 174: extern uint8_t focus;
+[; ;gui.h: 175: extern uint8_t flip;
+[; ;gui.h: 176: extern int8_t work_mode;
+[; ;gui.h: 177: extern MENU menu[8];
+[; ;gui.h: 179: void init_menu(void);
+[; ;gui.h: 180: void HG_interface(void);
+[; ;gui.h: 182: void menu0_MsgHandlle(uint8_t key);
+[; ;gui.h: 183: void menu1_MsgHandlle(uint8_t key);
+[; ;gui.h: 184: void menu2_MsgHandlle(uint8_t key);
+[; ;gui.h: 185: void menu3_MsgHandlle(uint8_t key);
+[; ;gui.h: 186: void menu4_MsgHandlle(uint8_t key);
+[; ;gui.h: 187: void menu5_MsgHandlle(uint8_t key);
+[; ;gui.h: 188: void menu6_MsgHandlle(uint8_t key);
+[; ;gui.h: 189: void menu7_MsgHandlle(uint8_t key);
 [; ;Timer.h: 8: extern uint16_t action_btn_cnt;
 [; ;Timer.h: 15: extern void TimerInit(void);
 [; ;Timer.h: 16: extern void Timer1Init(void);
@@ -3213,118 +3226,124 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key.c: 82: hg_op.cur_working_mode = 0x04;
 "82
 [e = . _hg_op 1 -> -> 4 `i `uc ]
-[; ;Key.c: 83: return 0x00;
-"83
+[; ;Key.c: 85: T0IE=0;
+"85
+[e = _T0IE -> -> 0 `i `b ]
+[; ;Key.c: 86: T0CONbits.TMR0ON =0;
+"86
+[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+[; ;Key.c: 90: return 0x00;
+"90
 [e ) -> -> 0 `i `uc ]
 [e $UE 283  ]
-"85
+"92
 }
 [e :U 289 ]
-[; ;Key.c: 85: }
-[; ;Key.c: 88: return 0xf1;
-"88
+[; ;Key.c: 92: }
+[; ;Key.c: 95: return 0xf1;
+"95
 [e ) -> -> 241 `i `uc ]
 [e $UE 283  ]
-"89
+"96
 }
 [e :U 285 ]
-"90
+"97
 }
 [e :U 284 ]
-[; ;Key.c: 89: }
-[; ;Key.c: 90: }
-[; ;Key.c: 91: if(PORTDbits.RD7 == 0)
-"91
+[; ;Key.c: 96: }
+[; ;Key.c: 97: }
+[; ;Key.c: 98: if(PORTDbits.RD7 == 0)
+"98
 [e $ ! == -> . . _PORTDbits 0 7 `i -> 0 `i 290  ]
-[; ;Key.c: 92: {
-"92
+[; ;Key.c: 99: {
+"99
 {
-[; ;Key.c: 93: delay_nms(5);
-"93
+[; ;Key.c: 100: delay_nms(5);
+"100
 [e ( _delay_nms (1 -> -> -> 5 `i `l `ul ]
-[; ;Key.c: 94: if(PORTDbits.RD7 == 0)
-"94
+[; ;Key.c: 101: if(PORTDbits.RD7 == 0)
+"101
 [e $ ! == -> . . _PORTDbits 0 7 `i -> 0 `i 291  ]
-[; ;Key.c: 95: {
-"95
+[; ;Key.c: 102: {
+"102
 {
-[; ;Key.c: 96: while(PORTDbits.RD7 == 0);
-"96
+[; ;Key.c: 103: while(PORTDbits.RD7 == 0);
+"103
 [e $U 292  ]
 [e :U 293 ]
 [e :U 292 ]
 [e $ == -> . . _PORTDbits 0 7 `i -> 0 `i 293  ]
 [e :U 294 ]
-[; ;Key.c: 97: buzz();
-"97
+[; ;Key.c: 104: buzz();
+"104
 [e ( _buzz ..  ]
-[; ;Key.c: 99: return 0xf2;
-"99
+[; ;Key.c: 106: return 0xf2;
+"106
 [e ) -> -> 242 `i `uc ]
 [e $UE 283  ]
-"100
+"107
 }
 [e :U 291 ]
-"101
+"108
 }
 [e :U 290 ]
-[; ;Key.c: 100: }
-[; ;Key.c: 101: }
-[; ;Key.c: 102: if(PORTBbits.RB3 == 0)
-"102
+[; ;Key.c: 107: }
+[; ;Key.c: 108: }
+[; ;Key.c: 109: if(PORTBbits.RB3 == 0)
+"109
 [e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 295  ]
-[; ;Key.c: 103: {
-"103
+[; ;Key.c: 110: {
+"110
 {
-[; ;Key.c: 104: delay_nms(5);
-"104
+[; ;Key.c: 111: delay_nms(5);
+"111
 [e ( _delay_nms (1 -> -> -> 5 `i `l `ul ]
-[; ;Key.c: 105: if(PORTBbits.RB3 == 0)
-"105
+[; ;Key.c: 112: if(PORTBbits.RB3 == 0)
+"112
 [e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 296  ]
-[; ;Key.c: 106: {
-"106
+[; ;Key.c: 113: {
+"113
 {
-[; ;Key.c: 107: while(PORTBbits.RB3 == 0);
-"107
+[; ;Key.c: 114: while(PORTBbits.RB3 == 0);
+"114
 [e $U 297  ]
 [e :U 298 ]
 [e :U 297 ]
 [e $ == -> . . _PORTBbits 0 3 `i -> 0 `i 298  ]
 [e :U 299 ]
-[; ;Key.c: 108: buzz();
-"108
+[; ;Key.c: 115: buzz();
+"115
 [e ( _buzz ..  ]
-[; ;Key.c: 110: return 0xf3;
-"110
+[; ;Key.c: 117: return 0xf3;
+"117
 [e ) -> -> 243 `i `uc ]
 [e $UE 283  ]
-"111
+"118
 }
 [e :U 296 ]
-"112
+"119
 }
 [e :U 295 ]
-[; ;Key.c: 111: }
-[; ;Key.c: 112: }
-[; ;Key.c: 116: return 0x00;
-"116
+[; ;Key.c: 118: }
+[; ;Key.c: 119: }
+[; ;Key.c: 123: return 0x00;
+"123
 [e ) -> -> 0 `i `uc ]
 [e $UE 283  ]
-[; ;Key.c: 117: }
-"117
+[; ;Key.c: 124: }
+"124
 [e :UE 283 ]
 }
-"130
+"137
 [v _KeyFuction `(v ~T0 @X0 1 ef ]
-"131
+"138
 {
-[; ;Key.c: 130: void KeyFuction(void)
-[; ;Key.c: 131: {
+[; ;Key.c: 137: void KeyFuction(void)
+[; ;Key.c: 138: {
 [e :U _KeyFuction ]
 [f ]
-[; ;Key.c: 134: }
-"134
+[; ;Key.c: 141: }
+"141
 [e :UE 300 ]
 }
 [p f _printf 8388608 ]

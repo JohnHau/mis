@@ -4104,7 +4104,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 168
+# 174
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4193,6 +4193,13 @@ test_mode =1;
 printf("enter test mode\r\n");
 
 hg_op.cur_working_mode = 0x04;
+
+
+T0IE=0;
+T0CONbits.TMR0ON =0;
+
+
+
 return 0x00;
 
 }
@@ -4229,7 +4236,7 @@ return 0xf3;
 return 0x00;
 }
 
-# 130
+# 137
 void KeyFuction(void)
 {
 

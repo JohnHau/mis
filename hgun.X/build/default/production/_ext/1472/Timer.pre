@@ -4150,7 +4150,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 168
+# 174
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4197,6 +4197,7 @@ void __interrupt ISR(void)
 {
 uint8_t temp;
 static uint32_t tcnt=0;
+static uint8_t cnt_action_btn =0;
 
 # 50
 if(T0IF)
@@ -4297,11 +4298,13 @@ else if(flip == 0)
 flip =1;
 if(menu[5].parameter == 0)
 {
-display_num(3,(49 + 14), 0x80 | 106);
+
+display_num(3,(49 + 14), 0x80 | 2);
 }
 else if(menu[5].parameter == 1)
 {
-display_num(3,(49 + 14), 0x80 | 105);
+
+display_num(3,(49 + 14), 0x80 | 3);
 }
 else if(menu[5].parameter == 2)
 {
@@ -4366,7 +4369,7 @@ display_num(3,(0 + 17), 0x80 | 102);
 }
 }
 
-# 268
+# 270
 tcnt = 0;
 }
 
@@ -4374,7 +4377,7 @@ T0IF = 0;
 
 }
 
-# 283
+# 285
 if(INTCONbits.RBIF)
 {
 if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
@@ -4402,6 +4405,11 @@ hg_op.need_reset =1;
 config_LCD();
 initial_ui_setting();
 
+
+T0IE=1;
+T0CONbits.TMR0ON =1;
+
+
 }
 else if(hg_op.status_powerup == 0x01)
 {
@@ -4428,57 +4436,10 @@ printf("sleep\r\n");
 if(PORTBbits.RB5 == 0)
 {
 
-delaynus(15 * 1000);
-if(PORTBbits.RB5 == 0)
-{
 
-# 344
-buzz();
+hg_op.acting_flag = 1;
 
-
-if(hg_op.status_powerup == 0x01)
-{
-printf("action\r\n");
-
-if(hg_op.cur_working_mode == 0x01)
-{
-printf("drops mode\r\n");
-hg_op.acting_flag =1;
-
-hg_op.drops_sa =1;
-hg_op.drops_sb =0;
-hg_op.drops_push =0;
-
-hg_op.working_mode = hg_op.cur_working_mode;
-}
-else if(hg_op.cur_working_mode == 0x00)
-{
-printf("c mode\r\n");
-hg_op.drops_sa =1;
-hg_op.drops_sb =0;
-hg_op.drops_push =0;
-
-hg_op.working_mode = hg_op.cur_working_mode;
-hg_op.working_mode = 0x00;
-}
-else if(hg_op.cur_working_mode == 0x04)
-{
-action_btn_cnt ++;
-printf("test mode\r\n");
-hg_op.drops_sa =1;
-hg_op.drops_sb =0;
-hg_op.drops_push =0;
-
-hg_op.working_mode = hg_op.cur_working_mode;
-
-
-
-
-}
-
-}
-
-}
+# 413
 }
 
 
@@ -4516,7 +4477,7 @@ else if(INTCON2bits.INTEDG2 == 1)
 INTCON2bits.INTEDG2 = 0;
 }
 
-# 431
+# 454
 if(hg_op.need_reset)
 {
 
@@ -4532,7 +4493,7 @@ do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 }
 
-# 483
+# 506
 }
 }
 else
@@ -4547,7 +4508,7 @@ hg_op.cnt_posa ++;
 if(0)
 {
 
-# 526
+# 549
 }
 
 }
@@ -4559,7 +4520,7 @@ hg_op.cnt_posb ++;
 if(0)
 {
 
-# 567
+# 590
 }
 
 
@@ -4600,11 +4561,11 @@ else
 
 }
 
-# 611
+# 634
 INTCON3bits.INT2IF = 0;
 }
 
-# 624
+# 647
 }
 
 void TimerInit(void)
@@ -4635,10 +4596,10 @@ T1CONbits.T1CKPS = 2;
 T1CONbits.RD16 =1;
 T1CONbits.TMR1ON =0;
 
-# 675
+# 698
 }
 
-# 684
+# 707
 void delaynus(uint16_t n)
 {
 

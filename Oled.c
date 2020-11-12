@@ -2916,7 +2916,8 @@ void initial_ui_setting(void)
     //-------------------------------------------------------------------
 
     display_frame_fghi(TYPE_F,COL_PAGE0_PATTERN_F, MODE_NORMAL);
-    display_num(BOTTOM,COL_PAGE0_FN, NUM_2P5);
+    //display_num(BOTTOM,COL_PAGE0_FN, NUM_2P5);
+    display_num(BOTTOM,COL_PAGE0_FN, NUM_2);
     
     
     display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
@@ -2944,7 +2945,8 @@ void initial_ui_setting(void)
 void config_LCD(void)
 {
     
-    write_buf[0]=0x21;  
+    write_buf[0]=0x21;  //on
+    //write_buf[0]=0x25;  //off
 	ee_WriteBytes(write_buf, 0x00, 1);
     //ee_WriteBytes(write_buf, 0x80, 1);
 	
@@ -2967,6 +2969,12 @@ void config_LCD(void)
      //write_buf[0]=0x08;//blank
    // write_buf[0]=0x0d;//reverse
 	ee_WriteBytes(write_buf, 0x00, 1);
+    
+ 
+    
+    
+    
+    
      
 }
 
@@ -3021,9 +3029,16 @@ delay(1);
     
     
     
-    config_LCD();
+    //config_LCD();
     
-    initial_ui_setting();
+    //initial_ui_setting();
+    
+    
+    
+    write_buf[0]=0x25;  //off
+	ee_WriteBytes(write_buf, 0x00, 1);
+    
+    
     
     
 #if 0

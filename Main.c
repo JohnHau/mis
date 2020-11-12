@@ -100,17 +100,18 @@ void main(void)
 
     //hg_op.need_reset =1;
     hg_op.need_reset =0;
-    hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
-    //hg_op.cur_working_mode = WORK_MODE_C;
+    //hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
+    hg_op.cur_working_mode = WORK_MODE_C;
     hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = NEEDLE_LEN_4_MM;
     hg_op.status_powerup = STATUS_SLEEP;
     hg_op.working_mode = WORK_MODE_STOP;
     
     
+#if 0
     T0IE=0; // 
     T0CONbits.TMR0ON =0;
-    
+#endif
     
     
     
@@ -624,15 +625,17 @@ void main(void)
                             if( hg_op.needle_len == NEEDLE_LEN_13_MM)   
                             {
                                 
-                                ENABLE_BH();
                                 INPUT3_BH();
+                                ENABLE_BH();
+                                
                                 while(hg_op.cnt_posa < POS_13MM_SA);
                             }
                             else
                             {
-                                 ENABLE_BH();INPUT3_BH();
+                                INPUT3_BH(); 
+                                ENABLE_BH();
                                  //delay_pwm(300 * STARTUP_CNT_MA);
-                                 delaynus(STARTUP_CNT_MA * 1000);
+                                 delaynus(STARTUP_CNT_MA_TEST * 1000);
                             }
                            STOP_B();
                            
@@ -682,15 +685,17 @@ void main(void)
 
                             if(hg_op.needle_len == NEEDLE_LEN_13_MM)
                             {
-                                ENABLE_BH();INPUT4_BH();
+                                INPUT4_BH();
+                                ENABLE_BH();
                                 while(LP_BUTTON == 1);
                             }
                             else
                             {
-                                ENABLE_BH();
                                 INPUT4_BH();
+                                ENABLE_BH();
+                                
                                 //delay_pwm(300 * STARTUP_CNT_MB);
-                                 delaynus(STARTUP_CNT_MB * 1000);
+                                 delaynus(STARTUP_CNT_MB_TEST * 1000);
                             }
                             STOP_B();
 
@@ -751,8 +756,17 @@ void main(void)
                 
                 
             }
-            else
+            else if(hg_op.working_mode == WORK_MODE_STOP)
             {
+                             
+                #if 1
+                if(T0IE == 0  || T0CONbits.TMR0ON == 0)
+                {
+                    T0CONbits.TMR0ON =1;
+                    T0IE=1; // 
+                }
+                #endif
+                
                 printf("in stop mode\r\n");
             }
                 
@@ -760,6 +774,85 @@ void main(void)
         }
         printf("running free\r\n");
         HG_interface();
+        
+        //======================================================================
+       
+            if(hg_op.acting_flag)
+            {
+              
+                delaynus(20 * 1000);
+                  if(ACTION_BUTTON  == 0)
+                  {
+                //while(ACTION_BUTTON == 0);
+            //T0IE=0; // 
+            //T0CONbits.TMR0ON =0;
+            
+            
+            buzz();
+            
+            #if 1
+            T0IE=0; // 
+            T0CONbits.TMR0ON =0;
+            #endif
+            
+            
+            
+           
+             if(hg_op.status_powerup == STATUS_WAKE)
+             {
+                 printf("action\r\n");
+                 //if(hg_op.acting_flag ==0)
+                 if(hg_op.cur_working_mode == WORK_MODE_DROPS)
+                 {
+                     printf("drops mode\r\n");
+                     hg_op.acting_flag =1;
+                   
+                    hg_op.drops_sa =1;
+                    hg_op.drops_sb =0;
+                    hg_op.drops_push =0;
+
+                    hg_op.working_mode = hg_op.cur_working_mode;
+                 }
+                 else if(hg_op.cur_working_mode == WORK_MODE_C)
+                 {
+                      printf("c mode\r\n");
+                    hg_op.drops_sa =1;
+                    hg_op.drops_sb =0;
+                    hg_op.drops_push =0;
+ 
+                    hg_op.working_mode = hg_op.cur_working_mode;
+                    hg_op.working_mode = WORK_MODE_C;
+                 }
+                  else if(hg_op.cur_working_mode == WORK_MODE_TEST)
+                  {
+                     action_btn_cnt ++;
+                      printf("test mode\r\n");
+                    hg_op.drops_sa =1;
+                    hg_op.drops_sb =0;
+                    hg_op.drops_push =0;
+ 
+                    hg_op.working_mode = hg_op.cur_working_mode;
+                    
+                    //printf("action test mode\r\n");
+                    
+                    
+                  }
+      
+             }
+
+                  }
+                
+                
+                
+                hg_op.acting_flag = 0;
+                
+            }
+        
+        
+        
+        
+        //======================================================================
+        
 
     }
     

@@ -4150,7 +4150,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 168
+# 174
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4250,20 +4250,14 @@ cnt_mb = 0;
 
 
 hg_op.need_reset =0;
-hg_op.cur_working_mode = 0x01;
 
+hg_op.cur_working_mode = 0x00;
 hg_op.cnt_target_posrst = (412 );
 hg_op.needle_len = 4;
 hg_op.status_powerup = 0x00;
 hg_op.working_mode = 0x03;
 
-
-T0IE=0;
-T0CONbits.TMR0ON =0;
-
-
-
-
+# 118
 while(1)
 {
 
@@ -4384,7 +4378,7 @@ if(hg_op.drops_sa == 1)
 {
 hg_op.cnt_posa =0;
 
-# 241
+# 242
 if( hg_op.needle_len == 13)
 {
 
@@ -4414,7 +4408,7 @@ hg_op.drops_push = 1;
 else if(hg_op.drops_push == 1)
 {
 
-# 278
+# 279
 cnt_push =0;
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
@@ -4431,7 +4425,7 @@ cnt_push ++;
 
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
-# 302
+# 303
 hg_op.drops_sa = 0;
 hg_op.drops_push = 0;
 hg_op.drops_sb = 1;
@@ -4464,7 +4458,7 @@ delaynus(100 * 100);
 do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
-# 356
+# 357
 delay_pwm(10* 300);
 printf("999-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
@@ -4550,7 +4544,7 @@ if(hg_op.drops_sa == 1)
 
 hg_op.cnt_posa =0;
 
-# 445
+# 446
 if( hg_op.needle_len == 13)
 {
 
@@ -4565,7 +4559,7 @@ delaynus(14 * 1000);
 }
 do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 463
+# 464
 delaynus(50 * 1000);
 delaynus(50 * 1000);
 printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
@@ -4578,7 +4572,7 @@ hg_op.drops_push = 1;
 if(hg_op.drops_push == 1)
 {
 
-# 485
+# 486
 while(PORTBbits.RB5 == 0)
 {
 cnt_push =0;
@@ -4631,7 +4625,7 @@ delaynus(100 * 1000);
 }
 do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 542
+# 543
 delay_pwm(hg_op.work_freq * 300);
 printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
@@ -4717,15 +4711,17 @@ hg_op.cnt_posa =0;
 if( hg_op.needle_len == 13)
 {
 
-LATDbits.LD4 =1;
 LATDbits.LD2 =1;
+LATDbits.LD4 =1;
+
 while(hg_op.cnt_posa < (156));
 }
 else
 {
-LATDbits.LD4 =1;LATDbits.LD2 =1;
+LATDbits.LD2 =1;
+LATDbits.LD4 =1;
 
-delaynus(93 * 1000);
+delaynus(95 * 1000);
 }
 do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
@@ -4775,13 +4771,15 @@ hg_op.cnt_posb =0;
 
 if(hg_op.needle_len == 13)
 {
-LATDbits.LD4 =1;LATDbits.LD3 =1;
+LATDbits.LD3 =1;
+LATDbits.LD4 =1;
 while(PORTBbits.RB0 == 1);
 }
 else
 {
-LATDbits.LD4 =1;
 LATDbits.LD3 =1;
+LATDbits.LD4 =1;
+
 
 delaynus(100 * 1000);
 }
@@ -4844,8 +4842,17 @@ hg_op.drops_sa = 1;
 
 
 }
-else
+else if(hg_op.working_mode == 0x03)
 {
+
+
+if(T0IE == 0 || T0CONbits.TMR0ON == 0)
+{
+T0CONbits.TMR0ON =1;
+T0IE=1;
+}
+
+
 printf("in stop mode\r\n");
 }
 
@@ -4854,6 +4861,74 @@ printf("in stop mode\r\n");
 printf("running free\r\n");
 HG_interface();
 
+
+
+if(hg_op.acting_flag)
+{
+
+delaynus(20 * 1000);
+if(PORTBbits.RB5 == 0)
+{
+
+# 791
+buzz();
+
+
+T0IE=0;
+T0CONbits.TMR0ON =0;
+
+# 801
+if(hg_op.status_powerup == 0x01)
+{
+printf("action\r\n");
+
+if(hg_op.cur_working_mode == 0x01)
+{
+printf("drops mode\r\n");
+hg_op.acting_flag =1;
+
+hg_op.drops_sa =1;
+hg_op.drops_sb =0;
+hg_op.drops_push =0;
+
+hg_op.working_mode = hg_op.cur_working_mode;
+}
+else if(hg_op.cur_working_mode == 0x00)
+{
+printf("c mode\r\n");
+hg_op.drops_sa =1;
+hg_op.drops_sb =0;
+hg_op.drops_push =0;
+
+hg_op.working_mode = hg_op.cur_working_mode;
+hg_op.working_mode = 0x00;
+}
+else if(hg_op.cur_working_mode == 0x04)
+{
+action_btn_cnt ++;
+printf("test mode\r\n");
+hg_op.drops_sa =1;
+hg_op.drops_sb =0;
+hg_op.drops_push =0;
+
+hg_op.working_mode = hg_op.cur_working_mode;
+
+
+
+
+}
+
+}
+
+}
+
+
+
+hg_op.acting_flag = 0;
+
+}
+
+# 857
 }
 
 }

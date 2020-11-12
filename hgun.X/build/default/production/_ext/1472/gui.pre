@@ -4041,7 +4041,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 168
+# 174
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4797,11 +4797,13 @@ display_frame_fghi(1,49, menu[5].mode);
 
 if( menu[5].parameter == 0)
 {
-display_num(3,(49 + 14), menu[5].mode | 106);
+
+display_num(3,(49 + 14), menu[5].mode | 2);
 }
 else if( menu[5].parameter == 1)
 {
-display_num(3,(49 + 14), menu[5].mode | 105);
+
+display_num(3,(49 + 14), menu[5].mode | 3);
 }
 else if( menu[5].parameter == 2)
 {
@@ -4842,11 +4844,13 @@ display_frame_fghi(1,49, menu[5].mode);
 
 if( menu[5].parameter == 0)
 {
-display_num(3,(49 + 14), menu[5].mode | 106);
+
+display_num(3,(49 + 14), menu[5].mode | 2);
 }
 else if( menu[5].parameter == 1)
 {
-display_num(3,(49 + 14), menu[5].mode | 105);
+
+display_num(3,(49 + 14), menu[5].mode | 3);
 }
 else if( menu[5].parameter == 2)
 {
@@ -4885,21 +4889,23 @@ display_frame_fghi(1,49, 0);
 if(menu[5].parameter == 0)
 {
 
-display_num(3,(49 + 14),106);
 
-# 859
+display_num(3,(49 + 14),2);
+
+# 864
 hg_op.push_len = 140;
 }
 else if(menu[5].parameter == 1)
 {
 
 
-display_num(3,(49 + 14),105);
 
-# 871
-hg_op.push_len = 130;
+display_num(3,(49 + 14),3);
 
 # 877
+hg_op.push_len = 130;
+
+# 883
 }
 else if(menu[5].parameter == 2)
 {
@@ -5126,7 +5132,7 @@ hg_op.work_freq = 20;
 
 }
 
-# 1107
+# 1113
 }
 else if(menu[6].parameter == 1)
 {
@@ -5143,7 +5149,7 @@ hg_op.work_freq = 200;
 
 }
 
-# 1135
+# 1141
 }
 else if(menu[6].parameter == 2)
 {
@@ -5171,7 +5177,7 @@ break;
 
 }
 
-# 1166
+# 1172
 void menu7_MsgHandlle(uint8_t key)
 {
 switch(key)
@@ -5222,7 +5228,7 @@ break;
 
 case 0xf2:
 
-# 1225
+# 1231
 break;
 
 case 0xf3:
@@ -5259,7 +5265,7 @@ else if(menu[7].parameter == 1)
 
 display_num(3,(0 + 17),102);
 
-# 1271
+# 1277
 }
 
 }

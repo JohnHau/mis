@@ -80,6 +80,13 @@ uint8_t KEY_Scan(void)
                    printf("enter test mode\r\n");
                    //hg_op.working_mode = WORK_MODE_TEST;
                    hg_op.cur_working_mode = WORK_MODE_TEST;
+                   
+                   #if 1
+                   T0IE=0; // 
+                   T0CONbits.TMR0ON =0;
+                   #endif
+                   
+                   
                    return KEY_NOT_PRESSED;
                  
                  }
