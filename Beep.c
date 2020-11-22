@@ -12,8 +12,8 @@ void uart_init(void)
     TRISCbits.RC7 =1;//RX  input mode
     TRISCbits.RC6 =0;//TX  output mode
 
-    SPBRG = 25;
-
+    //SPBRG = 25;//9600
+    SPBRG = 12;//19200
     RCSTAbits.SPEN =1;
     //RCSTAbits.CREN =1;//
     

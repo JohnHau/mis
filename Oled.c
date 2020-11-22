@@ -277,18 +277,7 @@ void delay_ms(unsigned int ms)
 
 unsigned int StartAndReadAdValue(unsigned char ch)
 {
-#if 0
-	unsigned int delay =1000;
-	unsigned int value =0; 
 
-	//SetAdChanel(ch);
-	//StartAdConvert();
-	while(delay-- && (ADCON0 & 0x2));
-	
-	value=((unsigned int)ADRESH <<2)|value; 
-		
-	return(value);	
-#endif
 }
 
 

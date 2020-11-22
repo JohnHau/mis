@@ -3910,10 +3910,10 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 8 "../Timer.h"
+# 41 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 15
+# 48
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
@@ -4054,7 +4054,7 @@ void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
 void delay_f(uint32_t n);
 
-# 99 "../MotorDrive.h"
+# 102 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4090,7 +4090,28 @@ extern uint8_t flag_do_reset_in_drops_mode;
 extern uint8_t flag_action_button;
 
 
-extern void MotorDriveInit(void);
+void MotorDriveInit(void);
+
+# 156
+typedef struct para_pid
+{
+double kp;
+double ki;
+double kd;
+double lastInput;
+double myInput;
+double mySetpoint;
+double myOutput;
+double outputSum;
+double outMax;
+double outMin;
+}PARAPID;
+
+
+extern PARAPID r_motor;
+
+uint8_t PID_Compute(PARAPID * p);
+void PID_SetTunings(PARAPID * p);
 
 # 6 "../gui.h"
 typedef struct xmenu
@@ -4116,6 +4137,16 @@ uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
 
+uint8_t in_reset;
+uint16_t sat;
+uint16_t sbt;
+
+uint16_t sa_old;
+uint16_t sa_new;
+
+uint16_t sb_old;
+uint16_t sb_new;
+
 uint8_t needle_len;
 uint8_t inject_len;
 uint8_t tube_cap;
@@ -4140,6 +4171,14 @@ uint16_t cnt_posa;
 uint16_t cnt_posb;
 uint16_t cnt_posc;
 
+uint16_t cnt_posa_std;
+uint16_t cnt_posb_std;
+
+uint16_t cnt_posa_target;
+uint16_t cnt_posb_target;
+
+
+
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
 uint16_t qec;
@@ -4150,7 +4189,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 174
+# 193
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4168,7 +4207,7 @@ void menu5_MsgHandlle(uint8_t key);
 void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
 
-# 13 "../Timer.c"
+# 19 "../Timer.c"
 unsigned char LastNeedleFeedback =0;
 unsigned char LastInjectionFeedback =0;
 unsigned char flag =0;
@@ -4199,7 +4238,178 @@ uint8_t temp;
 static uint32_t tcnt=0;
 static uint8_t cnt_action_btn =0;
 
-# 50
+# 56
+if(INTCON3bits.INT2IF)
+{
+
+
+if(INTCON2bits.INTEDG2 == 0)
+{
+INTCON2bits.INTEDG2 = 1;
+}
+else if(INTCON2bits.INTEDG2 == 1)
+{
+INTCON2bits.INTEDG2 = 0;
+}
+
+# 104
+if(hg_op.need_reset)
+{
+
+
+if(1)
+{
+
+# 115
+if( hg_op.in_reset == 1)
+{
+
+
+hg_op.cnt_posrst ++;
+
+# 151
+}
+
+
+if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
+{
+hg_op.posrst =1;
+
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+}
+
+# 199
+}
+}
+else
+{
+if(hg_op.working_mode == 0x01)
+{
+if(hg_op.drops_sa == 1)
+{
+
+# 237
+if( INTCON2bits.INTEDG2 == 1)
+{
+if(PORTCbits.RC0 == 0)
+{
+r_motor.myInput ++;
+}
+else if(PORTCbits.RC0 == 1)
+{
+r_motor.myInput --;
+}
+
+
+
+}
+else if( INTCON2bits.INTEDG2 == 0)
+{
+
+if(PORTCbits.RC0 == 0)
+{
+r_motor.myInput --;
+}
+else if(PORTCbits.RC0 == 1)
+{
+r_motor.myInput ++;
+}
+
+
+}
+
+# 291
+if(0)
+{
+
+# 323
+}
+
+}
+else if(hg_op.drops_sb == 1)
+{
+
+# 349
+if( INTCON2bits.INTEDG2 == 1)
+{
+if(PORTCbits.RC0 == 0)
+{
+r_motor.myInput --;
+}
+else if(PORTCbits.RC0 == 1)
+{
+r_motor.myInput ++;
+
+}
+
+
+}
+else if( INTCON2bits.INTEDG2 == 0)
+{
+
+if(PORTCbits.RC0 == 0)
+{
+r_motor.myInput ++;
+}
+else if(PORTCbits.RC0 == 1)
+{
+r_motor.myInput --;
+}
+
+
+}
+
+# 401
+if(0)
+{
+
+# 434
+}
+
+
+}
+
+}
+else if(hg_op.working_mode == 0x02)
+{
+
+}
+else if(hg_op.working_mode == 0x00)
+{
+if(hg_op.drops_sa == 1)
+{
+hg_op.cnt_posa ++;
+}
+else if(hg_op.drops_sb == 1)
+{
+hg_op.cnt_posb ++;
+}
+}
+else if(hg_op.working_mode == 0x04)
+{
+if(hg_op.drops_sa == 1)
+{
+hg_op.cnt_posa ++;
+}
+else if(hg_op.drops_sb == 1)
+{
+hg_op.cnt_posb ++;
+}
+}
+else
+{
+
+}
+
+
+}
+
+# 478
+INTCON3bits.INT2IF = 0;
+}
+
+# 497
 if(T0IF)
 {
 
@@ -4209,10 +4419,7 @@ tcnt ++;
 if(tcnt > 125)
 {
 
-
-printf("timer is up \r\n");
-
-# 89
+# 536
 if(menu[0].mode == 3)
 {
 if(flip == 1)
@@ -4369,7 +4576,7 @@ display_num(3,(0 + 17), 0x80 | 102);
 }
 }
 
-# 270
+# 717
 tcnt = 0;
 }
 
@@ -4377,7 +4584,7 @@ T0IF = 0;
 
 }
 
-# 285
+# 732
 if(INTCONbits.RBIF)
 {
 if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
@@ -4393,13 +4600,16 @@ if(hg_op.status_powerup == 0x00)
 hg_op.status_powerup = 0x01;
 LCD_On();
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATCbits.LC2 =1;
 LATDbits.LD4 =1;
 printf("wake up\r\n");
 hg_op.status_hit_lp = 0;
 hg_op.need_reset =1;
+hg_op.in_reset =0;
 
+hg_op.cnt_posa_std =0;
+hg_op.cnt_posb_std =0;
 
 
 config_LCD();
@@ -4422,9 +4632,14 @@ ee_WriteBytes(write_buf, 0x00, 1);
 
 
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
 LATCbits.LC2 =0;
 LATDbits.LD4 =0;
+
+
+
+
 hg_op.need_reset =0;
 printf("sleep\r\n");
 
@@ -4439,7 +4654,7 @@ if(PORTBbits.RB5 == 0)
 
 hg_op.acting_flag = 1;
 
-# 413
+# 868
 }
 
 
@@ -4456,116 +4671,14 @@ if(INTCONbits.INT0IF)
 
 
 hg_op.status_hit_lp =1;
-
+printf("lp\r\n");
 
 
 INTCONbits.INT0IF = 0;
 
 }
 
-
-if(INTCON3bits.INT2IF)
-{
-
-
-if(INTCON2bits.INTEDG2 == 0)
-{
-INTCON2bits.INTEDG2 = 1;
-}
-else if(INTCON2bits.INTEDG2 == 1)
-{
-INTCON2bits.INTEDG2 = 0;
-}
-
-# 454
-if(hg_op.need_reset)
-{
-
-
-if(1)
-{
-
-hg_op.cnt_posrst ++;
-if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
-{
-hg_op.posrst =1;
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-
-}
-
-# 506
-}
-}
-else
-{
-if(hg_op.working_mode == 0x01)
-{
-if(hg_op.drops_sa == 1)
-{
-hg_op.cnt_posa ++;
-
-
-if(0)
-{
-
-# 549
-}
-
-}
-else if(hg_op.drops_sb == 1)
-{
-hg_op.cnt_posb ++;
-
-
-if(0)
-{
-
-# 590
-}
-
-
-}
-
-}
-else if(hg_op.working_mode == 0x02)
-{
-
-}
-else if(hg_op.working_mode == 0x00)
-{
-if(hg_op.drops_sa == 1)
-{
-hg_op.cnt_posa ++;
-}
-else if(hg_op.drops_sb == 1)
-{
-hg_op.cnt_posb ++;
-}
-}
-else if(hg_op.working_mode == 0x04)
-{
-if(hg_op.drops_sa == 1)
-{
-hg_op.cnt_posa ++;
-}
-else if(hg_op.drops_sb == 1)
-{
-hg_op.cnt_posb ++;
-}
-}
-else
-{
-
-}
-
-
-}
-
-# 634
-INTCON3bits.INT2IF = 0;
-}
-
-# 647
+# 899
 }
 
 void TimerInit(void)
@@ -4596,10 +4709,10 @@ T1CONbits.T1CKPS = 2;
 T1CONbits.RD16 =1;
 T1CONbits.TMR1ON =0;
 
-# 698
+# 950
 }
 
-# 707
+# 959
 void delaynus(uint16_t n)
 {
 

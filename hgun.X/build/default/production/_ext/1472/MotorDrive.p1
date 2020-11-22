@@ -1,4 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"156 ../MotorDrive.h
+[s S277 `d 1 `d 1 `d 1 `d 1 `d 1 `d 1 `d 1 `d 1 `d 1 `d 1 ]
+[n S277 para_pid kp ki kd lastInput myInput mySetpoint myOutput outputSum outMax outMin ]
 "1475 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
 [s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S55 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -2879,6 +2882,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -2907,202 +2940,369 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;MotorDrive.h: 99: extern uint8_t prev_state_phb_ma;
-[; ;MotorDrive.h: 100: extern uint8_t cur_state_phb_ma;
-[; ;MotorDrive.h: 102: extern uint32_t cnt_ma;
-[; ;MotorDrive.h: 103: extern uint32_t cnt_mb;
-[; ;MotorDrive.h: 106: extern uint32_t cnt_mb_sa;
-[; ;MotorDrive.h: 107: extern uint32_t cnt_mb_sb;
-[; ;MotorDrive.h: 112: extern uint8_t flag_inject;
-[; ;MotorDrive.h: 114: extern uint8_t flag_mreset;
-[; ;MotorDrive.h: 115: extern uint8_t flag_mreset_hit_lp;
-[; ;MotorDrive.h: 117: extern uint8_t flag_inject_sa;
-[; ;MotorDrive.h: 118: extern uint8_t flag_inject_sb;
-[; ;MotorDrive.h: 120: extern uint8_t flag_push;
-[; ;MotorDrive.h: 122: extern uint8_t flag_action;
-[; ;MotorDrive.h: 125: extern uint8_t flag_go_to_sleep;
-[; ;MotorDrive.h: 127: extern uint8_t flag_wake_up;
-[; ;MotorDrive.h: 129: extern uint8_t flag_do_reset_in_drops_mode;
-[; ;MotorDrive.h: 131: extern uint8_t flag_action_button;
-[; ;MotorDrive.h: 134: extern void MotorDriveInit(void);
-"12 ../MotorDrive.c
+[; ;MotorDrive.h: 102: extern uint8_t prev_state_phb_ma;
+[; ;MotorDrive.h: 103: extern uint8_t cur_state_phb_ma;
+[; ;MotorDrive.h: 105: extern uint32_t cnt_ma;
+[; ;MotorDrive.h: 106: extern uint32_t cnt_mb;
+[; ;MotorDrive.h: 109: extern uint32_t cnt_mb_sa;
+[; ;MotorDrive.h: 110: extern uint32_t cnt_mb_sb;
+[; ;MotorDrive.h: 115: extern uint8_t flag_inject;
+[; ;MotorDrive.h: 117: extern uint8_t flag_mreset;
+[; ;MotorDrive.h: 118: extern uint8_t flag_mreset_hit_lp;
+[; ;MotorDrive.h: 120: extern uint8_t flag_inject_sa;
+[; ;MotorDrive.h: 121: extern uint8_t flag_inject_sb;
+[; ;MotorDrive.h: 123: extern uint8_t flag_push;
+[; ;MotorDrive.h: 125: extern uint8_t flag_action;
+[; ;MotorDrive.h: 128: extern uint8_t flag_go_to_sleep;
+[; ;MotorDrive.h: 130: extern uint8_t flag_wake_up;
+[; ;MotorDrive.h: 132: extern uint8_t flag_do_reset_in_drops_mode;
+[; ;MotorDrive.h: 134: extern uint8_t flag_action_button;
+[; ;MotorDrive.h: 137: void MotorDriveInit(void);
+[; ;MotorDrive.h: 156: typedef struct para_pid
+[; ;MotorDrive.h: 157: {
+[; ;MotorDrive.h: 158: double kp;
+[; ;MotorDrive.h: 159: double ki;
+[; ;MotorDrive.h: 160: double kd;
+[; ;MotorDrive.h: 161: double lastInput;
+[; ;MotorDrive.h: 162: double myInput;
+[; ;MotorDrive.h: 163: double mySetpoint;
+[; ;MotorDrive.h: 164: double myOutput;
+[; ;MotorDrive.h: 165: double outputSum;
+[; ;MotorDrive.h: 166: double outMax;
+[; ;MotorDrive.h: 167: double outMin;
+[; ;MotorDrive.h: 168: }PARAPID;
+[; ;MotorDrive.h: 171: extern PARAPID r_motor;
+[; ;MotorDrive.h: 173: uint8_t PID_Compute(PARAPID * p);
+[; ;MotorDrive.h: 174: void PID_SetTunings(PARAPID * p);
+"13 ../MotorDrive.c
 [v _prev_state_phb_ma `uc ~T0 @X0 1 e ]
 [i _prev_state_phb_ma
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 12: uint8_t prev_state_phb_ma =0;
-"13
+[; ;MotorDrive.c: 13: uint8_t prev_state_phb_ma =0;
+"14
 [v _cur_state_phb_ma `uc ~T0 @X0 1 e ]
 [i _cur_state_phb_ma
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 13: uint8_t cur_state_phb_ma =0;
-"15
+[; ;MotorDrive.c: 14: uint8_t cur_state_phb_ma =0;
+"16
 [v _cnt_ma `ul ~T0 @X0 1 e ]
 [i _cnt_ma
 -> -> -> 0 `i `l `ul
 ]
-[; ;MotorDrive.c: 15: uint32_t cnt_ma =0;
-"16
+[; ;MotorDrive.c: 16: uint32_t cnt_ma =0;
+"17
 [v _cnt_mb `ul ~T0 @X0 1 e ]
 [i _cnt_mb
 -> -> -> 0 `i `l `ul
 ]
-[; ;MotorDrive.c: 16: uint32_t cnt_mb =0;
-"19
+[; ;MotorDrive.c: 17: uint32_t cnt_mb =0;
+"20
 [v _cnt_mb_sa `ul ~T0 @X0 1 e ]
 [i _cnt_mb_sa
 -> -> -> 0 `i `l `ul
 ]
-[; ;MotorDrive.c: 19: uint32_t cnt_mb_sa =0;
-"20
+[; ;MotorDrive.c: 20: uint32_t cnt_mb_sa =0;
+"21
 [v _cnt_mb_sb `ul ~T0 @X0 1 e ]
 [i _cnt_mb_sb
 -> -> -> 0 `i `l `ul
 ]
-[; ;MotorDrive.c: 20: uint32_t cnt_mb_sb =0;
-"22
+[; ;MotorDrive.c: 21: uint32_t cnt_mb_sb =0;
+"23
 [v _flag_mreset `uc ~T0 @X0 1 e ]
 [i _flag_mreset
 -> -> 1 `i `uc
 ]
-[; ;MotorDrive.c: 22: uint8_t flag_mreset =1;
-"23
+[; ;MotorDrive.c: 23: uint8_t flag_mreset =1;
+"24
 [v _flag_mreset_hit_lp `uc ~T0 @X0 1 e ]
 [i _flag_mreset_hit_lp
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 23: uint8_t flag_mreset_hit_lp =0;
-"25
+[; ;MotorDrive.c: 24: uint8_t flag_mreset_hit_lp =0;
+"26
 [v _flag_inject `uc ~T0 @X0 1 e ]
 [i _flag_inject
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 25: uint8_t flag_inject =0;
-"27
+[; ;MotorDrive.c: 26: uint8_t flag_inject =0;
+"28
 [v _flag_inject_sa `uc ~T0 @X0 1 e ]
 [i _flag_inject_sa
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 27: uint8_t flag_inject_sa =0;
-"28
+[; ;MotorDrive.c: 28: uint8_t flag_inject_sa =0;
+"29
 [v _flag_inject_sb `uc ~T0 @X0 1 e ]
 [i _flag_inject_sb
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 28: uint8_t flag_inject_sb =0;
-"30
+[; ;MotorDrive.c: 29: uint8_t flag_inject_sb =0;
+"31
 [v _flag_push `uc ~T0 @X0 1 e ]
 [i _flag_push
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 30: uint8_t flag_push =0;
-"32
+[; ;MotorDrive.c: 31: uint8_t flag_push =0;
+"33
 [v _flag_action `uc ~T0 @X0 1 e ]
 [i _flag_action
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 32: uint8_t flag_action =0;
-"34
+[; ;MotorDrive.c: 33: uint8_t flag_action =0;
+"35
 [v _flag_go_to_sleep `uc ~T0 @X0 1 e ]
 [i _flag_go_to_sleep
 -> -> 1 `i `uc
 ]
-[; ;MotorDrive.c: 34: uint8_t flag_go_to_sleep =1;
-"36
+[; ;MotorDrive.c: 35: uint8_t flag_go_to_sleep =1;
+"37
 [v _flag_wake_up `uc ~T0 @X0 1 e ]
 [i _flag_wake_up
 -> -> 1 `i `uc
 ]
-[; ;MotorDrive.c: 36: uint8_t flag_wake_up =1;
-"38
+[; ;MotorDrive.c: 37: uint8_t flag_wake_up =1;
+"39
 [v _flag_action_button `uc ~T0 @X0 1 e ]
 [i _flag_action_button
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 38: uint8_t flag_action_button =0;
-"40
+[; ;MotorDrive.c: 39: uint8_t flag_action_button =0;
+"41
 [v _flag_do_reset_in_drops_mode `uc ~T0 @X0 1 e ]
 [i _flag_do_reset_in_drops_mode
 -> -> 0 `i `uc
 ]
-[; ;MotorDrive.c: 40: uint8_t flag_do_reset_in_drops_mode =0;
-"44
-[v _MotorDriveInit `(v ~T0 @X0 1 ef ]
-"45
+[; ;MotorDrive.c: 41: uint8_t flag_do_reset_in_drops_mode =0;
+"96
+[v _f_motor `S277 ~T0 @X0 1 e ]
+[; ;MotorDrive.c: 96: PARAPID f_motor;
+"97
+[v _r_motor `S277 ~T0 @X0 1 e ]
+[; ;MotorDrive.c: 97: PARAPID r_motor;
+"100
+[v _PID_SetTunings `(v ~T0 @X0 1 ef1`*S277 ]
+"101
 {
-[; ;MotorDrive.c: 44: void MotorDriveInit(void)
-[; ;MotorDrive.c: 45: {
+[; ;MotorDrive.c: 100: void PID_SetTunings(PARAPID * p)
+[; ;MotorDrive.c: 101: {
+[e :U _PID_SetTunings ]
+"100
+[v _p `*S277 ~T0 @X0 1 r1 ]
+"101
+[f ]
+[; ;MotorDrive.c: 111: p->kp =16.0;
+"111
+[e = . *U _p 0 .16.0 ]
+[; ;MotorDrive.c: 112: p->ki =1.2;
+"112
+[e = . *U _p 1 .1.2 ]
+[; ;MotorDrive.c: 113: p->kd =80.0;
+"113
+[e = . *U _p 2 .80.0 ]
+[; ;MotorDrive.c: 120: p->outMax =3.0;
+"120
+[e = . *U _p 8 .3.0 ]
+[; ;MotorDrive.c: 121: p->outMin = 0;
+"121
+[e = . *U _p 9 -> -> 0 `i `d ]
+[; ;MotorDrive.c: 123: p->outputSum =0;
+"123
+[e = . *U _p 7 -> -> 0 `i `d ]
+[; ;MotorDrive.c: 125: p->mySetpoint = 100.0;
+"125
+[e = . *U _p 5 .100.0 ]
+[; ;MotorDrive.c: 128: p->lastInput = 0.0;
+"128
+[e = . *U _p 3 .0.0 ]
+[; ;MotorDrive.c: 129: p->myInput =0.0;
+"129
+[e = . *U _p 4 .0.0 ]
+[; ;MotorDrive.c: 131: }
+"131
+[e :UE 278 ]
+}
+"141
+[v _PID_Compute `(uc ~T0 @X0 1 ef1`*S277 ]
+"142
+{
+[; ;MotorDrive.c: 141: uint8_t PID_Compute(PARAPID * p)
+[; ;MotorDrive.c: 142: {
+[e :U _PID_Compute ]
+"141
+[v _p `*S277 ~T0 @X0 1 r1 ]
+"142
+[f ]
+[; ;MotorDrive.c: 144: if(0) return 0;
+"144
+[e $ ! != -> 0 `i -> 0 `i 280  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 279  ]
+[e :U 280 ]
+[; ;MotorDrive.c: 149: if(1)
+"149
+[e $ ! != -> 1 `i -> 0 `i 281  ]
+[; ;MotorDrive.c: 150: {
+"150
+{
+"152
+[v _input `d ~T0 @X0 1 a ]
+[; ;MotorDrive.c: 152: double input = p->myInput;
+[e = _input . *U _p 4 ]
+"153
+[v _error `d ~T0 @X0 1 a ]
+[; ;MotorDrive.c: 153: double error = p->mySetpoint - input;
+[e = _error - . *U _p 5 _input ]
+"154
+[v _dInput `d ~T0 @X0 1 a ]
+[; ;MotorDrive.c: 154: double dInput = (input - p->lastInput);
+[e = _dInput - _input . *U _p 3 ]
+[; ;MotorDrive.c: 155: p->outputSum+= (p->ki * error);
+"155
+[e =+ . *U _p 7 * . *U _p 1 _error ]
+[; ;MotorDrive.c: 160: if(p->outputSum > p->outMax) p->outputSum= p->outMax;
+"160
+[e $ ! > . *U _p 7 . *U _p 8 282  ]
+[e = . *U _p 7 . *U _p 8 ]
+[e $U 283  ]
+"161
+[e :U 282 ]
+[; ;MotorDrive.c: 161: else if(p->outputSum < p->outMin) p->outputSum= p->outMin;
+[e $ ! < . *U _p 7 . *U _p 9 284  ]
+[e = . *U _p 7 . *U _p 9 ]
+[e :U 284 ]
+"164
+[e :U 283 ]
+[v _output `d ~T0 @X0 1 a ]
+[; ;MotorDrive.c: 164: double output;
+[; ;MotorDrive.c: 166: if(1) output = p->kp * error;
+"166
+[e $ ! != -> 1 `i -> 0 `i 285  ]
+[e = _output * . *U _p 0 _error ]
+[e $U 286  ]
+"167
+[e :U 285 ]
+[; ;MotorDrive.c: 167: else output = 0;
+[e = _output -> -> 0 `i `d ]
+[e :U 286 ]
+[; ;MotorDrive.c: 170: output += p->outputSum - p->kd * dInput;
+"170
+[e =+ _output - . *U _p 7 * . *U _p 2 _dInput ]
+[; ;MotorDrive.c: 172: if(output > p->outMax) output = p->outMax;
+"172
+[e $ ! > _output . *U _p 8 287  ]
+[e = _output . *U _p 8 ]
+[e $U 288  ]
+"173
+[e :U 287 ]
+[; ;MotorDrive.c: 173: else if(output < p->outMin) output = p->outMin;
+[e $ ! < _output . *U _p 9 289  ]
+[e = _output . *U _p 9 ]
+[e :U 289 ]
+"174
+[e :U 288 ]
+[; ;MotorDrive.c: 174: p->myOutput = output;
+[e = . *U _p 6 _output ]
+[; ;MotorDrive.c: 177: p->lastInput = input;
+"177
+[e = . *U _p 3 _input ]
+[; ;MotorDrive.c: 183: return 1;
+"183
+[e ) -> -> 1 `i `uc ]
+[e $UE 279  ]
+"184
+}
+[; ;MotorDrive.c: 184: }
+[e $U 290  ]
+"185
+[e :U 281 ]
+[; ;MotorDrive.c: 185: else return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 279  ]
+[e :U 290 ]
+[; ;MotorDrive.c: 186: }
+"186
+[e :UE 279 ]
+}
+"194
+[v _MotorDriveInit `(v ~T0 @X0 1 ef ]
+"195
+{
+[; ;MotorDrive.c: 194: void MotorDriveInit(void)
+[; ;MotorDrive.c: 195: {
 [e :U _MotorDriveInit ]
 [f ]
-[; ;MotorDrive.c: 61: TRISAbits.RA5 =0;
-"61
+[; ;MotorDrive.c: 211: TRISAbits.RA5 =0;
+"211
 [e = . . _TRISAbits 1 5 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 64: TRISCbits.RC2 =0;
-"64
+[; ;MotorDrive.c: 214: TRISCbits.RC2 =0;
+"214
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 65: TRISDbits.RD0 =0;
-"65
+[; ;MotorDrive.c: 215: TRISDbits.RD0 =0;
+"215
 [e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 66: TRISDbits.RD1 =0;
-"66
+[; ;MotorDrive.c: 216: TRISDbits.RD1 =0;
+"216
 [e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 68: TRISCbits.RC1 =1;
-"68
+[; ;MotorDrive.c: 218: TRISCbits.RC1 =1;
+"218
 [e = . . _TRISCbits 1 1 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 69: TRISAbits.RA4 =1;
-"69
+[; ;MotorDrive.c: 219: TRISAbits.RA4 =1;
+"219
 [e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 72: TRISCbits.RC0 =1;
-"72
+[; ;MotorDrive.c: 222: TRISCbits.RC0 =1;
+"222
 [e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 73: TRISBbits.RB2 =1;
-"73
+[; ;MotorDrive.c: 223: TRISBbits.RB2 =1;
+"223
 [e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 77: TRISDbits.RD4 =0;
-"77
+[; ;MotorDrive.c: 227: TRISDbits.RD4 =0;
+"227
 [e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 78: TRISDbits.RD2 =0;
-"78
+[; ;MotorDrive.c: 228: TRISDbits.RD2 =0;
+"228
 [e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 79: TRISDbits.RD3 =0;
-"79
+[; ;MotorDrive.c: 229: TRISDbits.RD3 =0;
+"229
 [e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 80: LATAbits.LA5 =1;
-"80
+[; ;MotorDrive.c: 230: LATAbits.LA5 =1;
+"230
 [e = . . _LATAbits 1 5 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 81: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"81
-[e :U 279 ]
+[; ;MotorDrive.c: 231: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"231
+[e :U 294 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
-[e :U 278 ]
-[; ;MotorDrive.c: 82: do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"82
-[e :U 282 ]
+[e :U 293 ]
+[; ;MotorDrive.c: 232: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"232
+[e :U 297 ]
 {
+[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
-[e :U 281 ]
-[; ;MotorDrive.c: 83: LATCbits.LC2 =1;
-"83
+[e :U 296 ]
+[; ;MotorDrive.c: 233: LATCbits.LC2 =1;
+"233
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 84: LATDbits.LD4 =1;
-"84
+[; ;MotorDrive.c: 234: LATDbits.LD4 =1;
+"234
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 90: INTCON2bits.INTEDG2 = 0;
-"90
+[; ;MotorDrive.c: 240: INTCON2bits.INTEDG2 = 0;
+"240
 [e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 91: INTCON3bits.INT2IF =0;
-"91
+[; ;MotorDrive.c: 241: INTCON3bits.INT2IF =0;
+"241
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 92: INTCON3bits.INT2E = 1;
-"92
+[; ;MotorDrive.c: 242: INTCON3bits.INT2E = 1;
+"242
 [e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 102: }
-"102
-[e :UE 276 ]
+[; ;MotorDrive.c: 252: }
+"252
+[e :UE 291 ]
 }

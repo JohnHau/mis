@@ -3820,6 +3820,75 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 86
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdint.h"
 typedef signed char int8_t;
 
@@ -3910,7 +3979,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 99 "../MotorDrive.h"
+# 102 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -3946,12 +4015,33 @@ extern uint8_t flag_do_reset_in_drops_mode;
 extern uint8_t flag_action_button;
 
 
-extern void MotorDriveInit(void);
+void MotorDriveInit(void);
 
-# 8 "../Timer.h"
+# 156
+typedef struct para_pid
+{
+double kp;
+double ki;
+double kd;
+double lastInput;
+double myInput;
+double mySetpoint;
+double myOutput;
+double outputSum;
+double outMax;
+double outMin;
+}PARAPID;
+
+
+extern PARAPID r_motor;
+
+uint8_t PID_Compute(PARAPID * p);
+void PID_SetTunings(PARAPID * p);
+
+# 41 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 15
+# 48
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
@@ -4116,6 +4206,16 @@ uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
 
+uint8_t in_reset;
+uint16_t sat;
+uint16_t sbt;
+
+uint16_t sa_old;
+uint16_t sa_new;
+
+uint16_t sb_old;
+uint16_t sb_new;
+
 uint8_t needle_len;
 uint8_t inject_len;
 uint8_t tube_cap;
@@ -4140,6 +4240,14 @@ uint16_t cnt_posa;
 uint16_t cnt_posb;
 uint16_t cnt_posc;
 
+uint16_t cnt_posa_std;
+uint16_t cnt_posb_std;
+
+uint16_t cnt_posa_target;
+uint16_t cnt_posb_target;
+
+
+
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
 uint16_t qec;
@@ -4150,7 +4258,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 174
+# 193
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4169,7 +4277,7 @@ void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
 
 
-# 13 "../Main.c"
+# 14 "../Main.c"
 #pragma config OSC = HS
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -4216,7 +4324,7 @@ void menu7_MsgHandlle(uint8_t key);
 #pragma config EBTR3 = OFF
 #pragma config EBTRB = OFF
 
-# 70
+# 71
 uint8_t flag_power_up =0;
 int xn=0;
 int ann=0;
@@ -4230,6 +4338,12 @@ uint16_t bv =0;
 uint16_t cv =10;
 uint16_t dv =10;
 uint32_t msleep =0;
+
+
+uint16_t cnta_mb =0;
+uint16_t cntb_mb =0;
+
+
 void main(void)
 {
 
@@ -4241,8 +4355,10 @@ AD_init();
 HG_init();
 
 MotorDriveInit();
+
 Timer1Init();
 
+# 200
 cur_state_phb_ma=0;
 prev_state_phb_ma=0;
 cnt_ma = 0;
@@ -4257,7 +4373,13 @@ hg_op.needle_len = 4;
 hg_op.status_powerup = 0x00;
 hg_op.working_mode = 0x03;
 
-# 118
+hg_op.sat = 80;
+hg_op.sbt = 100;
+
+hg_op.cnt_posa_target =43;
+hg_op.cnt_posb_target =43;
+
+# 227
 while(1)
 {
 
@@ -4277,7 +4399,7 @@ if(hg_op.need_reset)
 if(PORTBbits.RB0 == 0)
 
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 hg_op.posrst = 0;
 hg_op.cnt_posrst =0;
 hg_op.cnt_target_posrst = 600;
@@ -4300,7 +4422,7 @@ hg_op.cnt_posrst =0;
 
 if(hg_op.needle_len == 4)
 {
-hg_op.cnt_target_posrst = (412 );
+hg_op.cnt_target_posrst = 600;
 }
 else if(hg_op.needle_len == 6)
 {
@@ -4311,7 +4433,9 @@ else if(hg_op.needle_len == 13)
 hg_op.cnt_target_posrst = (1);
 }
 
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+
 hg_op.status_hit_lp = 0;
 LATDbits.LD4 =1;
 while(hg_op.status_hit_lp == 0)
@@ -4319,11 +4443,14 @@ while(hg_op.status_hit_lp == 0)
 LATDbits.LD3 =1;
 
 delay_pwm(16*2);
+
+
 LATDbits.LD3 =0;
 delay_pwm(16);
+
 }
 
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 if(hg_op.needle_len == 13)
 {
 hg_op.need_reset =0;
@@ -4333,6 +4460,7 @@ else
 LATDbits.LD4 =1;
 hg_op.posrst = 0;
 hg_op.cnt_posrst =0;
+hg_op.in_reset = 1;
 while(hg_op.posrst == 0)
 {
 LATDbits.LD2 =1;
@@ -4343,9 +4471,25 @@ delay_pwm(16);
 }
 
 
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+# 324
 }
 
+
+printf("A-reset len is %d\r\n",hg_op.cnt_posrst);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+
+printf("B-reset len is %d\r\n",hg_op.cnt_posrst);
 hg_op.need_reset =0;
 hg_op.status_hit_lp =0;
 hg_op.cnt_posrst =0;
@@ -4355,16 +4499,17 @@ else
 {
 if(hg_op.working_mode == 0x01)
 {
-printf("in in drops mode\r\n");
+
 
 if(0)
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
 delay_pwm(300 * 30);
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
 
 
 
@@ -4378,7 +4523,7 @@ if(hg_op.drops_sa == 1)
 {
 hg_op.cnt_posa =0;
 
-# 242
+# 377
 if( hg_op.needle_len == 13)
 {
 
@@ -4387,19 +4532,46 @@ while(hg_op.cnt_posa < (156));
 }
 else
 {
-LATDbits.LD2 =1;
-LATDbits.LD4 =1;
 
-delaynus(93 * 100);
+PID_SetTunings(&r_motor);
+while(1)
+{
+PID_Compute(&r_motor);
+if(r_motor.myOutput > 0)
+{
+do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
 }
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+else
+{
+do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
+
+}
+
+if(r_motor.myInput >99.0 && r_motor.myInput < 101.0)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+printf("now input is %d\n",(uint32_t)r_motor.myInput);
+break;
+}
+
+
+
+}
+
+# 472
+}
+
+# 479
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 
 printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
 
 
 
-delay_pwm(10 * 300);
+
+do {delaynus(20*1000);}while(0); do {delaynus(20*1000);}while(0);
+
 printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
 hg_op.drops_sa = 0;
 hg_op.drops_sb = 0;
@@ -4408,12 +4580,13 @@ hg_op.drops_push = 1;
 else if(hg_op.drops_push == 1)
 {
 
-# 279
+# 505
 cnt_push =0;
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
 
 while(cnt_push < hg_op.push_len)
+
 {
 while(PORTAbits.RA4 == 0);
 cnt_push ++;
@@ -4425,7 +4598,7 @@ cnt_push ++;
 
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
-# 303
+# 530
 hg_op.drops_sa = 0;
 hg_op.drops_push = 0;
 hg_op.drops_sb = 1;
@@ -4449,22 +4622,48 @@ else
 {
 
 
-LATDbits.LD3 =1;
-LATDbits.LD4 =1;
 
+PID_SetTunings(&r_motor);
+while(1)
+{
+PID_Compute(&r_motor);
+if(r_motor.myOutput > 0)
+{
+do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
 
-delaynus(100 * 100);
 }
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+else
+{
+
+do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
+}
+
+if(r_motor.myInput >99.0 && r_motor.myInput < 101.0)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+printf("now input is %d\n",(uint32_t)r_motor.myInput);
+break;
+}
+
+
+
+}
+
+# 603
+}
+
+# 625
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
-# 357
-delay_pwm(10* 300);
-printf("999-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
+do {delaynus(20*1000);}while(0); do {delaynus(20*1000);}while(0);
+printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_posb);
+
+# 728
 if(PORTBbits.RB5 == 1)
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
@@ -4501,6 +4700,11 @@ hg_op.need_reset =1;
 
 hg_op.working_mode = 0x03;
 
+hg_op.cnt_posa_std = 0;
+hg_op.cnt_posb_std = 0;
+
+
+
 }
 else if(PORTBbits.RB5 == 0)
 {
@@ -4521,7 +4725,7 @@ printf("in in C mode\r\n");
 
 if(0)
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
@@ -4544,7 +4748,7 @@ if(hg_op.drops_sa == 1)
 
 hg_op.cnt_posa =0;
 
-# 446
+# 819
 if( hg_op.needle_len == 13)
 {
 
@@ -4557,9 +4761,9 @@ LATDbits.LD4 =1;LATDbits.LD2 =1;
 delaynus(14 * 1000);
 
 }
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 464
+# 837
 delaynus(50 * 1000);
 delaynus(50 * 1000);
 printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
@@ -4572,7 +4776,7 @@ hg_op.drops_push = 1;
 if(hg_op.drops_push == 1)
 {
 
-# 486
+# 859
 while(PORTBbits.RB5 == 0)
 {
 cnt_push =0;
@@ -4623,9 +4827,9 @@ LATDbits.LD3 =1;
 
 delaynus(100 * 1000);
 }
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 543
+# 916
 delay_pwm(hg_op.work_freq * 300);
 printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
@@ -4634,7 +4838,7 @@ if(PORTBbits.RB5 == 1)
 delaynus(15 * 1000);
 if(PORTBbits.RB5 == 1)
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 
@@ -4689,7 +4893,7 @@ printf("in in test mode\r\n");
 
 if(0)
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
@@ -4721,9 +4925,25 @@ else
 LATDbits.LD2 =1;
 LATDbits.LD4 =1;
 
-delaynus(95 * 1000);
+
+
+while(hg_op.cnt_posa < 20)
+{
+
+# 1020
+while(PORTBbits.RB2 == 0);
+hg_op.cnt_posa ++;
+while(PORTBbits.RB2 == 1);
+hg_op.cnt_posa ++;
+
+# 1030
 }
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+
+
+
+}
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 
 delay_pwm(hg_op.work_freq * 300);
@@ -4781,9 +5001,26 @@ LATDbits.LD3 =1;
 LATDbits.LD4 =1;
 
 
-delaynus(100 * 1000);
+
+
+while(hg_op.cnt_posb < 20)
+{
+
+# 1104
+while(PORTBbits.RB2 == 0);
+hg_op.cnt_posb ++;
+while(PORTBbits.RB2 == 1);
+hg_op.cnt_posb ++;
+
+
+
 }
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+
+
+
+}
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 
 delay_pwm(hg_op.work_freq * 300);
@@ -4792,7 +5029,7 @@ printf("in test mode\r\n");
 
 if(action_btn_cnt%2 == 0)
 {
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
@@ -4853,12 +5090,19 @@ T0IE=1;
 }
 
 
-printf("in stop mode\r\n");
+
+}
+else
+{
+
+printf("out of mode\r\n");
+
 }
 
 
 }
-printf("running free\r\n");
+
+# 1208
 HG_interface();
 
 
@@ -4870,14 +5114,14 @@ delaynus(20 * 1000);
 if(PORTBbits.RB5 == 0)
 {
 
-# 791
+# 1223
 buzz();
 
 
 T0IE=0;
 T0CONbits.TMR0ON =0;
 
-# 801
+# 1233
 if(hg_op.status_powerup == 0x01)
 {
 printf("action\r\n");
@@ -4928,7 +5172,7 @@ hg_op.acting_flag = 0;
 
 }
 
-# 857
+# 1289
 }
 
 }

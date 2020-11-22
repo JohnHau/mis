@@ -3757,6 +3757,69 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\__size_t.h"
+typedef unsigned size_t;
+
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdint.h"
 typedef signed char int8_t;
 
@@ -3847,7 +3910,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 99 "../MotorDrive.h"
+# 102 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -3883,9 +3946,30 @@ extern uint8_t flag_do_reset_in_drops_mode;
 extern uint8_t flag_action_button;
 
 
-extern void MotorDriveInit(void);
+void MotorDriveInit(void);
 
-# 12 "../MotorDrive.c"
+# 156
+typedef struct para_pid
+{
+double kp;
+double ki;
+double kd;
+double lastInput;
+double myInput;
+double mySetpoint;
+double myOutput;
+double outputSum;
+double outMax;
+double outMin;
+}PARAPID;
+
+
+extern PARAPID r_motor;
+
+uint8_t PID_Compute(PARAPID * p);
+void PID_SetTunings(PARAPID * p);
+
+# 13 "../MotorDrive.c"
 uint8_t prev_state_phb_ma =0;
 uint8_t cur_state_phb_ma =0;
 
@@ -3916,12 +4000,83 @@ uint8_t flag_action_button =0;
 
 uint8_t flag_do_reset_in_drops_mode =0;
 
+# 96
+PARAPID f_motor;
+PARAPID r_motor;
 
 
+void PID_SetTunings(PARAPID * p)
+{
+
+# 111
+p->kp =16.0;
+p->ki =1.2;
+p->kd =80.0;
+
+# 120
+p->outMax =3.0;
+p->outMin = 0;
+
+p->outputSum =0;
+
+p->mySetpoint = 100.0;
+
+
+p->lastInput = 0.0;
+p->myInput =0.0;
+
+}
+
+# 141
+uint8_t PID_Compute(PARAPID * p)
+{
+
+if(0) return 0;
+
+
+
+
+if(1)
+{
+
+double input = p->myInput;
+double error = p->mySetpoint - input;
+double dInput = (input - p->lastInput);
+p->outputSum+= (p->ki * error);
+
+
+
+
+if(p->outputSum > p->outMax) p->outputSum= p->outMax;
+else if(p->outputSum < p->outMin) p->outputSum= p->outMin;
+
+
+double output;
+
+if(1) output = p->kp * error;
+else output = 0;
+
+
+output += p->outputSum - p->kd * dInput;
+
+if(output > p->outMax) output = p->outMax;
+else if(output < p->outMin) output = p->outMin;
+p->myOutput = output;
+
+
+p->lastInput = input;
+
+# 183
+return 1;
+}
+else return 0;
+}
+
+# 194
 void MotorDriveInit(void)
 {
 
-# 61
+# 211
 TRISAbits.RA5 =0;
 
 
@@ -3943,15 +4098,15 @@ TRISDbits.RD2 =0;
 TRISDbits.RD3 =0;
 LATAbits.LA5 =1;
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-do{LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATCbits.LC2 =1;
 LATDbits.LD4 =1;
 
-# 90
+# 240
 INTCON2bits.INTEDG2 = 0;
 INTCON3bits.INT2IF =0;
 INTCON3bits.INT2E = 1;
 
-# 102
+# 252
 }
 

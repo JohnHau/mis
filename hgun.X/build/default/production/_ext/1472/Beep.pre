@@ -4033,8 +4033,8 @@ void uart_init(void)
 TRISCbits.RC7 =1;
 TRISCbits.RC6 =0;
 
-SPBRG = 25;
 
+SPBRG = 12;
 RCSTAbits.SPEN =1;
 
 

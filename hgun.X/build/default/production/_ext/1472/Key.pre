@@ -4070,6 +4070,16 @@ uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
 
+uint8_t in_reset;
+uint16_t sat;
+uint16_t sbt;
+
+uint16_t sa_old;
+uint16_t sa_new;
+
+uint16_t sb_old;
+uint16_t sb_new;
+
 uint8_t needle_len;
 uint8_t inject_len;
 uint8_t tube_cap;
@@ -4094,6 +4104,14 @@ uint16_t cnt_posa;
 uint16_t cnt_posb;
 uint16_t cnt_posc;
 
+uint16_t cnt_posa_std;
+uint16_t cnt_posb_std;
+
+uint16_t cnt_posa_target;
+uint16_t cnt_posb_target;
+
+
+
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
 uint16_t qec;
@@ -4104,7 +4122,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 174
+# 193
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4122,10 +4140,10 @@ void menu5_MsgHandlle(uint8_t key);
 void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
 
-# 8 "../Timer.h"
+# 41 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 15
+# 48
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);

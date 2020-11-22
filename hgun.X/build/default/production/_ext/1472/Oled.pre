@@ -4139,6 +4139,16 @@ uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
 
+uint8_t in_reset;
+uint16_t sat;
+uint16_t sbt;
+
+uint16_t sa_old;
+uint16_t sa_new;
+
+uint16_t sb_old;
+uint16_t sb_new;
+
 uint8_t needle_len;
 uint8_t inject_len;
 uint8_t tube_cap;
@@ -4163,6 +4173,14 @@ uint16_t cnt_posa;
 uint16_t cnt_posb;
 uint16_t cnt_posc;
 
+uint16_t cnt_posa_std;
+uint16_t cnt_posb_std;
+
+uint16_t cnt_posa_target;
+uint16_t cnt_posb_target;
+
+
+
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
 uint16_t qec;
@@ -4173,7 +4191,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 174
+# 193
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4191,10 +4209,10 @@ void menu5_MsgHandlle(uint8_t key);
 void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
 
-# 8 "../Timer.h"
+# 41 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 15
+# 48
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
@@ -4413,7 +4431,6 @@ return;
 unsigned int StartAndReadAdValue(unsigned char ch)
 {
 
-# 292
 }
 
 
@@ -4435,7 +4452,7 @@ ADCON0bits.ADON = 1;
 return 1;
 }
 
-# 320
+# 309
 uint16_t get_AD_vaule(void)
 {
 
@@ -4510,7 +4527,7 @@ return rv;
 
 }
 
-# 407
+# 396
 uint8_t ee_CheckDevice(uint8_t _Address)
 {
 
@@ -4544,7 +4561,7 @@ uint8_t ee_WaitStandby(void)
 uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
 {
 
-# 504
+# 493
 }
 
 
@@ -4617,7 +4634,7 @@ i2c_Stop();
 return 0;
 }
 
-# 580
+# 569
 uint8_t write_buf[256];
 uint8_t read_buf[256];
 
@@ -4626,7 +4643,7 @@ uint8_t ee_Test(void)
 return 1;
 }
 
-# 594
+# 583
 void LCD_backlight_init(void)
 {
 TRISEbits.RE0 =0;
@@ -4673,7 +4690,7 @@ return 1;
 
 }
 
-# 652
+# 641
 uint8_t ms = 0x66;
 uint8_t ss=0;
 uint8_t css=0;
@@ -4704,7 +4721,7 @@ const uint8_t c_m[2][23]= {
 
 };
 
-# 686
+# 675
 const uint8_t drops_m [2][23]={
 
 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83, 0x80, 0x80,
@@ -4831,7 +4848,7 @@ const uint8_t n_1_m[3][19]={
 
 };
 
-# 818
+# 807
 const uint8_t n_1P5_m[3][19]={
 
 0x26, 0x26, 0x26, 0x27, 0x27, 0x20, 0x20, 0x20,
@@ -4850,7 +4867,7 @@ const uint8_t n_1P5_m[3][19]={
 
 };
 
-# 841
+# 830
 const uint8_t n_2P5_m[3][19]={
 
 0x26, 0x26, 0x26, 0x27, 0x27, 0x20, 0x20, 0x20,
@@ -4893,7 +4910,7 @@ const uint8_t n_2_m[3][19]={
 
 };
 
-# 893
+# 882
 const uint8_t n_3_m[3][19]={
 
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23,
@@ -4908,10 +4925,10 @@ const uint8_t n_3_m[3][19]={
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
 0x10, 0x10, 0x10,
 
-# 914
+# 903
 };
 
-# 923
+# 912
 const uint8_t n_4_m[3][19]={
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x27, 0x27,
 0x20, 0x20, 0x20, 0x27, 0x27, 0x20, 0x20, 0x20,
@@ -4949,7 +4966,7 @@ const uint8_t n_6_m[3][19]={
 
 };
 
-# 969
+# 958
 const uint8_t n_5_m[3][19]={
 
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x26, 0x26,
@@ -4967,7 +4984,7 @@ const uint8_t n_5_m[3][19]={
 
 };
 
-# 990
+# 979
 const uint8_t n_10_m[3][19]={
 
 
@@ -4987,7 +5004,7 @@ const uint8_t n_10_m[3][19]={
 
 };
 
-# 1016
+# 1005
 const uint8_t n_13_m[3][19]={
 
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23, 0x27,
@@ -5030,7 +5047,7 @@ const uint8_t n_100_m[3][19]={
 0x10, 0x10, 0x10,
 };
 
-# 1062
+# 1051
 const uint8_t n_200_m[3][19]={
 
 0x23, 0x27, 0x26, 0x27, 0x23, 0x20, 0x23, 0x27,
@@ -5092,7 +5109,7 @@ const uint8_t n_300_m[3][19]={
 
 };
 
-# 1142
+# 1131
 const uint8_t n_250_m[3][19]={
 
 0x23, 0x27, 0x26, 0x27, 0x23, 0x20, 0x26, 0x26,
@@ -5107,10 +5124,10 @@ const uint8_t n_250_m[3][19]={
 0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
 0x10,0x10,0x10
 
-# 1160
+# 1149
 };
 
-# 1168
+# 1157
 uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
 {
 uint8_t temp =0;
@@ -5249,7 +5266,7 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 }
 
-# 1311
+# 1300
 uint8_t (*n_x_m)[19] = (0);
 
 uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode)
@@ -5410,7 +5427,7 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 }
 
-# 1485
+# 1474
 void display_bat(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5546,7 +5563,7 @@ break;
 
 }
 
-# 1631
+# 1620
 void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5614,7 +5631,7 @@ break;
 
 }
 
-# 1705
+# 1694
 void display_cmode(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5681,7 +5698,7 @@ break;
 
 }
 
-# 1781
+# 1770
 void display_drops(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5744,7 +5761,7 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 break;
 
-# 1847
+# 1836
 }
 
 
@@ -5816,14 +5833,14 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 break;
 
-# 1922
+# 1911
 }
 
 
 
 }
 
-# 1932
+# 1921
 const uint8_t ptna_frame[2][27]=
 {
 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
@@ -5896,10 +5913,10 @@ const uint8_t ptne_frame[3][48]=
 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10,
 0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
 
-# 2008
+# 1997
 };
 
-# 2018
+# 2007
 const uint8_t ptnf_frame[3][48]={
 
 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
@@ -5925,7 +5942,7 @@ const uint8_t ptnf_frame[3][48]={
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
 
-# 2047
+# 2036
 };
 
 
@@ -5984,7 +6001,7 @@ const uint8_t ptnh_frame[3][48]={
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
 0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x20, 0xc0,
 
-# 2109
+# 2098
 };
 
 
@@ -6018,7 +6035,7 @@ const uint8_t ptni_frame[3][48]={
 
 };
 
-# 2147
+# 2136
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode)
 {
 
@@ -6122,7 +6139,7 @@ break;
 
 }
 
-# 2254
+# 2243
 }
 
 
@@ -6455,11 +6472,11 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 }
 
-# 2602
+# 2591
 const uint8_t logo_eme[8][98]=
 {
 
-# 2706
+# 2695
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -6576,7 +6593,7 @@ const uint8_t logo_eme[8][98]=
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00
 
-# 2826
+# 2815
 };
 
 
@@ -6599,7 +6616,7 @@ ee_WriteBytes( &(logo_eme[page][col]), 0x40, 1);
 
 }
 
-# 2853
+# 2842
 uint8_t clear_screen(void)
 {
 
@@ -6673,7 +6690,7 @@ display_num(3,(49 + 14), 2);
 display_frame_fghi(2,0, 0);
 display_num(3,(0 + 14), 3);
 
-# 2930
+# 2919
 hg_op.cur_working_mode = 0x01;
 hg_op.cnt_target_posrst = (412 );
 hg_op.needle_len = 4;
@@ -6717,10 +6734,10 @@ write_buf[0]=0x0c;
 
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 2979
+# 2968
 }
 
-# 2985
+# 2974
 void Initial_LY096BG30(void)
 {
 
@@ -6735,10 +6752,10 @@ delay(1);
 LATEbits.LATE1=1;
 delay(1);
 
-# 3038
+# 3027
 write_buf[0]=0x25;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3076
+# 3065
 }
 

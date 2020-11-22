@@ -30,6 +30,16 @@ typedef struct _hg_op
     uint8_t need_reset;
     uint8_t status_hit_lp;
     
+    uint8_t in_reset;
+    uint16_t sat;
+    uint16_t sbt;
+    
+    uint16_t sa_old;
+    uint16_t sa_new;
+    
+    uint16_t sb_old;
+    uint16_t sb_new;
+     
     uint8_t needle_len;
     uint8_t inject_len;
     uint8_t tube_cap;
@@ -53,6 +63,14 @@ typedef struct _hg_op
     uint16_t cnt_posa;
     uint16_t cnt_posb;
     uint16_t cnt_posc;
+    
+    uint16_t cnt_posa_std;
+    uint16_t cnt_posb_std;
+    
+    uint16_t cnt_posa_target;
+    uint16_t cnt_posb_target;
+    
+    
     
     uint16_t cnt_posrst;
     uint16_t cnt_target_posrst;
@@ -157,8 +175,9 @@ extern uint8_t flag_test_mode_break;
 #define  STARTUP_THR_MB  12
 
 
-#define STARTUP_CNT_MA   93 /*20*/ /*15*/
-#define STARTUP_CNT_MB   100 /*20*/ /*15*/
+//#define STARTUP_CNT_SA_MB   180//200//175//150//125//250//93 /*20*/ /*15*/  up
+#define STARTUP_CNT_SA_MB   80//93//200//175//150//125//250//93 /*20*/ /*15*/  up
+#define STARTUP_CNT_SB_MB   100 /*20*/ /*15*/
 //#define STARTUP_CNT_MB   14 /*20*/ /*15*/
 
 

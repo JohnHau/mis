@@ -10,6 +10,12 @@
 #include"MotorDrive.h"
 #include "gui.h"
 
+
+
+
+
+
+
 unsigned char LastNeedleFeedback =0;
 unsigned char LastInjectionFeedback =0;
 unsigned char flag =0;
@@ -46,6 +52,447 @@ void __interrupt ISR(void)
 #if 1    
     
     
+    
+    if(INTCON3bits.INT2IF)
+    {
+        
+#if 1
+        if(INTCON2bits.INTEDG2 == 0)
+         {
+             INTCON2bits.INTEDG2 = 1;
+         }
+         else if(INTCON2bits.INTEDG2 == 1)
+         {
+              INTCON2bits.INTEDG2 = 0;
+         }
+#endif 
+        //====================================================================== 
+        //PID
+        //======================================================================   
+#if 0
+        if( INTCON2bits.INTEDG2 == 1)//falling edge
+        {
+                 if(READ_PHA_MB() == 0)  //falling   
+                 {
+                   r_motor.myInput ++;
+                 }
+                 else if(READ_PHA_MB() == 1)
+                 {
+                   r_motor.myInput --;
+                 }
+
+        }
+        else if( INTCON2bits.INTEDG2 == 0)//rising edge
+        {
+
+                 if(READ_PHA_MB() == 0)  //falling   
+                 {
+                   r_motor.myInput --;
+                 }
+                 else if(READ_PHA_MB() == 1)
+                 {
+                    r_motor.myInput ++;
+                 }                  
+        }
+
+#endif
+        //======================================================================
+        
+        
+        //-> L
+        //<- H
+         if(hg_op.need_reset)
+         {
+             
+             //if(hg_op.status_hit_lp == 1 )
+             if(1)
+             {
+                 
+                //hg_op.cnt_posrst ++;
+                 
+                 
+                 
+                    if(  hg_op.in_reset == 1)
+                    {
+                       
+                        
+                        hg_op.cnt_posrst ++;  
+//==============================================================================   
+#if 0
+                       if( INTCON2bits.INTEDG2 == 1)//falling edge
+                       {
+                                if(READ_PHA_MB() == 0)  //falling   
+                                {
+                                 hg_op.cnt_posrst ++;  
+                                }
+                                else if(READ_PHA_MB() == 1)
+                                {
+                                  hg_op.cnt_posrst --;
+                                }
+                       
+                       
+                       
+                       }
+                       else if( INTCON2bits.INTEDG2 == 0)//rising edge
+                       {
+                           
+                                if(READ_PHA_MB() == 0)  //falling   
+                                {
+                                 hg_op.cnt_posrst --;
+                                }
+                                else if(READ_PHA_MB() == 1)
+                                {
+                                  hg_op.cnt_posrst ++;       
+                                }                  
+                       }
+#endif
+//==============================================================================                       
+    
+                    }
+                 
+                         
+                if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
+                {
+                    hg_op.posrst =1;
+                    //hg_op.in_reset =0;
+                    STOP_B();
+
+                }
+                              
+#if 0          
+                 if(INTCON2bits.INTEDG2 == 1)
+                 {
+                     //temp = READ_PHA_MB();
+                     //while(READ_PHA_MB() == temp);
+                     while(READ_PHA_MB() == 1);
+                    hg_op.cnt_posrst ++;
+                 }
+                 else if(INTCON2bits.INTEDG2 == 0)
+                 {
+                    // temp = READ_PHA_MB();   
+                     //while(READ_PHA_MB() == temp);
+                     while(READ_PHA_MB() == 0);
+                        hg_op.cnt_posrst ++;
+                 }
+#endif
+           
+#if 0            
+                   temp = READ_PHA_MB();   
+                   while(READ_PHA_MB() == temp);
+                   hg_op.cnt_posrst ++;
+                
+#endif
+                        
+                
+                
+#if 0       
+                 //if( hg_op.cnt_posrst == (300 * 4 + 0))
+                 if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
+                {
+                    hg_op.posrst =1;
+                    STOP_B();
+
+                }
+                  
+#endif
+                   
+             }
+         }
+         else
+         {      
+                if(hg_op.working_mode == WORK_MODE_DROPS)
+                {
+                    if(hg_op.drops_sa == 1)
+                    {
+                       
+                        
+                       //======================================================= 
+#if 0 
+                       if(READ_PHA_MB() == 0)  //falling   
+                       {
+                        hg_op.cnt_posa ++;
+                        //printf("ax");
+                       }
+                       else
+                       {
+                         hg_op.cnt_posa --;
+                         printf("***************************ay\r\n");
+                       }
+#endif
+                      
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                      //hg_op.cnt_posa ++;
+                       //r_motor.myInput ++;
+                       
+#if 1         
+                       if( INTCON2bits.INTEDG2 == 1)//falling edge
+                       {
+                                if(READ_PHA_MB() == 0)  //falling   
+                                {
+                                  r_motor.myInput ++;
+                                }
+                                else if(READ_PHA_MB() == 1)
+                                {
+                                  r_motor.myInput --;
+                                }
+                       
+                       
+                       
+                       }
+                       else if( INTCON2bits.INTEDG2 == 0)//rising edge
+                       {
+                           
+                                if(READ_PHA_MB() == 0)  //falling   
+                                {
+                                   r_motor.myInput --;
+                                }
+                                else if(READ_PHA_MB() == 1)
+                                {
+                                  r_motor.myInput ++; 
+                                }
+                           
+                           
+                       }
+                       
+#endif
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       //if( hg_op.cnt_posa  == (43*2))STOP_B();
+                       
+                       //=======================================================
+                       
+                       
+                       
+                        //if( hg_op.drops_sa == 1)
+                        if(0)
+                        {
+#if 0
+                        if(INTCON2bits.INTEDG2 == 1)
+                        {
+                            while(READ_PHA_MB() == 0);
+                            hg_op.cnt_posa ++;
+                        }
+                        else if(INTCON2bits.INTEDG2 == 0)
+                        {
+                            while(READ_PHA_MB() == 1);
+                            hg_op.cnt_posa ++;
+                        }
+#endif
+                        
+#if 0         
+                   temp = READ_PHA_MB();   
+                   //printf("temp-sa is %d\r\n",temp);
+                   while(READ_PHA_MB() == temp);
+                   hg_op.cnt_posa ++;
+                
+#endif
+                        
+#if 0   
+                        if(hg_op.cnt_posa >= POS_INJECT_F)
+                        {
+                                STOP_B();
+                                hg_op.drops_sa = 0;
+                                hg_op.drops_push =1;;
+                        
+                        }
+#endif
+                        }
+    
+                    }
+                    else if(hg_op.drops_sb == 1)
+                    {
+                        //hg_op.cnt_posb ++;
+                       //=======================================================  
+#if 0
+                       if(READ_PHA_MB() == 0)     //falling edge
+                       {
+                        hg_op.cnt_posb --;
+                         printf("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&by\r\n");
+                       }
+                       else
+                       {
+                         hg_op.cnt_posb ++;
+                         
+                        
+                       }
+#endif
+                       
+                       
+                       
+                       //hg_op.cnt_posb ++;
+                        //r_motor.myInput ++;
+#if 1
+                       if( INTCON2bits.INTEDG2 == 1)//falling edge
+                       {
+                                if(READ_PHA_MB() == 0)  //falling   
+                                {
+                                  r_motor.myInput --;
+                                }
+                                else if(READ_PHA_MB() == 1)
+                                {
+                                  r_motor.myInput ++;
+                                 
+                                }
+                       
+                       
+                       }
+                       else if( INTCON2bits.INTEDG2 == 0)//rising edge
+                       {
+                           
+                                if(READ_PHA_MB() == 0)  //falling   
+                                {
+                                  r_motor.myInput ++;
+                                }
+                                else if(READ_PHA_MB() == 1) 
+                                {
+                                  r_motor.myInput --;
+                                }
+                           
+                           
+                       }
+                       
+#endif
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                        // if( hg_op.cnt_posb  == (43 * 2))STOP_B();
+                       
+                       //=======================================================  
+                       
+                       
+                       
+                       
+                       
+                         
+                         
+                         
+                         
+                         //if(hg_op.drops_sb == 1)
+                         if(0)
+                         {
+               
+#if 0
+                        if(INTCON2bits.INTEDG2 == 1)
+                        {
+                           while(READ_PHA_MB() == 0);
+                           hg_op.cnt_posb ++;
+                        }
+                        else if(INTCON2bits.INTEDG2 == 0)
+                        {
+                               while(READ_PHA_MB() == 1);
+                               hg_op.cnt_posb ++;
+                        }
+#endif
+                         
+#if 0            
+                   temp = READ_PHA_MB();   
+                   while(READ_PHA_MB() == temp);
+                   hg_op.cnt_posb ++;
+                
+#endif
+          
+#if 0
+                     if(hg_op.cnt_posb >= POS_INJECT_R)
+                        {
+                                STOP_B();
+                                hg_op.drops_sb = 0;
+                                hg_op.drops_sa  =1;
+                        
+                        }
+#endif
+                         
+                         }
+                         
+                        
+                    }
+
+                }
+                else if(hg_op.working_mode == WORK_MODE_DROP)
+                {
+
+                }
+                else if(hg_op.working_mode == WORK_MODE_C)
+                {
+                    if(hg_op.drops_sa == 1)
+                    {
+                        hg_op.cnt_posa ++;
+                    }
+                    else if(hg_op.drops_sb == 1)
+                    {
+                         hg_op.cnt_posb ++;
+                    }
+                }
+                else if(hg_op.working_mode == WORK_MODE_TEST)
+                {
+                    if(hg_op.drops_sa == 1)
+                    {
+                        hg_op.cnt_posa ++;
+                    }
+                    else if(hg_op.drops_sb == 1)
+                    {
+                         hg_op.cnt_posb ++;
+                    }
+                 }
+                else
+                {
+
+                }
+
+             
+         }
+          
+         
+         
+
+         
+       INTCON3bits.INT2IF = 0;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 #if 1
     if(T0IF)
     {
@@ -57,7 +504,7 @@ void __interrupt ISR(void)
         {
             
             
-            printf("timer is up \r\n");
+            //printf("timer is up \r\n");
 #if 0
             dv =0;
             dv = get_AD_vaule();
@@ -303,7 +750,10 @@ void __interrupt ISR(void)
                    printf("wake up\r\n");
                    hg_op.status_hit_lp = 0;
                    hg_op.need_reset =1;
+                   hg_op.in_reset =0;
                    
+                   hg_op.cnt_posa_std =0;
+                   hg_op.cnt_posb_std =0;
                    
                    //Initial_LY096BG30();
                    config_LCD();
@@ -327,8 +777,13 @@ void __interrupt ISR(void)
                      
                     STOP_A();
                     STOP_B();
+                    
                     ENABLE_AL();   
                     ENABLE_BL(); 
+                    
+                    
+                    
+                    
                     hg_op.need_reset =0;
                     printf("sleep\r\n");
                     
@@ -426,7 +881,7 @@ void __interrupt ISR(void)
          //STOP_B(); 
         
          hg_op.status_hit_lp =1;
-         
+         printf("lp\r\n");
          // INTCON3bits.INT2IF = 0;////for test
              
         INTCONbits.INT0IF = 0;
@@ -434,210 +889,7 @@ void __interrupt ISR(void)
      }
         
         
-    if(INTCON3bits.INT2IF)
-    {
-        
-#if 1
-        if(INTCON2bits.INTEDG2 == 0)
-         {
-             INTCON2bits.INTEDG2 = 1;
-         }
-         else if(INTCON2bits.INTEDG2 == 1)
-         {
-              INTCON2bits.INTEDG2 = 0;
-         }
-#endif 
-         
-        
-        //-> L
-        //<- H
-         if(hg_op.need_reset)
-         {
-             
-             //if(hg_op.status_hit_lp == 1 )
-             if(1)
-             {
-                 
-                hg_op.cnt_posrst ++;
-                if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
-                {
-                    hg_op.posrst =1;
-                    STOP_B();
 
-                }
-                              
-#if 0          
-                 if(INTCON2bits.INTEDG2 == 1)
-                 {
-                     //temp = READ_PHA_MB();
-                     //while(READ_PHA_MB() == temp);
-                     while(READ_PHA_MB() == 1);
-                    hg_op.cnt_posrst ++;
-                 }
-                 else if(INTCON2bits.INTEDG2 == 0)
-                 {
-                    // temp = READ_PHA_MB();   
-                     //while(READ_PHA_MB() == temp);
-                     while(READ_PHA_MB() == 0);
-                        hg_op.cnt_posrst ++;
-                 }
-#endif
-           
-#if 0            
-                   temp = READ_PHA_MB();   
-                   while(READ_PHA_MB() == temp);
-                   hg_op.cnt_posrst ++;
-                
-#endif
-                        
-                
-                
-#if 0       
-                 //if( hg_op.cnt_posrst == (300 * 4 + 0))
-                 if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
-                {
-                    hg_op.posrst =1;
-                    STOP_B();
-
-                }
-                  
-#endif
-                   
-             }
-         }
-         else
-         {      
-                if(hg_op.working_mode == WORK_MODE_DROPS)
-                {
-                    if(hg_op.drops_sa == 1)
-                    {
-                        hg_op.cnt_posa ++;
-             
-                        //if( hg_op.drops_sa == 1)
-                        if(0)
-                        {
-#if 0
-                        if(INTCON2bits.INTEDG2 == 1)
-                        {
-                            while(READ_PHA_MB() == 0);
-                            hg_op.cnt_posa ++;
-                        }
-                        else if(INTCON2bits.INTEDG2 == 0)
-                        {
-                            while(READ_PHA_MB() == 1);
-                            hg_op.cnt_posa ++;
-                        }
-#endif
-                        
-#if 0         
-                   temp = READ_PHA_MB();   
-                   //printf("temp-sa is %d\r\n",temp);
-                   while(READ_PHA_MB() == temp);
-                   hg_op.cnt_posa ++;
-                
-#endif
-                        
-#if 0   
-                        if(hg_op.cnt_posa >= POS_INJECT_F)
-                        {
-                                STOP_B();
-                                hg_op.drops_sa = 0;
-                                hg_op.drops_push =1;;
-                        
-                        }
-#endif
-                        }
-    
-                    }
-                    else if(hg_op.drops_sb == 1)
-                    {
-                         hg_op.cnt_posb ++;
-                         
-                         //if(hg_op.drops_sb == 1)
-                         if(0)
-                         {
-               
-#if 0
-                        if(INTCON2bits.INTEDG2 == 1)
-                        {
-                           while(READ_PHA_MB() == 0);
-                           hg_op.cnt_posb ++;
-                        }
-                        else if(INTCON2bits.INTEDG2 == 0)
-                        {
-                               while(READ_PHA_MB() == 1);
-                               hg_op.cnt_posb ++;
-                        }
-#endif
-                         
-#if 0            
-                   temp = READ_PHA_MB();   
-                   while(READ_PHA_MB() == temp);
-                   hg_op.cnt_posb ++;
-                
-#endif
-          
-#if 0
-                     if(hg_op.cnt_posb >= POS_INJECT_R)
-                        {
-                                STOP_B();
-                                hg_op.drops_sb = 0;
-                                hg_op.drops_sa  =1;
-                        
-                        }
-#endif
-                         
-                         }
-                         
-                        
-                    }
-
-                }
-                else if(hg_op.working_mode == WORK_MODE_DROP)
-                {
-
-                }
-                else if(hg_op.working_mode == WORK_MODE_C)
-                {
-                    if(hg_op.drops_sa == 1)
-                    {
-                        hg_op.cnt_posa ++;
-                    }
-                    else if(hg_op.drops_sb == 1)
-                    {
-                         hg_op.cnt_posb ++;
-                    }
-                }
-                else if(hg_op.working_mode == WORK_MODE_TEST)
-                {
-                    if(hg_op.drops_sa == 1)
-                    {
-                        hg_op.cnt_posa ++;
-                    }
-                    else if(hg_op.drops_sb == 1)
-                    {
-                         hg_op.cnt_posb ++;
-                    }
-                 }
-                else
-                {
-
-                }
-
-             
-         }
-          
-         
-         
-
-         
-       INTCON3bits.INT2IF = 0;
-    }
-    
-    
-    
-    
-    
 #endif
 
 #endif    

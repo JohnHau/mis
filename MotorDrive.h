@@ -80,12 +80,15 @@
 #define INPUT4_BL()    LATDbits.LD3 =0
 
 //#define STOP_B()      do{INPUT3_BL();INPUT4_BL(); ENABLE_BL(); }while(0)
-#define STOP_B()      do{INPUT3_BL();INPUT4_BL();}while(0)
-
-#define FORWARD_RUN_B()   do{STOP_B();INPUT3_BH();INPUT4_BL(); ENABLE_BH();}while(0)
-#define REVERSE_RUN_B()   do{STOP_B();INPUT3_BL();INPUT4_BH(); ENABLE_BH();}while(0)
+#define STOP_B()      do{ENABLE_BH();INPUT3_BL();INPUT4_BL();}while(0)
+//#define STOP_B()      do{ENABLE_BH();INPUT3_BH();INPUT4_BH();}while(0)
 
 
+//#define FORWARD_RUN_B()   do{STOP_B();INPUT3_BH();INPUT4_BL(); ENABLE_BH();}while(0)
+//#define REVERSE_RUN_B()   do{STOP_B();INPUT3_BL();INPUT4_BH(); ENABLE_BH();}while(0)
+
+#define FORWARD_RUN_B()   do{INPUT3_BH();INPUT4_BL(); ENABLE_BH();}while(0)
+#define REVERSE_RUN_B()   do{INPUT3_BL();INPUT4_BH(); ENABLE_BH();}while(0)
 
 
 
@@ -131,8 +134,43 @@ extern uint8_t flag_do_reset_in_drops_mode;
 extern uint8_t flag_action_button;
 
 
-extern void MotorDriveInit(void);
+void MotorDriveInit(void);
 
 
+
+
+
+
+ //Constants used in some of the functions below
+  #define AUTOMATIC	1
+  #define MANUAL	0
+  #define DIRECT  0
+  #define REVERSE  1
+  #define P_ON_M 0
+  #define P_ON_E 1
+
+
+
+
+
+typedef struct para_pid
+{
+double kp;
+double ki;
+double kd;
+double lastInput;
+double myInput;
+double mySetpoint;
+double myOutput;
+double outputSum;
+double outMax;
+double outMin;
+}PARAPID;
+
+
+extern PARAPID  r_motor;
+
+uint8_t PID_Compute(PARAPID * p);
+void PID_SetTunings(PARAPID * p);
 
 #endif

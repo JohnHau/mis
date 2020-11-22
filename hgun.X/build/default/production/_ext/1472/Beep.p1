@@ -3031,9 +3031,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Beep.c: 13: TRISCbits.RC6 =0;
 "13
 [e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
-[; ;Beep.c: 15: SPBRG = 25;
-"15
-[e = _SPBRG -> -> 25 `i `uc ]
+[; ;Beep.c: 16: SPBRG = 12;
+"16
+[e = _SPBRG -> -> 12 `i `uc ]
 [; ;Beep.c: 17: RCSTAbits.SPEN =1;
 "17
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
