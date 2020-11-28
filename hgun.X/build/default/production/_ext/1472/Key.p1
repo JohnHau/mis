@@ -81,7 +81,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
 "331 ../Oled.h
 [v _delay_nms `(v ~T0 @X0 0 ef1`ul ]
-"60 ../Timer.h
+"61 ../Timer.h
 [v _delaynus `(v ~T0 @X0 0 ef1`ui ]
 "24 ../Beep.h
 [v _buzz `(v ~T0 @X0 0 ef ]
@@ -3116,14 +3116,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 209: void menu5_MsgHandlle(uint8_t key);
 [; ;gui.h: 210: void menu6_MsgHandlle(uint8_t key);
 [; ;gui.h: 211: void menu7_MsgHandlle(uint8_t key);
-[; ;Timer.h: 51: extern uint16_t action_btn_cnt;
-[; ;Timer.h: 58: extern void TimerInit(void);
-[; ;Timer.h: 59: extern void Timer1Init(void);
-[; ;Timer.h: 60: extern void delaynus(uint16_t n);
-[; ;Timer.h: 65: extern uint16_t tva;
-[; ;Timer.h: 66: extern uint16_t tvb;
-[; ;Timer.h: 68: extern uint8_t flag_tv;
-[; ;Timer.h: 70: extern uint16_t tv_s[10];
+[; ;Timer.h: 52: extern uint16_t action_btn_cnt;
+[; ;Timer.h: 59: extern void TimerInit(void);
+[; ;Timer.h: 60: extern void Timer1Init(void);
+[; ;Timer.h: 61: extern void delaynus(uint16_t n);
+[; ;Timer.h: 66: extern uint16_t tva;
+[; ;Timer.h: 67: extern uint16_t tvb;
+[; ;Timer.h: 69: extern uint8_t flag_tv;
+[; ;Timer.h: 71: extern uint16_t tv_s[10];
 "10 ../Key.c
 [v _KEY_Init `(v ~T0 @X0 1 ef ]
 "11

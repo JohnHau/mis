@@ -12,6 +12,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_backlight_init `(v ~T0 @X0 0 ef ]
 "284
 [v _LCD_Off `(v ~T0 @X0 0 ef ]
+"278
+[v _Initial_LY096BG30 `(v ~T0 @X0 0 ef ]
 "201 ../gui.h
 [v _init_menu `(v ~T0 @X0 0 ef ]
 "73 ../Key.h
@@ -3076,6 +3078,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.c: 29: LCD_Off();
 "29
 [e ( _LCD_Off ..  ]
+[; ;gui.c: 31: Initial_LY096BG30();
+"31
+[e ( _Initial_LY096BG30 ..  ]
 [; ;gui.c: 32: init_menu();
 "32
 [e ( _init_menu ..  ]

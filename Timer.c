@@ -67,38 +67,6 @@ void __interrupt ISR(void)
               INTCON2bits.INTEDG2 = 0;
          }
 #endif 
-        //====================================================================== 
-        //PID
-        //======================================================================   
-#if 0
-        if( INTCON2bits.INTEDG2 == 1)//falling edge
-        {
-                 if(READ_PHA_MB() == 0)  //falling   
-                 {
-                   r_motor.myInput ++;
-                 }
-                 else if(READ_PHA_MB() == 1)
-                 {
-                   r_motor.myInput --;
-                 }
-
-        }
-        else if( INTCON2bits.INTEDG2 == 0)//rising edge
-        {
-
-                 if(READ_PHA_MB() == 0)  //falling   
-                 {
-                   r_motor.myInput --;
-                 }
-                 else if(READ_PHA_MB() == 1)
-                 {
-                    r_motor.myInput ++;
-                 }                  
-        }
-
-#endif
-        //======================================================================
-        
         
         //-> L
         //<- H
@@ -175,12 +143,7 @@ void __interrupt ISR(void)
                  }
 #endif
            
-#if 0            
-                   temp = READ_PHA_MB();   
-                   while(READ_PHA_MB() == temp);
-                   hg_op.cnt_posrst ++;
-                
-#endif
+
                         
                 
                 
@@ -243,8 +206,6 @@ void __interrupt ISR(void)
                                    hg_op.cnt_pos_1mm --; 
                                 }
                        
-                       
-                       
                        }
                        else if( INTCON2bits.INTEDG2 == 0)//rising edge
                        {
@@ -266,23 +227,6 @@ void __interrupt ISR(void)
 #endif
                        
                        
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       //if( hg_op.cnt_posa  == (43*2))STOP_B();
-                       
                        //=======================================================
                        
                        
@@ -303,23 +247,7 @@ void __interrupt ISR(void)
                         }
 #endif
                         
-#if 0         
-                   temp = READ_PHA_MB();   
-                   //printf("temp-sa is %d\r\n",temp);
-                   while(READ_PHA_MB() == temp);
-                   hg_op.cnt_posa ++;
-                
-#endif
                         
-#if 0   
-                        if(hg_op.cnt_posa >= POS_INJECT_F)
-                        {
-                                STOP_B();
-                                hg_op.drops_sa = 0;
-                                hg_op.drops_push =1;;
-                        
-                        }
-#endif
                         }
     
                     }
@@ -416,29 +344,12 @@ void __interrupt ISR(void)
                                hg_op.cnt_posb ++;
                         }
 #endif
-                         
-#if 0            
-                   temp = READ_PHA_MB();   
-                   while(READ_PHA_MB() == temp);
-                   hg_op.cnt_posb ++;
-                
-#endif
-          
-#if 0
-                     if(hg_op.cnt_posb >= POS_INJECT_R)
-                        {
-                                STOP_B();
-                                hg_op.drops_sb = 0;
-                                hg_op.drops_sa  =1;
-                        
-                        }
-#endif
-                         
+                                       
                          }
                          
                         
                     }
-
+                    //return ;
                 }
                 else if(hg_op.working_mode == WORK_MODE_DROP)
                 {
@@ -496,17 +407,17 @@ void __interrupt ISR(void)
     
     
     
-#if 0
+#if 1
     if(T0IF)
     {
     
         tcnt ++;
 
         //if(tcnt > 500*1000UL)
-        //if(tcnt > 125)//4ms
-        if(tcnt > 500)//1ms
+        if(tcnt > 125)//4ms
+        //if(tcnt > 500)//1ms
         {
-        
+            //printf("timer\n");
 #if 0
             if(STATUS_CHARGE == 0)
             {
@@ -720,7 +631,7 @@ void __interrupt ISR(void)
     {
         
         //----------------------------------------------------------------------
-#if 0
+#if 1
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
             delay_nms(4);
@@ -741,18 +652,11 @@ void __interrupt ISR(void)
                    hg_op.status_hit_lp = 0;
                    hg_op.need_reset =1;
                    hg_op.in_reset =0;
-                   
-                   hg_op.cnt_posa_std =0;
-                   hg_op.cnt_posb_std =0;
-                   
+      
                    //Initial_LY096BG30();
                    config_LCD();
                    initial_ui_setting();
                    
-                   #if 1
-                    T0IE=1; // 
-                    T0CONbits.TMR0ON =1;
-                   #endif
                    
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
@@ -770,10 +674,7 @@ void __interrupt ISR(void)
                     
                     ENABLE_AL();   
                     ENABLE_BL(); 
-                    
-                    
-                    
-                    
+  
                     hg_op.need_reset =0;
                     printf("sleep\r\n");
                     
@@ -786,12 +687,6 @@ void __interrupt ISR(void)
         
         
         
-        
-        
-        
-        
-        
-        
         if(ACTION_BUTTON  == 0)
         {
           
@@ -801,6 +696,8 @@ void __interrupt ISR(void)
         }
         //buzz();
         //temp = PORTB;
+        
+        
         INTCONbits.RBIF=0;
         
 
@@ -835,17 +732,18 @@ void TimerInit(void)
 	T0CS=0; //
 	PSA=0; // 
     
-#if 0
+#if 1
 	T0PS2=1;
 	T0PS1=0;
 	T0PS0=1; // 4ms
 #endif
     
+#if 0
     T0PS2=0;
 	T0PS1=1;
 	T0PS0=1; // 1ms
     
-    
+#endif
     
 	T08BIT =1;//
 	T0IF=0; // 

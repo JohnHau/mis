@@ -28,7 +28,7 @@ void HG_init(void)
     //LCD_On();
     LCD_Off();
     
-    //Initial_LY096BG30();
+    Initial_LY096BG30();
     init_menu();
     KEY_Init();
 
