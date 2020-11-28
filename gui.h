@@ -64,6 +64,9 @@ typedef struct _hg_op
     uint16_t cnt_posb;
     uint16_t cnt_posc;
     
+    int16_t cnt_pos_1mm;
+    int16_t cnt_pos_2mm;
+    
     uint16_t cnt_posa_std;
     uint16_t cnt_posb_std;
     

@@ -4041,6 +4041,9 @@ uint16_t cnt_posa;
 uint16_t cnt_posb;
 uint16_t cnt_posc;
 
+int16_t cnt_pos_1mm;
+int16_t cnt_pos_2mm;
+
 uint16_t cnt_posa_std;
 uint16_t cnt_posb_std;
 
@@ -4059,7 +4062,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 193
+# 196
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4102,7 +4105,7 @@ LCD_backlight_init();
 
 LCD_Off();
 
-Initial_LY096BG30();
+
 init_menu();
 KEY_Init();
 

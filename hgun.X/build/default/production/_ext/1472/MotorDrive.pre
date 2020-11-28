@@ -4008,13 +4008,13 @@ PARAPID r_motor;
 void PID_SetTunings(PARAPID * p)
 {
 
-# 111
-p->kp =16.0;
-p->ki =1.2;
-p->kd =80.0;
+
+p->kp =5.0;
+p->ki =0.2;
+p->kd =30.0;
 
 # 120
-p->outMax =3.0;
+p->outMax =1000.0;
 p->outMin = 0;
 
 p->outputSum =0;
@@ -4096,17 +4096,21 @@ TRISBbits.RB2 =1;
 TRISDbits.RD4 =0;
 TRISDbits.RD2 =0;
 TRISDbits.RD3 =0;
+
+
+
+
 LATAbits.LA5 =1;
 do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATCbits.LC2 =1;
 LATDbits.LD4 =1;
 
-# 240
+# 244
 INTCON2bits.INTEDG2 = 0;
 INTCON3bits.INT2IF =0;
 INTCON3bits.INT2E = 1;
 
-# 252
+# 256
 }
 

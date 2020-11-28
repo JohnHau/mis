@@ -3093,18 +3093,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _p `*S277 ~T0 @X0 1 r1 ]
 "101
 [f ]
-[; ;MotorDrive.c: 111: p->kp =16.0;
-"111
-[e = . *U _p 0 .16.0 ]
-[; ;MotorDrive.c: 112: p->ki =1.2;
-"112
-[e = . *U _p 1 .1.2 ]
-[; ;MotorDrive.c: 113: p->kd =80.0;
-"113
-[e = . *U _p 2 .80.0 ]
-[; ;MotorDrive.c: 120: p->outMax =3.0;
+[; ;MotorDrive.c: 104: p->kp =5.0;
+"104
+[e = . *U _p 0 .5.0 ]
+[; ;MotorDrive.c: 105: p->ki =0.2;
+"105
+[e = . *U _p 1 .0.2 ]
+[; ;MotorDrive.c: 106: p->kd =30.0;
+"106
+[e = . *U _p 2 .30.0 ]
+[; ;MotorDrive.c: 120: p->outMax =1000.0;
 "120
-[e = . *U _p 8 .3.0 ]
+[e = . *U _p 8 .1000.0 ]
 [; ;MotorDrive.c: 121: p->outMin = 0;
 "121
 [e = . *U _p 9 -> -> 0 `i `d ]
@@ -3267,19 +3267,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 229: TRISDbits.RD3 =0;
 "229
 [e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 230: LATAbits.LA5 =1;
-"230
+[; ;MotorDrive.c: 234: LATAbits.LA5 =1;
+"234
 [e = . . _LATAbits 1 5 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 231: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"231
+[; ;MotorDrive.c: 235: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"235
 [e :U 294 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 293 ]
-[; ;MotorDrive.c: 232: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"232
+[; ;MotorDrive.c: 236: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"236
 [e :U 297 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -3287,22 +3287,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 296 ]
-[; ;MotorDrive.c: 233: LATCbits.LC2 =1;
-"233
+[; ;MotorDrive.c: 237: LATCbits.LC2 =1;
+"237
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 234: LATDbits.LD4 =1;
-"234
+[; ;MotorDrive.c: 238: LATDbits.LD4 =1;
+"238
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 240: INTCON2bits.INTEDG2 = 0;
-"240
+[; ;MotorDrive.c: 244: INTCON2bits.INTEDG2 = 0;
+"244
 [e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 241: INTCON3bits.INT2IF =0;
-"241
+[; ;MotorDrive.c: 245: INTCON3bits.INT2IF =0;
+"245
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 242: INTCON3bits.INT2E = 1;
-"242
+[; ;MotorDrive.c: 246: INTCON3bits.INT2E = 1;
+"246
 [e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 252: }
-"252
+[; ;MotorDrive.c: 256: }
+"256
 [e :UE 291 ]
 }

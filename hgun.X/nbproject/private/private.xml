@@ -4,15 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/MotorDrive.h</file>
+            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Beep.h</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Timer.h</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Beep.c</file>
+            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/MotorDrive.c</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Main.c</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Timer.c</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/gui.c</file>
-            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Oled.c</file>
-            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Key.c</file>
-            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Oled.h</file>
-            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/gui.h</file>
         </group>
     </open-files>
 </project-private>

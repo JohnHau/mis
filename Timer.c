@@ -2,23 +2,24 @@
 #include<stdint.h>	
  #include <stdio.h>
 #include "Timer.h"
-//#include "Ad.h"
 #include "Key.h"
-//#include "PositionControl.h"
 #include "Beep.h"
 #include "Oled.h"
 #include"MotorDrive.h"
 #include "gui.h"
 
-
-
-
-
-
-
-unsigned char LastNeedleFeedback =0;
-unsigned char LastInjectionFeedback =0;
 unsigned char flag =0;
+
+
+uint16_t tva=0;
+uint16_t tvb=0;
+uint8_t flag_tv =0xff;
+
+uint16_t tv_s[10]={0};
+
+uint8_t  tv_cnt =0;
+
+uint8_t old_c = 0;
 
 uint16_t mbcnt=0;
 uint8_t tflag =1;
@@ -55,7 +56,7 @@ void __interrupt ISR(void)
     
     if(INTCON3bits.INT2IF)
     {
-        
+        INTCON3bits.INT2IF = 0;
 #if 1
         if(INTCON2bits.INTEDG2 == 0)
          {
@@ -109,10 +110,8 @@ void __interrupt ISR(void)
              {
                  
                 //hg_op.cnt_posrst ++;
-                 
-                 
-                 
-                    if(  hg_op.in_reset == 1)
+                                  
+                    if(hg_op.in_reset == 1)
                     {
                        
                         
@@ -153,9 +152,9 @@ void __interrupt ISR(void)
                          
                 if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
                 {
-                    hg_op.posrst =1;
+                    //hg_op.posrst =1;
                     //hg_op.in_reset =0;
-                    STOP_B();
+                    //STOP_B();
 
                 }
                               
@@ -205,7 +204,8 @@ void __interrupt ISR(void)
                     if(hg_op.drops_sa == 1)
                     {
                        
-                        
+                       //hg_op.cnt_pos_1mm ++; 
+
                        //======================================================= 
 #if 0 
                        if(READ_PHA_MB() == 0)  //falling   
@@ -228,21 +228,19 @@ void __interrupt ISR(void)
                        
                        
                        
-                       
-                       
-                      //hg_op.cnt_posa ++;
-                       //r_motor.myInput ++;
-                       
 #if 1         
                        if( INTCON2bits.INTEDG2 == 1)//falling edge
                        {
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                  r_motor.myInput ++;
+                                 
+                                  
+                                   hg_op.cnt_pos_1mm ++; 
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                  r_motor.myInput --;
+                                  
+                                   hg_op.cnt_pos_1mm --; 
                                 }
                        
                        
@@ -253,11 +251,13 @@ void __interrupt ISR(void)
                            
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                   r_motor.myInput --;
+                                  
+                                  
+                                    hg_op.cnt_pos_1mm --; 
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                  r_motor.myInput ++; 
+                                   hg_op.cnt_pos_1mm ++; 
                                 }
                            
                            
@@ -325,7 +325,19 @@ void __interrupt ISR(void)
                     }
                     else if(hg_op.drops_sb == 1)
                     {
+                        
+                          //hg_op.cnt_pos_1mm --;
+#if 0
+                        temp = READ_PHB_MB();
+                        if(temp  !=  old_c)
+                        {
+                            old_c = temp;
+                            hg_op.cnt_pos_1mm --;
+                        }
+#endif
+                        
                         //hg_op.cnt_posb ++;
+                        //hg_op.cnt_pos_1mm --;
                        //=======================================================  
 #if 0
                        if(READ_PHA_MB() == 0)     //falling edge
@@ -350,11 +362,14 @@ void __interrupt ISR(void)
                        {
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                  r_motor.myInput --;
+                                
+                                  tvb--;
+                                  hg_op.cnt_pos_1mm ++;
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                  r_motor.myInput ++;
+                                  //tvb++;
+                                  hg_op.cnt_pos_1mm --;
                                  
                                 }
                        
@@ -365,32 +380,20 @@ void __interrupt ISR(void)
                            
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                  r_motor.myInput ++;
+                                  
+                                  //tvb++;
+                                  hg_op.cnt_pos_1mm --;
                                 }
                                 else if(READ_PHA_MB() == 1) 
                                 {
-                                  r_motor.myInput --;
+                                  tvb--;
+                                  hg_op.cnt_pos_1mm ++;
                                 }
                            
                            
                        }
                        
 #endif
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                        // if( hg_op.cnt_posb  == (43 * 2))STOP_B();
-                       
-                       //=======================================================  
-                       
-                       
-                       
                        
                        
                          
@@ -475,7 +478,7 @@ void __interrupt ISR(void)
          
 
          
-       INTCON3bits.INT2IF = 0;
+       //INTCON3bits.INT2IF = 0;
     }
     
     
@@ -493,32 +496,16 @@ void __interrupt ISR(void)
     
     
     
-#if 1
+#if 0
     if(T0IF)
     {
     
         tcnt ++;
 
         //if(tcnt > 500*1000UL)
-        if(tcnt > 125)
+        //if(tcnt > 125)//4ms
+        if(tcnt > 500)//1ms
         {
-            
-            
-            //printf("timer is up \r\n");
-#if 0
-            dv =0;
-            dv = get_AD_vaule();
-            printf("dv is %d\r\n",dv);
-            
-            bv =0;
-            bv = get_SenseA_AD_vaule();
-            printf("bv is %d\r\n",bv);
-            
-            cv =0;
-            cv = get_SenseB_AD_vaule();
-            printf("cv is %d\r\n",cv);
-#endif
-            
         
 #if 0
             if(STATUS_CHARGE == 0)
@@ -731,6 +718,9 @@ void __interrupt ISR(void)
 #if 1
     if(INTCONbits.RBIF)
     {
+        
+        //----------------------------------------------------------------------
+#if 0
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
             delay_nms(4);
@@ -791,80 +781,23 @@ void __interrupt ISR(void)
             }
             
         }
-
+#endif
+        //----------------------------------------------------------------------
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if(ACTION_BUTTON  == 0)
         {
           
             //delaynus(50 * 1000);
             hg_op.acting_flag = 1;
-//-----------------------------------------------------------------------------
-#if 0     
-            
-            if(ACTION_BUTTON  == 0)
-            {
-                //while(ACTION_BUTTON == 0);
-            //T0IE=0; // 
-            //T0CONbits.TMR0ON =0;
-
-
-            buzz();
-            
-            #if 1
-            T0IE=0; // 
-            T0CONbits.TMR0ON =0;
-            #endif
-            
-            
-            
-           
-             if(hg_op.status_powerup == STATUS_WAKE)
-             {
-                 printf("action\r\n");
-                 //if(hg_op.acting_flag ==0)
-                 if(hg_op.cur_working_mode == WORK_MODE_DROPS)
-                 {
-                     printf("drops mode\r\n");
-                     hg_op.acting_flag =1;
-                   
-                    hg_op.drops_sa =1;
-                    hg_op.drops_sb =0;
-                    hg_op.drops_push =0;
-
-                    hg_op.working_mode = hg_op.cur_working_mode;
-                 }
-                 else if(hg_op.cur_working_mode == WORK_MODE_C)
-                 {
-                      printf("c mode\r\n");
-                    hg_op.drops_sa =1;
-                    hg_op.drops_sb =0;
-                    hg_op.drops_push =0;
- 
-                    hg_op.working_mode = hg_op.cur_working_mode;
-                    hg_op.working_mode = WORK_MODE_C;
-                 }
-                  else if(hg_op.cur_working_mode == WORK_MODE_TEST)
-                  {
-                     action_btn_cnt ++;
-                      printf("test mode\r\n");
-                    hg_op.drops_sa =1;
-                    hg_op.drops_sb =0;
-                    hg_op.drops_push =0;
- 
-                    hg_op.working_mode = hg_op.cur_working_mode;
-                    
-                    //printf("action test mode\r\n");
-                    
-                    
-                  }
-      
-             }
-
-        
-            }
-#endif
-//------------------------------------------------------------------------------            
-            
-            
+            printf("act\n");
         }
         //buzz();
         //temp = PORTB;
@@ -877,7 +810,6 @@ void __interrupt ISR(void)
      if(INTCONbits.INT0IF)//LP_BUTTON
      {   
             //buzz();  
-         //delay_pwm(1000);
          //STOP_B(); 
         
          hg_op.status_hit_lp =1;
@@ -902,9 +834,17 @@ void TimerInit(void)
 {
 	T0CS=0; //
 	PSA=0; // 
+    
+#if 0
 	T0PS2=1;
 	T0PS1=0;
 	T0PS0=1; // 4ms
+#endif
+    
+    T0PS2=0;
+	T0PS1=1;
+	T0PS0=1; // 1ms
+    
     
     
 	T08BIT =1;//
@@ -912,9 +852,9 @@ void TimerInit(void)
     TMR0=0; // 
     
     
-	T0IE=1; // 
+	T0IE=0; // 
 	GIE=1;  // 
-    T0CONbits.TMR0ON =1;
+    T0CONbits.TMR0ON =0;
 
 }
 
@@ -968,3 +908,4 @@ void delaynus(uint16_t n)
     
     
 }
+

@@ -4104,6 +4104,9 @@ uint16_t cnt_posa;
 uint16_t cnt_posb;
 uint16_t cnt_posc;
 
+int16_t cnt_pos_1mm;
+int16_t cnt_pos_2mm;
+
 uint16_t cnt_posa_std;
 uint16_t cnt_posb_std;
 
@@ -4122,7 +4125,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 193
+# 196
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
@@ -4140,13 +4143,23 @@ void menu5_MsgHandlle(uint8_t key);
 void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
 
-# 41 "../Timer.h"
+# 51 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 48
+# 58
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
+
+
+
+
+extern uint16_t tva;
+extern uint16_t tvb;
+
+extern uint8_t flag_tv;
+
+extern uint16_t tv_s[10];
 
 # 10 "../Key.c"
 void KEY_Init(void)

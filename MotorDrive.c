@@ -100,14 +100,14 @@ PARAPID  r_motor;
 void PID_SetTunings(PARAPID * p)
 {
     
-#if 0
+#if 1
     p->kp =5.0;
     p->ki =0.2;
     p->kd =30.0;
    
 #endif
     
-#if 1
+#if 0
     p->kp =16.0;
     p->ki =1.2;
     p->kd =80.0;
@@ -117,7 +117,7 @@ void PID_SetTunings(PARAPID * p)
     
     
     
-    p->outMax =3.0;
+    p->outMax =1000.0;
     p->outMin = 0;
     
     p->outputSum =0;
@@ -227,6 +227,10 @@ void MotorDriveInit(void)
     TRISDbits.RD4 =0;//enable B
     TRISDbits.RD2 =0;//input3
     TRISDbits.RD3 =0;//input4
+    
+    
+    
+    
     MPON();
     STOP_A();
     STOP_B();

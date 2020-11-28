@@ -81,18 +81,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
 "331 ../Oled.h
 [v _delay_nms `(v ~T0 @X0 0 ef1`ul ]
-"50 ../Timer.h
+"60 ../Timer.h
 [v _delaynus `(v ~T0 @X0 0 ef1`ui ]
 "24 ../Beep.h
 [v _buzz `(v ~T0 @X0 0 ef ]
-"82 ../gui.h
+"85 ../gui.h
 [v _test_mode `uc ~T0 @X0 0 e ]
 "195 C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "23 ../gui.h
-[s S281 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
-"81
+[s S281 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
+"84
 [v _hg_op `S281 ~T0 @X0 0 e ]
 "7817 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
 [v _T0IE `Vb ~T0 @X0 0 e@32661 ]
@@ -3089,35 +3089,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 63: uint16_t cnt_posa;
 [; ;gui.h: 64: uint16_t cnt_posb;
 [; ;gui.h: 65: uint16_t cnt_posc;
-[; ;gui.h: 67: uint16_t cnt_posa_std;
-[; ;gui.h: 68: uint16_t cnt_posb_std;
-[; ;gui.h: 70: uint16_t cnt_posa_target;
-[; ;gui.h: 71: uint16_t cnt_posb_target;
-[; ;gui.h: 75: uint16_t cnt_posrst;
-[; ;gui.h: 76: uint16_t cnt_target_posrst;
-[; ;gui.h: 77: uint16_t qec;
-[; ;gui.h: 79: }HG_OP;
-[; ;gui.h: 81: extern HG_OP hg_op;
-[; ;gui.h: 82: extern uint8_t test_mode;
-[; ;gui.h: 83: extern uint8_t flag_test_mode_break;
-[; ;gui.h: 193: extern uint8_t focus;
-[; ;gui.h: 194: extern uint8_t flip;
-[; ;gui.h: 195: extern int8_t work_mode;
-[; ;gui.h: 196: extern MENU menu[8];
-[; ;gui.h: 198: void init_menu(void);
-[; ;gui.h: 199: void HG_interface(void);
-[; ;gui.h: 201: void menu0_MsgHandlle(uint8_t key);
-[; ;gui.h: 202: void menu1_MsgHandlle(uint8_t key);
-[; ;gui.h: 203: void menu2_MsgHandlle(uint8_t key);
-[; ;gui.h: 204: void menu3_MsgHandlle(uint8_t key);
-[; ;gui.h: 205: void menu4_MsgHandlle(uint8_t key);
-[; ;gui.h: 206: void menu5_MsgHandlle(uint8_t key);
-[; ;gui.h: 207: void menu6_MsgHandlle(uint8_t key);
-[; ;gui.h: 208: void menu7_MsgHandlle(uint8_t key);
-[; ;Timer.h: 41: extern uint16_t action_btn_cnt;
-[; ;Timer.h: 48: extern void TimerInit(void);
-[; ;Timer.h: 49: extern void Timer1Init(void);
-[; ;Timer.h: 50: extern void delaynus(uint16_t n);
+[; ;gui.h: 67: int16_t cnt_pos_1mm;
+[; ;gui.h: 68: int16_t cnt_pos_2mm;
+[; ;gui.h: 70: uint16_t cnt_posa_std;
+[; ;gui.h: 71: uint16_t cnt_posb_std;
+[; ;gui.h: 73: uint16_t cnt_posa_target;
+[; ;gui.h: 74: uint16_t cnt_posb_target;
+[; ;gui.h: 78: uint16_t cnt_posrst;
+[; ;gui.h: 79: uint16_t cnt_target_posrst;
+[; ;gui.h: 80: uint16_t qec;
+[; ;gui.h: 82: }HG_OP;
+[; ;gui.h: 84: extern HG_OP hg_op;
+[; ;gui.h: 85: extern uint8_t test_mode;
+[; ;gui.h: 86: extern uint8_t flag_test_mode_break;
+[; ;gui.h: 196: extern uint8_t focus;
+[; ;gui.h: 197: extern uint8_t flip;
+[; ;gui.h: 198: extern int8_t work_mode;
+[; ;gui.h: 199: extern MENU menu[8];
+[; ;gui.h: 201: void init_menu(void);
+[; ;gui.h: 202: void HG_interface(void);
+[; ;gui.h: 204: void menu0_MsgHandlle(uint8_t key);
+[; ;gui.h: 205: void menu1_MsgHandlle(uint8_t key);
+[; ;gui.h: 206: void menu2_MsgHandlle(uint8_t key);
+[; ;gui.h: 207: void menu3_MsgHandlle(uint8_t key);
+[; ;gui.h: 208: void menu4_MsgHandlle(uint8_t key);
+[; ;gui.h: 209: void menu5_MsgHandlle(uint8_t key);
+[; ;gui.h: 210: void menu6_MsgHandlle(uint8_t key);
+[; ;gui.h: 211: void menu7_MsgHandlle(uint8_t key);
+[; ;Timer.h: 51: extern uint16_t action_btn_cnt;
+[; ;Timer.h: 58: extern void TimerInit(void);
+[; ;Timer.h: 59: extern void Timer1Init(void);
+[; ;Timer.h: 60: extern void delaynus(uint16_t n);
+[; ;Timer.h: 65: extern uint16_t tva;
+[; ;Timer.h: 66: extern uint16_t tvb;
+[; ;Timer.h: 68: extern uint8_t flag_tv;
+[; ;Timer.h: 70: extern uint16_t tv_s[10];
 "10 ../Key.c
 [v _KEY_Init `(v ~T0 @X0 1 ef ]
 "11
