@@ -83,18 +83,20 @@ void __interrupt ISR(void)
                     {
                        
                         
-                        hg_op.cnt_posrst ++;  
+                        //hg_op.cnt_posrst ++;  
 //==============================================================================   
-#if 0
+#if 1
                        if( INTCON2bits.INTEDG2 == 1)//falling edge
                        {
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                 hg_op.cnt_posrst ++;  
+                                 hg_op.cnt_posrst ++;  //ori
+                               
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                  hg_op.cnt_posrst --;
+                                  hg_op.cnt_posrst --;//ori
+                                 
                                 }
                        
                        
@@ -105,11 +107,13 @@ void __interrupt ISR(void)
                            
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                 hg_op.cnt_posrst --;
+                                 hg_op.cnt_posrst --;//ori
+                                 
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                  hg_op.cnt_posrst ++;       
+                                  hg_op.cnt_posrst ++;  //ori
+                                  
                                 }                  
                        }
 #endif
@@ -118,6 +122,8 @@ void __interrupt ISR(void)
                     }
                  
                          
+                   
+                    
                 if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
                 {
                     //hg_op.posrst =1;
@@ -125,7 +131,11 @@ void __interrupt ISR(void)
                     //STOP_B();
 
                 }
-                              
+              
+                          
+                    
+                    
+                    
 #if 0          
                  if(INTCON2bits.INTEDG2 == 1)
                  {
@@ -199,11 +209,13 @@ void __interrupt ISR(void)
                                  
                                   
                                    hg_op.cnt_pos_1mm ++; 
+                                   hg_op.cnt_posa ++;
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
                                   
                                    hg_op.cnt_pos_1mm --; 
+                                   hg_op.cnt_posa --;
                                 }
                        
                        }
@@ -212,13 +224,13 @@ void __interrupt ISR(void)
                            
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                  
-                                  
                                     hg_op.cnt_pos_1mm --; 
+                                    hg_op.cnt_posa --;
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
                                    hg_op.cnt_pos_1mm ++; 
+                                   hg_op.cnt_posa ++;
                                 }
                            
                            
@@ -417,201 +429,7 @@ void __interrupt ISR(void)
         if(tcnt > 125)//4ms
         //if(tcnt > 500)//1ms
         {
-            //printf("timer\n");
-#if 0
-            if(STATUS_CHARGE == 0)
-            {
-                printf("charging\r\n");
-            }
-            else
-            {
-                printf("not charging\r\n");
-            }
-            
-#endif
-            
-            
-            if(menu[0].mode == MODE_BLINK)
-            { 
-                if(flip == 1)
-                {
-                    display_blank_mode_pa(0,COL_PAGE0_MDROPS,MODE_REVERSE);
-                    flip =0;
-                }
-                else if(flip == 0)
-                {
-                    flip =1;
-                    if(work_mode == WORK_MODE_C)
-                    {
-                        display_cmode(0,COL_PAGE0_MDROPS, MODE_REVERSE);
-                    }
-                    else if(work_mode == WORK_MODE_DROPS)
-                    {
-                        display_drops(0,COL_PAGE0_MDROPS, MODE_REVERSE);
-                    }
-                    else if(work_mode == WORK_MODE_DROP)
-                    {
-                        display_drop(0,COL_PAGE0_MDROPS, MODE_REVERSE);
-                    }     
-                }
-            }  
-            else if(menu[3].mode == MODE_BLINK)
-            {
-                
-                if(flip == 1)
-                {
-                    display_n_blank(1,COL_PAGE0_DN, MODE_REVERSE);
-                    flip =0;
-                }
-                else if(flip == 0)
-                {
-                    flip =1;
-                    if(menu[3].parameter == 0)
-                    {   
-                        display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_4);
-                    }
-                    else if(menu[3].parameter == 1)
-                    {
-                        display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_6);
-                    }
-                    else if(menu[3].parameter == 2)
-                    {
-                        display_num(MIDDLE,COL_PAGE0_DN, MODE_REVERSE | NUM_13);
-                    }
- 
-                }
-            }
-            else if(menu[4].mode == MODE_BLINK)
-            {
-                
-                if(flip == 1)
-                {
-                    display_n_blank(1,COL_PAGE0_EN, MODE_REVERSE);
-                    flip =0;
-                }
-                else if(flip == 0)
-                {
-                    flip =1;
-                    if(menu[4].parameter == 0)
-                    {
-                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_1);
-                    }
-                    else if(menu[4].parameter == 1)
-                    {
-                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_2);
-                    }
- 
-                }
-            }
-            else if(menu[5].mode == MODE_BLINK)
-            {
-                
-                if(flip == 1)
-                {
-                    display_n_blank(2,COL_PAGE0_FN, MODE_REVERSE);
-                    flip =0;
-                }
-                else if(flip == 0)
-                {
-                    flip =1;
-                    if(menu[5].parameter == 0)
-                    {
-                        //display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2);
-                    }
-                    else if(menu[5].parameter == 1)
-                    {
-                        //display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1P5);
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_3);
-                    }
-                    else if(menu[5].parameter == 2)
-                    {
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_5);
-                    }
-                }
-            }
-            else if(menu[6].mode == MODE_BLINK)
-            {
-                
-                if(flip == 1)
-                {
-                    
-                    
-                    if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
-                    {
-                        display_n_blank(2,COL_PAGE0_GN, MODE_REVERSE);
-                    }
-                     else if(work_mode == WORK_MODE_DROPS) 
-                     {
-                         display_n_blank(2,COL_PAGE0_HN, MODE_REVERSE);
-                     }
-                    flip =0;
-                }
-                else if(flip == 0)
-                {
-                    flip =1;
-                    if(menu[6].parameter == 0)
-                    {
-                       if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
-                       {
-                        display_num(BOTTOM,COL_PAGE0_GN, MODE_REVERSE | NUM_3);
-                       }
-                       else if(work_mode == WORK_MODE_DROPS) 
-                       {
-                           display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_250);
-                       }
-                    }
-                    else if(menu[6].parameter == 1)
-                    {
-                         if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
-                         {
-                           display_num(BOTTOM,COL_PAGE0_GN, MODE_REVERSE | NUM_3);
-                         }
-                         else if(work_mode == WORK_MODE_DROPS) 
-                         {
-                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_100);
-                          }
-                    }
-                    else if(menu[6].parameter == 2)
-                    {
-                         if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
-                         {
-                           display_num(BOTTOM,COL_PAGE0_GN, MODE_REVERSE | NUM_3);
-                         }
-                         else if(work_mode == WORK_MODE_DROPS) 
-                         {
-                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_200);
-                          }
-                    }
- 
-                }
-            }
-#if 0
-            else if(menu[7].mode == MODE_BLINK)
-            {
-                
-                if(flip == 1)
-                {
-                    display_n_blank(2,COL_PAGE0_HN, MODE_REVERSE);
-                    flip =0;
-                }
-                else if(flip == 0)
-                {
-                    flip =1;
-                    if(menu[7].parameter == 0)
-                    {
-                        //display_n1(0,COL_PAGE0_HN, MODE_REVERSE);
-                        display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_250);
-                    }
-                    else if(menu[7].parameter == 1)
-                    {
-                        //display_n2(0,COL_PAGE0_HN, MODE_REVERSE);
-                        display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_200);
-                    }
- 
-                }
-            }
-#endif
+            flag_blink =1;
             tcnt = 0;
         }
 
@@ -652,7 +470,7 @@ void __interrupt ISR(void)
                    hg_op.status_hit_lp = 0;
                    hg_op.need_reset =1;
                    hg_op.in_reset =0;
-      
+                   hg_op.needle_len = NEEDLE_LEN_4_MM;
                    //Initial_LY096BG30();
                    config_LCD();
                    initial_ui_setting();
@@ -664,18 +482,14 @@ void __interrupt ISR(void)
                     hg_op.status_powerup = STATUS_SLEEP;
                     LCD_Off();
                     
-                    
-                     write_buf[0]=0x25;  
-	                 ee_WriteBytes(write_buf, 0x00, 1);
-                     
-                     
+                    write_buf[0]=0x25;  
+	                ee_WriteBytes(write_buf, 0x00, 1);
+                      
                     STOP_A();
                     STOP_B();
                     
-                    ENABLE_AL();   
-                    ENABLE_BL(); 
-  
-                    hg_op.need_reset =0;
+                    //hg_op.needle_len = NEEDLE_LEN_4_MM;
+                    hg_op.need_reset =1;
                     printf("sleep\r\n");
                     
                 }
@@ -710,7 +524,7 @@ void __interrupt ISR(void)
          //STOP_B(); 
         
          hg_op.status_hit_lp =1;
-         printf("lp\r\n");
+         //printf("lp\r\n");
          // INTCON3bits.INT2IF = 0;////for test
              
         INTCONbits.INT0IF = 0;

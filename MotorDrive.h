@@ -96,6 +96,21 @@
 
 
 
+#define DAYNAMIC_BRAKE
+
+#if defined(DAYNAMIC_BRAKE)
+#define F_RUNNING_BRAKE_MB()  do{FORWARD_RUN_B();brake_MB();STOP_B();}while(0)
+#define R_RUNNING_BRAKE_MB()  do{REVERSE_RUN_B();brake_MB();STOP_B();}while(0)
+
+#else
+#define F_RUNNING_BRAKE_MB()  do{FORWARD_RUN_B();delaynus(15*1000);STOP_B();}while(0)
+#define R_RUNNING_BRAKE_MB()  do{REVERSE_RUN_B();delaynus(15*1000);STOP_B();}while(0)
+
+#endif
+
+
+
+
 
 
 
@@ -136,41 +151,15 @@ extern uint8_t flag_action_button;
 
 void MotorDriveInit(void);
 
+uint16_t brake_MB(void);
+
+void hg_reset(void);
+
+void drops_routine(void);
+void c_routine(void);
+void test_routine(void);
 
 
-
-
-
- //Constants used in some of the functions below
-  #define AUTOMATIC	1
-  #define MANUAL	0
-  #define DIRECT  0
-  #define REVERSE  1
-  #define P_ON_M 0
-  #define P_ON_E 1
-
-
-
-
-
-typedef struct para_pid
-{
-double kp;
-double ki;
-double kd;
-double lastInput;
-double myInput;
-double mySetpoint;
-double myOutput;
-double outputSum;
-double outMax;
-double outMin;
-}PARAPID;
-
-
-extern PARAPID  r_motor;
-
-uint8_t PID_Compute(PARAPID * p);
-void PID_SetTunings(PARAPID * p);
+void check_acting(void);
 
 #endif

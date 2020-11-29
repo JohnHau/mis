@@ -3910,7 +3910,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 102 "../MotorDrive.h"
+# 117 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -3948,28 +3948,265 @@ extern uint8_t flag_action_button;
 
 void MotorDriveInit(void);
 
-# 156
-typedef struct para_pid
+uint16_t brake_MB(void);
+
+void hg_reset(void);
+
+void drops_routine(void);
+void c_routine(void);
+void test_routine(void);
+
+
+void check_acting(void);
+
+# 63 "../Timer.h"
+extern uint16_t action_btn_cnt;
+
+# 70
+extern void TimerInit(void);
+extern void Timer1Init(void);
+extern void delaynus(uint16_t n);
+
+
+
+
+extern uint16_t tva;
+extern uint16_t tvb;
+
+extern uint8_t flag_tv;
+
+extern uint16_t tv_s[10];
+
+# 58 "../Key.h"
+extern unsigned char KeyScanPeriod;
+
+typedef struct
 {
-double kp;
-double ki;
-double kd;
-double lastInput;
-double myInput;
-double mySetpoint;
-double myOutput;
-double outputSum;
-double outMax;
-double outMin;
-}PARAPID;
+unsigned char NewValue;
+unsigned char OldValue;
+unsigned char SendValue;
+unsigned char SendValueChangeFlag;
+unsigned char FiterTimesCount;
+unsigned char FiterTimes;
+
+}KeyType;
+
+extern KeyType OnOffKey,UpKey,DownKey,ConfirmKey,StartInjectKey;
+
+void KEY_Init(void);
+uint8_t KEY_Scan(void);
+void KeyFuction(void);
+
+# 6 "../gui.h"
+typedef struct xmenu
+{
+uint8_t menu_no;
+uint8_t mode;
+uint8_t cur_mode;
+uint8_t frame;
+uint8_t value;
+int8_t parameter;
+void (*MsgHandlle)(uint8_t key);
+
+}MENU;
+
+# 23
+typedef struct _hg_op
+{
+uint8_t working_mode;
+uint8_t cur_working_mode;
+uint8_t working_op;
+uint8_t status_powerup;
+uint8_t status_charging;
+uint8_t need_reset;
+uint8_t status_hit_lp;
+
+uint8_t in_reset;
+uint16_t sat;
+uint16_t sbt;
+
+uint16_t sa_old;
+uint16_t sa_new;
+
+uint16_t sb_old;
+uint16_t sb_new;
+
+uint8_t needle_len;
+uint8_t inject_len;
+uint8_t tube_cap;
+uint16_t work_freq;
+
+uint8_t push_len;
 
 
-extern PARAPID r_motor;
+uint8_t acting_flag;
 
-uint8_t PID_Compute(PARAPID * p);
-void PID_SetTunings(PARAPID * p);
+uint8_t drops_sa;
+uint8_t drops_sb;
+uint8_t drops_push;
 
-# 13 "../MotorDrive.c"
+uint8_t posrst;
+
+uint8_t posa;
+uint8_t posb;
+uint8_t posc;
+
+uint16_t cnt_posa;
+uint16_t cnt_posb;
+uint16_t cnt_posc;
+
+int16_t cnt_pos_1mm;
+int16_t cnt_pos_2mm;
+
+uint16_t cnt_posa_std;
+uint16_t cnt_posb_std;
+
+uint16_t cnt_posa_target;
+uint16_t cnt_posb_target;
+
+
+
+uint16_t cnt_posrst;
+uint16_t cnt_target_posrst;
+uint16_t qec;
+
+}HG_OP;
+
+extern HG_OP hg_op;
+extern uint8_t test_mode;
+extern uint8_t flag_test_mode_break;
+
+# 195
+extern uint8_t flag_blink;
+extern uint8_t focus;
+extern uint8_t flip;
+extern int8_t work_mode;
+extern MENU menu[8];
+
+
+
+
+void HG_device_init(void);
+void init_menu(void);
+void HG_interface(void);
+
+void menu0_MsgHandlle(uint8_t key);
+void menu1_MsgHandlle(uint8_t key);
+void menu2_MsgHandlle(uint8_t key);
+void menu3_MsgHandlle(uint8_t key);
+void menu4_MsgHandlle(uint8_t key);
+void menu5_MsgHandlle(uint8_t key);
+void menu6_MsgHandlle(uint8_t key);
+void menu7_MsgHandlle(uint8_t key);
+
+
+
+void enter_sleep(void);
+
+
+void initial_para_setting(void);
+
+void blink_mode(void);
+
+# 86 "../Oled.h"
+typedef struct action_profile
+{
+
+uint8_t inject_mode;
+uint8_t para[8];
+}action_profile_t;
+
+typedef struct interface
+{
+
+uint8_t focus;
+uint8_t mode;
+uint8_t sub_old;
+uint8_t sub;
+uint8_t sub_lmt[8];
+uint16_t cnt_blink;
+action_profile_t profile;
+}interface_t;
+
+# 237
+extern interface_t interface_x;
+
+extern uint8_t write_buf[256];
+extern uint8_t read_buf[256];
+
+
+void i2c_CfgGpio(void);
+void i2c_Start(void);
+void i2c_Stop(void);
+void i2c_SendByte(uint8_t _ucByte);
+uint8_t i2c_ReadByte(void);
+uint8_t i2c_WaitAck(void);
+void i2c_Ack(void);
+void i2c_NAck(void);
+
+# 267
+uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
+
+uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
+
+
+uint8_t ee_CheckDevice(uint8_t _Address);
+void ee_Erase(void);
+uint8_t ee_WaitStandby(void);
+uint8_t ee_Test(void) ;
+
+
+void Initial_LY096BG30(void);
+void display_logo(void);
+
+
+void LCD_backlight_init(void);
+void LCD_On(void);
+void LCD_Off(void);
+void LCD_Blink(void);
+uint8_t ee_CheckDevice(uint8_t _Address);
+
+
+uint8_t AD_init(void);
+uint16_t get_AD_vaule(void);
+uint16_t get_SenseA_AD_vaule(void);
+uint16_t get_SenseB_AD_vaule(void);
+uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
+uint8_t hg_interface(void);
+void delay(unsigned int x);
+
+# 303
+void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
+void display_drops(uint8_t y,uint8_t x,uint8_t mode);
+void display_drop(uint8_t y,uint8_t x,uint8_t mode);
+void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
+
+
+
+
+void display_mem(uint8_t y,uint8_t x,uint8_t mode);
+void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+
+
+uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
+uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
+
+
+uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
+
+
+uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
+
+void initial_ui_setting(void);
+
+# 331
+void delay_nms(uint32_t n);
+void delay_ms(unsigned int ms);
+void delay_pwm(uint32_t n);
+void delay_f(uint32_t n);
+
+# 15 "../MotorDrive.c"
 uint8_t prev_state_phb_ma =0;
 uint8_t cur_state_phb_ma =0;
 
@@ -4000,83 +4237,11 @@ uint8_t flag_action_button =0;
 
 uint8_t flag_do_reset_in_drops_mode =0;
 
-# 96
-PARAPID f_motor;
-PARAPID r_motor;
-
-
-void PID_SetTunings(PARAPID * p)
-{
-
-
-p->kp =5.0;
-p->ki =0.2;
-p->kd =30.0;
-
-# 120
-p->outMax =1000.0;
-p->outMin = 0;
-
-p->outputSum =0;
-
-p->mySetpoint = 100.0;
-
-
-p->lastInput = 0.0;
-p->myInput =0.0;
-
-}
-
-# 141
-uint8_t PID_Compute(PARAPID * p)
-{
-
-if(0) return 0;
-
-
-
-
-if(1)
-{
-
-double input = p->myInput;
-double error = p->mySetpoint - input;
-double dInput = (input - p->lastInput);
-p->outputSum+= (p->ki * error);
-
-
-
-
-if(p->outputSum > p->outMax) p->outputSum= p->outMax;
-else if(p->outputSum < p->outMin) p->outputSum= p->outMin;
-
-
-double output;
-
-if(1) output = p->kp * error;
-else output = 0;
-
-
-output += p->outputSum - p->kd * dInput;
-
-if(output > p->outMax) output = p->outMax;
-else if(output < p->outMin) output = p->outMin;
-p->myOutput = output;
-
-
-p->lastInput = input;
-
-# 183
-return 1;
-}
-else return 0;
-}
-
-# 194
+# 49
 void MotorDriveInit(void)
 {
 
-# 211
+# 66
 TRISAbits.RA5 =0;
 
 
@@ -4106,11 +4271,748 @@ do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATCbits.LC2 =1;
 LATDbits.LD4 =1;
 
-# 244
+# 99
 INTCON2bits.INTEDG2 = 0;
 INTCON3bits.INT2IF =0;
 INTCON3bits.INT2E = 1;
 
-# 256
+# 111
 }
 
+
+uint16_t brake_MB(void)
+{
+uint16_t ths,tls;
+uint8_t temp;
+
+ths =0;
+tls =0;
+while(1)
+{
+temp = PORTBbits.RB2;
+do {TMR1 =0;T1CONbits.TMR1ON =1;}while(0);
+while(temp == PORTBbits.RB2);
+T1CONbits.TMR1ON =0;
+
+if(temp ==0)
+{
+tls = TMR1;
+}
+else if(temp ==1)
+{
+ths = TMR1;
+}
+
+
+if(tls > 1006 && ths > 1006)
+
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+break;
+
+}
+
+}
+
+
+
+return tls;
+
+}
+
+
+
+
+void hg_reset(void)
+{
+
+if(PORTBbits.RB0 == 0)
+
+{
+hg_op.posrst = 0;
+hg_op.cnt_posrst =0;
+hg_op.cnt_target_posrst = 600;
+
+do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
+while(hg_op.cnt_posrst < 300)
+{
+LATDbits.LD2 =1;
+delaynus(10);
+LATDbits.LD2 =0;
+delaynus(10);
+}
+
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+delaynus(50 * 1000);
+hg_op.posrst = 0;
+hg_op.cnt_posrst =0;
+
+printf("lp away\n");
+
+}
+
+
+
+if(hg_op.needle_len == 4)
+{
+hg_op.cnt_target_posrst = 300;
+}
+else if(hg_op.needle_len == 6)
+{
+hg_op.cnt_target_posrst = (412 );
+}
+else if(hg_op.needle_len == 13)
+{
+hg_op.cnt_target_posrst = (1);
+}
+
+
+
+
+hg_op.status_hit_lp = 0;
+LATDbits.LD4 =1;LATDbits.LD2 =0;
+while(hg_op.status_hit_lp == 0)
+{
+LATDbits.LD3 =1;
+delaynus(10);
+LATDbits.LD3 =0;
+delaynus(10);
+
+}
+
+
+do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+
+
+
+if(hg_op.needle_len == 13)
+{
+hg_op.need_reset =0;
+}
+else
+{
+LATDbits.LD4 =1;LATDbits.LD3 =0;
+hg_op.posrst = 0;
+hg_op.cnt_posrst =0;
+hg_op.in_reset = 1;
+while(hg_op.cnt_posrst < hg_op.cnt_target_posrst)
+{
+LATDbits.LD2 =1;
+delaynus(10);
+printf("r%d\n",hg_op.cnt_posrst);
+LATDbits.LD2 =0;
+delaynus(10);
+
+}
+
+
+
+do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+
+
+
+
+printf("A-reset len is %d\r\n",hg_op.cnt_posrst);
+delaynus(50 * 1000);
+
+printf("B-reset len is %d\r\n",hg_op.cnt_posrst);
+hg_op.need_reset =0;
+hg_op.status_hit_lp =0;
+hg_op.cnt_posrst =0;
+hg_op.posrst =0;
+
+
+
+do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
+}
+
+}
+
+
+void drops_routine(void)
+{
+uint16_t cnt_push =0;
+
+
+if(0)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+hg_op.acting_flag =0;
+hg_op.working_mode = 0x03;
+hg_op.need_reset =1;
+}
+else
+{
+if(hg_op.drops_sa == 1)
+{
+
+
+if( hg_op.needle_len == 13)
+{
+hg_op.cnt_posa =0;
+do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
+printf("start\n");
+while(hg_op.cnt_posa < (156));
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+printf("end\n");
+delaynus(50 * 1000);
+
+}
+else
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+LATDbits.LD4 =1;LATDbits.LD3 =0;LATDbits.LD2 =1;
+
+while(hg_op.cnt_pos_1mm < 150);
+do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
+
+
+
+; ;
+
+printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
+
+}
+
+hg_op.drops_sa = 0;
+hg_op.drops_sb = 0;
+hg_op.drops_push = 1;
+
+
+
+}
+else if(hg_op.drops_push == 1)
+{
+
+
+cnt_push =0;
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+
+while(cnt_push < hg_op.push_len)
+
+{
+while(PORTAbits.RA4 == 0);
+cnt_push ++;
+while(PORTAbits.RA4 == 1);
+cnt_push ++;
+
+
+}
+
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+
+
+hg_op.drops_sa = 0;
+hg_op.drops_push = 0;
+hg_op.drops_sb = 1;
+
+
+
+}
+else if(hg_op.drops_sb == 1)
+{
+
+# 358
+if(hg_op.needle_len == 13)
+{
+
+
+do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
+while(PORTBbits.RB0 == 1);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+delaynus(50 * 1000);
+
+}
+else
+{
+LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =1;
+while(hg_op.cnt_pos_1mm > 0);
+
+do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+
+}
+
+
+printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
+
+
+; ;
+printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
+
+
+if(PORTBbits.RB5 == 1)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+
+
+while(cnt_push < 260)
+{
+while(PORTAbits.RA4 == 0);
+cnt_push ++;
+while(PORTAbits.RA4 == 1);
+cnt_push ++;
+
+}
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+hg_op.drops_sa = 0;
+hg_op.drops_sb = 0;
+hg_op.drops_push = 0;
+
+
+hg_op.acting_flag =0;
+
+
+if(hg_op.needle_len == 13)
+{
+hg_op.need_reset =0;
+}
+else
+{
+hg_op.need_reset =1;
+}
+
+hg_op.working_mode = 0x03;
+
+}
+else if(PORTBbits.RB5 == 0)
+{
+hg_op.drops_sb = 0;
+hg_op.drops_push =0;
+hg_op.drops_sa = 1;
+}
+}
+
+# 436
+}
+
+
+
+
+}
+
+
+
+void c_routine(void)
+{
+uint16_t cnt_push =0;
+printf("in in C mode\r\n");
+
+if(0)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+delaynus(30 * 1000);
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+
+
+hg_op.acting_flag =0;
+hg_op.working_mode = 0x03;
+hg_op.need_reset =1;
+}
+else
+{
+if(hg_op.drops_sa == 1)
+{
+hg_op.cnt_posa =0;
+
+if( hg_op.needle_len == 13)
+{
+
+LATDbits.LD4 =1;LATDbits.LD2 =1;
+while(hg_op.cnt_posa < (156));
+}
+else
+{
+LATDbits.LD4 =1;LATDbits.LD2 =1;
+delaynus(14 * 1000);
+
+}
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+delaynus(50 * 1000);
+delaynus(50 * 1000);
+printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
+hg_op.drops_sa = 0;
+hg_op.drops_sb = 0;
+hg_op.drops_push = 1;
+}
+
+
+if(hg_op.drops_push == 1)
+{
+
+# 506
+while(PORTBbits.RB5 == 0)
+{
+cnt_push =0;
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+
+while(cnt_push < 146)
+{
+while(PORTAbits.RA4 == 0);
+cnt_push ++;
+while(PORTAbits.RA4 == 1);
+cnt_push ++;
+
+}
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+delaynus(50 * 1000);
+
+printf("cycle push\r\n");
+}
+
+printf("should be here\r\n");
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+delaynus(50* 1000);
+hg_op.drops_sa = 0;
+hg_op.drops_push = 0;
+hg_op.drops_sb = 1;
+}
+
+if(hg_op.drops_sb == 1)
+{
+hg_op.cnt_posb =0;
+
+
+if(hg_op.needle_len == 13)
+{
+LATDbits.LD4 =1;LATDbits.LD3 =1;
+while(PORTBbits.RB0 == 1);
+}
+else
+{
+LATDbits.LD4 =1;
+LATDbits.LD3 =1;
+
+delaynus(100 * 1000);
+}
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+# 558
+delay_pwm(hg_op.work_freq * 300);
+printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+
+if(PORTBbits.RB5 == 1)
+{
+delaynus(15 * 1000);
+if(PORTBbits.RB5 == 1)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+
+cnt_push = 0;
+
+while(cnt_push < 120)
+{
+while(PORTAbits.RA4 == 0);
+cnt_push ++;
+while(PORTAbits.RA4 == 1);
+cnt_push ++;
+
+}
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+hg_op.drops_sa = 0;
+hg_op.drops_sb = 0;
+hg_op.drops_push = 0;
+
+
+hg_op.acting_flag =0;
+
+
+if(hg_op.needle_len == 13)
+{
+hg_op.need_reset =0;
+}
+else
+{
+hg_op.need_reset =1;
+}
+
+hg_op.working_mode = 0x03;
+}
+
+}
+
+}
+
+}
+
+}
+
+
+
+void test_routine(void)
+{
+uint16_t cnt_push =0;
+
+
+if(0)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+
+delay_pwm(300 * 30);
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+
+
+hg_op.acting_flag =0;
+hg_op.working_mode = 0x03;
+hg_op.need_reset =1;
+}
+else
+{
+if(hg_op.drops_sa == 1)
+{
+hg_op.cnt_posa =0;
+
+if( hg_op.needle_len == 13)
+{
+
+LATDbits.LD2 =1;
+LATDbits.LD4 =1;
+
+while(hg_op.cnt_posa < (156));
+}
+else
+{
+LATDbits.LD2 =1;
+LATDbits.LD4 =1;
+
+
+
+while(hg_op.cnt_posa < 20)
+{
+
+# 663
+while(PORTBbits.RB2 == 0);
+hg_op.cnt_posa ++;
+while(PORTBbits.RB2 == 1);
+hg_op.cnt_posa ++;
+
+}
+}
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+
+delay_pwm(hg_op.work_freq * 300);
+
+hg_op.drops_sa = 0;
+hg_op.drops_sb = 0;
+hg_op.drops_push = 1;
+}
+else if(hg_op.drops_push == 1)
+{
+
+
+
+
+cnt_push =0;
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+
+
+while(cnt_push < hg_op.push_len)
+{
+while(PORTAbits.RA4 == 0);
+cnt_push ++;
+while(PORTAbits.RA4 == 1);
+cnt_push ++;
+
+}
+
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+
+
+
+delay_pwm(hg_op.work_freq * 300);
+hg_op.drops_sa = 0;
+hg_op.drops_push = 0;
+hg_op.drops_sb = 1;
+
+
+}
+else if(hg_op.drops_sb == 1)
+{
+hg_op.cnt_posb =0;
+
+if(hg_op.needle_len == 13)
+{
+LATDbits.LD3 =1;
+LATDbits.LD4 =1;
+while(PORTBbits.RB0 == 1);
+}
+else
+{
+LATDbits.LD3 =1;
+LATDbits.LD4 =1;
+
+
+
+
+while(hg_op.cnt_posb < 20)
+{
+
+# 738
+while(PORTBbits.RB2 == 0);
+hg_op.cnt_posb ++;
+while(PORTBbits.RB2 == 1);
+hg_op.cnt_posb ++;
+
+
+
+}
+
+
+
+
+}
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
+
+delay_pwm(hg_op.work_freq * 300);
+
+printf("in test mode\r\n");
+
+if(action_btn_cnt%2 == 0)
+{
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+
+
+while(cnt_push < 14)
+{
+while(PORTAbits.RA4 == 0);
+cnt_push ++;
+while(PORTAbits.RA4 == 1);
+cnt_push ++;
+
+}
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+
+hg_op.drops_sa = 0;
+hg_op.drops_sb = 0;
+hg_op.drops_push = 0;
+
+
+hg_op.acting_flag =0;
+
+
+if(hg_op.needle_len == 13)
+{
+hg_op.need_reset =0;
+}
+else
+{
+hg_op.need_reset =1;
+}
+
+}
+
+else
+{
+hg_op.drops_sb = 0;
+hg_op.drops_push =0;
+hg_op.drops_sa = 1;
+}
+
+}
+
+}
+
+}
+
+
+void check_acting(void)
+{
+if(hg_op.acting_flag)
+{
+delaynus(20 * 1000);
+if(PORTBbits.RB5 == 0)
+{
+do{T0IE=0;T0IF = 0;T0CONbits.TMR0ON =0;}while(0);
+buzz();
+
+
+if(1)
+{
+
+
+if(hg_op.cur_working_mode == 0x01)
+{
+
+hg_op.acting_flag =0;
+
+hg_op.drops_sa =1;
+hg_op.drops_sb =0;
+hg_op.drops_push =0;
+
+hg_op.working_mode = hg_op.cur_working_mode;
+}
+else if(hg_op.cur_working_mode == 0x00)
+{
+
+hg_op.drops_sa =1;
+hg_op.drops_sb =0;
+hg_op.drops_push =0;
+
+hg_op.working_mode = hg_op.cur_working_mode;
+hg_op.working_mode = 0x00;
+}
+else if(hg_op.cur_working_mode == 0x04)
+{
+action_btn_cnt ++;
+
+hg_op.drops_sa =1;
+hg_op.drops_sb =0;
+hg_op.drops_push =0;
+
+hg_op.working_mode = hg_op.cur_working_mode;
+
+
+
+
+}
+
+}
+
+}
+else
+{
+do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
+}
+
+
+
+hg_op.acting_flag = 0;
+
+}
+
+
+}

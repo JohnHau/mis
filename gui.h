@@ -192,12 +192,16 @@ extern uint8_t flag_test_mode_break;
 
 #define  INTERVAL_F    40/*20*/
 
-
+extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
 extern MENU menu[8];
 
+
+
+
+void HG_device_init(void);
 void init_menu(void);
 void HG_interface(void);
 
@@ -209,6 +213,16 @@ void menu4_MsgHandlle(uint8_t key);
 void menu5_MsgHandlle(uint8_t key);
 void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
+
+
+
+void enter_sleep(void);
+
+
+void initial_para_setting(void);
+
+void blink_mode(void);
+
 
 
 #endif

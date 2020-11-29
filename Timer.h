@@ -41,6 +41,17 @@
 #define INTV   1006
 //#define INTV   2013
 
+
+//#define INTV  1075
+
+
+
+
+
+#define SINTV   3300
+
+
+
 #define START()   do {TMR1 =0;T1CONbits.TMR1ON =1;}while(0)
 
 #define STOP()    T1CONbits.TMR1ON =0

@@ -4125,12 +4125,17 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 196
+# 195
+extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
 extern int8_t work_mode;
 extern MENU menu[8];
 
+
+
+
+void HG_device_init(void);
 void init_menu(void);
 void HG_interface(void);
 
@@ -4143,10 +4148,19 @@ void menu5_MsgHandlle(uint8_t key);
 void menu6_MsgHandlle(uint8_t key);
 void menu7_MsgHandlle(uint8_t key);
 
-# 52 "../Timer.h"
+
+
+void enter_sleep(void);
+
+
+void initial_para_setting(void);
+
+void blink_mode(void);
+
+# 63 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 59
+# 70
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
