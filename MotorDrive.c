@@ -168,7 +168,7 @@ void hg_reset(void)
                 while(hg_op.cnt_posrst < 300)
                 {
                     INPUT3_BH();
-                    delaynus(10);
+                    delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
                     INPUT3_BL();
                     delaynus(10);
                 }
@@ -205,7 +205,7 @@ void hg_reset(void)
             while(hg_op.status_hit_lp == 0)// search for  lp point
             {
                 INPUT4_BH();
-                delaynus(10);
+                delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
                 INPUT4_BL();
                 delaynus(10);
                 
@@ -229,7 +229,7 @@ void hg_reset(void)
                 while(hg_op.cnt_posrst < hg_op.cnt_target_posrst)
                 {
                     INPUT3_BH();
-                    delaynus(10);
+                    delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
                     printf("r%d\n",hg_op.cnt_posrst);
                     INPUT3_BL();
                     delaynus(10);
@@ -325,6 +325,7 @@ void drops_routine(void)
                             FORWARD_RUN_A();                  
                             //while(cnt_push < 140)//146
                             while(cnt_push < hg_op.push_len)//146
+                            //while(cnt_push < 200)//146
                                //while(0)//146
                             {
                                    while(READ_PHB_MA() == 0);

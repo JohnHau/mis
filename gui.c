@@ -1509,7 +1509,7 @@ void initial_para_setting(void)
     hg_op.cnt_pos_1mm =0;
     
     
-    //hg_op.working_mode = WORK_MODE_DROPS;
+   
     
     
 }

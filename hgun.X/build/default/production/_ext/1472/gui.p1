@@ -6,9 +6,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [s S281 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
-"29 ../Beep.h
+"31 ../Beep.h
 [v _uart_init `(v ~T0 @X0 0 ef ]
-"289 ../Oled.h
+"305 ../Oled.h
 [v _AD_init `(uc ~T0 @X0 0 ef ]
 "152 ../MotorDrive.h
 [v _MotorDriveInit `(v ~T0 @X0 0 ef ]
@@ -28,23 +28,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _KEY_Init `(v ~T0 @X0 0 ef ]
 "70 ../Timer.h
 [v _TimerInit `(v ~T0 @X0 0 ef ]
-"315 ../Oled.h
+"331 ../Oled.h
 [v _display_frame_abc `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
-"303
+"319
 [v _display_cmode `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"304
+"320
 [v _display_drops `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"305
+"321
 [v _display_drop `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"317
+"333
 [v _display_frame_fghi `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
-"323
+"339
 [v _display_num `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
-"311
+"327
 [v _display_mem `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"312
+"328
 [v _display_bat `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"316
+"332
 [v _display_frame_de `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
 "74 ../Key.h
 [v _KEY_Scan `(uc ~T0 @X0 0 ef ]
@@ -97,9 +97,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "43 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"306 ../Oled.h
+"322 ../Oled.h
 [v _display_blank_mode_pa `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"320
+"336
 [v _display_n_blank `(uc ~T0 @X0 0 ef3`uc`uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2938,13 +2938,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Beep.h: 16: extern uint8_t flag_power_up;
-[; ;Beep.h: 21: extern void BeepInit(void);
-[; ;Beep.h: 22: extern void BeepOn(void);
-[; ;Beep.h: 23: extern void BeepOff(void);
+[; ;Beep.h: 21: void BeepInit(void);
+[; ;Beep.h: 22: void BeepOn(void);
+[; ;Beep.h: 23: void BeepOff(void);
 [; ;Beep.h: 24: void buzz(void);
-[; ;Beep.h: 29: void uart_init(void);
-[; ;Beep.h: 30: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 31: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void uart_init(void);
+[; ;Beep.h: 32: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 33: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Oled.h: 86: typedef struct action_profile
 [; ;Oled.h: 87: {
 [; ;Oled.h: 89: uint8_t inject_mode;
@@ -2984,29 +2984,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 284: void LCD_Off(void);
 [; ;Oled.h: 285: void LCD_Blink(void);
 [; ;Oled.h: 286: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;Oled.h: 289: uint8_t AD_init(void);
-[; ;Oled.h: 290: uint16_t get_AD_vaule(void);
-[; ;Oled.h: 291: uint16_t get_SenseA_AD_vaule(void);
-[; ;Oled.h: 292: uint16_t get_SenseB_AD_vaule(void);
-[; ;Oled.h: 293: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
-[; ;Oled.h: 294: uint8_t hg_interface(void);
-[; ;Oled.h: 295: void delay(unsigned int x);
-[; ;Oled.h: 303: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 304: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 305: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 306: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 311: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 312: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 315: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 316: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 317: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 320: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 323: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 325: void initial_ui_setting(void);
-[; ;Oled.h: 331: void delay_nms(uint32_t n);
-[; ;Oled.h: 332: void delay_ms(unsigned int ms);
-[; ;Oled.h: 333: void delay_pwm(uint32_t n);
-[; ;Oled.h: 334: void delay_f(uint32_t n);
+[; ;Oled.h: 305: uint8_t AD_init(void);
+[; ;Oled.h: 306: uint16_t get_AD_vaule(void);
+[; ;Oled.h: 307: uint16_t get_SenseA_AD_vaule(void);
+[; ;Oled.h: 308: uint16_t get_SenseB_AD_vaule(void);
+[; ;Oled.h: 309: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
+[; ;Oled.h: 310: uint8_t hg_interface(void);
+[; ;Oled.h: 311: void delay(unsigned int x);
+[; ;Oled.h: 319: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 320: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 321: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 322: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 327: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 328: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 331: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 332: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 333: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 347: void delay_nms(uint32_t n);
+[; ;Oled.h: 348: void delay_ms(unsigned int ms);
+[; ;Oled.h: 349: void delay_pwm(uint32_t n);
+[; ;Oled.h: 350: void delay_f(uint32_t n);
 [; ;Key.h: 58: extern unsigned char KeyScanPeriod;
 [; ;Key.h: 60: typedef struct
 [; ;Key.h: 61: {

@@ -472,6 +472,7 @@ void __interrupt ISR(void)
                    hg_op.in_reset =0;
                    hg_op.needle_len = NEEDLE_LEN_4_MM;
                    //Initial_LY096BG30();
+                   
                    config_LCD();
                    initial_ui_setting();
                    

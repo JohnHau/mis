@@ -96,7 +96,7 @@
 
 
 
-#define DAYNAMIC_BRAKE
+//#define DAYNAMIC_BRAKE
 
 #if defined(DAYNAMIC_BRAKE)
 #define F_RUNNING_BRAKE_MB()  do{FORWARD_RUN_B();brake_MB();STOP_B();}while(0)

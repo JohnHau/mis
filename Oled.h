@@ -286,6 +286,22 @@ void LCD_Blink(void);
 uint8_t ee_CheckDevice(uint8_t _Address);
 
 
+#define LCD_ON()     LATEbits.LE0 =1
+
+#define LCD_OFF()    LATEbits.LE0 =0
+
+
+#define LCD_BLINK() do{\
+                        LCD_ON();\
+                        delaynus(50);delaynus(50);\
+                        delaynus(50);delaynus(50);\
+                        delaynus(50);delaynus(50);\
+                        LCD_OFF();\
+                        }while(0)
+
+
+
+
 uint8_t AD_init(void);
 uint16_t get_AD_vaule(void);
 uint16_t get_SenseA_AD_vaule(void);

@@ -37,7 +37,7 @@
 #define DELAY_T1_1SEC()  
 
 #define DISABLE_TIMER()   do{T0IE=0;T0IF = 0;T0CONbits.TMR0ON =0;}while(0)
-#define ENABLE_TIMER()   do{T0IE=1;T0CONbits.TMR0ON =1;}while(0)
+#define ENABLE_TIMER()    do{T0IE=1;T0CONbits.TMR0ON =1;}while(0)
 #define INTV   1006
 //#define INTV   2013
 

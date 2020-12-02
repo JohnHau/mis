@@ -4166,7 +4166,7 @@ void LCD_Off(void);
 void LCD_Blink(void);
 uint8_t ee_CheckDevice(uint8_t _Address);
 
-
+# 305
 uint8_t AD_init(void);
 uint16_t get_AD_vaule(void);
 uint16_t get_SenseA_AD_vaule(void);
@@ -4175,7 +4175,7 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
 uint8_t hg_interface(void);
 void delay(unsigned int x);
 
-# 303
+# 319
 void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
 void display_drops(uint8_t y,uint8_t x,uint8_t mode);
 void display_drop(uint8_t y,uint8_t x,uint8_t mode);
@@ -4200,7 +4200,7 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 
 void initial_ui_setting(void);
 
-# 331
+# 347
 void delay_nms(uint32_t n);
 void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
@@ -4337,7 +4337,7 @@ do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
 while(hg_op.cnt_posrst < 300)
 {
 LATDbits.LD2 =1;
-delaynus(10);
+delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
 LATDbits.LD2 =0;
 delaynus(10);
 }
@@ -4374,14 +4374,14 @@ LATDbits.LD4 =1;LATDbits.LD2 =0;
 while(hg_op.status_hit_lp == 0)
 {
 LATDbits.LD3 =1;
-delaynus(10);
+delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
 LATDbits.LD3 =0;
 delaynus(10);
 
 }
 
 
-do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 
 
 
@@ -4398,7 +4398,7 @@ hg_op.in_reset = 1;
 while(hg_op.cnt_posrst < hg_op.cnt_target_posrst)
 {
 LATDbits.LD2 =1;
-delaynus(10);
+delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
 printf("r%d\n",hg_op.cnt_posrst);
 LATDbits.LD2 =0;
 delaynus(10);
@@ -4407,7 +4407,7 @@ delaynus(10);
 
 
 
-do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 
 
 
@@ -4467,7 +4467,7 @@ do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATDbits.LD4 =1;LATDbits.LD3 =0;LATDbits.LD2 =1;
 
 while(hg_op.cnt_pos_1mm < 150);
-do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
 
 
@@ -4495,6 +4495,7 @@ do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0;
 
 while(cnt_push < hg_op.push_len)
 
+
 {
 while(PORTAbits.RA4 == 0);
 cnt_push ++;
@@ -4519,7 +4520,7 @@ hg_op.drops_sb = 1;
 else if(hg_op.drops_sb == 1)
 {
 
-# 358
+# 359
 if(hg_op.needle_len == 13)
 {
 
@@ -4535,7 +4536,7 @@ else
 LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =1;
 while(hg_op.cnt_pos_1mm > 0);
 
-do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 
 }
 
@@ -4594,7 +4595,7 @@ hg_op.drops_sa = 1;
 }
 }
 
-# 436
+# 437
 }
 
 
@@ -4655,7 +4656,7 @@ hg_op.drops_push = 1;
 if(hg_op.drops_push == 1)
 {
 
-# 506
+# 507
 while(PORTBbits.RB5 == 0)
 {
 cnt_push =0;
@@ -4703,7 +4704,7 @@ delaynus(100 * 1000);
 }
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 558
+# 559
 delay_pwm(hg_op.work_freq * 300);
 printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
@@ -4805,7 +4806,7 @@ LATDbits.LD4 =1;
 while(hg_op.cnt_posa < 20)
 {
 
-# 663
+# 664
 while(PORTBbits.RB2 == 0);
 hg_op.cnt_posa ++;
 while(PORTBbits.RB2 == 1);
@@ -4876,7 +4877,7 @@ LATDbits.LD4 =1;
 while(hg_op.cnt_posb < 20)
 {
 
-# 738
+# 739
 while(PORTBbits.RB2 == 0);
 hg_op.cnt_posb ++;
 while(PORTBbits.RB2 == 1);

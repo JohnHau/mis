@@ -104,7 +104,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S23 . . . . . ]
 "663
 [v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
-"331 ../Oled.h
+"347 ../Oled.h
 [v _delay_nms `(v ~T0 @X0 0 ef1`ul ]
 "24 ../Beep.h
 [v _buzz `(v ~T0 @X0 0 ef ]
@@ -136,9 +136,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATCbits `VS45 ~T0 @X0 0 e@3979 ]
 "195 C:\Program Files (x86)\Microchip\xc8\v1.41\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"475 ../Timer.c
+"476 ../Timer.c
 [v _config_LCD `(i ~T0 @X0 0 ef ]
-"325 ../Oled.h
+"341 ../Oled.h
 [v _initial_ui_setting `(v ~T0 @X0 0 ef ]
 "284
 [v _LCD_Off `(v ~T0 @X0 0 ef ]
@@ -3053,13 +3053,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key.h: 74: uint8_t KEY_Scan(void);
 [; ;Key.h: 75: void KeyFuction(void);
 [; ;Beep.h: 16: extern uint8_t flag_power_up;
-[; ;Beep.h: 21: extern void BeepInit(void);
-[; ;Beep.h: 22: extern void BeepOn(void);
-[; ;Beep.h: 23: extern void BeepOff(void);
+[; ;Beep.h: 21: void BeepInit(void);
+[; ;Beep.h: 22: void BeepOn(void);
+[; ;Beep.h: 23: void BeepOff(void);
 [; ;Beep.h: 24: void buzz(void);
-[; ;Beep.h: 29: void uart_init(void);
-[; ;Beep.h: 30: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 31: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void uart_init(void);
+[; ;Beep.h: 32: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 33: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Oled.h: 86: typedef struct action_profile
 [; ;Oled.h: 87: {
 [; ;Oled.h: 89: uint8_t inject_mode;
@@ -3099,29 +3099,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 284: void LCD_Off(void);
 [; ;Oled.h: 285: void LCD_Blink(void);
 [; ;Oled.h: 286: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;Oled.h: 289: uint8_t AD_init(void);
-[; ;Oled.h: 290: uint16_t get_AD_vaule(void);
-[; ;Oled.h: 291: uint16_t get_SenseA_AD_vaule(void);
-[; ;Oled.h: 292: uint16_t get_SenseB_AD_vaule(void);
-[; ;Oled.h: 293: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
-[; ;Oled.h: 294: uint8_t hg_interface(void);
-[; ;Oled.h: 295: void delay(unsigned int x);
-[; ;Oled.h: 303: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 304: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 305: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 306: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 311: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 312: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 315: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 316: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 317: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 320: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 323: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 325: void initial_ui_setting(void);
-[; ;Oled.h: 331: void delay_nms(uint32_t n);
-[; ;Oled.h: 332: void delay_ms(unsigned int ms);
-[; ;Oled.h: 333: void delay_pwm(uint32_t n);
-[; ;Oled.h: 334: void delay_f(uint32_t n);
+[; ;Oled.h: 305: uint8_t AD_init(void);
+[; ;Oled.h: 306: uint16_t get_AD_vaule(void);
+[; ;Oled.h: 307: uint16_t get_SenseA_AD_vaule(void);
+[; ;Oled.h: 308: uint16_t get_SenseB_AD_vaule(void);
+[; ;Oled.h: 309: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
+[; ;Oled.h: 310: uint8_t hg_interface(void);
+[; ;Oled.h: 311: void delay(unsigned int x);
+[; ;Oled.h: 319: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 320: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 321: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 322: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 327: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 328: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 331: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 332: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 333: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 347: void delay_nms(uint32_t n);
+[; ;Oled.h: 348: void delay_ms(unsigned int ms);
+[; ;Oled.h: 349: void delay_pwm(uint32_t n);
+[; ;Oled.h: 350: void delay_f(uint32_t n);
 [; ;MotorDrive.h: 117: extern uint8_t prev_state_phb_ma;
 [; ;MotorDrive.h: 118: extern uint8_t cur_state_phb_ma;
 [; ;MotorDrive.h: 120: extern uint32_t cnt_ma;
@@ -3939,45 +3939,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer.c: 473: hg_op.needle_len = 4;
 "473
 [e = . _hg_op 14 -> -> 4 `i `uc ]
-[; ;Timer.c: 475: config_LCD();
-"475
-[e ( _config_LCD ..  ]
-[; ;Timer.c: 476: initial_ui_setting();
+[; ;Timer.c: 476: config_LCD();
 "476
+[e ( _config_LCD ..  ]
+[; ;Timer.c: 477: initial_ui_setting();
+"477
 [e ( _initial_ui_setting ..  ]
-"479
-}
-[; ;Timer.c: 479: }
-[e $U 350  ]
 "480
-[e :U 343 ]
-[; ;Timer.c: 480: else if(hg_op.status_powerup == 0x01)
-[e $ ! == -> . _hg_op 3 `i -> 1 `i 351  ]
-[; ;Timer.c: 481: {
+}
+[; ;Timer.c: 480: }
+[e $U 350  ]
 "481
-{
-[; ;Timer.c: 482: hg_op.status_powerup = 0x00;
+[e :U 343 ]
+[; ;Timer.c: 481: else if(hg_op.status_powerup == 0x01)
+[e $ ! == -> . _hg_op 3 `i -> 1 `i 351  ]
+[; ;Timer.c: 482: {
 "482
-[e = . _hg_op 3 -> -> 0 `i `uc ]
-[; ;Timer.c: 483: LCD_Off();
+{
+[; ;Timer.c: 483: hg_op.status_powerup = 0x00;
 "483
+[e = . _hg_op 3 -> -> 0 `i `uc ]
+[; ;Timer.c: 484: LCD_Off();
+"484
 [e ( _LCD_Off ..  ]
-[; ;Timer.c: 485: write_buf[0]=0x25;
-"485
-[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 37 `i `uc ]
-[; ;Timer.c: 486: ee_WriteBytes(write_buf, 0x00, 1);
+[; ;Timer.c: 486: write_buf[0]=0x25;
 "486
+[e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 37 `i `uc ]
+[; ;Timer.c: 487: ee_WriteBytes(write_buf, 0x00, 1);
+"487
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Timer.c: 488: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"488
+[; ;Timer.c: 489: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"489
 [e :U 354 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 353 ]
-[; ;Timer.c: 489: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"489
+[; ;Timer.c: 490: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"490
 [e :U 357 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -3985,163 +3985,163 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 356 ]
-[; ;Timer.c: 492: hg_op.need_reset =1;
-"492
-[e = . _hg_op 5 -> -> 1 `i `uc ]
-[; ;Timer.c: 493: printf("sleep\r\n");
+[; ;Timer.c: 493: hg_op.need_reset =1;
 "493
+[e = . _hg_op 5 -> -> 1 `i `uc ]
+[; ;Timer.c: 494: printf("sleep\r\n");
+"494
 [e ( _printf :s 2C ]
-"495
+"496
 }
 [e :U 351 ]
-"496
+"497
 [e :U 350 ]
 }
 [e :U 342 ]
-"498
+"499
 }
 [e :U 341 ]
-[; ;Timer.c: 495: }
 [; ;Timer.c: 496: }
-[; ;Timer.c: 498: }
-[; ;Timer.c: 504: if(PORTBbits.RB5 == 0)
-"504
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 358  ]
-[; ;Timer.c: 505: {
+[; ;Timer.c: 497: }
+[; ;Timer.c: 499: }
+[; ;Timer.c: 505: if(PORTBbits.RB5 == 0)
 "505
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 358  ]
+[; ;Timer.c: 506: {
+"506
 {
-[; ;Timer.c: 508: hg_op.acting_flag = 1;
-"508
-[e = . _hg_op 19 -> -> 1 `i `uc ]
-[; ;Timer.c: 509: printf("act\n");
+[; ;Timer.c: 509: hg_op.acting_flag = 1;
 "509
-[e ( _printf :s 3C ]
+[e = . _hg_op 19 -> -> 1 `i `uc ]
+[; ;Timer.c: 510: printf("act\n");
 "510
+[e ( _printf :s 3C ]
+"511
 }
 [e :U 358 ]
-[; ;Timer.c: 510: }
-[; ;Timer.c: 515: INTCONbits.RBIF=0;
-"515
+[; ;Timer.c: 511: }
+[; ;Timer.c: 516: INTCONbits.RBIF=0;
+"516
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"518
+"519
 }
 [e :U 340 ]
-[; ;Timer.c: 518: }
-[; ;Timer.c: 521: if(INTCONbits.INT0IF)
-"521
-[e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 359  ]
-[; ;Timer.c: 522: {
+[; ;Timer.c: 519: }
+[; ;Timer.c: 522: if(INTCONbits.INT0IF)
 "522
+[e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 359  ]
+[; ;Timer.c: 523: {
+"523
 {
-[; ;Timer.c: 526: hg_op.status_hit_lp =1;
-"526
+[; ;Timer.c: 527: hg_op.status_hit_lp =1;
+"527
 [e = . _hg_op 6 -> -> 1 `i `uc ]
-[; ;Timer.c: 530: INTCONbits.INT0IF = 0;
-"530
+[; ;Timer.c: 531: INTCONbits.INT0IF = 0;
+"531
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"532
+"533
 }
 [e :U 359 ]
-[; ;Timer.c: 532: }
-[; ;Timer.c: 542: }
-"542
+[; ;Timer.c: 533: }
+[; ;Timer.c: 543: }
+"543
 [e :UE 282 ]
 }
-"544
-[v _TimerInit `(v ~T0 @X0 1 ef ]
 "545
+[v _TimerInit `(v ~T0 @X0 1 ef ]
+"546
 {
-[; ;Timer.c: 544: void TimerInit(void)
-[; ;Timer.c: 545: {
+[; ;Timer.c: 545: void TimerInit(void)
+[; ;Timer.c: 546: {
 [e :U _TimerInit ]
 [f ]
-[; ;Timer.c: 546: T0CS=0;
-"546
-[e = _T0CS -> -> 0 `i `b ]
-[; ;Timer.c: 547: PSA=0;
+[; ;Timer.c: 547: T0CS=0;
 "547
+[e = _T0CS -> -> 0 `i `b ]
+[; ;Timer.c: 548: PSA=0;
+"548
 [e = _PSA -> -> 0 `i `b ]
-[; ;Timer.c: 550: T0PS2=1;
-"550
-[e = _T0PS2 -> -> 1 `i `b ]
-[; ;Timer.c: 551: T0PS1=0;
+[; ;Timer.c: 551: T0PS2=1;
 "551
-[e = _T0PS1 -> -> 0 `i `b ]
-[; ;Timer.c: 552: T0PS0=1;
+[e = _T0PS2 -> -> 1 `i `b ]
+[; ;Timer.c: 552: T0PS1=0;
 "552
+[e = _T0PS1 -> -> 0 `i `b ]
+[; ;Timer.c: 553: T0PS0=1;
+"553
 [e = _T0PS0 -> -> 1 `i `b ]
-[; ;Timer.c: 562: T08BIT =1;
-"562
-[e = _T08BIT -> -> 1 `i `b ]
-[; ;Timer.c: 563: T0IF=0;
+[; ;Timer.c: 563: T08BIT =1;
 "563
-[e = _T0IF -> -> 0 `i `b ]
-[; ;Timer.c: 564: TMR0=0;
+[e = _T08BIT -> -> 1 `i `b ]
+[; ;Timer.c: 564: T0IF=0;
 "564
+[e = _T0IF -> -> 0 `i `b ]
+[; ;Timer.c: 565: TMR0=0;
+"565
 [e = _TMR0 -> -> 0 `i `us ]
-[; ;Timer.c: 567: T0IE=0;
-"567
-[e = _T0IE -> -> 0 `i `b ]
-[; ;Timer.c: 568: GIE=1;
+[; ;Timer.c: 568: T0IE=0;
 "568
-[e = _GIE -> -> 1 `i `b ]
-[; ;Timer.c: 569: T0CONbits.TMR0ON =0;
+[e = _T0IE -> -> 0 `i `b ]
+[; ;Timer.c: 569: GIE=1;
 "569
+[e = _GIE -> -> 1 `i `b ]
+[; ;Timer.c: 570: T0CONbits.TMR0ON =0;
+"570
 [e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-[; ;Timer.c: 571: }
-"571
+[; ;Timer.c: 572: }
+"572
 [e :UE 360 ]
 }
-"573
-[v _Timer1Init `(v ~T0 @X0 1 ef ]
 "574
+[v _Timer1Init `(v ~T0 @X0 1 ef ]
+"575
 {
-[; ;Timer.c: 573: void Timer1Init(void)
-[; ;Timer.c: 574: {
+[; ;Timer.c: 574: void Timer1Init(void)
+[; ;Timer.c: 575: {
 [e :U _Timer1Init ]
 [f ]
-[; ;Timer.c: 577: T1CONbits.T1CKPS = 2;
-"577
-[e = . . _T1CONbits 1 4 -> -> 2 `i `uc ]
-[; ;Timer.c: 578: T1CONbits.RD16 =1;
+[; ;Timer.c: 578: T1CONbits.T1CKPS = 2;
 "578
-[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
-[; ;Timer.c: 579: T1CONbits.TMR1ON =0;
+[e = . . _T1CONbits 1 4 -> -> 2 `i `uc ]
+[; ;Timer.c: 579: T1CONbits.RD16 =1;
 "579
+[e = . . _T1CONbits 1 6 -> -> 1 `i `uc ]
+[; ;Timer.c: 580: T1CONbits.TMR1ON =0;
+"580
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;Timer.c: 602: }
-"602
+[; ;Timer.c: 603: }
+"603
 [e :UE 361 ]
 }
-"611
+"612
 [v _delaynus `(v ~T0 @X0 1 ef1`ui ]
-"612
+"613
 {
-[; ;Timer.c: 611: void delaynus(uint16_t n)
-[; ;Timer.c: 612: {
+[; ;Timer.c: 612: void delaynus(uint16_t n)
+[; ;Timer.c: 613: {
 [e :U _delaynus ]
-"611
-[v _n `ui ~T0 @X0 1 r1 ]
 "612
+[v _n `ui ~T0 @X0 1 r1 ]
+"613
 [f ]
-[; ;Timer.c: 614: TMR1 =0;
-"614
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Timer.c: 615: T1CONbits.TMR1ON =1;
+[; ;Timer.c: 615: TMR1 =0;
 "615
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Timer.c: 616: T1CONbits.TMR1ON =1;
+"616
 [e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;Timer.c: 617: while(TMR1 < n);
-"617
+[; ;Timer.c: 618: while(TMR1 < n);
+"618
 [e $U 363  ]
 [e :U 364 ]
 [e :U 363 ]
 [e $ < -> _TMR1 `ui _n 364  ]
 [e :U 365 ]
-[; ;Timer.c: 619: T1CONbits.TMR1ON =0;
-"619
+[; ;Timer.c: 620: T1CONbits.TMR1ON =0;
+"620
 [e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;Timer.c: 622: }
-"622
+[; ;Timer.c: 623: }
+"623
 [e :UE 362 ]
 }
 [p f _printf 8388608 ]

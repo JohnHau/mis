@@ -18,11 +18,13 @@ extern uint8_t flag_power_up;
 
 
 
-extern void BeepInit(void);
-extern void BeepOn(void);
-extern void BeepOff(void);
+void BeepInit(void);
+void BeepOn(void);
+void BeepOff(void);
 void buzz(void);
 
+#define  BEEP_ON()    LATEbits.LE2 =1
+#define  BEEP_OFF()   LATEbits.LE2 =0
 
 
 

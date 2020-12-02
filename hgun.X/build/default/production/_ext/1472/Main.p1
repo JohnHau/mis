@@ -2954,13 +2954,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer.h: 80: extern uint8_t flag_tv;
 [; ;Timer.h: 82: extern uint16_t tv_s[10];
 [; ;Beep.h: 16: extern uint8_t flag_power_up;
-[; ;Beep.h: 21: extern void BeepInit(void);
-[; ;Beep.h: 22: extern void BeepOn(void);
-[; ;Beep.h: 23: extern void BeepOff(void);
+[; ;Beep.h: 21: void BeepInit(void);
+[; ;Beep.h: 22: void BeepOn(void);
+[; ;Beep.h: 23: void BeepOff(void);
 [; ;Beep.h: 24: void buzz(void);
-[; ;Beep.h: 29: void uart_init(void);
-[; ;Beep.h: 30: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 31: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void uart_init(void);
+[; ;Beep.h: 32: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 33: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Key.h: 58: extern unsigned char KeyScanPeriod;
 [; ;Key.h: 60: typedef struct
 [; ;Key.h: 61: {
@@ -3014,29 +3014,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 284: void LCD_Off(void);
 [; ;Oled.h: 285: void LCD_Blink(void);
 [; ;Oled.h: 286: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;Oled.h: 289: uint8_t AD_init(void);
-[; ;Oled.h: 290: uint16_t get_AD_vaule(void);
-[; ;Oled.h: 291: uint16_t get_SenseA_AD_vaule(void);
-[; ;Oled.h: 292: uint16_t get_SenseB_AD_vaule(void);
-[; ;Oled.h: 293: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
-[; ;Oled.h: 294: uint8_t hg_interface(void);
-[; ;Oled.h: 295: void delay(unsigned int x);
-[; ;Oled.h: 303: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 304: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 305: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 306: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 311: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 312: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 315: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 316: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 317: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 320: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 323: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 325: void initial_ui_setting(void);
-[; ;Oled.h: 331: void delay_nms(uint32_t n);
-[; ;Oled.h: 332: void delay_ms(unsigned int ms);
-[; ;Oled.h: 333: void delay_pwm(uint32_t n);
-[; ;Oled.h: 334: void delay_f(uint32_t n);
+[; ;Oled.h: 305: uint8_t AD_init(void);
+[; ;Oled.h: 306: uint16_t get_AD_vaule(void);
+[; ;Oled.h: 307: uint16_t get_SenseA_AD_vaule(void);
+[; ;Oled.h: 308: uint16_t get_SenseB_AD_vaule(void);
+[; ;Oled.h: 309: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
+[; ;Oled.h: 310: uint8_t hg_interface(void);
+[; ;Oled.h: 311: void delay(unsigned int x);
+[; ;Oled.h: 319: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 320: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 321: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 322: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 327: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 328: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 331: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 332: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 333: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 347: void delay_nms(uint32_t n);
+[; ;Oled.h: 348: void delay_ms(unsigned int ms);
+[; ;Oled.h: 349: void delay_pwm(uint32_t n);
+[; ;Oled.h: 350: void delay_f(uint32_t n);
 [; ;gui.h: 6: typedef struct xmenu
 [; ;gui.h: 7: {
 [; ;gui.h: 8: uint8_t menu_no;
@@ -3278,148 +3278,148 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 97: HG_device_init();
 "97
 [e ( _HG_device_init ..  ]
-[; ;Main.c: 98: initial_para_setting();
-"98
-[e ( _initial_para_setting ..  ]
-[; ;Main.c: 100: while(1)
-"100
-[e :U 288 ]
-[; ;Main.c: 101: {
+[; ;Main.c: 101: initial_para_setting();
 "101
-{
-[; ;Main.c: 102: enter_sleep();
-"102
-[e ( _enter_sleep ..  ]
-[; ;Main.c: 104: if(hg_op.need_reset)
-"104
-[e $ ! != -> . _hg_op 5 `i -> -> -> 0 `i `uc `i 290  ]
-[; ;Main.c: 105: {
-"105
-{
-[; ;Main.c: 106: hg_reset();
-"106
-[e ( _hg_reset ..  ]
-"107
-}
-[; ;Main.c: 107: }
-[e $U 291  ]
+[e ( _initial_para_setting ..  ]
+[; ;Main.c: 108: while(1)
 "108
-[e :U 290 ]
-[; ;Main.c: 108: else
+[e :U 288 ]
 [; ;Main.c: 109: {
 "109
 {
-[; ;Main.c: 110: if(hg_op.working_mode == 0x01)
+[; ;Main.c: 110: enter_sleep();
 "110
-[e $ ! == -> . _hg_op 0 `i -> 1 `i 292  ]
-[; ;Main.c: 111: {
-"111
-{
-[; ;Main.c: 112: drops_routine();
+[e ( _enter_sleep ..  ]
+[; ;Main.c: 112: if(hg_op.need_reset)
 "112
-[e ( _drops_routine ..  ]
+[e $ ! != -> . _hg_op 5 `i -> -> -> 0 `i `uc `i 290  ]
+[; ;Main.c: 113: {
 "113
-}
-[; ;Main.c: 113: }
-[e $U 293  ]
-"114
-[e :U 292 ]
-[; ;Main.c: 114: else if(hg_op.working_mode == 0x00)
-[e $ ! == -> . _hg_op 0 `i -> 0 `i 294  ]
-[; ;Main.c: 115: {
-"115
 {
-[; ;Main.c: 116: c_routine();
-"116
-[e ( _c_routine ..  ]
-"117
+[; ;Main.c: 114: hg_reset();
+"114
+[e ( _hg_reset ..  ]
+"115
 }
-[; ;Main.c: 117: }
-[e $U 295  ]
+[; ;Main.c: 115: }
+[e $U 291  ]
+"116
+[e :U 290 ]
+[; ;Main.c: 116: else
+[; ;Main.c: 117: {
+"117
+{
+[; ;Main.c: 118: if(hg_op.working_mode == 0x01)
 "118
-[e :U 294 ]
-[; ;Main.c: 118: else if(hg_op.working_mode == 0x02)
-[e $ ! == -> . _hg_op 0 `i -> 2 `i 296  ]
+[e $ ! == -> . _hg_op 0 `i -> 1 `i 292  ]
 [; ;Main.c: 119: {
 "119
 {
+[; ;Main.c: 120: drops_routine();
+"120
+[e ( _drops_routine ..  ]
 "121
 }
 [; ;Main.c: 121: }
-[e $U 297  ]
-"122
-[e :U 296 ]
-[; ;Main.c: 122: else if(hg_op.working_mode == 0x04)
-[e $ ! == -> . _hg_op 0 `i -> 4 `i 298  ]
-[; ;Main.c: 123: {
-"123
-{
-[; ;Main.c: 124: test_routine();
+[e $U 293  ]
 "124
-[e ( _test_routine ..  ]
+[e :U 292 ]
+[; ;Main.c: 124: else if(hg_op.working_mode == 0x00)
+[e $ ! == -> . _hg_op 0 `i -> 0 `i 294  ]
+[; ;Main.c: 125: {
 "125
-}
-[; ;Main.c: 125: }
-[e $U 299  ]
+{
+[; ;Main.c: 126: c_routine();
 "126
-[e :U 298 ]
-[; ;Main.c: 126: else if(hg_op.working_mode == 0x03)
-[e $ ! == -> . _hg_op 0 `i -> 3 `i 300  ]
-[; ;Main.c: 127: {
+[e ( _c_routine ..  ]
 "127
-{
-[; ;Main.c: 128: HG_interface();
-"128
-[e ( _HG_interface ..  ]
-"129
 }
-[; ;Main.c: 129: }
-[e $U 301  ]
-"130
-[e :U 300 ]
-[; ;Main.c: 130: else
-[; ;Main.c: 131: {
-"131
+[; ;Main.c: 127: }
+[e $U 295  ]
+"128
+[e :U 294 ]
+[; ;Main.c: 128: else if(hg_op.working_mode == 0x02)
+[e $ ! == -> . _hg_op 0 `i -> 2 `i 296  ]
+[; ;Main.c: 129: {
+"129
 {
+"131
+}
+[; ;Main.c: 131: }
+[e $U 297  ]
+"132
+[e :U 296 ]
+[; ;Main.c: 132: else if(hg_op.working_mode == 0x04)
+[e $ ! == -> . _hg_op 0 `i -> 4 `i 298  ]
+[; ;Main.c: 133: {
 "133
+{
+[; ;Main.c: 134: test_routine();
+"134
+[e ( _test_routine ..  ]
+"135
+}
+[; ;Main.c: 135: }
+[e $U 299  ]
+"136
+[e :U 298 ]
+[; ;Main.c: 136: else if(hg_op.working_mode == 0x03)
+[e $ ! == -> . _hg_op 0 `i -> 3 `i 300  ]
+[; ;Main.c: 137: {
+"137
+{
+[; ;Main.c: 138: HG_interface();
+"138
+[e ( _HG_interface ..  ]
+"139
+}
+[; ;Main.c: 139: }
+[e $U 301  ]
+"140
+[e :U 300 ]
+[; ;Main.c: 140: else
+[; ;Main.c: 141: {
+"141
+{
+"143
 }
 [e :U 301 ]
 [e :U 299 ]
 [e :U 297 ]
 [e :U 295 ]
 [e :U 293 ]
-[; ;Main.c: 133: }
-[; ;Main.c: 135: check_acting();
-"135
+[; ;Main.c: 143: }
+[; ;Main.c: 145: check_acting();
+"145
 [e ( _check_acting ..  ]
-[; ;Main.c: 137: if(flag_blink)
-"137
+[; ;Main.c: 150: if(flag_blink)
+"150
 [e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 302  ]
-[; ;Main.c: 138: {
-"138
+[; ;Main.c: 151: {
+"151
 {
-[; ;Main.c: 139: blink_mode();
-"139
+[; ;Main.c: 152: blink_mode();
+"152
 [e ( _blink_mode ..  ]
-[; ;Main.c: 140: flag_blink =0;
-"140
+[; ;Main.c: 153: flag_blink =0;
+"153
 [e = _flag_blink -> -> 0 `i `uc ]
-"141
+"154
 }
 [e :U 302 ]
-"145
+"158
 }
 [e :U 291 ]
-"146
+"159
 }
 [e :U 287 ]
-"100
+"108
 [e $U 288  ]
 [e :U 289 ]
-[; ;Main.c: 141: }
-[; ;Main.c: 145: }
-[; ;Main.c: 146: }
-[; ;Main.c: 148: }
-"148
+[; ;Main.c: 154: }
+[; ;Main.c: 158: }
+[; ;Main.c: 159: }
+[; ;Main.c: 161: }
+"161
 [e :UE 286 ]
 }

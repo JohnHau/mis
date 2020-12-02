@@ -194,13 +194,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1 . . . . . . . . . . ]
 "113
 [v _PORTAbits `VS1 ~T0 @X0 0 e@3968 ]
-"333 ../Oled.h
+"349 ../Oled.h
 [v _delay_pwm `(v ~T0 @X0 0 ef1`ul ]
 "63 ../Timer.h
 [v _action_btn_cnt `ui ~T0 @X0 0 e ]
 "7819 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
 [v _T0IF `Vb ~T0 @X0 0 e@32658 ]
-"818 ../MotorDrive.c
+"819 ../MotorDrive.c
 [v _buzz `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -3197,29 +3197,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 284: void LCD_Off(void);
 [; ;Oled.h: 285: void LCD_Blink(void);
 [; ;Oled.h: 286: uint8_t ee_CheckDevice(uint8_t _Address);
-[; ;Oled.h: 289: uint8_t AD_init(void);
-[; ;Oled.h: 290: uint16_t get_AD_vaule(void);
-[; ;Oled.h: 291: uint16_t get_SenseA_AD_vaule(void);
-[; ;Oled.h: 292: uint16_t get_SenseB_AD_vaule(void);
-[; ;Oled.h: 293: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
-[; ;Oled.h: 294: uint8_t hg_interface(void);
-[; ;Oled.h: 295: void delay(unsigned int x);
-[; ;Oled.h: 303: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 304: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 305: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 306: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 311: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 312: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-[; ;Oled.h: 315: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 316: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 317: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 320: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 323: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
-[; ;Oled.h: 325: void initial_ui_setting(void);
-[; ;Oled.h: 331: void delay_nms(uint32_t n);
-[; ;Oled.h: 332: void delay_ms(unsigned int ms);
-[; ;Oled.h: 333: void delay_pwm(uint32_t n);
-[; ;Oled.h: 334: void delay_f(uint32_t n);
+[; ;Oled.h: 305: uint8_t AD_init(void);
+[; ;Oled.h: 306: uint16_t get_AD_vaule(void);
+[; ;Oled.h: 307: uint16_t get_SenseA_AD_vaule(void);
+[; ;Oled.h: 308: uint16_t get_SenseB_AD_vaule(void);
+[; ;Oled.h: 309: uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
+[; ;Oled.h: 310: uint8_t hg_interface(void);
+[; ;Oled.h: 311: void delay(unsigned int x);
+[; ;Oled.h: 319: void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 320: void display_drops(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 321: void display_drop(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 322: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 327: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 328: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 331: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 332: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 333: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
+[; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 347: void delay_nms(uint32_t n);
+[; ;Oled.h: 348: void delay_ms(unsigned int ms);
+[; ;Oled.h: 349: void delay_pwm(uint32_t n);
+[; ;Oled.h: 350: void delay_f(uint32_t n);
 "15 ../MotorDrive.c
 [v _prev_state_phb_ma `uc ~T0 @X0 1 e ]
 [i _prev_state_phb_ma
@@ -3557,8 +3557,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 170: LATDbits.LD2 =1;
 "170
 [e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 171: delaynus(10);
+[; ;MotorDrive.c: 171: delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
 "171
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
 [e ( _delaynus (1 -> -> 10 `i `ui ]
 [; ;MotorDrive.c: 172: LATDbits.LD2 =0;
 "172
@@ -3658,8 +3662,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 207: LATDbits.LD3 =1;
 "207
 [e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 208: delaynus(10);
+[; ;MotorDrive.c: 208: delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
 "208
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
 [e ( _delaynus (1 -> -> 10 `i `ui ]
 [; ;MotorDrive.c: 209: LATDbits.LD3 =0;
 "209
@@ -3674,7 +3682,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ == -> . _hg_op 6 `i -> 0 `i 323  ]
 [e :U 324 ]
 [; ;MotorDrive.c: 212: }
-[; ;MotorDrive.c: 215: do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+[; ;MotorDrive.c: 215: do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 "215
 [e :U 327 ]
 {
@@ -3685,7 +3693,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 }
 [e :U 329 ]
-[e ( _brake_MB ..  ]
+[e ( _delaynus (1 -> * -> 15 `i -> 1000 `i `ui ]
 [e :U 333 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -3737,8 +3745,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 231: LATDbits.LD2 =1;
 "231
 [e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 232: delaynus(10);
+[; ;MotorDrive.c: 232: delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
 "232
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
+[e ( _delaynus (1 -> -> 10 `i `ui ]
 [e ( _delaynus (1 -> -> 10 `i `ui ]
 [; ;MotorDrive.c: 233: printf("r%d\n",hg_op.cnt_posrst);
 "233
@@ -3756,7 +3768,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < . _hg_op 36 . _hg_op 37 337  ]
 [e :U 338 ]
 [; ;MotorDrive.c: 237: }
-[; ;MotorDrive.c: 241: do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+[; ;MotorDrive.c: 241: do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 "241
 [e :U 341 ]
 {
@@ -3767,7 +3779,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 }
 [e :U 343 ]
-[e ( _brake_MB ..  ]
+[e ( _delaynus (1 -> * -> 15 `i -> 1000 `i `ui ]
 [e :U 347 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -3963,7 +3975,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 381 ]
 [e $ < . _hg_op 30 -> 150 `i 382  ]
 [e :U 383 ]
-[; ;MotorDrive.c: 301: do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+[; ;MotorDrive.c: 301: do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 "301
 [e :U 386 ]
 {
@@ -3974,7 +3986,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 }
 [e :U 388 ]
-[e ( _brake_MB ..  ]
+[e ( _delaynus (1 -> * -> 15 `i -> 1000 `i `ui ]
 [e :U 392 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4037,72 +4049,72 @@ Version 3.2 HI-TECH Software Intermediate Code
 "327
 [e $U 401  ]
 [e :U 402 ]
-[; ;MotorDrive.c: 329: {
-"329
-{
-[; ;MotorDrive.c: 330: while(PORTAbits.RA4 == 0);
+[; ;MotorDrive.c: 330: {
 "330
+{
+[; ;MotorDrive.c: 331: while(PORTAbits.RA4 == 0);
+"331
 [e $U 404  ]
 [e :U 405 ]
 [e :U 404 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 0 `i 405  ]
 [e :U 406 ]
-[; ;MotorDrive.c: 331: cnt_push ++;
-"331
-[e ++ _cnt_push -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 332: while(PORTAbits.RA4 == 1);
+[; ;MotorDrive.c: 332: cnt_push ++;
 "332
+[e ++ _cnt_push -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 333: while(PORTAbits.RA4 == 1);
+"333
 [e $U 407  ]
 [e :U 408 ]
 [e :U 407 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 408  ]
 [e :U 409 ]
-[; ;MotorDrive.c: 333: cnt_push ++;
-"333
+[; ;MotorDrive.c: 334: cnt_push ++;
+"334
 [e ++ _cnt_push -> -> 1 `i `ui ]
-"336
+"337
 }
 [e :U 401 ]
 "327
 [e $ < _cnt_push -> . _hg_op 18 `ui 402  ]
 [e :U 403 ]
-[; ;MotorDrive.c: 336: }
-[; ;MotorDrive.c: 339: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"339
+[; ;MotorDrive.c: 337: }
+[; ;MotorDrive.c: 340: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"340
 [e :U 412 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 411 ]
-[; ;MotorDrive.c: 343: hg_op.drops_sa = 0;
-"343
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 344: hg_op.drops_push = 0;
+[; ;MotorDrive.c: 344: hg_op.drops_sa = 0;
 "344
-[e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 345: hg_op.drops_sb = 1;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 345: hg_op.drops_push = 0;
 "345
+[e = . _hg_op 22 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 346: hg_op.drops_sb = 1;
+"346
 [e = . _hg_op 21 -> -> 1 `i `uc ]
-"349
-}
-[; ;MotorDrive.c: 349: }
-[e $U 413  ]
 "350
-[e :U 394 ]
-[; ;MotorDrive.c: 350: else if(hg_op.drops_sb == 1)
-[e $ ! == -> . _hg_op 21 `i -> 1 `i 414  ]
-[; ;MotorDrive.c: 351: {
+}
+[; ;MotorDrive.c: 350: }
+[e $U 413  ]
 "351
+[e :U 394 ]
+[; ;MotorDrive.c: 351: else if(hg_op.drops_sb == 1)
+[e $ ! == -> . _hg_op 21 `i -> 1 `i 414  ]
+[; ;MotorDrive.c: 352: {
+"352
 {
-[; ;MotorDrive.c: 358: if(hg_op.needle_len == 13)
-"358
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 415  ]
-[; ;MotorDrive.c: 359: {
+[; ;MotorDrive.c: 359: if(hg_op.needle_len == 13)
 "359
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 415  ]
+[; ;MotorDrive.c: 360: {
+"360
 {
-[; ;MotorDrive.c: 362: do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
-"362
+[; ;MotorDrive.c: 363: do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
+"363
 [e :U 418 ]
 {
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
@@ -4110,15 +4122,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 }
 [e :U 417 ]
-[; ;MotorDrive.c: 363: while(PORTBbits.RB0 == 1);
-"363
+[; ;MotorDrive.c: 364: while(PORTBbits.RB0 == 1);
+"364
 [e $U 419  ]
 [e :U 420 ]
 [e :U 419 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 420  ]
 [e :U 421 ]
-[; ;MotorDrive.c: 364: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"364
+[; ;MotorDrive.c: 365: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"365
 [e :U 424 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4126,33 +4138,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 423 ]
-[; ;MotorDrive.c: 365: delaynus(50 * 1000);
-"365
+[; ;MotorDrive.c: 366: delaynus(50 * 1000);
+"366
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
-"367
-}
-[; ;MotorDrive.c: 367: }
-[e $U 425  ]
 "368
-[e :U 415 ]
-[; ;MotorDrive.c: 368: else
-[; ;MotorDrive.c: 369: {
+}
+[; ;MotorDrive.c: 368: }
+[e $U 425  ]
 "369
-{
-[; ;MotorDrive.c: 370: LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =1;
+[e :U 415 ]
+[; ;MotorDrive.c: 369: else
+[; ;MotorDrive.c: 370: {
 "370
+{
+[; ;MotorDrive.c: 371: LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =1;
+"371
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 371: while(hg_op.cnt_pos_1mm > 0);
-"371
+[; ;MotorDrive.c: 372: while(hg_op.cnt_pos_1mm > 0);
+"372
 [e $U 426  ]
 [e :U 427 ]
 [e :U 426 ]
 [e $ > . _hg_op 30 -> 0 `i 427  ]
 [e :U 428 ]
-[; ;MotorDrive.c: 373: do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);brake_MB();do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
-"373
+[; ;MotorDrive.c: 374: do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
+"374
 [e :U 431 ]
 {
 [e :U 434 ]
@@ -4162,7 +4174,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 }
 [e :U 433 ]
-[e ( _brake_MB ..  ]
+[e ( _delaynus (1 -> * -> 15 `i -> 1000 `i `ui ]
 [e :U 437 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4172,25 +4184,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 436 ]
 }
 [e :U 430 ]
-"375
+"376
 }
 [e :U 425 ]
-[; ;MotorDrive.c: 375: }
-[; ;MotorDrive.c: 378: printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
-"378
+[; ;MotorDrive.c: 376: }
+[; ;MotorDrive.c: 379: printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
+"379
 [e ( _printf , (. :s 9C . _hg_op 30 ]
-[; ;MotorDrive.c: 381: ; ;
-[; ;MotorDrive.c: 382: printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
-"382
+[; ;MotorDrive.c: 382: ; ;
+[; ;MotorDrive.c: 383: printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
+"383
 [e ( _printf , (. :s 10C . _hg_op 30 ]
-[; ;MotorDrive.c: 385: if(PORTBbits.RB5 == 1)
-"385
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 438  ]
-[; ;MotorDrive.c: 386: {
+[; ;MotorDrive.c: 386: if(PORTBbits.RB5 == 1)
 "386
-{
-[; ;MotorDrive.c: 387: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 438  ]
+[; ;MotorDrive.c: 387: {
 "387
+{
+[; ;MotorDrive.c: 388: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"388
 [e :U 441 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4198,16 +4210,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 440 ]
-[; ;MotorDrive.c: 388: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"388
+[; ;MotorDrive.c: 389: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"389
 [e :U 444 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 443 ]
-[; ;MotorDrive.c: 390: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
-"390
+[; ;MotorDrive.c: 391: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+"391
 [e :U 447 ]
 {
 [e :U 450 ]
@@ -4221,151 +4233,151 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 446 ]
-[; ;MotorDrive.c: 393: while(cnt_push < 260)
-"393
+[; ;MotorDrive.c: 394: while(cnt_push < 260)
+"394
 [e $U 451  ]
 [e :U 452 ]
-[; ;MotorDrive.c: 394: {
-"394
-{
-[; ;MotorDrive.c: 395: while(PORTAbits.RA4 == 0);
+[; ;MotorDrive.c: 395: {
 "395
+{
+[; ;MotorDrive.c: 396: while(PORTAbits.RA4 == 0);
+"396
 [e $U 454  ]
 [e :U 455 ]
 [e :U 454 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 0 `i 455  ]
 [e :U 456 ]
-[; ;MotorDrive.c: 396: cnt_push ++;
-"396
-[e ++ _cnt_push -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 397: while(PORTAbits.RA4 == 1);
+[; ;MotorDrive.c: 397: cnt_push ++;
 "397
+[e ++ _cnt_push -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 398: while(PORTAbits.RA4 == 1);
+"398
 [e $U 457  ]
 [e :U 458 ]
 [e :U 457 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 458  ]
 [e :U 459 ]
-[; ;MotorDrive.c: 398: cnt_push ++;
-"398
+[; ;MotorDrive.c: 399: cnt_push ++;
+"399
 [e ++ _cnt_push -> -> 1 `i `ui ]
-"400
+"401
 }
 [e :U 451 ]
-"393
+"394
 [e $ < _cnt_push -> -> 260 `i `ui 452  ]
 [e :U 453 ]
-[; ;MotorDrive.c: 400: }
-[; ;MotorDrive.c: 402: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"402
+[; ;MotorDrive.c: 401: }
+[; ;MotorDrive.c: 403: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"403
 [e :U 462 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 461 ]
-[; ;MotorDrive.c: 404: hg_op.drops_sa = 0;
-"404
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 405: hg_op.drops_sb = 0;
+[; ;MotorDrive.c: 405: hg_op.drops_sa = 0;
 "405
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 406: hg_op.drops_push = 0;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 406: hg_op.drops_sb = 0;
 "406
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 407: hg_op.drops_push = 0;
+"407
 [e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 409: hg_op.acting_flag =0;
-"409
+[; ;MotorDrive.c: 410: hg_op.acting_flag =0;
+"410
 [e = . _hg_op 19 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 412: if(hg_op.needle_len == 13)
-"412
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 463  ]
-[; ;MotorDrive.c: 413: {
+[; ;MotorDrive.c: 413: if(hg_op.needle_len == 13)
 "413
-{
-[; ;MotorDrive.c: 414: hg_op.need_reset =0;
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 463  ]
+[; ;MotorDrive.c: 414: {
 "414
-[e = . _hg_op 5 -> -> 0 `i `uc ]
-"415
-}
-[; ;MotorDrive.c: 415: }
-[e $U 464  ]
-"416
-[e :U 463 ]
-[; ;MotorDrive.c: 416: else
-[; ;MotorDrive.c: 417: {
-"417
 {
-[; ;MotorDrive.c: 418: hg_op.need_reset =1;
+[; ;MotorDrive.c: 415: hg_op.need_reset =0;
+"415
+[e = . _hg_op 5 -> -> 0 `i `uc ]
+"416
+}
+[; ;MotorDrive.c: 416: }
+[e $U 464  ]
+"417
+[e :U 463 ]
+[; ;MotorDrive.c: 417: else
+[; ;MotorDrive.c: 418: {
 "418
-[e = . _hg_op 5 -> -> 1 `i `uc ]
+{
+[; ;MotorDrive.c: 419: hg_op.need_reset =1;
 "419
+[e = . _hg_op 5 -> -> 1 `i `uc ]
+"420
 }
 [e :U 464 ]
-[; ;MotorDrive.c: 419: }
-[; ;MotorDrive.c: 421: hg_op.working_mode = 0x03;
-"421
+[; ;MotorDrive.c: 420: }
+[; ;MotorDrive.c: 422: hg_op.working_mode = 0x03;
+"422
 [e = . _hg_op 0 -> -> 3 `i `uc ]
-"423
-}
-[; ;MotorDrive.c: 423: }
-[e $U 465  ]
 "424
-[e :U 438 ]
-[; ;MotorDrive.c: 424: else if(PORTBbits.RB5 == 0)
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 466  ]
-[; ;MotorDrive.c: 425: {
+}
+[; ;MotorDrive.c: 424: }
+[e $U 465  ]
 "425
-{
-[; ;MotorDrive.c: 426: hg_op.drops_sb = 0;
+[e :U 438 ]
+[; ;MotorDrive.c: 425: else if(PORTBbits.RB5 == 0)
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 466  ]
+[; ;MotorDrive.c: 426: {
 "426
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 427: hg_op.drops_push =0;
+{
+[; ;MotorDrive.c: 427: hg_op.drops_sb = 0;
 "427
-[e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 428: hg_op.drops_sa = 1;
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 428: hg_op.drops_push =0;
 "428
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 429: hg_op.drops_sa = 1;
 "429
+[e = . _hg_op 20 -> -> 1 `i `uc ]
+"430
 }
 [e :U 466 ]
-"430
+"431
 [e :U 465 ]
 }
 [e :U 414 ]
-"436
+"437
 [e :U 413 ]
 [e :U 393 ]
 }
 [e :U 365 ]
-[; ;MotorDrive.c: 429: }
 [; ;MotorDrive.c: 430: }
-[; ;MotorDrive.c: 436: }
-[; ;MotorDrive.c: 441: }
-"441
+[; ;MotorDrive.c: 431: }
+[; ;MotorDrive.c: 437: }
+[; ;MotorDrive.c: 442: }
+"442
 [e :UE 351 ]
 }
-"445
-[v _c_routine `(v ~T0 @X0 1 ef ]
 "446
+[v _c_routine `(v ~T0 @X0 1 ef ]
+"447
 {
-[; ;MotorDrive.c: 445: void c_routine(void)
-[; ;MotorDrive.c: 446: {
+[; ;MotorDrive.c: 446: void c_routine(void)
+[; ;MotorDrive.c: 447: {
 [e :U _c_routine ]
 [f ]
-"447
-[v _cnt_push `ui ~T0 @X0 1 a ]
-[; ;MotorDrive.c: 447: uint16_t cnt_push =0;
-[e = _cnt_push -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 448: printf("in in C mode\r\n");
 "448
+[v _cnt_push `ui ~T0 @X0 1 a ]
+[; ;MotorDrive.c: 448: uint16_t cnt_push =0;
+[e = _cnt_push -> -> 0 `i `ui ]
+[; ;MotorDrive.c: 449: printf("in in C mode\r\n");
+"449
 [e ( _printf :s 11C ]
-[; ;MotorDrive.c: 450: if(0)
-"450
-[e $ ! != -> 0 `i -> 0 `i 468  ]
-[; ;MotorDrive.c: 451: {
+[; ;MotorDrive.c: 451: if(0)
 "451
-{
-[; ;MotorDrive.c: 452: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+[e $ ! != -> 0 `i -> 0 `i 468  ]
+[; ;MotorDrive.c: 452: {
 "452
+{
+[; ;MotorDrive.c: 453: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"453
 [e :U 471 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4373,8 +4385,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 470 ]
-[; ;MotorDrive.c: 454: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
-"454
+[; ;MotorDrive.c: 455: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+"455
 [e :U 474 ]
 {
 [e :U 477 ]
@@ -4388,85 +4400,85 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 473 ]
-[; ;MotorDrive.c: 455: delaynus(30 * 1000);
-"455
-[e ( _delaynus (1 -> * -> 30 `i -> 1000 `i `ui ]
-[; ;MotorDrive.c: 456: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+[; ;MotorDrive.c: 456: delaynus(30 * 1000);
 "456
+[e ( _delaynus (1 -> * -> 30 `i -> 1000 `i `ui ]
+[; ;MotorDrive.c: 457: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"457
 [e :U 480 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 479 ]
-[; ;MotorDrive.c: 460: hg_op.acting_flag =0;
-"460
-[e = . _hg_op 19 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 461: hg_op.working_mode = 0x03;
+[; ;MotorDrive.c: 461: hg_op.acting_flag =0;
 "461
-[e = . _hg_op 0 -> -> 3 `i `uc ]
-[; ;MotorDrive.c: 462: hg_op.need_reset =1;
+[e = . _hg_op 19 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 462: hg_op.working_mode = 0x03;
 "462
-[e = . _hg_op 5 -> -> 1 `i `uc ]
+[e = . _hg_op 0 -> -> 3 `i `uc ]
+[; ;MotorDrive.c: 463: hg_op.need_reset =1;
 "463
-}
-[; ;MotorDrive.c: 463: }
-[e $U 481  ]
+[e = . _hg_op 5 -> -> 1 `i `uc ]
 "464
-[e :U 468 ]
-[; ;MotorDrive.c: 464: else
-[; ;MotorDrive.c: 465: {
+}
+[; ;MotorDrive.c: 464: }
+[e $U 481  ]
 "465
-{
-[; ;MotorDrive.c: 466: if(hg_op.drops_sa == 1)
+[e :U 468 ]
+[; ;MotorDrive.c: 465: else
+[; ;MotorDrive.c: 466: {
 "466
-[e $ ! == -> . _hg_op 20 `i -> 1 `i 482  ]
-[; ;MotorDrive.c: 467: {
+{
+[; ;MotorDrive.c: 467: if(hg_op.drops_sa == 1)
 "467
-{
-[; ;MotorDrive.c: 468: hg_op.cnt_posa =0;
+[e $ ! == -> . _hg_op 20 `i -> 1 `i 482  ]
+[; ;MotorDrive.c: 468: {
 "468
-[e = . _hg_op 27 -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 470: if( hg_op.needle_len == 13)
-"470
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 483  ]
-[; ;MotorDrive.c: 471: {
-"471
 {
-[; ;MotorDrive.c: 473: LATDbits.LD4 =1;LATDbits.LD2 =1;
-"473
+[; ;MotorDrive.c: 469: hg_op.cnt_posa =0;
+"469
+[e = . _hg_op 27 -> -> 0 `i `ui ]
+[; ;MotorDrive.c: 471: if( hg_op.needle_len == 13)
+"471
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 483  ]
+[; ;MotorDrive.c: 472: {
+"472
+{
+[; ;MotorDrive.c: 474: LATDbits.LD4 =1;LATDbits.LD2 =1;
+"474
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 474: while(hg_op.cnt_posa < (156));
-"474
+[; ;MotorDrive.c: 475: while(hg_op.cnt_posa < (156));
+"475
 [e $U 484  ]
 [e :U 485 ]
 [e :U 484 ]
 [e $ < . _hg_op 27 -> -> 156 `i `ui 485  ]
 [e :U 486 ]
-"475
-}
-[; ;MotorDrive.c: 475: }
-[e $U 487  ]
 "476
-[e :U 483 ]
-[; ;MotorDrive.c: 476: else
-[; ;MotorDrive.c: 477: {
+}
+[; ;MotorDrive.c: 476: }
+[e $U 487  ]
 "477
-{
-[; ;MotorDrive.c: 478: LATDbits.LD4 =1;LATDbits.LD2 =1;
+[e :U 483 ]
+[; ;MotorDrive.c: 477: else
+[; ;MotorDrive.c: 478: {
 "478
+{
+[; ;MotorDrive.c: 479: LATDbits.LD4 =1;LATDbits.LD2 =1;
+"479
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 479: delaynus(14 * 1000);
-"479
+[; ;MotorDrive.c: 480: delaynus(14 * 1000);
+"480
 [e ( _delaynus (1 -> * -> 14 `i -> 1000 `i `ui ]
-"481
+"482
 }
 [e :U 487 ]
-[; ;MotorDrive.c: 481: }
-[; ;MotorDrive.c: 482: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"482
+[; ;MotorDrive.c: 482: }
+[; ;MotorDrive.c: 483: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"483
 [e :U 490 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4474,46 +4486,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 489 ]
-[; ;MotorDrive.c: 484: delaynus(50 * 1000);
-"484
-[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
 [; ;MotorDrive.c: 485: delaynus(50 * 1000);
 "485
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
-[; ;MotorDrive.c: 486: printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
+[; ;MotorDrive.c: 486: delaynus(50 * 1000);
 "486
-[e ( _printf , (. :s 12C . _hg_op 27 ]
-[; ;MotorDrive.c: 487: hg_op.drops_sa = 0;
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[; ;MotorDrive.c: 487: printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
 "487
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 488: hg_op.drops_sb = 0;
+[e ( _printf , (. :s 12C . _hg_op 27 ]
+[; ;MotorDrive.c: 488: hg_op.drops_sa = 0;
 "488
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 489: hg_op.drops_push = 1;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 489: hg_op.drops_sb = 0;
 "489
-[e = . _hg_op 22 -> -> 1 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 490: hg_op.drops_push = 1;
 "490
+[e = . _hg_op 22 -> -> 1 `i `uc ]
+"491
 }
 [e :U 482 ]
-[; ;MotorDrive.c: 490: }
-[; ;MotorDrive.c: 493: if(hg_op.drops_push == 1)
-"493
-[e $ ! == -> . _hg_op 22 `i -> 1 `i 491  ]
-[; ;MotorDrive.c: 494: {
+[; ;MotorDrive.c: 491: }
+[; ;MotorDrive.c: 494: if(hg_op.drops_push == 1)
 "494
+[e $ ! == -> . _hg_op 22 `i -> 1 `i 491  ]
+[; ;MotorDrive.c: 495: {
+"495
 {
-[; ;MotorDrive.c: 506: while(PORTBbits.RB5 == 0)
-"506
+[; ;MotorDrive.c: 507: while(PORTBbits.RB5 == 0)
+"507
 [e $U 492  ]
 [e :U 493 ]
-[; ;MotorDrive.c: 507: {
-"507
-{
-[; ;MotorDrive.c: 508: cnt_push =0;
+[; ;MotorDrive.c: 508: {
 "508
-[e = _cnt_push -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 509: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+{
+[; ;MotorDrive.c: 509: cnt_push =0;
 "509
+[e = _cnt_push -> -> 0 `i `ui ]
+[; ;MotorDrive.c: 510: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+"510
 [e :U 497 ]
 {
 [e :U 500 ]
@@ -4527,139 +4539,139 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 496 ]
-[; ;MotorDrive.c: 511: while(cnt_push < 146)
-"511
+[; ;MotorDrive.c: 512: while(cnt_push < 146)
+"512
 [e $U 501  ]
 [e :U 502 ]
-[; ;MotorDrive.c: 512: {
-"512
-{
-[; ;MotorDrive.c: 513: while(PORTAbits.RA4 == 0);
+[; ;MotorDrive.c: 513: {
 "513
+{
+[; ;MotorDrive.c: 514: while(PORTAbits.RA4 == 0);
+"514
 [e $U 504  ]
 [e :U 505 ]
 [e :U 504 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 0 `i 505  ]
 [e :U 506 ]
-[; ;MotorDrive.c: 514: cnt_push ++;
-"514
-[e ++ _cnt_push -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 515: while(PORTAbits.RA4 == 1);
+[; ;MotorDrive.c: 515: cnt_push ++;
 "515
+[e ++ _cnt_push -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 516: while(PORTAbits.RA4 == 1);
+"516
 [e $U 507  ]
 [e :U 508 ]
 [e :U 507 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 508  ]
 [e :U 509 ]
-[; ;MotorDrive.c: 516: cnt_push ++;
-"516
+[; ;MotorDrive.c: 517: cnt_push ++;
+"517
 [e ++ _cnt_push -> -> 1 `i `ui ]
-"518
+"519
 }
 [e :U 501 ]
-"511
+"512
 [e $ < _cnt_push -> -> 146 `i `ui 502  ]
 [e :U 503 ]
-[; ;MotorDrive.c: 518: }
-[; ;MotorDrive.c: 519: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"519
+[; ;MotorDrive.c: 519: }
+[; ;MotorDrive.c: 520: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"520
 [e :U 512 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 511 ]
-[; ;MotorDrive.c: 520: delaynus(50 * 1000);
-"520
+[; ;MotorDrive.c: 521: delaynus(50 * 1000);
+"521
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
-[; ;MotorDrive.c: 522: printf("cycle push\r\n");
-"522
-[e ( _printf :s 13C ]
+[; ;MotorDrive.c: 523: printf("cycle push\r\n");
 "523
+[e ( _printf :s 13C ]
+"524
 }
 [e :U 492 ]
-"506
+"507
 [e $ == -> . . _PORTBbits 0 5 `i -> 0 `i 493  ]
 [e :U 494 ]
-[; ;MotorDrive.c: 523: }
-[; ;MotorDrive.c: 525: printf("should be here\r\n");
-"525
-[e ( _printf :s 14C ]
-[; ;MotorDrive.c: 526: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+[; ;MotorDrive.c: 524: }
+[; ;MotorDrive.c: 526: printf("should be here\r\n");
 "526
+[e ( _printf :s 14C ]
+[; ;MotorDrive.c: 527: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"527
 [e :U 515 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 514 ]
-[; ;MotorDrive.c: 528: delaynus(50* 1000);
-"528
-[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
-[; ;MotorDrive.c: 529: hg_op.drops_sa = 0;
+[; ;MotorDrive.c: 529: delaynus(50* 1000);
 "529
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 530: hg_op.drops_push = 0;
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[; ;MotorDrive.c: 530: hg_op.drops_sa = 0;
 "530
-[e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 531: hg_op.drops_sb = 1;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 531: hg_op.drops_push = 0;
 "531
-[e = . _hg_op 21 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 532: hg_op.drops_sb = 1;
 "532
+[e = . _hg_op 21 -> -> 1 `i `uc ]
+"533
 }
 [e :U 491 ]
-[; ;MotorDrive.c: 532: }
-[; ;MotorDrive.c: 534: if(hg_op.drops_sb == 1)
-"534
-[e $ ! == -> . _hg_op 21 `i -> 1 `i 516  ]
-[; ;MotorDrive.c: 535: {
+[; ;MotorDrive.c: 533: }
+[; ;MotorDrive.c: 535: if(hg_op.drops_sb == 1)
 "535
-{
-[; ;MotorDrive.c: 536: hg_op.cnt_posb =0;
+[e $ ! == -> . _hg_op 21 `i -> 1 `i 516  ]
+[; ;MotorDrive.c: 536: {
 "536
-[e = . _hg_op 28 -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 539: if(hg_op.needle_len == 13)
-"539
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 517  ]
-[; ;MotorDrive.c: 540: {
-"540
 {
-[; ;MotorDrive.c: 541: LATDbits.LD4 =1;LATDbits.LD3 =1;
+[; ;MotorDrive.c: 537: hg_op.cnt_posb =0;
+"537
+[e = . _hg_op 28 -> -> 0 `i `ui ]
+[; ;MotorDrive.c: 540: if(hg_op.needle_len == 13)
+"540
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 517  ]
+[; ;MotorDrive.c: 541: {
 "541
+{
+[; ;MotorDrive.c: 542: LATDbits.LD4 =1;LATDbits.LD3 =1;
+"542
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 542: while(PORTBbits.RB0 == 1);
-"542
+[; ;MotorDrive.c: 543: while(PORTBbits.RB0 == 1);
+"543
 [e $U 518  ]
 [e :U 519 ]
 [e :U 518 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 519  ]
 [e :U 520 ]
-"543
-}
-[; ;MotorDrive.c: 543: }
-[e $U 521  ]
 "544
-[e :U 517 ]
-[; ;MotorDrive.c: 544: else
-[; ;MotorDrive.c: 545: {
+}
+[; ;MotorDrive.c: 544: }
+[e $U 521  ]
 "545
-{
-[; ;MotorDrive.c: 546: LATDbits.LD4 =1;
+[e :U 517 ]
+[; ;MotorDrive.c: 545: else
+[; ;MotorDrive.c: 546: {
 "546
-[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 547: LATDbits.LD3 =1;
+{
+[; ;MotorDrive.c: 547: LATDbits.LD4 =1;
 "547
+[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 548: LATDbits.LD3 =1;
+"548
 [e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 549: delaynus(100 * 1000);
-"549
-[e ( _delaynus (1 -> * -> 100 `i -> 1000 `i `ui ]
+[; ;MotorDrive.c: 550: delaynus(100 * 1000);
 "550
+[e ( _delaynus (1 -> * -> 100 `i -> 1000 `i `ui ]
+"551
 }
 [e :U 521 ]
-[; ;MotorDrive.c: 550: }
-[; ;MotorDrive.c: 551: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"551
+[; ;MotorDrive.c: 551: }
+[; ;MotorDrive.c: 552: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"552
 [e :U 524 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4667,29 +4679,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 523 ]
-[; ;MotorDrive.c: 558: delay_pwm(hg_op.work_freq * 300);
-"558
-[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
-[; ;MotorDrive.c: 559: printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+[; ;MotorDrive.c: 559: delay_pwm(hg_op.work_freq * 300);
 "559
+[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
+[; ;MotorDrive.c: 560: printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+"560
 [e ( _printf , (. :s 15C . _hg_op 28 ]
-[; ;MotorDrive.c: 561: if(PORTBbits.RB5 == 1)
-"561
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 525  ]
-[; ;MotorDrive.c: 562: {
+[; ;MotorDrive.c: 562: if(PORTBbits.RB5 == 1)
 "562
-{
-[; ;MotorDrive.c: 563: delaynus(15 * 1000);
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 525  ]
+[; ;MotorDrive.c: 563: {
 "563
-[e ( _delaynus (1 -> * -> 15 `i -> 1000 `i `ui ]
-[; ;MotorDrive.c: 564: if(PORTBbits.RB5 == 1)
-"564
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 526  ]
-[; ;MotorDrive.c: 565: {
-"565
 {
-[; ;MotorDrive.c: 566: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+[; ;MotorDrive.c: 564: delaynus(15 * 1000);
+"564
+[e ( _delaynus (1 -> * -> 15 `i -> 1000 `i `ui ]
+[; ;MotorDrive.c: 565: if(PORTBbits.RB5 == 1)
+"565
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 526  ]
+[; ;MotorDrive.c: 566: {
 "566
+{
+[; ;MotorDrive.c: 567: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"567
 [e :U 529 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4697,16 +4709,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 528 ]
-[; ;MotorDrive.c: 567: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"567
+[; ;MotorDrive.c: 568: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"568
 [e :U 532 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 531 ]
-[; ;MotorDrive.c: 570: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
-"570
+[; ;MotorDrive.c: 571: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+"571
 [e :U 535 ]
 {
 [e :U 538 ]
@@ -4720,132 +4732,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 534 ]
-[; ;MotorDrive.c: 572: cnt_push = 0;
-"572
+[; ;MotorDrive.c: 573: cnt_push = 0;
+"573
 [e = _cnt_push -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 574: while(cnt_push < 120)
-"574
+[; ;MotorDrive.c: 575: while(cnt_push < 120)
+"575
 [e $U 539  ]
 [e :U 540 ]
-[; ;MotorDrive.c: 575: {
-"575
-{
-[; ;MotorDrive.c: 576: while(PORTAbits.RA4 == 0);
+[; ;MotorDrive.c: 576: {
 "576
+{
+[; ;MotorDrive.c: 577: while(PORTAbits.RA4 == 0);
+"577
 [e $U 542  ]
 [e :U 543 ]
 [e :U 542 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 0 `i 543  ]
 [e :U 544 ]
-[; ;MotorDrive.c: 577: cnt_push ++;
-"577
-[e ++ _cnt_push -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 578: while(PORTAbits.RA4 == 1);
+[; ;MotorDrive.c: 578: cnt_push ++;
 "578
+[e ++ _cnt_push -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 579: while(PORTAbits.RA4 == 1);
+"579
 [e $U 545  ]
 [e :U 546 ]
 [e :U 545 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 546  ]
 [e :U 547 ]
-[; ;MotorDrive.c: 579: cnt_push ++;
-"579
+[; ;MotorDrive.c: 580: cnt_push ++;
+"580
 [e ++ _cnt_push -> -> 1 `i `ui ]
-"581
+"582
 }
 [e :U 539 ]
-"574
+"575
 [e $ < _cnt_push -> -> 120 `i `ui 540  ]
 [e :U 541 ]
-[; ;MotorDrive.c: 581: }
-[; ;MotorDrive.c: 583: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"583
+[; ;MotorDrive.c: 582: }
+[; ;MotorDrive.c: 584: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"584
 [e :U 550 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 549 ]
-[; ;MotorDrive.c: 585: hg_op.drops_sa = 0;
-"585
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 586: hg_op.drops_sb = 0;
+[; ;MotorDrive.c: 586: hg_op.drops_sa = 0;
 "586
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 587: hg_op.drops_push = 0;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 587: hg_op.drops_sb = 0;
 "587
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 588: hg_op.drops_push = 0;
+"588
 [e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 590: hg_op.acting_flag =0;
-"590
+[; ;MotorDrive.c: 591: hg_op.acting_flag =0;
+"591
 [e = . _hg_op 19 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 593: if(hg_op.needle_len == 13)
-"593
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 551  ]
-[; ;MotorDrive.c: 594: {
+[; ;MotorDrive.c: 594: if(hg_op.needle_len == 13)
 "594
-{
-[; ;MotorDrive.c: 595: hg_op.need_reset =0;
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 551  ]
+[; ;MotorDrive.c: 595: {
 "595
-[e = . _hg_op 5 -> -> 0 `i `uc ]
-"596
-}
-[; ;MotorDrive.c: 596: }
-[e $U 552  ]
-"597
-[e :U 551 ]
-[; ;MotorDrive.c: 597: else
-[; ;MotorDrive.c: 598: {
-"598
 {
-[; ;MotorDrive.c: 599: hg_op.need_reset =1;
+[; ;MotorDrive.c: 596: hg_op.need_reset =0;
+"596
+[e = . _hg_op 5 -> -> 0 `i `uc ]
+"597
+}
+[; ;MotorDrive.c: 597: }
+[e $U 552  ]
+"598
+[e :U 551 ]
+[; ;MotorDrive.c: 598: else
+[; ;MotorDrive.c: 599: {
 "599
-[e = . _hg_op 5 -> -> 1 `i `uc ]
+{
+[; ;MotorDrive.c: 600: hg_op.need_reset =1;
 "600
+[e = . _hg_op 5 -> -> 1 `i `uc ]
+"601
 }
 [e :U 552 ]
-[; ;MotorDrive.c: 600: }
-[; ;MotorDrive.c: 602: hg_op.working_mode = 0x03;
-"602
-[e = . _hg_op 0 -> -> 3 `i `uc ]
+[; ;MotorDrive.c: 601: }
+[; ;MotorDrive.c: 603: hg_op.working_mode = 0x03;
 "603
+[e = . _hg_op 0 -> -> 3 `i `uc ]
+"604
 }
 [e :U 526 ]
-"605
+"606
 }
 [e :U 525 ]
-"607
+"608
 }
 [e :U 516 ]
-"609
+"610
 }
 [e :U 481 ]
-[; ;MotorDrive.c: 603: }
-[; ;MotorDrive.c: 605: }
-[; ;MotorDrive.c: 607: }
-[; ;MotorDrive.c: 609: }
-[; ;MotorDrive.c: 611: }
-"611
+[; ;MotorDrive.c: 604: }
+[; ;MotorDrive.c: 606: }
+[; ;MotorDrive.c: 608: }
+[; ;MotorDrive.c: 610: }
+[; ;MotorDrive.c: 612: }
+"612
 [e :UE 467 ]
 }
-"615
-[v _test_routine `(v ~T0 @X0 1 ef ]
 "616
+[v _test_routine `(v ~T0 @X0 1 ef ]
+"617
 {
-[; ;MotorDrive.c: 615: void test_routine(void)
-[; ;MotorDrive.c: 616: {
+[; ;MotorDrive.c: 616: void test_routine(void)
+[; ;MotorDrive.c: 617: {
 [e :U _test_routine ]
 [f ]
-"617
+"618
 [v _cnt_push `ui ~T0 @X0 1 a ]
-[; ;MotorDrive.c: 617: uint16_t cnt_push =0;
+[; ;MotorDrive.c: 618: uint16_t cnt_push =0;
 [e = _cnt_push -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 620: if(0)
-"620
-[e $ ! != -> 0 `i -> 0 `i 554  ]
-[; ;MotorDrive.c: 621: {
+[; ;MotorDrive.c: 621: if(0)
 "621
-{
-[; ;MotorDrive.c: 622: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+[e $ ! != -> 0 `i -> 0 `i 554  ]
+[; ;MotorDrive.c: 622: {
 "622
+{
+[; ;MotorDrive.c: 623: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"623
 [e :U 557 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4853,8 +4865,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 556 ]
-[; ;MotorDrive.c: 624: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
-"624
+[; ;MotorDrive.c: 625: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+"625
 [e :U 560 ]
 {
 [e :U 563 ]
@@ -4868,120 +4880,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 559 ]
-[; ;MotorDrive.c: 626: delay_pwm(300 * 30);
-"626
-[e ( _delay_pwm (1 -> -> * -> 300 `i -> 30 `i `l `ul ]
-[; ;MotorDrive.c: 627: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+[; ;MotorDrive.c: 627: delay_pwm(300 * 30);
 "627
+[e ( _delay_pwm (1 -> -> * -> 300 `i -> 30 `i `l `ul ]
+[; ;MotorDrive.c: 628: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"628
 [e :U 566 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 565 ]
-[; ;MotorDrive.c: 631: hg_op.acting_flag =0;
-"631
-[e = . _hg_op 19 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 632: hg_op.working_mode = 0x03;
+[; ;MotorDrive.c: 632: hg_op.acting_flag =0;
 "632
-[e = . _hg_op 0 -> -> 3 `i `uc ]
-[; ;MotorDrive.c: 633: hg_op.need_reset =1;
+[e = . _hg_op 19 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 633: hg_op.working_mode = 0x03;
 "633
-[e = . _hg_op 5 -> -> 1 `i `uc ]
+[e = . _hg_op 0 -> -> 3 `i `uc ]
+[; ;MotorDrive.c: 634: hg_op.need_reset =1;
 "634
-}
-[; ;MotorDrive.c: 634: }
-[e $U 567  ]
+[e = . _hg_op 5 -> -> 1 `i `uc ]
 "635
-[e :U 554 ]
-[; ;MotorDrive.c: 635: else
-[; ;MotorDrive.c: 636: {
+}
+[; ;MotorDrive.c: 635: }
+[e $U 567  ]
 "636
-{
-[; ;MotorDrive.c: 637: if(hg_op.drops_sa == 1)
+[e :U 554 ]
+[; ;MotorDrive.c: 636: else
+[; ;MotorDrive.c: 637: {
 "637
-[e $ ! == -> . _hg_op 20 `i -> 1 `i 568  ]
-[; ;MotorDrive.c: 638: {
+{
+[; ;MotorDrive.c: 638: if(hg_op.drops_sa == 1)
 "638
-{
-[; ;MotorDrive.c: 639: hg_op.cnt_posa =0;
+[e $ ! == -> . _hg_op 20 `i -> 1 `i 568  ]
+[; ;MotorDrive.c: 639: {
 "639
-[e = . _hg_op 27 -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 641: if( hg_op.needle_len == 13)
-"641
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 569  ]
-[; ;MotorDrive.c: 642: {
-"642
 {
-[; ;MotorDrive.c: 644: LATDbits.LD2 =1;
-"644
-[e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 645: LATDbits.LD4 =1;
+[; ;MotorDrive.c: 640: hg_op.cnt_posa =0;
+"640
+[e = . _hg_op 27 -> -> 0 `i `ui ]
+[; ;MotorDrive.c: 642: if( hg_op.needle_len == 13)
+"642
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 569  ]
+[; ;MotorDrive.c: 643: {
+"643
+{
+[; ;MotorDrive.c: 645: LATDbits.LD2 =1;
 "645
+[e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 646: LATDbits.LD4 =1;
+"646
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 647: while(hg_op.cnt_posa < (156));
-"647
+[; ;MotorDrive.c: 648: while(hg_op.cnt_posa < (156));
+"648
 [e $U 570  ]
 [e :U 571 ]
 [e :U 570 ]
 [e $ < . _hg_op 27 -> -> 156 `i `ui 571  ]
 [e :U 572 ]
-"648
-}
-[; ;MotorDrive.c: 648: }
-[e $U 573  ]
 "649
-[e :U 569 ]
-[; ;MotorDrive.c: 649: else
-[; ;MotorDrive.c: 650: {
+}
+[; ;MotorDrive.c: 649: }
+[e $U 573  ]
 "650
-{
-[; ;MotorDrive.c: 651: LATDbits.LD2 =1;
+[e :U 569 ]
+[; ;MotorDrive.c: 650: else
+[; ;MotorDrive.c: 651: {
 "651
-[e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 652: LATDbits.LD4 =1;
+{
+[; ;MotorDrive.c: 652: LATDbits.LD2 =1;
 "652
+[e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 653: LATDbits.LD4 =1;
+"653
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 656: while(hg_op.cnt_posa < 20)
-"656
+[; ;MotorDrive.c: 657: while(hg_op.cnt_posa < 20)
+"657
 [e $U 574  ]
 [e :U 575 ]
-[; ;MotorDrive.c: 657: {
-"657
+[; ;MotorDrive.c: 658: {
+"658
 {
-[; ;MotorDrive.c: 663: while(PORTBbits.RB2 == 0);
-"663
+[; ;MotorDrive.c: 664: while(PORTBbits.RB2 == 0);
+"664
 [e $U 577  ]
 [e :U 578 ]
 [e :U 577 ]
 [e $ == -> . . _PORTBbits 0 2 `i -> 0 `i 578  ]
 [e :U 579 ]
-[; ;MotorDrive.c: 664: hg_op.cnt_posa ++;
-"664
-[e ++ . _hg_op 27 -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 665: while(PORTBbits.RB2 == 1);
+[; ;MotorDrive.c: 665: hg_op.cnt_posa ++;
 "665
+[e ++ . _hg_op 27 -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 666: while(PORTBbits.RB2 == 1);
+"666
 [e $U 580  ]
 [e :U 581 ]
 [e :U 580 ]
 [e $ == -> . . _PORTBbits 0 2 `i -> 1 `i 581  ]
 [e :U 582 ]
-[; ;MotorDrive.c: 666: hg_op.cnt_posa ++;
-"666
+[; ;MotorDrive.c: 667: hg_op.cnt_posa ++;
+"667
 [e ++ . _hg_op 27 -> -> 1 `i `ui ]
-"668
-}
-[e :U 574 ]
-"656
-[e $ < . _hg_op 27 -> -> 20 `i `ui 575  ]
-[e :U 576 ]
 "669
 }
-[e :U 573 ]
-[; ;MotorDrive.c: 668: }
-[; ;MotorDrive.c: 669: }
-[; ;MotorDrive.c: 670: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+[e :U 574 ]
+"657
+[e $ < . _hg_op 27 -> -> 20 `i `ui 575  ]
+[e :U 576 ]
 "670
+}
+[e :U 573 ]
+[; ;MotorDrive.c: 669: }
+[; ;MotorDrive.c: 670: }
+[; ;MotorDrive.c: 671: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"671
 [e :U 585 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -4989,34 +5001,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 584 ]
-[; ;MotorDrive.c: 673: delay_pwm(hg_op.work_freq * 300);
-"673
+[; ;MotorDrive.c: 674: delay_pwm(hg_op.work_freq * 300);
+"674
 [e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
-[; ;MotorDrive.c: 675: hg_op.drops_sa = 0;
-"675
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 676: hg_op.drops_sb = 0;
+[; ;MotorDrive.c: 676: hg_op.drops_sa = 0;
 "676
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 677: hg_op.drops_push = 1;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 677: hg_op.drops_sb = 0;
 "677
-[e = . _hg_op 22 -> -> 1 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 678: hg_op.drops_push = 1;
 "678
-}
-[; ;MotorDrive.c: 678: }
-[e $U 586  ]
+[e = . _hg_op 22 -> -> 1 `i `uc ]
 "679
-[e :U 568 ]
-[; ;MotorDrive.c: 679: else if(hg_op.drops_push == 1)
-[e $ ! == -> . _hg_op 22 `i -> 1 `i 587  ]
-[; ;MotorDrive.c: 680: {
+}
+[; ;MotorDrive.c: 679: }
+[e $U 586  ]
 "680
+[e :U 568 ]
+[; ;MotorDrive.c: 680: else if(hg_op.drops_push == 1)
+[e $ ! == -> . _hg_op 22 `i -> 1 `i 587  ]
+[; ;MotorDrive.c: 681: {
+"681
 {
-[; ;MotorDrive.c: 685: cnt_push =0;
-"685
+[; ;MotorDrive.c: 686: cnt_push =0;
+"686
 [e = _cnt_push -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 687: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
-"687
+[; ;MotorDrive.c: 688: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+"688
 [e :U 590 ]
 {
 [e :U 593 ]
@@ -5030,149 +5042,149 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 589 ]
-[; ;MotorDrive.c: 690: while(cnt_push < hg_op.push_len)
-"690
+[; ;MotorDrive.c: 691: while(cnt_push < hg_op.push_len)
+"691
 [e $U 594  ]
 [e :U 595 ]
-[; ;MotorDrive.c: 691: {
-"691
-{
-[; ;MotorDrive.c: 692: while(PORTAbits.RA4 == 0);
+[; ;MotorDrive.c: 692: {
 "692
+{
+[; ;MotorDrive.c: 693: while(PORTAbits.RA4 == 0);
+"693
 [e $U 597  ]
 [e :U 598 ]
 [e :U 597 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 0 `i 598  ]
 [e :U 599 ]
-[; ;MotorDrive.c: 693: cnt_push ++;
-"693
-[e ++ _cnt_push -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 694: while(PORTAbits.RA4 == 1);
+[; ;MotorDrive.c: 694: cnt_push ++;
 "694
+[e ++ _cnt_push -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 695: while(PORTAbits.RA4 == 1);
+"695
 [e $U 600  ]
 [e :U 601 ]
 [e :U 600 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 601  ]
 [e :U 602 ]
-[; ;MotorDrive.c: 695: cnt_push ++;
-"695
+[; ;MotorDrive.c: 696: cnt_push ++;
+"696
 [e ++ _cnt_push -> -> 1 `i `ui ]
-"697
+"698
 }
 [e :U 594 ]
-"690
+"691
 [e $ < _cnt_push -> . _hg_op 18 `ui 595  ]
 [e :U 596 ]
-[; ;MotorDrive.c: 697: }
-[; ;MotorDrive.c: 700: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"700
+[; ;MotorDrive.c: 698: }
+[; ;MotorDrive.c: 701: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"701
 [e :U 605 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 604 ]
-[; ;MotorDrive.c: 705: delay_pwm(hg_op.work_freq * 300);
-"705
-[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
-[; ;MotorDrive.c: 706: hg_op.drops_sa = 0;
+[; ;MotorDrive.c: 706: delay_pwm(hg_op.work_freq * 300);
 "706
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 707: hg_op.drops_push = 0;
+[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
+[; ;MotorDrive.c: 707: hg_op.drops_sa = 0;
 "707
-[e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 708: hg_op.drops_sb = 1;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 708: hg_op.drops_push = 0;
 "708
+[e = . _hg_op 22 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 709: hg_op.drops_sb = 1;
+"709
 [e = . _hg_op 21 -> -> 1 `i `uc ]
-"711
-}
-[; ;MotorDrive.c: 711: }
-[e $U 606  ]
 "712
-[e :U 587 ]
-[; ;MotorDrive.c: 712: else if(hg_op.drops_sb == 1)
-[e $ ! == -> . _hg_op 21 `i -> 1 `i 607  ]
-[; ;MotorDrive.c: 713: {
+}
+[; ;MotorDrive.c: 712: }
+[e $U 606  ]
 "713
-{
-[; ;MotorDrive.c: 714: hg_op.cnt_posb =0;
+[e :U 587 ]
+[; ;MotorDrive.c: 713: else if(hg_op.drops_sb == 1)
+[e $ ! == -> . _hg_op 21 `i -> 1 `i 607  ]
+[; ;MotorDrive.c: 714: {
 "714
-[e = . _hg_op 28 -> -> 0 `i `ui ]
-[; ;MotorDrive.c: 716: if(hg_op.needle_len == 13)
-"716
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 608  ]
-[; ;MotorDrive.c: 717: {
-"717
 {
-[; ;MotorDrive.c: 718: LATDbits.LD3 =1;
+[; ;MotorDrive.c: 715: hg_op.cnt_posb =0;
+"715
+[e = . _hg_op 28 -> -> 0 `i `ui ]
+[; ;MotorDrive.c: 717: if(hg_op.needle_len == 13)
+"717
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 608  ]
+[; ;MotorDrive.c: 718: {
 "718
-[e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 719: LATDbits.LD4 =1;
+{
+[; ;MotorDrive.c: 719: LATDbits.LD3 =1;
 "719
-[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 720: while(PORTBbits.RB0 == 1);
+[e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 720: LATDbits.LD4 =1;
 "720
+[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 721: while(PORTBbits.RB0 == 1);
+"721
 [e $U 609  ]
 [e :U 610 ]
 [e :U 609 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 610  ]
 [e :U 611 ]
-"721
-}
-[; ;MotorDrive.c: 721: }
-[e $U 612  ]
 "722
-[e :U 608 ]
-[; ;MotorDrive.c: 722: else
-[; ;MotorDrive.c: 723: {
+}
+[; ;MotorDrive.c: 722: }
+[e $U 612  ]
 "723
-{
-[; ;MotorDrive.c: 724: LATDbits.LD3 =1;
+[e :U 608 ]
+[; ;MotorDrive.c: 723: else
+[; ;MotorDrive.c: 724: {
 "724
-[e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 725: LATDbits.LD4 =1;
+{
+[; ;MotorDrive.c: 725: LATDbits.LD3 =1;
 "725
+[e = . . _LATDbits 1 3 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 726: LATDbits.LD4 =1;
+"726
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 730: while(hg_op.cnt_posb < 20)
-"730
+[; ;MotorDrive.c: 731: while(hg_op.cnt_posb < 20)
+"731
 [e $U 613  ]
 [e :U 614 ]
-[; ;MotorDrive.c: 731: {
-"731
+[; ;MotorDrive.c: 732: {
+"732
 {
-[; ;MotorDrive.c: 738: while(PORTBbits.RB2 == 0);
-"738
+[; ;MotorDrive.c: 739: while(PORTBbits.RB2 == 0);
+"739
 [e $U 616  ]
 [e :U 617 ]
 [e :U 616 ]
 [e $ == -> . . _PORTBbits 0 2 `i -> 0 `i 617  ]
 [e :U 618 ]
-[; ;MotorDrive.c: 739: hg_op.cnt_posb ++;
-"739
-[e ++ . _hg_op 28 -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 740: while(PORTBbits.RB2 == 1);
+[; ;MotorDrive.c: 740: hg_op.cnt_posb ++;
 "740
+[e ++ . _hg_op 28 -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 741: while(PORTBbits.RB2 == 1);
+"741
 [e $U 619  ]
 [e :U 620 ]
 [e :U 619 ]
 [e $ == -> . . _PORTBbits 0 2 `i -> 1 `i 620  ]
 [e :U 621 ]
-[; ;MotorDrive.c: 741: hg_op.cnt_posb ++;
-"741
+[; ;MotorDrive.c: 742: hg_op.cnt_posb ++;
+"742
 [e ++ . _hg_op 28 -> -> 1 `i `ui ]
-"745
+"746
 }
 [e :U 613 ]
-"730
+"731
 [e $ < . _hg_op 28 -> -> 20 `i `ui 614  ]
 [e :U 615 ]
-"750
+"751
 }
 [e :U 612 ]
-[; ;MotorDrive.c: 745: }
-[; ;MotorDrive.c: 750: }
-[; ;MotorDrive.c: 751: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"751
+[; ;MotorDrive.c: 746: }
+[; ;MotorDrive.c: 751: }
+[; ;MotorDrive.c: 752: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"752
 [e :U 624 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -5180,20 +5192,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 623 ]
-[; ;MotorDrive.c: 754: delay_pwm(hg_op.work_freq * 300);
-"754
+[; ;MotorDrive.c: 755: delay_pwm(hg_op.work_freq * 300);
+"755
 [e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
-[; ;MotorDrive.c: 756: printf("in test mode\r\n");
-"756
+[; ;MotorDrive.c: 757: printf("in test mode\r\n");
+"757
 [e ( _printf :s 16C ]
-[; ;MotorDrive.c: 758: if(action_btn_cnt%2 == 0)
-"758
-[e $ ! == % _action_btn_cnt -> -> 2 `i `ui -> -> 0 `i `ui 625  ]
-[; ;MotorDrive.c: 759: {
+[; ;MotorDrive.c: 759: if(action_btn_cnt%2 == 0)
 "759
-{
-[; ;MotorDrive.c: 760: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+[e $ ! == % _action_btn_cnt -> -> 2 `i `ui -> -> 0 `i `ui 625  ]
+[; ;MotorDrive.c: 760: {
 "760
+{
+[; ;MotorDrive.c: 761: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"761
 [e :U 628 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
@@ -5201,16 +5213,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
 [e :U 627 ]
-[; ;MotorDrive.c: 761: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"761
+[; ;MotorDrive.c: 762: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"762
 [e :U 631 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 630 ]
-[; ;MotorDrive.c: 763: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
-"763
+[; ;MotorDrive.c: 764: do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+"764
 [e :U 634 ]
 {
 [e :U 637 ]
@@ -5224,148 +5236,148 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 }
 [e :U 633 ]
-[; ;MotorDrive.c: 766: while(cnt_push < 14)
-"766
+[; ;MotorDrive.c: 767: while(cnt_push < 14)
+"767
 [e $U 638  ]
 [e :U 639 ]
-[; ;MotorDrive.c: 767: {
-"767
-{
-[; ;MotorDrive.c: 768: while(PORTAbits.RA4 == 0);
+[; ;MotorDrive.c: 768: {
 "768
+{
+[; ;MotorDrive.c: 769: while(PORTAbits.RA4 == 0);
+"769
 [e $U 641  ]
 [e :U 642 ]
 [e :U 641 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 0 `i 642  ]
 [e :U 643 ]
-[; ;MotorDrive.c: 769: cnt_push ++;
-"769
-[e ++ _cnt_push -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 770: while(PORTAbits.RA4 == 1);
+[; ;MotorDrive.c: 770: cnt_push ++;
 "770
+[e ++ _cnt_push -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 771: while(PORTAbits.RA4 == 1);
+"771
 [e $U 644  ]
 [e :U 645 ]
 [e :U 644 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 645  ]
 [e :U 646 ]
-[; ;MotorDrive.c: 771: cnt_push ++;
-"771
+[; ;MotorDrive.c: 772: cnt_push ++;
+"772
 [e ++ _cnt_push -> -> 1 `i `ui ]
-"773
+"774
 }
 [e :U 638 ]
-"766
+"767
 [e $ < _cnt_push -> -> 14 `i `ui 639  ]
 [e :U 640 ]
-[; ;MotorDrive.c: 773: }
-[; ;MotorDrive.c: 775: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"775
+[; ;MotorDrive.c: 774: }
+[; ;MotorDrive.c: 776: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"776
 [e :U 649 ]
 {
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
 [e :U 648 ]
-[; ;MotorDrive.c: 777: hg_op.drops_sa = 0;
-"777
-[e = . _hg_op 20 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 778: hg_op.drops_sb = 0;
+[; ;MotorDrive.c: 778: hg_op.drops_sa = 0;
 "778
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 779: hg_op.drops_push = 0;
+[e = . _hg_op 20 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 779: hg_op.drops_sb = 0;
 "779
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 780: hg_op.drops_push = 0;
+"780
 [e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 782: hg_op.acting_flag =0;
-"782
+[; ;MotorDrive.c: 783: hg_op.acting_flag =0;
+"783
 [e = . _hg_op 19 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 785: if(hg_op.needle_len == 13)
-"785
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 650  ]
-[; ;MotorDrive.c: 786: {
+[; ;MotorDrive.c: 786: if(hg_op.needle_len == 13)
 "786
-{
-[; ;MotorDrive.c: 787: hg_op.need_reset =0;
+[e $ ! == -> . _hg_op 14 `i -> 13 `i 650  ]
+[; ;MotorDrive.c: 787: {
 "787
-[e = . _hg_op 5 -> -> 0 `i `uc ]
-"788
-}
-[; ;MotorDrive.c: 788: }
-[e $U 651  ]
-"789
-[e :U 650 ]
-[; ;MotorDrive.c: 789: else
-[; ;MotorDrive.c: 790: {
-"790
 {
-[; ;MotorDrive.c: 791: hg_op.need_reset =1;
+[; ;MotorDrive.c: 788: hg_op.need_reset =0;
+"788
+[e = . _hg_op 5 -> -> 0 `i `uc ]
+"789
+}
+[; ;MotorDrive.c: 789: }
+[e $U 651  ]
+"790
+[e :U 650 ]
+[; ;MotorDrive.c: 790: else
+[; ;MotorDrive.c: 791: {
 "791
-[e = . _hg_op 5 -> -> 1 `i `uc ]
+{
+[; ;MotorDrive.c: 792: hg_op.need_reset =1;
 "792
+[e = . _hg_op 5 -> -> 1 `i `uc ]
+"793
 }
 [e :U 651 ]
-"794
+"795
 }
-[; ;MotorDrive.c: 792: }
-[; ;MotorDrive.c: 794: }
+[; ;MotorDrive.c: 793: }
+[; ;MotorDrive.c: 795: }
 [e $U 652  ]
-"796
-[e :U 625 ]
-[; ;MotorDrive.c: 796: else
-[; ;MotorDrive.c: 797: {
 "797
-{
-[; ;MotorDrive.c: 798: hg_op.drops_sb = 0;
+[e :U 625 ]
+[; ;MotorDrive.c: 797: else
+[; ;MotorDrive.c: 798: {
 "798
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 799: hg_op.drops_push =0;
+{
+[; ;MotorDrive.c: 799: hg_op.drops_sb = 0;
 "799
-[e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 800: hg_op.drops_sa = 1;
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 800: hg_op.drops_push =0;
 "800
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 801: hg_op.drops_sa = 1;
 "801
+[e = . _hg_op 20 -> -> 1 `i `uc ]
+"802
 }
 [e :U 652 ]
-"803
+"804
 }
 [e :U 607 ]
-"805
+"806
 [e :U 606 ]
 [e :U 586 ]
 }
 [e :U 567 ]
-[; ;MotorDrive.c: 801: }
-[; ;MotorDrive.c: 803: }
-[; ;MotorDrive.c: 805: }
-[; ;MotorDrive.c: 807: }
-"807
+[; ;MotorDrive.c: 802: }
+[; ;MotorDrive.c: 804: }
+[; ;MotorDrive.c: 806: }
+[; ;MotorDrive.c: 808: }
+"808
 [e :UE 553 ]
 }
-"810
-[v _check_acting `(v ~T0 @X0 1 ef ]
 "811
+[v _check_acting `(v ~T0 @X0 1 ef ]
+"812
 {
-[; ;MotorDrive.c: 810: void check_acting(void)
-[; ;MotorDrive.c: 811: {
+[; ;MotorDrive.c: 811: void check_acting(void)
+[; ;MotorDrive.c: 812: {
 [e :U _check_acting ]
 [f ]
-[; ;MotorDrive.c: 812: if(hg_op.acting_flag)
-"812
-[e $ ! != -> . _hg_op 19 `i -> -> -> 0 `i `uc `i 654  ]
-[; ;MotorDrive.c: 813: {
+[; ;MotorDrive.c: 813: if(hg_op.acting_flag)
 "813
-{
-[; ;MotorDrive.c: 814: delaynus(20 * 1000);
+[e $ ! != -> . _hg_op 19 `i -> -> -> 0 `i `uc `i 654  ]
+[; ;MotorDrive.c: 814: {
 "814
-[e ( _delaynus (1 -> * -> 20 `i -> 1000 `i `ui ]
-[; ;MotorDrive.c: 815: if(PORTBbits.RB5 == 0)
-"815
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 655  ]
-[; ;MotorDrive.c: 816: {
-"816
 {
-[; ;MotorDrive.c: 817: do{T0IE=0;T0IF = 0;T0CONbits.TMR0ON =0;}while(0);
+[; ;MotorDrive.c: 815: delaynus(20 * 1000);
+"815
+[e ( _delaynus (1 -> * -> 20 `i -> 1000 `i `ui ]
+[; ;MotorDrive.c: 816: if(PORTBbits.RB5 == 0)
+"816
+[e $ ! == -> . . _PORTBbits 0 5 `i -> 0 `i 655  ]
+[; ;MotorDrive.c: 817: {
 "817
+{
+[; ;MotorDrive.c: 818: do{T0IE=0;T0IF = 0;T0CONbits.TMR0ON =0;}while(0);
+"818
 [e :U 658 ]
 {
 [e = _T0IE -> -> 0 `i `b ]
@@ -5373,129 +5385,129 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 657 ]
-[; ;MotorDrive.c: 818: buzz();
-"818
+[; ;MotorDrive.c: 819: buzz();
+"819
 [e ( _buzz ..  ]
-[; ;MotorDrive.c: 821: if(1)
-"821
-[e $ ! != -> 1 `i -> 0 `i 659  ]
-[; ;MotorDrive.c: 822: {
+[; ;MotorDrive.c: 822: if(1)
 "822
+[e $ ! != -> 1 `i -> 0 `i 659  ]
+[; ;MotorDrive.c: 823: {
+"823
 {
-[; ;MotorDrive.c: 825: if(hg_op.cur_working_mode == 0x01)
-"825
-[e $ ! == -> . _hg_op 1 `i -> 1 `i 660  ]
-[; ;MotorDrive.c: 826: {
+[; ;MotorDrive.c: 826: if(hg_op.cur_working_mode == 0x01)
 "826
+[e $ ! == -> . _hg_op 1 `i -> 1 `i 660  ]
+[; ;MotorDrive.c: 827: {
+"827
 {
-[; ;MotorDrive.c: 828: hg_op.acting_flag =0;
-"828
+[; ;MotorDrive.c: 829: hg_op.acting_flag =0;
+"829
 [e = . _hg_op 19 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 830: hg_op.drops_sa =1;
-"830
-[e = . _hg_op 20 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 831: hg_op.drops_sb =0;
+[; ;MotorDrive.c: 831: hg_op.drops_sa =1;
 "831
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 832: hg_op.drops_push =0;
+[e = . _hg_op 20 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 832: hg_op.drops_sb =0;
 "832
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 833: hg_op.drops_push =0;
+"833
 [e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 834: hg_op.working_mode = hg_op.cur_working_mode;
-"834
-[e = . _hg_op 0 . _hg_op 1 ]
+[; ;MotorDrive.c: 835: hg_op.working_mode = hg_op.cur_working_mode;
 "835
-}
-[; ;MotorDrive.c: 835: }
-[e $U 661  ]
+[e = . _hg_op 0 . _hg_op 1 ]
 "836
-[e :U 660 ]
-[; ;MotorDrive.c: 836: else if(hg_op.cur_working_mode == 0x00)
-[e $ ! == -> . _hg_op 1 `i -> 0 `i 662  ]
-[; ;MotorDrive.c: 837: {
-"837
-{
-[; ;MotorDrive.c: 839: hg_op.drops_sa =1;
-"839
-[e = . _hg_op 20 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 840: hg_op.drops_sb =0;
-"840
-[e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 841: hg_op.drops_push =0;
-"841
-[e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 843: hg_op.working_mode = hg_op.cur_working_mode;
-"843
-[e = . _hg_op 0 . _hg_op 1 ]
-[; ;MotorDrive.c: 844: hg_op.working_mode = 0x00;
-"844
-[e = . _hg_op 0 -> -> 0 `i `uc ]
-"845
 }
-[; ;MotorDrive.c: 845: }
-[e $U 663  ]
-"846
-[e :U 662 ]
-[; ;MotorDrive.c: 846: else if(hg_op.cur_working_mode == 0x04)
-[e $ ! == -> . _hg_op 1 `i -> 4 `i 664  ]
-[; ;MotorDrive.c: 847: {
-"847
+[; ;MotorDrive.c: 836: }
+[e $U 661  ]
+"837
+[e :U 660 ]
+[; ;MotorDrive.c: 837: else if(hg_op.cur_working_mode == 0x00)
+[e $ ! == -> . _hg_op 1 `i -> 0 `i 662  ]
+[; ;MotorDrive.c: 838: {
+"838
 {
-[; ;MotorDrive.c: 848: action_btn_cnt ++;
-"848
-[e ++ _action_btn_cnt -> -> 1 `i `ui ]
-[; ;MotorDrive.c: 850: hg_op.drops_sa =1;
-"850
+[; ;MotorDrive.c: 840: hg_op.drops_sa =1;
+"840
 [e = . _hg_op 20 -> -> 1 `i `uc ]
-[; ;MotorDrive.c: 851: hg_op.drops_sb =0;
-"851
+[; ;MotorDrive.c: 841: hg_op.drops_sb =0;
+"841
 [e = . _hg_op 21 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 852: hg_op.drops_push =0;
-"852
+[; ;MotorDrive.c: 842: hg_op.drops_push =0;
+"842
 [e = . _hg_op 22 -> -> 0 `i `uc ]
-[; ;MotorDrive.c: 854: hg_op.working_mode = hg_op.cur_working_mode;
-"854
+[; ;MotorDrive.c: 844: hg_op.working_mode = hg_op.cur_working_mode;
+"844
 [e = . _hg_op 0 . _hg_op 1 ]
-"859
+[; ;MotorDrive.c: 845: hg_op.working_mode = 0x00;
+"845
+[e = . _hg_op 0 -> -> 0 `i `uc ]
+"846
+}
+[; ;MotorDrive.c: 846: }
+[e $U 663  ]
+"847
+[e :U 662 ]
+[; ;MotorDrive.c: 847: else if(hg_op.cur_working_mode == 0x04)
+[e $ ! == -> . _hg_op 1 `i -> 4 `i 664  ]
+[; ;MotorDrive.c: 848: {
+"848
+{
+[; ;MotorDrive.c: 849: action_btn_cnt ++;
+"849
+[e ++ _action_btn_cnt -> -> 1 `i `ui ]
+[; ;MotorDrive.c: 851: hg_op.drops_sa =1;
+"851
+[e = . _hg_op 20 -> -> 1 `i `uc ]
+[; ;MotorDrive.c: 852: hg_op.drops_sb =0;
+"852
+[e = . _hg_op 21 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 853: hg_op.drops_push =0;
+"853
+[e = . _hg_op 22 -> -> 0 `i `uc ]
+[; ;MotorDrive.c: 855: hg_op.working_mode = hg_op.cur_working_mode;
+"855
+[e = . _hg_op 0 . _hg_op 1 ]
+"860
 }
 [e :U 664 ]
-"861
+"862
 [e :U 663 ]
 [e :U 661 ]
 }
 [e :U 659 ]
-"863
-}
-[; ;MotorDrive.c: 859: }
-[; ;MotorDrive.c: 861: }
-[; ;MotorDrive.c: 863: }
-[e $U 665  ]
 "864
-[e :U 655 ]
-[; ;MotorDrive.c: 864: else
-[; ;MotorDrive.c: 865: {
+}
+[; ;MotorDrive.c: 860: }
+[; ;MotorDrive.c: 862: }
+[; ;MotorDrive.c: 864: }
+[e $U 665  ]
 "865
-{
-[; ;MotorDrive.c: 866: do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
+[e :U 655 ]
+[; ;MotorDrive.c: 865: else
+[; ;MotorDrive.c: 866: {
 "866
+{
+[; ;MotorDrive.c: 867: do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
+"867
 [e :U 668 ]
 {
 [e = _T0IE -> -> 1 `i `b ]
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 667 ]
-"867
+"868
 }
 [e :U 665 ]
-[; ;MotorDrive.c: 867: }
-[; ;MotorDrive.c: 871: hg_op.acting_flag = 0;
-"871
+[; ;MotorDrive.c: 868: }
+[; ;MotorDrive.c: 872: hg_op.acting_flag = 0;
+"872
 [e = . _hg_op 19 -> -> 0 `i `uc ]
-"873
+"874
 }
 [e :U 654 ]
-[; ;MotorDrive.c: 873: }
-[; ;MotorDrive.c: 876: }
-"876
+[; ;MotorDrive.c: 874: }
+[; ;MotorDrive.c: 877: }
+"877
 [e :UE 653 ]
 }
 [p f _printf 8388736 ]

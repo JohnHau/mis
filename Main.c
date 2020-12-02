@@ -95,7 +95,15 @@ void main(void)
     cnt_ma = 0;
     cnt_mb = 0;
     HG_device_init();
+    
+   
+    
     initial_para_setting();
+    
+    //=================================================
+     //hg_op.need_reset =1;
+     //hg_op.working_mode = WORK_MODE_DROPS;
+    //=================================================
     
     while(1)
     {
@@ -111,6 +119,8 @@ void main(void)
             {
                 drops_routine();
             }
+            
+#if 1
             else if(hg_op.working_mode == WORK_MODE_C)
             {
                 c_routine();
@@ -131,15 +141,18 @@ void main(void)
             {
                  //printf("out of mode\r\n");
             }
-            
+#endif 
             check_acting();
+          
             
+            
+#if 1
             if(flag_blink)
             {
                 blink_mode();
                 flag_blink =0;
             }
-            
+#endif
             
 
         }
