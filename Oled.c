@@ -1650,33 +1650,33 @@ void display_bat(uint8_t y,uint8_t x,uint8_t mode)
   bat_vol = get_AD_vaule();
   
           
-  if(bat_vol > 700)        
+  if(bat_vol > 730)        
   {  
     bat_x_m = bat100_m;
   } 
-  else if(bat_vol > 690 && bat_vol <= 700) 
+  else if(bat_vol > 720 && bat_vol <= 730) 
   {
     bat_x_m = bat80_m;
   }
-  else if(bat_vol > 680 && bat_vol <= 690) 
+  else if(bat_vol > 710 && bat_vol <= 720) 
   {
     bat_x_m = bat60_m;
   }  
-  else if(bat_vol > 670 && bat_vol <= 680) 
+  else if(bat_vol > 700 && bat_vol <= 710) 
   {
     bat_x_m = bat40_m;
   }   
-  else if(bat_vol > 660 && bat_vol <= 670) 
+  else if(bat_vol > 690 && bat_vol <= 700) 
   {
     bat_x_m = bat20_m;
   } 
-  else if(bat_vol <= 660) 
+  else if(bat_vol <= 690) 
   {
     bat_x_m = bat00_m;
   }
   else
   {
-     bat_x_m = bat80_m;
+     //bat_x_m = bat80_m;
   }
     
     

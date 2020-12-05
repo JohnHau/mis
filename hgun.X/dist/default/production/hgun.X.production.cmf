@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+$C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -288,15 +288,15 @@ $dist/default/production\hgun.X.production.obj
 379A text77 CODE >1653:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 37A6 text77 CODE >1655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 37AE text77 CODE >1657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37C6 text77 CODE >1661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37DE text77 CODE >1663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37E6 text77 CODE >1665:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37FE text77 CODE >1667:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3806 text77 CODE >1669:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-381E text77 CODE >1671:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3826 text77 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3832 text77 CODE >1675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-383A text77 CODE >1679:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37C6 text77 CODE >1659:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37CE text77 CODE >1661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37E6 text77 CODE >1663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37EE text77 CODE >1665:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3806 text77 CODE >1667:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+380E text77 CODE >1669:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3826 text77 CODE >1671:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+382E text77 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+383A text77 CODE >1675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 3842 text77 CODE >1684:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 3844 text77 CODE >1690:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 384E text77 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
@@ -1639,15 +1639,15 @@ A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2E04 text22 CODE >1653:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2E10 text22 CODE >1655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2E18 text22 CODE >1657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E30 text22 CODE >1661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E48 text22 CODE >1663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E50 text22 CODE >1665:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E68 text22 CODE >1667:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E70 text22 CODE >1669:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E88 text22 CODE >1671:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E90 text22 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E9C text22 CODE >1675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EA4 text22 CODE >1679:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E30 text22 CODE >1659:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E38 text22 CODE >1661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E50 text22 CODE >1663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E58 text22 CODE >1665:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E70 text22 CODE >1667:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E78 text22 CODE >1669:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E90 text22 CODE >1671:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E98 text22 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EA4 text22 CODE >1675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2EAC text22 CODE >1684:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2EAE text22 CODE >1690:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2EB8 text22 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
@@ -2710,66 +2710,66 @@ E92 text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 4316 text0 CODE >158:E:\myWorkSpace\injector\EME_HA_GUN/Main.c
 431A text0 CODE >159:E:\myWorkSpace\injector\EME_HA_GUN/Main.c
 431E text0 CODE >108:E:\myWorkSpace\injector\EME_HA_GUN/Main.c
-5786 cinit CODE >6237:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5786 cinit CODE >6239:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5786 cinit CODE >6242:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5786 cinit CODE >6539:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5788 cinit CODE >6540:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-578A cinit CODE >6541:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-578C cinit CODE >6542:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-578E cinit CODE >6543:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5790 cinit CODE >6544:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5792 cinit CODE >6545:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-5796 cinit CODE >6546:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-579A cinit CODE >6547:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-579A cinit CODE >6548:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-579C cinit CODE >6549:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57A0 cinit CODE >6550:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57A2 cinit CODE >6551:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57A4 cinit CODE >6552:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57A6 cinit CODE >6556:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57AA cinit CODE >6557:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57AE cinit CODE >6558:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57AE cinit CODE >6559:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57B0 cinit CODE >6560:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57B2 cinit CODE >6561:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57B4 cinit CODE >6562:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57B6 cinit CODE >6563:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57B8 cinit CODE >6564:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57BA cinit CODE >6567:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57BE cinit CODE >6568:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57C2 cinit CODE >6569:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57C2 cinit CODE >6570:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57C4 cinit CODE >6571:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57C6 cinit CODE >6572:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57C8 cinit CODE >6573:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57CA cinit CODE >6574:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57CC cinit CODE >6575:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57CE cinit CODE >6578:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57D2 cinit CODE >6579:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57D4 cinit CODE >6580:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57D4 cinit CODE >6581:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57D6 cinit CODE >6582:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57D8 cinit CODE >6583:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57DA cinit CODE >6586:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57DE cinit CODE >6587:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57E0 cinit CODE >6588:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57E0 cinit CODE >6589:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57E2 cinit CODE >6590:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57E4 cinit CODE >6591:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57E6 cinit CODE >6594:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57EA cinit CODE >6595:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57EC cinit CODE >6596:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57EC cinit CODE >6597:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57EE cinit CODE >6598:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57F0 cinit CODE >6599:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57F2 cinit CODE >6605:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57F2 cinit CODE >6607:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57F4 cinit CODE >6608:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57F6 cinit CODE >6610:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57F8 cinit CODE >6611:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57FA cinit CODE >6612:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
-57FC cinit CODE >6613:C:\Users\ADMINI~1\AppData\Local\Temp\sv14.
+5786 cinit CODE >6237:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5786 cinit CODE >6239:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5786 cinit CODE >6242:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5786 cinit CODE >6539:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5788 cinit CODE >6540:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+578A cinit CODE >6541:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+578C cinit CODE >6542:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+578E cinit CODE >6543:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5790 cinit CODE >6544:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5792 cinit CODE >6545:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+5796 cinit CODE >6546:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+579A cinit CODE >6547:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+579A cinit CODE >6548:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+579C cinit CODE >6549:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57A0 cinit CODE >6550:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57A2 cinit CODE >6551:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57A4 cinit CODE >6552:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57A6 cinit CODE >6556:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57AA cinit CODE >6557:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57AE cinit CODE >6558:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57AE cinit CODE >6559:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57B0 cinit CODE >6560:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57B2 cinit CODE >6561:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57B4 cinit CODE >6562:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57B6 cinit CODE >6563:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57B8 cinit CODE >6564:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57BA cinit CODE >6567:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57BE cinit CODE >6568:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57C2 cinit CODE >6569:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57C2 cinit CODE >6570:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57C4 cinit CODE >6571:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57C6 cinit CODE >6572:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57C8 cinit CODE >6573:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57CA cinit CODE >6574:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57CC cinit CODE >6575:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57CE cinit CODE >6578:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57D2 cinit CODE >6579:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57D4 cinit CODE >6580:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57D4 cinit CODE >6581:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57D6 cinit CODE >6582:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57D8 cinit CODE >6583:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57DA cinit CODE >6586:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57DE cinit CODE >6587:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57E0 cinit CODE >6588:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57E0 cinit CODE >6589:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57E2 cinit CODE >6590:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57E4 cinit CODE >6591:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57E6 cinit CODE >6594:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57EA cinit CODE >6595:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57EC cinit CODE >6596:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57EC cinit CODE >6597:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57EE cinit CODE >6598:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57F0 cinit CODE >6599:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57F2 cinit CODE >6605:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57F2 cinit CODE >6607:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57F4 cinit CODE >6608:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57F6 cinit CODE >6610:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57F8 cinit CODE >6611:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57FA cinit CODE >6612:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
+57FC cinit CODE >6613:C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -2802,7 +2802,7 @@ _flag_action 26 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.o
 i2i2c_SendByte@_ucByte 33 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 __end_of_Initial_LY096BG30 5B44 0 CODE 0 text51 dist/default/production\hgun.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\hgun.X.production.obj
-__mediumconst 7230 0 MEDIUMCONST 0 mediumconst C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+__mediumconst 7230 0 MEDIUMCONST 0 mediumconst C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 _HG_device_init 5E1E 0 CODE 0 text42 dist/default/production\hgun.X.production.obj
 __end_of_drops_routine 2DEC 0 CODE 0 text5 dist/default/production\hgun.X.production.obj
 _enter_sleep 55FE 0 CODE 0 text4 dist/default/production\hgun.X.production.obj
@@ -2837,7 +2837,7 @@ _T0IF 7F92 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _TMR0 FD6 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _TMR1 FCE 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _MotorDriveInit 5E4C 0 CODE 0 text47 dist/default/production\hgun.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+___sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 _buzz 5F6E 0 CODE 0 text40 dist/default/production\hgun.X.production.obj
 _flag 1F 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 _flip 18 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
@@ -2849,7 +2849,7 @@ _ttte 1C 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 _tv_s 100 0 BANK1 1 bssBANK1 dist/default/production\hgun.X.production.obj
 btemp 62 0 COMRAM 1 temp dist/default/production\hgun.X.production.obj
 __size_ofi2_i2c_SendByte 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
-start E 0 CODE 0 init C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+start E 0 CODE 0 init C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 i2___lwdiv@quotient 37 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 __end_of_i2c_Stop 6040 0 CODE 0 text55 dist/default/production\hgun.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
@@ -2911,11 +2911,11 @@ display_num@y 14F 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.productio
 __end_ofi2_display_bat 39C0 0 CODE 0 text77 dist/default/production\hgun.X.production.obj
 __end_ofi2_display_mem 4D74 0 CODE 0 text72 dist/default/production\hgun.X.production.obj
 __end_ofi2_display_num 1D24 0 CODE 0 text71 dist/default/production\hgun.X.production.obj
-__accesstop 80 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
-intlevel0 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
-intlevel1 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
-intlevel2 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
-intlevel3 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+__accesstop 80 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
+intlevel0 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
+intlevel1 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
+intlevel2 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
+intlevel3 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\hgun.X.production.obj
 _flag_mreset 61 0 COMRAM 1 dataCOMRAM dist/default/production\hgun.X.production.obj
 _menu0_MsgHandlle 2048 0 CODE 0 text26 dist/default/production\hgun.X.production.obj
@@ -2955,8 +2955,8 @@ _ADCON1 FC1 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _ADRESH FC4 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _ADRESL FC3 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __end_of_i2c_WaitAck 5EA4 0 CODE 0 text54 dist/default/production\hgun.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 _flag_do_reset_in_drops_mode 24 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\hgun.X.production.obj
 __end_ofi2_display_cmode 4ECA 0 CODE 0 text76 dist/default/production\hgun.X.production.obj
@@ -3107,7 +3107,7 @@ i2ee_WriteBytes@_usAddress 37 0 COMRAM 1 cstackCOMRAM dist/default/production\hg
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\hgun.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\hgun.X.production.obj
 _check_bat_status 5EF0 0 CODE 0 text6 dist/default/production\hgun.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 __end_of_HG_interface 59FA 0 CODE 0 text14 dist/default/production\hgun.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\hgun.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\hgun.X.production.obj
@@ -3487,8 +3487,8 @@ _read_buf 300 0 BANK3 1 bssBANK3 dist/default/production\hgun.X.production.obj
 _tv_cnt 1E 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 __end_of_ptna_frame 73C0 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 update_focus@i 140 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
-stacklo 400 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+stackhi 5FF 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
+stacklo 400 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 __size_of_get_AD_vaule 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\hgun.X.production.obj
 menu0_MsgHandlle@key 151 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
@@ -3687,7 +3687,7 @@ __Ltext91 0 0 ABS 0 text91 dist/default/production\hgun.X.production.obj
 ?_get_AD_vaule 13E 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 __end_of_config_LCD 5404 0 CODE 0 text83 dist/default/production\hgun.X.production.obj
 _initial_para_setting 5D76 0 CODE 0 text2 dist/default/production\hgun.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\ADMINI~1\AppData\Local\Temp\sv14.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\ADMINI~1\AppData\Local\Temp\s10h0.obj
 i2display_bat@mode 40 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 i2display_bat@temp 44 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 i2display_bat@tori 43 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj

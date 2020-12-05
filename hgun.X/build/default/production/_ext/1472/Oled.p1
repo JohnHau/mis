@@ -7536,9 +7536,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.c: 1650: bat_vol = get_AD_vaule();
 "1650
 [e = _bat_vol ( _get_AD_vaule ..  ]
-[; ;Oled.c: 1653: if(bat_vol > 700)
+[; ;Oled.c: 1653: if(bat_vol > 730)
 "1653
-[e $ ! > _bat_vol -> -> 700 `i `ui 454  ]
+[e $ ! > _bat_vol -> -> 730 `i `ui 454  ]
 [; ;Oled.c: 1654: {
 "1654
 {
@@ -7551,8 +7551,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 455  ]
 "1657
 [e :U 454 ]
-[; ;Oled.c: 1657: else if(bat_vol > 690 && bat_vol <= 700)
-[e $ ! && > _bat_vol -> -> 690 `i `ui <= _bat_vol -> -> 700 `i `ui 456  ]
+[; ;Oled.c: 1657: else if(bat_vol > 720 && bat_vol <= 730)
+[e $ ! && > _bat_vol -> -> 720 `i `ui <= _bat_vol -> -> 730 `i `ui 456  ]
 [; ;Oled.c: 1658: {
 "1658
 {
@@ -7565,8 +7565,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 457  ]
 "1661
 [e :U 456 ]
-[; ;Oled.c: 1661: else if(bat_vol > 680 && bat_vol <= 690)
-[e $ ! && > _bat_vol -> -> 680 `i `ui <= _bat_vol -> -> 690 `i `ui 458  ]
+[; ;Oled.c: 1661: else if(bat_vol > 710 && bat_vol <= 720)
+[e $ ! && > _bat_vol -> -> 710 `i `ui <= _bat_vol -> -> 720 `i `ui 458  ]
 [; ;Oled.c: 1662: {
 "1662
 {
@@ -7579,8 +7579,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 459  ]
 "1665
 [e :U 458 ]
-[; ;Oled.c: 1665: else if(bat_vol > 670 && bat_vol <= 680)
-[e $ ! && > _bat_vol -> -> 670 `i `ui <= _bat_vol -> -> 680 `i `ui 460  ]
+[; ;Oled.c: 1665: else if(bat_vol > 700 && bat_vol <= 710)
+[e $ ! && > _bat_vol -> -> 700 `i `ui <= _bat_vol -> -> 710 `i `ui 460  ]
 [; ;Oled.c: 1666: {
 "1666
 {
@@ -7593,8 +7593,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 461  ]
 "1669
 [e :U 460 ]
-[; ;Oled.c: 1669: else if(bat_vol > 660 && bat_vol <= 670)
-[e $ ! && > _bat_vol -> -> 660 `i `ui <= _bat_vol -> -> 670 `i `ui 462  ]
+[; ;Oled.c: 1669: else if(bat_vol > 690 && bat_vol <= 700)
+[e $ ! && > _bat_vol -> -> 690 `i `ui <= _bat_vol -> -> 700 `i `ui 462  ]
 [; ;Oled.c: 1670: {
 "1670
 {
@@ -7607,8 +7607,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 463  ]
 "1673
 [e :U 462 ]
-[; ;Oled.c: 1673: else if(bat_vol <= 660)
-[e $ ! <= _bat_vol -> -> 660 `i `ui 464  ]
+[; ;Oled.c: 1673: else if(bat_vol <= 690)
+[e $ ! <= _bat_vol -> -> 690 `i `ui 464  ]
 [; ;Oled.c: 1674: {
 "1674
 {
@@ -7625,9 +7625,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.c: 1678: {
 "1678
 {
-[; ;Oled.c: 1679: bat_x_m = bat80_m;
-"1679
-[e = _bat_x_m &U _bat80_m ]
 "1680
 }
 [e :U 465 ]
