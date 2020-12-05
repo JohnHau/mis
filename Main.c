@@ -104,14 +104,16 @@ void main(void)
      //hg_op.need_reset =1;
      //hg_op.working_mode = WORK_MODE_DROPS;
     //=================================================
-    
+   
     while(1)
     {
         enter_sleep();
   
         if(hg_op.need_reset)
         {
-                hg_reset();
+              TEST_LED_BLINK();    
+            
+            hg_reset();
         }
         else
         {
@@ -142,8 +144,11 @@ void main(void)
                  //printf("out of mode\r\n");
             }
 #endif 
+            
+            
+#if 1    
             check_acting();
-          
+#endif
             
             
 #if 1

@@ -113,6 +113,10 @@
 
 
 
+#define DISABLE_ENCODER_PHB_MB()    do{ INTCON3bits.INT2E = 0;INTCON3bits.INT2IF =0;}while(0)
+#define ENABLE_ENCODER_PHB_MB()     do{ INTCON3bits.INT2E = 1;INTCON3bits.INT2IF =0;}while(0)
+
+
 
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;

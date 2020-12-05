@@ -4077,7 +4077,7 @@ void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
 void delay_f(uint32_t n);
 
-# 16 "../Beep.h"
+# 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
 
@@ -4088,7 +4088,7 @@ void BeepOn(void);
 void BeepOff(void);
 void buzz(void);
 
-# 31
+# 40
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);

@@ -3910,7 +3910,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 117 "../MotorDrive.h"
+# 121 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 

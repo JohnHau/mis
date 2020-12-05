@@ -1,12 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"118 ../MotorDrive.h
+"122 ../MotorDrive.h
 [v _cur_state_phb_ma `uc ~T0 @X0 0 e ]
-"117
-[v _prev_state_phb_ma `uc ~T0 @X0 0 e ]
-"120
-[v _cnt_ma `ul ~T0 @X0 0 e ]
 "121
+[v _prev_state_phb_ma `uc ~T0 @X0 0 e ]
+"124
+[v _cnt_ma `ul ~T0 @X0 0 e ]
+"125
 [v _cnt_mb `ul ~T0 @X0 0 e ]
 "204 ../gui.h
 [v _HG_device_init `(v ~T0 @X0 0 ef ]
@@ -19,17 +19,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S285 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
 "84
 [v _hg_op `S285 ~T0 @X0 0 e ]
-"156 ../MotorDrive.h
+"1308 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S49 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"1318
+[s S50 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"1307
+[u S48 `S49 1 `S50 1 ]
+[n S48 . . . ]
+"1329
+[v _LATDbits `VS48 ~T0 @X0 0 e@3980 ]
+"72 ../Timer.h
+[v _delaynus `(v ~T0 @X0 0 ef1`ui ]
+"160 ../MotorDrive.h
 [v _hg_reset `(v ~T0 @X0 0 ef ]
-"158
+"162
 [v _drops_routine `(v ~T0 @X0 0 ef ]
-"159
+"163
 [v _c_routine `(v ~T0 @X0 0 ef ]
-"160
+"164
 [v _test_routine `(v ~T0 @X0 0 ef ]
 "206 ../gui.h
 [v _HG_interface `(v ~T0 @X0 0 ef ]
-"163 ../MotorDrive.h
+"167 ../MotorDrive.h
 [v _check_acting `(v ~T0 @X0 0 ef ]
 "195 ../gui.h
 [v _flag_blink `uc ~T0 @X0 0 e ]
@@ -2921,30 +2934,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;MotorDrive.h: 117: extern uint8_t prev_state_phb_ma;
-[; ;MotorDrive.h: 118: extern uint8_t cur_state_phb_ma;
-[; ;MotorDrive.h: 120: extern uint32_t cnt_ma;
-[; ;MotorDrive.h: 121: extern uint32_t cnt_mb;
-[; ;MotorDrive.h: 124: extern uint32_t cnt_mb_sa;
-[; ;MotorDrive.h: 125: extern uint32_t cnt_mb_sb;
-[; ;MotorDrive.h: 130: extern uint8_t flag_inject;
-[; ;MotorDrive.h: 132: extern uint8_t flag_mreset;
-[; ;MotorDrive.h: 133: extern uint8_t flag_mreset_hit_lp;
-[; ;MotorDrive.h: 135: extern uint8_t flag_inject_sa;
-[; ;MotorDrive.h: 136: extern uint8_t flag_inject_sb;
-[; ;MotorDrive.h: 138: extern uint8_t flag_push;
-[; ;MotorDrive.h: 140: extern uint8_t flag_action;
-[; ;MotorDrive.h: 143: extern uint8_t flag_go_to_sleep;
-[; ;MotorDrive.h: 145: extern uint8_t flag_wake_up;
-[; ;MotorDrive.h: 147: extern uint8_t flag_do_reset_in_drops_mode;
-[; ;MotorDrive.h: 149: extern uint8_t flag_action_button;
-[; ;MotorDrive.h: 152: void MotorDriveInit(void);
-[; ;MotorDrive.h: 154: uint16_t brake_MB(void);
-[; ;MotorDrive.h: 156: void hg_reset(void);
-[; ;MotorDrive.h: 158: void drops_routine(void);
-[; ;MotorDrive.h: 159: void c_routine(void);
-[; ;MotorDrive.h: 160: void test_routine(void);
-[; ;MotorDrive.h: 163: void check_acting(void);
+[; ;MotorDrive.h: 121: extern uint8_t prev_state_phb_ma;
+[; ;MotorDrive.h: 122: extern uint8_t cur_state_phb_ma;
+[; ;MotorDrive.h: 124: extern uint32_t cnt_ma;
+[; ;MotorDrive.h: 125: extern uint32_t cnt_mb;
+[; ;MotorDrive.h: 128: extern uint32_t cnt_mb_sa;
+[; ;MotorDrive.h: 129: extern uint32_t cnt_mb_sb;
+[; ;MotorDrive.h: 134: extern uint8_t flag_inject;
+[; ;MotorDrive.h: 136: extern uint8_t flag_mreset;
+[; ;MotorDrive.h: 137: extern uint8_t flag_mreset_hit_lp;
+[; ;MotorDrive.h: 139: extern uint8_t flag_inject_sa;
+[; ;MotorDrive.h: 140: extern uint8_t flag_inject_sb;
+[; ;MotorDrive.h: 142: extern uint8_t flag_push;
+[; ;MotorDrive.h: 144: extern uint8_t flag_action;
+[; ;MotorDrive.h: 147: extern uint8_t flag_go_to_sleep;
+[; ;MotorDrive.h: 149: extern uint8_t flag_wake_up;
+[; ;MotorDrive.h: 151: extern uint8_t flag_do_reset_in_drops_mode;
+[; ;MotorDrive.h: 153: extern uint8_t flag_action_button;
+[; ;MotorDrive.h: 156: void MotorDriveInit(void);
+[; ;MotorDrive.h: 158: uint16_t brake_MB(void);
+[; ;MotorDrive.h: 160: void hg_reset(void);
+[; ;MotorDrive.h: 162: void drops_routine(void);
+[; ;MotorDrive.h: 163: void c_routine(void);
+[; ;MotorDrive.h: 164: void test_routine(void);
+[; ;MotorDrive.h: 167: void check_acting(void);
 [; ;Timer.h: 63: extern uint16_t action_btn_cnt;
 [; ;Timer.h: 70: extern void TimerInit(void);
 [; ;Timer.h: 71: extern void Timer1Init(void);
@@ -2953,14 +2966,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer.h: 78: extern uint16_t tvb;
 [; ;Timer.h: 80: extern uint8_t flag_tv;
 [; ;Timer.h: 82: extern uint16_t tv_s[10];
-[; ;Beep.h: 16: extern uint8_t flag_power_up;
-[; ;Beep.h: 21: void BeepInit(void);
-[; ;Beep.h: 22: void BeepOn(void);
-[; ;Beep.h: 23: void BeepOff(void);
-[; ;Beep.h: 24: void buzz(void);
-[; ;Beep.h: 31: void uart_init(void);
-[; ;Beep.h: 32: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 33: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 25: extern uint8_t flag_power_up;
+[; ;Beep.h: 30: void BeepInit(void);
+[; ;Beep.h: 31: void BeepOn(void);
+[; ;Beep.h: 32: void BeepOff(void);
+[; ;Beep.h: 33: void buzz(void);
+[; ;Beep.h: 40: void uart_init(void);
+[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Key.h: 58: extern unsigned char KeyScanPeriod;
 [; ;Key.h: 60: typedef struct
 [; ;Key.h: 61: {
@@ -3296,130 +3309,154 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 113: {
 "113
 {
-[; ;Main.c: 114: hg_reset();
+[; ;Main.c: 114: do{LATDbits.LD5 =0;delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); LATDbits.LD5 =1; delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50
 "114
-[e ( _hg_reset ..  ]
-"115
-}
-[; ;Main.c: 115: }
-[e $U 291  ]
-"116
-[e :U 290 ]
-[; ;Main.c: 116: else
-[; ;Main.c: 117: {
-"117
+[e :U 293 ]
 {
-[; ;Main.c: 118: if(hg_op.working_mode == 0x01)
+[e = . . _LATDbits 1 5 -> -> 0 `i `uc ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e = . . _LATDbits 1 5 -> -> 1 `i `uc ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+[e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
+}
+[e :U 292 ]
+[; ;Main.c: 116: hg_reset();
+"116
+[e ( _hg_reset ..  ]
+"117
+}
+[; ;Main.c: 117: }
+[e $U 294  ]
 "118
-[e $ ! == -> . _hg_op 0 `i -> 1 `i 292  ]
+[e :U 290 ]
+[; ;Main.c: 118: else
 [; ;Main.c: 119: {
 "119
 {
-[; ;Main.c: 120: drops_routine();
+[; ;Main.c: 120: if(hg_op.working_mode == 0x01)
 "120
-[e ( _drops_routine ..  ]
+[e $ ! == -> . _hg_op 0 `i -> 1 `i 295  ]
+[; ;Main.c: 121: {
 "121
-}
-[; ;Main.c: 121: }
-[e $U 293  ]
-"124
-[e :U 292 ]
-[; ;Main.c: 124: else if(hg_op.working_mode == 0x00)
-[e $ ! == -> . _hg_op 0 `i -> 0 `i 294  ]
-[; ;Main.c: 125: {
-"125
 {
-[; ;Main.c: 126: c_routine();
+[; ;Main.c: 122: drops_routine();
+"122
+[e ( _drops_routine ..  ]
+"123
+}
+[; ;Main.c: 123: }
+[e $U 296  ]
 "126
-[e ( _c_routine ..  ]
-"127
-}
-[; ;Main.c: 127: }
-[e $U 295  ]
-"128
-[e :U 294 ]
-[; ;Main.c: 128: else if(hg_op.working_mode == 0x02)
-[e $ ! == -> . _hg_op 0 `i -> 2 `i 296  ]
-[; ;Main.c: 129: {
-"129
-{
-"131
-}
-[; ;Main.c: 131: }
-[e $U 297  ]
-"132
-[e :U 296 ]
-[; ;Main.c: 132: else if(hg_op.working_mode == 0x04)
-[e $ ! == -> . _hg_op 0 `i -> 4 `i 298  ]
-[; ;Main.c: 133: {
-"133
-{
-[; ;Main.c: 134: test_routine();
-"134
-[e ( _test_routine ..  ]
-"135
-}
-[; ;Main.c: 135: }
-[e $U 299  ]
-"136
-[e :U 298 ]
-[; ;Main.c: 136: else if(hg_op.working_mode == 0x03)
-[e $ ! == -> . _hg_op 0 `i -> 3 `i 300  ]
-[; ;Main.c: 137: {
-"137
-{
-[; ;Main.c: 138: HG_interface();
-"138
-[e ( _HG_interface ..  ]
-"139
-}
-[; ;Main.c: 139: }
-[e $U 301  ]
-"140
-[e :U 300 ]
-[; ;Main.c: 140: else
-[; ;Main.c: 141: {
-"141
-{
-"143
-}
-[e :U 301 ]
-[e :U 299 ]
-[e :U 297 ]
 [e :U 295 ]
-[e :U 293 ]
-[; ;Main.c: 143: }
-[; ;Main.c: 145: check_acting();
-"145
-[e ( _check_acting ..  ]
-[; ;Main.c: 150: if(flag_blink)
-"150
-[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 302  ]
-[; ;Main.c: 151: {
-"151
+[; ;Main.c: 126: else if(hg_op.working_mode == 0x00)
+[e $ ! == -> . _hg_op 0 `i -> 0 `i 297  ]
+[; ;Main.c: 127: {
+"127
 {
-[; ;Main.c: 152: blink_mode();
-"152
-[e ( _blink_mode ..  ]
-[; ;Main.c: 153: flag_blink =0;
-"153
-[e = _flag_blink -> -> 0 `i `uc ]
-"154
+[; ;Main.c: 128: c_routine();
+"128
+[e ( _c_routine ..  ]
+"129
 }
+[; ;Main.c: 129: }
+[e $U 298  ]
+"130
+[e :U 297 ]
+[; ;Main.c: 130: else if(hg_op.working_mode == 0x02)
+[e $ ! == -> . _hg_op 0 `i -> 2 `i 299  ]
+[; ;Main.c: 131: {
+"131
+{
+"133
+}
+[; ;Main.c: 133: }
+[e $U 300  ]
+"134
+[e :U 299 ]
+[; ;Main.c: 134: else if(hg_op.working_mode == 0x04)
+[e $ ! == -> . _hg_op 0 `i -> 4 `i 301  ]
+[; ;Main.c: 135: {
+"135
+{
+[; ;Main.c: 136: test_routine();
+"136
+[e ( _test_routine ..  ]
+"137
+}
+[; ;Main.c: 137: }
+[e $U 302  ]
+"138
+[e :U 301 ]
+[; ;Main.c: 138: else if(hg_op.working_mode == 0x03)
+[e $ ! == -> . _hg_op 0 `i -> 3 `i 303  ]
+[; ;Main.c: 139: {
+"139
+{
+[; ;Main.c: 140: HG_interface();
+"140
+[e ( _HG_interface ..  ]
+"141
+}
+[; ;Main.c: 141: }
+[e $U 304  ]
+"142
+[e :U 303 ]
+[; ;Main.c: 142: else
+[; ;Main.c: 143: {
+"143
+{
+"145
+}
+[e :U 304 ]
 [e :U 302 ]
+[e :U 300 ]
+[e :U 298 ]
+[e :U 296 ]
+[; ;Main.c: 145: }
+[; ;Main.c: 150: check_acting();
+"150
+[e ( _check_acting ..  ]
+[; ;Main.c: 155: if(flag_blink)
+"155
+[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 305  ]
+[; ;Main.c: 156: {
+"156
+{
+[; ;Main.c: 157: blink_mode();
+"157
+[e ( _blink_mode ..  ]
+[; ;Main.c: 158: flag_blink =0;
 "158
-}
-[e :U 291 ]
+[e = _flag_blink -> -> 0 `i `uc ]
 "159
+}
+[e :U 305 ]
+"163
+}
+[e :U 294 ]
+"164
 }
 [e :U 287 ]
 "108
 [e $U 288  ]
 [e :U 289 ]
-[; ;Main.c: 154: }
-[; ;Main.c: 158: }
 [; ;Main.c: 159: }
-[; ;Main.c: 161: }
-"161
+[; ;Main.c: 163: }
+[; ;Main.c: 164: }
+[; ;Main.c: 166: }
+"166
 [e :UE 286 ]
 }

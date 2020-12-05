@@ -1447,15 +1447,16 @@ void HG_interface(void)
 void enter_sleep(void)
 {
     uint8_t temp=0;
-                           
+       
+    
+    
+#if 1
         if( hg_op.status_powerup == STATUS_SLEEP)
         //if(0)
         {
-            
+#if 1 
             if(hg_op.needle_len == NEEDLE_LEN_13_MM)
             {
-                printf("hi here\n");
-                
                 FORWARD_RUN_B();
                 //hg_op.cnt_posrst =0;
                 temp =0;
@@ -1473,20 +1474,47 @@ void enter_sleep(void)
                 STOP_B();
                 delaynus(50*1000);     
             }
+#endif 
+            
+            
+#if 1
+            STOP_A();
+            STOP_B();
             
             ENABLE_AL();   
             ENABLE_BL(); 
+            
+         
+             
             hg_op.needle_len = NEEDLE_LEN_4_MM;
             printf("sleep mode\r\n");
+#endif
+            
+            
+            DISABLE_ENCODER_PHB_MB();
             NOP();NOP();NOP();
+            
+            
             SLEEP();
             NOP();NOP();NOP();
-            hg_op.need_reset =1;
+            
+            
+#if 1
+            
+            //TEST_LED_BLINK();
+            //hg_op.need_reset =0;
+            
+#endif
            
         }
+#if 0
+        else if( hg_op.status_powerup == STATUS_SLEEP)
+        {
+            
+        }
+#endif
     
-    
-    
+#endif 
     
 }
 

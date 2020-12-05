@@ -2947,14 +2947,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Beep.h: 16: extern uint8_t flag_power_up;
-[; ;Beep.h: 21: void BeepInit(void);
-[; ;Beep.h: 22: void BeepOn(void);
-[; ;Beep.h: 23: void BeepOff(void);
-[; ;Beep.h: 24: void buzz(void);
-[; ;Beep.h: 31: void uart_init(void);
-[; ;Beep.h: 32: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 33: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 25: extern uint8_t flag_power_up;
+[; ;Beep.h: 30: void BeepInit(void);
+[; ;Beep.h: 31: void BeepOn(void);
+[; ;Beep.h: 32: void BeepOff(void);
+[; ;Beep.h: 33: void buzz(void);
+[; ;Beep.h: 40: void uart_init(void);
+[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Oled.h: 86: typedef struct action_profile
 [; ;Oled.h: 87: {
 [; ;Oled.h: 89: uint8_t inject_mode;

@@ -7,7 +7,16 @@
 #define TEST_LED_ON()      LATDbits.LD5 =0
 #define TEST_LED_OFF()     LATDbits.LD5 =1
 
-
+#define TEST_LED_BLINK()  do{TEST_LED_ON();delaynus(50*1000);delaynus(50*1000);\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           TEST_LED_OFF();\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           delaynus(50*1000);delaynus(50*1000);\
+                                           }while(0) 
 //==============================================================================
 
 

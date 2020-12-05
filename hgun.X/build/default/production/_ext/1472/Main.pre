@@ -3979,7 +3979,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 117 "../MotorDrive.h"
+# 121 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4046,7 +4046,7 @@ extern uint8_t flag_tv;
 
 extern uint16_t tv_s[10];
 
-# 16 "../Beep.h"
+# 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
 
@@ -4057,7 +4057,7 @@ void BeepOn(void);
 void BeepOff(void);
 void buzz(void);
 
-# 31
+# 40
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4380,6 +4380,8 @@ enter_sleep();
 
 if(hg_op.need_reset)
 {
+do{LATDbits.LD5 =0;delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); LATDbits.LD5 =1; delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); delaynus(50*1000);delaynus(50*1000); }while(0);
+
 hg_reset();
 }
 else
@@ -4410,6 +4412,9 @@ else
 {
 
 }
+
+
+
 
 check_acting();
 

@@ -475,7 +475,7 @@ void __interrupt ISR(void)
                    
                    config_LCD();
                    initial_ui_setting();
-                   
+                   ENABLE_ENCODER_PHB_MB();
                    
                 }
                 else if(hg_op.status_powerup == STATUS_WAKE)
@@ -490,7 +490,7 @@ void __interrupt ISR(void)
                     STOP_B();
                     
                     //hg_op.needle_len = NEEDLE_LEN_4_MM;
-                    hg_op.need_reset =1;
+                    //hg_op.need_reset =1;
                     printf("sleep\r\n");
                     
                 }

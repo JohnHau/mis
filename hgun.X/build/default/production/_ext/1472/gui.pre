@@ -3910,7 +3910,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 16 "../Beep.h"
+# 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
 
@@ -3921,7 +3921,7 @@ void BeepOn(void);
 void BeepOff(void);
 void buzz(void);
 
-# 31
+# 40
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4155,7 +4155,7 @@ void initial_para_setting(void);
 
 void blink_mode(void);
 
-# 117 "../MotorDrive.h"
+# 121 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -5601,14 +5601,15 @@ void enter_sleep(void)
 {
 uint8_t temp=0;
 
+
+
+
 if( hg_op.status_powerup == 0x00)
 
 {
 
 if(hg_op.needle_len == 13)
 {
-printf("hi here\n");
-
 do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
 
 temp =0;
@@ -5627,20 +5628,33 @@ do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 delaynus(50*1000);
 }
 
+
+
+
+do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+
 LATCbits.LC2 =0;
 LATDbits.LD4 =0;
+
+
+
 hg_op.needle_len = 4;
 printf("sleep mode\r\n");
+
+
+
+do{ INTCON3bits.INT2E = 0;INTCON3bits.INT2IF =0;}while(0);
 __nop();__nop();__nop();
+
+
 asm(" sleep");
 __nop();__nop();__nop();
-hg_op.need_reset =1;
 
+# 1509
 }
 
-
-
-
+# 1519
 }
 
 
@@ -5661,7 +5675,7 @@ hg_op.status_hit_lp = 0;
 
 hg_op.cnt_pos_1mm =0;
 
-# 1515
+# 1543
 }
 
 
@@ -5670,7 +5684,7 @@ hg_op.cnt_pos_1mm =0;
 void blink_mode(void)
 {
 
-# 1536
+# 1564
 if(menu[0].mode == 3)
 {
 if(flip == 1)
@@ -5827,5 +5841,5 @@ display_num(3,(0 + 17), 0x80 | 102);
 }
 }
 
-# 1721
+# 1749
 }
