@@ -138,6 +138,7 @@ void main(void)
             else if(hg_op.working_mode == WORK_MODE_STOP)
             {
                  HG_interface();
+                 check_bat_status();
             }
             else
             {

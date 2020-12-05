@@ -4038,7 +4038,10 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 
 void initial_ui_setting(void);
 
-# 347
+
+void check_bat_status(void);
+
+
 void delay_nms(uint32_t n);
 void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
@@ -4067,6 +4070,9 @@ uint8_t status_powerup;
 uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
+
+uint8_t bat;
+uint8_t bat_vol;
 
 uint8_t in_reset;
 uint16_t sat;
@@ -4123,7 +4129,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 195
+# 198
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;

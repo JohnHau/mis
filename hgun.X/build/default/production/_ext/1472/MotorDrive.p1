@@ -141,9 +141,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "5497
 [v _T1CONbits `VS227 ~T0 @X0 0 e@4045 ]
 "23 ../gui.h
-[s S279 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S279 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
-"84
+[s S279 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S279 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat bat_vol in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
+"87
 [v _hg_op `S279 ~T0 @X0 0 e ]
 "72 ../Timer.h
 [v _delaynus `(v ~T0 @X0 0 ef1`ui ]
@@ -3103,61 +3103,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 29: uint8_t status_charging;
 [; ;gui.h: 30: uint8_t need_reset;
 [; ;gui.h: 31: uint8_t status_hit_lp;
-[; ;gui.h: 33: uint8_t in_reset;
-[; ;gui.h: 34: uint16_t sat;
-[; ;gui.h: 35: uint16_t sbt;
-[; ;gui.h: 37: uint16_t sa_old;
-[; ;gui.h: 38: uint16_t sa_new;
-[; ;gui.h: 40: uint16_t sb_old;
-[; ;gui.h: 41: uint16_t sb_new;
-[; ;gui.h: 43: uint8_t needle_len;
-[; ;gui.h: 44: uint8_t inject_len;
-[; ;gui.h: 45: uint8_t tube_cap;
-[; ;gui.h: 46: uint16_t work_freq;
-[; ;gui.h: 48: uint8_t push_len;
-[; ;gui.h: 51: uint8_t acting_flag;
-[; ;gui.h: 53: uint8_t drops_sa;
-[; ;gui.h: 54: uint8_t drops_sb;
-[; ;gui.h: 55: uint8_t drops_push;
-[; ;gui.h: 57: uint8_t posrst;
-[; ;gui.h: 59: uint8_t posa;
-[; ;gui.h: 60: uint8_t posb;
-[; ;gui.h: 61: uint8_t posc;
-[; ;gui.h: 63: uint16_t cnt_posa;
-[; ;gui.h: 64: uint16_t cnt_posb;
-[; ;gui.h: 65: uint16_t cnt_posc;
-[; ;gui.h: 67: int16_t cnt_pos_1mm;
-[; ;gui.h: 68: int16_t cnt_pos_2mm;
-[; ;gui.h: 70: uint16_t cnt_posa_std;
-[; ;gui.h: 71: uint16_t cnt_posb_std;
-[; ;gui.h: 73: uint16_t cnt_posa_target;
-[; ;gui.h: 74: uint16_t cnt_posb_target;
-[; ;gui.h: 78: uint16_t cnt_posrst;
-[; ;gui.h: 79: uint16_t cnt_target_posrst;
-[; ;gui.h: 80: uint16_t qec;
-[; ;gui.h: 82: }HG_OP;
-[; ;gui.h: 84: extern HG_OP hg_op;
-[; ;gui.h: 85: extern uint8_t test_mode;
-[; ;gui.h: 86: extern uint8_t flag_test_mode_break;
-[; ;gui.h: 195: extern uint8_t flag_blink;
-[; ;gui.h: 196: extern uint8_t focus;
-[; ;gui.h: 197: extern uint8_t flip;
-[; ;gui.h: 198: extern int8_t work_mode;
-[; ;gui.h: 199: extern MENU menu[8];
-[; ;gui.h: 204: void HG_device_init(void);
-[; ;gui.h: 205: void init_menu(void);
-[; ;gui.h: 206: void HG_interface(void);
-[; ;gui.h: 208: void menu0_MsgHandlle(uint8_t key);
-[; ;gui.h: 209: void menu1_MsgHandlle(uint8_t key);
-[; ;gui.h: 210: void menu2_MsgHandlle(uint8_t key);
-[; ;gui.h: 211: void menu3_MsgHandlle(uint8_t key);
-[; ;gui.h: 212: void menu4_MsgHandlle(uint8_t key);
-[; ;gui.h: 213: void menu5_MsgHandlle(uint8_t key);
-[; ;gui.h: 214: void menu6_MsgHandlle(uint8_t key);
-[; ;gui.h: 215: void menu7_MsgHandlle(uint8_t key);
-[; ;gui.h: 219: void enter_sleep(void);
-[; ;gui.h: 222: void initial_para_setting(void);
-[; ;gui.h: 224: void blink_mode(void);
+[; ;gui.h: 33: uint8_t bat;
+[; ;gui.h: 34: uint8_t bat_vol;
+[; ;gui.h: 36: uint8_t in_reset;
+[; ;gui.h: 37: uint16_t sat;
+[; ;gui.h: 38: uint16_t sbt;
+[; ;gui.h: 40: uint16_t sa_old;
+[; ;gui.h: 41: uint16_t sa_new;
+[; ;gui.h: 43: uint16_t sb_old;
+[; ;gui.h: 44: uint16_t sb_new;
+[; ;gui.h: 46: uint8_t needle_len;
+[; ;gui.h: 47: uint8_t inject_len;
+[; ;gui.h: 48: uint8_t tube_cap;
+[; ;gui.h: 49: uint16_t work_freq;
+[; ;gui.h: 51: uint8_t push_len;
+[; ;gui.h: 54: uint8_t acting_flag;
+[; ;gui.h: 56: uint8_t drops_sa;
+[; ;gui.h: 57: uint8_t drops_sb;
+[; ;gui.h: 58: uint8_t drops_push;
+[; ;gui.h: 60: uint8_t posrst;
+[; ;gui.h: 62: uint8_t posa;
+[; ;gui.h: 63: uint8_t posb;
+[; ;gui.h: 64: uint8_t posc;
+[; ;gui.h: 66: uint16_t cnt_posa;
+[; ;gui.h: 67: uint16_t cnt_posb;
+[; ;gui.h: 68: uint16_t cnt_posc;
+[; ;gui.h: 70: int16_t cnt_pos_1mm;
+[; ;gui.h: 71: int16_t cnt_pos_2mm;
+[; ;gui.h: 73: uint16_t cnt_posa_std;
+[; ;gui.h: 74: uint16_t cnt_posb_std;
+[; ;gui.h: 76: uint16_t cnt_posa_target;
+[; ;gui.h: 77: uint16_t cnt_posb_target;
+[; ;gui.h: 81: uint16_t cnt_posrst;
+[; ;gui.h: 82: uint16_t cnt_target_posrst;
+[; ;gui.h: 83: uint16_t qec;
+[; ;gui.h: 85: }HG_OP;
+[; ;gui.h: 87: extern HG_OP hg_op;
+[; ;gui.h: 88: extern uint8_t test_mode;
+[; ;gui.h: 89: extern uint8_t flag_test_mode_break;
+[; ;gui.h: 198: extern uint8_t flag_blink;
+[; ;gui.h: 199: extern uint8_t focus;
+[; ;gui.h: 200: extern uint8_t flip;
+[; ;gui.h: 201: extern int8_t work_mode;
+[; ;gui.h: 202: extern MENU menu[8];
+[; ;gui.h: 207: void HG_device_init(void);
+[; ;gui.h: 208: void init_menu(void);
+[; ;gui.h: 209: void HG_interface(void);
+[; ;gui.h: 211: void menu0_MsgHandlle(uint8_t key);
+[; ;gui.h: 212: void menu1_MsgHandlle(uint8_t key);
+[; ;gui.h: 213: void menu2_MsgHandlle(uint8_t key);
+[; ;gui.h: 214: void menu3_MsgHandlle(uint8_t key);
+[; ;gui.h: 215: void menu4_MsgHandlle(uint8_t key);
+[; ;gui.h: 216: void menu5_MsgHandlle(uint8_t key);
+[; ;gui.h: 217: void menu6_MsgHandlle(uint8_t key);
+[; ;gui.h: 218: void menu7_MsgHandlle(uint8_t key);
+[; ;gui.h: 222: void enter_sleep(void);
+[; ;gui.h: 225: void initial_para_setting(void);
+[; ;gui.h: 227: void blink_mode(void);
 [; ;Oled.h: 86: typedef struct action_profile
 [; ;Oled.h: 87: {
 [; ;Oled.h: 89: uint8_t inject_mode;
@@ -3216,6 +3218,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 344: void check_bat_status(void);
 [; ;Oled.h: 347: void delay_nms(uint32_t n);
 [; ;Oled.h: 348: void delay_ms(unsigned int ms);
 [; ;Oled.h: 349: void delay_pwm(uint32_t n);
@@ -3531,13 +3534,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 163: hg_op.posrst = 0;
 "163
-[e = . _hg_op 23 -> -> 0 `i `uc ]
+[e = . _hg_op 25 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 164: hg_op.cnt_posrst =0;
 "164
-[e = . _hg_op 36 -> -> 0 `i `ui ]
+[e = . _hg_op 38 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 165: hg_op.cnt_target_posrst = 600;
 "165
-[e = . _hg_op 37 -> -> 600 `i `ui ]
+[e = . _hg_op 39 -> -> 600 `i `ui ]
 [; ;MotorDrive.c: 167: do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
 "167
 [e :U 310 ]
@@ -3574,7 +3577,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 311 ]
 "168
-[e $ < . _hg_op 36 -> -> 300 `i `ui 312  ]
+[e $ < . _hg_op 38 -> -> 300 `i `ui 312  ]
 [e :U 313 ]
 [; ;MotorDrive.c: 174: }
 [; ;MotorDrive.c: 176: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
@@ -3591,10 +3594,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
 [; ;MotorDrive.c: 178: hg_op.posrst = 0;
 "178
-[e = . _hg_op 23 -> -> 0 `i `uc ]
+[e = . _hg_op 25 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 179: hg_op.cnt_posrst =0;
 "179
-[e = . _hg_op 36 -> -> 0 `i `ui ]
+[e = . _hg_op 38 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 181: printf("lp away\n");
 "181
 [e ( _printf :s 1C ]
@@ -3604,13 +3607,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 183: }
 [; ;MotorDrive.c: 187: if(hg_op.needle_len == 4)
 "187
-[e $ ! == -> . _hg_op 14 `i -> 4 `i 317  ]
+[e $ ! == -> . _hg_op 16 `i -> 4 `i 317  ]
 [; ;MotorDrive.c: 188: {
 "188
 {
 [; ;MotorDrive.c: 189: hg_op.cnt_target_posrst = 300;
 "189
-[e = . _hg_op 37 -> -> 300 `i `ui ]
+[e = . _hg_op 39 -> -> 300 `i `ui ]
 "190
 }
 [; ;MotorDrive.c: 190: }
@@ -3618,13 +3621,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "191
 [e :U 317 ]
 [; ;MotorDrive.c: 191: else if(hg_op.needle_len == 6)
-[e $ ! == -> . _hg_op 14 `i -> 6 `i 319  ]
+[e $ ! == -> . _hg_op 16 `i -> 6 `i 319  ]
 [; ;MotorDrive.c: 192: {
 "192
 {
 [; ;MotorDrive.c: 193: hg_op.cnt_target_posrst = (412 );
 "193
-[e = . _hg_op 37 -> -> 412 `i `ui ]
+[e = . _hg_op 39 -> -> 412 `i `ui ]
 "194
 }
 [; ;MotorDrive.c: 194: }
@@ -3632,13 +3635,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "195
 [e :U 319 ]
 [; ;MotorDrive.c: 195: else if(hg_op.needle_len == 13)
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 321  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 321  ]
 [; ;MotorDrive.c: 196: {
 "196
 {
 [; ;MotorDrive.c: 197: hg_op.cnt_target_posrst = (1);
 "197
-[e = . _hg_op 37 -> -> 1 `i `ui ]
+[e = . _hg_op 39 -> -> 1 `i `ui ]
 "198
 }
 [e :U 321 ]
@@ -3705,7 +3708,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 326 ]
 [; ;MotorDrive.c: 219: if(hg_op.needle_len == 13)
 "219
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 334  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 334  ]
 [; ;MotorDrive.c: 220: {
 "220
 {
@@ -3728,13 +3731,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 226: hg_op.posrst = 0;
 "226
-[e = . _hg_op 23 -> -> 0 `i `uc ]
+[e = . _hg_op 25 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 227: hg_op.cnt_posrst =0;
 "227
-[e = . _hg_op 36 -> -> 0 `i `ui ]
+[e = . _hg_op 38 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 228: hg_op.in_reset = 1;
 "228
-[e = . _hg_op 7 -> -> 1 `i `uc ]
+[e = . _hg_op 9 -> -> 1 `i `uc ]
 [; ;MotorDrive.c: 229: while(hg_op.cnt_posrst < hg_op.cnt_target_posrst)
 "229
 [e $U 336  ]
@@ -3754,7 +3757,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _delaynus (1 -> -> 10 `i `ui ]
 [; ;MotorDrive.c: 233: printf("r%d\n",hg_op.cnt_posrst);
 "233
-[e ( _printf , (. :s 2C . _hg_op 36 ]
+[e ( _printf , (. :s 2C . _hg_op 38 ]
 [; ;MotorDrive.c: 234: LATDbits.LD2 =0;
 "234
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
@@ -3765,7 +3768,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 336 ]
 "229
-[e $ < . _hg_op 36 . _hg_op 37 337  ]
+[e $ < . _hg_op 38 . _hg_op 39 337  ]
 [e :U 338 ]
 [; ;MotorDrive.c: 237: }
 [; ;MotorDrive.c: 241: do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
@@ -3791,13 +3794,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 340 ]
 [; ;MotorDrive.c: 246: printf("A-reset len is %d\r\n",hg_op.cnt_posrst);
 "246
-[e ( _printf , (. :s 3C . _hg_op 36 ]
+[e ( _printf , (. :s 3C . _hg_op 38 ]
 [; ;MotorDrive.c: 247: delaynus(50 * 1000);
 "247
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
 [; ;MotorDrive.c: 249: printf("B-reset len is %d\r\n",hg_op.cnt_posrst);
 "249
-[e ( _printf , (. :s 4C . _hg_op 36 ]
+[e ( _printf , (. :s 4C . _hg_op 38 ]
 [; ;MotorDrive.c: 250: hg_op.need_reset =0;
 "250
 [e = . _hg_op 5 -> -> 0 `i `uc ]
@@ -3806,10 +3809,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _hg_op 6 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 252: hg_op.cnt_posrst =0;
 "252
-[e = . _hg_op 36 -> -> 0 `i `ui ]
+[e = . _hg_op 38 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 253: hg_op.posrst =0;
 "253
-[e = . _hg_op 23 -> -> 0 `i `uc ]
+[e = . _hg_op 25 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 257: do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
 "257
 [e :U 350 ]
@@ -3878,7 +3881,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 363 ]
 [; ;MotorDrive.c: 274: hg_op.acting_flag =0;
 "274
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 275: hg_op.working_mode = 0x03;
 "275
 [e = . _hg_op 0 -> -> 3 `i `uc ]
@@ -3897,19 +3900,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 280: if(hg_op.drops_sa == 1)
 "280
-[e $ ! == -> . _hg_op 20 `i -> 1 `i 366  ]
+[e $ ! == -> . _hg_op 22 `i -> 1 `i 366  ]
 [; ;MotorDrive.c: 281: {
 "281
 {
 [; ;MotorDrive.c: 284: if( hg_op.needle_len == 13)
 "284
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 367  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 367  ]
 [; ;MotorDrive.c: 285: {
 "285
 {
 [; ;MotorDrive.c: 286: hg_op.cnt_posa =0;
 "286
-[e = . _hg_op 27 -> -> 0 `i `ui ]
+[e = . _hg_op 29 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 287: do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
 "287
 [e :U 370 ]
@@ -3927,7 +3930,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 371  ]
 [e :U 372 ]
 [e :U 371 ]
-[e $ < . _hg_op 27 -> -> 156 `i `ui 372  ]
+[e $ < . _hg_op 29 -> -> 156 `i `ui 372  ]
 [e :U 373 ]
 [; ;MotorDrive.c: 290: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 "290
@@ -3973,7 +3976,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 381  ]
 [e :U 382 ]
 [e :U 381 ]
-[e $ < . _hg_op 30 -> 150 `i 382  ]
+[e $ < . _hg_op 32 -> 150 `i 382  ]
 [e :U 383 ]
 [; ;MotorDrive.c: 301: do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 "301
@@ -3998,24 +4001,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 385 ]
 [; ;MotorDrive.c: 302: printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
 "302
-[e ( _printf , (. :s 7C . _hg_op 30 ]
+[e ( _printf , (. :s 7C . _hg_op 32 ]
 [; ;MotorDrive.c: 306: ; ;
 [; ;MotorDrive.c: 308: printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
 "308
-[e ( _printf , (. :s 8C . _hg_op 30 ]
+[e ( _printf , (. :s 8C . _hg_op 32 ]
 "310
 }
 [e :U 377 ]
 [; ;MotorDrive.c: 310: }
 [; ;MotorDrive.c: 312: hg_op.drops_sa = 0;
 "312
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 313: hg_op.drops_sb = 0;
 "313
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 314: hg_op.drops_push = 1;
 "314
-[e = . _hg_op 22 -> -> 1 `i `uc ]
+[e = . _hg_op 24 -> -> 1 `i `uc ]
 "318
 }
 [; ;MotorDrive.c: 318: }
@@ -4023,7 +4026,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "319
 [e :U 366 ]
 [; ;MotorDrive.c: 319: else if(hg_op.drops_push == 1)
-[e $ ! == -> . _hg_op 22 `i -> 1 `i 394  ]
+[e $ ! == -> . _hg_op 24 `i -> 1 `i 394  ]
 [; ;MotorDrive.c: 320: {
 "320
 {
@@ -4076,7 +4079,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 401 ]
 "327
-[e $ < _cnt_push -> . _hg_op 18 `ui 402  ]
+[e $ < _cnt_push -> . _hg_op 20 `ui 402  ]
 [e :U 403 ]
 [; ;MotorDrive.c: 337: }
 [; ;MotorDrive.c: 340: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
@@ -4089,13 +4092,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 411 ]
 [; ;MotorDrive.c: 344: hg_op.drops_sa = 0;
 "344
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 345: hg_op.drops_push = 0;
 "345
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 346: hg_op.drops_sb = 1;
 "346
-[e = . _hg_op 21 -> -> 1 `i `uc ]
+[e = . _hg_op 23 -> -> 1 `i `uc ]
 "350
 }
 [; ;MotorDrive.c: 350: }
@@ -4103,13 +4106,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "351
 [e :U 394 ]
 [; ;MotorDrive.c: 351: else if(hg_op.drops_sb == 1)
-[e $ ! == -> . _hg_op 21 `i -> 1 `i 414  ]
+[e $ ! == -> . _hg_op 23 `i -> 1 `i 414  ]
 [; ;MotorDrive.c: 352: {
 "352
 {
 [; ;MotorDrive.c: 359: if(hg_op.needle_len == 13)
 "359
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 415  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 415  ]
 [; ;MotorDrive.c: 360: {
 "360
 {
@@ -4161,7 +4164,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 426  ]
 [e :U 427 ]
 [e :U 426 ]
-[e $ > . _hg_op 30 -> 0 `i 427  ]
+[e $ > . _hg_op 32 -> 0 `i 427  ]
 [e :U 428 ]
 [; ;MotorDrive.c: 374: do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 "374
@@ -4190,11 +4193,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 376: }
 [; ;MotorDrive.c: 379: printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
 "379
-[e ( _printf , (. :s 9C . _hg_op 30 ]
+[e ( _printf , (. :s 9C . _hg_op 32 ]
 [; ;MotorDrive.c: 382: ; ;
 [; ;MotorDrive.c: 383: printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
 "383
-[e ( _printf , (. :s 10C . _hg_op 30 ]
+[e ( _printf , (. :s 10C . _hg_op 32 ]
 [; ;MotorDrive.c: 386: if(PORTBbits.RB5 == 1)
 "386
 [e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 438  ]
@@ -4277,19 +4280,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 461 ]
 [; ;MotorDrive.c: 405: hg_op.drops_sa = 0;
 "405
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 406: hg_op.drops_sb = 0;
 "406
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 407: hg_op.drops_push = 0;
 "407
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 410: hg_op.acting_flag =0;
 "410
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 413: if(hg_op.needle_len == 13)
 "413
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 463  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 463  ]
 [; ;MotorDrive.c: 414: {
 "414
 {
@@ -4329,13 +4332,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 427: hg_op.drops_sb = 0;
 "427
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 428: hg_op.drops_push =0;
 "428
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 429: hg_op.drops_sa = 1;
 "429
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 1 `i `uc ]
 "430
 }
 [e :U 466 ]
@@ -4413,7 +4416,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 479 ]
 [; ;MotorDrive.c: 461: hg_op.acting_flag =0;
 "461
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 462: hg_op.working_mode = 0x03;
 "462
 [e = . _hg_op 0 -> -> 3 `i `uc ]
@@ -4432,16 +4435,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 467: if(hg_op.drops_sa == 1)
 "467
-[e $ ! == -> . _hg_op 20 `i -> 1 `i 482  ]
+[e $ ! == -> . _hg_op 22 `i -> 1 `i 482  ]
 [; ;MotorDrive.c: 468: {
 "468
 {
 [; ;MotorDrive.c: 469: hg_op.cnt_posa =0;
 "469
-[e = . _hg_op 27 -> -> 0 `i `ui ]
+[e = . _hg_op 29 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 471: if( hg_op.needle_len == 13)
 "471
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 483  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 483  ]
 [; ;MotorDrive.c: 472: {
 "472
 {
@@ -4454,7 +4457,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 484  ]
 [e :U 485 ]
 [e :U 484 ]
-[e $ < . _hg_op 27 -> -> 156 `i `ui 485  ]
+[e $ < . _hg_op 29 -> -> 156 `i `ui 485  ]
 [e :U 486 ]
 "476
 }
@@ -4494,23 +4497,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
 [; ;MotorDrive.c: 487: printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
 "487
-[e ( _printf , (. :s 12C . _hg_op 27 ]
+[e ( _printf , (. :s 12C . _hg_op 29 ]
 [; ;MotorDrive.c: 488: hg_op.drops_sa = 0;
 "488
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 489: hg_op.drops_sb = 0;
 "489
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 490: hg_op.drops_push = 1;
 "490
-[e = . _hg_op 22 -> -> 1 `i `uc ]
+[e = . _hg_op 24 -> -> 1 `i `uc ]
 "491
 }
 [e :U 482 ]
 [; ;MotorDrive.c: 491: }
 [; ;MotorDrive.c: 494: if(hg_op.drops_push == 1)
 "494
-[e $ ! == -> . _hg_op 22 `i -> 1 `i 491  ]
+[e $ ! == -> . _hg_op 24 `i -> 1 `i 491  ]
 [; ;MotorDrive.c: 495: {
 "495
 {
@@ -4610,29 +4613,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
 [; ;MotorDrive.c: 530: hg_op.drops_sa = 0;
 "530
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 531: hg_op.drops_push = 0;
 "531
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 532: hg_op.drops_sb = 1;
 "532
-[e = . _hg_op 21 -> -> 1 `i `uc ]
+[e = . _hg_op 23 -> -> 1 `i `uc ]
 "533
 }
 [e :U 491 ]
 [; ;MotorDrive.c: 533: }
 [; ;MotorDrive.c: 535: if(hg_op.drops_sb == 1)
 "535
-[e $ ! == -> . _hg_op 21 `i -> 1 `i 516  ]
+[e $ ! == -> . _hg_op 23 `i -> 1 `i 516  ]
 [; ;MotorDrive.c: 536: {
 "536
 {
 [; ;MotorDrive.c: 537: hg_op.cnt_posb =0;
 "537
-[e = . _hg_op 28 -> -> 0 `i `ui ]
+[e = . _hg_op 30 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 540: if(hg_op.needle_len == 13)
 "540
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 517  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 517  ]
 [; ;MotorDrive.c: 541: {
 "541
 {
@@ -4681,10 +4684,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 523 ]
 [; ;MotorDrive.c: 559: delay_pwm(hg_op.work_freq * 300);
 "559
-[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
+[e ( _delay_pwm (1 -> * . _hg_op 19 -> -> 300 `i `ui `ul ]
 [; ;MotorDrive.c: 560: printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 "560
-[e ( _printf , (. :s 15C . _hg_op 28 ]
+[e ( _printf , (. :s 15C . _hg_op 30 ]
 [; ;MotorDrive.c: 562: if(PORTBbits.RB5 == 1)
 "562
 [e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 525  ]
@@ -4779,19 +4782,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 549 ]
 [; ;MotorDrive.c: 586: hg_op.drops_sa = 0;
 "586
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 587: hg_op.drops_sb = 0;
 "587
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 588: hg_op.drops_push = 0;
 "588
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 591: hg_op.acting_flag =0;
 "591
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 594: if(hg_op.needle_len == 13)
 "594
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 551  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 551  ]
 [; ;MotorDrive.c: 595: {
 "595
 {
@@ -4893,7 +4896,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 565 ]
 [; ;MotorDrive.c: 632: hg_op.acting_flag =0;
 "632
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 633: hg_op.working_mode = 0x03;
 "633
 [e = . _hg_op 0 -> -> 3 `i `uc ]
@@ -4912,16 +4915,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 638: if(hg_op.drops_sa == 1)
 "638
-[e $ ! == -> . _hg_op 20 `i -> 1 `i 568  ]
+[e $ ! == -> . _hg_op 22 `i -> 1 `i 568  ]
 [; ;MotorDrive.c: 639: {
 "639
 {
 [; ;MotorDrive.c: 640: hg_op.cnt_posa =0;
 "640
-[e = . _hg_op 27 -> -> 0 `i `ui ]
+[e = . _hg_op 29 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 642: if( hg_op.needle_len == 13)
 "642
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 569  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 569  ]
 [; ;MotorDrive.c: 643: {
 "643
 {
@@ -4936,7 +4939,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 570  ]
 [e :U 571 ]
 [e :U 570 ]
-[e $ < . _hg_op 27 -> -> 156 `i `ui 571  ]
+[e $ < . _hg_op 29 -> -> 156 `i `ui 571  ]
 [e :U 572 ]
 "649
 }
@@ -4970,7 +4973,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 579 ]
 [; ;MotorDrive.c: 665: hg_op.cnt_posa ++;
 "665
-[e ++ . _hg_op 27 -> -> 1 `i `ui ]
+[e ++ . _hg_op 29 -> -> 1 `i `ui ]
 [; ;MotorDrive.c: 666: while(PORTBbits.RB2 == 1);
 "666
 [e $U 580  ]
@@ -4980,12 +4983,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 582 ]
 [; ;MotorDrive.c: 667: hg_op.cnt_posa ++;
 "667
-[e ++ . _hg_op 27 -> -> 1 `i `ui ]
+[e ++ . _hg_op 29 -> -> 1 `i `ui ]
 "669
 }
 [e :U 574 ]
 "657
-[e $ < . _hg_op 27 -> -> 20 `i `ui 575  ]
+[e $ < . _hg_op 29 -> -> 20 `i `ui 575  ]
 [e :U 576 ]
 "670
 }
@@ -5003,16 +5006,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 584 ]
 [; ;MotorDrive.c: 674: delay_pwm(hg_op.work_freq * 300);
 "674
-[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
+[e ( _delay_pwm (1 -> * . _hg_op 19 -> -> 300 `i `ui `ul ]
 [; ;MotorDrive.c: 676: hg_op.drops_sa = 0;
 "676
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 677: hg_op.drops_sb = 0;
 "677
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 678: hg_op.drops_push = 1;
 "678
-[e = . _hg_op 22 -> -> 1 `i `uc ]
+[e = . _hg_op 24 -> -> 1 `i `uc ]
 "679
 }
 [; ;MotorDrive.c: 679: }
@@ -5020,7 +5023,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "680
 [e :U 568 ]
 [; ;MotorDrive.c: 680: else if(hg_op.drops_push == 1)
-[e $ ! == -> . _hg_op 22 `i -> 1 `i 587  ]
+[e $ ! == -> . _hg_op 24 `i -> 1 `i 587  ]
 [; ;MotorDrive.c: 681: {
 "681
 {
@@ -5073,7 +5076,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 594 ]
 "691
-[e $ < _cnt_push -> . _hg_op 18 `ui 595  ]
+[e $ < _cnt_push -> . _hg_op 20 `ui 595  ]
 [e :U 596 ]
 [; ;MotorDrive.c: 698: }
 [; ;MotorDrive.c: 701: do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
@@ -5086,16 +5089,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 604 ]
 [; ;MotorDrive.c: 706: delay_pwm(hg_op.work_freq * 300);
 "706
-[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
+[e ( _delay_pwm (1 -> * . _hg_op 19 -> -> 300 `i `ui `ul ]
 [; ;MotorDrive.c: 707: hg_op.drops_sa = 0;
 "707
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 708: hg_op.drops_push = 0;
 "708
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 709: hg_op.drops_sb = 1;
 "709
-[e = . _hg_op 21 -> -> 1 `i `uc ]
+[e = . _hg_op 23 -> -> 1 `i `uc ]
 "712
 }
 [; ;MotorDrive.c: 712: }
@@ -5103,16 +5106,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "713
 [e :U 587 ]
 [; ;MotorDrive.c: 713: else if(hg_op.drops_sb == 1)
-[e $ ! == -> . _hg_op 21 `i -> 1 `i 607  ]
+[e $ ! == -> . _hg_op 23 `i -> 1 `i 607  ]
 [; ;MotorDrive.c: 714: {
 "714
 {
 [; ;MotorDrive.c: 715: hg_op.cnt_posb =0;
 "715
-[e = . _hg_op 28 -> -> 0 `i `ui ]
+[e = . _hg_op 30 -> -> 0 `i `ui ]
 [; ;MotorDrive.c: 717: if(hg_op.needle_len == 13)
 "717
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 608  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 608  ]
 [; ;MotorDrive.c: 718: {
 "718
 {
@@ -5161,7 +5164,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 618 ]
 [; ;MotorDrive.c: 740: hg_op.cnt_posb ++;
 "740
-[e ++ . _hg_op 28 -> -> 1 `i `ui ]
+[e ++ . _hg_op 30 -> -> 1 `i `ui ]
 [; ;MotorDrive.c: 741: while(PORTBbits.RB2 == 1);
 "741
 [e $U 619  ]
@@ -5171,12 +5174,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 621 ]
 [; ;MotorDrive.c: 742: hg_op.cnt_posb ++;
 "742
-[e ++ . _hg_op 28 -> -> 1 `i `ui ]
+[e ++ . _hg_op 30 -> -> 1 `i `ui ]
 "746
 }
 [e :U 613 ]
 "731
-[e $ < . _hg_op 28 -> -> 20 `i `ui 614  ]
+[e $ < . _hg_op 30 -> -> 20 `i `ui 614  ]
 [e :U 615 ]
 "751
 }
@@ -5194,7 +5197,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 623 ]
 [; ;MotorDrive.c: 755: delay_pwm(hg_op.work_freq * 300);
 "755
-[e ( _delay_pwm (1 -> * . _hg_op 17 -> -> 300 `i `ui `ul ]
+[e ( _delay_pwm (1 -> * . _hg_op 19 -> -> 300 `i `ui `ul ]
 [; ;MotorDrive.c: 757: printf("in test mode\r\n");
 "757
 [e ( _printf :s 16C ]
@@ -5280,19 +5283,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 648 ]
 [; ;MotorDrive.c: 778: hg_op.drops_sa = 0;
 "778
-[e = . _hg_op 20 -> -> 0 `i `uc ]
+[e = . _hg_op 22 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 779: hg_op.drops_sb = 0;
 "779
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 780: hg_op.drops_push = 0;
 "780
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 783: hg_op.acting_flag =0;
 "783
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 786: if(hg_op.needle_len == 13)
 "786
-[e $ ! == -> . _hg_op 14 `i -> 13 `i 650  ]
+[e $ ! == -> . _hg_op 16 `i -> 13 `i 650  ]
 [; ;MotorDrive.c: 787: {
 "787
 {
@@ -5328,13 +5331,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 799: hg_op.drops_sb = 0;
 "799
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 800: hg_op.drops_push =0;
 "800
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 801: hg_op.drops_sa = 1;
 "801
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 1 `i `uc ]
 "802
 }
 [e :U 652 ]
@@ -5363,7 +5366,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MotorDrive.c: 813: if(hg_op.acting_flag)
 "813
-[e $ ! != -> . _hg_op 19 `i -> -> -> 0 `i `uc `i 654  ]
+[e $ ! != -> . _hg_op 21 `i -> -> -> 0 `i `uc `i 654  ]
 [; ;MotorDrive.c: 814: {
 "814
 {
@@ -5402,16 +5405,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 829: hg_op.acting_flag =0;
 "829
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 831: hg_op.drops_sa =1;
 "831
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 1 `i `uc ]
 [; ;MotorDrive.c: 832: hg_op.drops_sb =0;
 "832
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 833: hg_op.drops_push =0;
 "833
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 835: hg_op.working_mode = hg_op.cur_working_mode;
 "835
 [e = . _hg_op 0 . _hg_op 1 ]
@@ -5428,13 +5431,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;MotorDrive.c: 840: hg_op.drops_sa =1;
 "840
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 1 `i `uc ]
 [; ;MotorDrive.c: 841: hg_op.drops_sb =0;
 "841
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 842: hg_op.drops_push =0;
 "842
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 844: hg_op.working_mode = hg_op.cur_working_mode;
 "844
 [e = . _hg_op 0 . _hg_op 1 ]
@@ -5457,13 +5460,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _action_btn_cnt -> -> 1 `i `ui ]
 [; ;MotorDrive.c: 851: hg_op.drops_sa =1;
 "851
-[e = . _hg_op 20 -> -> 1 `i `uc ]
+[e = . _hg_op 22 -> -> 1 `i `uc ]
 [; ;MotorDrive.c: 852: hg_op.drops_sb =0;
 "852
-[e = . _hg_op 21 -> -> 0 `i `uc ]
+[e = . _hg_op 23 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 853: hg_op.drops_push =0;
 "853
-[e = . _hg_op 22 -> -> 0 `i `uc ]
+[e = . _hg_op 24 -> -> 0 `i `uc ]
 [; ;MotorDrive.c: 855: hg_op.working_mode = hg_op.cur_working_mode;
 "855
 [e = . _hg_op 0 . _hg_op 1 ]
@@ -5501,7 +5504,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.c: 868: }
 [; ;MotorDrive.c: 872: hg_op.acting_flag = 0;
 "872
-[e = . _hg_op 19 -> -> 0 `i `uc ]
+[e = . _hg_op 21 -> -> 0 `i `uc ]
 "874
 }
 [e :U 654 ]

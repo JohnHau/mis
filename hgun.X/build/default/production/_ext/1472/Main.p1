@@ -8,16 +8,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _cnt_ma `ul ~T0 @X0 0 e ]
 "125
 [v _cnt_mb `ul ~T0 @X0 0 e ]
-"204 ../gui.h
+"207 ../gui.h
 [v _HG_device_init `(v ~T0 @X0 0 ef ]
-"222
+"225
 [v _initial_para_setting `(v ~T0 @X0 0 ef ]
-"219
+"222
 [v _enter_sleep `(v ~T0 @X0 0 ef ]
 "23
-[s S285 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S285 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
-"84
+[s S285 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S285 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat bat_vol in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
+"87
 [v _hg_op `S285 ~T0 @X0 0 e ]
 "1308 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
 [s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -40,13 +40,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _c_routine `(v ~T0 @X0 0 ef ]
 "164
 [v _test_routine `(v ~T0 @X0 0 ef ]
-"206 ../gui.h
+"209 ../gui.h
 [v _HG_interface `(v ~T0 @X0 0 ef ]
+"344 ../Oled.h
+[v _check_bat_status `(v ~T0 @X0 0 ef ]
 "167 ../MotorDrive.h
 [v _check_acting `(v ~T0 @X0 0 ef ]
-"195 ../gui.h
+"198 ../gui.h
 [v _flag_blink `uc ~T0 @X0 0 e ]
-"224
+"227
 [v _blink_mode `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -3046,6 +3048,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 344: void check_bat_status(void);
 [; ;Oled.h: 347: void delay_nms(uint32_t n);
 [; ;Oled.h: 348: void delay_ms(unsigned int ms);
 [; ;Oled.h: 349: void delay_pwm(uint32_t n);
@@ -3069,61 +3072,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 29: uint8_t status_charging;
 [; ;gui.h: 30: uint8_t need_reset;
 [; ;gui.h: 31: uint8_t status_hit_lp;
-[; ;gui.h: 33: uint8_t in_reset;
-[; ;gui.h: 34: uint16_t sat;
-[; ;gui.h: 35: uint16_t sbt;
-[; ;gui.h: 37: uint16_t sa_old;
-[; ;gui.h: 38: uint16_t sa_new;
-[; ;gui.h: 40: uint16_t sb_old;
-[; ;gui.h: 41: uint16_t sb_new;
-[; ;gui.h: 43: uint8_t needle_len;
-[; ;gui.h: 44: uint8_t inject_len;
-[; ;gui.h: 45: uint8_t tube_cap;
-[; ;gui.h: 46: uint16_t work_freq;
-[; ;gui.h: 48: uint8_t push_len;
-[; ;gui.h: 51: uint8_t acting_flag;
-[; ;gui.h: 53: uint8_t drops_sa;
-[; ;gui.h: 54: uint8_t drops_sb;
-[; ;gui.h: 55: uint8_t drops_push;
-[; ;gui.h: 57: uint8_t posrst;
-[; ;gui.h: 59: uint8_t posa;
-[; ;gui.h: 60: uint8_t posb;
-[; ;gui.h: 61: uint8_t posc;
-[; ;gui.h: 63: uint16_t cnt_posa;
-[; ;gui.h: 64: uint16_t cnt_posb;
-[; ;gui.h: 65: uint16_t cnt_posc;
-[; ;gui.h: 67: int16_t cnt_pos_1mm;
-[; ;gui.h: 68: int16_t cnt_pos_2mm;
-[; ;gui.h: 70: uint16_t cnt_posa_std;
-[; ;gui.h: 71: uint16_t cnt_posb_std;
-[; ;gui.h: 73: uint16_t cnt_posa_target;
-[; ;gui.h: 74: uint16_t cnt_posb_target;
-[; ;gui.h: 78: uint16_t cnt_posrst;
-[; ;gui.h: 79: uint16_t cnt_target_posrst;
-[; ;gui.h: 80: uint16_t qec;
-[; ;gui.h: 82: }HG_OP;
-[; ;gui.h: 84: extern HG_OP hg_op;
-[; ;gui.h: 85: extern uint8_t test_mode;
-[; ;gui.h: 86: extern uint8_t flag_test_mode_break;
-[; ;gui.h: 195: extern uint8_t flag_blink;
-[; ;gui.h: 196: extern uint8_t focus;
-[; ;gui.h: 197: extern uint8_t flip;
-[; ;gui.h: 198: extern int8_t work_mode;
-[; ;gui.h: 199: extern MENU menu[8];
-[; ;gui.h: 204: void HG_device_init(void);
-[; ;gui.h: 205: void init_menu(void);
-[; ;gui.h: 206: void HG_interface(void);
-[; ;gui.h: 208: void menu0_MsgHandlle(uint8_t key);
-[; ;gui.h: 209: void menu1_MsgHandlle(uint8_t key);
-[; ;gui.h: 210: void menu2_MsgHandlle(uint8_t key);
-[; ;gui.h: 211: void menu3_MsgHandlle(uint8_t key);
-[; ;gui.h: 212: void menu4_MsgHandlle(uint8_t key);
-[; ;gui.h: 213: void menu5_MsgHandlle(uint8_t key);
-[; ;gui.h: 214: void menu6_MsgHandlle(uint8_t key);
-[; ;gui.h: 215: void menu7_MsgHandlle(uint8_t key);
-[; ;gui.h: 219: void enter_sleep(void);
-[; ;gui.h: 222: void initial_para_setting(void);
-[; ;gui.h: 224: void blink_mode(void);
+[; ;gui.h: 33: uint8_t bat;
+[; ;gui.h: 34: uint8_t bat_vol;
+[; ;gui.h: 36: uint8_t in_reset;
+[; ;gui.h: 37: uint16_t sat;
+[; ;gui.h: 38: uint16_t sbt;
+[; ;gui.h: 40: uint16_t sa_old;
+[; ;gui.h: 41: uint16_t sa_new;
+[; ;gui.h: 43: uint16_t sb_old;
+[; ;gui.h: 44: uint16_t sb_new;
+[; ;gui.h: 46: uint8_t needle_len;
+[; ;gui.h: 47: uint8_t inject_len;
+[; ;gui.h: 48: uint8_t tube_cap;
+[; ;gui.h: 49: uint16_t work_freq;
+[; ;gui.h: 51: uint8_t push_len;
+[; ;gui.h: 54: uint8_t acting_flag;
+[; ;gui.h: 56: uint8_t drops_sa;
+[; ;gui.h: 57: uint8_t drops_sb;
+[; ;gui.h: 58: uint8_t drops_push;
+[; ;gui.h: 60: uint8_t posrst;
+[; ;gui.h: 62: uint8_t posa;
+[; ;gui.h: 63: uint8_t posb;
+[; ;gui.h: 64: uint8_t posc;
+[; ;gui.h: 66: uint16_t cnt_posa;
+[; ;gui.h: 67: uint16_t cnt_posb;
+[; ;gui.h: 68: uint16_t cnt_posc;
+[; ;gui.h: 70: int16_t cnt_pos_1mm;
+[; ;gui.h: 71: int16_t cnt_pos_2mm;
+[; ;gui.h: 73: uint16_t cnt_posa_std;
+[; ;gui.h: 74: uint16_t cnt_posb_std;
+[; ;gui.h: 76: uint16_t cnt_posa_target;
+[; ;gui.h: 77: uint16_t cnt_posb_target;
+[; ;gui.h: 81: uint16_t cnt_posrst;
+[; ;gui.h: 82: uint16_t cnt_target_posrst;
+[; ;gui.h: 83: uint16_t qec;
+[; ;gui.h: 85: }HG_OP;
+[; ;gui.h: 87: extern HG_OP hg_op;
+[; ;gui.h: 88: extern uint8_t test_mode;
+[; ;gui.h: 89: extern uint8_t flag_test_mode_break;
+[; ;gui.h: 198: extern uint8_t flag_blink;
+[; ;gui.h: 199: extern uint8_t focus;
+[; ;gui.h: 200: extern uint8_t flip;
+[; ;gui.h: 201: extern int8_t work_mode;
+[; ;gui.h: 202: extern MENU menu[8];
+[; ;gui.h: 207: void HG_device_init(void);
+[; ;gui.h: 208: void init_menu(void);
+[; ;gui.h: 209: void HG_interface(void);
+[; ;gui.h: 211: void menu0_MsgHandlle(uint8_t key);
+[; ;gui.h: 212: void menu1_MsgHandlle(uint8_t key);
+[; ;gui.h: 213: void menu2_MsgHandlle(uint8_t key);
+[; ;gui.h: 214: void menu3_MsgHandlle(uint8_t key);
+[; ;gui.h: 215: void menu4_MsgHandlle(uint8_t key);
+[; ;gui.h: 216: void menu5_MsgHandlle(uint8_t key);
+[; ;gui.h: 217: void menu6_MsgHandlle(uint8_t key);
+[; ;gui.h: 218: void menu7_MsgHandlle(uint8_t key);
+[; ;gui.h: 222: void enter_sleep(void);
+[; ;gui.h: 225: void initial_para_setting(void);
+[; ;gui.h: 227: void blink_mode(void);
 "13 ../Main.c
 [p x OSC=HS ]
 "14
@@ -3408,55 +3413,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 140: HG_interface();
 "140
 [e ( _HG_interface ..  ]
+[; ;Main.c: 141: check_bat_status();
 "141
-}
-[; ;Main.c: 141: }
-[e $U 304  ]
+[e ( _check_bat_status ..  ]
 "142
-[e :U 303 ]
-[; ;Main.c: 142: else
-[; ;Main.c: 143: {
+}
+[; ;Main.c: 142: }
+[e $U 304  ]
 "143
+[e :U 303 ]
+[; ;Main.c: 143: else
+[; ;Main.c: 144: {
+"144
 {
-"145
+"146
 }
 [e :U 304 ]
 [e :U 302 ]
 [e :U 300 ]
 [e :U 298 ]
 [e :U 296 ]
-[; ;Main.c: 145: }
-[; ;Main.c: 150: check_acting();
-"150
+[; ;Main.c: 146: }
+[; ;Main.c: 151: check_acting();
+"151
 [e ( _check_acting ..  ]
-[; ;Main.c: 155: if(flag_blink)
-"155
-[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 305  ]
-[; ;Main.c: 156: {
+[; ;Main.c: 156: if(flag_blink)
 "156
-{
-[; ;Main.c: 157: blink_mode();
+[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 305  ]
+[; ;Main.c: 157: {
 "157
-[e ( _blink_mode ..  ]
-[; ;Main.c: 158: flag_blink =0;
+{
+[; ;Main.c: 158: blink_mode();
 "158
-[e = _flag_blink -> -> 0 `i `uc ]
+[e ( _blink_mode ..  ]
+[; ;Main.c: 159: flag_blink =0;
 "159
+[e = _flag_blink -> -> 0 `i `uc ]
+"160
 }
 [e :U 305 ]
-"163
+"164
 }
 [e :U 294 ]
-"164
+"165
 }
 [e :U 287 ]
 "108
 [e $U 288  ]
 [e :U 289 ]
-[; ;Main.c: 159: }
-[; ;Main.c: 163: }
+[; ;Main.c: 160: }
 [; ;Main.c: 164: }
-[; ;Main.c: 166: }
-"166
+[; ;Main.c: 165: }
+[; ;Main.c: 167: }
+"167
 [e :UE 286 ]
 }

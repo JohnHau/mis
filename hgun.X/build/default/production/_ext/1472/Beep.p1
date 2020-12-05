@@ -3013,6 +3013,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 336: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 339: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 341: void initial_ui_setting(void);
+[; ;Oled.h: 344: void check_bat_status(void);
 [; ;Oled.h: 347: void delay_nms(uint32_t n);
 [; ;Oled.h: 348: void delay_ms(unsigned int ms);
 [; ;Oled.h: 349: void delay_pwm(uint32_t n);

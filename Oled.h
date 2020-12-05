@@ -341,7 +341,7 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 void initial_ui_setting(void);
 
 
-
+void check_bat_status(void);
 
 
 void delay_nms(uint32_t n);
