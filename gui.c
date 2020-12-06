@@ -779,12 +779,12 @@ void menu5_MsgHandlle(uint8_t key)
                     if( menu[5].parameter == 0)
                     {          
                       //display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2P5);
-                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2);
+                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_1);
                     }
                     else if( menu[5].parameter == 1)
                     {  
                       //display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_1P5);
-                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_3);
+                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2P5);
                     }
                      else if( menu[5].parameter == 2)
                      {
@@ -826,12 +826,12 @@ void menu5_MsgHandlle(uint8_t key)
                     if( menu[5].parameter == 0)
                     {     
                       //display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2P5);
-                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2);
+                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_1);
                     }
                     else if( menu[5].parameter == 1)
                     { 
                       //display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_1P5);
-                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_3);
+                      display_num(BOTTOM,COL_PAGE0_FN, menu[5].mode | NUM_2P5);
                     }
                     else if( menu[5].parameter == 2)
                     {
@@ -871,7 +871,7 @@ void menu5_MsgHandlle(uint8_t key)
                     {
                         
                         //display_num(BOTTOM,COL_PAGE0_FN,NUM_2P5);
-                        display_num(BOTTOM,COL_PAGE0_FN,NUM_2);
+                        display_num(BOTTOM,COL_PAGE0_FN,NUM_1);
                         //needle_len = 4;
                         // hg_op.needle_len = LEN_4_MM;
                          //hg_op.cnt_target_posrst = POS_4_RST; 
@@ -884,7 +884,7 @@ void menu5_MsgHandlle(uint8_t key)
                        
                         
                         //display_num(BOTTOM,COL_PAGE0_FN,NUM_1P5);
-                        display_num(BOTTOM,COL_PAGE0_FN,NUM_3);
+                        display_num(BOTTOM,COL_PAGE0_FN,NUM_2P5);
                         //needle_len = 13;
                          //hg_op.needle_len = LEN_13_MM;
                          
@@ -1647,12 +1647,12 @@ void blink_mode(void)
                     if(menu[5].parameter == 0)
                     {
                         //display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2);
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1);
                     }
                     else if(menu[5].parameter == 1)
                     {
                         //display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_1P5);
-                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_3);
+                        display_num(BOTTOM,COL_PAGE0_FN, MODE_REVERSE | NUM_2P5);
                     }
                     else if(menu[5].parameter == 2)
                     {

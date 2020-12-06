@@ -3132,7 +3132,7 @@ void initial_ui_setting(void)
 
     display_frame_fghi(TYPE_F,COL_PAGE0_PATTERN_F, MODE_NORMAL);
     //display_num(BOTTOM,COL_PAGE0_FN, NUM_2P5);
-    display_num(BOTTOM,COL_PAGE0_FN, NUM_2);
+    display_num(BOTTOM,COL_PAGE0_FN, NUM_1);
     
     
     display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);

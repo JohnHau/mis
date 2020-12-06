@@ -111,7 +111,7 @@ void main(void)
   
         if(hg_op.need_reset)
         {
-              TEST_LED_BLINK();    
+            //TEST_LED_BLINK();    
             
             hg_reset();
         }

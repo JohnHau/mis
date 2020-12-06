@@ -3964,7 +3964,7 @@ void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
 
-# 86 "../Oled.h"
+# 87 "../Oled.h"
 typedef struct action_profile
 {
 
@@ -3984,7 +3984,7 @@ uint16_t cnt_blink;
 action_profile_t profile;
 }interface_t;
 
-# 237
+# 238
 extern interface_t interface_x;
 
 extern uint8_t write_buf[256];
@@ -4000,7 +4000,7 @@ uint8_t i2c_WaitAck(void);
 void i2c_Ack(void);
 void i2c_NAck(void);
 
-# 267
+# 268
 uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);
 
 uint8_t ee_WriteBytes(uint8_t *_pWriteBuf, uint8_t _usAddress, uint16_t _usSize);
@@ -4022,7 +4022,7 @@ void LCD_Off(void);
 void LCD_Blink(void);
 uint8_t ee_CheckDevice(uint8_t _Address);
 
-# 305
+# 306
 uint8_t AD_init(void);
 uint16_t get_AD_vaule(void);
 uint16_t get_SenseA_AD_vaule(void);
@@ -4031,7 +4031,7 @@ uint8_t display_pattern(uint8_t num,uint8_t sub,uint8_t mode);
 uint8_t hg_interface(void);
 void delay(unsigned int x);
 
-# 319
+# 320
 void display_cmode(uint8_t y,uint8_t x,uint8_t mode);
 void display_drops(uint8_t y,uint8_t x,uint8_t mode);
 void display_drop(uint8_t y,uint8_t x,uint8_t mode);
