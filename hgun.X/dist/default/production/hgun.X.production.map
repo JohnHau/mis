@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.41\dat\en_msgs.txt -cs \
   -h+dist/default/production\hgun.X.production.sym \
   --cmf=dist/default/production\hgun.X.production.cmf -z -Q18F4520 \
-  -oC:\Users\ADMINI~1\AppData\Local\Temp\scds.2 \
+  -oC:\Users\ADMINI~1\AppData\Local\Temp\s8sg.2 \
   -Mdist/default/production/hgun.X.production.map -E1 -ver=XC8 \
   -ASTACK=0400h-05ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj \
+  C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj \
   dist/default/production\hgun.X.production.obj 
 
 Object code version is 3.11
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -42,7 +42,7 @@ C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
 dist/default/production\hgun.X.production.obj
                 intcode                               8        8        6        4       0
                 temp                                 62       62        1        1       1
-                mediumconst                        7230     7230      DD0     3918       0
+                mediumconst                        7202     7202      DFE     3901       0
                 text90                             5F96     5F96        4     2FC0       0
                 text89                             5F9C     5F9C        2     2FC0       0
                 text88                             5CCC     5CCC       38        4       0
@@ -251,7 +251,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        7230     7230      DD0         0
+                mediumconst                        7202     7202      DFE         0
 
         CLASS   COMRAM         
                 temp                                 62       62        1         1
@@ -306,7 +306,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 bssBANK2                       000200  000100  000300       200       1  BANK2   
                 bssBANK3                       000300  000100  000400       300       1  BANK3   
                 text60                         005F80  00001E  005F9E      2FC0       0  CODE    
-                mediumconst                    007230  000DD0  008000      3918       0  MEDIUMCO
+                mediumconst                    007202  000DFE  008000      3901       0  MEDIUMCO
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -322,19 +322,19 @@ UNUSED ADDRESS RANGES
                          000400-0005FF              200
         CODE             000004-000007                4
                          005F7F-005F7F                1
-                         005F9E-00722F             1292
+                         005F9E-007201             1264
         COMRAM           000063-00007F               1D
         CONST            000004-000007                4
                          005F7F-005F7F                1
-                         005F9E-00722F             1292
+                         005F9E-007201             1264
         EEDATA           F00000-F000FF              100
         MEDIUMCONST      005F7F-005F7F                1
-                         005F9E-00722F             1292
+                         005F9E-007201             1264
         RAM              00015A-0001FF               A6
                          000400-0005FF              100
         SFR              000F80-000FFF               80
         SMALLCONST       005F7F-005F7F                1
-                         005F9E-00722F              100
+                         005F9E-007201              100
         STACK            000400-0005FF              200
 
                                   Symbol Table
@@ -638,7 +638,7 @@ __Lintentry                     intentry     000000
 __Lintret                       intret       000000
 __Lintsave_regs                 intsave_regs 000000
 __Lirdata                       irdata       000000
-__Lmediumconst                  mediumconst  007230
+__Lmediumconst                  mediumconst  007202
 __LnvFARRAM                     nvFARRAM     000000
 __Lnvbit                        nvbit        000000
 __Lnvrram                       nvrram       000000
@@ -798,6 +798,7 @@ __end_of_bat20_m                mediumconst  007E76
 __end_of_bat40_m                mediumconst  007E48
 __end_of_bat60_m                mediumconst  007E1A
 __end_of_bat80_m                mediumconst  007DEC
+__end_of_bat_charge_m           mediumconst  0073C0
 __end_of_blank_m                mediumconst  0074A6
 __end_of_blink_mode             text11       002048
 __end_of_buzz                   text40       005EA6
@@ -866,11 +867,11 @@ __end_of_n_3_m                  mediumconst  007C73
 __end_of_n_4_m                  mediumconst  007C3A
 __end_of_n_5_m                  mediumconst  007BC8
 __end_of_n_6_m                  mediumconst  007C01
-__end_of_n_blank_m              mediumconst  00738A
+__end_of_n_blank_m              mediumconst  00735C
 __end_of_printf                 text35       004E98
-__end_of_ptna_frame             mediumconst  0073C0
-__end_of_ptnd_frame             mediumconst  007351
-__end_of_ptne_frame             mediumconst  0072C1
+__end_of_ptna_frame             mediumconst  007392
+__end_of_ptnd_frame             mediumconst  007323
+__end_of_ptne_frame             mediumconst  007293
 __end_of_ptnf_frame             mediumconst  007A00
 __end_of_ptng_frame             mediumconst  007970
 __end_of_ptnh_frame             mediumconst  0078E0
@@ -904,7 +905,7 @@ __end_ofi2_printf               text63       0050D6
 __end_ofi2_putch                text64       005F68
 __end_ofi2_setYX_LCD            text82       005C12
 __initialization                cinit        0056A2
-__mediumconst                   mediumconst  007230
+__mediumconst                   mediumconst  007202
 __pbssBANK0                     bssBANK0     000080
 __pbssBANK1                     bssBANK1     000100
 __pbssBANK2                     bssBANK2     000200
@@ -918,7 +919,7 @@ __pdataCOMRAM                   dataCOMRAM   000057
 __pidataCOMRAM                  idataCOMRAM  005F74
 __pintcode                      intcode      000008
 __pintcode_body                 intcode_body 0028C0
-__pmediumconst                  mediumconst  007230
+__pmediumconst                  mediumconst  007202
 __ptext0                        text0        0053EA
 __ptext1                        text1        00352C
 __ptext10                       text10       005D04
@@ -1111,6 +1112,7 @@ _bat20_m                        mediumconst  007E48
 _bat40_m                        mediumconst  007E1A
 _bat60_m                        mediumconst  007DEC
 _bat80_m                        mediumconst  007DBE
+_bat_charge_m                   mediumconst  007392
 _bat_vol                        bssCOMRAM    000005
 _bat_x_m                        bssCOMRAM    000007
 _blank_m                        mediumconst  007478
@@ -1219,7 +1221,7 @@ _n_3_m                          mediumconst  007C3A
 _n_4_m                          mediumconst  007C01
 _n_5_m                          mediumconst  007B8F
 _n_6_m                          mediumconst  007BC8
-_n_blank_m                      mediumconst  007351
+_n_blank_m                      mediumconst  007323
 _n_x_m                          bssCOMRAM    000009
 _needle_len                     dataCOMRAM   00005B
 _old_c                          bssCOMRAM    00001D
@@ -1227,9 +1229,9 @@ _page                           bssCOMRAM    000020
 _prev_edge                      bssCOMRAM    00002D
 _prev_state_phb_ma              bssCOMRAM    000030
 _printf                         text35       004D44
-_ptna_frame                     mediumconst  00738A
-_ptnd_frame                     mediumconst  0072C1
-_ptne_frame                     mediumconst  007231
+_ptna_frame                     mediumconst  00735C
+_ptnd_frame                     mediumconst  007293
+_ptne_frame                     mediumconst  007203
 _ptnf_frame                     mediumconst  007970
 _ptng_frame                     mediumconst  0078E0
 _ptnh_frame                     mediumconst  007850
@@ -1647,7 +1649,7 @@ Total ram usage:        4 bytes
 
  *************** function _check_bat_status *****************
  Defined at:
-		line 1627 in file "../Oled.c"
+		line 1657 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1839,7 +1841,7 @@ Total ram usage:        0 bytes
 
  *************** function _display_n_blank *****************
  Defined at:
-		line 1309 in file "../Oled.c"
+		line 1339 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -1874,7 +1876,7 @@ Total ram usage:        5 bytes
 
  *************** function _display_blank_mode_pa *****************
  Defined at:
-		line 1825 in file "../Oled.c"
+		line 1855 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2106,7 +2108,7 @@ Total ram usage:        1 bytes
 
  *************** function _display_frame_de *****************
  Defined at:
-		line 2453 in file "../Oled.c"
+		line 2483 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2174,7 +2176,7 @@ Total ram usage:        1 bytes
 
  *************** function _display_bat *****************
  Defined at:
-		line 1643 in file "../Oled.c"
+		line 1673 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2276,7 +2278,7 @@ Total ram usage:        1 bytes
 
  *************** function _display_mem *****************
  Defined at:
-		line 1747 in file "../Oled.c"
+		line 1777 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2347,7 +2349,7 @@ Total ram usage:        1 bytes
 
  *************** function _display_num *****************
  Defined at:
-		line 1454 in file "../Oled.c"
+		line 1484 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2388,7 +2390,7 @@ Total ram usage:        7 bytes
 
  *************** function _display_frame_fghi *****************
  Defined at:
-		line 2650 in file "../Oled.c"
+		line 2680 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2426,7 +2428,7 @@ Total ram usage:        7 bytes
 
  *************** function _display_frame_abc *****************
  Defined at:
-		line 2341 in file "../Oled.c"
+		line 2371 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2463,7 +2465,7 @@ Total ram usage:        4 bytes
 
  *************** function _display_drops *****************
  Defined at:
-		line 1975 in file "../Oled.c"
+		line 2005 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2499,7 +2501,7 @@ Total ram usage:        4 bytes
 
  *************** function _display_drop *****************
  Defined at:
-		line 2049 in file "../Oled.c"
+		line 2079 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -2535,7 +2537,7 @@ Total ram usage:        4 bytes
 
  *************** function _display_cmode *****************
  Defined at:
-		line 1899 in file "../Oled.c"
+		line 1929 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[BANK1 ] unsigned char 
@@ -3166,7 +3168,7 @@ Total ram usage:        0 bytes
 
  *************** function _Initial_LY096BG30 *****************
  Defined at:
-		line 3200 in file "../Oled.c"
+		line 3223 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3795,7 +3797,7 @@ Total ram usage:        0 bytes
 
  *************** function _initial_ui_setting *****************
  Defined at:
-		line 3074 in file "../Oled.c"
+		line 3097 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3834,7 +3836,7 @@ Total ram usage:        1 bytes
 
  *************** function i2_display_num *****************
  Defined at:
-		line 1454 in file "../Oled.c"
+		line 1484 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -3869,7 +3871,7 @@ Total ram usage:        7 bytes
 
  *************** function i2_display_mem *****************
  Defined at:
-		line 1747 in file "../Oled.c"
+		line 1777 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -3904,7 +3906,7 @@ Total ram usage:        4 bytes
 
  *************** function i2_display_frame_fghi *****************
  Defined at:
-		line 2650 in file "../Oled.c"
+		line 2680 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -3939,7 +3941,7 @@ Total ram usage:        7 bytes
 
  *************** function i2_display_frame_de *****************
  Defined at:
-		line 2453 in file "../Oled.c"
+		line 2483 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -3974,7 +3976,7 @@ Total ram usage:        5 bytes
 
  *************** function i2_display_frame_abc *****************
  Defined at:
-		line 2341 in file "../Oled.c"
+		line 2371 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -4009,7 +4011,7 @@ Total ram usage:        4 bytes
 
  *************** function i2_display_cmode *****************
  Defined at:
-		line 1899 in file "../Oled.c"
+		line 1929 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -4044,7 +4046,7 @@ Total ram usage:        4 bytes
 
  *************** function i2_display_bat *****************
  Defined at:
-		line 1643 in file "../Oled.c"
+		line 1673 in file "../Oled.c"
  Parameters:    Size  Location     Type
   y               1    wreg     unsigned char 
   x               1   12[COMRAM] unsigned char 
@@ -4141,7 +4143,7 @@ Total ram usage:        2 bytes
 
  *************** function _display_logo *****************
  Defined at:
-		line 3025 in file "../Oled.c"
+		line 3055 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4173,7 +4175,7 @@ Total ram usage:        4 bytes
 
  *************** function _clear_screen *****************
  Defined at:
-		line 3047 in file "../Oled.c"
+		line 3077 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4244,7 +4246,7 @@ Total ram usage:        2 bytes
 
  *************** function _config_LCD *****************
  Defined at:
-		line 3160 in file "../Oled.c"
+		line 3183 in file "../Oled.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4604,7 +4606,7 @@ shared
 		i2_ee_WriteBytes		CODE           	5AF6	0000	75
 		i2_printf      		CODE           	4FB8	0000	287
 		i2_i2c_Delay   		CODE           	5F9C	0000	3
-		_ptne_frame    		MEDIUMCONST    	7231	0000	145
+		_ptne_frame    		MEDIUMCONST    	7203	0000	145
 		_n_1P5_m       		MEDIUMCONST    	7CE5	0000	58
 		_n_2P5_m       		MEDIUMCONST    	7CAC	0000	58
 		i2_display_frame_abc		CODE           	3FD8	0000	451
@@ -4645,7 +4647,7 @@ shared
 		i2_i2c_SendByte		CODE           	5CCC	0000	57
 		_n_13_m        		MEDIUMCONST    	7B1D	0000	58
 		_logo_eme      		MEDIUMCONST    	74B0	0000	785
-		_ptna_frame    		MEDIUMCONST    	738A	0000	55
+		_ptna_frame    		MEDIUMCONST    	735C	0000	55
 		_bat60_m       		MEDIUMCONST    	7DEC	0000	47
 		i2_display_mem 		CODE           	4A98	0000	343
 		i2_display_bat 		CODE           	3786	0000	571
@@ -4658,11 +4660,12 @@ shared
 		_n_250_m       		MEDIUMCONST    	7A00	0000	58
 		i2_buzz        		CODE           	5EA6	0000	27
 		_bat80_m       		MEDIUMCONST    	7DBE	0000	47
-		_n_blank_m     		MEDIUMCONST    	7351	0000	58
+		_n_blank_m     		MEDIUMCONST    	7323	0000	58
 		i2_display_frame_de		CODE           	055C	0000	1201
-		_ptnd_frame    		MEDIUMCONST    	72C1	0000	145
+		_ptnd_frame    		MEDIUMCONST    	7293	0000	145
+		_bat_charge_m  		MEDIUMCONST    	7392	0000	47
 
-shared estimated size: 8762
+shared estimated size: 8809
 
 C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\lwmod.c
 		___lwmod       		CODE           	57F8	0000	99

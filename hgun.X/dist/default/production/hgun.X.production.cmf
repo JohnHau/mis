@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+$C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -120,7 +120,7 @@ bssBANK3 BANK3 1 300 300 100 1
 intcode CODE 0 8 8 6 1
 dataCOMRAM COMRAM 1 57 57 B 1
 bssCOMRAM COMRAM 1 1 1 32 1
-mediumconst MEDIUMCONST 0 7230 7230 DD0 1
+mediumconst MEDIUMCONST 0 7202 7202 DFE 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -135,20 +135,20 @@ BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
 CONST 5F7F-5F7F 1
-CONST 5F9E-722F 1
+CONST 5F9E-7201 1
 STACK 400-5FF 1
 SMALLCONST 5F7F-5F7F 1
-SMALLCONST 5F9E-722F 1
+SMALLCONST 5F9E-7201 1
 CODE 4-7 1
 CODE 5F7F-5F7F 1
-CODE 5F9E-722F 1
+CODE 5F9E-7201 1
 BIGRAM 63-7F 1
 BIGRAM 15A-1FF 1
 BIGRAM 400-5FF 1
 COMRAM 63-7F 1
 EEDATA F00000-F000FF 1
 MEDIUMCONST 5F7F-5F7F 1
-MEDIUMCONST 5F9E-722F 1
+MEDIUMCONST 5F9E-7201 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -226,43 +226,43 @@ $dist/default/production\hgun.X.production.obj
 5B36 text84 CODE >530:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5B3A text84 CODE >539:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5B3E text84 CODE >544:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51AA text83 CODE >3160:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51AA text83 CODE >3163:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51B0 text83 CODE >3165:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51C8 text83 CODE >3168:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51CE text83 CODE >3169:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51E6 text83 CODE >3171:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-51EC text83 CODE >3172:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5204 text83 CODE >3174:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-520A text83 CODE >3175:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5222 text83 CODE >3177:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5228 text83 CODE >3178:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5240 text83 CODE >3180:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5246 text83 CODE >3181:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-525E text83 CODE >3183:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5264 text83 CODE >3186:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-527C text83 CODE >3194:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51AA text83 CODE >3183:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51AA text83 CODE >3186:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51B0 text83 CODE >3188:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51C8 text83 CODE >3191:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51CE text83 CODE >3192:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51E6 text83 CODE >3194:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+51EC text83 CODE >3195:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5204 text83 CODE >3197:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+520A text83 CODE >3198:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5222 text83 CODE >3200:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5228 text83 CODE >3201:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5240 text83 CODE >3203:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5246 text83 CODE >3204:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+525E text83 CODE >3206:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5264 text83 CODE >3209:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+527C text83 CODE >3217:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5BCE text82 CODE >601:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5BD0 text82 CODE >605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5BD8 text82 CODE >606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5BF0 text82 CODE >609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5BF8 text82 CODE >610:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B40 text81 CODE >3047:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B40 text81 CODE >3052:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B4C text81 CODE >3054:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B56 text81 CODE >3055:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B5C text81 CODE >3056:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B68 text81 CODE >3058:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B80 text81 CODE >3056:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B84 text81 CODE >3052:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5794 text80 CODE >3025:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5794 text80 CODE >3028:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57A0 text80 CODE >3030:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57AA text80 CODE >3031:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57B0 text80 CODE >3033:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57BC text80 CODE >3035:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57F0 text80 CODE >3033:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57F4 text80 CODE >3028:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B40 text81 CODE >3077:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B40 text81 CODE >3082:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B4C text81 CODE >3084:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B56 text81 CODE >3085:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B5C text81 CODE >3086:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B68 text81 CODE >3088:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B80 text81 CODE >3086:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B84 text81 CODE >3082:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5794 text80 CODE >3055:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5794 text80 CODE >3058:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57A0 text80 CODE >3060:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57AA text80 CODE >3061:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57B0 text80 CODE >3063:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57BC text80 CODE >3065:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57F0 text80 CODE >3063:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57F4 text80 CODE >3058:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5EC0 text79 CODE >619:E:\myWorkSpace\injector\EME_HA_GUN/Timer.c
 5EC0 text79 CODE >622:E:\myWorkSpace\injector\EME_HA_GUN/Timer.c
 5EC8 text79 CODE >623:E:\myWorkSpace\injector\EME_HA_GUN/Timer.c
@@ -281,416 +281,416 @@ $dist/default/production\hgun.X.production.obj
 5880 text78 CODE >309:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5884 text78 CODE >311:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 58B2 text78 CODE >314:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3786 text77 CODE >1643:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3786 text77 CODE >1646:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-378A text77 CODE >1647:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-378E text77 CODE >1650:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-379A text77 CODE >1653:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37A6 text77 CODE >1655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37AE text77 CODE >1657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37C6 text77 CODE >1659:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37CE text77 CODE >1661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37E6 text77 CODE >1663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37EE text77 CODE >1665:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3806 text77 CODE >1667:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-380E text77 CODE >1669:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3826 text77 CODE >1671:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-382E text77 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-383A text77 CODE >1675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3842 text77 CODE >1684:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3844 text77 CODE >1690:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-384E text77 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-385A text77 CODE >1694:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-387C text77 CODE >1696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3894 text77 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3898 text77 CODE >1700:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-38A2 text77 CODE >1701:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-38AE text77 CODE >1703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-38D8 text77 CODE >1705:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-38F0 text77 CODE >1701:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-38F4 text77 CODE >1714:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-38FE text77 CODE >1715:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-390A text77 CODE >1718:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-392C text77 CODE >1719:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3930 text77 CODE >1721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3932 text77 CODE >1724:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-394A text77 CODE >1715:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-394E text77 CODE >1728:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3958 text77 CODE >1729:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3964 text77 CODE >1731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-398E text77 CODE >1732:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3992 text77 CODE >1734:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3994 text77 CODE >1737:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-39AC text77 CODE >1729:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-39B0 text77 CODE >1684:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BEE text76 CODE >1899:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BEE text76 CODE >1902:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BF2 text76 CODE >1903:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BF6 text76 CODE >1904:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BF8 text76 CODE >1910:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C02 text76 CODE >1911:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C0E text76 CODE >1914:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C24 text76 CODE >1916:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C3C text76 CODE >1911:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C40 text76 CODE >1920:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C4A text76 CODE >1921:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C56 text76 CODE >1923:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C74 text76 CODE >1925:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C8C text76 CODE >1921:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C90 text76 CODE >1934:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4C9A text76 CODE >1935:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CA6 text76 CODE >1938:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CBC text76 CODE >1939:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CC0 text76 CODE >1941:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CC2 text76 CODE >1944:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CDA text76 CODE >1935:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CDE text76 CODE >1948:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CE8 text76 CODE >1949:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CF4 text76 CODE >1951:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4D12 text76 CODE >1952:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4D16 text76 CODE >1954:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4D18 text76 CODE >1956:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4D30 text76 CODE >1949:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4D34 text76 CODE >1904:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FD8 text75 CODE >2341:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FD8 text75 CODE >2344:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FDC text75 CODE >2345:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FE0 text75 CODE >2346:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FE2 text75 CODE >2352:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FEC text75 CODE >2353:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3FF8 text75 CODE >2356:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-400E text75 CODE >2358:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4026 text75 CODE >2353:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-402A text75 CODE >2362:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4034 text75 CODE >2363:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4040 text75 CODE >2365:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-405E text75 CODE >2367:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4076 text75 CODE >2363:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-407A text75 CODE >2376:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4084 text75 CODE >2377:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4090 text75 CODE >2380:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40A6 text75 CODE >2381:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40AA text75 CODE >2383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40B8 text75 CODE >2385:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40BA text75 CODE >2386:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40BE text75 CODE >2387:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40C2 text75 CODE >2389:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40C4 text75 CODE >2390:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40D2 text75 CODE >2392:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40D4 text75 CODE >2393:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40D8 text75 CODE >2394:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40DA text75 CODE >2395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40DC text75 CODE >2399:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40DE text75 CODE >2400:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40E2 text75 CODE >2404:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40FA text75 CODE >2377:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-40FE text75 CODE >2408:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4108 text75 CODE >2409:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4114 text75 CODE >2411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4132 text75 CODE >2412:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4136 text75 CODE >2413:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4144 text75 CODE >2415:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4146 text75 CODE >2416:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-414A text75 CODE >2417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-414E text75 CODE >2418:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4150 text75 CODE >2419:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-415E text75 CODE >2422:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4160 text75 CODE >2423:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4164 text75 CODE >2424:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4166 text75 CODE >2426:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4168 text75 CODE >2430:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-416A text75 CODE >2431:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-416E text75 CODE >2434:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4186 text75 CODE >2409:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-418A text75 CODE >2346:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-55C text74 CODE >2453:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-55E text74 CODE >2455:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-562 text74 CODE >2456:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-566 text74 CODE >2458:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-56C text74 CODE >2460:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-572 text74 CODE >2462:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-57C text74 CODE >2463:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-588 text74 CODE >2465:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-59E text74 CODE >2466:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5B6 text74 CODE >2463:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5BA text74 CODE >2469:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5C4 text74 CODE >2470:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5D0 text74 CODE >2472:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5EE text74 CODE >2473:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-606 text74 CODE >2470:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-60A text74 CODE >2476:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-614 text74 CODE >2477:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-620 text74 CODE >2479:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-63E text74 CODE >2480:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-656 text74 CODE >2477:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-65A text74 CODE >2483:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-662 text74 CODE >2486:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-66C text74 CODE >2487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-678 text74 CODE >2489:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-68E text74 CODE >2490:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-69C text74 CODE >2492:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6A0 text74 CODE >2494:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6AE text74 CODE >2496:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6B2 text74 CODE >2497:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6B4 text74 CODE >2501:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6B6 text74 CODE >2502:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6BA text74 CODE >2504:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6D2 text74 CODE >2487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6D6 text74 CODE >2507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6E0 text74 CODE >2508:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-6EC text74 CODE >2510:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-70A text74 CODE >2512:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-718 text74 CODE >2514:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-71A text74 CODE >2515:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-71C text74 CODE >2518:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-71E text74 CODE >2520:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-736 text74 CODE >2508:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-73A text74 CODE >2523:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-744 text74 CODE >2524:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-750 text74 CODE >2526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-76E text74 CODE >2527:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-77C text74 CODE >2529:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-780 text74 CODE >2531:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-78E text74 CODE >2533:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-792 text74 CODE >2534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-794 text74 CODE >2538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-796 text74 CODE >2539:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-79A text74 CODE >2540:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-79C text74 CODE >2542:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7B4 text74 CODE >2524:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7B8 text74 CODE >2547:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7C0 text74 CODE >2549:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7C6 text74 CODE >2552:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7D0 text74 CODE >2553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7DC text74 CODE >2555:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-7F2 text74 CODE >2556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-80A text74 CODE >2553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-80E text74 CODE >2559:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-818 text74 CODE >2560:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-824 text74 CODE >2562:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-842 text74 CODE >2563:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-85A text74 CODE >2560:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-85E text74 CODE >2566:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-868 text74 CODE >2567:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-874 text74 CODE >2569:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-892 text74 CODE >2570:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8AA text74 CODE >2567:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8AE text74 CODE >2573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8B6 text74 CODE >2575:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8C0 text74 CODE >2576:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8CC text74 CODE >2578:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8E2 text74 CODE >2579:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8F0 text74 CODE >2581:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8F4 text74 CODE >2583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-902 text74 CODE >2585:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-906 text74 CODE >2586:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-908 text74 CODE >2590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-90A text74 CODE >2591:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-90E text74 CODE >2594:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-926 text74 CODE >2576:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-92A text74 CODE >2598:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-934 text74 CODE >2599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-940 text74 CODE >2601:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-95E text74 CODE >2603:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-96C text74 CODE >2605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-96E text74 CODE >2606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-970 text74 CODE >2609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-972 text74 CODE >2612:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-98A text74 CODE >2599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-98E text74 CODE >2616:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-998 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9A4 text74 CODE >2619:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9C2 text74 CODE >2620:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9D0 text74 CODE >2622:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9D4 text74 CODE >2624:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9E2 text74 CODE >2626:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9E6 text74 CODE >2627:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9E8 text74 CODE >2631:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9EA text74 CODE >2632:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9EE text74 CODE >2633:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9F0 text74 CODE >2636:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2334 text73 CODE >2650:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2336 text73 CODE >2652:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-233A text73 CODE >2653:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-233E text73 CODE >2655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2340 text73 CODE >2658:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2348 text73 CODE >2662:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2350 text73 CODE >2666:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2358 text73 CODE >2670:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2360 text73 CODE >2673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2362 text73 CODE >2655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-237C text73 CODE >2675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2382 text73 CODE >2678:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-238C text73 CODE >2679:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2398 text73 CODE >2681:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-23BA text73 CODE >2682:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-23D2 text73 CODE >2679:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-23D6 text73 CODE >2686:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-23E0 text73 CODE >2687:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-23EC text73 CODE >2689:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2416 text73 CODE >2691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-242E text73 CODE >2687:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2432 text73 CODE >2695:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-243C text73 CODE >2696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2448 text73 CODE >2698:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2472 text73 CODE >2700:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-248A text73 CODE >2696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-248E text73 CODE >2703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2496 text73 CODE >2707:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24A0 text73 CODE >2708:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24AC text73 CODE >2710:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24CE text73 CODE >2711:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24DC text73 CODE >2713:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24E0 text73 CODE >2715:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24EE text73 CODE >2717:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24F2 text73 CODE >2718:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24F4 text73 CODE >2722:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24F6 text73 CODE >2723:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-24FA text73 CODE >2726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2512 text73 CODE >2708:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2516 text73 CODE >2730:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2520 text73 CODE >2731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-252C text73 CODE >2733:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2556 text73 CODE >2735:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2564 text73 CODE >2737:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2566 text73 CODE >2738:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2568 text73 CODE >2741:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-256A text73 CODE >2744:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2582 text73 CODE >2731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2586 text73 CODE >2748:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2590 text73 CODE >2749:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-259C text73 CODE >2751:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25C6 text73 CODE >2752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25D4 text73 CODE >2754:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25D8 text73 CODE >2756:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25E6 text73 CODE >2758:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25EA text73 CODE >2759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25EC text73 CODE >2763:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25EE text73 CODE >2764:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25F2 text73 CODE >2765:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-25F4 text73 CODE >2768:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-260C text73 CODE >2749:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A98 text72 CODE >1747:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A98 text72 CODE >1750:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A9C text72 CODE >1751:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AA0 text72 CODE >1752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AA2 text72 CODE >1758:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AAC text72 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AB8 text72 CODE >1762:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4ACE text72 CODE >1764:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AE6 text72 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AEA text72 CODE >1768:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AF4 text72 CODE >1769:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B00 text72 CODE >1771:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B1E text72 CODE >1773:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B36 text72 CODE >1769:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B3A text72 CODE >1782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B44 text72 CODE >1783:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B50 text72 CODE >1786:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B66 text72 CODE >1787:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B6A text72 CODE >1789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B6C text72 CODE >1792:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B84 text72 CODE >1783:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B88 text72 CODE >1796:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B92 text72 CODE >1797:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4B9E text72 CODE >1799:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BBC text72 CODE >1800:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BC0 text72 CODE >1802:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BC2 text72 CODE >1805:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BDA text72 CODE >1797:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4BDE text72 CODE >1752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19E0 text71 CODE >1454:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19E2 text71 CODE >1456:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19E6 text71 CODE >1457:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19EA text71 CODE >1459:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19EC text71 CODE >1463:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19F4 text71 CODE >1467:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19FC text71 CODE >1471:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A04 text71 CODE >1475:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A0C text71 CODE >1479:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A14 text71 CODE >1483:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A1C text71 CODE >1487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A24 text71 CODE >1491:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A2C text71 CODE >1495:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A34 text71 CODE >1499:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A3C text71 CODE >1503:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A44 text71 CODE >1507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A4C text71 CODE >1511:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A54 text71 CODE >1515:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A5C text71 CODE >1519:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A64 text71 CODE >1523:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A6C text71 CODE >1526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1A6E text71 CODE >1459:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1AE0 text71 CODE >1526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1AE0 text71 CODE >1529:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1AE4 text71 CODE >1533:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1AF0 text71 CODE >1534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1AFC text71 CODE >1537:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B1E text71 CODE >1538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B36 text71 CODE >1534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B3A text71 CODE >1542:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B46 text71 CODE >1543:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B52 text71 CODE >1546:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B7C text71 CODE >1548:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B94 text71 CODE >1543:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1B98 text71 CODE >1553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BA4 text71 CODE >1554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BB0 text71 CODE >1557:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BDA text71 CODE >1558:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BF2 text71 CODE >1554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BF6 text71 CODE >1561:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BFA text71 CODE >1565:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C06 text71 CODE >1566:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C12 text71 CODE >1569:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C34 text71 CODE >1570:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C38 text71 CODE >1572:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C3A text71 CODE >1573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C3E text71 CODE >1575:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C56 text71 CODE >1566:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C5A text71 CODE >1579:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C66 text71 CODE >1580:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C72 text71 CODE >1583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C9C text71 CODE >1584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CA0 text71 CODE >1586:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CA2 text71 CODE >1588:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CBA text71 CODE >1580:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CBE text71 CODE >1592:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CCA text71 CODE >1593:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CD6 text71 CODE >1596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1D00 text71 CODE >1597:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1D04 text71 CODE >1599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1D08 text71 CODE >1602:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1D20 text71 CODE >1593:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4E98 text70 CODE >3074:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4E98 text70 CODE >3079:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4E9C text70 CODE >3082:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EA0 text70 CODE >3084:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EAC text70 CODE >3086:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EB8 text70 CODE >3084:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EBC text70 CODE >3089:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EC0 text70 CODE >3112:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4ECE text70 CODE >3113:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EDC text70 CODE >3115:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EEA text70 CODE >3116:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4EF8 text70 CODE >3118:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F06 text70 CODE >3119:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F14 text70 CODE >3123:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F22 text70 CODE >3124:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F30 text70 CODE >3128:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F3E text70 CODE >3129:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F4C text70 CODE >3133:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F5A text70 CODE >3135:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F68 text70 CODE >3138:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F76 text70 CODE >3139:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F84 text70 CODE >3145:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F8A text70 CODE >3146:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F94 text70 CODE >3147:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4F9A text70 CODE >3149:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4FA0 text70 CODE >3151:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4FA6 text70 CODE >3152:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4FB0 text70 CODE >3154:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4FB6 text70 CODE >3157:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3786 text77 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3786 text77 CODE >1676:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+378A text77 CODE >1677:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+378E text77 CODE >1680:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+379A text77 CODE >1683:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37A6 text77 CODE >1685:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37AE text77 CODE >1687:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37C6 text77 CODE >1689:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37CE text77 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37E6 text77 CODE >1693:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37EE text77 CODE >1695:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3806 text77 CODE >1697:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+380E text77 CODE >1699:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3826 text77 CODE >1701:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+382E text77 CODE >1703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+383A text77 CODE >1705:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3842 text77 CODE >1714:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3844 text77 CODE >1720:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+384E text77 CODE >1721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+385A text77 CODE >1724:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+387C text77 CODE >1726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3894 text77 CODE >1721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3898 text77 CODE >1730:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+38A2 text77 CODE >1731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+38AE text77 CODE >1733:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+38D8 text77 CODE >1735:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+38F0 text77 CODE >1731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+38F4 text77 CODE >1744:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+38FE text77 CODE >1745:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+390A text77 CODE >1748:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+392C text77 CODE >1749:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3930 text77 CODE >1751:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3932 text77 CODE >1754:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+394A text77 CODE >1745:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+394E text77 CODE >1758:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3958 text77 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3964 text77 CODE >1761:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+398E text77 CODE >1762:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3992 text77 CODE >1764:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3994 text77 CODE >1767:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+39AC text77 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+39B0 text77 CODE >1714:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BEE text76 CODE >1929:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BEE text76 CODE >1932:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BF2 text76 CODE >1933:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BF6 text76 CODE >1934:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BF8 text76 CODE >1940:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C02 text76 CODE >1941:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C0E text76 CODE >1944:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C24 text76 CODE >1946:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C3C text76 CODE >1941:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C40 text76 CODE >1950:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C4A text76 CODE >1951:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C56 text76 CODE >1953:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C74 text76 CODE >1955:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C8C text76 CODE >1951:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C90 text76 CODE >1964:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4C9A text76 CODE >1965:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CA6 text76 CODE >1968:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CBC text76 CODE >1969:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CC0 text76 CODE >1971:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CC2 text76 CODE >1974:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CDA text76 CODE >1965:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CDE text76 CODE >1978:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CE8 text76 CODE >1979:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CF4 text76 CODE >1981:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4D12 text76 CODE >1982:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4D16 text76 CODE >1984:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4D18 text76 CODE >1986:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4D30 text76 CODE >1979:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4D34 text76 CODE >1934:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FD8 text75 CODE >2371:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FD8 text75 CODE >2374:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FDC text75 CODE >2375:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FE0 text75 CODE >2376:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FE2 text75 CODE >2382:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FEC text75 CODE >2383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3FF8 text75 CODE >2386:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+400E text75 CODE >2388:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4026 text75 CODE >2383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+402A text75 CODE >2392:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4034 text75 CODE >2393:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4040 text75 CODE >2395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+405E text75 CODE >2397:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4076 text75 CODE >2393:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+407A text75 CODE >2406:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4084 text75 CODE >2407:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4090 text75 CODE >2410:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40A6 text75 CODE >2411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40AA text75 CODE >2413:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40B8 text75 CODE >2415:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40BA text75 CODE >2416:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40BE text75 CODE >2417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40C2 text75 CODE >2419:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40C4 text75 CODE >2420:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40D2 text75 CODE >2422:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40D4 text75 CODE >2423:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40D8 text75 CODE >2424:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40DA text75 CODE >2425:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40DC text75 CODE >2429:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40DE text75 CODE >2430:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40E2 text75 CODE >2434:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40FA text75 CODE >2407:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+40FE text75 CODE >2438:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4108 text75 CODE >2439:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4114 text75 CODE >2441:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4132 text75 CODE >2442:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4136 text75 CODE >2443:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4144 text75 CODE >2445:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4146 text75 CODE >2446:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+414A text75 CODE >2447:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+414E text75 CODE >2448:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4150 text75 CODE >2449:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+415E text75 CODE >2452:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4160 text75 CODE >2453:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4164 text75 CODE >2454:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4166 text75 CODE >2456:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4168 text75 CODE >2460:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+416A text75 CODE >2461:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+416E text75 CODE >2464:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4186 text75 CODE >2439:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+418A text75 CODE >2376:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+55C text74 CODE >2483:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+55E text74 CODE >2485:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+562 text74 CODE >2486:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+566 text74 CODE >2488:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+56C text74 CODE >2490:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+572 text74 CODE >2492:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+57C text74 CODE >2493:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+588 text74 CODE >2495:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+59E text74 CODE >2496:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5B6 text74 CODE >2493:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5BA text74 CODE >2499:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5C4 text74 CODE >2500:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5D0 text74 CODE >2502:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5EE text74 CODE >2503:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+606 text74 CODE >2500:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+60A text74 CODE >2506:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+614 text74 CODE >2507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+620 text74 CODE >2509:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+63E text74 CODE >2510:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+656 text74 CODE >2507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+65A text74 CODE >2513:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+662 text74 CODE >2516:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+66C text74 CODE >2517:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+678 text74 CODE >2519:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+68E text74 CODE >2520:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+69C text74 CODE >2522:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6A0 text74 CODE >2524:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6AE text74 CODE >2526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6B2 text74 CODE >2527:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6B4 text74 CODE >2531:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6B6 text74 CODE >2532:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6BA text74 CODE >2534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6D2 text74 CODE >2517:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6D6 text74 CODE >2537:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6E0 text74 CODE >2538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+6EC text74 CODE >2540:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+70A text74 CODE >2542:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+718 text74 CODE >2544:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+71A text74 CODE >2545:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+71C text74 CODE >2548:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+71E text74 CODE >2550:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+736 text74 CODE >2538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+73A text74 CODE >2553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+744 text74 CODE >2554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+750 text74 CODE >2556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+76E text74 CODE >2557:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+77C text74 CODE >2559:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+780 text74 CODE >2561:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+78E text74 CODE >2563:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+792 text74 CODE >2564:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+794 text74 CODE >2568:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+796 text74 CODE >2569:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+79A text74 CODE >2570:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+79C text74 CODE >2572:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7B4 text74 CODE >2554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7B8 text74 CODE >2577:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7C0 text74 CODE >2579:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7C6 text74 CODE >2582:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7D0 text74 CODE >2583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7DC text74 CODE >2585:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+7F2 text74 CODE >2586:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+80A text74 CODE >2583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+80E text74 CODE >2589:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+818 text74 CODE >2590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+824 text74 CODE >2592:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+842 text74 CODE >2593:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+85A text74 CODE >2590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+85E text74 CODE >2596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+868 text74 CODE >2597:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+874 text74 CODE >2599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+892 text74 CODE >2600:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8AA text74 CODE >2597:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8AE text74 CODE >2603:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8B6 text74 CODE >2605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8C0 text74 CODE >2606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8CC text74 CODE >2608:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8E2 text74 CODE >2609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8F0 text74 CODE >2611:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8F4 text74 CODE >2613:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+902 text74 CODE >2615:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+906 text74 CODE >2616:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+908 text74 CODE >2620:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+90A text74 CODE >2621:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+90E text74 CODE >2624:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+926 text74 CODE >2606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+92A text74 CODE >2628:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+934 text74 CODE >2629:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+940 text74 CODE >2631:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+95E text74 CODE >2633:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+96C text74 CODE >2635:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+96E text74 CODE >2636:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+970 text74 CODE >2639:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+972 text74 CODE >2642:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+98A text74 CODE >2629:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+98E text74 CODE >2646:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+998 text74 CODE >2647:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9A4 text74 CODE >2649:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9C2 text74 CODE >2650:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9D0 text74 CODE >2652:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9D4 text74 CODE >2654:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9E2 text74 CODE >2656:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9E6 text74 CODE >2657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9E8 text74 CODE >2661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9EA text74 CODE >2662:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9EE text74 CODE >2663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9F0 text74 CODE >2666:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A08 text74 CODE >2647:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2334 text73 CODE >2680:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2336 text73 CODE >2682:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+233A text73 CODE >2683:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+233E text73 CODE >2685:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2340 text73 CODE >2688:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2348 text73 CODE >2692:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2350 text73 CODE >2696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2358 text73 CODE >2700:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2360 text73 CODE >2703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2362 text73 CODE >2685:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+237C text73 CODE >2705:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2382 text73 CODE >2708:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+238C text73 CODE >2709:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2398 text73 CODE >2711:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+23BA text73 CODE >2712:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+23D2 text73 CODE >2709:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+23D6 text73 CODE >2716:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+23E0 text73 CODE >2717:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+23EC text73 CODE >2719:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2416 text73 CODE >2721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+242E text73 CODE >2717:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2432 text73 CODE >2725:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+243C text73 CODE >2726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2448 text73 CODE >2728:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2472 text73 CODE >2730:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+248A text73 CODE >2726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+248E text73 CODE >2733:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2496 text73 CODE >2737:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24A0 text73 CODE >2738:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24AC text73 CODE >2740:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24CE text73 CODE >2741:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24DC text73 CODE >2743:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24E0 text73 CODE >2745:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24EE text73 CODE >2747:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24F2 text73 CODE >2748:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24F4 text73 CODE >2752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24F6 text73 CODE >2753:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+24FA text73 CODE >2756:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2512 text73 CODE >2738:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2516 text73 CODE >2760:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2520 text73 CODE >2761:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+252C text73 CODE >2763:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2556 text73 CODE >2765:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2564 text73 CODE >2767:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2566 text73 CODE >2768:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2568 text73 CODE >2771:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+256A text73 CODE >2774:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2582 text73 CODE >2761:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2586 text73 CODE >2778:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2590 text73 CODE >2779:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+259C text73 CODE >2781:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25C6 text73 CODE >2782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25D4 text73 CODE >2784:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25D8 text73 CODE >2786:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25E6 text73 CODE >2788:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25EA text73 CODE >2789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25EC text73 CODE >2793:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25EE text73 CODE >2794:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25F2 text73 CODE >2795:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+25F4 text73 CODE >2798:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+260C text73 CODE >2779:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A98 text72 CODE >1777:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A98 text72 CODE >1780:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A9C text72 CODE >1781:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AA0 text72 CODE >1782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AA2 text72 CODE >1788:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AAC text72 CODE >1789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AB8 text72 CODE >1792:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4ACE text72 CODE >1794:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AE6 text72 CODE >1789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AEA text72 CODE >1798:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AF4 text72 CODE >1799:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B00 text72 CODE >1801:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B1E text72 CODE >1803:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B36 text72 CODE >1799:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B3A text72 CODE >1812:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B44 text72 CODE >1813:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B50 text72 CODE >1816:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B66 text72 CODE >1817:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B6A text72 CODE >1819:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B6C text72 CODE >1822:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B84 text72 CODE >1813:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B88 text72 CODE >1826:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B92 text72 CODE >1827:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4B9E text72 CODE >1829:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BBC text72 CODE >1830:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BC0 text72 CODE >1832:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BC2 text72 CODE >1835:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BDA text72 CODE >1827:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4BDE text72 CODE >1782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19E0 text71 CODE >1484:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19E2 text71 CODE >1486:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19E6 text71 CODE >1487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19EA text71 CODE >1489:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19EC text71 CODE >1493:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19F4 text71 CODE >1497:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19FC text71 CODE >1501:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A04 text71 CODE >1505:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A0C text71 CODE >1509:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A14 text71 CODE >1513:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A1C text71 CODE >1517:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A24 text71 CODE >1521:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A2C text71 CODE >1525:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A34 text71 CODE >1529:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A3C text71 CODE >1533:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A44 text71 CODE >1537:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A4C text71 CODE >1541:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A54 text71 CODE >1545:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A5C text71 CODE >1549:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A64 text71 CODE >1553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A6C text71 CODE >1556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1A6E text71 CODE >1489:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1AE0 text71 CODE >1556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1AE0 text71 CODE >1559:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1AE4 text71 CODE >1563:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1AF0 text71 CODE >1564:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1AFC text71 CODE >1567:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B1E text71 CODE >1568:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B36 text71 CODE >1564:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B3A text71 CODE >1572:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B46 text71 CODE >1573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B52 text71 CODE >1576:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B7C text71 CODE >1578:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B94 text71 CODE >1573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1B98 text71 CODE >1583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BA4 text71 CODE >1584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BB0 text71 CODE >1587:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BDA text71 CODE >1588:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BF2 text71 CODE >1584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BF6 text71 CODE >1591:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BFA text71 CODE >1595:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C06 text71 CODE >1596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C12 text71 CODE >1599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C34 text71 CODE >1600:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C38 text71 CODE >1602:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C3A text71 CODE >1603:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C3E text71 CODE >1605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C56 text71 CODE >1596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C5A text71 CODE >1609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C66 text71 CODE >1610:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C72 text71 CODE >1613:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C9C text71 CODE >1614:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CA0 text71 CODE >1616:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CA2 text71 CODE >1618:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CBA text71 CODE >1610:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CBE text71 CODE >1622:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CCA text71 CODE >1623:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CD6 text71 CODE >1626:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1D00 text71 CODE >1627:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1D04 text71 CODE >1629:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1D08 text71 CODE >1632:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1D20 text71 CODE >1623:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4E98 text70 CODE >3097:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4E98 text70 CODE >3102:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4E9C text70 CODE >3105:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EA0 text70 CODE >3107:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EAC text70 CODE >3109:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EB8 text70 CODE >3107:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EBC text70 CODE >3112:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EC0 text70 CODE >3135:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4ECE text70 CODE >3136:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EDC text70 CODE >3138:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EEA text70 CODE >3139:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4EF8 text70 CODE >3141:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F06 text70 CODE >3142:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F14 text70 CODE >3146:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F22 text70 CODE >3147:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F30 text70 CODE >3151:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F3E text70 CODE >3152:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F4C text70 CODE >3156:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F5A text70 CODE >3158:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F68 text70 CODE >3161:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F76 text70 CODE >3162:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F84 text70 CODE >3168:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F8A text70 CODE >3169:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F94 text70 CODE >3170:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4F9A text70 CODE >3172:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4FA0 text70 CODE >3174:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4FA6 text70 CODE >3175:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4FB0 text70 CODE >3177:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4FB6 text70 CODE >3180:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5F92 text69 CODE >584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5F92 text69 CODE >587:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5F94 text69 CODE >590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
@@ -956,15 +956,15 @@ A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5F4A text52 CODE >241:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5F4C text52 CODE >245:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5F4E text52 CODE >252:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A14 text51 CODE >3200:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A14 text51 CODE >3203:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A18 text51 CODE >3208:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A1A text51 CODE >3209:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A28 text51 CODE >3211:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A2A text51 CODE >3212:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A38 text51 CODE >3253:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A3E text51 CODE >3254:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5A5E text51 CODE >3291:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A14 text51 CODE >3223:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A14 text51 CODE >3226:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A18 text51 CODE >3231:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A1A text51 CODE >3232:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A28 text51 CODE >3234:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A2A text51 CODE >3235:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A38 text51 CODE >3276:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A3E text51 CODE >3277:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5A5E text51 CODE >3314:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5E2E text50 CODE >10:E:\myWorkSpace\injector\EME_HA_GUN/Key.c
 5E2E text50 CODE >19:E:\myWorkSpace\injector\EME_HA_GUN/Key.c
 5E32 text50 CODE >21:E:\myWorkSpace\injector\EME_HA_GUN/Key.c
@@ -1221,267 +1221,267 @@ A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5924 text33 CODE >606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5944 text33 CODE >609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 594E text33 CODE >610:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-479A text32 CODE >1899:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-479A text32 CODE >1902:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47A0 text32 CODE >1903:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47A6 text32 CODE >1904:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47A8 text32 CODE >1910:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47B2 text32 CODE >1911:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47BE text32 CODE >1914:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47D4 text32 CODE >1916:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47F4 text32 CODE >1911:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-47F8 text32 CODE >1920:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4802 text32 CODE >1921:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-480E text32 CODE >1923:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-482C text32 CODE >1925:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-484C text32 CODE >1921:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4850 text32 CODE >1934:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-485A text32 CODE >1935:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4866 text32 CODE >1938:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-487C text32 CODE >1939:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4880 text32 CODE >1941:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4884 text32 CODE >1944:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48A4 text32 CODE >1935:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48A8 text32 CODE >1948:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48B2 text32 CODE >1949:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48BE text32 CODE >1951:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48DC text32 CODE >1952:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48E0 text32 CODE >1954:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-48E4 text32 CODE >1956:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4904 text32 CODE >1949:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4908 text32 CODE >1904:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-461A text31 CODE >2049:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-461A text31 CODE >2052:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4620 text31 CODE >2053:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4626 text31 CODE >2054:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4628 text31 CODE >2060:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4632 text31 CODE >2061:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-463E text31 CODE >2064:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4654 text31 CODE >2065:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4674 text31 CODE >2061:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4678 text31 CODE >2069:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4682 text31 CODE >2070:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-468E text31 CODE >2072:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-46AC text31 CODE >2073:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-46CC text31 CODE >2070:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-46D0 text31 CODE >2082:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-46DA text31 CODE >2083:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-46E6 text31 CODE >2086:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-46FC text31 CODE >2087:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4700 text31 CODE >2091:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4704 text31 CODE >2094:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4724 text31 CODE >2083:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4728 text31 CODE >2098:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4732 text31 CODE >2099:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-473E text31 CODE >2101:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-475C text31 CODE >2102:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4760 text31 CODE >2103:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4764 text31 CODE >2105:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4784 text31 CODE >2099:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4788 text31 CODE >2054:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-449A text30 CODE >1975:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-449A text30 CODE >1978:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44A0 text30 CODE >1979:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44A6 text30 CODE >1980:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44A8 text30 CODE >1986:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44B2 text30 CODE >1987:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44BE text30 CODE >1990:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44D4 text30 CODE >1991:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44F4 text30 CODE >1987:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-44F8 text30 CODE >1995:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4502 text30 CODE >1996:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-450E text30 CODE >1998:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-452C text30 CODE >1999:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-454C text30 CODE >1996:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4550 text30 CODE >2008:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-455A text30 CODE >2009:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4566 text30 CODE >2012:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-457C text30 CODE >2013:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4580 text30 CODE >2014:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4584 text30 CODE >2016:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45A4 text30 CODE >2009:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45A8 text30 CODE >2020:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45B2 text30 CODE >2021:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45BE text30 CODE >2023:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45DC text30 CODE >2024:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45E0 text30 CODE >2026:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45E4 text30 CODE >2030:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4604 text30 CODE >2021:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4608 text30 CODE >1980:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3BF4 text29 CODE >2341:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3BF4 text29 CODE >2344:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3BFA text29 CODE >2345:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C00 text29 CODE >2346:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C02 text29 CODE >2352:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C0C text29 CODE >2353:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C18 text29 CODE >2356:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C2E text29 CODE >2358:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C4E text29 CODE >2353:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C52 text29 CODE >2362:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C5C text29 CODE >2363:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C68 text29 CODE >2365:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3C86 text29 CODE >2367:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CA6 text29 CODE >2363:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CAA text29 CODE >2376:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CB4 text29 CODE >2377:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CC0 text29 CODE >2380:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CD6 text29 CODE >2381:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CDA text29 CODE >2383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CE8 text29 CODE >2385:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CEC text29 CODE >2386:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CF4 text29 CODE >2387:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CFA text29 CODE >2389:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CFC text29 CODE >2390:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D0A text29 CODE >2392:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D0E text29 CODE >2393:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D16 text29 CODE >2394:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D1A text29 CODE >2395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D1C text29 CODE >2399:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D20 text29 CODE >2400:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D28 text29 CODE >2404:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D48 text29 CODE >2377:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D4C text29 CODE >2408:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D56 text29 CODE >2409:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D62 text29 CODE >2411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D80 text29 CODE >2412:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D84 text29 CODE >2413:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D92 text29 CODE >2415:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D96 text29 CODE >2416:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D9E text29 CODE >2417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DA4 text29 CODE >2418:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DA6 text29 CODE >2419:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DB4 text29 CODE >2422:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DB8 text29 CODE >2423:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DC0 text29 CODE >2424:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DC4 text29 CODE >2426:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DC6 text29 CODE >2430:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DCA text29 CODE >2431:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DD2 text29 CODE >2434:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DF2 text29 CODE >2409:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DF6 text29 CODE >2346:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1694 text28 CODE >2650:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1698 text28 CODE >2652:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-169E text28 CODE >2653:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16A4 text28 CODE >2655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16A6 text28 CODE >2658:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16AE text28 CODE >2662:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16B6 text28 CODE >2666:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16BE text28 CODE >2670:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16C6 text28 CODE >2673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16C8 text28 CODE >2655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16E4 text28 CODE >2675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16EE text28 CODE >2678:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16F8 text28 CODE >2679:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1704 text28 CODE >2681:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-172A text28 CODE >2682:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-174A text28 CODE >2679:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-174E text28 CODE >2686:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1758 text28 CODE >2687:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1764 text28 CODE >2689:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1794 text28 CODE >2691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-17B4 text28 CODE >2687:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-17B8 text28 CODE >2695:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-17C2 text28 CODE >2696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-17CE text28 CODE >2698:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-17FE text28 CODE >2700:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-181E text28 CODE >2696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1822 text28 CODE >2703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-182C text28 CODE >2707:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1836 text28 CODE >2708:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1842 text28 CODE >2710:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1868 text28 CODE >2711:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1876 text28 CODE >2713:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-187A text28 CODE >2715:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1888 text28 CODE >2717:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-188E text28 CODE >2718:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1890 text28 CODE >2722:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1894 text28 CODE >2723:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-189A text28 CODE >2726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-18BA text28 CODE >2708:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-18BE text28 CODE >2730:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-18C8 text28 CODE >2731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-18D4 text28 CODE >2733:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1904 text28 CODE >2735:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1912 text28 CODE >2737:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1916 text28 CODE >2738:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1918 text28 CODE >2741:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-191C text28 CODE >2744:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-193C text28 CODE >2731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1940 text28 CODE >2748:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-194A text28 CODE >2749:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1956 text28 CODE >2751:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1986 text28 CODE >2752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1994 text28 CODE >2754:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1998 text28 CODE >2756:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19A6 text28 CODE >2758:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19AC text28 CODE >2759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19AE text28 CODE >2763:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19B2 text28 CODE >2764:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19B8 text28 CODE >2765:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19BC text28 CODE >2768:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19DC text28 CODE >2749:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12DA text27 CODE >1454:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12DE text27 CODE >1456:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12E4 text27 CODE >1457:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12EA text27 CODE >1459:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12EC text27 CODE >1463:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12F4 text27 CODE >1467:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-12FC text27 CODE >1471:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1304 text27 CODE >1475:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-130C text27 CODE >1479:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1314 text27 CODE >1483:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-131C text27 CODE >1487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1324 text27 CODE >1491:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-132C text27 CODE >1495:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1334 text27 CODE >1499:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-133C text27 CODE >1503:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1344 text27 CODE >1507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-134C text27 CODE >1511:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1354 text27 CODE >1515:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-135C text27 CODE >1519:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1364 text27 CODE >1523:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-136C text27 CODE >1526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-136E text27 CODE >1459:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-13E8 text27 CODE >1526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-13E8 text27 CODE >1529:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-13EE text27 CODE >1533:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-13FC text27 CODE >1534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1408 text27 CODE >1537:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-142E text27 CODE >1538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-144E text27 CODE >1534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1452 text27 CODE >1542:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1460 text27 CODE >1543:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-146C text27 CODE >1546:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-149C text27 CODE >1548:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-14BC text27 CODE >1543:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-14C0 text27 CODE >1553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-14CE text27 CODE >1554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-14DA text27 CODE >1557:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-150A text27 CODE >1558:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-152A text27 CODE >1554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-152E text27 CODE >1561:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1534 text27 CODE >1565:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1542 text27 CODE >1566:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-154E text27 CODE >1569:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1574 text27 CODE >1570:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1578 text27 CODE >1572:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-157C text27 CODE >1573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1582 text27 CODE >1575:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15A2 text27 CODE >1566:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15A6 text27 CODE >1579:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15B4 text27 CODE >1580:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15C0 text27 CODE >1583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15F0 text27 CODE >1584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15F4 text27 CODE >1586:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-15F8 text27 CODE >1588:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1618 text27 CODE >1580:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-161C text27 CODE >1592:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-162A text27 CODE >1593:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1636 text27 CODE >1596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1666 text27 CODE >1597:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-166A text27 CODE >1599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1670 text27 CODE >1602:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1690 text27 CODE >1593:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+479A text32 CODE >1929:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+479A text32 CODE >1932:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47A0 text32 CODE >1933:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47A6 text32 CODE >1934:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47A8 text32 CODE >1940:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47B2 text32 CODE >1941:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47BE text32 CODE >1944:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47D4 text32 CODE >1946:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47F4 text32 CODE >1941:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+47F8 text32 CODE >1950:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4802 text32 CODE >1951:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+480E text32 CODE >1953:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+482C text32 CODE >1955:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+484C text32 CODE >1951:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4850 text32 CODE >1964:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+485A text32 CODE >1965:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4866 text32 CODE >1968:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+487C text32 CODE >1969:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4880 text32 CODE >1971:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4884 text32 CODE >1974:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48A4 text32 CODE >1965:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48A8 text32 CODE >1978:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48B2 text32 CODE >1979:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48BE text32 CODE >1981:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48DC text32 CODE >1982:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48E0 text32 CODE >1984:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+48E4 text32 CODE >1986:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4904 text32 CODE >1979:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4908 text32 CODE >1934:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+461A text31 CODE >2079:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+461A text31 CODE >2082:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4620 text31 CODE >2083:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4626 text31 CODE >2084:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4628 text31 CODE >2090:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4632 text31 CODE >2091:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+463E text31 CODE >2094:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4654 text31 CODE >2095:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4674 text31 CODE >2091:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4678 text31 CODE >2099:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4682 text31 CODE >2100:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+468E text31 CODE >2102:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+46AC text31 CODE >2103:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+46CC text31 CODE >2100:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+46D0 text31 CODE >2112:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+46DA text31 CODE >2113:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+46E6 text31 CODE >2116:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+46FC text31 CODE >2117:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4700 text31 CODE >2121:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4704 text31 CODE >2124:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4724 text31 CODE >2113:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4728 text31 CODE >2128:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4732 text31 CODE >2129:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+473E text31 CODE >2131:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+475C text31 CODE >2132:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4760 text31 CODE >2133:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4764 text31 CODE >2135:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4784 text31 CODE >2129:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4788 text31 CODE >2084:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+449A text30 CODE >2005:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+449A text30 CODE >2008:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44A0 text30 CODE >2009:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44A6 text30 CODE >2010:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44A8 text30 CODE >2016:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44B2 text30 CODE >2017:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44BE text30 CODE >2020:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44D4 text30 CODE >2021:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44F4 text30 CODE >2017:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+44F8 text30 CODE >2025:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4502 text30 CODE >2026:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+450E text30 CODE >2028:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+452C text30 CODE >2029:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+454C text30 CODE >2026:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4550 text30 CODE >2038:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+455A text30 CODE >2039:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4566 text30 CODE >2042:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+457C text30 CODE >2043:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4580 text30 CODE >2044:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4584 text30 CODE >2046:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45A4 text30 CODE >2039:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45A8 text30 CODE >2050:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45B2 text30 CODE >2051:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45BE text30 CODE >2053:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45DC text30 CODE >2054:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45E0 text30 CODE >2056:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45E4 text30 CODE >2060:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4604 text30 CODE >2051:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4608 text30 CODE >2010:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3BF4 text29 CODE >2371:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3BF4 text29 CODE >2374:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3BFA text29 CODE >2375:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C00 text29 CODE >2376:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C02 text29 CODE >2382:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C0C text29 CODE >2383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C18 text29 CODE >2386:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C2E text29 CODE >2388:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C4E text29 CODE >2383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C52 text29 CODE >2392:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C5C text29 CODE >2393:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C68 text29 CODE >2395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3C86 text29 CODE >2397:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CA6 text29 CODE >2393:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CAA text29 CODE >2406:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CB4 text29 CODE >2407:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CC0 text29 CODE >2410:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CD6 text29 CODE >2411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CDA text29 CODE >2413:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CE8 text29 CODE >2415:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CEC text29 CODE >2416:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CF4 text29 CODE >2417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CFA text29 CODE >2419:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CFC text29 CODE >2420:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D0A text29 CODE >2422:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D0E text29 CODE >2423:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D16 text29 CODE >2424:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D1A text29 CODE >2425:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D1C text29 CODE >2429:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D20 text29 CODE >2430:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D28 text29 CODE >2434:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D48 text29 CODE >2407:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D4C text29 CODE >2438:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D56 text29 CODE >2439:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D62 text29 CODE >2441:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D80 text29 CODE >2442:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D84 text29 CODE >2443:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D92 text29 CODE >2445:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D96 text29 CODE >2446:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D9E text29 CODE >2447:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DA4 text29 CODE >2448:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DA6 text29 CODE >2449:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DB4 text29 CODE >2452:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DB8 text29 CODE >2453:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DC0 text29 CODE >2454:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DC4 text29 CODE >2456:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DC6 text29 CODE >2460:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DCA text29 CODE >2461:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DD2 text29 CODE >2464:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DF2 text29 CODE >2439:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DF6 text29 CODE >2376:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1694 text28 CODE >2680:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1698 text28 CODE >2682:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+169E text28 CODE >2683:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16A4 text28 CODE >2685:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16A6 text28 CODE >2688:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16AE text28 CODE >2692:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16B6 text28 CODE >2696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16BE text28 CODE >2700:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16C6 text28 CODE >2703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16C8 text28 CODE >2685:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16E4 text28 CODE >2705:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16EE text28 CODE >2708:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16F8 text28 CODE >2709:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1704 text28 CODE >2711:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+172A text28 CODE >2712:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+174A text28 CODE >2709:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+174E text28 CODE >2716:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1758 text28 CODE >2717:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1764 text28 CODE >2719:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1794 text28 CODE >2721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+17B4 text28 CODE >2717:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+17B8 text28 CODE >2725:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+17C2 text28 CODE >2726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+17CE text28 CODE >2728:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+17FE text28 CODE >2730:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+181E text28 CODE >2726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1822 text28 CODE >2733:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+182C text28 CODE >2737:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1836 text28 CODE >2738:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1842 text28 CODE >2740:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1868 text28 CODE >2741:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1876 text28 CODE >2743:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+187A text28 CODE >2745:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1888 text28 CODE >2747:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+188E text28 CODE >2748:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1890 text28 CODE >2752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1894 text28 CODE >2753:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+189A text28 CODE >2756:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+18BA text28 CODE >2738:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+18BE text28 CODE >2760:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+18C8 text28 CODE >2761:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+18D4 text28 CODE >2763:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1904 text28 CODE >2765:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1912 text28 CODE >2767:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1916 text28 CODE >2768:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1918 text28 CODE >2771:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+191C text28 CODE >2774:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+193C text28 CODE >2761:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1940 text28 CODE >2778:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+194A text28 CODE >2779:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1956 text28 CODE >2781:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1986 text28 CODE >2782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1994 text28 CODE >2784:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1998 text28 CODE >2786:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19A6 text28 CODE >2788:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19AC text28 CODE >2789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19AE text28 CODE >2793:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19B2 text28 CODE >2794:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19B8 text28 CODE >2795:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19BC text28 CODE >2798:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19DC text28 CODE >2779:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12DA text27 CODE >1484:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12DE text27 CODE >1486:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12E4 text27 CODE >1487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12EA text27 CODE >1489:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12EC text27 CODE >1493:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12F4 text27 CODE >1497:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12FC text27 CODE >1501:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1304 text27 CODE >1505:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+130C text27 CODE >1509:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1314 text27 CODE >1513:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+131C text27 CODE >1517:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1324 text27 CODE >1521:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+132C text27 CODE >1525:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1334 text27 CODE >1529:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+133C text27 CODE >1533:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1344 text27 CODE >1537:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+134C text27 CODE >1541:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1354 text27 CODE >1545:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+135C text27 CODE >1549:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1364 text27 CODE >1553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+136C text27 CODE >1556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+136E text27 CODE >1489:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+13E8 text27 CODE >1556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+13E8 text27 CODE >1559:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+13EE text27 CODE >1563:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+13FC text27 CODE >1564:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1408 text27 CODE >1567:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+142E text27 CODE >1568:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+144E text27 CODE >1564:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1452 text27 CODE >1572:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1460 text27 CODE >1573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+146C text27 CODE >1576:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+149C text27 CODE >1578:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+14BC text27 CODE >1573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+14C0 text27 CODE >1583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+14CE text27 CODE >1584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+14DA text27 CODE >1587:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+150A text27 CODE >1588:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+152A text27 CODE >1584:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+152E text27 CODE >1591:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1534 text27 CODE >1595:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1542 text27 CODE >1596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+154E text27 CODE >1599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1574 text27 CODE >1600:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1578 text27 CODE >1602:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+157C text27 CODE >1603:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1582 text27 CODE >1605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15A2 text27 CODE >1596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15A6 text27 CODE >1609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15B4 text27 CODE >1610:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15C0 text27 CODE >1613:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15F0 text27 CODE >1614:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15F4 text27 CODE >1616:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+15F8 text27 CODE >1618:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1618 text27 CODE >1610:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+161C text27 CODE >1622:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+162A text27 CODE >1623:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1636 text27 CODE >1626:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1666 text27 CODE >1627:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+166A text27 CODE >1629:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1670 text27 CODE >1632:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1690 text27 CODE >1623:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2048 text26 CODE >58:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 204C text26 CODE >60:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 204E text26 CODE >63:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
@@ -1570,35 +1570,35 @@ A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2316 text26 CODE >264:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 231A text26 CODE >276:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 231C text26 CODE >60:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
-431A text25 CODE >1747:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-431A text25 CODE >1750:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4320 text25 CODE >1751:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4326 text25 CODE >1752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4328 text25 CODE >1758:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4332 text25 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-433E text25 CODE >1762:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4354 text25 CODE >1764:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4374 text25 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4378 text25 CODE >1768:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4382 text25 CODE >1769:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-438E text25 CODE >1771:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43AC text25 CODE >1773:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43CC text25 CODE >1769:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43D0 text25 CODE >1782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43DA text25 CODE >1783:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43E6 text25 CODE >1786:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43FC text25 CODE >1787:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4400 text25 CODE >1789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4404 text25 CODE >1792:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4424 text25 CODE >1783:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4428 text25 CODE >1796:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4432 text25 CODE >1797:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-443E text25 CODE >1799:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-445C text25 CODE >1800:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4460 text25 CODE >1802:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4464 text25 CODE >1805:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4484 text25 CODE >1797:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4488 text25 CODE >1752:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+431A text25 CODE >1777:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+431A text25 CODE >1780:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4320 text25 CODE >1781:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4326 text25 CODE >1782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4328 text25 CODE >1788:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4332 text25 CODE >1789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+433E text25 CODE >1792:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4354 text25 CODE >1794:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4374 text25 CODE >1789:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4378 text25 CODE >1798:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4382 text25 CODE >1799:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+438E text25 CODE >1801:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43AC text25 CODE >1803:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43CC text25 CODE >1799:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43D0 text25 CODE >1812:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43DA text25 CODE >1813:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43E6 text25 CODE >1816:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43FC text25 CODE >1817:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4400 text25 CODE >1819:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4404 text25 CODE >1822:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4424 text25 CODE >1813:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4428 text25 CODE >1826:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4432 text25 CODE >1827:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+443E text25 CODE >1829:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+445C text25 CODE >1830:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4460 text25 CODE >1832:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4464 text25 CODE >1835:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4484 text25 CODE >1827:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4488 text25 CODE >1782:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5334 text24 CODE >286:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 5338 text24 CODE >288:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 533A text24 CODE >292:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
@@ -1632,48 +1632,48 @@ A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 55D2 text23 CODE >309:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 55D6 text23 CODE >311:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 561A text23 CODE >314:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2DEC text22 CODE >1643:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2DEC text22 CODE >1646:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2DF2 text22 CODE >1647:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2DF8 text22 CODE >1650:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E04 text22 CODE >1653:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E10 text22 CODE >1655:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E18 text22 CODE >1657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E30 text22 CODE >1659:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E38 text22 CODE >1661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E50 text22 CODE >1663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E58 text22 CODE >1665:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E70 text22 CODE >1667:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E78 text22 CODE >1669:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E90 text22 CODE >1671:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E98 text22 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EA4 text22 CODE >1675:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EAC text22 CODE >1684:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EAE text22 CODE >1690:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EB8 text22 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EC4 text22 CODE >1694:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2EEA text22 CODE >1696:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F0A text22 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F0E text22 CODE >1700:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F18 text22 CODE >1701:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F24 text22 CODE >1703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F54 text22 CODE >1705:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F74 text22 CODE >1701:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F78 text22 CODE >1714:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F82 text22 CODE >1715:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2F8E text22 CODE >1718:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FB4 text22 CODE >1719:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FB8 text22 CODE >1721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FBC text22 CODE >1724:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FDC text22 CODE >1715:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FE0 text22 CODE >1728:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FEA text22 CODE >1729:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FF6 text22 CODE >1731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3026 text22 CODE >1732:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-302A text22 CODE >1734:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-302E text22 CODE >1737:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-304E text22 CODE >1729:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3052 text22 CODE >1684:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2DEC text22 CODE >1673:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2DEC text22 CODE >1676:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2DF2 text22 CODE >1677:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2DF8 text22 CODE >1680:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E04 text22 CODE >1683:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E10 text22 CODE >1685:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E18 text22 CODE >1687:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E30 text22 CODE >1689:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E38 text22 CODE >1691:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E50 text22 CODE >1693:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E58 text22 CODE >1695:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E70 text22 CODE >1697:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E78 text22 CODE >1699:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E90 text22 CODE >1701:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E98 text22 CODE >1703:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EA4 text22 CODE >1705:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EAC text22 CODE >1714:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EAE text22 CODE >1720:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EB8 text22 CODE >1721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EC4 text22 CODE >1724:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2EEA text22 CODE >1726:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F0A text22 CODE >1721:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F0E text22 CODE >1730:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F18 text22 CODE >1731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F24 text22 CODE >1733:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F54 text22 CODE >1735:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F74 text22 CODE >1731:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F78 text22 CODE >1744:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F82 text22 CODE >1745:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2F8E text22 CODE >1748:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FB4 text22 CODE >1749:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FB8 text22 CODE >1751:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FBC text22 CODE >1754:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FDC text22 CODE >1745:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FE0 text22 CODE >1758:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FEA text22 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FF6 text22 CODE >1761:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3026 text22 CODE >1762:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+302A text22 CODE >1764:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+302E text22 CODE >1767:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+304E text22 CODE >1759:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3052 text22 CODE >1714:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 527E text21 CODE >359:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 5282 text21 CODE >362:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 5284 text21 CODE >367:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
@@ -1695,113 +1695,113 @@ A08 text74 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 531A text21 CODE >415:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 531E text21 CODE >426:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 5320 text21 CODE >362:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
-12 text20 CODE >2453:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16 text20 CODE >2455:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C text20 CODE >2456:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-22 text20 CODE >2458:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2A text20 CODE >2460:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-34 text20 CODE >2462:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3E text20 CODE >2463:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A text20 CODE >2465:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-60 text20 CODE >2466:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-80 text20 CODE >2463:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-84 text20 CODE >2469:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-8E text20 CODE >2470:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-9A text20 CODE >2472:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B8 text20 CODE >2473:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D8 text20 CODE >2470:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DC text20 CODE >2476:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E6 text20 CODE >2477:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-F2 text20 CODE >2479:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-110 text20 CODE >2480:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-130 text20 CODE >2477:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-134 text20 CODE >2483:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-13E text20 CODE >2486:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-148 text20 CODE >2487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-154 text20 CODE >2489:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-16A text20 CODE >2490:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-178 text20 CODE >2492:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-17C text20 CODE >2494:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-18A text20 CODE >2496:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-190 text20 CODE >2497:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-192 text20 CODE >2501:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-196 text20 CODE >2502:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-19C text20 CODE >2504:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1BC text20 CODE >2487:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1C0 text20 CODE >2507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1CA text20 CODE >2508:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1D6 text20 CODE >2510:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-1F4 text20 CODE >2512:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-202 text20 CODE >2514:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-206 text20 CODE >2515:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-208 text20 CODE >2518:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-20C text20 CODE >2520:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-22C text20 CODE >2508:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-230 text20 CODE >2523:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-23A text20 CODE >2524:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-246 text20 CODE >2526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-264 text20 CODE >2527:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-272 text20 CODE >2529:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-276 text20 CODE >2531:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-284 text20 CODE >2533:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-28A text20 CODE >2534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-28C text20 CODE >2538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-290 text20 CODE >2539:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-296 text20 CODE >2540:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-29A text20 CODE >2542:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2BA text20 CODE >2524:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2BE text20 CODE >2547:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2C8 text20 CODE >2549:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2D2 text20 CODE >2552:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2DC text20 CODE >2553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2E8 text20 CODE >2555:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-2FE text20 CODE >2556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-31E text20 CODE >2553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-322 text20 CODE >2559:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-32C text20 CODE >2560:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-338 text20 CODE >2562:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-356 text20 CODE >2563:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-376 text20 CODE >2560:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-37A text20 CODE >2566:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-384 text20 CODE >2567:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-390 text20 CODE >2569:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3AE text20 CODE >2570:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3CE text20 CODE >2567:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3D2 text20 CODE >2573:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3DC text20 CODE >2575:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3E6 text20 CODE >2576:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-3F2 text20 CODE >2578:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-408 text20 CODE >2579:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-416 text20 CODE >2581:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41A text20 CODE >2583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-428 text20 CODE >2585:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42E text20 CODE >2586:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-430 text20 CODE >2590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-434 text20 CODE >2591:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-43A text20 CODE >2594:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45A text20 CODE >2576:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-45E text20 CODE >2598:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-468 text20 CODE >2599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-474 text20 CODE >2601:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-492 text20 CODE >2603:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A0 text20 CODE >2605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A4 text20 CODE >2606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4A6 text20 CODE >2609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4AA text20 CODE >2612:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CA text20 CODE >2599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4CE text20 CODE >2616:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4D8 text20 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4E4 text20 CODE >2619:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-502 text20 CODE >2620:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-510 text20 CODE >2622:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-514 text20 CODE >2624:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-522 text20 CODE >2626:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-528 text20 CODE >2627:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-52A text20 CODE >2631:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-52E text20 CODE >2632:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-534 text20 CODE >2633:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-538 text20 CODE >2636:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-558 text20 CODE >2617:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+12 text20 CODE >2483:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16 text20 CODE >2485:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C text20 CODE >2486:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+22 text20 CODE >2488:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2A text20 CODE >2490:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+34 text20 CODE >2492:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3E text20 CODE >2493:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A text20 CODE >2495:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+60 text20 CODE >2496:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+80 text20 CODE >2493:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+84 text20 CODE >2499:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+8E text20 CODE >2500:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+9A text20 CODE >2502:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B8 text20 CODE >2503:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D8 text20 CODE >2500:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DC text20 CODE >2506:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E6 text20 CODE >2507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+F2 text20 CODE >2509:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+110 text20 CODE >2510:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+130 text20 CODE >2507:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+134 text20 CODE >2513:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+13E text20 CODE >2516:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+148 text20 CODE >2517:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+154 text20 CODE >2519:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+16A text20 CODE >2520:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+178 text20 CODE >2522:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+17C text20 CODE >2524:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+18A text20 CODE >2526:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+190 text20 CODE >2527:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+192 text20 CODE >2531:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+196 text20 CODE >2532:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+19C text20 CODE >2534:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1BC text20 CODE >2517:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1C0 text20 CODE >2537:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1CA text20 CODE >2538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1D6 text20 CODE >2540:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+1F4 text20 CODE >2542:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+202 text20 CODE >2544:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+206 text20 CODE >2545:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+208 text20 CODE >2548:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+20C text20 CODE >2550:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+22C text20 CODE >2538:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+230 text20 CODE >2553:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+23A text20 CODE >2554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+246 text20 CODE >2556:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+264 text20 CODE >2557:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+272 text20 CODE >2559:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+276 text20 CODE >2561:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+284 text20 CODE >2563:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+28A text20 CODE >2564:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+28C text20 CODE >2568:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+290 text20 CODE >2569:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+296 text20 CODE >2570:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+29A text20 CODE >2572:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2BA text20 CODE >2554:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2BE text20 CODE >2577:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2C8 text20 CODE >2579:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2D2 text20 CODE >2582:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2DC text20 CODE >2583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2E8 text20 CODE >2585:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+2FE text20 CODE >2586:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+31E text20 CODE >2583:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+322 text20 CODE >2589:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+32C text20 CODE >2590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+338 text20 CODE >2592:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+356 text20 CODE >2593:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+376 text20 CODE >2590:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+37A text20 CODE >2596:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+384 text20 CODE >2597:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+390 text20 CODE >2599:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3AE text20 CODE >2600:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3CE text20 CODE >2597:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3D2 text20 CODE >2603:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3DC text20 CODE >2605:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3E6 text20 CODE >2606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+3F2 text20 CODE >2608:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+408 text20 CODE >2609:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+416 text20 CODE >2611:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41A text20 CODE >2613:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+428 text20 CODE >2615:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42E text20 CODE >2616:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+430 text20 CODE >2620:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+434 text20 CODE >2621:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+43A text20 CODE >2624:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45A text20 CODE >2606:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+45E text20 CODE >2628:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+468 text20 CODE >2629:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+474 text20 CODE >2631:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+492 text20 CODE >2633:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A0 text20 CODE >2635:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A4 text20 CODE >2636:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4A6 text20 CODE >2639:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4AA text20 CODE >2642:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CA text20 CODE >2629:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4CE text20 CODE >2646:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4D8 text20 CODE >2647:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4E4 text20 CODE >2649:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+502 text20 CODE >2650:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+510 text20 CODE >2652:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+514 text20 CODE >2654:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+522 text20 CODE >2656:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+528 text20 CODE >2657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+52A text20 CODE >2661:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+52E text20 CODE >2662:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+534 text20 CODE >2663:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+538 text20 CODE >2666:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+558 text20 CODE >2647:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 3064 text19 CODE >433:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 3068 text19 CODE >436:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 306A text19 CODE >441:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
@@ -2118,118 +2118,118 @@ FFA text16 CODE >1006:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 58FC text14 CODE >1434:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 5904 text14 CODE >1435:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 590C text14 CODE >1436:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
-419A text13 CODE >1825:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-419A text13 CODE >1828:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41A0 text13 CODE >1829:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41A6 text13 CODE >1830:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41A8 text13 CODE >1836:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41B2 text13 CODE >1837:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41BE text13 CODE >1840:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41D4 text13 CODE >1842:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41F4 text13 CODE >1837:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-41F8 text13 CODE >1846:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4202 text13 CODE >1847:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-420E text13 CODE >1849:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-422C text13 CODE >1851:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-424C text13 CODE >1847:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4250 text13 CODE >1860:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-425A text13 CODE >1861:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4266 text13 CODE >1864:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-427C text13 CODE >1865:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4280 text13 CODE >1867:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4284 text13 CODE >1870:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42A4 text13 CODE >1861:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42A8 text13 CODE >1874:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42B2 text13 CODE >1875:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42BE text13 CODE >1877:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42DC text13 CODE >1878:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42E0 text13 CODE >1880:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-42E4 text13 CODE >1883:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4304 text13 CODE >1875:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-4308 text13 CODE >1830:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A0C text12 CODE >1309:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A10 text12 CODE >1311:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A16 text12 CODE >1312:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A1C text12 CODE >1313:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A24 text12 CODE >1315:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A2E text12 CODE >1317:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A38 text12 CODE >1318:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A44 text12 CODE >1320:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A5A text12 CODE >1321:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A7A text12 CODE >1318:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A7E text12 CODE >1324:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A88 text12 CODE >1325:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-A94 text12 CODE >1327:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-AB2 text12 CODE >1328:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-AD2 text12 CODE >1325:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-AD6 text12 CODE >1331:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-AE0 text12 CODE >1332:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-AEC text12 CODE >1334:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B0A text12 CODE >1335:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B2A text12 CODE >1332:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B2E text12 CODE >1338:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B38 text12 CODE >1341:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B42 text12 CODE >1342:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B4E text12 CODE >1344:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B64 text12 CODE >1345:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B68 text12 CODE >1347:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B6C text12 CODE >1348:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B72 text12 CODE >1350:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B92 text12 CODE >1342:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-B96 text12 CODE >1353:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BA0 text12 CODE >1354:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BAC text12 CODE >1356:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BCA text12 CODE >1357:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BCE text12 CODE >1359:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BD2 text12 CODE >1361:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BF2 text12 CODE >1354:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-BF6 text12 CODE >1364:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C00 text12 CODE >1365:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C0C text12 CODE >1367:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C2A text12 CODE >1368:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C2E text12 CODE >1369:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C34 text12 CODE >1370:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C54 text12 CODE >1365:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C58 text12 CODE >1375:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C62 text12 CODE >1378:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C6C text12 CODE >1380:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C76 text12 CODE >1381:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C82 text12 CODE >1383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-C98 text12 CODE >1384:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-CB8 text12 CODE >1381:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-CBC text12 CODE >1387:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-CC6 text12 CODE >1388:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-CD2 text12 CODE >1390:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-CF0 text12 CODE >1391:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D10 text12 CODE >1388:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D14 text12 CODE >1394:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D1E text12 CODE >1395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D2A text12 CODE >1397:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D48 text12 CODE >1398:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D68 text12 CODE >1395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D6C text12 CODE >1401:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D76 text12 CODE >1404:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D80 text12 CODE >1405:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-D8C text12 CODE >1407:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DA2 text12 CODE >1408:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DA6 text12 CODE >1410:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DAA text12 CODE >1411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DB0 text12 CODE >1413:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DD0 text12 CODE >1405:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DD4 text12 CODE >1416:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DDE text12 CODE >1417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-DEA text12 CODE >1419:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E08 text12 CODE >1420:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E0C text12 CODE >1422:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E10 text12 CODE >1424:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E30 text12 CODE >1417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E34 text12 CODE >1427:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E3E text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E4A text12 CODE >1430:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E68 text12 CODE >1431:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E6C text12 CODE >1432:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E72 text12 CODE >1435:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-E92 text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+419A text13 CODE >1855:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+419A text13 CODE >1858:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41A0 text13 CODE >1859:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41A6 text13 CODE >1860:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41A8 text13 CODE >1866:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41B2 text13 CODE >1867:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41BE text13 CODE >1870:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41D4 text13 CODE >1872:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41F4 text13 CODE >1867:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+41F8 text13 CODE >1876:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4202 text13 CODE >1877:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+420E text13 CODE >1879:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+422C text13 CODE >1881:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+424C text13 CODE >1877:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4250 text13 CODE >1890:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+425A text13 CODE >1891:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4266 text13 CODE >1894:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+427C text13 CODE >1895:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4280 text13 CODE >1897:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4284 text13 CODE >1900:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42A4 text13 CODE >1891:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42A8 text13 CODE >1904:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42B2 text13 CODE >1905:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42BE text13 CODE >1907:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42DC text13 CODE >1908:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42E0 text13 CODE >1910:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+42E4 text13 CODE >1913:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4304 text13 CODE >1905:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+4308 text13 CODE >1860:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A0C text12 CODE >1339:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A10 text12 CODE >1341:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A16 text12 CODE >1342:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A1C text12 CODE >1343:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A24 text12 CODE >1345:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A2E text12 CODE >1347:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A38 text12 CODE >1348:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A44 text12 CODE >1350:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A5A text12 CODE >1351:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A7A text12 CODE >1348:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A7E text12 CODE >1354:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A88 text12 CODE >1355:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+A94 text12 CODE >1357:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+AB2 text12 CODE >1358:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+AD2 text12 CODE >1355:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+AD6 text12 CODE >1361:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+AE0 text12 CODE >1362:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+AEC text12 CODE >1364:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B0A text12 CODE >1365:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B2A text12 CODE >1362:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B2E text12 CODE >1368:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B38 text12 CODE >1371:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B42 text12 CODE >1372:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B4E text12 CODE >1374:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B64 text12 CODE >1375:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B68 text12 CODE >1377:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B6C text12 CODE >1378:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B72 text12 CODE >1380:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B92 text12 CODE >1372:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+B96 text12 CODE >1383:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BA0 text12 CODE >1384:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BAC text12 CODE >1386:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BCA text12 CODE >1387:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BCE text12 CODE >1389:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BD2 text12 CODE >1391:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BF2 text12 CODE >1384:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+BF6 text12 CODE >1394:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C00 text12 CODE >1395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C0C text12 CODE >1397:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C2A text12 CODE >1398:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C2E text12 CODE >1399:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C34 text12 CODE >1400:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C54 text12 CODE >1395:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C58 text12 CODE >1405:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C62 text12 CODE >1408:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C6C text12 CODE >1410:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C76 text12 CODE >1411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C82 text12 CODE >1413:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+C98 text12 CODE >1414:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+CB8 text12 CODE >1411:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+CBC text12 CODE >1417:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+CC6 text12 CODE >1418:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+CD2 text12 CODE >1420:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+CF0 text12 CODE >1421:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D10 text12 CODE >1418:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D14 text12 CODE >1424:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D1E text12 CODE >1425:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D2A text12 CODE >1427:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D48 text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D68 text12 CODE >1425:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D6C text12 CODE >1431:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D76 text12 CODE >1434:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D80 text12 CODE >1435:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+D8C text12 CODE >1437:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DA2 text12 CODE >1438:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DA6 text12 CODE >1440:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DAA text12 CODE >1441:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DB0 text12 CODE >1443:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DD0 text12 CODE >1435:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DD4 text12 CODE >1446:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DDE text12 CODE >1447:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+DEA text12 CODE >1449:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E08 text12 CODE >1450:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E0C text12 CODE >1452:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E10 text12 CODE >1454:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E30 text12 CODE >1447:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E34 text12 CODE >1457:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E3E text12 CODE >1458:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E4A text12 CODE >1460:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E68 text12 CODE >1461:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E6C text12 CODE >1462:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E72 text12 CODE >1465:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+E92 text12 CODE >1458:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 1D24 text11 CODE >1548:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 1D24 text11 CODE >1564:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 1D2E text11 CODE >1566:E:\myWorkSpace\injector\EME_HA_GUN/gui.c
@@ -2432,10 +2432,10 @@ E92 text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 550C text7 CODE >855:E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
 550E text7 CODE >867:E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
 5512 text7 CODE >872:E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
-5E0C text6 CODE >1627:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5E0C text6 CODE >1630:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5E14 text6 CODE >1632:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-5E26 text6 CODE >1634:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5E0C text6 CODE >1657:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5E0C text6 CODE >1660:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5E14 text6 CODE >1662:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+5E26 text6 CODE >1664:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 2B6E text5 CODE >263:E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
 2B6E text5 CODE >265:E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
 2B78 text5 CODE >280:E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
@@ -2709,66 +2709,66 @@ E92 text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 5482 text0 CODE >158:E:\myWorkSpace\injector\EME_HA_GUN/Main.c
 5486 text0 CODE >159:E:\myWorkSpace\injector\EME_HA_GUN/Main.c
 548A text0 CODE >108:E:\myWorkSpace\injector\EME_HA_GUN/Main.c
-56A2 cinit CODE >6236:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56A2 cinit CODE >6238:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56A2 cinit CODE >6241:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56A2 cinit CODE >6538:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56A4 cinit CODE >6539:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56A6 cinit CODE >6540:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56A8 cinit CODE >6541:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56AA cinit CODE >6542:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56AC cinit CODE >6543:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56AE cinit CODE >6544:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56B2 cinit CODE >6545:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56B6 cinit CODE >6546:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56B6 cinit CODE >6547:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56B8 cinit CODE >6548:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56BC cinit CODE >6549:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56BE cinit CODE >6550:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56C0 cinit CODE >6551:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56C2 cinit CODE >6555:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56C6 cinit CODE >6556:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56CA cinit CODE >6557:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56CA cinit CODE >6558:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56CC cinit CODE >6559:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56CE cinit CODE >6560:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56D0 cinit CODE >6561:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56D2 cinit CODE >6562:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56D4 cinit CODE >6563:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56D6 cinit CODE >6566:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56DA cinit CODE >6567:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56DE cinit CODE >6568:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56DE cinit CODE >6569:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56E0 cinit CODE >6570:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56E2 cinit CODE >6571:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56E4 cinit CODE >6572:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56E6 cinit CODE >6573:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56E8 cinit CODE >6574:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56EA cinit CODE >6577:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56EE cinit CODE >6578:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56F0 cinit CODE >6579:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56F0 cinit CODE >6580:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56F2 cinit CODE >6581:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56F4 cinit CODE >6582:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56F6 cinit CODE >6585:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56FA cinit CODE >6586:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56FC cinit CODE >6587:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56FC cinit CODE >6588:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-56FE cinit CODE >6589:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5700 cinit CODE >6590:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5702 cinit CODE >6593:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5706 cinit CODE >6594:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5708 cinit CODE >6595:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5708 cinit CODE >6596:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-570A cinit CODE >6597:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-570C cinit CODE >6598:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-570E cinit CODE >6604:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-570E cinit CODE >6606:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5710 cinit CODE >6607:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5712 cinit CODE >6609:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5714 cinit CODE >6610:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5716 cinit CODE >6611:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
-5718 cinit CODE >6612:C:\Users\ADMINI~1\AppData\Local\Temp\scds.
+56A2 cinit CODE >6289:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56A2 cinit CODE >6291:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56A2 cinit CODE >6294:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56A2 cinit CODE >6591:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56A4 cinit CODE >6592:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56A6 cinit CODE >6593:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56A8 cinit CODE >6594:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56AA cinit CODE >6595:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56AC cinit CODE >6596:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56AE cinit CODE >6597:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56B2 cinit CODE >6598:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56B6 cinit CODE >6599:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56B6 cinit CODE >6600:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56B8 cinit CODE >6601:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56BC cinit CODE >6602:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56BE cinit CODE >6603:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56C0 cinit CODE >6604:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56C2 cinit CODE >6608:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56C6 cinit CODE >6609:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56CA cinit CODE >6610:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56CA cinit CODE >6611:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56CC cinit CODE >6612:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56CE cinit CODE >6613:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56D0 cinit CODE >6614:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56D2 cinit CODE >6615:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56D4 cinit CODE >6616:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56D6 cinit CODE >6619:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56DA cinit CODE >6620:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56DE cinit CODE >6621:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56DE cinit CODE >6622:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56E0 cinit CODE >6623:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56E2 cinit CODE >6624:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56E4 cinit CODE >6625:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56E6 cinit CODE >6626:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56E8 cinit CODE >6627:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56EA cinit CODE >6630:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56EE cinit CODE >6631:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56F0 cinit CODE >6632:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56F0 cinit CODE >6633:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56F2 cinit CODE >6634:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56F4 cinit CODE >6635:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56F6 cinit CODE >6638:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56FA cinit CODE >6639:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56FC cinit CODE >6640:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56FC cinit CODE >6641:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+56FE cinit CODE >6642:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5700 cinit CODE >6643:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5702 cinit CODE >6646:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5706 cinit CODE >6647:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5708 cinit CODE >6648:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5708 cinit CODE >6649:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+570A cinit CODE >6650:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+570C cinit CODE >6651:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+570E cinit CODE >6657:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+570E cinit CODE >6659:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5710 cinit CODE >6660:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5712 cinit CODE >6662:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5714 cinit CODE >6663:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5716 cinit CODE >6664:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
+5718 cinit CODE >6665:C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -2784,7 +2784,7 @@ E92 text12 CODE >1428:E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 __end_of_KEY_Init 5E4E 0 CODE 0 text50 dist/default/production\hgun.X.production.obj
 __end_of_KEY_Scan 51AA 0 CODE 0 text34 dist/default/production\hgun.X.production.obj
 ___lwmod@counter 149 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
-__Lmediumconst 7230 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+__Lmediumconst 7202 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __end_of_display_cmode 491A 0 CODE 0 text32 dist/default/production\hgun.X.production.obj
 __end_of_display_drops 461A 0 CODE 0 text30 dist/default/production\hgun.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\hgun.X.production.obj
@@ -2801,7 +2801,7 @@ _flag_action 26 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.o
 i2i2c_SendByte@_ucByte 33 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 __end_of_Initial_LY096BG30 5A60 0 CODE 0 text51 dist/default/production\hgun.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\hgun.X.production.obj
-__mediumconst 7230 0 MEDIUMCONST 0 mediumconst C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+__mediumconst 7202 0 MEDIUMCONST 0 mediumconst C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 _HG_device_init 5D3A 0 CODE 0 text42 dist/default/production\hgun.X.production.obj
 __end_of_drops_routine 2DEC 0 CODE 0 text5 dist/default/production\hgun.X.production.obj
 _enter_sleep 551A 0 CODE 0 text4 dist/default/production\hgun.X.production.obj
@@ -2836,7 +2836,7 @@ _T0IF 7F92 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _TMR0 FD6 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _TMR1 FCE 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _MotorDriveInit 5D68 0 CODE 0 text47 dist/default/production\hgun.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+___sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 _buzz 5E8A 0 CODE 0 text40 dist/default/production\hgun.X.production.obj
 _flag 1F 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 _flip 18 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
@@ -2848,7 +2848,7 @@ _ttte 1C 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 _tv_s 100 0 BANK1 1 bssBANK1 dist/default/production\hgun.X.production.obj
 btemp 62 0 COMRAM 1 temp dist/default/production\hgun.X.production.obj
 __size_ofi2_i2c_SendByte 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
-start E 0 CODE 0 init C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+start E 0 CODE 0 init C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 i2___lwdiv@quotient 37 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 __end_of_i2c_Stop 5F5C 0 CODE 0 text55 dist/default/production\hgun.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
@@ -2910,11 +2910,11 @@ display_num@y 14F 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.productio
 __end_ofi2_display_bat 39C0 0 CODE 0 text77 dist/default/production\hgun.X.production.obj
 __end_ofi2_display_mem 4BEE 0 CODE 0 text72 dist/default/production\hgun.X.production.obj
 __end_ofi2_display_num 1D24 0 CODE 0 text71 dist/default/production\hgun.X.production.obj
-__accesstop 80 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
-intlevel0 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
-intlevel1 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
-intlevel2 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
-intlevel3 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+__accesstop 80 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
+intlevel0 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
+intlevel1 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
+intlevel2 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
+intlevel3 0 0 CODE 0 text C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\hgun.X.production.obj
 _flag_mreset 61 0 COMRAM 1 dataCOMRAM dist/default/production\hgun.X.production.obj
 _menu0_MsgHandlle 2048 0 CODE 0 text26 dist/default/production\hgun.X.production.obj
@@ -2954,8 +2954,8 @@ _ADCON1 FC1 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _ADRESH FC4 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _ADRESL FC3 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __end_of_i2c_WaitAck 5DC0 0 CODE 0 text54 dist/default/production\hgun.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 _flag_do_reset_in_drops_mode 24 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\hgun.X.production.obj
 __end_ofi2_display_cmode 4D44 0 CODE 0 text76 dist/default/production\hgun.X.production.obj
@@ -3106,7 +3106,7 @@ i2ee_WriteBytes@_usAddress 37 0 COMRAM 1 cstackCOMRAM dist/default/production\hg
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\hgun.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\hgun.X.production.obj
 _check_bat_status 5E0C 0 CODE 0 text6 dist/default/production\hgun.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 __end_of_HG_interface 5916 0 CODE 0 text14 dist/default/production\hgun.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\hgun.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\hgun.X.production.obj
@@ -3119,7 +3119,7 @@ __end_of_enter_sleep 55A4 0 CODE 0 text4 dist/default/production\hgun.X.producti
 __end_of_BeepInit 5F8A 0 CODE 0 text60 dist/default/production\hgun.X.production.obj
 drops_routine@cnt_push 158 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 __end_ofi2_delaynus 5EDA 0 CODE 0 text79 dist/default/production\hgun.X.production.obj
-_ptnd_frame 72C1 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+_ptnd_frame 7293 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\hgun.X.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\hgun.X.production.obj
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\hgun.X.production.obj
@@ -3229,7 +3229,7 @@ _Timer1Init 5F34 0 CODE 0 text46 dist/default/production\hgun.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\hgun.X.production.obj
 _flag_mreset_hit_lp 2B 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 __size_of_menu1_MsgHandlle 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
-_ptna_frame 738A 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+_ptna_frame 735C 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 _bat00_m 7E76 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 _bat20_m 7E48 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 _bat40_m 7E1A 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
@@ -3257,7 +3257,7 @@ _flag_action_button 25 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.produ
 _TimerInit 5E6C 0 CODE 0 text45 dist/default/production\hgun.X.production.obj
 __Hramtop 600 0 RAM 0 ramtop dist/default/production\hgun.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\hgun.X.production.obj
-__end_of_ptnd_frame 7351 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+__end_of_ptnd_frame 7323 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production\hgun.X.production.obj
 ISR@tcnt 1B 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\hgun.X.production.obj
@@ -3484,10 +3484,10 @@ __Lfardata 0 0 FARRAM 0 fardata dist/default/production\hgun.X.production.obj
 __end_of_Timer1Init 5F42 0 CODE 0 text46 dist/default/production\hgun.X.production.obj
 _read_buf 300 0 BANK3 1 bssBANK3 dist/default/production\hgun.X.production.obj
 _tv_cnt 1E 0 COMRAM 1 bssCOMRAM dist/default/production\hgun.X.production.obj
-__end_of_ptna_frame 73C0 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+__end_of_ptna_frame 7392 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 update_focus@i 140 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
-stacklo 400 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+stackhi 5FF 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
+stacklo 400 0 ABS 0 - C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 __size_of_get_AD_vaule 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\hgun.X.production.obj
 menu0_MsgHandlle@key 151 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
@@ -3539,7 +3539,7 @@ __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\hgun.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\hgun.X.production.obj
 __size_of_printf 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _display_frame_abc 3BF4 0 CODE 0 text29 dist/default/production\hgun.X.production.obj
-_ptne_frame 7231 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+_ptne_frame 7203 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __end_of_get_AD_vaule 5624 0 CODE 0 text23 dist/default/production\hgun.X.production.obj
 __CFG_OSC$HS 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 ?i2_printf 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
@@ -3572,6 +3572,7 @@ __HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\hgun.X.production.obj
 __HbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\hgun.X.production.obj
 __HbssBANK3 0 0 ABS 0 bssBANK3 dist/default/production\hgun.X.production.obj
 i2c_SendByte@i 13F 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
+_bat_charge_m 7392 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __Lramtop 600 0 RAM 0 ramtop dist/default/production\hgun.X.production.obj
 i2display_frame_de@mode 40 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 i2display_frame_de@temp 43 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
@@ -3686,7 +3687,7 @@ __Ltext91 0 0 ABS 0 text91 dist/default/production\hgun.X.production.obj
 ?_get_AD_vaule 13E 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 __end_of_config_LCD 527E 0 CODE 0 text83 dist/default/production\hgun.X.production.obj
 _initial_para_setting 5C92 0 CODE 0 text2 dist/default/production\hgun.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\ADMINI~1\AppData\Local\Temp\scds.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\ADMINI~1\AppData\Local\Temp\s8sg.obj
 i2display_bat@mode 40 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 i2display_bat@temp 44 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 i2display_bat@tori 43 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
@@ -3758,12 +3759,12 @@ display_drops@mode 14B 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.prod
 display_drops@temp 14D 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 display_drops@tori 14C 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 _check_acting 548C 0 CODE 0 text7 dist/default/production\hgun.X.production.obj
-__end_of_n_blank_m 738A 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+__end_of_n_blank_m 735C 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\hgun.X.production.obj
 __end_of_display_frame_de 55C 0 CODE 0 text20 dist/default/production\hgun.X.production.obj
 __end_of_delaynus 5E6C 0 CODE 0 text39 dist/default/production\hgun.X.production.obj
 menu4_MsgHandlle@key 151 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
-__end_of_ptne_frame 72C1 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+__end_of_ptne_frame 7293 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 display_n_blank@x 14A 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 display_n_blank@y 14C 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
@@ -3777,7 +3778,7 @@ display_frame_abc@temp 14D 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.
 display_frame_abc@tori 14C 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 i2display_frame_fghi@x 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
 i2display_frame_fghi@y 44 0 COMRAM 1 cstackCOMRAM dist/default/production\hgun.X.production.obj
-__pmediumconst 7230 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+__pmediumconst 7202 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __size_of_i2c_SendByte 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __end_of_menu3_MsgHandlle 32D0 0 CODE 0 text19 dist/default/production\hgun.X.production.obj
 __size_ofi2_setYX_LCD 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
@@ -3793,7 +3794,7 @@ __pintcode 8 0 CODE 0 intcode dist/default/production\hgun.X.production.obj
 __end_of_setYX_LCD 5970 0 CODE 0 text33 dist/default/production\hgun.X.production.obj
 _menu4_MsgHandlle 3E08 0 CODE 0 text18 dist/default/production\hgun.X.production.obj
 printf@val 153 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
-_n_blank_m 7351 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
+_n_blank_m 7323 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __end_of_dpowers 74B0 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 __size_of_i2c_Stop 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __end_of_delay 5AF6 0 CODE 0 text59 dist/default/production\hgun.X.production.obj
@@ -3815,6 +3816,7 @@ _T0PS2 7EAA 0 ABS 0 - dist/default/production\hgun.X.production.obj
 _display_n_blank A0C 0 CODE 0 text12 dist/default/production\hgun.X.production.obj
 _TXREG FAD 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __end_of_putch 5F26 0 CODE 0 text36 dist/default/production\hgun.X.production.obj
+__end_of_bat_charge_m 73C0 0 MEDIUMCONST 0 mediumconst dist/default/production\hgun.X.production.obj
 menu5_MsgHandlle@key 151 0 BANK1 1 cstackBANK1 dist/default/production\hgun.X.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\hgun.X.production.obj
@@ -3922,5 +3924,5 @@ bssBANK2 1 200 200 100 1
 bssBANK3 1 300 300 100 1
 intcode 0 8 8 5F77 1
 bssCOMRAM 1 1 1 62 1
-mediumconst 0 7230 7230 DD0 1
+mediumconst 0 7202 7202 DFE 1
 config 0 300000 300000 E 1
