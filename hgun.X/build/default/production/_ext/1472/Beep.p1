@@ -3007,13 +3007,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 323: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 328: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 329: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 330: void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 332: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 333: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 334: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 337: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 340: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 342: void initial_ui_setting(void);
-[; ;Oled.h: 345: void check_bat_status(void);
+[; ;Oled.h: 345: void check_bat(void);
 [; ;Oled.h: 348: void delay_nms(uint32_t n);
 [; ;Oled.h: 349: void delay_ms(unsigned int ms);
 [; ;Oled.h: 350: void delay_pwm(uint32_t n);

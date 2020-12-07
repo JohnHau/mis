@@ -45,9 +45,8 @@ void __interrupt ISR(void)
 {
     uint8_t temp;
     static uint8_t tcnt=0;
-    static uint8_t cnt_action_btn =0;
-    static uint16_t tcnt_bat=0;
-
+    static uint8_t cnt_action_btn = 0;
+    static uint16_t tcnt_bat = 0;
 
 //===============================
 #if 1    
@@ -425,12 +424,13 @@ void __interrupt ISR(void)
     
         tcnt ++;
         tcnt_bat ++;
-        
-        if(tcnt_bat > (4*1000))
+
+        if(tcnt_bat > (125))
         {
-            hg_op.bat =1;
+            hg_op.bat_volume =1;
             tcnt_bat =0;
         }
+
         
         //if(tcnt > 500*1000UL)
         if(tcnt > 125)//4ms
@@ -511,7 +511,7 @@ void __interrupt ISR(void)
         
         if(ACTION_BUTTON  == 0)
         {
-          
+            
             //delaynus(50 * 1000);
             hg_op.acting_flag = 1;
             printf("act\n");

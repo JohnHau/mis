@@ -91,7 +91,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "23 ../gui.h
 [s S281 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat bat_vol in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
+[n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat_volume bat_charging in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
 "87
 [v _hg_op `S281 ~T0 @X0 0 e ]
 "7817 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
@@ -3037,13 +3037,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 323: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 328: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 329: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 330: void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 332: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 333: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 334: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 337: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 340: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 342: void initial_ui_setting(void);
-[; ;Oled.h: 345: void check_bat_status(void);
+[; ;Oled.h: 345: void check_bat(void);
 [; ;Oled.h: 348: void delay_nms(uint32_t n);
 [; ;Oled.h: 349: void delay_ms(unsigned int ms);
 [; ;Oled.h: 350: void delay_pwm(uint32_t n);
@@ -3067,8 +3068,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 29: uint8_t status_charging;
 [; ;gui.h: 30: uint8_t need_reset;
 [; ;gui.h: 31: uint8_t status_hit_lp;
-[; ;gui.h: 33: uint8_t bat;
-[; ;gui.h: 34: uint8_t bat_vol;
+[; ;gui.h: 33: uint8_t bat_volume;
+[; ;gui.h: 34: uint8_t bat_charging;
 [; ;gui.h: 36: uint8_t in_reset;
 [; ;gui.h: 37: uint16_t sat;
 [; ;gui.h: 38: uint16_t sbt;

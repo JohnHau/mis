@@ -4042,7 +4042,7 @@ void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 
 void display_mem(uint8_t y,uint8_t x,uint8_t mode);
 void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-
+void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode);
 
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
@@ -4057,7 +4057,7 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 void initial_ui_setting(void);
 
 
-void check_bat_status(void);
+void check_bat(void);
 
 
 void delay_nms(uint32_t n);
@@ -4138,8 +4138,8 @@ uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
 
-uint8_t bat;
-uint8_t bat_vol;
+uint8_t bat_volume;
+uint8_t bat_charging;
 
 uint8_t in_reset;
 uint16_t sat;
@@ -4266,10 +4266,10 @@ void __interrupt ISR(void)
 {
 uint8_t temp;
 static uint8_t tcnt=0;
-static uint8_t cnt_action_btn =0;
-static uint16_t tcnt_bat=0;
+static uint8_t cnt_action_btn = 0;
+static uint16_t tcnt_bat = 0;
 
-# 57
+# 56
 if(INTCON3bits.INT2IF)
 {
 INTCON3bits.INT2IF = 0;
@@ -4298,7 +4298,7 @@ if(1)
 if(hg_op.in_reset == 1)
 {
 
-# 89
+# 88
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
@@ -4345,7 +4345,7 @@ if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
 
 }
 
-# 171
+# 170
 }
 }
 else
@@ -4355,7 +4355,7 @@ if(hg_op.working_mode == 0x01)
 if(hg_op.drops_sa == 1)
 {
 
-# 205
+# 204
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
@@ -4390,18 +4390,18 @@ hg_op.cnt_posa ++;
 
 }
 
-# 247
+# 246
 if(0)
 {
 
-# 263
+# 262
 }
 
 }
 else if(hg_op.drops_sb == 1)
 {
 
-# 301
+# 300
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
@@ -4437,11 +4437,11 @@ hg_op.cnt_pos_1mm ++;
 
 }
 
-# 344
+# 343
 if(0)
 {
 
-# 360
+# 359
 }
 
 
@@ -4482,21 +4482,22 @@ else
 
 }
 
-# 405
+# 404
 }
 
-# 423
+# 422
 if(T0IF)
 {
 
 tcnt ++;
 tcnt_bat ++;
 
-if(tcnt_bat > (4*1000))
+if(tcnt_bat > (125))
 {
-hg_op.bat =1;
+hg_op.bat_volume =1;
 tcnt_bat =0;
 }
+
 
 
 if(tcnt > 125)

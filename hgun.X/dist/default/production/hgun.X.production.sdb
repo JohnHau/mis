@@ -107,46 +107,48 @@
 "601
 [v _setYX_LCD setYX_LCD `(uc  1 e 1 0 ]
 [v i2_setYX_LCD setYX_LCD `(uc  1 e 1 0 ]
-"1339
+"1345
 [v _display_n_blank display_n_blank `(uc  1 e 1 0 ]
-"1484
+"1490
 [v _display_num display_num `(uc  1 e 1 0 ]
 [v i2_display_num display_num `(uc  1 e 1 0 ]
-"1657
-[v _check_bat_status check_bat_status `(v  1 e 1 0 ]
-"1673
+"1663
+[v _check_bat check_bat `(v  1 e 1 0 ]
+"1694
+[v _display_bat_blank display_bat_blank `(v  1 e 1 0 ]
+"1772
 [v _display_bat display_bat `(v  1 e 1 0 ]
 [v i2_display_bat display_bat `(v  1 e 1 0 ]
-"1777
+"1876
 [v _display_mem display_mem `(v  1 e 1 0 ]
 [v i2_display_mem display_mem `(v  1 e 1 0 ]
-"1855
+"1954
 [v _display_blank_mode_pa display_blank_mode_pa `(v  1 e 1 0 ]
-"1929
+"2028
 [v _display_cmode display_cmode `(v  1 e 1 0 ]
 [v i2_display_cmode display_cmode `(v  1 e 1 0 ]
-"2005
+"2104
 [v _display_drops display_drops `(v  1 e 1 0 ]
-"2079
+"2178
 [v _display_drop display_drop `(v  1 e 1 0 ]
-"2371
+"2470
 [v _display_frame_abc display_frame_abc `(uc  1 e 1 0 ]
 [v i2_display_frame_abc display_frame_abc `(uc  1 e 1 0 ]
-"2483
+"2582
 [v _display_frame_de display_frame_de `(uc  1 e 1 0 ]
 [v i2_display_frame_de display_frame_de `(uc  1 e 1 0 ]
-"2680
+"2779
 [v _display_frame_fghi display_frame_fghi `(uc  1 e 1 0 ]
 [v i2_display_frame_fghi display_frame_fghi `(uc  1 e 1 0 ]
-"3055
+"3154
 [v _display_logo display_logo `(v  1 e 1 0 ]
-"3077
+"3176
 [v _clear_screen clear_screen `(uc  1 e 1 0 ]
-"3097
+"3196
 [v _initial_ui_setting initial_ui_setting `(v  1 e 1 0 ]
-"3183
+"3282
 [v _config_LCD config_LCD `(v  1 e 1 0 ]
-"3223
+"3322
 [v _Initial_LY096BG30 Initial_LY096BG30 `(v  1 e 1 0 ]
 "44 E:\myWorkSpace\injector\EME_HA_GUN/Timer.c
 [v _ISR ISR `II(v  1 e 1 0 ]
@@ -200,10 +202,10 @@
 [v _test_mode test_mode `uc  1 e 1 0 ]
 "22
 [v _flag_blink flag_blink `uc  1 e 1 0 ]
-[s S2566 xmenu 8 `uc 1 menu_no 1 0 `uc 1 mode 1 1 `uc 1 cur_mode 1 2 `uc 1 frame 1 3 `uc 1 value 1 4 `c 1 parameter 1 5 `*.37(v 1 MsgHandlle 2 6 ]
+[s S2637 xmenu 8 `uc 1 menu_no 1 0 `uc 1 mode 1 1 `uc 1 cur_mode 1 2 `uc 1 frame 1 3 `uc 1 value 1 4 `c 1 parameter 1 5 `*.37(v 1 MsgHandlle 2 6 ]
 "26
-[v _menu menu `[8]S2566  1 e 64 0 ]
-[s S663 _hg_op 60 `uc 1 working_mode 1 0 `uc 1 cur_working_mode 1 1 `uc 1 working_op 1 2 `uc 1 status_powerup 1 3 `uc 1 status_charging 1 4 `uc 1 need_reset 1 5 `uc 1 status_hit_lp 1 6 `uc 1 bat 1 7 `uc 1 bat_vol 1 8 `uc 1 in_reset 1 9 `ui 1 sat 2 10 `ui 1 sbt 2 12 `ui 1 sa_old 2 14 `ui 1 sa_new 2 16 `ui 1 sb_old 2 18 `ui 1 sb_new 2 20 `uc 1 needle_len 1 22 `uc 1 inject_len 1 23 `uc 1 tube_cap 1 24 `ui 1 work_freq 2 25 `uc 1 push_len 1 27 `uc 1 acting_flag 1 28 `uc 1 drops_sa 1 29 `uc 1 drops_sb 1 30 `uc 1 drops_push 1 31 `uc 1 posrst 1 32 `uc 1 posa 1 33 `uc 1 posb 1 34 `uc 1 posc 1 35 `ui 1 cnt_posa 2 36 `ui 1 cnt_posb 2 38 `ui 1 cnt_posc 2 40 `i 1 cnt_pos_1mm 2 42 `i 1 cnt_pos_2mm 2 44 `ui 1 cnt_posa_std 2 46 `ui 1 cnt_posb_std 2 48 `ui 1 cnt_posa_target 2 50 `ui 1 cnt_posb_target 2 52 `ui 1 cnt_posrst 2 54 `ui 1 cnt_target_posrst 2 56 `ui 1 qec 2 58 ]
+[v _menu menu `[8]S2637  1 e 64 0 ]
+[s S663 _hg_op 60 `uc 1 working_mode 1 0 `uc 1 cur_working_mode 1 1 `uc 1 working_op 1 2 `uc 1 status_powerup 1 3 `uc 1 status_charging 1 4 `uc 1 need_reset 1 5 `uc 1 status_hit_lp 1 6 `uc 1 bat_volume 1 7 `uc 1 bat_charging 1 8 `uc 1 in_reset 1 9 `ui 1 sat 2 10 `ui 1 sbt 2 12 `ui 1 sa_old 2 14 `ui 1 sa_new 2 16 `ui 1 sb_old 2 18 `ui 1 sb_new 2 20 `uc 1 needle_len 1 22 `uc 1 inject_len 1 23 `uc 1 tube_cap 1 24 `ui 1 work_freq 2 25 `uc 1 push_len 1 27 `uc 1 acting_flag 1 28 `uc 1 drops_sa 1 29 `uc 1 drops_sb 1 30 `uc 1 drops_push 1 31 `uc 1 posrst 1 32 `uc 1 posa 1 33 `uc 1 posb 1 34 `uc 1 posc 1 35 `ui 1 cnt_posa 2 36 `ui 1 cnt_posb 2 38 `ui 1 cnt_posc 2 40 `i 1 cnt_pos_1mm 2 42 `i 1 cnt_pos_2mm 2 44 `ui 1 cnt_posa_std 2 46 `ui 1 cnt_posb_std 2 48 `ui 1 cnt_posa_target 2 50 `ui 1 cnt_posb_target 2 52 `ui 1 cnt_posrst 2 54 `ui 1 cnt_target_posrst 2 56 `ui 1 qec 2 58 ]
 "28
 [v _hg_op hg_op `S663  1 e 60 0 ]
 "15 E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
@@ -228,75 +230,75 @@
 [v _drop_m drop_m `C[2][23]uc  1 e 46 0 ]
 "697
 [v _mem_m mem_m `C[2][23]uc  1 e 46 0 ]
-"740
+"746
 [v _bat00_m bat00_m `C[2][23]uc  1 e 46 0 ]
-"840
+"846
 [v _bat20_m bat20_m `C[2][23]uc  1 e 46 0 ]
-"854
+"860
 [v _bat40_m bat40_m `C[2][23]uc  1 e 46 0 ]
-"870
+"876
 [v _n_blank_m n_blank_m `C[3][19]uc  1 e 57 0 ]
-"893
+"899
 [v _bat60_m bat60_m `C[2][23]uc  1 e 46 0 ]
-"905
+"911
 [v _bat80_m bat80_m `C[2][23]uc  1 e 46 0 ]
-"921
+"927
 [v _bat100_m bat100_m `C[2][23]uc  1 e 46 0 ]
-"945
+"951
 [v _n_0_m n_0_m `C[3][19]uc  1 e 57 0 ]
-"964
+"970
 [v _n_1_m n_1_m `C[3][19]uc  1 e 57 0 ]
-"989
+"995
 [v _n_1P5_m n_1P5_m `C[3][19]uc  1 e 57 0 ]
-"1012
+"1018
 [v _n_2P5_m n_2P5_m `C[3][19]uc  1 e 57 0 ]
-"1032
+"1038
 [v _n_2_m n_2_m `C[3][19]uc  1 e 57 0 ]
-"1064
+"1070
 [v _n_3_m n_3_m `C[3][19]uc  1 e 57 0 ]
-"1094
+"1100
 [v _n_4_m n_4_m `C[3][19]uc  1 e 57 0 ]
-"1114
+"1120
 [v _n_6_m n_6_m `C[3][19]uc  1 e 57 0 ]
-"1140
+"1146
 [v _n_5_m n_5_m `C[3][19]uc  1 e 57 0 ]
-"1161
+"1167
 [v _n_10_m n_10_m `C[3][19]uc  1 e 57 0 ]
-"1187
+"1193
 [v _n_13_m n_13_m `C[3][19]uc  1 e 57 0 ]
-"1211
+"1217
 [v _n_100_m n_100_m `C[3][19]uc  1 e 57 0 ]
-"1233
+"1239
 [v _n_200_m n_200_m `C[3][19]uc  1 e 57 0 ]
-"1253
+"1259
 [v _n_150_m n_150_m `C[3][19]uc  1 e 57 0 ]
-"1274
+"1280
 [v _n_300_m n_300_m `C[3][19]uc  1 e 57 0 ]
-"1313
+"1319
 [v _n_250_m n_250_m `C[3][19]uc  1 e 57 0 ]
-"1482
+"1488
 [v _n_x_m n_x_m `*.25[19]uc  1 e 2 0 ]
-"1670
+"1689
 [v _bat_x_m bat_x_m `*.25[23]uc  1 e 2 0 ]
-"1671
+"1690
 [v _bat_vol bat_vol `ui  1 e 2 0 ]
-"2156
+"2255
 [v _ptna_frame ptna_frame `C[2][27]uc  1 e 54 0 ]
-"2172
+"2271
 [v _ptnd_frame ptnd_frame `C[3][48]uc  1 e 144 0 ]
-"2203
+"2302
 [v _ptne_frame ptne_frame `C[3][48]uc  1 e 144 0 ]
-"2242
+"2341
 [v _ptnf_frame ptnf_frame `C[3][48]uc  1 e 144 0 ]
-"2275
+"2374
 [v _ptng_frame ptng_frame `C[3][48]uc  1 e 144 0 ]
-"2304
+"2403
 [v _ptnh_frame ptnh_frame `C[3][48]uc  1 e 144 0 ]
-"2336
+"2435
 [v _ptni_frame ptni_frame `C[3][48]uc  1 e 144 0 ]
-"2679
+"2778
 [v _ptnx_frame ptnx_frame `*.25[48]uc  1 e 2 0 ]
-"2826
+"2925
 [v _logo_eme logo_eme `C[8][98]uc  1 e 784 0 ]
 "15 E:\myWorkSpace\injector\EME_HA_GUN/Timer.c
 [v _tvb tvb `ui  1 e 2 0 ]
@@ -400,7 +402,7 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "492
-[s S2248 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S2319 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -409,7 +411,7 @@
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S2257 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S2328 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -418,16 +420,16 @@
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S2266 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S2337 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 ]
-[s S2270 . 1 `uc 1 . 1 0 :1:0 
+[s S2341 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S2274 . 1 `S30 1 . 1 0 `S2248 1 . 1 0 `S2257 1 . 1 0 `S2266 1 . 1 0 `S2270 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES2274  1 e 1 @3970 ]
+[u S2345 . 1 `S30 1 . 1 0 `S2319 1 . 1 0 `S2328 1 . 1 0 `S2337 1 . 1 0 `S2341 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES2345  1 e 1 @3970 ]
 [s S260 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
@@ -854,7 +856,7 @@
 "91 E:\myWorkSpace\injector\EME_HA_GUN/Main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"167
+"173
 } 0
 "616 E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
 [v _test_routine test_routine `(v  1 e 1 0 ]
@@ -887,10 +889,24 @@
 [v drops_routine@cnt_push cnt_push `ui  1 a 2 26 ]
 "442
 } 0
-"1657 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
-[v _check_bat_status check_bat_status `(v  1 e 1 0 ]
+"1663 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+[v _check_bat check_bat `(v  1 e 1 0 ]
 {
-"1667
+"1665
+[v check_bat@bat_flip bat_flip `uc  1 s 1 bat_flip ]
+"1686
+} 0
+"1694
+[v _display_bat_blank display_bat_blank `(v  1 e 1 0 ]
+{
+"1696
+[v display_bat_blank@temp temp `uc  1 a 1 17 ]
+"1697
+[v display_bat_blank@tori tori `uc  1 a 1 16 ]
+"1694
+[v display_bat_blank@x x `uc  1 p 1 12 ]
+[v display_bat_blank@mode mode `uc  1 p 1 13 ]
+"1761
 } 0
 "811 E:\myWorkSpace\injector\EME_HA_GUN/MotorDrive.c
 [v _check_acting check_acting `(v  1 e 1 0 ]
@@ -925,33 +941,33 @@
 {
 "1749
 } 0
-"1339 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"1345 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _display_n_blank display_n_blank `(uc  1 e 1 0 ]
 {
 [v display_n_blank@y y `uc  1 a 1 wreg ]
-"1341
+"1347
 [v display_n_blank@temp temp `uc  1 a 1 16 ]
-"1342
+"1348
 [v display_n_blank@tori tori `uc  1 a 1 15 ]
-"1339
+"1345
 [v display_n_blank@y y `uc  1 a 1 wreg ]
 [v display_n_blank@x x `uc  1 p 1 12 ]
 [v display_n_blank@mode mode `uc  1 p 1 13 ]
-"1341
+"1347
 [v display_n_blank@y y `uc  1 a 1 14 ]
-"1475
+"1481
 } 0
-"1855
+"1954
 [v _display_blank_mode_pa display_blank_mode_pa `(v  1 e 1 0 ]
 {
-"1858
+"1957
 [v display_blank_mode_pa@temp temp `uc  1 a 1 15 ]
-"1859
+"1958
 [v display_blank_mode_pa@tori tori `uc  1 a 1 14 ]
-"1855
+"1954
 [v display_blank_mode_pa@x x `uc  1 p 1 12 ]
 [v display_blank_mode_pa@mode mode `uc  1 p 1 13 ]
-"1920
+"2019
 } 0
 "1421 E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 [v _HG_interface HG_interface `(v  1 e 1 0 ]
@@ -1004,21 +1020,21 @@
 [v menu3_MsgHandlle@key key `uc  1 a 1 19 ]
 "597
 } 0
-"2483 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"2582 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _display_frame_de display_frame_de `(uc  1 e 1 0 ]
 {
 [v display_frame_de@y y `uc  1 a 1 wreg ]
-"2485
+"2584
 [v display_frame_de@temp temp `uc  1 a 1 16 ]
-"2486
+"2585
 [v display_frame_de@tori tori `uc  1 a 1 14 ]
-"2483
+"2582
 [v display_frame_de@y y `uc  1 a 1 wreg ]
 [v display_frame_de@x x `uc  1 p 1 12 ]
 [v display_frame_de@mode mode `uc  1 p 1 13 ]
-"2485
+"2584
 [v display_frame_de@y y `uc  1 a 1 15 ]
-"2676
+"2775
 } 0
 "359 E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 [v _menu2_MsgHandlle menu2_MsgHandlle `(v  1 e 1 0 ]
@@ -1028,17 +1044,17 @@
 [v menu2_MsgHandlle@key key `uc  1 a 1 18 ]
 "428
 } 0
-"1673 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"1772 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _display_bat display_bat `(v  1 e 1 0 ]
 {
-"1676
+"1775
 [v display_bat@temp temp `uc  1 a 1 17 ]
-"1677
+"1776
 [v display_bat@tori tori `uc  1 a 1 16 ]
-"1673
+"1772
 [v display_bat@x x `uc  1 p 1 12 ]
 [v display_bat@mode mode `uc  1 p 1 13 ]
-"1774
+"1873
 } 0
 "296
 [v _get_AD_vaule get_AD_vaule `(ui  1 e 2 0 ]
@@ -1061,17 +1077,17 @@
 [v menu1_MsgHandlle@key key `uc  1 a 1 16 ]
 "354
 } 0
-"1777 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"1876 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _display_mem display_mem `(v  1 e 1 0 ]
 {
-"1780
+"1879
 [v display_mem@temp temp `uc  1 a 1 15 ]
-"1781
+"1880
 [v display_mem@tori tori `uc  1 a 1 14 ]
-"1777
+"1876
 [v display_mem@x x `uc  1 p 1 12 ]
 [v display_mem@mode mode `uc  1 p 1 13 ]
-"1842
+"1941
 } 0
 "58 E:\myWorkSpace\injector\EME_HA_GUN/gui.c
 [v _menu0_MsgHandlle menu0_MsgHandlle `(v  1 e 1 0 ]
@@ -1081,85 +1097,85 @@
 [v menu0_MsgHandlle@key key `uc  1 a 1 19 ]
 "281
 } 0
-"1484 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"1490 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _display_num display_num `(uc  1 e 1 0 ]
 {
 [v display_num@y y `uc  1 a 1 wreg ]
-"1486
+"1492
 [v display_num@temp temp `uc  1 a 1 18 ]
-"1487
+"1493
 [v display_num@tori tori `uc  1 a 1 16 ]
-"1484
+"1490
 [v display_num@y y `uc  1 a 1 wreg ]
 [v display_num@x x `uc  1 p 1 12 ]
 [v display_num@mode mode `uc  1 p 1 13 ]
-"1486
+"1492
 [v display_num@y y `uc  1 a 1 17 ]
-"1640
+"1646
 } 0
-"2680
+"2779
 [v _display_frame_fghi display_frame_fghi `(uc  1 e 1 0 ]
 {
 [v display_frame_fghi@y y `uc  1 a 1 wreg ]
-"2682
+"2781
 [v display_frame_fghi@temp temp `uc  1 a 1 18 ]
-"2683
+"2782
 [v display_frame_fghi@tori tori `uc  1 a 1 16 ]
-"2680
+"2779
 [v display_frame_fghi@y y `uc  1 a 1 wreg ]
 [v display_frame_fghi@x x `uc  1 p 1 12 ]
 [v display_frame_fghi@mode mode `uc  1 p 1 13 ]
-"2682
+"2781
 [v display_frame_fghi@y y `uc  1 a 1 17 ]
-"2808
+"2907
 } 0
-"2371
+"2470
 [v _display_frame_abc display_frame_abc `(uc  1 e 1 0 ]
 {
-"2374
+"2473
 [v display_frame_abc@temp temp `uc  1 a 1 15 ]
-"2375
+"2474
 [v display_frame_abc@tori tori `uc  1 a 1 14 ]
-"2371
+"2470
 [v display_frame_abc@x x `uc  1 p 1 12 ]
 [v display_frame_abc@mode mode `uc  1 p 1 13 ]
-"2478
+"2577
 } 0
-"2005
+"2104
 [v _display_drops display_drops `(v  1 e 1 0 ]
 {
-"2008
+"2107
 [v display_drops@temp temp `uc  1 a 1 15 ]
-"2009
+"2108
 [v display_drops@tori tori `uc  1 a 1 14 ]
-"2005
+"2104
 [v display_drops@x x `uc  1 p 1 12 ]
 [v display_drops@mode mode `uc  1 p 1 13 ]
-"2075
+"2174
 } 0
-"2079
+"2178
 [v _display_drop display_drop `(v  1 e 1 0 ]
 {
-"2082
+"2181
 [v display_drop@temp temp `uc  1 a 1 15 ]
-"2083
+"2182
 [v display_drop@tori tori `uc  1 a 1 14 ]
-"2079
+"2178
 [v display_drop@x x `uc  1 p 1 12 ]
 [v display_drop@mode mode `uc  1 p 1 13 ]
-"2150
+"2249
 } 0
-"1929
+"2028
 [v _display_cmode display_cmode `(v  1 e 1 0 ]
 {
-"1932
+"2031
 [v display_cmode@temp temp `uc  1 a 1 15 ]
-"1933
+"2032
 [v display_cmode@tori tori `uc  1 a 1 14 ]
-"1929
+"2028
 [v display_cmode@x x `uc  1 p 1 12 ]
 [v display_cmode@mode mode `uc  1 p 1 13 ]
-"1993
+"2092
 } 0
 "601
 [v _setYX_LCD setYX_LCD `(uc  1 e 1 0 ]
@@ -1291,10 +1307,10 @@
 {
 "55
 } 0
-"3223 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"3322 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _Initial_LY096BG30 Initial_LY096BG30 `(v  1 e 1 0 ]
 {
-"3314
+"3413
 } 0
 "222
 [v _i2c_CfgGpio i2c_CfgGpio `(v  1 e 1 0 ]
@@ -1431,14 +1447,14 @@
 {
 "590
 } 0
-"3097
+"3196
 [v _initial_ui_setting initial_ui_setting `(v  1 e 1 0 ]
 {
-"3100
+"3199
 [v initial_ui_setting@i i `uc  1 a 1 19 ]
-"3180
+"3279
 } 0
-"1484
+"1490
 [v i2_display_num display_num `(uc  1 e 1 0 ]
 {
 [v i2display_num@y y `uc  1 a 1 wreg ]
@@ -1447,20 +1463,20 @@
 [v i2display_num@y y `uc  1 a 1 wreg ]
 [v i2display_num@x x `uc  1 p 1 12 ]
 [v i2display_num@mode mode `uc  1 p 1 13 ]
-"1486
+"1492
 [v i2display_num@y y `uc  1 a 1 17 ]
-"1640
+"1646
 } 0
-"1777
+"1876
 [v i2_display_mem display_mem `(v  1 e 1 0 ]
 {
 [v i2display_mem@temp display_mem `uc  1 a 1 15 ]
 [v i2display_mem@tori display_mem `uc  1 a 1 14 ]
 [v i2display_mem@x x `uc  1 p 1 12 ]
 [v i2display_mem@mode mode `uc  1 p 1 13 ]
-"1842
+"1941
 } 0
-"2680
+"2779
 [v i2_display_frame_fghi display_frame_fghi `(uc  1 e 1 0 ]
 {
 [v i2display_frame_fghi@y y `uc  1 a 1 wreg ]
@@ -1469,11 +1485,11 @@
 [v i2display_frame_fghi@y y `uc  1 a 1 wreg ]
 [v i2display_frame_fghi@x x `uc  1 p 1 12 ]
 [v i2display_frame_fghi@mode mode `uc  1 p 1 13 ]
-"2682
+"2781
 [v i2display_frame_fghi@y y `uc  1 a 1 17 ]
-"2808
+"2907
 } 0
-"2483
+"2582
 [v i2_display_frame_de display_frame_de `(uc  1 e 1 0 ]
 {
 [v i2display_frame_de@y y `uc  1 a 1 wreg ]
@@ -1482,36 +1498,36 @@
 [v i2display_frame_de@y y `uc  1 a 1 wreg ]
 [v i2display_frame_de@x x `uc  1 p 1 12 ]
 [v i2display_frame_de@mode mode `uc  1 p 1 13 ]
-"2485
+"2584
 [v i2display_frame_de@y y `uc  1 a 1 15 ]
-"2676
+"2775
 } 0
-"2371
+"2470
 [v i2_display_frame_abc display_frame_abc `(uc  1 e 1 0 ]
 {
 [v i2display_frame_abc@temp display_frame_abc `uc  1 a 1 15 ]
 [v i2display_frame_abc@tori display_frame_abc `uc  1 a 1 14 ]
 [v i2display_frame_abc@x x `uc  1 p 1 12 ]
 [v i2display_frame_abc@mode mode `uc  1 p 1 13 ]
-"2478
+"2577
 } 0
-"1929
+"2028
 [v i2_display_cmode display_cmode `(v  1 e 1 0 ]
 {
 [v i2display_cmode@temp display_cmode `uc  1 a 1 15 ]
 [v i2display_cmode@tori display_cmode `uc  1 a 1 14 ]
 [v i2display_cmode@x x `uc  1 p 1 12 ]
 [v i2display_cmode@mode mode `uc  1 p 1 13 ]
-"1993
+"2092
 } 0
-"1673
+"1772
 [v i2_display_bat display_bat `(v  1 e 1 0 ]
 {
 [v i2display_bat@temp display_bat `uc  1 a 1 17 ]
 [v i2display_bat@tori display_bat `uc  1 a 1 16 ]
 [v i2display_bat@x x `uc  1 p 1 12 ]
 [v i2display_bat@mode mode `uc  1 p 1 13 ]
-"1774
+"1873
 } 0
 "296
 [v i2_get_AD_vaule get_AD_vaule `(ui  1 e 2 0 ]
@@ -1528,23 +1544,23 @@
 [v i2delaynus@n n `ui  1 p 2 0 ]
 "630
 } 0
-"3055 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
+"3154 E:\myWorkSpace\injector\EME_HA_GUN/Oled.c
 [v _display_logo display_logo `(v  1 e 1 0 ]
 {
-"3056
+"3155
 [v display_logo@page page `uc  1 a 1 15 ]
-"3057
+"3156
 [v display_logo@col col `uc  1 a 1 14 ]
-"3070
+"3169
 } 0
-"3077
+"3176
 [v _clear_screen clear_screen `(uc  1 e 1 0 ]
 {
-"3078
+"3177
 [v clear_screen@page page `uc  1 a 1 13 ]
-"3081
+"3180
 [v clear_screen@col col `uc  1 a 1 12 ]
-"3094
+"3193
 } 0
 "601
 [v i2_setYX_LCD setYX_LCD `(uc  1 e 1 0 ]
@@ -1556,10 +1572,10 @@
 [v i2setYX_LCD@py py `uc  1 a 1 11 ]
 "614
 } 0
-"3183
+"3282
 [v _config_LCD config_LCD `(v  1 e 1 0 ]
 {
-"3217
+"3316
 } 0
 "483
 [v i2_ee_WriteBytes ee_WriteBytes `(uc  1 e 1 0 ]

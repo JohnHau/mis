@@ -38,8 +38,8 @@
 
 
 
-//#define ORIGINAL  1
-#define LTEMP  1
+#define ORIGINAL  1
+//#define LTEMP  1
 
 #if defined(ORIGINAL)
 #define EEPROM_I2C_SCL_1()  	 LATCbits.LC3 =1
@@ -327,7 +327,7 @@ void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 
 void display_mem(uint8_t y,uint8_t x,uint8_t mode);
 void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-
+void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode);
 
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
@@ -342,7 +342,7 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 void initial_ui_setting(void);
 
 
-void check_bat_status(void);
+void check_bat(void);
 
 
 void delay_nms(uint32_t n);

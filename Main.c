@@ -138,7 +138,7 @@ void main(void)
             else if(hg_op.working_mode == WORK_MODE_STOP)
             {
                  HG_interface();
-                 check_bat_status();
+                 check_bat();
             }
             else
             {
@@ -158,6 +158,12 @@ void main(void)
                 blink_mode();
                 flag_blink =0;
             }
+            
+            
+
+            
+            
+            
 #endif
             
 

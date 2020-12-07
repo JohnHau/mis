@@ -26,7 +26,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCON2bits `VS265 ~T0 @X0 0 e@4081 ]
 "23 ../gui.h
 [s S281 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat bat_vol in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
+[n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat_volume bat_charging in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
 "87
 [v _hg_op `S281 ~T0 @X0 0 e ]
 "451 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
@@ -3112,13 +3112,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 323: void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 328: void display_mem(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 329: void display_bat(uint8_t y,uint8_t x,uint8_t mode);
+[; ;Oled.h: 330: void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode);
 [; ;Oled.h: 332: uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 333: uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 334: uint8_t display_frame_fghi(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 337: uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 340: uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 [; ;Oled.h: 342: void initial_ui_setting(void);
-[; ;Oled.h: 345: void check_bat_status(void);
+[; ;Oled.h: 345: void check_bat(void);
 [; ;Oled.h: 348: void delay_nms(uint32_t n);
 [; ;Oled.h: 349: void delay_ms(unsigned int ms);
 [; ;Oled.h: 350: void delay_pwm(uint32_t n);
@@ -3166,8 +3167,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 29: uint8_t status_charging;
 [; ;gui.h: 30: uint8_t need_reset;
 [; ;gui.h: 31: uint8_t status_hit_lp;
-[; ;gui.h: 33: uint8_t bat;
-[; ;gui.h: 34: uint8_t bat_vol;
+[; ;gui.h: 33: uint8_t bat_volume;
+[; ;gui.h: 34: uint8_t bat_charging;
 [; ;gui.h: 36: uint8_t in_reset;
 [; ;gui.h: 37: uint16_t sat;
 [; ;gui.h: 38: uint16_t sbt;
@@ -3312,9 +3313,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 [; ;Timer.c: 39: static uint32_t test_mode_break_cnt=0;
-[v F3403 `(v ~T0 @X0 1 tf ]
+[v F3407 `(v ~T0 @X0 1 tf ]
 "44
-[v _ISR `IF3403 ~T0 @X0 1 e ]
+[v _ISR `IF3407 ~T0 @X0 1 e ]
 "45
 {
 [; ;Timer.c: 44: void __interrupt ISR(void)
@@ -3324,552 +3325,552 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 [v _temp `uc ~T0 @X0 1 a ]
 "47
-[v F3405 `uc ~T0 @X0 1 s tcnt ]
-[i F3405
+[v F3409 `uc ~T0 @X0 1 s tcnt ]
+[i F3409
 -> -> 0 `i `uc
 ]
 "48
-[v F3406 `uc ~T0 @X0 1 s cnt_action_btn ]
-[i F3406
+[v F3410 `uc ~T0 @X0 1 s cnt_action_btn ]
+[i F3410
 -> -> 0 `i `uc
 ]
 "49
-[v F3407 `ui ~T0 @X0 1 s tcnt_bat ]
-[i F3407
+[v F3411 `ui ~T0 @X0 1 s tcnt_bat ]
+[i F3411
 -> -> 0 `i `ui
 ]
 [; ;Timer.c: 46: uint8_t temp;
 [; ;Timer.c: 47: static uint8_t tcnt=0;
-[; ;Timer.c: 48: static uint8_t cnt_action_btn =0;
-[; ;Timer.c: 49: static uint16_t tcnt_bat=0;
-[; ;Timer.c: 57: if(INTCON3bits.INT2IF)
-"57
+[; ;Timer.c: 48: static uint8_t cnt_action_btn = 0;
+[; ;Timer.c: 49: static uint16_t tcnt_bat = 0;
+[; ;Timer.c: 56: if(INTCON3bits.INT2IF)
+"56
 [e $ ! != -> . . _INTCON3bits 0 1 `i -> -> -> 0 `i `Vuc `i 283  ]
-[; ;Timer.c: 58: {
+[; ;Timer.c: 57: {
+"57
+{
+[; ;Timer.c: 58: INTCON3bits.INT2IF = 0;
 "58
-{
-[; ;Timer.c: 59: INTCON3bits.INT2IF = 0;
-"59
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;Timer.c: 61: if(INTCON2bits.INTEDG2 == 0)
-"61
+[; ;Timer.c: 60: if(INTCON2bits.INTEDG2 == 0)
+"60
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 0 `i 284  ]
-[; ;Timer.c: 62: {
+[; ;Timer.c: 61: {
+"61
+{
+[; ;Timer.c: 62: INTCON2bits.INTEDG2 = 1;
 "62
-{
-[; ;Timer.c: 63: INTCON2bits.INTEDG2 = 1;
-"63
 [e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-"64
+"63
 }
-[; ;Timer.c: 64: }
+[; ;Timer.c: 63: }
 [e $U 285  ]
-"65
+"64
 [e :U 284 ]
-[; ;Timer.c: 65: else if(INTCON2bits.INTEDG2 == 1)
+[; ;Timer.c: 64: else if(INTCON2bits.INTEDG2 == 1)
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 1 `i 286  ]
-[; ;Timer.c: 66: {
-"66
+[; ;Timer.c: 65: {
+"65
 {
-[; ;Timer.c: 67: INTCON2bits.INTEDG2 = 0;
-"67
+[; ;Timer.c: 66: INTCON2bits.INTEDG2 = 0;
+"66
 [e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
-"68
+"67
 }
 [e :U 286 ]
-"73
+"72
 [e :U 285 ]
-[; ;Timer.c: 68: }
-[; ;Timer.c: 73: if(hg_op.need_reset)
+[; ;Timer.c: 67: }
+[; ;Timer.c: 72: if(hg_op.need_reset)
 [e $ ! != -> . _hg_op 5 `i -> -> -> 0 `i `uc `i 287  ]
-[; ;Timer.c: 74: {
-"74
+[; ;Timer.c: 73: {
+"73
 {
-[; ;Timer.c: 77: if(1)
-"77
+[; ;Timer.c: 76: if(1)
+"76
 [e $ ! != -> 1 `i -> 0 `i 288  ]
-[; ;Timer.c: 78: {
-"78
+[; ;Timer.c: 77: {
+"77
 {
-[; ;Timer.c: 82: if(hg_op.in_reset == 1)
-"82
+[; ;Timer.c: 81: if(hg_op.in_reset == 1)
+"81
 [e $ ! == -> . _hg_op 9 `i -> 1 `i 289  ]
-[; ;Timer.c: 83: {
-"83
+[; ;Timer.c: 82: {
+"82
 {
-[; ;Timer.c: 89: if( INTCON2bits.INTEDG2 == 1)
-"89
+[; ;Timer.c: 88: if( INTCON2bits.INTEDG2 == 1)
+"88
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 1 `i 290  ]
-[; ;Timer.c: 90: {
+[; ;Timer.c: 89: {
+"89
+{
+[; ;Timer.c: 90: if(PORTCbits.RC0 == 0)
 "90
-{
-[; ;Timer.c: 91: if(PORTCbits.RC0 == 0)
-"91
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 291  ]
-[; ;Timer.c: 92: {
+[; ;Timer.c: 91: {
+"91
+{
+[; ;Timer.c: 92: hg_op.cnt_posrst ++;
 "92
-{
-[; ;Timer.c: 93: hg_op.cnt_posrst ++;
-"93
 [e ++ . _hg_op 38 -> -> 1 `i `ui ]
-"95
+"94
 }
-[; ;Timer.c: 95: }
+[; ;Timer.c: 94: }
 [e $U 292  ]
-"96
+"95
 [e :U 291 ]
-[; ;Timer.c: 96: else if(PORTCbits.RC0 == 1)
+[; ;Timer.c: 95: else if(PORTCbits.RC0 == 1)
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 1 `i 293  ]
-[; ;Timer.c: 97: {
-"97
+[; ;Timer.c: 96: {
+"96
 {
-[; ;Timer.c: 98: hg_op.cnt_posrst --;
-"98
+[; ;Timer.c: 97: hg_op.cnt_posrst --;
+"97
 [e -- . _hg_op 38 -> -> 1 `i `ui ]
-"100
+"99
 }
 [e :U 293 ]
-"104
+"103
 [e :U 292 ]
 }
-[; ;Timer.c: 100: }
-[; ;Timer.c: 104: }
+[; ;Timer.c: 99: }
+[; ;Timer.c: 103: }
 [e $U 294  ]
-"105
+"104
 [e :U 290 ]
-[; ;Timer.c: 105: else if( INTCON2bits.INTEDG2 == 0)
+[; ;Timer.c: 104: else if( INTCON2bits.INTEDG2 == 0)
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 0 `i 295  ]
-[; ;Timer.c: 106: {
-"106
+[; ;Timer.c: 105: {
+"105
 {
-[; ;Timer.c: 108: if(PORTCbits.RC0 == 0)
-"108
+[; ;Timer.c: 107: if(PORTCbits.RC0 == 0)
+"107
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 296  ]
-[; ;Timer.c: 109: {
+[; ;Timer.c: 108: {
+"108
+{
+[; ;Timer.c: 109: hg_op.cnt_posrst --;
 "109
-{
-[; ;Timer.c: 110: hg_op.cnt_posrst --;
-"110
 [e -- . _hg_op 38 -> -> 1 `i `ui ]
-"112
+"111
 }
-[; ;Timer.c: 112: }
+[; ;Timer.c: 111: }
 [e $U 297  ]
-"113
+"112
 [e :U 296 ]
-[; ;Timer.c: 113: else if(PORTCbits.RC0 == 1)
+[; ;Timer.c: 112: else if(PORTCbits.RC0 == 1)
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 1 `i 298  ]
-[; ;Timer.c: 114: {
-"114
+[; ;Timer.c: 113: {
+"113
 {
-[; ;Timer.c: 115: hg_op.cnt_posrst ++;
-"115
+[; ;Timer.c: 114: hg_op.cnt_posrst ++;
+"114
 [e ++ . _hg_op 38 -> -> 1 `i `ui ]
-"117
+"116
 }
 [e :U 298 ]
-"118
+"117
 [e :U 297 ]
 }
 [e :U 295 ]
-"122
+"121
 [e :U 294 ]
 }
 [e :U 289 ]
+[; ;Timer.c: 116: }
 [; ;Timer.c: 117: }
-[; ;Timer.c: 118: }
-[; ;Timer.c: 122: }
-[; ;Timer.c: 127: if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
-"127
+[; ;Timer.c: 121: }
+[; ;Timer.c: 126: if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
+"126
 [e $ ! == . _hg_op 38 . _hg_op 39 299  ]
-[; ;Timer.c: 128: {
-"128
+[; ;Timer.c: 127: {
+"127
 {
-"133
+"132
 }
 [e :U 299 ]
-"171
+"170
 }
 [e :U 288 ]
-"172
+"171
 }
-[; ;Timer.c: 133: }
+[; ;Timer.c: 132: }
+[; ;Timer.c: 170: }
 [; ;Timer.c: 171: }
-[; ;Timer.c: 172: }
 [e $U 300  ]
-"173
+"172
 [e :U 287 ]
-[; ;Timer.c: 173: else
-[; ;Timer.c: 174: {
+[; ;Timer.c: 172: else
+[; ;Timer.c: 173: {
+"173
+{
+[; ;Timer.c: 174: if(hg_op.working_mode == 0x01)
 "174
-{
-[; ;Timer.c: 175: if(hg_op.working_mode == 0x01)
-"175
 [e $ ! == -> . _hg_op 0 `i -> 1 `i 301  ]
-[; ;Timer.c: 176: {
+[; ;Timer.c: 175: {
+"175
+{
+[; ;Timer.c: 176: if(hg_op.drops_sa == 1)
 "176
-{
-[; ;Timer.c: 177: if(hg_op.drops_sa == 1)
-"177
 [e $ ! == -> . _hg_op 22 `i -> 1 `i 302  ]
-[; ;Timer.c: 178: {
-"178
+[; ;Timer.c: 177: {
+"177
 {
-[; ;Timer.c: 205: if( INTCON2bits.INTEDG2 == 1)
-"205
+[; ;Timer.c: 204: if( INTCON2bits.INTEDG2 == 1)
+"204
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 1 `i 303  ]
-[; ;Timer.c: 206: {
+[; ;Timer.c: 205: {
+"205
+{
+[; ;Timer.c: 206: if(PORTCbits.RC0 == 0)
 "206
-{
-[; ;Timer.c: 207: if(PORTCbits.RC0 == 0)
-"207
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 304  ]
-[; ;Timer.c: 208: {
-"208
+[; ;Timer.c: 207: {
+"207
 {
-[; ;Timer.c: 211: hg_op.cnt_pos_1mm ++;
-"211
+[; ;Timer.c: 210: hg_op.cnt_pos_1mm ++;
+"210
 [e ++ . _hg_op 32 -> 1 `i ]
-[; ;Timer.c: 212: hg_op.cnt_posa ++;
-"212
+[; ;Timer.c: 211: hg_op.cnt_posa ++;
+"211
 [e ++ . _hg_op 29 -> -> 1 `i `ui ]
-"213
+"212
 }
-[; ;Timer.c: 213: }
+[; ;Timer.c: 212: }
 [e $U 305  ]
-"214
+"213
 [e :U 304 ]
-[; ;Timer.c: 214: else if(PORTCbits.RC0 == 1)
+[; ;Timer.c: 213: else if(PORTCbits.RC0 == 1)
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 1 `i 306  ]
-[; ;Timer.c: 215: {
-"215
+[; ;Timer.c: 214: {
+"214
 {
-[; ;Timer.c: 217: hg_op.cnt_pos_1mm --;
-"217
+[; ;Timer.c: 216: hg_op.cnt_pos_1mm --;
+"216
 [e -- . _hg_op 32 -> 1 `i ]
-[; ;Timer.c: 218: hg_op.cnt_posa --;
-"218
+[; ;Timer.c: 217: hg_op.cnt_posa --;
+"217
 [e -- . _hg_op 29 -> -> 1 `i `ui ]
-"219
+"218
 }
 [e :U 306 ]
-"221
+"220
 [e :U 305 ]
 }
-[; ;Timer.c: 219: }
-[; ;Timer.c: 221: }
+[; ;Timer.c: 218: }
+[; ;Timer.c: 220: }
 [e $U 307  ]
-"222
+"221
 [e :U 303 ]
-[; ;Timer.c: 222: else if( INTCON2bits.INTEDG2 == 0)
+[; ;Timer.c: 221: else if( INTCON2bits.INTEDG2 == 0)
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 0 `i 308  ]
-[; ;Timer.c: 223: {
-"223
+[; ;Timer.c: 222: {
+"222
 {
-[; ;Timer.c: 225: if(PORTCbits.RC0 == 0)
-"225
+[; ;Timer.c: 224: if(PORTCbits.RC0 == 0)
+"224
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 309  ]
-[; ;Timer.c: 226: {
+[; ;Timer.c: 225: {
+"225
+{
+[; ;Timer.c: 226: hg_op.cnt_pos_1mm --;
 "226
-{
-[; ;Timer.c: 227: hg_op.cnt_pos_1mm --;
-"227
 [e -- . _hg_op 32 -> 1 `i ]
-[; ;Timer.c: 228: hg_op.cnt_posa --;
-"228
+[; ;Timer.c: 227: hg_op.cnt_posa --;
+"227
 [e -- . _hg_op 29 -> -> 1 `i `ui ]
-"229
+"228
 }
-[; ;Timer.c: 229: }
+[; ;Timer.c: 228: }
 [e $U 310  ]
-"230
+"229
 [e :U 309 ]
-[; ;Timer.c: 230: else if(PORTCbits.RC0 == 1)
+[; ;Timer.c: 229: else if(PORTCbits.RC0 == 1)
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 1 `i 311  ]
-[; ;Timer.c: 231: {
-"231
+[; ;Timer.c: 230: {
+"230
 {
-[; ;Timer.c: 232: hg_op.cnt_pos_1mm ++;
-"232
+[; ;Timer.c: 231: hg_op.cnt_pos_1mm ++;
+"231
 [e ++ . _hg_op 32 -> 1 `i ]
-[; ;Timer.c: 233: hg_op.cnt_posa ++;
-"233
+[; ;Timer.c: 232: hg_op.cnt_posa ++;
+"232
 [e ++ . _hg_op 29 -> -> 1 `i `ui ]
-"234
+"233
 }
 [e :U 311 ]
-"237
+"236
 [e :U 310 ]
 }
 [e :U 308 ]
-"247
+"246
 [e :U 307 ]
-[; ;Timer.c: 234: }
-[; ;Timer.c: 237: }
-[; ;Timer.c: 247: if(0)
+[; ;Timer.c: 233: }
+[; ;Timer.c: 236: }
+[; ;Timer.c: 246: if(0)
 [e $ ! != -> 0 `i -> 0 `i 312  ]
-[; ;Timer.c: 248: {
-"248
+[; ;Timer.c: 247: {
+"247
 {
-"263
+"262
 }
 [e :U 312 ]
-"265
+"264
 }
-[; ;Timer.c: 263: }
-[; ;Timer.c: 265: }
+[; ;Timer.c: 262: }
+[; ;Timer.c: 264: }
 [e $U 313  ]
-"266
+"265
 [e :U 302 ]
-[; ;Timer.c: 266: else if(hg_op.drops_sb == 1)
+[; ;Timer.c: 265: else if(hg_op.drops_sb == 1)
 [e $ ! == -> . _hg_op 23 `i -> 1 `i 314  ]
-[; ;Timer.c: 267: {
-"267
+[; ;Timer.c: 266: {
+"266
 {
-[; ;Timer.c: 301: if( INTCON2bits.INTEDG2 == 1)
-"301
+[; ;Timer.c: 300: if( INTCON2bits.INTEDG2 == 1)
+"300
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 1 `i 315  ]
-[; ;Timer.c: 302: {
+[; ;Timer.c: 301: {
+"301
+{
+[; ;Timer.c: 302: if(PORTCbits.RC0 == 0)
 "302
-{
-[; ;Timer.c: 303: if(PORTCbits.RC0 == 0)
-"303
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 316  ]
-[; ;Timer.c: 304: {
-"304
+[; ;Timer.c: 303: {
+"303
 {
-[; ;Timer.c: 306: tvb--;
-"306
+[; ;Timer.c: 305: tvb--;
+"305
 [e -- _tvb -> -> 1 `i `ui ]
-[; ;Timer.c: 307: hg_op.cnt_pos_1mm ++;
-"307
+[; ;Timer.c: 306: hg_op.cnt_pos_1mm ++;
+"306
 [e ++ . _hg_op 32 -> 1 `i ]
-"308
+"307
 }
-[; ;Timer.c: 308: }
+[; ;Timer.c: 307: }
 [e $U 317  ]
-"309
+"308
 [e :U 316 ]
-[; ;Timer.c: 309: else if(PORTCbits.RC0 == 1)
+[; ;Timer.c: 308: else if(PORTCbits.RC0 == 1)
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 1 `i 318  ]
-[; ;Timer.c: 310: {
-"310
+[; ;Timer.c: 309: {
+"309
 {
-[; ;Timer.c: 312: hg_op.cnt_pos_1mm --;
-"312
+[; ;Timer.c: 311: hg_op.cnt_pos_1mm --;
+"311
 [e -- . _hg_op 32 -> 1 `i ]
-"314
+"313
 }
 [e :U 318 ]
-"317
+"316
 [e :U 317 ]
 }
-[; ;Timer.c: 314: }
-[; ;Timer.c: 317: }
+[; ;Timer.c: 313: }
+[; ;Timer.c: 316: }
 [e $U 319  ]
-"318
+"317
 [e :U 315 ]
-[; ;Timer.c: 318: else if( INTCON2bits.INTEDG2 == 0)
+[; ;Timer.c: 317: else if( INTCON2bits.INTEDG2 == 0)
 [e $ ! == -> . . _INTCON2bits 1 4 `i -> 0 `i 320  ]
-[; ;Timer.c: 319: {
-"319
+[; ;Timer.c: 318: {
+"318
 {
-[; ;Timer.c: 321: if(PORTCbits.RC0 == 0)
-"321
+[; ;Timer.c: 320: if(PORTCbits.RC0 == 0)
+"320
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 321  ]
-[; ;Timer.c: 322: {
-"322
+[; ;Timer.c: 321: {
+"321
 {
-[; ;Timer.c: 325: hg_op.cnt_pos_1mm --;
-"325
+[; ;Timer.c: 324: hg_op.cnt_pos_1mm --;
+"324
 [e -- . _hg_op 32 -> 1 `i ]
-"326
+"325
 }
-[; ;Timer.c: 326: }
+[; ;Timer.c: 325: }
 [e $U 322  ]
-"327
+"326
 [e :U 321 ]
-[; ;Timer.c: 327: else if(PORTCbits.RC0 == 1)
+[; ;Timer.c: 326: else if(PORTCbits.RC0 == 1)
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 1 `i 323  ]
-[; ;Timer.c: 328: {
-"328
+[; ;Timer.c: 327: {
+"327
 {
-[; ;Timer.c: 329: tvb--;
-"329
+[; ;Timer.c: 328: tvb--;
+"328
 [e -- _tvb -> -> 1 `i `ui ]
-[; ;Timer.c: 330: hg_op.cnt_pos_1mm ++;
-"330
+[; ;Timer.c: 329: hg_op.cnt_pos_1mm ++;
+"329
 [e ++ . _hg_op 32 -> 1 `i ]
-"331
+"330
 }
 [e :U 323 ]
-"334
+"333
 [e :U 322 ]
 }
 [e :U 320 ]
-"344
+"343
 [e :U 319 ]
-[; ;Timer.c: 331: }
-[; ;Timer.c: 334: }
-[; ;Timer.c: 344: if(0)
+[; ;Timer.c: 330: }
+[; ;Timer.c: 333: }
+[; ;Timer.c: 343: if(0)
 [e $ ! != -> 0 `i -> 0 `i 324  ]
-[; ;Timer.c: 345: {
-"345
+[; ;Timer.c: 344: {
+"344
 {
-"360
+"359
 }
 [e :U 324 ]
-"363
+"362
 }
 [e :U 314 ]
-"365
+"364
 [e :U 313 ]
 }
-[; ;Timer.c: 360: }
-[; ;Timer.c: 363: }
-[; ;Timer.c: 365: }
+[; ;Timer.c: 359: }
+[; ;Timer.c: 362: }
+[; ;Timer.c: 364: }
 [e $U 325  ]
-"366
+"365
 [e :U 301 ]
-[; ;Timer.c: 366: else if(hg_op.working_mode == 0x02)
+[; ;Timer.c: 365: else if(hg_op.working_mode == 0x02)
 [e $ ! == -> . _hg_op 0 `i -> 2 `i 326  ]
-[; ;Timer.c: 367: {
-"367
+[; ;Timer.c: 366: {
+"366
 {
-"369
+"368
 }
-[; ;Timer.c: 369: }
+[; ;Timer.c: 368: }
 [e $U 327  ]
-"370
+"369
 [e :U 326 ]
-[; ;Timer.c: 370: else if(hg_op.working_mode == 0x00)
+[; ;Timer.c: 369: else if(hg_op.working_mode == 0x00)
 [e $ ! == -> . _hg_op 0 `i -> 0 `i 328  ]
-[; ;Timer.c: 371: {
+[; ;Timer.c: 370: {
+"370
+{
+[; ;Timer.c: 371: if(hg_op.drops_sa == 1)
 "371
-{
-[; ;Timer.c: 372: if(hg_op.drops_sa == 1)
-"372
 [e $ ! == -> . _hg_op 22 `i -> 1 `i 329  ]
-[; ;Timer.c: 373: {
+[; ;Timer.c: 372: {
+"372
+{
+[; ;Timer.c: 373: hg_op.cnt_posa ++;
 "373
-{
-[; ;Timer.c: 374: hg_op.cnt_posa ++;
-"374
 [e ++ . _hg_op 29 -> -> 1 `i `ui ]
-"375
+"374
 }
-[; ;Timer.c: 375: }
+[; ;Timer.c: 374: }
 [e $U 330  ]
-"376
+"375
 [e :U 329 ]
-[; ;Timer.c: 376: else if(hg_op.drops_sb == 1)
+[; ;Timer.c: 375: else if(hg_op.drops_sb == 1)
 [e $ ! == -> . _hg_op 23 `i -> 1 `i 331  ]
-[; ;Timer.c: 377: {
-"377
+[; ;Timer.c: 376: {
+"376
 {
-[; ;Timer.c: 378: hg_op.cnt_posb ++;
-"378
+[; ;Timer.c: 377: hg_op.cnt_posb ++;
+"377
 [e ++ . _hg_op 30 -> -> 1 `i `ui ]
-"379
+"378
 }
 [e :U 331 ]
-"380
+"379
 [e :U 330 ]
 }
+[; ;Timer.c: 378: }
 [; ;Timer.c: 379: }
-[; ;Timer.c: 380: }
 [e $U 332  ]
-"381
+"380
 [e :U 328 ]
-[; ;Timer.c: 381: else if(hg_op.working_mode == 0x04)
+[; ;Timer.c: 380: else if(hg_op.working_mode == 0x04)
 [e $ ! == -> . _hg_op 0 `i -> 4 `i 333  ]
-[; ;Timer.c: 382: {
+[; ;Timer.c: 381: {
+"381
+{
+[; ;Timer.c: 382: if(hg_op.drops_sa == 1)
 "382
-{
-[; ;Timer.c: 383: if(hg_op.drops_sa == 1)
-"383
 [e $ ! == -> . _hg_op 22 `i -> 1 `i 334  ]
-[; ;Timer.c: 384: {
+[; ;Timer.c: 383: {
+"383
+{
+[; ;Timer.c: 384: hg_op.cnt_posa ++;
 "384
-{
-[; ;Timer.c: 385: hg_op.cnt_posa ++;
-"385
 [e ++ . _hg_op 29 -> -> 1 `i `ui ]
-"386
+"385
 }
-[; ;Timer.c: 386: }
+[; ;Timer.c: 385: }
 [e $U 335  ]
-"387
+"386
 [e :U 334 ]
-[; ;Timer.c: 387: else if(hg_op.drops_sb == 1)
+[; ;Timer.c: 386: else if(hg_op.drops_sb == 1)
 [e $ ! == -> . _hg_op 23 `i -> 1 `i 336  ]
-[; ;Timer.c: 388: {
-"388
+[; ;Timer.c: 387: {
+"387
 {
-[; ;Timer.c: 389: hg_op.cnt_posb ++;
-"389
+[; ;Timer.c: 388: hg_op.cnt_posb ++;
+"388
 [e ++ . _hg_op 30 -> -> 1 `i `ui ]
-"390
+"389
 }
 [e :U 336 ]
-"391
+"390
 [e :U 335 ]
 }
+[; ;Timer.c: 389: }
 [; ;Timer.c: 390: }
-[; ;Timer.c: 391: }
 [e $U 337  ]
-"392
+"391
 [e :U 333 ]
-[; ;Timer.c: 392: else
-[; ;Timer.c: 393: {
-"393
+[; ;Timer.c: 391: else
+[; ;Timer.c: 392: {
+"392
 {
-"395
+"394
 }
 [e :U 337 ]
 [e :U 332 ]
 [e :U 327 ]
 [e :U 325 ]
-"398
+"397
 }
 [e :U 300 ]
-"405
+"404
 }
 [e :U 283 ]
-[; ;Timer.c: 395: }
-[; ;Timer.c: 398: }
-[; ;Timer.c: 405: }
-[; ;Timer.c: 423: if(T0IF)
-"423
+[; ;Timer.c: 394: }
+[; ;Timer.c: 397: }
+[; ;Timer.c: 404: }
+[; ;Timer.c: 422: if(T0IF)
+"422
 [e $ ! _T0IF 338  ]
-[; ;Timer.c: 424: {
-"424
+[; ;Timer.c: 423: {
+"423
 {
-[; ;Timer.c: 426: tcnt ++;
+[; ;Timer.c: 425: tcnt ++;
+"425
+[e ++ F3409 -> -> 1 `i `uc ]
+[; ;Timer.c: 426: tcnt_bat ++;
 "426
-[e ++ F3405 -> -> 1 `i `uc ]
-[; ;Timer.c: 427: tcnt_bat ++;
-"427
-[e ++ F3407 -> -> 1 `i `ui ]
-[; ;Timer.c: 429: if(tcnt_bat > (4*1000))
+[e ++ F3411 -> -> 1 `i `ui ]
+[; ;Timer.c: 428: if(tcnt_bat > (125))
+"428
+[e $ ! > F3411 -> -> 125 `i `ui 339  ]
+[; ;Timer.c: 429: {
 "429
-[e $ ! > F3407 -> * -> 4 `i -> 1000 `i `ui 339  ]
-[; ;Timer.c: 430: {
-"430
 {
-[; ;Timer.c: 431: hg_op.bat =1;
-"431
+[; ;Timer.c: 430: hg_op.bat_volume =1;
+"430
 [e = . _hg_op 7 -> -> 1 `i `uc ]
-[; ;Timer.c: 432: tcnt_bat =0;
+[; ;Timer.c: 431: tcnt_bat =0;
+"431
+[e = F3411 -> -> 0 `i `ui ]
 "432
-[e = F3407 -> -> 0 `i `ui ]
-"433
 }
 [e :U 339 ]
-[; ;Timer.c: 433: }
+[; ;Timer.c: 432: }
 [; ;Timer.c: 436: if(tcnt > 125)
 "436
-[e $ ! > -> F3405 `i -> 125 `i 340  ]
+[e $ ! > -> F3409 `i -> 125 `i 340  ]
 [; ;Timer.c: 438: {
 "438
 {
@@ -3878,7 +3879,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag_blink -> -> 1 `i `uc ]
 [; ;Timer.c: 440: tcnt = 0;
 "440
-[e = F3405 -> -> 0 `i `uc ]
+[e = F3409 -> -> 0 `i `uc ]
 "441
 }
 [e :U 340 ]

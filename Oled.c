@@ -709,7 +709,7 @@ const uint8_t mem_m [2][23]={
 
 
 
-
+#if 0
 const uint8_t bat_charge_m[2][23]={
 
 #if 0
@@ -730,12 +730,18 @@ const uint8_t bat_charge_m[2][23]={
   0x05,0x85,0xC5,0xA5,0x95,0x85,0x05,0xFD,
   0x01,0x01,0x01,0x01,0x01,0x01,0x01    
         
-        
-        
-        
-        
-    
 };
+#endif
+
+
+
+
+
+
+
+
+
+
 
 const uint8_t bat00_m[2][23]={
     
@@ -1654,14 +1660,27 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode)
 
 
 
-void check_bat_status(void)
+void check_bat(void)
 {
-
-    if( hg_op.bat == 1)
+    static uint8_t bat_flip =1;
+    if( hg_op.bat_volume == 1)
     {
-         display_bat(LEFT,COL_PAGE0_BAT,MODE_NORMAL);
-         
-         hg_op.bat =0;
+          
+        if(bat_flip)
+        {
+            display_bat(LEFT,COL_PAGE0_BAT,MODE_NORMAL);
+            bat_flip =0;
+        }
+        else
+        {
+           if(STATUS_CHARGE  == 0)
+           {
+             display_bat_blank(LEFT,COL_PAGE0_BAT,MODE_NORMAL);    
+            }
+           
+           bat_flip =1;
+        }
+         hg_op.bat_volume =0;
     }
 
 }
@@ -1669,6 +1688,86 @@ void check_bat_status(void)
 
 uint8_t (*bat_x_m)[23] = NULL;
 uint16_t bat_vol =0;
+
+
+
+void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode)
+{
+  uint8_t temp =0;
+  uint8_t tori =0;
+    
+   // bat_x_m = bat_charge_m;
+    bat_x_m = bat00_m;
+    switch(mode)
+    {
+    
+        case MODE_NORMAL:
+            
+             // setYX_LCD(0,COL_PAGE0_PATTERN_A);
+                setYX_LCD(0,x);
+                for(ms=0;ms<MLENGTH;ms++)
+                {
+                    
+                    temp =bat_x_m[0][ms];
+                     //ee_WriteBytes(pata[sub][0] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                setYX_LCD(1,x);
+                 for(ms=0;ms<MLENGTH;ms++)
+                 {
+                     temp = bat_x_m[1][ms];
+                     //ee_WriteBytes(pata[sub][1] + ms, 0x40, 1);
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+            
+            
+            break;
+            
+         case MODE_REVERSE:
+             
+             //setYX_LCD(0,COL_PAGE0_PATTERN_A);
+              setYX_LCD(0,x);
+                for(ms=0;ms<MLENGTH;ms++)
+                {
+
+                    temp = bat_x_m[0][ms];
+                    tori = temp;
+                    
+                    temp = ~temp;
+                    //temp |= tori;
+
+                     ee_WriteBytes(&temp, 0x40, 1);
+                }
+
+                //setYX_LCD(1,COL_PAGE1_PATTERN_A);
+                setYX_LCD(1,x);
+                 for(ms=0;ms<MLENGTH;ms++)
+                 {
+                     temp = bat_x_m[1][ms];
+                     tori =temp;
+
+                     temp = ~temp;
+                    // temp |= tori;
+
+                     ee_WriteBytes(&temp, 0x40, 1);
+                 }
+
+            break;    
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 void display_bat(uint8_t y,uint8_t x,uint8_t mode)
 {

@@ -4021,8 +4021,8 @@ uint8_t status_charging;
 uint8_t need_reset;
 uint8_t status_hit_lp;
 
-uint8_t bat;
-uint8_t bat_vol;
+uint8_t bat_volume;
+uint8_t bat_charging;
 
 uint8_t in_reset;
 uint16_t sat;
@@ -4189,7 +4189,7 @@ void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode);
 
 void display_mem(uint8_t y,uint8_t x,uint8_t mode);
 void display_bat(uint8_t y,uint8_t x,uint8_t mode);
-
+void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode);
 
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode);
 uint8_t display_frame_de(uint8_t y,uint8_t x, uint8_t mode);
@@ -4204,7 +4204,7 @@ uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 void initial_ui_setting(void);
 
 
-void check_bat_status(void);
+void check_bat(void);
 
 
 void delay_nms(uint32_t n);

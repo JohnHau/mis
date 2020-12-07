@@ -30,8 +30,8 @@ typedef struct _hg_op
     uint8_t need_reset;
     uint8_t status_hit_lp;
     
-    uint8_t bat;
-    uint8_t bat_vol;
+    uint8_t bat_volume;
+    uint8_t bat_charging;
     
     uint8_t in_reset;
     uint16_t sat;
