@@ -102,8 +102,7 @@ void menu0_MsgHandlle(uint8_t key)
                 if(menu[0].cur_mode != menu[0].mode)
                 {
                     display_frame_abc(LEFT,COL_PAGE0_PATTERN_A, menu[0].mode);
-                    
-                   
+                                    
                     if(work_mode == WORK_MODE_C) 
                     {
                         display_cmode(LEFT,COL_PAGE0_MDROPS, menu[0].mode);
@@ -217,7 +216,21 @@ void menu0_MsgHandlle(uint8_t key)
                 if(work_mode == WORK_MODE_DROPS)
                 {
                     display_frame_fghi(TYPE_H,COL_PAGE0_PATTERN_H, MODE_NORMAL);
-                    display_num(BOTTOM,COL_PAGE0_HN, NUM_250);
+                    display_num(BOTTOM,COL_PAGE0_HN, NUM_300);
+                    
+                    menu[6].value = NUM_300;
+                    
+                    menu[0].value = WORK_MODE_DROPS;
+                    
+                    
+                }
+                else if(work_mode == WORK_MODE_DROP)
+                {
+                    menu[0].value = WORK_MODE_DROP;
+                }
+                else if(work_mode == WORK_MODE_C)
+                {
+                    menu[0].value = WORK_MODE_C;
                 }
                 
                menu[0].mode = MODE_NORMAL;     
@@ -236,6 +249,9 @@ void menu0_MsgHandlle(uint8_t key)
                         
                         display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_H, MODE_NORMAL);
                         display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
+                        menu[6].value = NUM_3;
+                        
+                        
                         
                         
                         //hg_op.working_mode = WORK_MODE_C;
@@ -306,10 +322,9 @@ void menu1_MsgHandlle(uint8_t key)
                 
                  if(menu[1].cur_mode != menu[1].mode)
                  {
-                    display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, menu[1].mode);
-                    display_mem(LEFT,COL_PAGE0_MEM,menu[1].mode);
-
-                    menu[1].cur_mode = menu[1].mode;
+                    //display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, menu[1].mode);
+                    //display_mem(LEFT,COL_PAGE0_MEM,menu[1].mode);
+                    //menu[1].cur_mode = menu[1].mode;
                  }
                 
             }
@@ -336,10 +351,9 @@ void menu1_MsgHandlle(uint8_t key)
                 
                  if(menu[1].cur_mode != menu[1].mode)
                  {
-                    display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, menu[1].mode);
-                    display_mem(LEFT,COL_PAGE0_MEM,menu[1].mode);
-
-                    menu[1].cur_mode = menu[1].mode;
+                    //display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, menu[1].mode);
+                    //display_mem(LEFT,COL_PAGE0_MEM,menu[1].mode);
+                   // menu[1].cur_mode = menu[1].mode;
                  }
                 
             }
@@ -382,9 +396,9 @@ void menu2_MsgHandlle(uint8_t key)
             
              if(menu[2].cur_mode != menu[2].mode)
              {
-            display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, menu[2].mode);
-            display_bat(LEFT,COL_PAGE0_BAT,menu[2].mode);
-            menu[2].cur_mode = menu[2].mode;
+                //display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, menu[2].mode);
+                //display_bat(LEFT,COL_PAGE0_BAT,menu[2].mode);
+                //menu[2].cur_mode = menu[2].mode;
              }
             break;
             
@@ -410,9 +424,9 @@ void menu2_MsgHandlle(uint8_t key)
             
              if(menu[2].cur_mode != menu[2].mode)
              {
-                display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, menu[2].mode);
-                display_bat(LEFT,COL_PAGE0_BAT,menu[2].mode);
-                menu[2].cur_mode = menu[2].mode;
+                //display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, menu[2].mode);
+                //display_bat(LEFT,COL_PAGE0_BAT,menu[2].mode);
+                //menu[2].cur_mode = menu[2].mode;
              }
             
             
@@ -472,7 +486,7 @@ void menu3_MsgHandlle(uint8_t key)
                     }
                     else if( menu[3].parameter == 2)
                     {
-                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
+                        display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
                     }
                     
                     menu[3].cur_mode = menu[3].mode;
@@ -549,7 +563,7 @@ void menu3_MsgHandlle(uint8_t key)
                     if(menu[3].parameter == 0)
                     {
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_4);
-                        
+                        menu[3].value = NUM_4;
                          needle_len = 4;
                          hg_op.needle_len = NEEDLE_LEN_4_MM;
                          hg_op.cnt_target_posrst = POS_4_RST; 
@@ -558,6 +572,7 @@ void menu3_MsgHandlle(uint8_t key)
                     else if(menu[3].parameter == 1)
                     {
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_6);
+                        menu[3].value = NUM_6;
                         needle_len = 6;
                          hg_op.needle_len = NEEDLE_LEN_6_MM;
                          
@@ -570,6 +585,7 @@ void menu3_MsgHandlle(uint8_t key)
                      else if(menu[3].parameter == 2)
                      {
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
+                        menu[3].value = NUM_13;
                         needle_len = 13;
                          hg_op.needle_len = NEEDLE_LEN_13_MM;
                          
@@ -712,6 +728,9 @@ void menu4_MsgHandlle(uint8_t key)
                     {
                         
                        display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_1);
+                       menu[4].value = NUM_1;
+                       
+                       
                         //needle_len = 4;
                         // hg_op.needle_len = LEN_4_MM;
                         // hg_op.cnt_target_posrst = POS_4_RST; 
@@ -721,6 +740,7 @@ void menu4_MsgHandlle(uint8_t key)
                     {
                        
                         display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
+                        menu[4].value = NUM_2;
                         //needle_len = 13;
                         // hg_op.needle_len = LEN_13_MM;
                          
@@ -872,6 +892,7 @@ void menu5_MsgHandlle(uint8_t key)
                         
                         //display_num(BOTTOM,COL_PAGE0_FN,NUM_2P5);
                         display_num(BOTTOM,COL_PAGE0_FN,NUM_1);
+                        menu[5].value = NUM_1;
                         //needle_len = 4;
                         // hg_op.needle_len = LEN_4_MM;
                          //hg_op.cnt_target_posrst = POS_4_RST; 
@@ -885,6 +906,7 @@ void menu5_MsgHandlle(uint8_t key)
                         
                         //display_num(BOTTOM,COL_PAGE0_FN,NUM_1P5);
                         display_num(BOTTOM,COL_PAGE0_FN,NUM_2P5);
+                        menu[5].value = NUM_2P5;
                         //needle_len = 13;
                          //hg_op.needle_len = LEN_13_MM;
                          
@@ -900,7 +922,7 @@ void menu5_MsgHandlle(uint8_t key)
                      else if(menu[5].parameter == 2)
                      {
                           display_num(BOTTOM,COL_PAGE0_FN,NUM_5);
-                          
+                          menu[5].value = NUM_5;
                            hg_op.push_len = 160;
                      }
                     
@@ -954,9 +976,6 @@ void menu6_MsgHandlle(uint8_t key)
                      {
                          display_frame_fghi(TYPE_H,COL_PAGE0_PATTERN_G, menu[6].mode);
                      }
-                     
-                     
-                     
                     if( menu[6].parameter == 0)
                     {
                       if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
@@ -965,7 +984,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_250);
+                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_300);
                       }
                           
                     }
@@ -977,7 +996,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_100);
+                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_200);
                       }
                     }
                     else if( menu[6].parameter == 2) 
@@ -989,7 +1008,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_200);
+                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_150);
                       }
                         
                     }
@@ -1042,7 +1061,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_250);
+                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_300);
                       }
                           
                     }
@@ -1054,7 +1073,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_100);
+                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_200);
                       }
                     }
                     else if( menu[6].parameter == 2)
@@ -1065,7 +1084,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_200);
+                          display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_150);
                       }
                     }
                     
@@ -1111,11 +1130,12 @@ void menu6_MsgHandlle(uint8_t key)
                         if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
                         {
                            display_num(BOTTOM,COL_PAGE0_GN,NUM_3);
+                           menu[6].value = NUM_3;
                         }
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
-                             display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_250);
-                             
+                             display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_300);
+                             menu[6].value = NUM_300;
                              hg_op.work_freq = DROPS_MODE_250_FREQ;
                              
                              
@@ -1133,11 +1153,12 @@ void menu6_MsgHandlle(uint8_t key)
                          if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
                          {
                             display_num(BOTTOM,COL_PAGE0_GN,NUM_3);
+                            menu[6].value = NUM_3;
                          }
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
-                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_100);
-                            
+                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_200);
+                            menu[6].value = NUM_200;
                              hg_op.work_freq = DROPS_MODE_100_FREQ;
                             
                         }
@@ -1161,16 +1182,37 @@ void menu6_MsgHandlle(uint8_t key)
                          if(work_mode == WORK_MODE_C ||  work_mode == WORK_MODE_DROP) 
                          {
                             display_num(BOTTOM,COL_PAGE0_GN,NUM_3);
+                            menu[6].value = NUM_3;
                          }
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
-                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_200);
+                            display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_150);
+                            menu[6].value = NUM_150;
                              hg_op.work_freq = DROPS_MODE_200_FREQ;
                         }
                          
                      }
                     
                  }
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
                     menu[6].cur_mode = menu[6].mode;
                     
                     
@@ -1544,6 +1586,197 @@ void initial_para_setting(void)
 
 
 
+void check_ui_status(void)
+{
+    static uint32_t cnt_ui_check =0;
+    if(menu[0].mode != MODE_NORMAL)
+    {
+        cnt_ui_check ++;
+        
+        if(cnt_ui_check > PERIORD_DYNAMIC_UI)
+        {
+                display_frame_abc(LEFT,COL_PAGE0_PATTERN_A, MODE_NORMAL);
+                if(menu[0].value == WORK_MODE_C)
+                {
+                    display_cmode(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
+                }
+                else if(menu[0].value == WORK_MODE_DROP)
+                {
+                    display_drop(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
+                }
+                else if(menu[0].value == WORK_MODE_DROPS)
+                {
+                    display_drops(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
+                }
+                menu[0].mode = MODE_NORMAL;
+                cnt_ui_check =0;
+                //focus --;
+                work_mode = menu[0].value ;
+                
+                
+        }
+    }
+    else if(menu[1].mode != MODE_NORMAL)
+    {
+        menu[1].mode = MODE_NORMAL;
+    }
+    else if(menu[2].mode != MODE_NORMAL)
+    {
+        menu[2].mode = MODE_NORMAL;
+    }
+    else if(menu[3].mode != MODE_NORMAL)
+    {
+       
+        cnt_ui_check ++;
+        if(cnt_ui_check > PERIORD_DYNAMIC_UI)
+        {
+        
+           display_frame_de(LEFT,COL_PAGE0_PATTERN_D, MODE_NORMAL);
+           display_num(MIDDLE,COL_PAGE0_DN, MODE_NORMAL|menu[3].value);
+           //0 1 2
+           //4 6 13
+           
+           if(menu[3].value == NUM_4)
+           {
+               menu[3].parameter =0;
+           }
+           else if(menu[3].value == NUM_6)
+           {
+                menu[3].parameter =1;
+           }
+           else if(menu[3].value == NUM_13)   
+           {
+                menu[3].parameter =2;
+           }
+           
+           menu[3].mode = MODE_NORMAL;
+           cnt_ui_check =0;
+           
+        }
+    }
+    else if(menu[4].mode != MODE_NORMAL)
+    {
+        
+        cnt_ui_check ++;
+        if(cnt_ui_check > PERIORD_DYNAMIC_UI)
+        {      
+            display_frame_de(RIGHT,COL_PAGE0_PATTERN_E, MODE_NORMAL);
+            display_num(MIDDLE,COL_PAGE0_EN, MODE_NORMAL|menu[4].value);
+            
+           if(menu[4].value == NUM_1)
+           {
+               menu[4].parameter =0;
+           }
+           else if(menu[4].value == NUM_2)
+           {
+                menu[4].parameter =1;
+           }
+            
+            
+            menu[4].mode = MODE_NORMAL;
+            cnt_ui_check =0;
+        }
+    }
+    else if(menu[5].mode != MODE_NORMAL)
+    {
+        
+        cnt_ui_check ++;
+        if(cnt_ui_check > PERIORD_DYNAMIC_UI)
+        {
+            display_frame_fghi(TYPE_F,COL_PAGE0_PATTERN_F, MODE_NORMAL);
+            display_num(BOTTOM,COL_PAGE0_FN, MODE_NORMAL|menu[5].value);
+            
+            
+           if(menu[5].value == NUM_1)
+           {
+               menu[5].parameter =0;
+           }
+           else if(menu[5].value == NUM_2P5)
+           {
+                menu[5].parameter =1;
+           }
+           else if(menu[5].value == NUM_5)   
+           {
+                menu[5].parameter =2;
+           }
+            
+            
+            
+            
+            menu[5].mode = MODE_NORMAL;
+            cnt_ui_check =0;
+        }
+    }
+    else if(menu[6].mode != MODE_NORMAL)
+    {
+        cnt_ui_check ++;
+        if(cnt_ui_check > PERIORD_DYNAMIC_UI)
+        {
+            
+          if(hg_op.cur_working_mode == WORK_MODE_C)
+          {
+            display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
+            display_num(BOTTOM,COL_PAGE0_GN, MODE_NORMAL|menu[6].value);
+          }
+          else if(hg_op.cur_working_mode == WORK_MODE_DROPS)
+          {
+            display_frame_fghi(TYPE_H,COL_PAGE0_PATTERN_H, MODE_NORMAL);
+            display_num(BOTTOM,COL_PAGE0_HN, MODE_NORMAL|menu[6].value);
+            
+            if(menu[6].value == NUM_300)
+            {
+                menu[6].parameter =0;
+            }
+            else if(menu[6].value == NUM_200)
+            {
+                 menu[6].parameter =1;
+            }
+            else if(menu[6].value == NUM_150)   
+            {
+                 menu[6].parameter =2;
+            }
+            
+            
+          }
+          else if(hg_op.cur_working_mode == WORK_MODE_DROP)
+          {
+              
+                if(menu[6].value == NUM_300)
+                {
+                    menu[6].parameter =0;
+                }
+                else if(menu[6].value == NUM_200)
+                {
+                     menu[6].parameter =1;
+                }
+                else if(menu[6].value == NUM_150)   
+                {
+                     menu[6].parameter =2;
+                }
+              
+              
+              
+          }
+          
+          menu[6].mode = MODE_NORMAL;
+          cnt_ui_check =0;
+        }
+    }
+    else
+    {
+        cnt_ui_check =0;
+    }
+
+
+    
+    
+    
+    
+    
+}
+
+
+
 
 void blink_mode(void)
 {
@@ -1688,7 +1921,7 @@ void blink_mode(void)
                        }
                        else if(work_mode == WORK_MODE_DROPS) 
                        {
-                           display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_250);
+                           display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_300);
                        }
                     }
                     else if(menu[6].parameter == 1)
@@ -1699,7 +1932,7 @@ void blink_mode(void)
                          }
                          else if(work_mode == WORK_MODE_DROPS) 
                          {
-                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_100);
+                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_200);
                           }
                     }
                     else if(menu[6].parameter == 2)
@@ -1710,7 +1943,7 @@ void blink_mode(void)
                          }
                          else if(work_mode == WORK_MODE_DROPS) 
                          {
-                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_200);
+                              display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_150);
                           }
                     }
  

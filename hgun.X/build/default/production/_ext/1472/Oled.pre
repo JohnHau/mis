@@ -4143,6 +4143,9 @@ uint8_t status_hit_lp;
 uint8_t bat_volume;
 uint8_t bat_charging;
 
+uint8_t flag_ui_check;
+
+
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4198,7 +4201,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 198
+# 206
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4229,6 +4232,8 @@ void enter_sleep(void);
 void initial_para_setting(void);
 
 void blink_mode(void);
+
+void check_ui_status(void);
 
 # 63 "../Timer.h"
 extern uint16_t action_btn_cnt;
@@ -6893,34 +6898,53 @@ clear_screen();
 # 3234
 display_frame_abc(1,71, 0);
 display_cmode(1,(71 + 2),0);
+menu[0].mode = 0;
+
+menu[0].value = 0x00;
+
+
 
 display_frame_abc(1,35, 0);
 display_mem(1,(35 + 2),0);
+menu[1].mode = 0;
+menu[1].value = 0x58;
+
+
 
 display_frame_abc(1,0, 0);
 display_bat(1,(0 + 2),0);
+menu[2].mode = 0;
+menu[2].value = 0x59;
+
 
 
 
 display_frame_de(1,49, 0);
 display_num(0,(49 + 14), 4);
-
-
+menu[3].mode = 0;
+menu[3].value = 4;
 
 display_frame_de(2,0, 0);
 display_num(0,(0 + 14), 1);
+menu[4].mode = 0;
+menu[4].value = 1;
 
 
 
 display_frame_fghi(1,49, 0);
 
 display_num(3,(49 + 14), 1);
+menu[5].mode = 0;
+menu[5].value = 1;
+
 
 
 display_frame_fghi(2,0, 0);
 display_num(3,(0 + 14), 3);
+menu[6].mode = 0;
+menu[6].value = 3;
 
-# 3267
+# 3287
 hg_op.cur_working_mode = 0x01;
 hg_op.cnt_target_posrst = (412 );
 hg_op.needle_len = 4;
@@ -6964,10 +6988,10 @@ write_buf[0]=0x0c;
 
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3316
+# 3336
 }
 
-# 3322
+# 3342
 void Initial_LY096BG30(void)
 {
 
@@ -6982,10 +7006,10 @@ delay(1);
 LATEbits.LATE1=1;
 delay(1);
 
-# 3375
+# 3395
 write_buf[0]=0x25;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3413
+# 3433
 }
 

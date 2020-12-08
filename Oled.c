@@ -3233,32 +3233,52 @@ void initial_ui_setting(void)
 #if 1
     display_frame_abc(LEFT,COL_PAGE0_PATTERN_A, MODE_NORMAL);
     display_cmode(LEFT,COL_PAGE0_MDROPS,MODE_NORMAL);
+    menu[0].mode = MODE_NORMAL;
+
+    menu[0].value = WORK_MODE_C;
+    
+    
     
     display_frame_abc(LEFT,COL_PAGE0_PATTERN_B, MODE_NORMAL);
     display_mem(LEFT,COL_PAGE0_MEM,MODE_NORMAL);
-
+    menu[1].mode = MODE_NORMAL;
+    menu[1].value = WM_MEM;
+    
+    
+    
     display_frame_abc(LEFT,COL_PAGE0_PATTERN_C, MODE_NORMAL);
     display_bat(LEFT,COL_PAGE0_BAT,MODE_NORMAL);
+    menu[2].mode = MODE_NORMAL;
+    menu[2].value = WM_BAT;
+    
     
     //------------------------------------------------------------
     
     display_frame_de(LEFT,COL_PAGE0_PATTERN_D, MODE_NORMAL);
     display_num(MIDDLE,COL_PAGE0_DN, NUM_4);
-  
-    
+    menu[3].mode = MODE_NORMAL;
+    menu[3].value = NUM_4;
     
     display_frame_de(RIGHT,COL_PAGE0_PATTERN_E, MODE_NORMAL);
     display_num(MIDDLE,COL_PAGE0_EN, NUM_1);
-
+    menu[4].mode = MODE_NORMAL;
+    menu[4].value = NUM_1;
+    
     //-------------------------------------------------------------------
 
     display_frame_fghi(TYPE_F,COL_PAGE0_PATTERN_F, MODE_NORMAL);
     //display_num(BOTTOM,COL_PAGE0_FN, NUM_2P5);
     display_num(BOTTOM,COL_PAGE0_FN, NUM_1);
+    menu[5].mode = MODE_NORMAL;
+    menu[5].value = NUM_1;
+    
     
     
     display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
     display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
+    menu[6].mode = MODE_NORMAL;
+    menu[6].value = NUM_3;
+    
  
 #endif
     

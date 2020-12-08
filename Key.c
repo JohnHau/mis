@@ -126,19 +126,4 @@ uint8_t KEY_Scan(void)
 
 
 
-
-
-
-
-
-
-
-
-void KeyFuction(void)
-{
-    
-
-}
-
-
 #endif

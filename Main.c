@@ -139,6 +139,7 @@ void main(void)
             {
                  HG_interface();
                  check_bat();
+                 check_ui_status();
             }
             else
             {

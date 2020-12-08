@@ -33,6 +33,9 @@ typedef struct _hg_op
     uint8_t bat_volume;
     uint8_t bat_charging;
     
+    uint8_t flag_ui_check;
+    
+    
     uint8_t in_reset;
     uint16_t sat;
     uint16_t sbt;
@@ -195,6 +198,11 @@ extern uint8_t flag_test_mode_break;
 
 #define  INTERVAL_F    40/*20*/
 
+
+
+#define  PERIORD_DYNAMIC_UI   200000
+
+
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -226,6 +234,6 @@ void initial_para_setting(void);
 
 void blink_mode(void);
 
-
+void check_ui_status(void);
 
 #endif

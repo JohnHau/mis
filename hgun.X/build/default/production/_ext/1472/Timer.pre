@@ -4141,6 +4141,9 @@ uint8_t status_hit_lp;
 uint8_t bat_volume;
 uint8_t bat_charging;
 
+uint8_t flag_ui_check;
+
+
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4196,7 +4199,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 198
+# 206
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4227,6 +4230,8 @@ void enter_sleep(void);
 void initial_para_setting(void);
 
 void blink_mode(void);
+
+void check_ui_status(void);
 
 # 11 "../Timer.c"
 unsigned char flag =0;
@@ -4498,8 +4503,7 @@ hg_op.bat_volume =1;
 tcnt_bat =0;
 }
 
-
-
+# 439
 if(tcnt > 125)
 
 {
@@ -4511,7 +4515,7 @@ T0IF = 0;
 
 }
 
-# 455
+# 458
 if(INTCONbits.RBIF)
 {
 
@@ -4565,7 +4569,7 @@ printf("sleep\r\n");
 
 }
 
-# 512
+# 515
 if(PORTBbits.RB5 == 0)
 {
 
@@ -4596,7 +4600,7 @@ INTCONbits.INT0IF = 0;
 
 }
 
-# 550
+# 553
 }
 
 void TimerInit(void)
@@ -4609,7 +4613,7 @@ T0PS2=1;
 T0PS1=0;
 T0PS0=1;
 
-# 570
+# 573
 T08BIT =1;
 T0IF=0;
 TMR0=0;
@@ -4629,10 +4633,10 @@ T1CONbits.T1CKPS = 2;
 T1CONbits.RD16 =1;
 T1CONbits.TMR1ON =0;
 
-# 610
+# 613
 }
 
-# 619
+# 622
 void delaynus(uint16_t n)
 {
 

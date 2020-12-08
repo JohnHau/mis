@@ -432,6 +432,9 @@ void __interrupt ISR(void)
         }
 
         
+        
+        
+        
         //if(tcnt > 500*1000UL)
         if(tcnt > 125)//4ms
         //if(tcnt > 500)//1ms

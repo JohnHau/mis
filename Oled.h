@@ -15,13 +15,13 @@
 #define  MODE_BLANK      4
 
 
-#define WMD_C          0x55
-#define WMD_S_DROP     0x56
-#define WMD_M_DROP     0x57
+#define WM_C          0x55
+#define WM_DROP     0x56
+#define WM_DROPS     0x57
 
 
-
-
+#define WM_MEM       0x58
+#define WM_BAT       0x59
 
 
 

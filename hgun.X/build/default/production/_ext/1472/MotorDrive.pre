@@ -4024,6 +4024,9 @@ uint8_t status_hit_lp;
 uint8_t bat_volume;
 uint8_t bat_charging;
 
+uint8_t flag_ui_check;
+
+
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4079,7 +4082,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 198
+# 206
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4110,6 +4113,8 @@ void enter_sleep(void);
 void initial_para_setting(void);
 
 void blink_mode(void);
+
+void check_ui_status(void);
 
 # 87 "../Oled.h"
 typedef struct action_profile
