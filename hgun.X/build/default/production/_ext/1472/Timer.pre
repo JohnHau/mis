@@ -4065,7 +4065,7 @@ void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
 void delay_f(uint32_t n);
 
-# 121 "../MotorDrive.h"
+# 134 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4143,7 +4143,11 @@ uint8_t bat_charging;
 
 uint8_t flag_ui_check;
 
+uint16_t cnt_push;
+uint16_t tcnt_overload_ma;
 
+uint8_t flag_warning_ma;
+uint8_t flag_warning_mb;
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4199,7 +4203,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 206
+# 211
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4264,17 +4268,16 @@ uint16_t action_btn_cnt =0;
 static uint32_t test_mode_cnt=0;
 static uint32_t test_mode_break_cnt=0;
 
-
-
-
+# 46
 void __interrupt ISR(void)
 {
 uint8_t temp;
 static uint8_t tcnt=0;
 static uint8_t cnt_action_btn = 0;
 static uint16_t tcnt_bat = 0;
+static uint16_t tcnt_overload_ma;
 
-# 56
+# 58
 if(INTCON3bits.INT2IF)
 {
 INTCON3bits.INT2IF = 0;
@@ -4303,7 +4306,7 @@ if(1)
 if(hg_op.in_reset == 1)
 {
 
-# 88
+# 90
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
@@ -4350,7 +4353,7 @@ if( hg_op.cnt_posrst == hg_op.cnt_target_posrst)
 
 }
 
-# 170
+# 172
 }
 }
 else
@@ -4360,7 +4363,7 @@ if(hg_op.working_mode == 0x01)
 if(hg_op.drops_sa == 1)
 {
 
-# 204
+# 206
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
@@ -4395,24 +4398,24 @@ hg_op.cnt_posa ++;
 
 }
 
-# 246
+# 248
 if(0)
 {
 
-# 262
+# 264
 }
 
 }
 else if(hg_op.drops_sb == 1)
 {
 
-# 300
+# 302
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
 {
 
-tvb--;
+
 hg_op.cnt_pos_1mm ++;
 }
 else if(PORTCbits.RC0 == 1)
@@ -4435,18 +4438,18 @@ hg_op.cnt_pos_1mm --;
 }
 else if(PORTCbits.RC0 == 1)
 {
-tvb--;
+
 hg_op.cnt_pos_1mm ++;
 }
 
 
 }
 
-# 343
+# 345
 if(0)
 {
 
-# 359
+# 361
 }
 
 
@@ -4487,15 +4490,38 @@ else
 
 }
 
-# 404
+# 406
 }
 
-# 422
+# 424
 if(T0IF)
 {
 
 tcnt ++;
 tcnt_bat ++;
+
+if( hg_op.drops_push == 1)
+{
+tva = get_SenseA_AD_vaule();
+if(tva >600)
+{
+
+
+
+
+{
+hg_op.tcnt_overload_ma =0;
+hg_op.flag_warning_ma = 1;
+}
+}
+}
+else
+{
+
+
+}
+
+
 
 if(tcnt_bat > (125))
 {
@@ -4503,7 +4529,7 @@ hg_op.bat_volume =1;
 tcnt_bat =0;
 }
 
-# 439
+# 464
 if(tcnt > 125)
 
 {
@@ -4515,7 +4541,7 @@ T0IF = 0;
 
 }
 
-# 458
+# 483
 if(INTCONbits.RBIF)
 {
 
@@ -4533,7 +4559,7 @@ if(hg_op.status_powerup == 0x00)
 {
 hg_op.status_powerup = 0x01;
 LCD_On();
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATCbits.LC2 =1;
 LATDbits.LD4 =1;
@@ -4557,7 +4583,7 @@ LCD_Off();
 write_buf[0]=0x25;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 
@@ -4569,7 +4595,7 @@ printf("sleep\r\n");
 
 }
 
-# 515
+# 540
 if(PORTBbits.RB5 == 0)
 {
 
@@ -4600,7 +4626,7 @@ INTCONbits.INT0IF = 0;
 
 }
 
-# 553
+# 578
 }
 
 void TimerInit(void)
@@ -4613,7 +4639,7 @@ T0PS2=1;
 T0PS1=0;
 T0PS0=1;
 
-# 573
+# 598
 T08BIT =1;
 T0IF=0;
 TMR0=0;
@@ -4633,10 +4659,10 @@ T1CONbits.T1CKPS = 2;
 T1CONbits.RD16 =1;
 T1CONbits.TMR1ON =0;
 
-# 613
+# 638
 }
 
-# 622
+# 647
 void delaynus(uint16_t n)
 {
 

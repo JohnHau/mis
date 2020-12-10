@@ -186,7 +186,7 @@ void hg_reset(void)
                    
             if(hg_op.needle_len == NEEDLE_LEN_4_MM)
             {
-                 hg_op.cnt_target_posrst = 300;//600;//600;//300;//600;//100;//600//POS_4_RST;//1200;POS_4_RST;  
+                hg_op.cnt_target_posrst = 300;//600;//600;//300;//600;//100;//600//POS_4_RST;//1200;POS_4_RST;  
             }
             else if(hg_op.needle_len == NEEDLE_LEN_6_MM)
             {
@@ -205,17 +205,14 @@ void hg_reset(void)
             while(hg_op.status_hit_lp == 0)// search for  lp point
             {
                 INPUT4_BH();
-                delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
+                delaynus(540*2); 
                 INPUT4_BL();
-                delaynus(10);
+                delaynus(460*2);
                 
             }
-            
-            
+  
             F_RUNNING_BRAKE_MB();  
-            //delaynus(50*1000);
-            
-            
+
             if(hg_op.needle_len == NEEDLE_LEN_13_MM)
             {
                 hg_op.need_reset =0;
@@ -229,24 +226,23 @@ void hg_reset(void)
                 while(hg_op.cnt_posrst < hg_op.cnt_target_posrst)
                 {
                     INPUT3_BH();
-                    delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
-                    printf("r%d\n",hg_op.cnt_posrst);
+                    delaynus(300*2); 
+                    //printf("r%d\n",hg_op.cnt_posrst);
                     INPUT3_BL();
-                    delaynus(10);
+                    delaynus(700*2);
                     
                 }
                 
                 
          
             R_RUNNING_BRAKE_MB();                      
-            //delaynus(5*1000);
-           //delaynus(15*1000);              
+           
                                 
                                 
-            printf("A-reset len is %d\r\n",hg_op.cnt_posrst);
-            delaynus(50 * 1000);
+            //printf("A-reset len is %d\r\n",hg_op.cnt_posrst);
+            //delaynus(50 * 1000);
                
-            printf("B-reset len is %d\r\n",hg_op.cnt_posrst);    
+            //printf("B-reset len is %d\r\n",hg_op.cnt_posrst);    
             hg_op.need_reset =0;
             hg_op.status_hit_lp =0;
             hg_op.cnt_posrst =0;
@@ -285,11 +281,14 @@ void drops_routine(void)
                             {
                                 hg_op.cnt_posa =0;
                                 FORWARD_RUN_B();
-                                printf("start\n");
+                                //printf("start\n");
                                 while(hg_op.cnt_posa < POS_13MM_SA);
+                                
+                                REVERSE_RUN_B();
+                                delaynus(15 * 1000);
                                 STOP_B();
-                                printf("end\n");
-                                delaynus(50 * 1000);
+                                //printf("end\n");
+                                //delaynus(50 * 1000);
                                 
                             }
                             else
@@ -299,14 +298,17 @@ void drops_routine(void)
 
                                while(hg_op.cnt_pos_1mm < 150);//300
                                R_RUNNING_BRAKE_MB();
-                               printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
+                               //printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
                           
                                 //delaynus(hg_op.work_freq * 1000);
 
-                               DELAY_T1_1SEC(); DELAY_T1_1SEC();
+                               //DELAY_T1_1SEC(); DELAY_T1_1SEC();
 
-                                printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
-                           
+                                //printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
+                                
+                               delaynus(30 *1000);
+                                      
+                               
                             }
                             
                                 hg_op.drops_sa = 0;
@@ -320,32 +322,61 @@ void drops_routine(void)
                     {
                             //prev_edge =0;
                             //cur_edge =0;
-                            cnt_push =0;
-
+                            hg_op.cnt_push =0;
+                            hg_op.tcnt_overload_ma =0;
+                            ENABLE_TIMER();
                             FORWARD_RUN_A();                  
-                            //while(cnt_push < 140)//146
-                            while(cnt_push < hg_op.push_len)//146
-                            //while(cnt_push < 200)//146
-                               //while(0)//146
+                            //while(hg_op.cnt_push < 600)//146
+                            while(hg_op.cnt_push < hg_op.push_len)//146
                             {
                                    while(READ_PHB_MA() == 0);
-                                   cnt_push ++;
+                                   hg_op.cnt_push ++;
                                    while(READ_PHB_MA() == 1);
-                                   cnt_push ++;
-                                  
+                                   hg_op.cnt_push ++;     
+                                   
+
+                                   
+                                   
+                                   if(hg_op.flag_warning_ma == 1)
+                                       break;
+                                   
+                                   
+                            }   
+                            STOP_A();
+                            DISABLE_TIMER();
+                            if(hg_op.flag_warning_ma == 1)  
+                            {
+                                hg_op.drops_sa = 0;
+                                hg_op.drops_push = 0;
+                                hg_op.drops_sb = 0;
+                                
+                                
+                                while(ACTION_BUTTON  == 0)
+                                { 
+                                    buzz();
+                                    delaynus(50*1000);delaynus(50*1000);
+                                    delaynus(50*1000);delaynus(50*1000);
+                                    delaynus(50*1000);delaynus(50*1000);
+                                    
+                                }
+                                
+                                
+                                hg_op.flag_warning_ma =0;
+                                hg_op.need_reset =1;   
+                                hg_op.working_mode = WORK_MODE_STOP;
+                            
+                            }     
+                            else
+                            {
+
+                                
+                                //R_RUNNING_BRAKE_MA();
+                                
+                                hg_op.drops_sa = 0;
+                                hg_op.drops_push = 0;
+                                hg_op.drops_sb = 1;
 
                             }
-                               
-
-                            STOP_A();
-
-                            //delaynus(hg_op.work_freq * 1000);
-
-                            hg_op.drops_sa = 0;
-                            hg_op.drops_push = 0;
-                            hg_op.drops_sb = 1;
-
-                          
 
                     }//end drops_push            
                     else if(hg_op.drops_sb == 1)
@@ -362,9 +393,11 @@ void drops_routine(void)
                               
                                 REVERSE_RUN_B();
                                 while(LP_BUTTON == 1);
+                                
+                                FORWARD_RUN_B();
+                                delaynus(15 * 1000);
                                 STOP_B();
-                                delaynus(50 * 1000);
-                               
+ 
                             }
                             else
                             {
@@ -376,11 +409,11 @@ void drops_routine(void)
                             }
              
                            
-                            printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
+                            //printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
 
-                            //delaynus(hg_op.work_freq * 1000);
-                            DELAY_T1_1SEC(); DELAY_T1_1SEC();
-                            printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
+                            delaynus(hg_op.work_freq);
+                            //DELAY_T1_1SEC(); DELAY_T1_1SEC();
+                            //printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
                           
                        
                              if(ACTION_BUTTON  == 1)
@@ -424,9 +457,11 @@ void drops_routine(void)
                              }
                              else if(ACTION_BUTTON  == 0)
                              {
+                                
                                   hg_op.drops_sb = 0;
                                   hg_op.drops_push =0;
                                   hg_op.drops_sa = 1;
+                                  
                              }
                     }
                     
@@ -446,7 +481,7 @@ void drops_routine(void)
 void c_routine(void)
 {
     uint16_t cnt_push =0;
-            printf("in in C mode\r\n");
+            //printf("in in C mode\r\n");
                 //if(ACTION_BUTTON  == 1)
                 if(0)
                 {

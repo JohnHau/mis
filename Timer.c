@@ -37,6 +37,8 @@ uint16_t action_btn_cnt =0;
 #if defined (TEST_MODE)     
     static uint32_t test_mode_cnt=0;
     static uint32_t test_mode_break_cnt=0;
+   
+    
 #endif
 
 //void __interrupt(high_priority) ISR(void)
@@ -47,7 +49,7 @@ void __interrupt ISR(void)
     static uint8_t tcnt=0;
     static uint8_t cnt_action_btn = 0;
     static uint16_t tcnt_bat = 0;
-
+    static uint16_t tcnt_overload_ma;
 //===============================
 #if 1    
     
@@ -302,7 +304,7 @@ void __interrupt ISR(void)
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
                                 
-                                  tvb--;
+                                  //tvb--;
                                   hg_op.cnt_pos_1mm ++;
                                 }
                                 else if(READ_PHA_MB() == 1)
@@ -325,7 +327,7 @@ void __interrupt ISR(void)
                                 }
                                 else if(READ_PHA_MB() == 1) 
                                 {
-                                  tvb--;
+                                  //tvb--;
                                   hg_op.cnt_pos_1mm ++;
                                 }
                            
@@ -424,7 +426,30 @@ void __interrupt ISR(void)
     
         tcnt ++;
         tcnt_bat ++;
+#if 1
+        if( hg_op.drops_push == 1)
+        {
+            tva = get_SenseA_AD_vaule();
+            if(tva >600)
+            { 
 
+                //hg_op.tcnt_overload_ma ++;
+
+                //if(hg_op.tcnt_overload_ma >(30))
+                {
+                   hg_op.tcnt_overload_ma =0;
+                   hg_op.flag_warning_ma = 1;
+                }
+            }
+        }
+        else
+        {
+           //tcnt_overload_ma =0;
+           //hg_op.flag_warning_ma = 0;
+        }
+#endif 
+        
+        
         if(tcnt_bat > (125))
         {
             hg_op.bat_volume =1;

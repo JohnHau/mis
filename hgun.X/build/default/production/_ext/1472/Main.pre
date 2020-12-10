@@ -3979,7 +3979,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 121 "../MotorDrive.h"
+# 134 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4212,7 +4212,11 @@ uint8_t bat_charging;
 
 uint8_t flag_ui_check;
 
+uint16_t cnt_push;
+uint16_t tcnt_overload_ma;
 
+uint8_t flag_warning_ma;
+uint8_t flag_warning_mb;
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4268,7 +4272,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 206
+# 211
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4380,11 +4384,10 @@ cnt_ma = 0;
 cnt_mb = 0;
 HG_device_init();
 
-
-
+# 117
 initial_para_setting();
 
-# 108
+# 124
 while(1)
 {
 enter_sleep();
@@ -4440,7 +4443,7 @@ blink_mode();
 flag_blink =0;
 }
 
-# 171
+# 187
 }
 }
 

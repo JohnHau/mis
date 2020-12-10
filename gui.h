@@ -35,7 +35,11 @@ typedef struct _hg_op
     
     uint8_t flag_ui_check;
     
+    uint16_t cnt_push;
+    uint16_t tcnt_overload_ma;
     
+    uint8_t flag_warning_ma;
+    uint8_t flag_warning_mb;
     uint8_t in_reset;
     uint16_t sat;
     uint16_t sbt;
@@ -127,11 +131,11 @@ extern uint8_t flag_test_mode_break;
 
 
 
-#define DROPS_MODE_100_FREQ     200
-#define DROPS_MODE_150_FREQ     120
-#define DROPS_MODE_200_FREQ     100
-#define DROPS_MODE_250_FREQ     20
-#define DROPS_MODE_300_FREQ     30
+#define DROPS_MODE_100_FREQ     (5*1000)
+#define DROPS_MODE_150_FREQ     (4*1000)
+#define DROPS_MODE_200_FREQ     (3*1000)
+#define DROPS_MODE_250_FREQ     (2*1000)
+#define DROPS_MODE_300_FREQ     (1*1000)
 
 
 
@@ -158,7 +162,8 @@ extern uint8_t flag_test_mode_break;
 #define POS_13_RST   (1)  //ignored
 
 #define POS_13MM_SB   (156) 
-#define POS_13MM_SA   (156) 
+//#define POS_13MM_SA   (156) 
+#define POS_13MM_SA   (187) 
 
 //#define POS_RST   (150 * 4)
 #define POS_RST   (150 * 2)

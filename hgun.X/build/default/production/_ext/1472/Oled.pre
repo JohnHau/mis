@@ -4145,7 +4145,11 @@ uint8_t bat_charging;
 
 uint8_t flag_ui_check;
 
+uint16_t cnt_push;
+uint16_t tcnt_overload_ma;
 
+uint8_t flag_warning_ma;
+uint8_t flag_warning_mb;
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4201,7 +4205,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 206
+# 211
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4478,12 +4482,10 @@ TRISAbits.RA2 =1;
 ADCON2bits.ACQT = 4;
 
 ADCON0bits.ADON = 1;
-
-
 return 1;
 }
 
-# 296
+# 294
 uint16_t get_AD_vaule(void)
 {
 
@@ -4558,7 +4560,7 @@ return rv;
 
 }
 
-# 383
+# 381
 uint8_t ee_CheckDevice(uint8_t _Address)
 {
 
@@ -4592,7 +4594,7 @@ uint8_t ee_WaitStandby(void)
 uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize)
 {
 
-# 480
+# 478
 }
 
 
@@ -4665,7 +4667,7 @@ i2c_Stop();
 return 0;
 }
 
-# 556
+# 554
 uint8_t write_buf[256];
 uint8_t read_buf[256];
 
@@ -4674,7 +4676,7 @@ uint8_t ee_Test(void)
 return 1;
 }
 
-# 570
+# 568
 void LCD_backlight_init(void)
 {
 TRISEbits.RE0 =0;
@@ -4721,7 +4723,7 @@ return 1;
 
 }
 
-# 628
+# 626
 uint8_t ms = 0x66;
 uint8_t ss=0;
 uint8_t css=0;
@@ -4752,7 +4754,7 @@ const uint8_t c_m[2][23]= {
 
 };
 
-# 662
+# 660
 const uint8_t drops_m [2][23]={
 
 0x80, 0x83, 0x8f, 0xbf, 0x8f, 0x83, 0x80, 0x80,
@@ -4801,10 +4803,10 @@ const uint8_t mem_m [2][23]={
 
 };
 
-# 746
+# 744
 const uint8_t bat00_m[2][23]={
 
-# 765
+# 763
 0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x8F,
 0x88,0xB8,0xA0,0xA0,0xA0,0xB8,0x88,0x8F,
 0x80,0x80,0x80,0x80,0x80,0x80,0x80,
@@ -4814,7 +4816,7 @@ const uint8_t bat00_m[2][23]={
 0x05,0x05,0x05,0x05,0x05,0x05,0x05,0xFD,
 0x01,0x01,0x01,0x01,0x01,0x01,0x01
 
-# 843
+# 841
 };
 
 
@@ -4913,7 +4915,7 @@ const uint8_t bat100_m[2][23]={
 
 };
 
-# 951
+# 949
 const uint8_t n_0_m[3][19]={
 
 0x20,0x20,0x20,0x20,0x20,0x20,0x23,0x27,
@@ -4952,7 +4954,7 @@ const uint8_t n_1_m[3][19]={
 
 };
 
-# 995
+# 993
 const uint8_t n_1P5_m[3][19]={
 
 0x26, 0x26, 0x26, 0x27, 0x27, 0x20, 0x20, 0x20,
@@ -4971,7 +4973,7 @@ const uint8_t n_1P5_m[3][19]={
 
 };
 
-# 1018
+# 1016
 const uint8_t n_2P5_m[3][19]={
 
 0x26, 0x26, 0x26, 0x27, 0x27, 0x20, 0x20, 0x20,
@@ -5014,7 +5016,7 @@ const uint8_t n_2_m[3][19]={
 
 };
 
-# 1070
+# 1068
 const uint8_t n_3_m[3][19]={
 
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23,
@@ -5029,10 +5031,10 @@ const uint8_t n_3_m[3][19]={
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
 0x10, 0x10, 0x10,
 
-# 1091
+# 1089
 };
 
-# 1100
+# 1098
 const uint8_t n_4_m[3][19]={
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x27, 0x27,
 0x20, 0x20, 0x20, 0x27, 0x27, 0x20, 0x20, 0x20,
@@ -5070,7 +5072,7 @@ const uint8_t n_6_m[3][19]={
 
 };
 
-# 1146
+# 1144
 const uint8_t n_5_m[3][19]={
 
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x26, 0x26,
@@ -5088,7 +5090,7 @@ const uint8_t n_5_m[3][19]={
 
 };
 
-# 1167
+# 1165
 const uint8_t n_10_m[3][19]={
 
 
@@ -5108,7 +5110,7 @@ const uint8_t n_10_m[3][19]={
 
 };
 
-# 1193
+# 1191
 const uint8_t n_13_m[3][19]={
 
 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x23, 0x27,
@@ -5151,7 +5153,7 @@ const uint8_t n_100_m[3][19]={
 0x10, 0x10, 0x10,
 };
 
-# 1239
+# 1237
 const uint8_t n_200_m[3][19]={
 
 0x23, 0x27, 0x26, 0x27, 0x23, 0x20, 0x23, 0x27,
@@ -5213,7 +5215,7 @@ const uint8_t n_300_m[3][19]={
 
 };
 
-# 1319
+# 1317
 const uint8_t n_250_m[3][19]={
 
 0x23, 0x27, 0x26, 0x27, 0x23, 0x20, 0x26, 0x26,
@@ -5228,10 +5230,10 @@ const uint8_t n_250_m[3][19]={
 0x10,0x10,0x10,0x10,0x10,0x10,0x10,0x10,
 0x10,0x10,0x10
 
-# 1337
+# 1335
 };
 
-# 1345
+# 1343
 uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode)
 {
 uint8_t temp =0;
@@ -5370,7 +5372,7 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 }
 
-# 1488
+# 1486
 uint8_t (*n_x_m)[19] = (0);
 
 uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode)
@@ -5531,7 +5533,7 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 }
 
-# 1663
+# 1661
 void check_bat(void)
 {
 static uint8_t bat_flip =1;
@@ -5632,7 +5634,7 @@ break;
 
 }
 
-# 1772
+# 1770
 void display_bat(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5804,7 +5806,7 @@ break;
 
 }
 
-# 1954
+# 1952
 void display_blank_mode_pa(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5872,7 +5874,7 @@ break;
 
 }
 
-# 2028
+# 2026
 void display_cmode(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -5939,7 +5941,7 @@ break;
 
 }
 
-# 2104
+# 2102
 void display_drops(uint8_t y,uint8_t x,uint8_t mode)
 {
 
@@ -6002,7 +6004,7 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 break;
 
-# 2170
+# 2168
 }
 
 
@@ -6074,14 +6076,14 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 break;
 
-# 2245
+# 2243
 }
 
 
 
 }
 
-# 2255
+# 2253
 const uint8_t ptna_frame[2][27]=
 {
 0x3f, 0x40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
@@ -6154,10 +6156,10 @@ const uint8_t ptne_frame[3][48]=
 0x10, 0x10, 0x10, 0x90, 0x10, 0x10, 0x10, 0x10,
 0xd0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
 
-# 2331
+# 2329
 };
 
-# 2341
+# 2339
 const uint8_t ptnf_frame[3][48]={
 
 0x0f, 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
@@ -6183,7 +6185,7 @@ const uint8_t ptnf_frame[3][48]={
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x20, 0xc0,
 
-# 2370
+# 2368
 };
 
 
@@ -6242,7 +6244,7 @@ const uint8_t ptnh_frame[3][48]={
 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
 0x10, 0x10, 0x10, 0x10, 0x90, 0x90, 0x20, 0xc0,
 
-# 2432
+# 2430
 };
 
 
@@ -6276,7 +6278,7 @@ const uint8_t ptni_frame[3][48]={
 
 };
 
-# 2470
+# 2468
 uint8_t display_frame_abc(uint8_t y,uint8_t x, uint8_t mode)
 {
 
@@ -6380,7 +6382,7 @@ break;
 
 }
 
-# 2577
+# 2575
 }
 
 
@@ -6713,11 +6715,11 @@ ee_WriteBytes(&temp, 0x40, 1);
 
 }
 
-# 2925
+# 2923
 const uint8_t logo_eme[8][98]=
 {
 
-# 3029
+# 3027
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -6834,7 +6836,7 @@ const uint8_t logo_eme[8][98]=
 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 0x00,0x00
 
-# 3149
+# 3147
 };
 
 
@@ -6857,7 +6859,7 @@ ee_WriteBytes( &(logo_eme[page][col]), 0x40, 1);
 
 }
 
-# 3176
+# 3174
 uint8_t clear_screen(void)
 {
 
@@ -6895,7 +6897,7 @@ delaynus(50 * 1000);
 }
 clear_screen();
 
-# 3234
+# 3232
 display_frame_abc(1,71, 0);
 display_cmode(1,(71 + 2),0);
 menu[0].mode = 0;
@@ -6944,7 +6946,7 @@ display_num(3,(0 + 14), 3);
 menu[6].mode = 0;
 menu[6].value = 3;
 
-# 3287
+# 3285
 hg_op.cur_working_mode = 0x01;
 hg_op.cnt_target_posrst = (412 );
 hg_op.needle_len = 4;
@@ -6952,7 +6954,7 @@ hg_op.needle_len = 4;
 hg_op.inject_len = 1;
 
 hg_op.tube_cap = 0;
-hg_op.work_freq = 20;
+hg_op.work_freq = (2*1000);
 
 hg_op.push_len = 140;
 
@@ -6988,10 +6990,10 @@ write_buf[0]=0x0c;
 
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3336
+# 3334
 }
 
-# 3342
+# 3340
 void Initial_LY096BG30(void)
 {
 
@@ -7006,10 +7008,10 @@ delay(1);
 LATEbits.LATE1=1;
 delay(1);
 
-# 3395
+# 3393
 write_buf[0]=0x25;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3433
+# 3431
 }
 

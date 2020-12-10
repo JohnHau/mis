@@ -3910,7 +3910,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 121 "../MotorDrive.h"
+# 134 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4026,7 +4026,11 @@ uint8_t bat_charging;
 
 uint8_t flag_ui_check;
 
+uint16_t cnt_push;
+uint16_t tcnt_overload_ma;
 
+uint8_t flag_warning_ma;
+uint8_t flag_warning_mb;
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4082,7 +4086,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 206
+# 211
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4277,7 +4281,7 @@ TRISDbits.RD3 =0;
 
 
 LATAbits.LA5 =1;
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 LATCbits.LC2 =1;
 LATDbits.LD4 =1;
@@ -4385,16 +4389,13 @@ LATDbits.LD4 =1;LATDbits.LD2 =0;
 while(hg_op.status_hit_lp == 0)
 {
 LATDbits.LD3 =1;
-delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
+delaynus(540*2);
 LATDbits.LD3 =0;
-delaynus(10);
+delaynus(460*2);
 
 }
 
-
 do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
-
-
 
 if(hg_op.needle_len == 13)
 {
@@ -4409,10 +4410,10 @@ hg_op.in_reset = 1;
 while(hg_op.cnt_posrst < hg_op.cnt_target_posrst)
 {
 LATDbits.LD2 =1;
-delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
-printf("r%d\n",hg_op.cnt_posrst);
+delaynus(300*2);
+
 LATDbits.LD2 =0;
-delaynus(10);
+delaynus(700*2);
 
 }
 
@@ -4420,13 +4421,7 @@ delaynus(10);
 
 do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
 
-
-
-
-printf("A-reset len is %d\r\n",hg_op.cnt_posrst);
-delaynus(50 * 1000);
-
-printf("B-reset len is %d\r\n",hg_op.cnt_posrst);
+# 246
 hg_op.need_reset =0;
 hg_op.status_hit_lp =0;
 hg_op.cnt_posrst =0;
@@ -4448,9 +4443,9 @@ uint16_t cnt_push =0;
 if(0)
 {
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 hg_op.acting_flag =0;
 hg_op.working_mode = 0x03;
 hg_op.need_reset =1;
@@ -4465,11 +4460,14 @@ if( hg_op.needle_len == 13)
 {
 hg_op.cnt_posa =0;
 do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
-printf("start\n");
-while(hg_op.cnt_posa < (156));
+
+while(hg_op.cnt_posa < (187));
+
+do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
+delaynus(15 * 1000);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-printf("end\n");
-delaynus(50 * 1000);
+
+
 
 }
 else
@@ -4479,13 +4477,10 @@ LATDbits.LD4 =1;LATDbits.LD3 =0;LATDbits.LD2 =1;
 
 while(hg_op.cnt_pos_1mm < 150);
 do{do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);delaynus(15*1000);do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);}while(0);
-printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
 
+# 309
+delaynus(30 *1000);
 
-
-; ;
-
-printf("444-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
 
 }
 
@@ -4500,24 +4495,53 @@ else if(hg_op.drops_push == 1)
 {
 
 
-cnt_push =0;
+hg_op.cnt_push =0;
+hg_op.tcnt_overload_ma =0;
+do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
+do{LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
-
-while(cnt_push < hg_op.push_len)
-
-
+while(hg_op.cnt_push < hg_op.push_len)
 {
 while(PORTAbits.RA4 == 0);
-cnt_push ++;
+hg_op.cnt_push ++;
 while(PORTAbits.RA4 == 1);
-cnt_push ++;
+hg_op.cnt_push ++;
 
+
+
+
+if(hg_op.flag_warning_ma == 1)
+break;
+
+
+}
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{T0IE=0;T0IF = 0;T0CONbits.TMR0ON =0;}while(0);
+if(hg_op.flag_warning_ma == 1)
+{
+hg_op.drops_sa = 0;
+hg_op.drops_push = 0;
+hg_op.drops_sb = 0;
+
+
+while(PORTBbits.RB5 == 0)
+{
+buzz();
+delaynus(50*1000);delaynus(50*1000);
+delaynus(50*1000);delaynus(50*1000);
+delaynus(50*1000);delaynus(50*1000);
 
 }
 
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+hg_op.flag_warning_ma =0;
+hg_op.need_reset =1;
+hg_op.working_mode = 0x03;
+
+}
+else
+{
+
 
 
 
@@ -4525,21 +4549,23 @@ hg_op.drops_sa = 0;
 hg_op.drops_push = 0;
 hg_op.drops_sb = 1;
 
-
+}
 
 }
 else if(hg_op.drops_sb == 1)
 {
 
-# 359
+# 390
 if(hg_op.needle_len == 13)
 {
 
 
 do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
 while(PORTBbits.RB0 == 1);
+
+do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
+delaynus(15 * 1000);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-delaynus(50 * 1000);
 
 }
 else
@@ -4552,19 +4578,19 @@ do{do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);delaynus(15*100
 }
 
 
-printf("888-hg_op.cnt_posb is %d\r\n", hg_op.cnt_pos_1mm);
 
 
-; ;
-printf("999-hg_op.cnt_posb is %d\r\n=======\r\n", hg_op.cnt_pos_1mm);
+delaynus(hg_op.work_freq);
+
+
 
 
 if(PORTBbits.RB5 == 1)
 {
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
 
 while(cnt_push < 260)
@@ -4576,7 +4602,7 @@ cnt_push ++;
 
 }
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 hg_op.drops_sa = 0;
 hg_op.drops_sb = 0;
@@ -4600,13 +4626,15 @@ hg_op.working_mode = 0x03;
 }
 else if(PORTBbits.RB5 == 0)
 {
+
 hg_op.drops_sb = 0;
 hg_op.drops_push =0;
 hg_op.drops_sa = 1;
+
 }
 }
 
-# 437
+# 472
 }
 
 
@@ -4619,15 +4647,15 @@ hg_op.drops_sa = 1;
 void c_routine(void)
 {
 uint16_t cnt_push =0;
-printf("in in C mode\r\n");
+
 
 if(0)
 {
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 delaynus(30 * 1000);
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 
 
@@ -4645,7 +4673,7 @@ if( hg_op.needle_len == 13)
 {
 
 LATDbits.LD4 =1;LATDbits.LD2 =1;
-while(hg_op.cnt_posa < (156));
+while(hg_op.cnt_posa < (187));
 }
 else
 {
@@ -4667,11 +4695,11 @@ hg_op.drops_push = 1;
 if(hg_op.drops_push == 1)
 {
 
-# 507
+# 542
 while(PORTBbits.RB5 == 0)
 {
 cnt_push =0;
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+do{LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
 
 while(cnt_push < 146)
 {
@@ -4681,14 +4709,14 @@ while(PORTAbits.RA4 == 1);
 cnt_push ++;
 
 }
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 delaynus(50 * 1000);
 
 printf("cycle push\r\n");
 }
 
 printf("should be here\r\n");
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 delaynus(50* 1000);
 hg_op.drops_sa = 0;
@@ -4715,7 +4743,7 @@ delaynus(100 * 1000);
 }
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 559
+# 594
 delay_pwm(hg_op.work_freq * 300);
 printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
 
@@ -4725,10 +4753,10 @@ delaynus(15 * 1000);
 if(PORTBbits.RB5 == 1)
 {
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
 cnt_push = 0;
 
@@ -4741,7 +4769,7 @@ cnt_push ++;
 
 }
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 hg_op.drops_sa = 0;
 hg_op.drops_sb = 0;
@@ -4782,10 +4810,10 @@ if(0)
 {
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
 delay_pwm(300 * 30);
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 
 
@@ -4805,7 +4833,7 @@ if( hg_op.needle_len == 13)
 LATDbits.LD2 =1;
 LATDbits.LD4 =1;
 
-while(hg_op.cnt_posa < (156));
+while(hg_op.cnt_posa < (187));
 }
 else
 {
@@ -4817,7 +4845,7 @@ LATDbits.LD4 =1;
 while(hg_op.cnt_posa < 20)
 {
 
-# 664
+# 699
 while(PORTBbits.RB2 == 0);
 hg_op.cnt_posa ++;
 while(PORTBbits.RB2 == 1);
@@ -4842,7 +4870,7 @@ else if(hg_op.drops_push == 1)
 
 cnt_push =0;
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
+do{LATDbits.LD0 =1;LATDbits.LD1 =0; LATCbits.LC2 =1; }while(0);
 
 
 while(cnt_push < hg_op.push_len)
@@ -4855,7 +4883,7 @@ cnt_push ++;
 }
 
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 
 
@@ -4888,7 +4916,7 @@ LATDbits.LD4 =1;
 while(hg_op.cnt_posb < 20)
 {
 
-# 739
+# 774
 while(PORTBbits.RB2 == 0);
 hg_op.cnt_posb ++;
 while(PORTBbits.RB2 == 1);
@@ -4912,9 +4940,9 @@ printf("in test mode\r\n");
 if(action_btn_cnt%2 == 0)
 {
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
-do{do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
+do{LATDbits.LD0 =0;LATDbits.LD1 =1; LATCbits.LC2 =1;}while(0);
 
 
 while(cnt_push < 14)
@@ -4926,7 +4954,7 @@ cnt_push ++;
 
 }
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 
 hg_op.drops_sa = 0;
 hg_op.drops_sb = 0;

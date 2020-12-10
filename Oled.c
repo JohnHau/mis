@@ -281,8 +281,6 @@ uint8_t AD_init(void)
     ADCON2bits.ACQT = 4;
    // ADCON0bits.CHS = 0;//choose channel 0
     ADCON0bits.ADON = 1;
-
-
     return 1;
 }
 

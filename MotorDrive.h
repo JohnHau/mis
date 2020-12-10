@@ -55,10 +55,10 @@
 #define INPUT2_AL()    LATDbits.LD1 =0
 
 //#define STOP_A()      do{INPUT1_AL();INPUT2_AL(); ENABLE_AL();}while(0)
-#define STOP_A()      do{INPUT1_AL();INPUT2_AL();}while(0)
+#define STOP_A()      do{ENABLE_AH();INPUT1_AL();INPUT2_AL();}while(0)
 
-#define FORWARD_RUN_A()   do{STOP_A();INPUT1_AH();INPUT2_AL(); ENABLE_AH(); }while(0)
-#define REVERSE_RUN_A()   do{STOP_A();INPUT1_AL();INPUT2_AH(); ENABLE_AH();}while(0)
+#define FORWARD_RUN_A()   do{INPUT1_AH();INPUT2_AL(); ENABLE_AH(); }while(0)
+#define REVERSE_RUN_A()   do{INPUT1_AL();INPUT2_AH(); ENABLE_AH();}while(0)
 
 
 
@@ -102,11 +102,24 @@
 #define F_RUNNING_BRAKE_MB()  do{FORWARD_RUN_B();brake_MB();STOP_B();}while(0)
 #define R_RUNNING_BRAKE_MB()  do{REVERSE_RUN_B();brake_MB();STOP_B();}while(0)
 
+//#define F_RUNNING_BRAKE_MA()  do{FORWARD_RUN_B();brake_MA();STOP_A();}while(0)
+
+
+#define F_RUNNING_BRAKE_MA()  do{FORWARD_RUN_A();delaynus(15*1000);STOP_A();}while(0)
+#define R_RUNNING_BRAKE_MA()  do{REVERSE_RUN_A();delaynus(15*1000);STOP_A();}while(0)
+
+
 #else
 #define F_RUNNING_BRAKE_MB()  do{FORWARD_RUN_B();delaynus(15*1000);STOP_B();}while(0)
 #define R_RUNNING_BRAKE_MB()  do{REVERSE_RUN_B();delaynus(15*1000);STOP_B();}while(0)
 
+#define F_RUNNING_BRAKE_MA()  do{FORWARD_RUN_A();delaynus(15*1000);STOP_A();}while(0)
+#define R_RUNNING_BRAKE_MA()  do{REVERSE_RUN_A();delaynus(15*1000);STOP_A();}while(0)
+
 #endif
+
+
+
 
 
 

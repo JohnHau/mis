@@ -5,7 +5,6 @@
         <group>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/MotorDrive.h</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Beep.h</file>
-            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Key.h</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Timer.h</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Beep.c</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/MotorDrive.c</file>
@@ -13,7 +12,6 @@
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Timer.c</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/gui.c</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Oled.c</file>
-            <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/Oled.h</file>
             <file>file:/E:/myWorkSpace/injector/EME_HA_GUN/gui.h</file>
         </group>
     </open-files>

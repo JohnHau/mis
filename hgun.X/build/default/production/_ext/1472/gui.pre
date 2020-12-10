@@ -4076,7 +4076,11 @@ uint8_t bat_charging;
 
 uint8_t flag_ui_check;
 
+uint16_t cnt_push;
+uint16_t tcnt_overload_ma;
 
+uint8_t flag_warning_ma;
+uint8_t flag_warning_mb;
 uint8_t in_reset;
 uint16_t sat;
 uint16_t sbt;
@@ -4132,7 +4136,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 206
+# 211
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4166,7 +4170,7 @@ void blink_mode(void);
 
 void check_ui_status(void);
 
-# 121 "../MotorDrive.h"
+# 134 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4449,7 +4453,7 @@ display_num(3,(0 + 17), 104);
 menu[6].value = 104;
 
 menu[0].value = 0x01;
-
+hg_op.work_freq = (1*1000);
 
 }
 else if(work_mode == 0x02)
@@ -5095,7 +5099,7 @@ display_num(3,(49 + 14),1);
 menu[5].value = 1;
 
 # 901
-hg_op.push_len = 140;
+hg_op.push_len = 114;
 }
 else if(menu[5].parameter == 1)
 {
@@ -5106,7 +5110,7 @@ display_num(3,(49 + 14),106);
 menu[5].value = 106;
 
 # 915
-hg_op.push_len = 130;
+hg_op.push_len = 114;
 
 # 921
 }
@@ -5114,7 +5118,7 @@ else if(menu[5].parameter == 2)
 {
 display_num(3,(49 + 14),5);
 menu[5].value = 5;
-hg_op.push_len = 160;
+hg_op.push_len = 114;
 }
 
 }
@@ -5327,7 +5331,7 @@ else if(work_mode == 0x01)
 {
 display_num(3,(0 + 17), menu[7].mode | 104);
 menu[6].value = 104;
-hg_op.work_freq = 20;
+hg_op.work_freq = (1*1000);
 
 
 
@@ -5347,7 +5351,7 @@ else if(work_mode == 0x01)
 {
 display_num(3,(0 + 17), menu[7].mode | 102);
 menu[6].value = 102;
-hg_op.work_freq = 200;
+hg_op.work_freq = (3*1000);
 
 }
 
@@ -5365,7 +5369,7 @@ else if(work_mode == 0x01)
 {
 display_num(3,(0 + 17), menu[7].mode | 101);
 menu[6].value = 101;
-hg_op.work_freq = 100;
+hg_op.work_freq = (4*1000);
 }
 
 }
@@ -5660,7 +5664,7 @@ delaynus(50*1000);
 
 
 
-do{LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 LATCbits.LC2 =0;
