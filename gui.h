@@ -41,17 +41,17 @@ typedef struct _hg_op
     uint8_t flag_warning_ma;
     uint8_t flag_warning_mb;
     uint8_t in_reset;
-    uint16_t sat;
-    uint16_t sbt;
+   // uint16_t sat;
+    //uint16_t sbt;
     
-    uint16_t sa_old;
-    uint16_t sa_new;
+   // uint16_t sa_old;
+   // uint16_t sa_new;
     
-    uint16_t sb_old;
-    uint16_t sb_new;
+   // uint16_t sb_old;
+   // uint16_t sb_new;
      
     uint8_t needle_len;
-    uint8_t inject_len;
+    uint16_t inject_len;
     uint8_t tube_cap;
     uint16_t work_freq;
     
@@ -68,26 +68,31 @@ typedef struct _hg_op
     
     uint8_t posa;
     uint8_t posb;
-    uint8_t posc;
+  //  uint8_t posc;
     
     uint16_t cnt_posa;
     uint16_t cnt_posb;
-    uint16_t cnt_posc;
+   // uint16_t cnt_posc;
     
     int16_t cnt_pos_1mm;
     int16_t cnt_pos_2mm;
+    int16_t cnt_pos_nmm;
     
-    uint16_t cnt_posa_std;
-    uint16_t cnt_posb_std;
+    int16_t cnt_pos_1mm_target;
+    int16_t cnt_pos_2mm_target;
+    int16_t cnt_pos_nmm_target;
     
-    uint16_t cnt_posa_target;
-    uint16_t cnt_posb_target;
+    //uint16_t cnt_posa_std;
+    //uint16_t cnt_posb_std;
+    
+    //uint16_t cnt_posa_target;
+    //uint16_t cnt_posb_target;
     
     
     
     uint16_t cnt_posrst;
     uint16_t cnt_target_posrst;
-    uint16_t qec;
+    //uint16_t qec;
 
 }HG_OP;
 
@@ -151,7 +156,7 @@ extern uint8_t flag_test_mode_break;
 
 
 
-#define INC_DOUBLE    300
+//#define INC_DOUBLE    300
 
 //#define POS_13_RST   (300 * 4)
 //#define POS_13_RST   (150 * 4)
@@ -171,39 +176,54 @@ extern uint8_t flag_test_mode_break;
 //#define POS_4_RST   (520 *2)
 //#define POS_4_RST   (482 *2)
 //#define POS_4_RST   (482 )
-#define POS_4_RST   (412 )
-#define POS_6_RST   (412 )
+//#define POS_4_RST   (412 )
+//#define POS_6_RST   (412 )
 
 
-#define POS_INJECT_F  (30 * 4 + 0)
-#define POS_INJECT_R  (30 * 4 + 0)
+#define POS_4_RST   (789)
+#define POS_6_RST   (614 )
+
+
+
+#define POS_0MM_TARGET   (148)
+#define POS_1MM_TARGET   (236)
+#define POS_2MM_TARGET   (325)
+
+
+
+#define VOL_TUBE_1ML_PUSH    (112)
+#define VOL_TUBE_2P5ML_PUSH  (112)
+#define VOL_TUBE_5ML_PUSH    (112)
+
+
+
+//#define POS_INJECT_F  (30 * 4 + 0)
+//#define POS_INJECT_R  (30 * 4 + 0)
 //#define POS_INJECT_R  (30 * 4 + 12)
 
 
-#define  STARTUP_PWM_MA   30
-#define  STARTUP_PWM_MB   30
+//#define  STARTUP_PWM_MA   30
+//#define  STARTUP_PWM_MB   30
 
-#define  STARTUP_PWM   10
+//#define  STARTUP_PWM   10
 
-#define  STARTUP_THR_MA  12
-#define  STARTUP_THR_MB  12
+//#define  STARTUP_THR_MA  12
+//#define  STARTUP_THR_MB  12
 
 
 //#define STARTUP_CNT_SA_MB   180//200//175//150//125//250//93 /*20*/ /*15*/  up
-#define STARTUP_CNT_SA_MB   80//93//200//175//150//125//250//93 /*20*/ /*15*/  up
-#define STARTUP_CNT_SB_MB   100 /*20*/ /*15*/
+//#define STARTUP_CNT_SA_MB   80//93//200//175//150//125//250//93 /*20*/ /*15*/  up
+//#define STARTUP_CNT_SB_MB   100 /*20*/ /*15*/
 //#define STARTUP_CNT_MB   14 /*20*/ /*15*/
 
 
 
-#define STARTUP_CNT_MA_TEST   95 /*20*/ /*15*/
-#define STARTUP_CNT_MB_TEST   100 /*20*/ /*15*/
+//#define STARTUP_CNT_MA_TEST   95 /*20*/ /*15*/
+//#define STARTUP_CNT_MB_TEST   100 /*20*/ /*15*/
 
 
 
 #define  INTERVAL_F    40/*20*/
-
-
 
 #define  PERIORD_DYNAMIC_UI   200000
 

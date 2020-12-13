@@ -6,6 +6,7 @@
 #include"Key.h"
 #include"gui.h"
 #include"Oled.h"
+#include"Beep.h"
 //needle length         pos 
 //  4mm                 9.7mm
 //  9mm                 4.7mm
@@ -43,7 +44,7 @@ uint8_t flag_action_button =0;
 uint8_t flag_do_reset_in_drops_mode =0;  
         
 
-
+const int16_t tss =150;
 
 
 void MotorDriveInit(void)
@@ -95,11 +96,11 @@ void MotorDriveInit(void)
     
     
     //=========================================================
-#if 1
+
     INTCON2bits.INTEDG2 = 0;//falling edge
+ #if 1
     INTCON3bits.INT2IF =0;
-    INTCON3bits.INT2E = 1;//PHB_MB  
-    
+    INTCON3bits.INT2E = 0;//PHB_MB    
 #endif
     //=========================================================
     
@@ -157,20 +158,24 @@ uint16_t brake_MB(void)
 void hg_reset(void)
 {
     
-            if(LP_BUTTON == 0)
+            if(LP_BUTTON == 0  ||  hg_op.needle_len == NEEDLE_LEN_13_MM)
+            //if(LP_BUTTON == 0)
             //if(0)//bug to fix
             { 
                 hg_op.posrst = 0;
                 hg_op.cnt_posrst =0;
                 hg_op.cnt_target_posrst = 600; 
+                hg_op.in_reset = 1;
                 //while(hg_op.posrst == 0)
-                REVERSE_RUN_B();
-                while(hg_op.cnt_posrst < 300)
+                //REVERSE_RUN_B();
+                FORWARD_RUN_B();
+                while(hg_op.cnt_posrst < 200)
                 {
                     INPUT3_BH();
                     delaynus(10); delaynus(10); delaynus(10); delaynus(10); delaynus(10);
                     INPUT3_BL();
                     delaynus(10);
+
                 }
                 
                STOP_B(); 
@@ -178,15 +183,16 @@ void hg_reset(void)
                 hg_op.posrst = 0;
                 hg_op.cnt_posrst =0;
                 
-                printf("lp away\n");
+                //printf("lp away\n");
+                //TEST_LED_BLINK();   
+                //TEST_LED_ON();
+                //while(1);
                   
             }
-            
-            
-                   
+                
             if(hg_op.needle_len == NEEDLE_LEN_4_MM)
             {
-                hg_op.cnt_target_posrst = 300;//600;//600;//300;//600;//100;//600//POS_4_RST;//1200;POS_4_RST;  
+                hg_op.cnt_target_posrst = POS_4_RST;//300;//600;//600;//300;//600;//100;//600//POS_4_RST;//1200;POS_4_RST;  
             }
             else if(hg_op.needle_len == NEEDLE_LEN_6_MM)
             {
@@ -244,6 +250,7 @@ void hg_reset(void)
                
             //printf("B-reset len is %d\r\n",hg_op.cnt_posrst);    
             hg_op.need_reset =0;
+            hg_op.in_reset = 0;
             hg_op.status_hit_lp =0;
             hg_op.cnt_posrst =0;
             hg_op.posrst =0;
@@ -282,13 +289,24 @@ void drops_routine(void)
                                 hg_op.cnt_posa =0;
                                 FORWARD_RUN_B();
                                 //printf("start\n");
-                                while(hg_op.cnt_posa < POS_13MM_SA);
                                 
+                                if(hg_op.inject_len == INJECT_LEN_1_MM)
+                                {
+                                    while(hg_op.cnt_posa < POS_1MM_TARGET);
+                                }
+                                else if(hg_op.inject_len == INJECT_LEN_0_MM)
+                                {
+                                    while(hg_op.cnt_posa < POS_0MM_TARGET);
+                                }
+                                else if(hg_op.inject_len == INJECT_LEN_2_MM)
+                                {
+                                    
+                                }
                                 REVERSE_RUN_B();
                                 delaynus(15 * 1000);
                                 STOP_B();
                                 //printf("end\n");
-                                //delaynus(50 * 1000);
+                                //delaynus(30 * 1000);
                                 
                             }
                             else
@@ -296,7 +314,30 @@ void drops_routine(void)
                                 STOP_B();                         
                                 ENABLE_BH();INPUT4_BL();INPUT3_BH();
 
-                               while(hg_op.cnt_pos_1mm < 150);//300
+                               //while(hg_op.cnt_pos_1mm < 150);//300
+                               //while(hg_op.cnt_pos_nmm < hg_op.cnt_pos_nmm_target);//300
+                               //while(hg_op.cnt_pos_nmm < 150);//300
+                                
+                                
+                               //while(hg_op.cnt_pos_nmm < POS_1MM_TARGET);  
+                               //while(hg_op.cnt_pos_nmm < POS_0MM_TARGET);    
+#if 1
+                                if(hg_op.inject_len == INJECT_LEN_1_MM)
+                                {
+                                   //TEST_LED_ON();
+                                    while(hg_op.cnt_pos_nmm < POS_1MM_TARGET);
+                                }
+                                else if(hg_op.inject_len == INJECT_LEN_0_MM)
+                                {
+                                    while(hg_op.cnt_pos_nmm < POS_0MM_TARGET);
+                                }
+                                else if(hg_op.inject_len == INJECT_LEN_2_MM)
+                                {
+                                    
+                                }
+#endif           
+                                
+                                
                                R_RUNNING_BRAKE_MB();
                                //printf("333-hg_op.cnt_posa is %d\r\n", hg_op.cnt_pos_1mm );
                           
@@ -323,7 +364,9 @@ void drops_routine(void)
                             //prev_edge =0;
                             //cur_edge =0;
                             hg_op.cnt_push =0;
-                            hg_op.tcnt_overload_ma =0;
+                            //hg_op.tcnt_overload_ma =0;
+                            
+                            
                             ENABLE_TIMER();
                             FORWARD_RUN_A();                  
                             //while(hg_op.cnt_push < 600)//146
@@ -333,19 +376,17 @@ void drops_routine(void)
                                    hg_op.cnt_push ++;
                                    while(READ_PHB_MA() == 1);
                                    hg_op.cnt_push ++;     
-                                   
-
-                                   
-                                   
+#if 1      
                                    if(hg_op.flag_warning_ma == 1)
                                        break;
-                                   
+#endif   
                                    
                             }   
                             STOP_A();
                             DISABLE_TIMER();
                             if(hg_op.flag_warning_ma == 1)  
                             {
+#if 1
                                 hg_op.drops_sa = 0;
                                 hg_op.drops_push = 0;
                                 hg_op.drops_sb = 0;
@@ -364,7 +405,7 @@ void drops_routine(void)
                                 hg_op.flag_warning_ma =0;
                                 hg_op.need_reset =1;   
                                 hg_op.working_mode = WORK_MODE_STOP;
-                            
+#endif
                             }     
                             else
                             {
@@ -381,8 +422,6 @@ void drops_routine(void)
                     }//end drops_push            
                     else if(hg_op.drops_sb == 1)
                     {
-                           
-                           
                             //hg_op.cnt_posb =0;
                             
                             //printf("sb begin %d\r\n",hg_op.cnt_posb); 
@@ -392,18 +431,17 @@ void drops_routine(void)
                                 
                               
                                 REVERSE_RUN_B();
-                                while(LP_BUTTON == 1);
-                                
+                                while(LP_BUTTON == 1);   
                                 FORWARD_RUN_B();
-                                delaynus(15 * 1000);
+                                delaynus(12 * 1000);
                                 STOP_B();
  
                             }
                             else
                             {
                                 ENABLE_BH();INPUT3_BL();INPUT4_BH();
-                                while(hg_op.cnt_pos_1mm > 0);//300    
-                                
+                                //while(hg_op.cnt_pos_1mm > 0);//300    
+                                while(hg_op.cnt_pos_nmm > 0);//300   
                                 F_RUNNING_BRAKE_MB();
 
                             }
@@ -453,7 +491,7 @@ void drops_routine(void)
                                      }
                                     
                                       hg_op.working_mode = WORK_MODE_STOP;
-                    
+                                      
                              }
                              else if(ACTION_BUTTON  == 0)
                              {
@@ -519,7 +557,7 @@ void c_routine(void)
 
                             delaynus(50 * 1000);
                             delaynus(50 * 1000);
-                            printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
+                          //  printf("c-hg_op.cnt_posa is %d\r\n", hg_op.cnt_posa );
                             hg_op.drops_sa = 0;
                             hg_op.drops_sb = 0;
                             hg_op.drops_push = 1;
@@ -555,10 +593,10 @@ void c_routine(void)
                                        STOP_A();
                                        delaynus(50 * 1000);
 
-                                   printf("cycle push\r\n");
+                                 //  printf("cycle push\r\n");
                                }
                                
-                                printf("should be here\r\n");
+                               // printf("should be here\r\n");
                                STOP_A();
                            
                             delaynus(50* 1000);
@@ -582,7 +620,7 @@ void c_routine(void)
                                 ENABLE_BH();
                                 INPUT4_BH();
                                 
-                                delaynus(STARTUP_CNT_SB_MB * 1000);
+                                delaynus(10 * 1000);
                             }
                             STOP_B();
 
@@ -592,7 +630,7 @@ void c_routine(void)
 
                             //delaynus(hg_op.work_freq * 1000);
                             delay_pwm(hg_op.work_freq * 300);
-                            printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
+                            //printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
                            
                              if(ACTION_BUTTON  == 1)
                              {
@@ -861,8 +899,8 @@ void check_acting(void)
                             if(hg_op.cur_working_mode == WORK_MODE_DROPS)
                             {
                                 //printf("drops mode\r\n");
-                               hg_op.acting_flag =0;
-
+                               //hg_op.acting_flag =0;
+                               TEST_LED_ON();
                                hg_op.drops_sa =1;
                                hg_op.drops_sb =0;
                                hg_op.drops_push =0;
@@ -877,7 +915,7 @@ void check_acting(void)
                                hg_op.drops_push =0;
 
                                hg_op.working_mode = hg_op.cur_working_mode;
-                               hg_op.working_mode = WORK_MODE_C;
+                               //hg_op.working_mode = WORK_MODE_C;
                             }
                              else if(hg_op.cur_working_mode == WORK_MODE_TEST)
                              {
@@ -899,7 +937,7 @@ void check_acting(void)
                   }
                   else
                   {
-                       ENABLE_TIMER();
+                    ENABLE_TIMER();
                   }
                 
                 

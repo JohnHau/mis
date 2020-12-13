@@ -256,12 +256,6 @@ extern double round(double);
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.41\sources\common\doprnt.c"
 #pragma warning disable 350
 
-# 354
-const static unsigned int dpowers[] = {1, 10, 100, 1000, 10000,
-
-# 359
-};
-
 # 455
 int
 
@@ -294,84 +288,20 @@ const char * cp;
 
 while(c = *f++) {
 
-if(c != '%')
-
+# 540
 {
 (putch(c) );
 continue;
 }
-
-# 548
-flag = 0;
-
-# 635
-switch(c = *f++) {
-
-case 0:
-goto alldone;
-
-# 697
-case 'd':
-case 'i':
-break;
-
-# 802
-default:
-
-# 813
-continue;
-
-# 822
-}
-
-# 1253
-{
-
-# 1259
-val = (int)(*(int *)__va_arg((*(int **)ap), (int)0));
-
-if((int)val < 0) {
-flag |= 0x03;
-val = -val;
-}
-
-}
-
-# 1305
-for(c = 1 ; c != sizeof dpowers/sizeof dpowers[0] ; c++)
-if(val < dpowers[c])
-break;
 
 # 1422
 {
 
-# 1438
-if(flag & 0x03)
-(putch('-') );
-
 # 1469
-}
-
-
-prec = c;
-
-while(prec--) {
-
-# 1478
-{
-
-# 1489
-c = (val / dpowers[prec]) % 10 + '0';
-
-# 1523
-}
-(putch(c) );
 }
 
 # 1533
 }
-
-alldone:
 
 # 1540
 return 0;

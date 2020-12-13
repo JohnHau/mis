@@ -209,13 +209,15 @@ void __interrupt ISR(void)
                                 {
                                  
                                   
-                                   hg_op.cnt_pos_1mm ++; 
+                                  // hg_op.cnt_pos_1mm ++; 
+                                   hg_op.cnt_pos_nmm ++; 
                                    hg_op.cnt_posa ++;
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
                                   
-                                   hg_op.cnt_pos_1mm --; 
+                                   //hg_op.cnt_pos_1mm --; 
+                                   hg_op.cnt_pos_nmm --; 
                                    hg_op.cnt_posa --;
                                 }
                        
@@ -225,12 +227,14 @@ void __interrupt ISR(void)
                            
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
-                                    hg_op.cnt_pos_1mm --; 
+                                    //hg_op.cnt_pos_1mm --; 
+                                    hg_op.cnt_pos_nmm --; 
                                     hg_op.cnt_posa --;
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                   hg_op.cnt_pos_1mm ++; 
+                                  // hg_op.cnt_pos_1mm ++; 
+                                   hg_op.cnt_pos_nmm ++; 
                                    hg_op.cnt_posa ++;
                                 }
                            
@@ -304,13 +308,15 @@ void __interrupt ISR(void)
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
                                 
-                                  //tvb--;
-                                  hg_op.cnt_pos_1mm ++;
+                                 
+                                  //hg_op.cnt_pos_1mm ++;
+                                  hg_op.cnt_pos_nmm ++;
                                 }
                                 else if(READ_PHA_MB() == 1)
                                 {
-                                  //tvb++;
-                                  hg_op.cnt_pos_1mm --;
+                                 
+                                  //hg_op.cnt_pos_1mm --;
+                                  hg_op.cnt_pos_nmm --;
                                  
                                 }
                        
@@ -322,13 +328,15 @@ void __interrupt ISR(void)
                                 if(READ_PHA_MB() == 0)  //falling   
                                 {
                                   
-                                  //tvb++;
-                                  hg_op.cnt_pos_1mm --;
+                                 
+                                  //hg_op.cnt_pos_1mm --;
+                                  hg_op.cnt_pos_nmm --;
                                 }
                                 else if(READ_PHA_MB() == 1) 
                                 {
-                                  //tvb--;
-                                  hg_op.cnt_pos_1mm ++;
+                                  
+                                  //hg_op.cnt_pos_1mm ++;
+                                  hg_op.cnt_pos_nmm ++;
                                 }
                            
                            
@@ -506,6 +514,22 @@ void __interrupt ISR(void)
                    hg_op.need_reset =1;
                    hg_op.in_reset =0;
                    hg_op.needle_len = NEEDLE_LEN_4_MM;
+                   hg_op.inject_len = INJECT_LEN_1_MM;
+                   
+                   menu[0].parameter = 0;
+                   menu[1].parameter = 0;
+                   menu[2].parameter = 0;
+                   menu[3].parameter = 0;
+                   menu[4].parameter = 0;
+                   menu[5].parameter = 0;
+                   menu[6].parameter = 0;
+                   focus =0;
+                   work_mode = WORK_MODE_C; 
+                   
+                   
+                   
+                   
+                   
                    //Initial_LY096BG30();
                    
                    config_LCD();
@@ -526,6 +550,11 @@ void __interrupt ISR(void)
                     
                     //hg_op.needle_len = NEEDLE_LEN_4_MM;
                     //hg_op.need_reset =1;
+                    
+                    
+                    hg_op.working_mode = WORK_MODE_STOP;
+                    hg_op.need_reset =0;
+                    
                     printf("sleep\r\n");
                     
                 }
@@ -601,8 +630,9 @@ void TimerInit(void)
     
     
 	T0IE=0; // 
-	GIE=1;  // 
     T0CONbits.TMR0ON =0;
+	GIE=1;  // 
+   
 
 }
 

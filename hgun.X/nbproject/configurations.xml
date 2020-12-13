@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>../Beep.h</itemPath>
-      <itemPath>../Display.h</itemPath>
       <itemPath>../Key.h</itemPath>
       <itemPath>../MotorDrive.h</itemPath>
       <itemPath>../Oled.h</itemPath>
@@ -20,7 +19,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>../Beep.c</itemPath>
-      <itemPath>../Display.c</itemPath>
       <itemPath>../Key.c</itemPath>
       <itemPath>../Main.c</itemPath>
       <itemPath>../MotorDrive.c</itemPath>
@@ -149,6 +147,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

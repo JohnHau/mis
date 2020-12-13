@@ -3910,10 +3910,10 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 63 "../Timer.h"
+# 62 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 70
+# 69
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
@@ -4065,7 +4065,7 @@ void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
 void delay_f(uint32_t n);
 
-# 134 "../MotorDrive.h"
+# 96 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4149,17 +4149,10 @@ uint16_t tcnt_overload_ma;
 uint8_t flag_warning_ma;
 uint8_t flag_warning_mb;
 uint8_t in_reset;
-uint16_t sat;
-uint16_t sbt;
 
-uint16_t sa_old;
-uint16_t sa_new;
-
-uint16_t sb_old;
-uint16_t sb_new;
-
+# 53
 uint8_t needle_len;
-uint8_t inject_len;
+uint16_t inject_len;
 uint8_t tube_cap;
 uint16_t work_freq;
 
@@ -4176,26 +4169,24 @@ uint8_t posrst;
 
 uint8_t posa;
 uint8_t posb;
-uint8_t posc;
+
 
 uint16_t cnt_posa;
 uint16_t cnt_posb;
-uint16_t cnt_posc;
+
 
 int16_t cnt_pos_1mm;
 int16_t cnt_pos_2mm;
+int16_t cnt_pos_nmm;
 
-uint16_t cnt_posa_std;
-uint16_t cnt_posb_std;
+int16_t cnt_pos_1mm_target;
+int16_t cnt_pos_2mm_target;
+int16_t cnt_pos_nmm_target;
 
-uint16_t cnt_posa_target;
-uint16_t cnt_posb_target;
-
-
-
+# 93
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
-uint16_t qec;
+
 
 }HG_OP;
 
@@ -4203,7 +4194,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 211
+# 231
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4370,13 +4361,15 @@ if(PORTCbits.RC0 == 0)
 {
 
 
-hg_op.cnt_pos_1mm ++;
+
+hg_op.cnt_pos_nmm ++;
 hg_op.cnt_posa ++;
 }
 else if(PORTCbits.RC0 == 1)
 {
 
-hg_op.cnt_pos_1mm --;
+
+hg_op.cnt_pos_nmm --;
 hg_op.cnt_posa --;
 }
 
@@ -4386,42 +4379,46 @@ else if( INTCON2bits.INTEDG2 == 0)
 
 if(PORTCbits.RC0 == 0)
 {
-hg_op.cnt_pos_1mm --;
+
+hg_op.cnt_pos_nmm --;
 hg_op.cnt_posa --;
 }
 else if(PORTCbits.RC0 == 1)
 {
-hg_op.cnt_pos_1mm ++;
+
+hg_op.cnt_pos_nmm ++;
 hg_op.cnt_posa ++;
 }
 
 
 }
 
-# 248
+# 252
 if(0)
 {
 
-# 264
+# 268
 }
 
 }
 else if(hg_op.drops_sb == 1)
 {
 
-# 302
+# 306
 if( INTCON2bits.INTEDG2 == 1)
 {
 if(PORTCbits.RC0 == 0)
 {
 
 
-hg_op.cnt_pos_1mm ++;
+
+hg_op.cnt_pos_nmm ++;
 }
 else if(PORTCbits.RC0 == 1)
 {
 
-hg_op.cnt_pos_1mm --;
+
+hg_op.cnt_pos_nmm --;
 
 }
 
@@ -4434,22 +4431,24 @@ if(PORTCbits.RC0 == 0)
 {
 
 
-hg_op.cnt_pos_1mm --;
+
+hg_op.cnt_pos_nmm --;
 }
 else if(PORTCbits.RC0 == 1)
 {
 
-hg_op.cnt_pos_1mm ++;
+
+hg_op.cnt_pos_nmm ++;
 }
 
 
 }
 
-# 345
+# 353
 if(0)
 {
 
-# 361
+# 369
 }
 
 
@@ -4490,10 +4489,10 @@ else
 
 }
 
-# 406
+# 414
 }
 
-# 424
+# 432
 if(T0IF)
 {
 
@@ -4529,7 +4528,7 @@ hg_op.bat_volume =1;
 tcnt_bat =0;
 }
 
-# 464
+# 472
 if(tcnt > 125)
 
 {
@@ -4541,7 +4540,7 @@ T0IF = 0;
 
 }
 
-# 483
+# 491
 if(INTCONbits.RBIF)
 {
 
@@ -4568,8 +4567,19 @@ hg_op.status_hit_lp = 0;
 hg_op.need_reset =1;
 hg_op.in_reset =0;
 hg_op.needle_len = 4;
+hg_op.inject_len = 1;
 
+menu[0].parameter = 0;
+menu[1].parameter = 0;
+menu[2].parameter = 0;
+menu[3].parameter = 0;
+menu[4].parameter = 0;
+menu[5].parameter = 0;
+menu[6].parameter = 0;
+focus =0;
+work_mode = 0x00;
 
+# 535
 config_LCD();
 initial_ui_setting();
 do{ INTCON3bits.INT2E = 1;INTCON3bits.INT2IF =0;}while(0);
@@ -4586,7 +4596,9 @@ ee_WriteBytes(write_buf, 0x00, 1);
 do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-
+# 555
+hg_op.working_mode = 0x03;
+hg_op.need_reset =0;
 
 printf("sleep\r\n");
 
@@ -4595,7 +4607,7 @@ printf("sleep\r\n");
 
 }
 
-# 540
+# 569
 if(PORTBbits.RB5 == 0)
 {
 
@@ -4626,7 +4638,7 @@ INTCONbits.INT0IF = 0;
 
 }
 
-# 578
+# 607
 }
 
 void TimerInit(void)
@@ -4639,15 +4651,16 @@ T0PS2=1;
 T0PS1=0;
 T0PS0=1;
 
-# 598
+# 627
 T08BIT =1;
 T0IF=0;
 TMR0=0;
 
 
 T0IE=0;
-GIE=1;
 T0CONbits.TMR0ON =0;
+GIE=1;
+
 
 }
 
@@ -4659,10 +4672,10 @@ T1CONbits.T1CKPS = 2;
 T1CONbits.RD16 =1;
 T1CONbits.TMR1ON =0;
 
-# 638
+# 668
 }
 
-# 647
+# 677
 void delaynus(uint16_t n)
 {
 

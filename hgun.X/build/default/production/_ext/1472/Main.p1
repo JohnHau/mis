@@ -1,43 +1,56 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"135 ../MotorDrive.h
+"97 ../MotorDrive.h
 [v _cur_state_phb_ma `uc ~T0 @X0 0 e ]
-"134
+"96
 [v _prev_state_phb_ma `uc ~T0 @X0 0 e ]
-"137
+"99
 [v _cnt_ma `ul ~T0 @X0 0 e ]
-"138
+"100
 [v _cnt_mb `ul ~T0 @X0 0 e ]
-"220 ../gui.h
+"240 ../gui.h
 [v _HG_device_init `(v ~T0 @X0 0 ef ]
-"238
+"258
 [v _initial_para_setting `(v ~T0 @X0 0 ef ]
-"235
+"255
 [v _enter_sleep `(v ~T0 @X0 0 ef ]
 "23
-[s S285 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 `i 1 `i 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S285 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat_volume bat_charging flag_ui_check cnt_push tcnt_overload_ma flag_warning_ma flag_warning_mb in_reset sat sbt sa_old sa_new sb_old sb_new needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb posc cnt_posa cnt_posb cnt_posc cnt_pos_1mm cnt_pos_2mm cnt_posa_std cnt_posb_std cnt_posa_target cnt_posb_target cnt_posrst cnt_target_posrst qec ]
-"94
+[s S285 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `i 1 `i 1 `i 1 `i 1 `i 1 `i 1 `ui 1 `ui 1 ]
+[n S285 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat_volume bat_charging flag_ui_check cnt_push tcnt_overload_ma flag_warning_ma flag_warning_mb in_reset needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb cnt_posa cnt_posb cnt_pos_1mm cnt_pos_2mm cnt_pos_nmm cnt_pos_1mm_target cnt_pos_2mm_target cnt_pos_nmm_target cnt_posrst cnt_target_posrst ]
+"99
 [v _hg_op `S285 ~T0 @X0 0 e ]
-"173 ../MotorDrive.h
+"135 ../MotorDrive.h
 [v _hg_reset `(v ~T0 @X0 0 ef ]
-"175
+"137
 [v _drops_routine `(v ~T0 @X0 0 ef ]
-"176
+"138
 [v _c_routine `(v ~T0 @X0 0 ef ]
-"177
+"139
 [v _test_routine `(v ~T0 @X0 0 ef ]
-"222 ../gui.h
+"7817 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
+[v _T0IE `Vb ~T0 @X0 0 e@32661 ]
+"6100
+[s S257 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S257 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"6108
+[s S258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S258 . T0PS0 T0PS1 T0PS2 T0PS3 . T016BIT ]
+"6099
+[u S256 `S257 1 `S258 1 ]
+[n S256 . . . ]
+"6117
+[v _T0CONbits `VS256 ~T0 @X0 0 e@4053 ]
+"242 ../gui.h
 [v _HG_interface `(v ~T0 @X0 0 ef ]
 "345 ../Oled.h
 [v _check_bat `(v ~T0 @X0 0 ef ]
-"242 ../gui.h
+"262 ../gui.h
 [v _check_ui_status `(v ~T0 @X0 0 ef ]
-"180 ../MotorDrive.h
+"142 ../MotorDrive.h
 [v _check_acting `(v ~T0 @X0 0 ef ]
-"211 ../gui.h
+"231 ../gui.h
 [v _flag_blink `uc ~T0 @X0 0 e ]
-"240
+"260
 [v _blink_mode `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2925,38 +2938,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;MotorDrive.h: 134: extern uint8_t prev_state_phb_ma;
-[; ;MotorDrive.h: 135: extern uint8_t cur_state_phb_ma;
-[; ;MotorDrive.h: 137: extern uint32_t cnt_ma;
-[; ;MotorDrive.h: 138: extern uint32_t cnt_mb;
-[; ;MotorDrive.h: 141: extern uint32_t cnt_mb_sa;
-[; ;MotorDrive.h: 142: extern uint32_t cnt_mb_sb;
-[; ;MotorDrive.h: 147: extern uint8_t flag_inject;
-[; ;MotorDrive.h: 149: extern uint8_t flag_mreset;
-[; ;MotorDrive.h: 150: extern uint8_t flag_mreset_hit_lp;
-[; ;MotorDrive.h: 152: extern uint8_t flag_inject_sa;
-[; ;MotorDrive.h: 153: extern uint8_t flag_inject_sb;
-[; ;MotorDrive.h: 155: extern uint8_t flag_push;
-[; ;MotorDrive.h: 157: extern uint8_t flag_action;
-[; ;MotorDrive.h: 160: extern uint8_t flag_go_to_sleep;
-[; ;MotorDrive.h: 162: extern uint8_t flag_wake_up;
-[; ;MotorDrive.h: 164: extern uint8_t flag_do_reset_in_drops_mode;
-[; ;MotorDrive.h: 166: extern uint8_t flag_action_button;
-[; ;MotorDrive.h: 169: void MotorDriveInit(void);
-[; ;MotorDrive.h: 171: uint16_t brake_MB(void);
-[; ;MotorDrive.h: 173: void hg_reset(void);
-[; ;MotorDrive.h: 175: void drops_routine(void);
-[; ;MotorDrive.h: 176: void c_routine(void);
-[; ;MotorDrive.h: 177: void test_routine(void);
-[; ;MotorDrive.h: 180: void check_acting(void);
-[; ;Timer.h: 63: extern uint16_t action_btn_cnt;
-[; ;Timer.h: 70: extern void TimerInit(void);
-[; ;Timer.h: 71: extern void Timer1Init(void);
-[; ;Timer.h: 72: extern void delaynus(uint16_t n);
-[; ;Timer.h: 77: extern uint16_t tva;
-[; ;Timer.h: 78: extern uint16_t tvb;
-[; ;Timer.h: 80: extern uint8_t flag_tv;
-[; ;Timer.h: 82: extern uint16_t tv_s[10];
+[; ;MotorDrive.h: 96: extern uint8_t prev_state_phb_ma;
+[; ;MotorDrive.h: 97: extern uint8_t cur_state_phb_ma;
+[; ;MotorDrive.h: 99: extern uint32_t cnt_ma;
+[; ;MotorDrive.h: 100: extern uint32_t cnt_mb;
+[; ;MotorDrive.h: 103: extern uint32_t cnt_mb_sa;
+[; ;MotorDrive.h: 104: extern uint32_t cnt_mb_sb;
+[; ;MotorDrive.h: 109: extern uint8_t flag_inject;
+[; ;MotorDrive.h: 111: extern uint8_t flag_mreset;
+[; ;MotorDrive.h: 112: extern uint8_t flag_mreset_hit_lp;
+[; ;MotorDrive.h: 114: extern uint8_t flag_inject_sa;
+[; ;MotorDrive.h: 115: extern uint8_t flag_inject_sb;
+[; ;MotorDrive.h: 117: extern uint8_t flag_push;
+[; ;MotorDrive.h: 119: extern uint8_t flag_action;
+[; ;MotorDrive.h: 122: extern uint8_t flag_go_to_sleep;
+[; ;MotorDrive.h: 124: extern uint8_t flag_wake_up;
+[; ;MotorDrive.h: 126: extern uint8_t flag_do_reset_in_drops_mode;
+[; ;MotorDrive.h: 128: extern uint8_t flag_action_button;
+[; ;MotorDrive.h: 131: void MotorDriveInit(void);
+[; ;MotorDrive.h: 133: uint16_t brake_MB(void);
+[; ;MotorDrive.h: 135: void hg_reset(void);
+[; ;MotorDrive.h: 137: void drops_routine(void);
+[; ;MotorDrive.h: 138: void c_routine(void);
+[; ;MotorDrive.h: 139: void test_routine(void);
+[; ;MotorDrive.h: 142: void check_acting(void);
+[; ;Timer.h: 62: extern uint16_t action_btn_cnt;
+[; ;Timer.h: 69: extern void TimerInit(void);
+[; ;Timer.h: 70: extern void Timer1Init(void);
+[; ;Timer.h: 71: extern void delaynus(uint16_t n);
+[; ;Timer.h: 76: extern uint16_t tva;
+[; ;Timer.h: 77: extern uint16_t tvb;
+[; ;Timer.h: 79: extern uint8_t flag_tv;
+[; ;Timer.h: 81: extern uint16_t tv_s[10];
 [; ;Beep.h: 25: extern uint8_t flag_power_up;
 [; ;Beep.h: 30: void BeepInit(void);
 [; ;Beep.h: 31: void BeepOn(void);
@@ -3070,14 +3083,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 41: uint8_t flag_warning_ma;
 [; ;gui.h: 42: uint8_t flag_warning_mb;
 [; ;gui.h: 43: uint8_t in_reset;
-[; ;gui.h: 44: uint16_t sat;
-[; ;gui.h: 45: uint16_t sbt;
-[; ;gui.h: 47: uint16_t sa_old;
-[; ;gui.h: 48: uint16_t sa_new;
-[; ;gui.h: 50: uint16_t sb_old;
-[; ;gui.h: 51: uint16_t sb_new;
 [; ;gui.h: 53: uint8_t needle_len;
-[; ;gui.h: 54: uint8_t inject_len;
+[; ;gui.h: 54: uint16_t inject_len;
 [; ;gui.h: 55: uint8_t tube_cap;
 [; ;gui.h: 56: uint16_t work_freq;
 [; ;gui.h: 58: uint8_t push_len;
@@ -3088,43 +3095,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.h: 67: uint8_t posrst;
 [; ;gui.h: 69: uint8_t posa;
 [; ;gui.h: 70: uint8_t posb;
-[; ;gui.h: 71: uint8_t posc;
 [; ;gui.h: 73: uint16_t cnt_posa;
 [; ;gui.h: 74: uint16_t cnt_posb;
-[; ;gui.h: 75: uint16_t cnt_posc;
 [; ;gui.h: 77: int16_t cnt_pos_1mm;
 [; ;gui.h: 78: int16_t cnt_pos_2mm;
-[; ;gui.h: 80: uint16_t cnt_posa_std;
-[; ;gui.h: 81: uint16_t cnt_posb_std;
-[; ;gui.h: 83: uint16_t cnt_posa_target;
-[; ;gui.h: 84: uint16_t cnt_posb_target;
-[; ;gui.h: 88: uint16_t cnt_posrst;
-[; ;gui.h: 89: uint16_t cnt_target_posrst;
-[; ;gui.h: 90: uint16_t qec;
-[; ;gui.h: 92: }HG_OP;
-[; ;gui.h: 94: extern HG_OP hg_op;
-[; ;gui.h: 95: extern uint8_t test_mode;
-[; ;gui.h: 96: extern uint8_t flag_test_mode_break;
-[; ;gui.h: 211: extern uint8_t flag_blink;
-[; ;gui.h: 212: extern uint8_t focus;
-[; ;gui.h: 213: extern uint8_t flip;
-[; ;gui.h: 214: extern int8_t work_mode;
-[; ;gui.h: 215: extern MENU menu[8];
-[; ;gui.h: 220: void HG_device_init(void);
-[; ;gui.h: 221: void init_menu(void);
-[; ;gui.h: 222: void HG_interface(void);
-[; ;gui.h: 224: void menu0_MsgHandlle(uint8_t key);
-[; ;gui.h: 225: void menu1_MsgHandlle(uint8_t key);
-[; ;gui.h: 226: void menu2_MsgHandlle(uint8_t key);
-[; ;gui.h: 227: void menu3_MsgHandlle(uint8_t key);
-[; ;gui.h: 228: void menu4_MsgHandlle(uint8_t key);
-[; ;gui.h: 229: void menu5_MsgHandlle(uint8_t key);
-[; ;gui.h: 230: void menu6_MsgHandlle(uint8_t key);
-[; ;gui.h: 231: void menu7_MsgHandlle(uint8_t key);
-[; ;gui.h: 235: void enter_sleep(void);
-[; ;gui.h: 238: void initial_para_setting(void);
-[; ;gui.h: 240: void blink_mode(void);
-[; ;gui.h: 242: void check_ui_status(void);
+[; ;gui.h: 79: int16_t cnt_pos_nmm;
+[; ;gui.h: 81: int16_t cnt_pos_1mm_target;
+[; ;gui.h: 82: int16_t cnt_pos_2mm_target;
+[; ;gui.h: 83: int16_t cnt_pos_nmm_target;
+[; ;gui.h: 93: uint16_t cnt_posrst;
+[; ;gui.h: 94: uint16_t cnt_target_posrst;
+[; ;gui.h: 97: }HG_OP;
+[; ;gui.h: 99: extern HG_OP hg_op;
+[; ;gui.h: 100: extern uint8_t test_mode;
+[; ;gui.h: 101: extern uint8_t flag_test_mode_break;
+[; ;gui.h: 231: extern uint8_t flag_blink;
+[; ;gui.h: 232: extern uint8_t focus;
+[; ;gui.h: 233: extern uint8_t flip;
+[; ;gui.h: 234: extern int8_t work_mode;
+[; ;gui.h: 235: extern MENU menu[8];
+[; ;gui.h: 240: void HG_device_init(void);
+[; ;gui.h: 241: void init_menu(void);
+[; ;gui.h: 242: void HG_interface(void);
+[; ;gui.h: 244: void menu0_MsgHandlle(uint8_t key);
+[; ;gui.h: 245: void menu1_MsgHandlle(uint8_t key);
+[; ;gui.h: 246: void menu2_MsgHandlle(uint8_t key);
+[; ;gui.h: 247: void menu3_MsgHandlle(uint8_t key);
+[; ;gui.h: 248: void menu4_MsgHandlle(uint8_t key);
+[; ;gui.h: 249: void menu5_MsgHandlle(uint8_t key);
+[; ;gui.h: 250: void menu6_MsgHandlle(uint8_t key);
+[; ;gui.h: 251: void menu7_MsgHandlle(uint8_t key);
+[; ;gui.h: 255: void enter_sleep(void);
+[; ;gui.h: 258: void initial_para_setting(void);
+[; ;gui.h: 260: void blink_mode(void);
+[; ;gui.h: 262: void check_ui_status(void);
 "13 ../Main.c
 [p x OSC=HS ]
 "14
@@ -3197,18 +3201,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;Main.c: 70: uint8_t flag_power_up =0;
-"71
-[v _xn `i ~T0 @X0 1 e ]
-[i _xn
--> 0 `i
-]
-[; ;Main.c: 71: int xn=0;
-"72
-[v _ann `i ~T0 @X0 1 e ]
-[i _ann
--> 0 `i
-]
-[; ;Main.c: 72: int ann=0;
 "73
 [v _prev_edge `uc ~T0 @X0 1 e ]
 [i _prev_edge
@@ -3257,18 +3249,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `ui
 ]
 [; ;Main.c: 86: uint16_t cntb_mb =0;
-"88
-[v _hs `ui ~T0 @X0 1 e ]
-[i _hs
--> -> 0 `i `ui
-]
-[; ;Main.c: 88: uint16_t hs =0;
-"89
-[v _ls `ui ~T0 @X0 1 e ]
-[i _ls
--> -> 0 `i `ui
-]
-[; ;Main.c: 89: uint16_t ls =0;
 "91
 [v _main `(v ~T0 @X0 1 ef ]
 "92
@@ -3310,24 +3290,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 129: {
 "129
 {
-[; ;Main.c: 132: hg_reset();
-"132
+[; ;Main.c: 131: hg_reset();
+"131
 [e ( _hg_reset ..  ]
-"133
+"132
 }
-[; ;Main.c: 133: }
+[; ;Main.c: 132: }
 [e $U 291  ]
-"134
+"133
 [e :U 290 ]
-[; ;Main.c: 134: else
-[; ;Main.c: 135: {
-"135
+[; ;Main.c: 133: else
+[; ;Main.c: 134: {
+"134
 {
-[; ;Main.c: 136: if(hg_op.working_mode == 0x01)
-"136
+[; ;Main.c: 135: if(hg_op.working_mode == 0x01)
+"135
 [e $ ! == -> . _hg_op 0 `i -> 1 `i 292  ]
-[; ;Main.c: 137: {
-"137
+[; ;Main.c: 136: {
+"136
 {
 [; ;Main.c: 138: drops_routine();
 "138
@@ -3382,64 +3362,82 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 155: {
 "155
 {
-[; ;Main.c: 156: HG_interface();
+[; ;Main.c: 156: if(T0IE == 0 || T0CONbits.TMR0ON == 0)
 "156
-[e ( _HG_interface ..  ]
-[; ;Main.c: 157: check_bat();
+[e $ ! || == -> _T0IE `i -> 0 `i == -> . . _T0CONbits 0 5 `i -> 0 `i 301  ]
+[; ;Main.c: 157: {
 "157
-[e ( _check_bat ..  ]
-[; ;Main.c: 158: check_ui_status();
+{
+[; ;Main.c: 158: do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
 "158
-[e ( _check_ui_status ..  ]
+[e :U 304 ]
+{
+[e = _T0IE -> -> 1 `i `b ]
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 303 ]
 "159
 }
-[; ;Main.c: 159: }
-[e $U 301  ]
-"160
-[e :U 300 ]
-[; ;Main.c: 160: else
-[; ;Main.c: 161: {
-"161
-{
-"163
-}
 [e :U 301 ]
+[; ;Main.c: 159: }
+[; ;Main.c: 161: HG_interface();
+"161
+[e ( _HG_interface ..  ]
+[; ;Main.c: 162: check_bat();
+"162
+[e ( _check_bat ..  ]
+[; ;Main.c: 163: check_ui_status();
+"163
+[e ( _check_ui_status ..  ]
+"164
+}
+[; ;Main.c: 164: }
+[e $U 305  ]
+"165
+[e :U 300 ]
+[; ;Main.c: 165: else
+[; ;Main.c: 166: {
+"166
+{
+"168
+}
+[e :U 305 ]
 [e :U 299 ]
 [e :U 297 ]
 [e :U 295 ]
 [e :U 293 ]
-[; ;Main.c: 163: }
-[; ;Main.c: 168: check_acting();
-"168
-[e ( _check_acting ..  ]
-[; ;Main.c: 173: if(flag_blink)
+[; ;Main.c: 168: }
+[; ;Main.c: 173: check_acting();
 "173
-[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 302  ]
-[; ;Main.c: 174: {
-"174
+[e ( _check_acting ..  ]
+[; ;Main.c: 178: if(flag_blink)
+"178
+[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 306  ]
+[; ;Main.c: 179: {
+"179
 {
-[; ;Main.c: 175: blink_mode();
-"175
+[; ;Main.c: 180: blink_mode();
+"180
 [e ( _blink_mode ..  ]
-[; ;Main.c: 176: flag_blink =0;
-"176
+[; ;Main.c: 181: flag_blink =0;
+"181
 [e = _flag_blink -> -> 0 `i `uc ]
-"177
+"182
 }
-[e :U 302 ]
-"187
+[e :U 306 ]
+"186
 }
 [e :U 291 ]
-"188
+"187
 }
 [e :U 287 ]
 "124
 [e $U 288  ]
 [e :U 289 ]
-[; ;Main.c: 177: }
+[; ;Main.c: 182: }
+[; ;Main.c: 186: }
 [; ;Main.c: 187: }
-[; ;Main.c: 188: }
-[; ;Main.c: 190: }
-"190
+[; ;Main.c: 189: }
+"189
 [e :UE 286 ]
 }

@@ -4151,17 +4151,10 @@ uint16_t tcnt_overload_ma;
 uint8_t flag_warning_ma;
 uint8_t flag_warning_mb;
 uint8_t in_reset;
-uint16_t sat;
-uint16_t sbt;
 
-uint16_t sa_old;
-uint16_t sa_new;
-
-uint16_t sb_old;
-uint16_t sb_new;
-
+# 53
 uint8_t needle_len;
-uint8_t inject_len;
+uint16_t inject_len;
 uint8_t tube_cap;
 uint16_t work_freq;
 
@@ -4178,26 +4171,24 @@ uint8_t posrst;
 
 uint8_t posa;
 uint8_t posb;
-uint8_t posc;
+
 
 uint16_t cnt_posa;
 uint16_t cnt_posb;
-uint16_t cnt_posc;
+
 
 int16_t cnt_pos_1mm;
 int16_t cnt_pos_2mm;
+int16_t cnt_pos_nmm;
 
-uint16_t cnt_posa_std;
-uint16_t cnt_posb_std;
+int16_t cnt_pos_1mm_target;
+int16_t cnt_pos_2mm_target;
+int16_t cnt_pos_nmm_target;
 
-uint16_t cnt_posa_target;
-uint16_t cnt_posb_target;
-
-
-
+# 93
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
-uint16_t qec;
+
 
 }HG_OP;
 
@@ -4205,7 +4196,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 211
+# 231
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4239,10 +4230,10 @@ void blink_mode(void);
 
 void check_ui_status(void);
 
-# 63 "../Timer.h"
+# 62 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 70
+# 69
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
@@ -6946,9 +6937,11 @@ display_num(3,(0 + 14), 3);
 menu[6].mode = 0;
 menu[6].value = 3;
 
-# 3285
-hg_op.cur_working_mode = 0x01;
-hg_op.cnt_target_posrst = (412 );
+# 3284
+hg_op.cur_working_mode = 0x00;
+
+
+hg_op.cnt_target_posrst = (789);
 hg_op.needle_len = 4;
 
 hg_op.inject_len = 1;
@@ -6956,7 +6949,11 @@ hg_op.inject_len = 1;
 hg_op.tube_cap = 0;
 hg_op.work_freq = (2*1000);
 
-hg_op.push_len = 140;
+hg_op.push_len = (112);
+
+
+hg_op.cnt_pos_nmm = 0;
+hg_op.cnt_pos_nmm_target = (236);
 
 
 }
@@ -6990,10 +6987,10 @@ write_buf[0]=0x0c;
 
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3334
+# 3339
 }
 
-# 3340
+# 3345
 void Initial_LY096BG30(void)
 {
 
@@ -7008,10 +7005,10 @@ delay(1);
 LATEbits.LATE1=1;
 delay(1);
 
-# 3393
+# 3398
 write_buf[0]=0x25;
 ee_WriteBytes(write_buf, 0x00, 1);
 
-# 3431
+# 3436
 }
 

@@ -68,8 +68,8 @@
 
 
 uint8_t flag_power_up =0;
-int xn=0;
-int ann=0;
+//int xn=0;
+//int ann=0;
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
 
@@ -85,8 +85,8 @@ uint32_t msleep =0;
 uint16_t cnta_mb =0;
 uint16_t cntb_mb =0;
 
-uint16_t hs =0;
-uint16_t ls =0;
+//uint16_t hs =0;
+//uint16_t ls =0;
 
 void main(void)
 {
@@ -127,14 +127,14 @@ void main(void)
   
         if(hg_op.need_reset)
         {
-            //TEST_LED_BLINK();    
-            
+            //TEST_LED_BLINK();            
             hg_reset();
         }
         else
         {
             if(hg_op.working_mode == WORK_MODE_DROPS)
             {
+               
                 drops_routine();
             }
             
@@ -153,6 +153,11 @@ void main(void)
             } 
             else if(hg_op.working_mode == WORK_MODE_STOP)
             {
+                if(T0IE == 0 || T0CONbits.TMR0ON == 0)
+                {
+                    ENABLE_TIMER(); 
+                }
+      
                  HG_interface();
                  check_bat();
                  check_ui_status();
@@ -174,13 +179,7 @@ void main(void)
             {
                 blink_mode();
                 flag_blink =0;
-            }
-            
-            
-
-            
-            
-            
+            }     
 #endif
             
 

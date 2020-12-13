@@ -250,8 +250,7 @@ void menu0_MsgHandlle(uint8_t key)
                         display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_H, MODE_NORMAL);
                         display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
                         menu[6].value = NUM_3;
-                        
-                        
+                                                
                         
                         
                         //hg_op.working_mode = WORK_MODE_C;
@@ -543,8 +542,7 @@ void menu3_MsgHandlle(uint8_t key)
             break;
             
         case KEY_V_PRESSED:
-            
-            
+              
             if(menu[3].mode == MODE_REVERSE)
             {    
                 menu[3].mode = MODE_BLINK;      
@@ -564,20 +562,20 @@ void menu3_MsgHandlle(uint8_t key)
                     {
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_4);
                         menu[3].value = NUM_4;
-                         needle_len = 4;
-                         hg_op.needle_len = NEEDLE_LEN_4_MM;
-                         hg_op.cnt_target_posrst = POS_4_RST; 
-                         hg_op.need_reset =1;
+                        // needle_len = 4;
+                        hg_op.needle_len = NEEDLE_LEN_4_MM;
+                        hg_op.cnt_target_posrst = POS_4_RST; 
+                        hg_op.need_reset =1;
                     }
                     else if(menu[3].parameter == 1)
                     {
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_6);
                         menu[3].value = NUM_6;
-                        needle_len = 6;
-                         hg_op.needle_len = NEEDLE_LEN_6_MM;
+                        //needle_len = 6;
+                        hg_op.needle_len = NEEDLE_LEN_6_MM;
                          
-                         hg_op.cnt_target_posrst = POS_6_RST; 
-                         hg_op.need_reset =1;
+                        hg_op.cnt_target_posrst = POS_6_RST; 
+                        hg_op.need_reset =1;
                          
 
                         
@@ -586,11 +584,11 @@ void menu3_MsgHandlle(uint8_t key)
                      {
                         display_num(MIDDLE,COL_PAGE0_DN, menu[3].mode | NUM_13);
                         menu[3].value = NUM_13;
-                        needle_len = 13;
-                         hg_op.needle_len = NEEDLE_LEN_13_MM;
+                        //needle_len = 13;
+                        hg_op.needle_len = NEEDLE_LEN_13_MM;
                          
-                         hg_op.cnt_target_posrst = POS_13_RST; 
-                         hg_op.need_reset =1;
+                        hg_op.cnt_target_posrst = POS_13_RST; 
+                        hg_op.need_reset =1;
                          
                         //
                         //
@@ -651,7 +649,7 @@ void menu4_MsgHandlle(uint8_t key)
                     else if( menu[4].parameter == 1)
                     {
                       
-                      display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
+                      display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
                     }
                     
                     
@@ -694,7 +692,7 @@ void menu4_MsgHandlle(uint8_t key)
                     else if( menu[4].parameter == 1)
                     {
                       
-                      display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
+                      display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
                     }
                     
                     
@@ -735,12 +733,26 @@ void menu4_MsgHandlle(uint8_t key)
                         // hg_op.needle_len = LEN_4_MM;
                         // hg_op.cnt_target_posrst = POS_4_RST; 
                          // hg_op.need_reset =1;
+                       
+                       hg_op.cnt_pos_nmm_target = POS_1MM_TARGET;
+                       hg_op.cnt_pos_nmm =0;
+                       
+                       hg_op.inject_len = INJECT_LEN_1_MM;
+                       
                     }
                     else if(menu[4].parameter == 1)
                     {
                        
-                        display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
+                        display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
                         menu[4].value = NUM_2;
+                        
+                        
+                        hg_op.cnt_pos_nmm_target = POS_0MM_TARGET;
+                        hg_op.cnt_pos_nmm =0;
+                        
+                        
+                        
+                        hg_op.inject_len = INJECT_LEN_1_MM;
                         //needle_len = 13;
                         // hg_op.needle_len = LEN_13_MM;
                          
@@ -898,7 +910,7 @@ void menu5_MsgHandlle(uint8_t key)
                          //hg_op.cnt_target_posrst = POS_4_RST; 
                           //hg_op.need_reset =1;
                         
-                        hg_op.push_len = 114;//140;
+                        hg_op.push_len = VOL_TUBE_1ML_PUSH;//140;
                     }
                     else if(menu[5].parameter == 1)
                     {
@@ -912,7 +924,7 @@ void menu5_MsgHandlle(uint8_t key)
                          
                          //hg_op.cnt_target_posrst = POS_13_RST; 
                          //hg_op.need_reset =1;
-                          hg_op.push_len = 114;//130;
+                          hg_op.push_len = VOL_TUBE_2P5ML_PUSH;//130;
                         //
                         //
                         //
@@ -923,7 +935,7 @@ void menu5_MsgHandlle(uint8_t key)
                      {
                           display_num(BOTTOM,COL_PAGE0_FN,NUM_5);
                           menu[5].value = NUM_5;
-                           hg_op.push_len = 114;//160;
+                           hg_op.push_len = VOL_TUBE_5ML_PUSH;//160;
                      }
                     
                  }
@@ -1534,12 +1546,16 @@ void enter_sleep(void)
             
             
             DISABLE_ENCODER_PHB_MB();
-            NOP();NOP();NOP();
+            NOP();NOP();NOP();NOP();
             
             
-            SLEEP();
-            NOP();NOP();NOP();
             
+            while(hg_op.status_powerup == STATUS_SLEEP)
+            {
+                NOP();NOP();NOP();NOP();
+                SLEEP();
+                NOP();NOP();NOP();NOP();
+            }
             
 #if 1
             
@@ -1567,8 +1583,8 @@ void initial_para_setting(void)
     
         //hg_op.need_reset =1;
     hg_op.need_reset =0;
-    hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
-    //hg_op.cur_working_mode = WORK_MODE_C;
+    //hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
+    hg_op.cur_working_mode = WORK_MODE_C;
     hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = NEEDLE_LEN_4_MM;
     hg_op.status_powerup = STATUS_SLEEP;
@@ -1577,7 +1593,9 @@ void initial_para_setting(void)
     hg_op.status_hit_lp = 0;
         
     hg_op.cnt_pos_1mm =0;
-    
+    hg_op.cnt_pos_nmm = 0;
+    hg_op.cnt_pos_nmm_target = POS_1MM_TARGET;
+    hg_op.inject_len = INJECT_LEN_1_MM;
     
    
     
@@ -1861,7 +1879,7 @@ void blink_mode(void)
                     }
                     else if(menu[4].parameter == 1)
                     {
-                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_2);
+                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_0);
                     }
  
                 }

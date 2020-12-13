@@ -3979,7 +3979,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 134 "../MotorDrive.h"
+# 96 "../MotorDrive.h"
 extern uint8_t prev_state_phb_ma;
 extern uint8_t cur_state_phb_ma;
 
@@ -4028,10 +4028,10 @@ void test_routine(void);
 
 void check_acting(void);
 
-# 63 "../Timer.h"
+# 62 "../Timer.h"
 extern uint16_t action_btn_cnt;
 
-# 70
+# 69
 extern void TimerInit(void);
 extern void Timer1Init(void);
 extern void delaynus(uint16_t n);
@@ -4218,17 +4218,10 @@ uint16_t tcnt_overload_ma;
 uint8_t flag_warning_ma;
 uint8_t flag_warning_mb;
 uint8_t in_reset;
-uint16_t sat;
-uint16_t sbt;
 
-uint16_t sa_old;
-uint16_t sa_new;
-
-uint16_t sb_old;
-uint16_t sb_new;
-
+# 53
 uint8_t needle_len;
-uint8_t inject_len;
+uint16_t inject_len;
 uint8_t tube_cap;
 uint16_t work_freq;
 
@@ -4245,26 +4238,24 @@ uint8_t posrst;
 
 uint8_t posa;
 uint8_t posb;
-uint8_t posc;
+
 
 uint16_t cnt_posa;
 uint16_t cnt_posb;
-uint16_t cnt_posc;
+
 
 int16_t cnt_pos_1mm;
 int16_t cnt_pos_2mm;
+int16_t cnt_pos_nmm;
 
-uint16_t cnt_posa_std;
-uint16_t cnt_posb_std;
+int16_t cnt_pos_1mm_target;
+int16_t cnt_pos_2mm_target;
+int16_t cnt_pos_nmm_target;
 
-uint16_t cnt_posa_target;
-uint16_t cnt_posb_target;
-
-
-
+# 93
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
-uint16_t qec;
+
 
 }HG_OP;
 
@@ -4272,7 +4263,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 211
+# 231
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4356,8 +4347,8 @@ void check_ui_status(void);
 
 # 70
 uint8_t flag_power_up =0;
-int xn=0;
-int ann=0;
+
+
 uint8_t prev_edge =0;
 uint8_t cur_edge =0;
 
@@ -4373,8 +4364,8 @@ uint32_t msleep =0;
 uint16_t cnta_mb =0;
 uint16_t cntb_mb =0;
 
-uint16_t hs =0;
-uint16_t ls =0;
+
+
 
 void main(void)
 {
@@ -4395,13 +4386,13 @@ enter_sleep();
 if(hg_op.need_reset)
 {
 
-
 hg_reset();
 }
 else
 {
 if(hg_op.working_mode == 0x01)
 {
+
 drops_routine();
 }
 
@@ -4420,6 +4411,11 @@ test_routine();
 }
 else if(hg_op.working_mode == 0x03)
 {
+if(T0IE == 0 || T0CONbits.TMR0ON == 0)
+{
+do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
+}
+
 HG_interface();
 check_bat();
 check_ui_status();
@@ -4443,7 +4439,8 @@ blink_mode();
 flag_blink =0;
 }
 
-# 187
+
+
 }
 }
 

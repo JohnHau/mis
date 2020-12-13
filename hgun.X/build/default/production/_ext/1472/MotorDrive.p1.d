@@ -3,6 +3,7 @@
  ../MotorDrive.c  \
 ../MotorDrive.h  \
 ../Oled.h  \
+../Beep.h  \
 ../Key.h  \
 ../gui.h  \
 ../Timer.h 

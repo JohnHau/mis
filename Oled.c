@@ -3281,8 +3281,9 @@ void initial_ui_setting(void)
 #endif
     
     
-    //hg_op.cur_working_mode = WORK_MODE_C;//now we assume working in DROPS ;
-    hg_op.cur_working_mode = WORK_MODE_DROPS;
+    hg_op.cur_working_mode = WORK_MODE_C;
+    //hg_op.cur_working_mode = WORK_MODE_DROPS;//now we assume working in DROPS ;
+    
     hg_op.cnt_target_posrst = POS_4_RST;     //len=4mm
     hg_op.needle_len = NEEDLE_LEN_4_MM;
     
@@ -3291,7 +3292,11 @@ void initial_ui_setting(void)
     hg_op.tube_cap = TUBE_CAP_2P5_ML;
     hg_op.work_freq = DROPS_MODE_250_FREQ;
     
-    hg_op.push_len = 140;//146
+    hg_op.push_len = VOL_TUBE_1ML_PUSH;//146
+    
+    
+    hg_op.cnt_pos_nmm = 0;
+    hg_op.cnt_pos_nmm_target = POS_1MM_TARGET;
     
     
 }

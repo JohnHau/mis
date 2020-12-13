@@ -4,44 +4,6 @@
 #include <stdint.h>
 
 
-
-#define SET_MOTOR_VCC_CONTROL_PIN_DIR_OUT		(DDRAbits.RA5  =0)	
-#define SET_MOTOR_VCC_CONTROL_PIN  				(PORTAbits.RA5 =0)  
-#define CLEAR_MOTOR_VCC_CONTROL_PIN  			(PORTAbits.RA5 =1)  
-
-//L298N 
-#define SET_L298N_A_ENABLE_PIN_DIR_OUT			(DDREbits.RE0  =0)	
-#define SET_L298N_A_ENABLE_PIN  				(PORTEbits.RE0 =1)  
-#define CLEAR_L298N_A_ENABLE_PIN   				(PORTEbits.RE0 =0)  
-
-#define SET_L298N_INPUT1_PIN_DIR_OUT			(DDREbits.RE1  =0)	
-#define SET_L298N_INPUT1_PIN 					(PORTEbits.RE1 =1)  
-#define CLEAR_L298N_INPUT1_PIN    				(PORTEbits.RE1 =0)  
-
-#define SET_L298N_INPUT2_PIN_DIR_OUT			(DDREbits.RE2  =0)	
-#define SET_L298N_INPUT2_PIN  					(PORTEbits.RE2 =1)  
-#define CLEAR_L298N_INPUT2_PIN    				(PORTEbits.RE2 =0)  
-
-//
-#define SET_L298N_B_ENABLE_PIN_DIR_OUT			(DDRCbits.RC1  =0)	
-#define SET_L298N_B_ENABLE_PIN  				(PORTCbits.RC1 =1)  
-#define CLEAR_L298N_B_ENABLE_PIN   				(PORTCbits.RC1 =0) 
-
-#define SET_L298N_INPUT3_PIN_DIR_OUT			(DDRCbits.RC2  =0)	
-#define SET_L298N_INPUT3_PIN  					(PORTCbits.RC2 =1)  
-#define CLEAR_L298N_INPUT3_PIN    				(PORTCbits.RC2 =0)  
-
-#define SET_L298N_INPUT4_PIN_DIR_OUT			(DDRDbits.RD2  =0)	
-#define SET_L298N_INPUT4_PIN  					(PORTDbits.RD2 =1)  
-#define CLEAR_L298N_INPUT4_PIN    				(PORTDbits.RD2 =0)  
-
-
-#define SET_L298N_INPUT4_PIN_DIR_IN				(DDRBbits.RB0  =1)	
-#define NEEDLE_MOTOR_LI_POS_PIN  				 PORTBbits.RB0  	
-
-
-//==============================================================================
-
 #define  MPON()      LATAbits.LA5 =1
 #define  MPOFF()     LATAbits.LA5 =0
 
