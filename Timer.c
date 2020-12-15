@@ -326,9 +326,7 @@ void __interrupt ISR(void)
                        {
                            
                                 if(READ_PHA_MB() == 0)  //falling   
-                                {
-                                  
-                                 
+                                {  
                                   //hg_op.cnt_pos_1mm --;
                                   hg_op.cnt_pos_nmm --;
                                 }
@@ -490,9 +488,21 @@ void __interrupt ISR(void)
 #if 1
     if(INTCONbits.RBIF)
     {
+        if(hg_op.status_powerup == STATUS_SLEEP)
+        {
+            hg_op.flag_wake_device =1;
+        }
+        if(hg_op.status_powerup == STATUS_WAKE)
+        {
+            hg_op.flag_shut_device =1;
+        }
+        
+        
+        
+        
         
         //----------------------------------------------------------------------
-#if 1
+#if 0
         if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
         {
             delay_nms(4);
@@ -509,7 +519,7 @@ void __interrupt ISR(void)
                    STOP_B();
                    ENABLE_AH();   
                    ENABLE_BH(); 
-                   printf("wake up\r\n");
+                   //printf("wake up\r\n");
                    hg_op.status_hit_lp = 0;
                    hg_op.need_reset =1;
                    hg_op.in_reset =0;
@@ -571,7 +581,7 @@ void __interrupt ISR(void)
             
             //delaynus(50 * 1000);
             hg_op.acting_flag = 1;
-            printf("act\n");
+            //printf("act\n");
         }
         //buzz();
         //temp = PORTB;

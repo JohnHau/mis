@@ -77,7 +77,7 @@ uint8_t KEY_Scan(void)
                  if(tm_cnt > 100)
                  {
                    test_mode =1;
-                   printf("enter test mode\r\n");
+                   //printf("enter test mode\r\n");
                    //hg_op.working_mode = WORK_MODE_TEST;
                    hg_op.cur_working_mode = WORK_MODE_TEST;
                    

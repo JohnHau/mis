@@ -216,12 +216,13 @@ void menu0_MsgHandlle(uint8_t key)
                 if(work_mode == WORK_MODE_DROPS)
                 {
                     display_frame_fghi(TYPE_H,COL_PAGE0_PATTERN_H, MODE_NORMAL);
-                    display_num(BOTTOM,COL_PAGE0_HN, NUM_300);
+                    //display_num(BOTTOM,COL_PAGE0_HN, NUM_300);
+                    display_num(BOTTOM,COL_PAGE0_HN, NUM_250);
                     
-                    menu[6].value = NUM_300;
+                    menu[6].value = NUM_250;
                     
                     menu[0].value = WORK_MODE_DROPS;
-                    hg_op.work_freq = DROPS_MODE_300_FREQ;
+                    hg_op.work_freq = DROPS_MODE_250_FREQ;
                     
                 }
                 else if(work_mode == WORK_MODE_DROP)
@@ -624,7 +625,7 @@ void menu4_MsgHandlle(uint8_t key)
             if(menu[4].mode == MODE_BLINK)
             {
                   menu[4].parameter ++;  
-                if(menu[4].parameter == 2) menu[4].parameter = 0;
+                if(menu[4].parameter == 3) menu[4].parameter = 0;
             }
             else
             {
@@ -647,6 +648,11 @@ void menu4_MsgHandlle(uint8_t key)
                       display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_1);
                     }
                     else if( menu[4].parameter == 1)
+                    {
+                      
+                      display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
+                    }
+                    else if( menu[4].parameter == 2)
                     {
                       
                       display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
@@ -692,9 +698,13 @@ void menu4_MsgHandlle(uint8_t key)
                     else if( menu[4].parameter == 1)
                     {
                       
+                      display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
+                    }
+                    else if( menu[4].parameter == 2)
+                    {
+                      
                       display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
                     }
-                    
                     
                     menu[4].cur_mode = menu[4].mode;
                  }
@@ -743,16 +753,16 @@ void menu4_MsgHandlle(uint8_t key)
                     else if(menu[4].parameter == 1)
                     {
                        
-                        display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
+                        display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_2);
                         menu[4].value = NUM_2;
                         
                         
-                        hg_op.cnt_pos_nmm_target = POS_0MM_TARGET;
+                        hg_op.cnt_pos_nmm_target = POS_2MM_TARGET;
                         hg_op.cnt_pos_nmm =0;
                         
                         
                         
-                        hg_op.inject_len = INJECT_LEN_1_MM;
+                        hg_op.inject_len = INJECT_LEN_2_MM;
                         //needle_len = 13;
                         // hg_op.needle_len = LEN_13_MM;
                          
@@ -765,6 +775,17 @@ void menu4_MsgHandlle(uint8_t key)
                         
                         
                     }
+                     else if(menu[4].parameter == 2)
+                     {
+                        display_num(MIDDLE,COL_PAGE0_EN, menu[4].mode | NUM_0);
+                        menu[4].value = NUM_0;
+                        
+                        
+                        hg_op.cnt_pos_nmm_target = POS_0MM_TARGET;
+                        hg_op.cnt_pos_nmm =0;
+                           
+                        hg_op.inject_len = INJECT_LEN_0_MM;
+                     }
                     
                  }
                     menu[4].cur_mode = menu[4].mode;  
@@ -996,7 +1017,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_300);
+                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_250);
                       }
                           
                     }
@@ -1073,7 +1094,7 @@ void menu6_MsgHandlle(uint8_t key)
                       }
                       else if(work_mode == WORK_MODE_DROPS) 
                       {
-                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_300);
+                           display_num(BOTTOM,COL_PAGE0_HN, menu[6].mode | NUM_250);
                       }
                           
                     }
@@ -1146,9 +1167,9 @@ void menu6_MsgHandlle(uint8_t key)
                         }
                         else if(work_mode == WORK_MODE_DROPS) 
                         {
-                             display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_300);
-                             menu[6].value = NUM_300;
-                             hg_op.work_freq = DROPS_MODE_300_FREQ;
+                             display_num(BOTTOM,COL_PAGE0_HN, menu[7].mode | NUM_250);
+                             menu[6].value = NUM_250;
+                             hg_op.work_freq = DROPS_MODE_250_FREQ;
                              
                              
                              
@@ -1541,7 +1562,7 @@ void enter_sleep(void)
          
              
             hg_op.needle_len = NEEDLE_LEN_4_MM;
-            printf("sleep mode\r\n");
+            //printf("sleep mode\r\n");
 #endif
             
             
@@ -1555,6 +1576,11 @@ void enter_sleep(void)
                 NOP();NOP();NOP();NOP();
                 SLEEP();
                 NOP();NOP();NOP();NOP();
+                
+                
+                check_wake_button();
+                
+                
             }
             
 #if 1
@@ -1689,7 +1715,10 @@ void check_ui_status(void)
            {
                 menu[4].parameter =1;
            }
-            
+           else if(menu[4].value == NUM_0)
+           {
+                menu[4].parameter =2;
+           }
             
             menu[4].mode = MODE_NORMAL;
             cnt_ui_check =0;
@@ -1741,7 +1770,7 @@ void check_ui_status(void)
             display_frame_fghi(TYPE_H,COL_PAGE0_PATTERN_H, MODE_NORMAL);
             display_num(BOTTOM,COL_PAGE0_HN, MODE_NORMAL|menu[6].value);
             
-            if(menu[6].value == NUM_300)
+            if(menu[6].value == NUM_250)
             {
                 menu[6].parameter =0;
             }
@@ -1759,7 +1788,7 @@ void check_ui_status(void)
           else if(hg_op.cur_working_mode == WORK_MODE_DROP)
           {
               
-                if(menu[6].value == NUM_300)
+                if(menu[6].value == NUM_250)
                 {
                     menu[6].parameter =0;
                 }
@@ -1786,12 +1815,211 @@ void check_ui_status(void)
     }
 
 
+}
+
+
+void shut_device(void)
+{
     
-    
-    
+    hg_op.status_powerup = STATUS_SLEEP;
+                               
+    LCD_Off();
+
+    write_buf[0]=0x25;  
+    ee_WriteBytes(write_buf, 0x00, 1);
+
+    STOP_A();
+    STOP_B();
+
+    //hg_op.needle_len = NEEDLE_LEN_4_MM;
+    //hg_op.need_reset =1;
+
+    hg_op.working_mode = WORK_MODE_STOP;
+    hg_op.need_reset =0;
+
+    //printf("sleep\r\n");
     
     
 }
+
+
+
+void check_device_idle(void)
+{
+    
+    
+   if(hg_op.working_mode == WORK_MODE_STOP)
+   {
+        hg_op.cnt_device_idle ++;
+        delay_nms(1);
+        if(hg_op.cnt_device_idle > (100000))
+        {
+            hg_op.cnt_device_idle = 0;
+            shut_device();
+        }
+   }
+   else
+   {
+       hg_op.cnt_device_idle = 0;
+   }
+    
+    
+}
+
+
+
+void check_shut_device(void)
+{
+    if(hg_op.flag_shut_device == 1)
+    {
+        //----------------------------------------------------------------------     
+#if 1
+        if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
+        {
+            delay_nms(4);
+            if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
+            {
+                buzz();
+                test_mode =0;
+
+                if(hg_op.status_powerup == STATUS_WAKE)
+                {  
+                    //delay_pwm(120*1000);
+                    delay_pwm(400000);//about 3 seconds
+                     if(KEY_WAKE  == 0 && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
+                     {
+                           
+                        shut_device();
+                         
+#if 0 
+                        hg_op.status_powerup = STATUS_SLEEP;
+                               
+                        LCD_Off();
+
+                        write_buf[0]=0x25;  
+                        ee_WriteBytes(write_buf, 0x00, 1);
+
+                        STOP_A();
+                        STOP_B();
+
+                        //hg_op.needle_len = NEEDLE_LEN_4_MM;
+                        //hg_op.need_reset =1;
+
+                        hg_op.working_mode = WORK_MODE_STOP;
+                        hg_op.need_reset =0;
+
+                        //printf("sleep\r\n");
+#endif
+                     }
+                }
+            }
+            
+        }
+#endif
+        
+      hg_op.flag_shut_device = 0;  
+        
+    }
+    
+    
+}
+
+
+
+
+
+void check_wake_button(void)
+{
+    if(hg_op.flag_wake_device == 1)
+    {
+        //----------------------------------------------------------------------
+#if 1
+        if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
+        {
+            delay_nms(4);
+            if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
+            {
+                buzz();
+                test_mode =0;
+
+                if(hg_op.status_powerup == STATUS_SLEEP)
+                {
+                   hg_op.status_powerup = STATUS_WAKE;
+                   LCD_On();
+                   STOP_A();
+                   STOP_B();
+                   ENABLE_AH();   
+                   ENABLE_BH(); 
+                   //printf("wake up\r\n");
+                   hg_op.status_hit_lp = 0;
+                   hg_op.need_reset =1;
+                   hg_op.in_reset =0;
+                   hg_op.needle_len = NEEDLE_LEN_4_MM;
+                   hg_op.inject_len = INJECT_LEN_1_MM;
+                   
+                   menu[0].parameter = 0;
+                   menu[1].parameter = 0;
+                   menu[2].parameter = 0;
+                   menu[3].parameter = 0;
+                   menu[4].parameter = 0;
+                   menu[5].parameter = 0;
+                   menu[6].parameter = 0;
+                   focus =0;
+                   work_mode = WORK_MODE_C; 
+                   
+                   
+                   //Initial_LY096BG30();
+                   
+                   config_LCD();
+                   initial_ui_setting();
+                   ENABLE_ENCODER_PHB_MB();
+                   
+                }
+                
+                
+#if 0
+                else if(hg_op.status_powerup == STATUS_WAKE)
+                {
+                    
+                     delay_pwm(120*1000);
+                    
+                     if(KEY_WAKE  == 0)
+                     {
+                            hg_op.status_powerup = STATUS_SLEEP;
+                            LCD_Off();
+
+                            write_buf[0]=0x25;  
+                            ee_WriteBytes(write_buf, 0x00, 1);
+
+                            STOP_A();
+                            STOP_B();
+
+                            //hg_op.needle_len = NEEDLE_LEN_4_MM;
+                            //hg_op.need_reset =1;
+
+                            hg_op.working_mode = WORK_MODE_STOP;
+                            hg_op.need_reset =0;
+
+                            //printf("sleep\r\n");
+                     }
+                }
+                
+#endif
+            }
+            
+        }
+#endif
+        
+      hg_op.flag_wake_device = 0;  
+        
+    }
+    
+    
+}
+
+
+
+
 
 
 
@@ -1879,6 +2107,10 @@ void blink_mode(void)
                     }
                     else if(menu[4].parameter == 1)
                     {
+                        display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_2);
+                    }
+                    else if(menu[4].parameter == 2)
+                    {
                         display_num(MIDDLE,COL_PAGE0_EN, MODE_REVERSE | NUM_0);
                     }
  
@@ -1939,7 +2171,7 @@ void blink_mode(void)
                        }
                        else if(work_mode == WORK_MODE_DROPS) 
                        {
-                           display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_300);
+                           display_num(BOTTOM,COL_PAGE0_HN, MODE_REVERSE | NUM_250);
                        }
                     }
                     else if(menu[6].parameter == 1)
@@ -1995,6 +2227,24 @@ void blink_mode(void)
 #endif
     
     
+    
+    
+}
+
+
+
+
+
+void check_ui_blink(void)
+{
+    
+#if 1
+            if(flag_blink)
+            {
+                blink_mode();
+                flag_blink =0;
+            }     
+#endif
     
     
 }

@@ -41,6 +41,15 @@ typedef struct _hg_op
     uint8_t flag_warning_ma;
     uint8_t flag_warning_mb;
     uint8_t in_reset;
+    
+    uint8_t flag_wake_device;
+    uint8_t flag_shut_device;
+    
+    uint32_t cnt_device_idle;
+    
+    
+    
+    
    // uint16_t sat;
     //uint16_t sbt;
     
@@ -258,7 +267,10 @@ void enter_sleep(void);
 void initial_para_setting(void);
 
 void blink_mode(void);
+void check_ui_blink(void);
+
 
 void check_ui_status(void);
-
+void check_wake_button(void);
+void check_shut_device(void);
 #endif

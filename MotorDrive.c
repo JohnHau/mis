@@ -294,13 +294,13 @@ void drops_routine(void)
                                 {
                                     while(hg_op.cnt_posa < POS_1MM_TARGET);
                                 }
+                                else if(hg_op.inject_len == INJECT_LEN_2_MM)
+                                {
+                                    while(hg_op.cnt_posa < POS_2MM_TARGET);
+                                }
                                 else if(hg_op.inject_len == INJECT_LEN_0_MM)
                                 {
                                     while(hg_op.cnt_posa < POS_0MM_TARGET);
-                                }
-                                else if(hg_op.inject_len == INJECT_LEN_2_MM)
-                                {
-                                    
                                 }
                                 REVERSE_RUN_B();
                                 delaynus(15 * 1000);
@@ -900,7 +900,7 @@ void check_acting(void)
                             {
                                 //printf("drops mode\r\n");
                                //hg_op.acting_flag =0;
-                               TEST_LED_ON();
+                               //TEST_LED_ON();
                                hg_op.drops_sa =1;
                                hg_op.drops_sb =0;
                                hg_op.drops_push =0;

@@ -161,28 +161,33 @@ void main(void)
                  HG_interface();
                  check_bat();
                  check_ui_status();
+                 
+                 check_shut_device();
+                 
             }
             else
             {
                  //printf("out of mode\r\n");
             }
 #endif 
-            
-            
+             
+          
 #if 1    
             check_acting();
 #endif
             
-            
-#if 1
-            if(flag_blink)
-            {
-                blink_mode();
-                flag_blink =0;
-            }     
-#endif
-            
+  
+#if 1             
+           check_ui_blink();
+#endif     
 
+#if 1
+            check_device_idle();     
+#endif    
+            
+            
+            
+            
         }
     }//end while
        

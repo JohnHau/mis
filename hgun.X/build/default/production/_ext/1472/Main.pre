@@ -4219,7 +4219,12 @@ uint8_t flag_warning_ma;
 uint8_t flag_warning_mb;
 uint8_t in_reset;
 
-# 53
+uint8_t flag_wake_device;
+uint8_t flag_shut_device;
+
+uint32_t cnt_device_idle;
+
+# 62
 uint8_t needle_len;
 uint16_t inject_len;
 uint8_t tube_cap;
@@ -4252,7 +4257,7 @@ int16_t cnt_pos_1mm_target;
 int16_t cnt_pos_2mm_target;
 int16_t cnt_pos_nmm_target;
 
-# 93
+# 102
 uint16_t cnt_posrst;
 uint16_t cnt_target_posrst;
 
@@ -4263,7 +4268,7 @@ extern HG_OP hg_op;
 extern uint8_t test_mode;
 extern uint8_t flag_test_mode_break;
 
-# 231
+# 240
 extern uint8_t flag_blink;
 extern uint8_t focus;
 extern uint8_t flip;
@@ -4294,8 +4299,12 @@ void enter_sleep(void);
 void initial_para_setting(void);
 
 void blink_mode(void);
+void check_ui_blink(void);
+
 
 void check_ui_status(void);
+void check_wake_button(void);
+void check_shut_device(void);
 
 
 # 13 "../Main.c"
@@ -4419,6 +4428,9 @@ do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
 HG_interface();
 check_bat();
 check_ui_status();
+
+check_shut_device();
+
 }
 else
 {
@@ -4433,14 +4445,13 @@ check_acting();
 
 
 
-if(flag_blink)
-{
-blink_mode();
-flag_blink =0;
-}
+check_ui_blink();
 
 
 
+check_device_idle();
+
+# 191
 }
 }
 
