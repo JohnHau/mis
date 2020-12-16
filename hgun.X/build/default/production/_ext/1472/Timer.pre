@@ -3951,15 +3951,11 @@ void KeyFuction(void);
 # 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
-
-
-
+# 31
 void BeepInit(void);
-void BeepOn(void);
-void BeepOff(void);
 void buzz(void);
 
-# 40
+# 38
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4112,7 +4108,7 @@ void c_routine(void);
 void test_routine(void);
 
 
-void check_acting(void);
+int8_t check_acting(void);
 
 # 6 "../gui.h"
 typedef struct xmenu
@@ -4268,8 +4264,9 @@ uint16_t action_btn_cnt =0;
 static uint32_t test_mode_cnt=0;
 static uint32_t test_mode_break_cnt=0;
 
-# 46
-void __interrupt ISR(void)
+# 45
+void __interrupt(high_priority) ISR(void)
+
 {
 uint8_t temp;
 static uint8_t tcnt=0;

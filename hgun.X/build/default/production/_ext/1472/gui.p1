@@ -1,12 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F3269 `(v ~T0 @X0 0 tf1`uc ]
+[v F3265 `(v ~T0 @X0 0 tf1`uc ]
 "6 ../gui.h
-[s S280 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `c 1 `*F3269 1 ]
+[s S280 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `c 1 `*F3265 1 ]
 [n S280 xmenu menu_no mode cur_mode frame value parameter MsgHandlle ]
 "23
 [s S281 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ul 1 `uc 1 `ui 1 `uc 1 `ui 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ui 1 `ui 1 `i 1 `i 1 `i 1 `i 1 `i 1 `i 1 `ui 1 `ui 1 ]
 [n S281 _hg_op working_mode cur_working_mode working_op status_powerup status_charging need_reset status_hit_lp bat_volume bat_charging flag_ui_check cnt_push tcnt_overload_ma flag_warning_ma flag_warning_mb in_reset flag_wake_device flag_shut_device cnt_device_idle needle_len inject_len tube_cap work_freq push_len acting_flag drops_sa drops_sb drops_push posrst posa posb cnt_posa cnt_posb cnt_pos_1mm cnt_pos_2mm cnt_pos_nmm cnt_pos_1mm_target cnt_pos_2mm_target cnt_pos_nmm_target cnt_posrst cnt_target_posrst ]
-"40 ../Beep.h
+"38 ../Beep.h
 [v _uart_init `(v ~T0 @X0 0 ef ]
 "306 ../Oled.h
 [v _AD_init `(uc ~T0 @X0 0 ef ]
@@ -14,7 +14,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _MotorDriveInit `(v ~T0 @X0 0 ef ]
 "70 ../Timer.h
 [v _Timer1Init `(v ~T0 @X0 0 ef ]
-"30 ../Beep.h
+"31 ../Beep.h
 [v _BeepInit `(v ~T0 @X0 0 ef ]
 "283 ../Oled.h
 [v _LCD_backlight_init `(v ~T0 @X0 0 ef ]
@@ -127,13 +127,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S23 . . . . . ]
 "663
 [v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
-"33 ../Beep.h
-[v _buzz `(v ~T0 @X0 0 ef ]
 "350 ../Oled.h
 [v _delay_pwm `(v ~T0 @X0 0 ef1`ul ]
-"284
+"32 ../Beep.h
+[v _buzz `(v ~T0 @X0 0 ef ]
+"284 ../Oled.h
 [v _LCD_On `(v ~T0 @X0 0 ef ]
-"1973 ../gui.c
+"2005 ../gui.c
 [v _config_LCD `(i ~T0 @X0 0 ef ]
 "342 ../Oled.h
 [v _initial_ui_setting `(v ~T0 @X0 0 ef ]
@@ -2978,13 +2978,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Beep.h: 25: extern uint8_t flag_power_up;
-[; ;Beep.h: 30: void BeepInit(void);
-[; ;Beep.h: 31: void BeepOn(void);
-[; ;Beep.h: 32: void BeepOff(void);
-[; ;Beep.h: 33: void buzz(void);
-[; ;Beep.h: 40: void uart_init(void);
-[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void BeepInit(void);
+[; ;Beep.h: 32: void buzz(void);
+[; ;Beep.h: 38: void uart_init(void);
+[; ;Beep.h: 39: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 40: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Oled.h: 87: typedef struct action_profile
 [; ;Oled.h: 88: {
 [; ;Oled.h: 90: uint8_t inject_mode;
@@ -3165,7 +3163,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.h: 137: void drops_routine(void);
 [; ;MotorDrive.h: 138: void c_routine(void);
 [; ;MotorDrive.h: 139: void test_routine(void);
-[; ;MotorDrive.h: 142: void check_acting(void);
+[; ;MotorDrive.h: 142: int8_t check_acting(void);
 [; ;Timer.h: 62: extern uint16_t action_btn_cnt;
 [; ;Timer.h: 69: extern void TimerInit(void);
 [; ;Timer.h: 70: extern void Timer1Init(void);
@@ -6566,1772 +6564,1815 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gui.c: 1470: case 0xf1:
 "1470
 [e :U 587 ]
-[; ;gui.c: 1472: if(focus == 7)
-"1472
-[e $ ! == -> _focus `i -> 7 `i 588  ]
-[; ;gui.c: 1473: focus =1;
-"1473
-[e = _focus -> -> 1 `i `uc ]
-[e $U 589  ]
-"1474
-[e :U 588 ]
-[; ;gui.c: 1474: else
-[; ;gui.c: 1475: focus++;
-"1475
-[e ++ _focus -> -> 1 `i `uc ]
-[e :U 589 ]
-[; ;gui.c: 1477: break;
-"1477
-[e $U 585  ]
-[; ;gui.c: 1479: case 0xf2:
+[; ;gui.c: 1478: {
+"1478
+{
+[; ;gui.c: 1479: if(focus == 1)
 "1479
-[e :U 590 ]
-[; ;gui.c: 1480: if(focus==0)
+[e $ ! == -> _focus `i -> 1 `i 588  ]
+[; ;gui.c: 1480: {
 "1480
-[e $ ! == -> _focus `i -> 0 `i 591  ]
-[; ;gui.c: 1481: focus =7;
+{
+[; ;gui.c: 1481: focus += 3;
 "1481
-[e = _focus -> -> 7 `i `uc ]
-[e $U 592  ]
+[e =+ _focus -> -> 3 `i `uc ]
 "1482
-[e :U 591 ]
-[; ;gui.c: 1482: else
-[; ;gui.c: 1483: focus --;
+}
+[; ;gui.c: 1482: }
+[e $U 589  ]
 "1483
-[e -- _focus -> -> 1 `i `uc ]
-[e :U 592 ]
-[; ;gui.c: 1486: break;
+[e :U 588 ]
+[; ;gui.c: 1483: else
+[; ;gui.c: 1484: {
+"1484
+{
+[; ;gui.c: 1485: focus ++;
+"1485
+[e ++ _focus -> -> 1 `i `uc ]
+[; ;gui.c: 1486: if(focus == 8)focus =1;
 "1486
-[e $U 585  ]
-[; ;gui.c: 1488: case 0xf3:
+[e $ ! == -> _focus `i -> 8 `i 590  ]
+[e = _focus -> -> 1 `i `uc ]
+[e :U 590 ]
+"1487
+}
+[e :U 589 ]
 "1488
-[e :U 593 ]
+}
+[; ;gui.c: 1487: }
+[; ;gui.c: 1488: }
 [; ;gui.c: 1489: break;
 "1489
 [e $U 585  ]
-"1490
+[; ;gui.c: 1491: case 0xf2:
+"1491
+[e :U 591 ]
+[; ;gui.c: 1500: {
+"1500
+{
+[; ;gui.c: 1501: if(focus == 4)
+"1501
+[e $ ! == -> _focus `i -> 4 `i 592  ]
+[; ;gui.c: 1502: {
+"1502
+{
+[; ;gui.c: 1503: focus -= 3;
+"1503
+[e =- _focus -> -> 3 `i `uc ]
+"1504
 }
-[; ;gui.c: 1490: }
+[; ;gui.c: 1504: }
+[e $U 593  ]
+"1505
+[e :U 592 ]
+[; ;gui.c: 1505: else
+[; ;gui.c: 1506: {
+"1506
+{
+[; ;gui.c: 1507: focus --;
+"1507
+[e -- _focus -> -> 1 `i `uc ]
+[; ;gui.c: 1508: if(focus==0) focus =7;
+"1508
+[e $ ! == -> _focus `i -> 0 `i 594  ]
+[e = _focus -> -> 7 `i `uc ]
+[e :U 594 ]
+"1509
+}
+[e :U 593 ]
+"1510
+}
+[; ;gui.c: 1509: }
+[; ;gui.c: 1510: }
+[; ;gui.c: 1511: break;
+"1511
+[e $U 585  ]
+"1516
+}
+[; ;gui.c: 1516: }
 [e $U 585  ]
 "1468
 [e :U 586 ]
 [e [\ _key , $ -> -> 241 `i `uc 587
- , $ -> -> 242 `i `uc 590
- , $ -> -> 243 `i `uc 593
+ , $ -> -> 242 `i `uc 591
  585 ]
-"1490
+"1516
 [e :U 585 ]
-[; ;gui.c: 1492: }
-"1492
-[e :UE 580 ]
-}
-"1496
-[v _HG_interface `(v ~T0 @X0 1 ef ]
-"1497
-{
-[; ;gui.c: 1496: void HG_interface(void)
-[; ;gui.c: 1497: {
-[e :U _HG_interface ]
-[f ]
-"1498
-[v _kv `uc ~T0 @X0 1 a ]
-[; ;gui.c: 1498: uint8_t kv = 0;
-[e = _kv -> -> 0 `i `uc ]
-[; ;gui.c: 1499: kv = KEY_Scan();
-"1499
-[e = _kv ( _KEY_Scan ..  ]
-[; ;gui.c: 1500: update_focus(kv);
-"1500
-[e ( _update_focus (1 _kv ]
-[; ;gui.c: 1503: if(kv)
-"1503
-[e $ ! != -> _kv `i -> -> -> 0 `i `uc `i 595  ]
-[; ;gui.c: 1504: {
-"1504
-{
-[; ;gui.c: 1505: menu0_MsgHandlle(kv);
-"1505
-[e ( _menu0_MsgHandlle (1 _kv ]
-[; ;gui.c: 1506: menu1_MsgHandlle(kv);
-"1506
-[e ( _menu1_MsgHandlle (1 _kv ]
-[; ;gui.c: 1507: menu2_MsgHandlle(kv);
-"1507
-[e ( _menu2_MsgHandlle (1 _kv ]
-[; ;gui.c: 1508: menu3_MsgHandlle(kv);
-"1508
-[e ( _menu3_MsgHandlle (1 _kv ]
-[; ;gui.c: 1509: menu4_MsgHandlle(kv);
-"1509
-[e ( _menu4_MsgHandlle (1 _kv ]
-[; ;gui.c: 1510: menu5_MsgHandlle(kv);
-"1510
-[e ( _menu5_MsgHandlle (1 _kv ]
-[; ;gui.c: 1511: menu6_MsgHandlle(kv);
-"1511
-[e ( _menu6_MsgHandlle (1 _kv ]
-"1514
-}
-[e :U 595 ]
-[; ;gui.c: 1514: }
 [; ;gui.c: 1518: }
 "1518
-[e :UE 594 ]
+[e :UE 580 ]
 }
 "1522
-[v _enter_sleep `(v ~T0 @X0 1 ef ]
+[v _HG_interface `(v ~T0 @X0 1 ef ]
 "1523
 {
-[; ;gui.c: 1522: void enter_sleep(void)
+[; ;gui.c: 1522: void HG_interface(void)
 [; ;gui.c: 1523: {
-[e :U _enter_sleep ]
+[e :U _HG_interface ]
 [f ]
 "1524
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;gui.c: 1524: uint8_t temp=0;
-[e = _temp -> -> 0 `i `uc ]
-[; ;gui.c: 1529: if( hg_op.status_powerup == 0x00)
+[v _kv `uc ~T0 @X0 1 a ]
+[; ;gui.c: 1524: uint8_t kv = 0;
+[e = _kv -> -> 0 `i `uc ]
+[; ;gui.c: 1525: kv = KEY_Scan();
+"1525
+[e = _kv ( _KEY_Scan ..  ]
+[; ;gui.c: 1526: update_focus(kv);
+"1526
+[e ( _update_focus (1 _kv ]
+[; ;gui.c: 1529: if(kv)
 "1529
-[e $ ! == -> . _hg_op 3 `i -> 0 `i 597  ]
-[; ;gui.c: 1531: {
+[e $ ! != -> _kv `i -> -> -> 0 `i `uc `i 596  ]
+[; ;gui.c: 1530: {
+"1530
+{
+[; ;gui.c: 1531: menu0_MsgHandlle(kv);
 "1531
-{
-[; ;gui.c: 1533: if(hg_op.needle_len == 13)
+[e ( _menu0_MsgHandlle (1 _kv ]
+[; ;gui.c: 1532: menu1_MsgHandlle(kv);
+"1532
+[e ( _menu1_MsgHandlle (1 _kv ]
+[; ;gui.c: 1533: menu2_MsgHandlle(kv);
 "1533
-[e $ ! == -> . _hg_op 18 `i -> 13 `i 598  ]
-[; ;gui.c: 1534: {
+[e ( _menu2_MsgHandlle (1 _kv ]
+[; ;gui.c: 1534: menu3_MsgHandlle(kv);
 "1534
-{
-[; ;gui.c: 1535: do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
+[e ( _menu3_MsgHandlle (1 _kv ]
+[; ;gui.c: 1535: menu4_MsgHandlle(kv);
 "1535
-[e :U 601 ]
+[e ( _menu4_MsgHandlle (1 _kv ]
+[; ;gui.c: 1536: menu5_MsgHandlle(kv);
+"1536
+[e ( _menu5_MsgHandlle (1 _kv ]
+[; ;gui.c: 1537: menu6_MsgHandlle(kv);
+"1537
+[e ( _menu6_MsgHandlle (1 _kv ]
+"1540
+}
+[e :U 596 ]
+[; ;gui.c: 1540: }
+[; ;gui.c: 1544: }
+"1544
+[e :UE 595 ]
+}
+"1548
+[v _enter_sleep `(v ~T0 @X0 1 ef ]
+"1549
+{
+[; ;gui.c: 1548: void enter_sleep(void)
+[; ;gui.c: 1549: {
+[e :U _enter_sleep ]
+[f ]
+"1550
+[v _temp `uc ~T0 @X0 1 a ]
+[; ;gui.c: 1550: uint8_t temp=0;
+[e = _temp -> -> 0 `i `uc ]
+[; ;gui.c: 1555: if( hg_op.status_powerup == 0x00)
+"1555
+[e $ ! == -> . _hg_op 3 `i -> 0 `i 598  ]
+[; ;gui.c: 1557: {
+"1557
+{
+[; ;gui.c: 1559: if(hg_op.needle_len == 13)
+"1559
+[e $ ! == -> . _hg_op 18 `i -> 13 `i 599  ]
+[; ;gui.c: 1560: {
+"1560
+{
+[; ;gui.c: 1561: do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
+"1561
+[e :U 602 ]
 {
 [e = . . _LATDbits 1 2 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 }
-[e :U 600 ]
-[; ;gui.c: 1537: temp =0;
-"1537
+[e :U 601 ]
+[; ;gui.c: 1563: temp =0;
+"1563
 [e = _temp -> -> 0 `i `uc ]
-[; ;gui.c: 1539: while(temp < 200)
-"1539
-[e $U 602  ]
-[e :U 603 ]
-[; ;gui.c: 1540: {
-"1540
-{
-[; ;gui.c: 1541: while(PORTBbits.RB2 == 0);
-"1541
-[e $U 605  ]
-[e :U 606 ]
-[e :U 605 ]
-[e $ == -> . . _PORTBbits 0 2 `i -> 0 `i 606  ]
-[e :U 607 ]
-[; ;gui.c: 1543: temp ++;
-"1543
-[e ++ _temp -> -> 1 `i `uc ]
-[; ;gui.c: 1544: while(PORTBbits.RB2 == 1);
-"1544
-[e $U 608  ]
-[e :U 609 ]
-[e :U 608 ]
-[e $ == -> . . _PORTBbits 0 2 `i -> 1 `i 609  ]
-[e :U 610 ]
-[; ;gui.c: 1546: temp ++;
-"1546
-[e ++ _temp -> -> 1 `i `uc ]
-"1548
-}
-[e :U 602 ]
-"1539
-[e $ < -> _temp `i -> 200 `i 603  ]
+[; ;gui.c: 1565: while(temp < 200)
+"1565
+[e $U 603  ]
 [e :U 604 ]
-[; ;gui.c: 1548: }
-[; ;gui.c: 1549: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"1549
-[e :U 613 ]
+[; ;gui.c: 1566: {
+"1566
+{
+[; ;gui.c: 1567: while(PORTBbits.RB2 == 0);
+"1567
+[e $U 606  ]
+[e :U 607 ]
+[e :U 606 ]
+[e $ == -> . . _PORTBbits 0 2 `i -> 0 `i 607  ]
+[e :U 608 ]
+[; ;gui.c: 1569: temp ++;
+"1569
+[e ++ _temp -> -> 1 `i `uc ]
+[; ;gui.c: 1570: while(PORTBbits.RB2 == 1);
+"1570
+[e $U 609  ]
+[e :U 610 ]
+[e :U 609 ]
+[e $ == -> . . _PORTBbits 0 2 `i -> 1 `i 610  ]
+[e :U 611 ]
+[; ;gui.c: 1572: temp ++;
+"1572
+[e ++ _temp -> -> 1 `i `uc ]
+"1574
+}
+[e :U 603 ]
+"1565
+[e $ < -> _temp `i -> 200 `i 604  ]
+[e :U 605 ]
+[; ;gui.c: 1574: }
+[; ;gui.c: 1575: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"1575
+[e :U 614 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
-[e :U 612 ]
-[; ;gui.c: 1550: delaynus(50*1000);
-"1550
+[e :U 613 ]
+[; ;gui.c: 1576: delaynus(50*1000);
+"1576
 [e ( _delaynus (1 -> * -> 50 `i -> 1000 `i `ui ]
-"1551
+"1577
 }
-[e :U 598 ]
-[; ;gui.c: 1551: }
-[; ;gui.c: 1556: do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"1556
-[e :U 616 ]
+[e :U 599 ]
+[; ;gui.c: 1577: }
+[; ;gui.c: 1582: do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"1582
+[e :U 617 ]
 {
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
-[e :U 615 ]
-[; ;gui.c: 1557: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"1557
-[e :U 619 ]
+[e :U 616 ]
+[; ;gui.c: 1583: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"1583
+[e :U 620 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
-[e :U 618 ]
-[; ;gui.c: 1559: LATCbits.LC2 =0;
-"1559
+[e :U 619 ]
+[; ;gui.c: 1585: LATCbits.LC2 =0;
+"1585
 [e = . . _LATCbits 1 2 -> -> 0 `i `uc ]
-[; ;gui.c: 1560: LATDbits.LD4 =0;
-"1560
+[; ;gui.c: 1586: LATDbits.LD4 =0;
+"1586
 [e = . . _LATDbits 1 4 -> -> 0 `i `uc ]
-[; ;gui.c: 1564: hg_op.needle_len = 4;
-"1564
+[; ;gui.c: 1590: hg_op.needle_len = 4;
+"1590
 [e = . _hg_op 18 -> -> 4 `i `uc ]
-[; ;gui.c: 1569: do{ INTCON3bits.INT2E = 0;INTCON3bits.INT2IF =0;}while(0);
-"1569
-[e :U 622 ]
+[; ;gui.c: 1595: do{ INTCON3bits.INT2E = 0;INTCON3bits.INT2IF =0;}while(0);
+"1595
+[e :U 623 ]
 {
 [e = . . _INTCON3bits 1 4 -> -> 0 `i `uc ]
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 621 ]
-[; ;gui.c: 1570: __nop();__nop();__nop();__nop();
-"1570
+[e :U 622 ]
+[; ;gui.c: 1596: __nop();__nop();__nop();__nop();
+"1596
 [e ( ___nop ..  ]
 [e ( ___nop ..  ]
 [e ( ___nop ..  ]
 [e ( ___nop ..  ]
-[; ;gui.c: 1574: while(hg_op.status_powerup == 0x00)
-"1574
-[e $U 623  ]
-[e :U 624 ]
-[; ;gui.c: 1575: {
-"1575
-{
-[; ;gui.c: 1576: __nop();__nop();__nop();__nop();
-"1576
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[; ;gui.c: 1577: asm(" sleep");
-"1577
-[; <"  sleep ;# ">
-[; ;gui.c: 1578: __nop();__nop();__nop();__nop();
-"1578
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[e ( ___nop ..  ]
-[; ;gui.c: 1581: check_wake_button();
-"1581
-[e ( _check_wake_button ..  ]
-"1584
-}
-[e :U 623 ]
-"1574
-[e $ == -> . _hg_op 3 `i -> 0 `i 624  ]
+[; ;gui.c: 1600: while(hg_op.status_powerup == 0x00)
+"1600
+[e $U 624  ]
 [e :U 625 ]
-"1593
-}
-[e :U 597 ]
-[; ;gui.c: 1584: }
-[; ;gui.c: 1593: }
-[; ;gui.c: 1603: }
-"1603
-[e :UE 596 ]
-}
-"1607
-[v _initial_para_setting `(v ~T0 @X0 1 ef ]
-"1608
+[; ;gui.c: 1601: {
+"1601
 {
-[; ;gui.c: 1607: void initial_para_setting(void)
-[; ;gui.c: 1608: {
-[e :U _initial_para_setting ]
-[f ]
-[; ;gui.c: 1611: hg_op.need_reset =0;
-"1611
-[e = . _hg_op 5 -> -> 0 `i `uc ]
-[; ;gui.c: 1613: hg_op.cur_working_mode = 0x00;
-"1613
-[e = . _hg_op 1 -> -> 0 `i `uc ]
-[; ;gui.c: 1614: hg_op.cnt_target_posrst = (789);
-"1614
-[e = . _hg_op 39 -> -> 789 `i `ui ]
-[; ;gui.c: 1615: hg_op.needle_len = 4;
-"1615
-[e = . _hg_op 18 -> -> 4 `i `uc ]
-[; ;gui.c: 1616: hg_op.status_powerup = 0x00;
-"1616
-[e = . _hg_op 3 -> -> 0 `i `uc ]
-[; ;gui.c: 1617: hg_op.working_mode = 0x03;
-"1617
-[e = . _hg_op 0 -> -> 3 `i `uc ]
-[; ;gui.c: 1619: hg_op.status_hit_lp = 0;
+[; ;gui.c: 1602: __nop();__nop();__nop();__nop();
+"1602
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[; ;gui.c: 1603: asm(" sleep");
+"1603
+[; <"  sleep ;# ">
+[; ;gui.c: 1604: __nop();__nop();__nop();__nop();
+"1604
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[e ( ___nop ..  ]
+[; ;gui.c: 1607: check_wake_button();
+"1607
+[e ( _check_wake_button ..  ]
+"1610
+}
+[e :U 624 ]
+"1600
+[e $ == -> . _hg_op 3 `i -> 0 `i 625  ]
+[e :U 626 ]
 "1619
-[e = . _hg_op 6 -> -> 0 `i `uc ]
-[; ;gui.c: 1621: hg_op.cnt_pos_1mm =0;
-"1621
-[e = . _hg_op 32 -> 0 `i ]
-[; ;gui.c: 1622: hg_op.cnt_pos_nmm = 0;
-"1622
-[e = . _hg_op 34 -> 0 `i ]
-[; ;gui.c: 1623: hg_op.cnt_pos_nmm_target = (236);
-"1623
-[e = . _hg_op 37 -> 236 `i ]
-[; ;gui.c: 1624: hg_op.inject_len = 1;
-"1624
-[e = . _hg_op 19 -> -> 1 `i `ui ]
+}
+[e :U 598 ]
+[; ;gui.c: 1610: }
+[; ;gui.c: 1619: }
 [; ;gui.c: 1629: }
 "1629
-[e :UE 626 ]
+[e :UE 597 ]
 }
 "1633
-[v _check_ui_status `(v ~T0 @X0 1 ef ]
+[v _initial_para_setting `(v ~T0 @X0 1 ef ]
 "1634
 {
-[; ;gui.c: 1633: void check_ui_status(void)
+[; ;gui.c: 1633: void initial_para_setting(void)
 [; ;gui.c: 1634: {
+[e :U _initial_para_setting ]
+[f ]
+[; ;gui.c: 1637: hg_op.need_reset =0;
+"1637
+[e = . _hg_op 5 -> -> 0 `i `uc ]
+[; ;gui.c: 1639: hg_op.cur_working_mode = 0x00;
+"1639
+[e = . _hg_op 1 -> -> 0 `i `uc ]
+[; ;gui.c: 1640: hg_op.cnt_target_posrst = (789);
+"1640
+[e = . _hg_op 39 -> -> 789 `i `ui ]
+[; ;gui.c: 1641: hg_op.needle_len = 4;
+"1641
+[e = . _hg_op 18 -> -> 4 `i `uc ]
+[; ;gui.c: 1642: hg_op.status_powerup = 0x00;
+"1642
+[e = . _hg_op 3 -> -> 0 `i `uc ]
+[; ;gui.c: 1643: hg_op.working_mode = 0x03;
+"1643
+[e = . _hg_op 0 -> -> 3 `i `uc ]
+[; ;gui.c: 1645: hg_op.status_hit_lp = 0;
+"1645
+[e = . _hg_op 6 -> -> 0 `i `uc ]
+[; ;gui.c: 1647: hg_op.cnt_pos_1mm =0;
+"1647
+[e = . _hg_op 32 -> 0 `i ]
+[; ;gui.c: 1648: hg_op.cnt_pos_nmm = 0;
+"1648
+[e = . _hg_op 34 -> 0 `i ]
+[; ;gui.c: 1649: hg_op.cnt_pos_nmm_target = (236);
+"1649
+[e = . _hg_op 37 -> 236 `i ]
+[; ;gui.c: 1650: hg_op.inject_len = 1;
+"1650
+[e = . _hg_op 19 -> -> 1 `i `ui ]
+[; ;gui.c: 1655: }
+"1655
+[e :UE 627 ]
+}
+"1659
+[v _check_ui_status `(v ~T0 @X0 1 ef ]
+"1660
+{
+[; ;gui.c: 1659: void check_ui_status(void)
+[; ;gui.c: 1660: {
 [e :U _check_ui_status ]
 [f ]
-"1635
-[v F3429 `ul ~T0 @X0 1 s cnt_ui_check ]
-[i F3429
+"1661
+[v F3425 `ul ~T0 @X0 1 s cnt_ui_check ]
+[i F3425
 -> -> -> 0 `i `l `ul
 ]
-[; ;gui.c: 1635: static uint32_t cnt_ui_check =0;
-[; ;gui.c: 1636: if(menu[0].mode != 0)
-"1636
-[e $ ! != -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 628  ]
-[; ;gui.c: 1637: {
-"1637
-{
-[; ;gui.c: 1638: cnt_ui_check ++;
-"1638
-[e ++ F3429 -> -> -> 1 `i `l `ul ]
-[; ;gui.c: 1640: if(cnt_ui_check > 200000)
-"1640
-[e $ ! > F3429 -> -> 200000 `l `ul 629  ]
-[; ;gui.c: 1641: {
-"1641
-{
-[; ;gui.c: 1642: display_frame_abc(1,71, 0);
-"1642
-[e ( _display_frame_abc (3 , , -> -> 1 `i `uc -> -> 71 `i `uc -> -> 0 `i `uc ]
-[; ;gui.c: 1643: if(menu[0].value == 0x00)
-"1643
-[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 0 `i 630  ]
-[; ;gui.c: 1644: {
-"1644
-{
-[; ;gui.c: 1645: display_cmode(1,(71 + 2),0);
-"1645
-[e ( _display_cmode (3 , , -> -> 1 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 0 `i `uc ]
-"1646
-}
-[; ;gui.c: 1646: }
-[e $U 631  ]
-"1647
-[e :U 630 ]
-[; ;gui.c: 1647: else if(menu[0].value == 0x02)
-[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 2 `i 632  ]
-[; ;gui.c: 1648: {
-"1648
-{
-[; ;gui.c: 1649: display_drop(1,(71 + 2),0);
-"1649
-[e ( _display_drop (3 , , -> -> 1 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 0 `i `uc ]
-"1650
-}
-[; ;gui.c: 1650: }
-[e $U 633  ]
-"1651
-[e :U 632 ]
-[; ;gui.c: 1651: else if(menu[0].value == 0x01)
-[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 1 `i 634  ]
-[; ;gui.c: 1652: {
-"1652
-{
-[; ;gui.c: 1653: display_drops(1,(71 + 2),0);
-"1653
-[e ( _display_drops (3 , , -> -> 1 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 0 `i `uc ]
-"1654
-}
-[e :U 634 ]
-"1655
-[e :U 633 ]
-[e :U 631 ]
-[; ;gui.c: 1654: }
-[; ;gui.c: 1655: menu[0].mode = 0;
-[e = . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
-[; ;gui.c: 1656: cnt_ui_check =0;
-"1656
-[e = F3429 -> -> -> 0 `i `l `ul ]
-[; ;gui.c: 1658: work_mode = menu[0].value ;
-"1658
-[e = _work_mode -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `c ]
-"1661
-}
-[e :U 629 ]
+[; ;gui.c: 1661: static uint32_t cnt_ui_check =0;
+[; ;gui.c: 1662: if(menu[0].mode != 0)
 "1662
-}
-[; ;gui.c: 1661: }
-[; ;gui.c: 1662: }
-[e $U 635  ]
+[e $ ! != -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 629  ]
+[; ;gui.c: 1663: {
 "1663
-[e :U 628 ]
-[; ;gui.c: 1663: else if(menu[1].mode != 0)
-[e $ ! != -> . *U + &U _menu * -> -> -> 1 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 636  ]
-[; ;gui.c: 1664: {
+{
+[; ;gui.c: 1664: cnt_ui_check ++;
 "1664
-{
-[; ;gui.c: 1665: menu[1].mode = 0;
-"1665
-[e = . *U + &U _menu * -> -> -> 1 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[e ++ F3425 -> -> -> 1 `i `l `ul ]
+[; ;gui.c: 1666: if(cnt_ui_check > 200000)
 "1666
-}
-[; ;gui.c: 1666: }
-[e $U 637  ]
+[e $ ! > F3425 -> -> 200000 `l `ul 630  ]
+[; ;gui.c: 1667: {
 "1667
-[e :U 636 ]
-[; ;gui.c: 1667: else if(menu[2].mode != 0)
-[e $ ! != -> . *U + &U _menu * -> -> -> 2 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 638  ]
-[; ;gui.c: 1668: {
+{
+[; ;gui.c: 1668: display_frame_abc(1,71, 0);
 "1668
-{
-[; ;gui.c: 1669: menu[2].mode = 0;
+[e ( _display_frame_abc (3 , , -> -> 1 `i `uc -> -> 71 `i `uc -> -> 0 `i `uc ]
+[; ;gui.c: 1669: if(menu[0].value == 0x00)
 "1669
-[e = . *U + &U _menu * -> -> -> 2 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 0 `i 631  ]
+[; ;gui.c: 1670: {
 "1670
-}
-[; ;gui.c: 1670: }
-[e $U 639  ]
+{
+[; ;gui.c: 1671: display_cmode(1,(71 + 2),0);
 "1671
-[e :U 638 ]
-[; ;gui.c: 1671: else if(menu[3].mode != 0)
-[e $ ! != -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 640  ]
-[; ;gui.c: 1672: {
+[e ( _display_cmode (3 , , -> -> 1 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 0 `i `uc ]
 "1672
-{
-[; ;gui.c: 1674: cnt_ui_check ++;
+}
+[; ;gui.c: 1672: }
+[e $U 632  ]
+"1673
+[e :U 631 ]
+[; ;gui.c: 1673: else if(menu[0].value == 0x02)
+[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 2 `i 633  ]
+[; ;gui.c: 1674: {
 "1674
-[e ++ F3429 -> -> -> 1 `i `l `ul ]
-[; ;gui.c: 1675: if(cnt_ui_check > 200000)
+{
+[; ;gui.c: 1675: display_drop(1,(71 + 2),0);
 "1675
-[e $ ! > F3429 -> -> 200000 `l `ul 641  ]
-[; ;gui.c: 1676: {
+[e ( _display_drop (3 , , -> -> 1 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 0 `i `uc ]
 "1676
-{
-[; ;gui.c: 1678: display_frame_de(1,49, 0);
+}
+[; ;gui.c: 1676: }
+[e $U 634  ]
+"1677
+[e :U 633 ]
+[; ;gui.c: 1677: else if(menu[0].value == 0x01)
+[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 1 `i 635  ]
+[; ;gui.c: 1678: {
 "1678
-[e ( _display_frame_de (3 , , -> -> 1 `i `uc -> -> 49 `i `uc -> -> 0 `i `uc ]
-[; ;gui.c: 1679: display_num(0,(49 + 14), 0|menu[3].value);
+{
+[; ;gui.c: 1679: display_drops(1,(71 + 2),0);
 "1679
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
-[; ;gui.c: 1683: if(menu[3].value == 4)
-"1683
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 4 `i 642  ]
-[; ;gui.c: 1684: {
+[e ( _display_drops (3 , , -> -> 1 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 0 `i `uc ]
+"1680
+}
+[e :U 635 ]
+"1681
+[e :U 634 ]
+[e :U 632 ]
+[; ;gui.c: 1680: }
+[; ;gui.c: 1681: menu[0].mode = 0;
+[e = . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[; ;gui.c: 1682: cnt_ui_check =0;
+"1682
+[e = F3425 -> -> -> 0 `i `l `ul ]
+[; ;gui.c: 1684: work_mode = menu[0].value ;
 "1684
-{
-[; ;gui.c: 1685: menu[3].parameter =0;
-"1685
-[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-"1686
-}
-[; ;gui.c: 1686: }
-[e $U 643  ]
+[e = _work_mode -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `c ]
 "1687
-[e :U 642 ]
-[; ;gui.c: 1687: else if(menu[3].value == 6)
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 6 `i 644  ]
-[; ;gui.c: 1688: {
+}
+[e :U 630 ]
 "1688
-{
-[; ;gui.c: 1689: menu[3].parameter =1;
+}
+[; ;gui.c: 1687: }
+[; ;gui.c: 1688: }
+[e $U 636  ]
 "1689
-[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
+[e :U 629 ]
+[; ;gui.c: 1689: else if(menu[1].mode != 0)
+[e $ ! != -> . *U + &U _menu * -> -> -> 1 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 637  ]
+[; ;gui.c: 1690: {
 "1690
-}
-[; ;gui.c: 1690: }
-[e $U 645  ]
-"1691
-[e :U 644 ]
-[; ;gui.c: 1691: else if(menu[3].value == 13)
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 13 `i 646  ]
-[; ;gui.c: 1692: {
-"1692
 {
-[; ;gui.c: 1693: menu[3].parameter =2;
+[; ;gui.c: 1691: menu[1].mode = 0;
+"1691
+[e = . *U + &U _menu * -> -> -> 1 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+"1692
+}
+[; ;gui.c: 1692: }
+[e $U 638  ]
 "1693
-[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
+[e :U 637 ]
+[; ;gui.c: 1693: else if(menu[2].mode != 0)
+[e $ ! != -> . *U + &U _menu * -> -> -> 2 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 639  ]
+[; ;gui.c: 1694: {
 "1694
-}
-[e :U 646 ]
+{
+[; ;gui.c: 1695: menu[2].mode = 0;
+"1695
+[e = . *U + &U _menu * -> -> -> 2 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
 "1696
-[e :U 645 ]
-[e :U 643 ]
-[; ;gui.c: 1694: }
-[; ;gui.c: 1696: menu[3].mode = 0;
-[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
-[; ;gui.c: 1697: cnt_ui_check =0;
+}
+[; ;gui.c: 1696: }
+[e $U 640  ]
 "1697
-[e = F3429 -> -> -> 0 `i `l `ul ]
-"1699
-}
-[e :U 641 ]
+[e :U 639 ]
+[; ;gui.c: 1697: else if(menu[3].mode != 0)
+[e $ ! != -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 641  ]
+[; ;gui.c: 1698: {
+"1698
+{
+[; ;gui.c: 1700: cnt_ui_check ++;
 "1700
-}
-[; ;gui.c: 1699: }
-[; ;gui.c: 1700: }
-[e $U 647  ]
+[e ++ F3425 -> -> -> 1 `i `l `ul ]
+[; ;gui.c: 1701: if(cnt_ui_check > 200000)
 "1701
-[e :U 640 ]
-[; ;gui.c: 1701: else if(menu[4].mode != 0)
-[e $ ! != -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 648  ]
+[e $ ! > F3425 -> -> 200000 `l `ul 642  ]
 [; ;gui.c: 1702: {
 "1702
 {
-[; ;gui.c: 1704: cnt_ui_check ++;
+[; ;gui.c: 1704: display_frame_de(1,49, 0);
 "1704
-[e ++ F3429 -> -> -> 1 `i `l `ul ]
-[; ;gui.c: 1705: if(cnt_ui_check > 200000)
+[e ( _display_frame_de (3 , , -> -> 1 `i `uc -> -> 49 `i `uc -> -> 0 `i `uc ]
+[; ;gui.c: 1705: display_num(0,(49 + 14), 0|menu[3].value);
 "1705
-[e $ ! > F3429 -> -> 200000 `l `ul 649  ]
-[; ;gui.c: 1706: {
-"1706
-{
-[; ;gui.c: 1707: display_frame_de(2,0, 0);
-"1707
-[e ( _display_frame_de (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;gui.c: 1708: display_num(0,(0 + 14), 0|menu[4].value);
-"1708
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
-[; ;gui.c: 1710: if(menu[4].value == 1)
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
+[; ;gui.c: 1709: if(menu[3].value == 4)
+"1709
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 4 `i 643  ]
+[; ;gui.c: 1710: {
 "1710
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 1 `i 650  ]
-[; ;gui.c: 1711: {
+{
+[; ;gui.c: 1711: menu[3].parameter =0;
 "1711
-{
-[; ;gui.c: 1712: menu[4].parameter =0;
+[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
 "1712
-[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+}
+[; ;gui.c: 1712: }
+[e $U 644  ]
 "1713
-}
-[; ;gui.c: 1713: }
-[e $U 651  ]
+[e :U 643 ]
+[; ;gui.c: 1713: else if(menu[3].value == 6)
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 6 `i 645  ]
+[; ;gui.c: 1714: {
 "1714
-[e :U 650 ]
-[; ;gui.c: 1714: else if(menu[4].value == 2)
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 2 `i 652  ]
-[; ;gui.c: 1715: {
+{
+[; ;gui.c: 1715: menu[3].parameter =1;
 "1715
-{
-[; ;gui.c: 1716: menu[4].parameter =1;
+[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
 "1716
-[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
+}
+[; ;gui.c: 1716: }
+[e $U 646  ]
 "1717
-}
-[; ;gui.c: 1717: }
-[e $U 653  ]
+[e :U 645 ]
+[; ;gui.c: 1717: else if(menu[3].value == 13)
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 13 `i 647  ]
+[; ;gui.c: 1718: {
 "1718
-[e :U 652 ]
-[; ;gui.c: 1718: else if(menu[4].value == 0)
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 0 `i 654  ]
-[; ;gui.c: 1719: {
-"1719
 {
-[; ;gui.c: 1720: menu[4].parameter =2;
+[; ;gui.c: 1719: menu[3].parameter =2;
+"1719
+[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
 "1720
-[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
-"1721
 }
-[e :U 654 ]
+[e :U 647 ]
+"1722
+[e :U 646 ]
+[e :U 644 ]
+[; ;gui.c: 1720: }
+[; ;gui.c: 1722: menu[3].mode = 0;
+[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[; ;gui.c: 1723: cnt_ui_check =0;
 "1723
-[e :U 653 ]
-[e :U 651 ]
-[; ;gui.c: 1721: }
-[; ;gui.c: 1723: menu[4].mode = 0;
-[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
-[; ;gui.c: 1724: cnt_ui_check =0;
-"1724
-[e = F3429 -> -> -> 0 `i `l `ul ]
+[e = F3425 -> -> -> 0 `i `l `ul ]
 "1725
 }
-[e :U 649 ]
+[e :U 642 ]
 "1726
 }
 [; ;gui.c: 1725: }
 [; ;gui.c: 1726: }
-[e $U 655  ]
+[e $U 648  ]
 "1727
-[e :U 648 ]
-[; ;gui.c: 1727: else if(menu[5].mode != 0)
-[e $ ! != -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 656  ]
+[e :U 641 ]
+[; ;gui.c: 1727: else if(menu[4].mode != 0)
+[e $ ! != -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 649  ]
 [; ;gui.c: 1728: {
 "1728
 {
 [; ;gui.c: 1730: cnt_ui_check ++;
 "1730
-[e ++ F3429 -> -> -> 1 `i `l `ul ]
+[e ++ F3425 -> -> -> 1 `i `l `ul ]
 [; ;gui.c: 1731: if(cnt_ui_check > 200000)
 "1731
-[e $ ! > F3429 -> -> 200000 `l `ul 657  ]
+[e $ ! > F3425 -> -> 200000 `l `ul 650  ]
 [; ;gui.c: 1732: {
 "1732
 {
-[; ;gui.c: 1733: display_frame_fghi(1,49, 0);
+[; ;gui.c: 1733: display_frame_de(2,0, 0);
 "1733
-[e ( _display_frame_fghi (3 , , -> -> 1 `i `uc -> -> 49 `i `uc -> -> 0 `i `uc ]
-[; ;gui.c: 1734: display_num(3,(49 + 14), 0|menu[5].value);
+[e ( _display_frame_de (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;gui.c: 1734: display_num(0,(0 + 14), 0|menu[4].value);
 "1734
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
-[; ;gui.c: 1737: if(menu[5].value == 1)
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
+[; ;gui.c: 1736: if(menu[4].value == 1)
+"1736
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 1 `i 651  ]
+[; ;gui.c: 1737: {
 "1737
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 1 `i 658  ]
-[; ;gui.c: 1738: {
+{
+[; ;gui.c: 1738: menu[4].parameter =0;
 "1738
-{
-[; ;gui.c: 1739: menu[5].parameter =0;
+[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
 "1739
-[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+}
+[; ;gui.c: 1739: }
+[e $U 652  ]
 "1740
-}
-[; ;gui.c: 1740: }
-[e $U 659  ]
+[e :U 651 ]
+[; ;gui.c: 1740: else if(menu[4].value == 2)
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 2 `i 653  ]
+[; ;gui.c: 1741: {
 "1741
-[e :U 658 ]
-[; ;gui.c: 1741: else if(menu[5].value == 106)
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 106 `i 660  ]
-[; ;gui.c: 1742: {
+{
+[; ;gui.c: 1742: menu[4].parameter =1;
 "1742
-{
-[; ;gui.c: 1743: menu[5].parameter =1;
+[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
 "1743
-[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
+}
+[; ;gui.c: 1743: }
+[e $U 654  ]
 "1744
-}
-[; ;gui.c: 1744: }
-[e $U 661  ]
+[e :U 653 ]
+[; ;gui.c: 1744: else if(menu[4].value == 0)
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 0 `i 655  ]
+[; ;gui.c: 1745: {
 "1745
-[e :U 660 ]
-[; ;gui.c: 1745: else if(menu[5].value == 5)
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 5 `i 662  ]
-[; ;gui.c: 1746: {
-"1746
 {
-[; ;gui.c: 1747: menu[5].parameter =2;
+[; ;gui.c: 1746: menu[4].parameter =2;
+"1746
+[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
 "1747
-[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
-"1748
 }
-[e :U 662 ]
+[e :U 655 ]
+"1749
+[e :U 654 ]
+[e :U 652 ]
+[; ;gui.c: 1747: }
+[; ;gui.c: 1749: menu[4].mode = 0;
+[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[; ;gui.c: 1750: cnt_ui_check =0;
+"1750
+[e = F3425 -> -> -> 0 `i `l `ul ]
+"1751
+}
+[e :U 650 ]
+"1752
+}
+[; ;gui.c: 1751: }
+[; ;gui.c: 1752: }
+[e $U 656  ]
 "1753
-[e :U 661 ]
-[e :U 659 ]
-[; ;gui.c: 1748: }
-[; ;gui.c: 1753: menu[5].mode = 0;
-[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
-[; ;gui.c: 1754: cnt_ui_check =0;
+[e :U 649 ]
+[; ;gui.c: 1753: else if(menu[5].mode != 0)
+[e $ ! != -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 657  ]
+[; ;gui.c: 1754: {
 "1754
-[e = F3429 -> -> -> 0 `i `l `ul ]
-"1755
-}
-[e :U 657 ]
+{
+[; ;gui.c: 1756: cnt_ui_check ++;
 "1756
-}
-[; ;gui.c: 1755: }
-[; ;gui.c: 1756: }
-[e $U 663  ]
+[e ++ F3425 -> -> -> 1 `i `l `ul ]
+[; ;gui.c: 1757: if(cnt_ui_check > 200000)
 "1757
-[e :U 656 ]
-[; ;gui.c: 1757: else if(menu[6].mode != 0)
-[e $ ! != -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 664  ]
+[e $ ! > F3425 -> -> 200000 `l `ul 658  ]
 [; ;gui.c: 1758: {
 "1758
 {
-[; ;gui.c: 1759: cnt_ui_check ++;
+[; ;gui.c: 1759: display_frame_fghi(1,49, 0);
 "1759
-[e ++ F3429 -> -> -> 1 `i `l `ul ]
-[; ;gui.c: 1760: if(cnt_ui_check > 200000)
+[e ( _display_frame_fghi (3 , , -> -> 1 `i `uc -> -> 49 `i `uc -> -> 0 `i `uc ]
+[; ;gui.c: 1760: display_num(3,(49 + 14), 0|menu[5].value);
 "1760
-[e $ ! > F3429 -> -> 200000 `l `ul 665  ]
-[; ;gui.c: 1761: {
-"1761
-{
-[; ;gui.c: 1763: if(hg_op.cur_working_mode == 0x00)
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
+[; ;gui.c: 1763: if(menu[5].value == 1)
 "1763
-[e $ ! == -> . _hg_op 1 `i -> 0 `i 666  ]
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 1 `i 659  ]
 [; ;gui.c: 1764: {
 "1764
 {
-[; ;gui.c: 1765: display_frame_fghi(2,0, 0);
+[; ;gui.c: 1765: menu[5].parameter =0;
 "1765
-[e ( _display_frame_fghi (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;gui.c: 1766: display_num(3,(0 + 14), 0|menu[6].value);
+[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
 "1766
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
+}
+[; ;gui.c: 1766: }
+[e $U 660  ]
 "1767
-}
-[; ;gui.c: 1767: }
-[e $U 667  ]
+[e :U 659 ]
+[; ;gui.c: 1767: else if(menu[5].value == 106)
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 106 `i 661  ]
+[; ;gui.c: 1768: {
 "1768
-[e :U 666 ]
-[; ;gui.c: 1768: else if(hg_op.cur_working_mode == 0x01)
-[e $ ! == -> . _hg_op 1 `i -> 1 `i 668  ]
-[; ;gui.c: 1769: {
+{
+[; ;gui.c: 1769: menu[5].parameter =1;
 "1769
-{
-[; ;gui.c: 1770: display_frame_fghi(3,0, 0);
+[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
 "1770
-[e ( _display_frame_fghi (3 , , -> -> 3 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;gui.c: 1771: display_num(3,(0 + 17), 0|menu[6].value);
+}
+[; ;gui.c: 1770: }
+[e $U 662  ]
 "1771
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
-[; ;gui.c: 1773: if(menu[6].value == 103)
+[e :U 661 ]
+[; ;gui.c: 1771: else if(menu[5].value == 5)
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 5 `i 663  ]
+[; ;gui.c: 1772: {
+"1772
+{
+[; ;gui.c: 1773: menu[5].parameter =2;
 "1773
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 103 `i 669  ]
-[; ;gui.c: 1774: {
+[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
 "1774
-{
-[; ;gui.c: 1775: menu[6].parameter =0;
-"1775
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-"1776
 }
-[; ;gui.c: 1776: }
-[e $U 670  ]
-"1777
-[e :U 669 ]
-[; ;gui.c: 1777: else if(menu[6].value == 102)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 102 `i 671  ]
-[; ;gui.c: 1778: {
-"1778
-{
-[; ;gui.c: 1779: menu[6].parameter =1;
+[e :U 663 ]
 "1779
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
+[e :U 662 ]
+[e :U 660 ]
+[; ;gui.c: 1774: }
+[; ;gui.c: 1779: menu[5].mode = 0;
+[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[; ;gui.c: 1780: cnt_ui_check =0;
 "1780
-}
-[; ;gui.c: 1780: }
-[e $U 672  ]
+[e = F3425 -> -> -> 0 `i `l `ul ]
 "1781
-[e :U 671 ]
-[; ;gui.c: 1781: else if(menu[6].value == 101)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 101 `i 673  ]
-[; ;gui.c: 1782: {
+}
+[e :U 658 ]
 "1782
-{
-[; ;gui.c: 1783: menu[6].parameter =2;
+}
+[; ;gui.c: 1781: }
+[; ;gui.c: 1782: }
+[e $U 664  ]
 "1783
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
+[e :U 657 ]
+[; ;gui.c: 1783: else if(menu[6].mode != 0)
+[e $ ! != -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 0 `i 665  ]
+[; ;gui.c: 1784: {
 "1784
-}
-[e :U 673 ]
+{
+[; ;gui.c: 1785: cnt_ui_check ++;
+"1785
+[e ++ F3425 -> -> -> 1 `i `l `ul ]
+[; ;gui.c: 1786: if(cnt_ui_check > 200000)
+"1786
+[e $ ! > F3425 -> -> 200000 `l `ul 666  ]
+[; ;gui.c: 1787: {
 "1787
-[e :U 672 ]
-[e :U 670 ]
-}
-[; ;gui.c: 1784: }
-[; ;gui.c: 1787: }
-[e $U 674  ]
-"1788
-[e :U 668 ]
-[; ;gui.c: 1788: else if(hg_op.cur_working_mode == 0x02)
-[e $ ! == -> . _hg_op 1 `i -> 2 `i 675  ]
-[; ;gui.c: 1789: {
+{
+[; ;gui.c: 1789: if(hg_op.cur_working_mode == 0x00)
 "1789
+[e $ ! == -> . _hg_op 1 `i -> 0 `i 667  ]
+[; ;gui.c: 1790: {
+"1790
 {
-[; ;gui.c: 1791: if(menu[6].value == 103)
+[; ;gui.c: 1791: display_frame_fghi(2,0, 0);
 "1791
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 103 `i 676  ]
-[; ;gui.c: 1792: {
+[e ( _display_frame_fghi (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;gui.c: 1792: display_num(3,(0 + 14), 0|menu[6].value);
 "1792
-{
-[; ;gui.c: 1793: menu[6].parameter =0;
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
 "1793
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+}
+[; ;gui.c: 1793: }
+[e $U 668  ]
 "1794
-}
-[; ;gui.c: 1794: }
-[e $U 677  ]
+[e :U 667 ]
+[; ;gui.c: 1794: else if(hg_op.cur_working_mode == 0x01)
+[e $ ! == -> . _hg_op 1 `i -> 1 `i 669  ]
+[; ;gui.c: 1795: {
 "1795
-[e :U 676 ]
-[; ;gui.c: 1795: else if(menu[6].value == 102)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 102 `i 678  ]
-[; ;gui.c: 1796: {
-"1796
 {
-[; ;gui.c: 1797: menu[6].parameter =1;
+[; ;gui.c: 1796: display_frame_fghi(3,0, 0);
+"1796
+[e ( _display_frame_fghi (3 , , -> -> 3 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;gui.c: 1797: display_num(3,(0 + 17), 0|menu[6].value);
 "1797
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
-"1798
-}
-[; ;gui.c: 1798: }
-[e $U 679  ]
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 0 `i -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i `uc ]
+[; ;gui.c: 1799: if(menu[6].value == 103)
 "1799
-[e :U 678 ]
-[; ;gui.c: 1799: else if(menu[6].value == 101)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 101 `i 680  ]
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 103 `i 670  ]
 [; ;gui.c: 1800: {
 "1800
 {
-[; ;gui.c: 1801: menu[6].parameter =2;
+[; ;gui.c: 1801: menu[6].parameter =0;
 "1801
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
 "1802
 }
-[e :U 680 ]
-"1806
-[e :U 679 ]
-[e :U 677 ]
-}
-[e :U 675 ]
-"1808
-[e :U 674 ]
-[e :U 667 ]
 [; ;gui.c: 1802: }
+[e $U 671  ]
+"1803
+[e :U 670 ]
+[; ;gui.c: 1803: else if(menu[6].value == 102)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 102 `i 672  ]
+[; ;gui.c: 1804: {
+"1804
+{
+[; ;gui.c: 1805: menu[6].parameter =1;
+"1805
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
+"1806
+}
 [; ;gui.c: 1806: }
-[; ;gui.c: 1808: menu[6].mode = 0;
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
-[; ;gui.c: 1809: cnt_ui_check =0;
+[e $U 673  ]
+"1807
+[e :U 672 ]
+[; ;gui.c: 1807: else if(menu[6].value == 101)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 101 `i 674  ]
+[; ;gui.c: 1808: {
+"1808
+{
+[; ;gui.c: 1809: menu[6].parameter =2;
 "1809
-[e = F3429 -> -> -> 0 `i `l `ul ]
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
 "1810
 }
-[e :U 665 ]
-"1811
+[e :U 674 ]
+"1813
+[e :U 673 ]
+[e :U 671 ]
 }
 [; ;gui.c: 1810: }
-[; ;gui.c: 1811: }
-[e $U 681  ]
-"1812
-[e :U 664 ]
-[; ;gui.c: 1812: else
-[; ;gui.c: 1813: {
-"1813
-{
-[; ;gui.c: 1814: cnt_ui_check =0;
+[; ;gui.c: 1813: }
+[e $U 675  ]
 "1814
-[e = F3429 -> -> -> 0 `i `l `ul ]
+[e :U 669 ]
+[; ;gui.c: 1814: else if(hg_op.cur_working_mode == 0x02)
+[e $ ! == -> . _hg_op 1 `i -> 2 `i 676  ]
+[; ;gui.c: 1815: {
 "1815
-}
-[e :U 681 ]
-[e :U 663 ]
-[e :U 655 ]
-[e :U 647 ]
-[e :U 639 ]
-[e :U 637 ]
-[e :U 635 ]
-[; ;gui.c: 1815: }
-[; ;gui.c: 1818: }
+{
+[; ;gui.c: 1817: if(menu[6].value == 103)
+"1817
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 103 `i 677  ]
+[; ;gui.c: 1818: {
 "1818
-[e :UE 627 ]
+{
+[; ;gui.c: 1819: menu[6].parameter =0;
+"1819
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+"1820
 }
+[; ;gui.c: 1820: }
+[e $U 678  ]
 "1821
-[v _shut_device `(v ~T0 @X0 1 ef ]
+[e :U 677 ]
+[; ;gui.c: 1821: else if(menu[6].value == 102)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 102 `i 679  ]
+[; ;gui.c: 1822: {
 "1822
 {
-[; ;gui.c: 1821: void shut_device(void)
-[; ;gui.c: 1822: {
+[; ;gui.c: 1823: menu[6].parameter =1;
+"1823
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 1 `i `c ]
+"1824
+}
+[; ;gui.c: 1824: }
+[e $U 680  ]
+"1825
+[e :U 679 ]
+[; ;gui.c: 1825: else if(menu[6].value == 101)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 4 `i -> 101 `i 681  ]
+[; ;gui.c: 1826: {
+"1826
+{
+[; ;gui.c: 1827: menu[6].parameter =2;
+"1827
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 2 `i `c ]
+"1828
+}
+[e :U 681 ]
+"1832
+[e :U 680 ]
+[e :U 678 ]
+}
+[e :U 676 ]
+"1834
+[e :U 675 ]
+[e :U 668 ]
+[; ;gui.c: 1828: }
+[; ;gui.c: 1832: }
+[; ;gui.c: 1834: menu[6].mode = 0;
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 -> -> 0 `i `uc ]
+[; ;gui.c: 1835: cnt_ui_check =0;
+"1835
+[e = F3425 -> -> -> 0 `i `l `ul ]
+"1836
+}
+[e :U 666 ]
+"1837
+}
+[; ;gui.c: 1836: }
+[; ;gui.c: 1837: }
+[e $U 682  ]
+"1838
+[e :U 665 ]
+[; ;gui.c: 1838: else
+[; ;gui.c: 1839: {
+"1839
+{
+[; ;gui.c: 1840: cnt_ui_check =0;
+"1840
+[e = F3425 -> -> -> 0 `i `l `ul ]
+"1841
+}
+[e :U 682 ]
+[e :U 664 ]
+[e :U 656 ]
+[e :U 648 ]
+[e :U 640 ]
+[e :U 638 ]
+[e :U 636 ]
+[; ;gui.c: 1841: }
+[; ;gui.c: 1844: }
+"1844
+[e :UE 628 ]
+}
+"1847
+[v _shut_device `(v ~T0 @X0 1 ef ]
+"1848
+{
+[; ;gui.c: 1847: void shut_device(void)
+[; ;gui.c: 1848: {
 [e :U _shut_device ]
 [f ]
-[; ;gui.c: 1824: hg_op.status_powerup = 0x00;
-"1824
+[; ;gui.c: 1850: hg_op.status_powerup = 0x00;
+"1850
 [e = . _hg_op 3 -> -> 0 `i `uc ]
-[; ;gui.c: 1826: LCD_Off();
-"1826
+[; ;gui.c: 1852: LCD_Off();
+"1852
 [e ( _LCD_Off ..  ]
-[; ;gui.c: 1828: write_buf[0]=0x25;
-"1828
+[; ;gui.c: 1854: write_buf[0]=0x25;
+"1854
 [e = *U + &U _write_buf * -> -> -> 0 `i `ui `ux -> -> # *U &U _write_buf `ui `ux -> -> 37 `i `uc ]
-[; ;gui.c: 1829: ee_WriteBytes(write_buf, 0x00, 1);
-"1829
+[; ;gui.c: 1855: ee_WriteBytes(write_buf, 0x00, 1);
+"1855
 [e ( _ee_WriteBytes (3 , , &U _write_buf -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;gui.c: 1831: do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"1831
-[e :U 685 ]
+[; ;gui.c: 1857: do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"1857
+[e :U 686 ]
 {
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
-[e :U 684 ]
-[; ;gui.c: 1832: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"1832
-[e :U 688 ]
+[e :U 685 ]
+[; ;gui.c: 1858: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"1858
+[e :U 689 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
-[e :U 687 ]
-[; ;gui.c: 1837: hg_op.working_mode = 0x03;
-"1837
-[e = . _hg_op 0 -> -> 3 `i `uc ]
-[; ;gui.c: 1838: hg_op.need_reset =0;
-"1838
-[e = . _hg_op 5 -> -> 0 `i `uc ]
-[; ;gui.c: 1843: }
-"1843
-[e :UE 682 ]
-}
-"1847
-[v _check_device_idle `(v ~T0 @X0 1 ef ]
-"1848
-{
-[; ;gui.c: 1847: void check_device_idle(void)
-[; ;gui.c: 1848: {
-[e :U _check_device_idle ]
-[f ]
-[; ;gui.c: 1851: if(hg_op.working_mode == 0x03)
-"1851
-[e $ ! == -> . _hg_op 0 `i -> 3 `i 690  ]
-[; ;gui.c: 1852: {
-"1852
-{
-[; ;gui.c: 1853: hg_op.cnt_device_idle ++;
-"1853
-[e ++ . _hg_op 17 -> -> -> 1 `i `l `ul ]
-[; ;gui.c: 1854: delay_nms(1);
-"1854
-[e ( _delay_nms (1 -> -> -> 1 `i `l `ul ]
-[; ;gui.c: 1855: if(hg_op.cnt_device_idle > (100000))
-"1855
-[e $ ! > . _hg_op 17 -> -> 100000 `l `ul 691  ]
-[; ;gui.c: 1856: {
-"1856
-{
-[; ;gui.c: 1857: hg_op.cnt_device_idle = 0;
-"1857
-[e = . _hg_op 17 -> -> -> 0 `i `l `ul ]
-[; ;gui.c: 1858: shut_device();
-"1858
-[e ( _shut_device ..  ]
-"1859
-}
-[e :U 691 ]
-"1860
-}
-[; ;gui.c: 1859: }
-[; ;gui.c: 1860: }
-[e $U 692  ]
-"1861
-[e :U 690 ]
-[; ;gui.c: 1861: else
-[; ;gui.c: 1862: {
-"1862
-{
-[; ;gui.c: 1863: hg_op.cnt_device_idle = 0;
+[e :U 688 ]
+[; ;gui.c: 1863: hg_op.working_mode = 0x03;
 "1863
-[e = . _hg_op 17 -> -> -> 0 `i `l `ul ]
+[e = . _hg_op 0 -> -> 3 `i `uc ]
+[; ;gui.c: 1864: hg_op.need_reset =0;
 "1864
+[e = . _hg_op 5 -> -> 0 `i `uc ]
+[; ;gui.c: 1869: }
+"1869
+[e :UE 683 ]
 }
-[e :U 692 ]
-[; ;gui.c: 1864: }
-[; ;gui.c: 1867: }
-"1867
-[e :UE 689 ]
-}
-"1871
-[v _check_shut_device `(v ~T0 @X0 1 ef ]
-"1872
-{
-[; ;gui.c: 1871: void check_shut_device(void)
-[; ;gui.c: 1872: {
-[e :U _check_shut_device ]
-[f ]
-[; ;gui.c: 1873: if(hg_op.flag_shut_device == 1)
 "1873
-[e $ ! == -> . _hg_op 16 `i -> 1 `i 694  ]
-[; ;gui.c: 1874: {
+[v _check_device_idle `(v ~T0 @X0 1 ef ]
 "1874
 {
-[; ;gui.c: 1877: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+[; ;gui.c: 1873: void check_device_idle(void)
+[; ;gui.c: 1874: {
+[e :U _check_device_idle ]
+[f ]
+[; ;gui.c: 1877: if(hg_op.working_mode == 0x03)
 "1877
-[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 695  ]
+[e $ ! == -> . _hg_op 0 `i -> 3 `i 691  ]
 [; ;gui.c: 1878: {
 "1878
 {
-[; ;gui.c: 1879: delay_nms(4);
+[; ;gui.c: 1879: hg_op.cnt_device_idle ++;
 "1879
-[e ( _delay_nms (1 -> -> -> 4 `i `l `ul ]
-[; ;gui.c: 1880: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+[e ++ . _hg_op 17 -> -> -> 1 `i `l `ul ]
+[; ;gui.c: 1880: delay_nms(1);
 "1880
-[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 696  ]
-[; ;gui.c: 1881: {
+[e ( _delay_nms (1 -> -> -> 1 `i `l `ul ]
+[; ;gui.c: 1881: if(hg_op.cnt_device_idle > (100000))
 "1881
-{
-[; ;gui.c: 1882: buzz();
+[e $ ! > . _hg_op 17 -> -> 100000 `l `ul 692  ]
+[; ;gui.c: 1882: {
 "1882
-[e ( _buzz ..  ]
-[; ;gui.c: 1883: test_mode =0;
+{
+[; ;gui.c: 1883: hg_op.cnt_device_idle = 0;
 "1883
-[e = _test_mode -> -> 0 `i `uc ]
-[; ;gui.c: 1885: if(hg_op.status_powerup == 0x01)
-"1885
-[e $ ! == -> . _hg_op 3 `i -> 1 `i 697  ]
-[; ;gui.c: 1886: {
-"1886
-{
-[; ;gui.c: 1888: delay_pwm(400000);
-"1888
-[e ( _delay_pwm (1 -> -> 400000 `l `ul ]
-[; ;gui.c: 1889: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
-"1889
-[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 698  ]
-[; ;gui.c: 1890: {
-"1890
-{
-[; ;gui.c: 1892: shut_device();
-"1892
+[e = . _hg_op 17 -> -> -> 0 `i `l `ul ]
+[; ;gui.c: 1884: shut_device();
+"1884
 [e ( _shut_device ..  ]
-"1913
+"1885
+}
+[e :U 692 ]
+"1886
+}
+[; ;gui.c: 1885: }
+[; ;gui.c: 1886: }
+[e $U 693  ]
+"1887
+[e :U 691 ]
+[; ;gui.c: 1887: else
+[; ;gui.c: 1888: {
+"1888
+{
+[; ;gui.c: 1889: hg_op.cnt_device_idle = 0;
+"1889
+[e = . _hg_op 17 -> -> -> 0 `i `l `ul ]
+"1890
+}
+[e :U 693 ]
+[; ;gui.c: 1890: }
+[; ;gui.c: 1893: }
+"1893
+[e :UE 690 ]
+}
+"1897
+[v _check_shut_device `(v ~T0 @X0 1 ef ]
+"1898
+{
+[; ;gui.c: 1897: void check_shut_device(void)
+[; ;gui.c: 1898: {
+[e :U _check_shut_device ]
+[f ]
+[; ;gui.c: 1899: if(hg_op.flag_shut_device == 1)
+"1899
+[e $ ! == -> . _hg_op 16 `i -> 1 `i 695  ]
+[; ;gui.c: 1900: {
+"1900
+{
+[; ;gui.c: 1903: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+"1903
+[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 696  ]
+[; ;gui.c: 1904: {
+"1904
+{
+[; ;gui.c: 1905: delay_nms(4);
+"1905
+[e ( _delay_nms (1 -> -> -> 4 `i `l `ul ]
+[; ;gui.c: 1906: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+"1906
+[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 697  ]
+[; ;gui.c: 1907: {
+"1907
+{
+[; ;gui.c: 1909: test_mode =0;
+"1909
+[e = _test_mode -> -> 0 `i `uc ]
+[; ;gui.c: 1911: if(hg_op.status_powerup == 0x01)
+"1911
+[e $ ! == -> . _hg_op 3 `i -> 1 `i 698  ]
+[; ;gui.c: 1912: {
+"1912
+{
+[; ;gui.c: 1914: delay_pwm(400000);
+"1914
+[e ( _delay_pwm (1 -> -> 400000 `l `ul ]
+[; ;gui.c: 1915: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+"1915
+[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 699  ]
+[; ;gui.c: 1916: {
+"1916
+{
+[; ;gui.c: 1918: shut_device();
+"1918
+[e ( _shut_device ..  ]
+[; ;gui.c: 1920: while(PORTBbits.RB4 == 0);
+"1920
+[e $U 700  ]
+[e :U 701 ]
+[e :U 700 ]
+[e $ == -> . . _PORTBbits 0 4 `i -> 0 `i 701  ]
+[e :U 702 ]
+"1945
+}
+[e :U 699 ]
+"1946
 }
 [e :U 698 ]
-"1914
+"1947
 }
 [e :U 697 ]
-"1915
+"1949
 }
 [e :U 696 ]
-"1917
+[; ;gui.c: 1945: }
+[; ;gui.c: 1946: }
+[; ;gui.c: 1947: }
+[; ;gui.c: 1949: }
+[; ;gui.c: 1952: hg_op.flag_shut_device = 0;
+"1952
+[e = . _hg_op 16 -> -> 0 `i `uc ]
+"1954
 }
 [e :U 695 ]
-[; ;gui.c: 1913: }
-[; ;gui.c: 1914: }
-[; ;gui.c: 1915: }
-[; ;gui.c: 1917: }
-[; ;gui.c: 1920: hg_op.flag_shut_device = 0;
-"1920
-[e = . _hg_op 16 -> -> 0 `i `uc ]
-"1922
+[; ;gui.c: 1954: }
+[; ;gui.c: 1957: }
+"1957
+[e :UE 694 ]
 }
-[e :U 694 ]
-[; ;gui.c: 1922: }
-[; ;gui.c: 1925: }
-"1925
-[e :UE 693 ]
-}
-"1931
+"1963
 [v _check_wake_button `(v ~T0 @X0 1 ef ]
-"1932
+"1964
 {
-[; ;gui.c: 1931: void check_wake_button(void)
-[; ;gui.c: 1932: {
+[; ;gui.c: 1963: void check_wake_button(void)
+[; ;gui.c: 1964: {
 [e :U _check_wake_button ]
 [f ]
-[; ;gui.c: 1933: if(hg_op.flag_wake_device == 1)
-"1933
-[e $ ! == -> . _hg_op 15 `i -> 1 `i 700  ]
-[; ;gui.c: 1934: {
-"1934
+[; ;gui.c: 1965: if(hg_op.flag_wake_device == 1)
+"1965
+[e $ ! == -> . _hg_op 15 `i -> 1 `i 704  ]
+[; ;gui.c: 1966: {
+"1966
 {
-[; ;gui.c: 1937: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
-"1937
-[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 701  ]
-[; ;gui.c: 1938: {
-"1938
+[; ;gui.c: 1969: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+"1969
+[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 705  ]
+[; ;gui.c: 1970: {
+"1970
 {
-[; ;gui.c: 1939: delay_nms(4);
-"1939
+[; ;gui.c: 1971: delay_nms(4);
+"1971
 [e ( _delay_nms (1 -> -> -> 4 `i `l `ul ]
-[; ;gui.c: 1940: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
-"1940
-[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 702  ]
-[; ;gui.c: 1941: {
-"1941
+[; ;gui.c: 1972: if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
+"1972
+[e $ ! && && && == -> . . _PORTBbits 0 4 `i -> 0 `i == -> . . _PORTDbits 0 6 `i -> 1 `i == -> . . _PORTDbits 0 7 `i -> 1 `i == -> . . _PORTBbits 0 3 `i -> 1 `i 706  ]
+[; ;gui.c: 1973: {
+"1973
 {
-[; ;gui.c: 1942: buzz();
-"1942
+[; ;gui.c: 1974: buzz();
+"1974
 [e ( _buzz ..  ]
-[; ;gui.c: 1943: test_mode =0;
-"1943
+[; ;gui.c: 1975: test_mode =0;
+"1975
 [e = _test_mode -> -> 0 `i `uc ]
-[; ;gui.c: 1945: if(hg_op.status_powerup == 0x00)
-"1945
-[e $ ! == -> . _hg_op 3 `i -> 0 `i 703  ]
-[; ;gui.c: 1946: {
-"1946
+[; ;gui.c: 1977: if(hg_op.status_powerup == 0x00)
+"1977
+[e $ ! == -> . _hg_op 3 `i -> 0 `i 707  ]
+[; ;gui.c: 1978: {
+"1978
 {
-[; ;gui.c: 1947: hg_op.status_powerup = 0x01;
-"1947
+[; ;gui.c: 1979: hg_op.status_powerup = 0x01;
+"1979
 [e = . _hg_op 3 -> -> 1 `i `uc ]
-[; ;gui.c: 1948: LCD_On();
-"1948
+[; ;gui.c: 1980: LCD_On();
+"1980
 [e ( _LCD_On ..  ]
-[; ;gui.c: 1949: do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
-"1949
-[e :U 706 ]
+[; ;gui.c: 1981: do{LATCbits.LC2 =1;LATDbits.LD0 =0;LATDbits.LD1 =0;}while(0);
+"1981
+[e :U 710 ]
 {
 [e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 }
-[e :U 705 ]
-[; ;gui.c: 1950: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
-"1950
 [e :U 709 ]
+[; ;gui.c: 1982: do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
+"1982
+[e :U 713 ]
 {
 [e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
 [e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 [e = . . _LATDbits 1 3 -> -> 0 `i `uc ]
 }
-[e :U 708 ]
-[; ;gui.c: 1951: LATCbits.LC2 =1;
-"1951
-[e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
-[; ;gui.c: 1952: LATDbits.LD4 =1;
-"1952
-[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
-[; ;gui.c: 1954: hg_op.status_hit_lp = 0;
-"1954
-[e = . _hg_op 6 -> -> 0 `i `uc ]
-[; ;gui.c: 1955: hg_op.need_reset =1;
-"1955
-[e = . _hg_op 5 -> -> 1 `i `uc ]
-[; ;gui.c: 1956: hg_op.in_reset =0;
-"1956
-[e = . _hg_op 14 -> -> 0 `i `uc ]
-[; ;gui.c: 1957: hg_op.needle_len = 4;
-"1957
-[e = . _hg_op 18 -> -> 4 `i `uc ]
-[; ;gui.c: 1958: hg_op.inject_len = 1;
-"1958
-[e = . _hg_op 19 -> -> 1 `i `ui ]
-[; ;gui.c: 1960: menu[0].parameter = 0;
-"1960
-[e = . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1961: menu[1].parameter = 0;
-"1961
-[e = . *U + &U _menu * -> -> -> 1 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1962: menu[2].parameter = 0;
-"1962
-[e = . *U + &U _menu * -> -> -> 2 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1963: menu[3].parameter = 0;
-"1963
-[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1964: menu[4].parameter = 0;
-"1964
-[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1965: menu[5].parameter = 0;
-"1965
-[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1966: menu[6].parameter = 0;
-"1966
-[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
-[; ;gui.c: 1967: focus =0;
-"1967
-[e = _focus -> -> 0 `i `uc ]
-[; ;gui.c: 1968: work_mode = 0x00;
-"1968
-[e = _work_mode -> -> 0 `i `c ]
-[; ;gui.c: 1973: config_LCD();
-"1973
-[e ( _config_LCD ..  ]
-[; ;gui.c: 1974: initial_ui_setting();
-"1974
-[e ( _initial_ui_setting ..  ]
-[; ;gui.c: 1975: do{ INTCON3bits.INT2E = 1;INTCON3bits.INT2IF =0;}while(0);
-"1975
 [e :U 712 ]
+[; ;gui.c: 1983: LATCbits.LC2 =1;
+"1983
+[e = . . _LATCbits 1 2 -> -> 1 `i `uc ]
+[; ;gui.c: 1984: LATDbits.LD4 =1;
+"1984
+[e = . . _LATDbits 1 4 -> -> 1 `i `uc ]
+[; ;gui.c: 1986: hg_op.status_hit_lp = 0;
+"1986
+[e = . _hg_op 6 -> -> 0 `i `uc ]
+[; ;gui.c: 1987: hg_op.need_reset =1;
+"1987
+[e = . _hg_op 5 -> -> 1 `i `uc ]
+[; ;gui.c: 1988: hg_op.in_reset =0;
+"1988
+[e = . _hg_op 14 -> -> 0 `i `uc ]
+[; ;gui.c: 1989: hg_op.needle_len = 4;
+"1989
+[e = . _hg_op 18 -> -> 4 `i `uc ]
+[; ;gui.c: 1990: hg_op.inject_len = 1;
+"1990
+[e = . _hg_op 19 -> -> 1 `i `ui ]
+[; ;gui.c: 1992: menu[0].parameter = 0;
+"1992
+[e = . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1993: menu[1].parameter = 0;
+"1993
+[e = . *U + &U _menu * -> -> -> 1 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1994: menu[2].parameter = 0;
+"1994
+[e = . *U + &U _menu * -> -> -> 2 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1995: menu[3].parameter = 0;
+"1995
+[e = . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1996: menu[4].parameter = 0;
+"1996
+[e = . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1997: menu[5].parameter = 0;
+"1997
+[e = . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1998: menu[6].parameter = 0;
+"1998
+[e = . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 -> -> 0 `i `c ]
+[; ;gui.c: 1999: focus =0;
+"1999
+[e = _focus -> -> 0 `i `uc ]
+[; ;gui.c: 2000: work_mode = 0x00;
+"2000
+[e = _work_mode -> -> 0 `i `c ]
+[; ;gui.c: 2005: config_LCD();
+"2005
+[e ( _config_LCD ..  ]
+[; ;gui.c: 2006: initial_ui_setting();
+"2006
+[e ( _initial_ui_setting ..  ]
+[; ;gui.c: 2007: do{ INTCON3bits.INT2E = 1;INTCON3bits.INT2IF =0;}while(0);
+"2007
+[e :U 716 ]
 {
 [e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
 [e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 711 ]
-"1977
+[e :U 715 ]
+"2009
 }
-[e :U 703 ]
-"2008
+[e :U 707 ]
+"2040
 }
-[e :U 702 ]
-"2010
+[e :U 706 ]
+"2042
 }
-[e :U 701 ]
-[; ;gui.c: 1977: }
-[; ;gui.c: 2008: }
-[; ;gui.c: 2010: }
-[; ;gui.c: 2013: hg_op.flag_wake_device = 0;
-"2013
+[e :U 705 ]
+[; ;gui.c: 2009: }
+[; ;gui.c: 2040: }
+[; ;gui.c: 2042: }
+[; ;gui.c: 2045: hg_op.flag_wake_device = 0;
+"2045
 [e = . _hg_op 15 -> -> 0 `i `uc ]
-"2015
+"2047
 }
-[e :U 700 ]
-[; ;gui.c: 2015: }
-[; ;gui.c: 2018: }
-"2018
-[e :UE 699 ]
+[e :U 704 ]
+[; ;gui.c: 2047: }
+[; ;gui.c: 2050: }
+"2050
+[e :UE 703 ]
 }
-"2027
+"2059
 [v _blink_mode `(v ~T0 @X0 1 ef ]
-"2028
+"2060
 {
-[; ;gui.c: 2027: void blink_mode(void)
-[; ;gui.c: 2028: {
+[; ;gui.c: 2059: void blink_mode(void)
+[; ;gui.c: 2060: {
 [e :U _blink_mode ]
 [f ]
-[; ;gui.c: 2043: if(menu[0].mode == 3)
-"2043
-[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 714  ]
-[; ;gui.c: 2044: {
-"2044
-{
-[; ;gui.c: 2045: if(flip == 1)
-"2045
-[e $ ! == -> _flip `i -> 1 `i 715  ]
-[; ;gui.c: 2046: {
-"2046
-{
-[; ;gui.c: 2047: display_blank_mode_pa(0,(71 + 2),0x80);
-"2047
-[e ( _display_blank_mode_pa (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
-[; ;gui.c: 2048: flip =0;
-"2048
-[e = _flip -> -> 0 `i `uc ]
-"2049
-}
-[; ;gui.c: 2049: }
-[e $U 716  ]
-"2050
-[e :U 715 ]
-[; ;gui.c: 2050: else if(flip == 0)
-[e $ ! == -> _flip `i -> 0 `i 717  ]
-[; ;gui.c: 2051: {
-"2051
-{
-[; ;gui.c: 2052: flip =1;
-"2052
-[e = _flip -> -> 1 `i `uc ]
-[; ;gui.c: 2053: if(work_mode == 0x00)
-"2053
-[e $ ! == -> _work_mode `i -> 0 `i 718  ]
-[; ;gui.c: 2054: {
-"2054
-{
-[; ;gui.c: 2055: display_cmode(0,(71 + 2), 0x80);
-"2055
-[e ( _display_cmode (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
-"2056
-}
-[; ;gui.c: 2056: }
-[e $U 719  ]
-"2057
-[e :U 718 ]
-[; ;gui.c: 2057: else if(work_mode == 0x01)
-[e $ ! == -> _work_mode `i -> 1 `i 720  ]
-[; ;gui.c: 2058: {
-"2058
-{
-[; ;gui.c: 2059: display_drops(0,(71 + 2), 0x80);
-"2059
-[e ( _display_drops (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
-"2060
-}
-[; ;gui.c: 2060: }
-[e $U 721  ]
-"2061
-[e :U 720 ]
-[; ;gui.c: 2061: else if(work_mode == 0x02)
-[e $ ! == -> _work_mode `i -> 2 `i 722  ]
-[; ;gui.c: 2062: {
-"2062
-{
-[; ;gui.c: 2063: display_drop(0,(71 + 2), 0x80);
-"2063
-[e ( _display_drop (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
-"2064
-}
-[e :U 722 ]
-"2065
-[e :U 721 ]
-[e :U 719 ]
-}
-[e :U 717 ]
-"2066
-[e :U 716 ]
-}
-[; ;gui.c: 2064: }
-[; ;gui.c: 2065: }
-[; ;gui.c: 2066: }
-[e $U 723  ]
-"2067
-[e :U 714 ]
-[; ;gui.c: 2067: else if(menu[3].mode == 3)
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 724  ]
-[; ;gui.c: 2068: {
-"2068
-{
-[; ;gui.c: 2070: if(flip == 1)
-"2070
-[e $ ! == -> _flip `i -> 1 `i 725  ]
-[; ;gui.c: 2071: {
-"2071
-{
-[; ;gui.c: 2072: display_n_blank(1,(49 + 14), 0x80);
-"2072
-[e ( _display_n_blank (3 , , -> -> 1 `i `uc -> + -> 49 `i -> 14 `i `uc -> -> 128 `i `uc ]
-[; ;gui.c: 2073: flip =0;
-"2073
-[e = _flip -> -> 0 `i `uc ]
-"2074
-}
-[; ;gui.c: 2074: }
-[e $U 726  ]
+[; ;gui.c: 2075: if(menu[0].mode == 3)
 "2075
-[e :U 725 ]
-[; ;gui.c: 2075: else if(flip == 0)
-[e $ ! == -> _flip `i -> 0 `i 727  ]
+[e $ ! == -> . *U + &U _menu * -> -> -> 0 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 718  ]
 [; ;gui.c: 2076: {
 "2076
 {
-[; ;gui.c: 2077: flip =1;
+[; ;gui.c: 2077: if(flip == 1)
 "2077
-[e = _flip -> -> 1 `i `uc ]
-[; ;gui.c: 2078: if(menu[3].parameter == 0)
+[e $ ! == -> _flip `i -> 1 `i 719  ]
+[; ;gui.c: 2078: {
 "2078
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 728  ]
-[; ;gui.c: 2079: {
-"2079
 {
-[; ;gui.c: 2080: display_num(0,(49 + 14), 0x80 | 4);
+[; ;gui.c: 2079: display_blank_mode_pa(0,(71 + 2),0x80);
+"2079
+[e ( _display_blank_mode_pa (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
+[; ;gui.c: 2080: flip =0;
 "2080
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 4 `i `uc ]
+[e = _flip -> -> 0 `i `uc ]
 "2081
 }
 [; ;gui.c: 2081: }
-[e $U 729  ]
+[e $U 720  ]
 "2082
-[e :U 728 ]
-[; ;gui.c: 2082: else if(menu[3].parameter == 1)
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 730  ]
+[e :U 719 ]
+[; ;gui.c: 2082: else if(flip == 0)
+[e $ ! == -> _flip `i -> 0 `i 721  ]
 [; ;gui.c: 2083: {
 "2083
 {
-[; ;gui.c: 2084: display_num(0,(49 + 14), 0x80 | 6);
+[; ;gui.c: 2084: flip =1;
 "2084
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 6 `i `uc ]
+[e = _flip -> -> 1 `i `uc ]
+[; ;gui.c: 2085: if(work_mode == 0x00)
 "2085
-}
-[; ;gui.c: 2085: }
-[e $U 731  ]
+[e $ ! == -> _work_mode `i -> 0 `i 722  ]
+[; ;gui.c: 2086: {
 "2086
-[e :U 730 ]
-[; ;gui.c: 2086: else if(menu[3].parameter == 2)
-[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 732  ]
-[; ;gui.c: 2087: {
-"2087
 {
-[; ;gui.c: 2088: display_num(0,(49 + 14), 0x80 | 13);
+[; ;gui.c: 2087: display_cmode(0,(71 + 2), 0x80);
+"2087
+[e ( _display_cmode (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
 "2088
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 13 `i `uc ]
+}
+[; ;gui.c: 2088: }
+[e $U 723  ]
 "2089
-}
-[e :U 732 ]
+[e :U 722 ]
+[; ;gui.c: 2089: else if(work_mode == 0x01)
+[e $ ! == -> _work_mode `i -> 1 `i 724  ]
+[; ;gui.c: 2090: {
+"2090
+{
+[; ;gui.c: 2091: display_drops(0,(71 + 2), 0x80);
 "2091
-[e :U 731 ]
-[e :U 729 ]
-}
-[e :U 727 ]
+[e ( _display_drops (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
 "2092
-[e :U 726 ]
 }
-[; ;gui.c: 2089: }
-[; ;gui.c: 2091: }
 [; ;gui.c: 2092: }
-[e $U 733  ]
+[e $U 725  ]
 "2093
 [e :U 724 ]
-[; ;gui.c: 2093: else if(menu[4].mode == 3)
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 734  ]
+[; ;gui.c: 2093: else if(work_mode == 0x02)
+[e $ ! == -> _work_mode `i -> 2 `i 726  ]
 [; ;gui.c: 2094: {
 "2094
 {
-[; ;gui.c: 2096: if(flip == 1)
+[; ;gui.c: 2095: display_drop(0,(71 + 2), 0x80);
+"2095
+[e ( _display_drop (3 , , -> -> 0 `i `uc -> + -> 71 `i -> 2 `i `uc -> -> 128 `i `uc ]
 "2096
-[e $ ! == -> _flip `i -> 1 `i 735  ]
-[; ;gui.c: 2097: {
+}
+[e :U 726 ]
 "2097
-{
-[; ;gui.c: 2098: display_n_blank(1,(0 + 14), 0x80);
+[e :U 725 ]
+[e :U 723 ]
+}
+[e :U 721 ]
 "2098
-[e ( _display_n_blank (3 , , -> -> 1 `i `uc -> + -> 0 `i -> 14 `i `uc -> -> 128 `i `uc ]
-[; ;gui.c: 2099: flip =0;
+[e :U 720 ]
+}
+[; ;gui.c: 2096: }
+[; ;gui.c: 2097: }
+[; ;gui.c: 2098: }
+[e $U 727  ]
 "2099
-[e = _flip -> -> 0 `i `uc ]
+[e :U 718 ]
+[; ;gui.c: 2099: else if(menu[3].mode == 3)
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 728  ]
+[; ;gui.c: 2100: {
 "2100
-}
-[; ;gui.c: 2100: }
-[e $U 736  ]
-"2101
-[e :U 735 ]
-[; ;gui.c: 2101: else if(flip == 0)
-[e $ ! == -> _flip `i -> 0 `i 737  ]
-[; ;gui.c: 2102: {
+{
+[; ;gui.c: 2102: if(flip == 1)
 "2102
-{
-[; ;gui.c: 2103: flip =1;
+[e $ ! == -> _flip `i -> 1 `i 729  ]
+[; ;gui.c: 2103: {
 "2103
-[e = _flip -> -> 1 `i `uc ]
-[; ;gui.c: 2104: if(menu[4].parameter == 0)
+{
+[; ;gui.c: 2104: display_n_blank(1,(49 + 14), 0x80);
 "2104
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 738  ]
-[; ;gui.c: 2105: {
+[e ( _display_n_blank (3 , , -> -> 1 `i `uc -> + -> 49 `i -> 14 `i `uc -> -> 128 `i `uc ]
+[; ;gui.c: 2105: flip =0;
 "2105
-{
-[; ;gui.c: 2106: display_num(0,(0 + 14), 0x80 | 1);
-"2106
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 1 `i `uc ]
-"2107
-}
-[; ;gui.c: 2107: }
-[e $U 739  ]
-"2108
-[e :U 738 ]
-[; ;gui.c: 2108: else if(menu[4].parameter == 1)
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 740  ]
-[; ;gui.c: 2109: {
-"2109
-{
-[; ;gui.c: 2110: display_num(0,(0 + 14), 0x80 | 2);
-"2110
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 2 `i `uc ]
-"2111
-}
-[; ;gui.c: 2111: }
-[e $U 741  ]
-"2112
-[e :U 740 ]
-[; ;gui.c: 2112: else if(menu[4].parameter == 2)
-[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 742  ]
-[; ;gui.c: 2113: {
-"2113
-{
-[; ;gui.c: 2114: display_num(0,(0 + 14), 0x80 | 0);
-"2114
-[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 0 `i `uc ]
-"2115
-}
-[e :U 742 ]
-"2117
-[e :U 741 ]
-[e :U 739 ]
-}
-[e :U 737 ]
-"2118
-[e :U 736 ]
-}
-[; ;gui.c: 2115: }
-[; ;gui.c: 2117: }
-[; ;gui.c: 2118: }
-[e $U 743  ]
-"2119
-[e :U 734 ]
-[; ;gui.c: 2119: else if(menu[5].mode == 3)
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 744  ]
-[; ;gui.c: 2120: {
-"2120
-{
-[; ;gui.c: 2122: if(flip == 1)
-"2122
-[e $ ! == -> _flip `i -> 1 `i 745  ]
-[; ;gui.c: 2123: {
-"2123
-{
-[; ;gui.c: 2124: display_n_blank(2,(49 + 14), 0x80);
-"2124
-[e ( _display_n_blank (3 , , -> -> 2 `i `uc -> + -> 49 `i -> 14 `i `uc -> -> 128 `i `uc ]
-[; ;gui.c: 2125: flip =0;
-"2125
 [e = _flip -> -> 0 `i `uc ]
-"2126
+"2106
 }
-[; ;gui.c: 2126: }
-[e $U 746  ]
-"2127
-[e :U 745 ]
-[; ;gui.c: 2127: else if(flip == 0)
-[e $ ! == -> _flip `i -> 0 `i 747  ]
-[; ;gui.c: 2128: {
-"2128
+[; ;gui.c: 2106: }
+[e $U 730  ]
+"2107
+[e :U 729 ]
+[; ;gui.c: 2107: else if(flip == 0)
+[e $ ! == -> _flip `i -> 0 `i 731  ]
+[; ;gui.c: 2108: {
+"2108
 {
-[; ;gui.c: 2129: flip =1;
-"2129
+[; ;gui.c: 2109: flip =1;
+"2109
 [e = _flip -> -> 1 `i `uc ]
-[; ;gui.c: 2130: if(menu[5].parameter == 0)
-"2130
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 748  ]
-[; ;gui.c: 2131: {
-"2131
+[; ;gui.c: 2110: if(menu[3].parameter == 0)
+"2110
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 732  ]
+[; ;gui.c: 2111: {
+"2111
 {
-[; ;gui.c: 2133: display_num(3,(49 + 14), 0x80 | 1);
-"2133
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 1 `i `uc ]
-"2134
+[; ;gui.c: 2112: display_num(0,(49 + 14), 0x80 | 4);
+"2112
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 4 `i `uc ]
+"2113
 }
-[; ;gui.c: 2134: }
-[e $U 749  ]
-"2135
-[e :U 748 ]
-[; ;gui.c: 2135: else if(menu[5].parameter == 1)
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 750  ]
-[; ;gui.c: 2136: {
-"2136
+[; ;gui.c: 2113: }
+[e $U 733  ]
+"2114
+[e :U 732 ]
+[; ;gui.c: 2114: else if(menu[3].parameter == 1)
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 734  ]
+[; ;gui.c: 2115: {
+"2115
 {
-[; ;gui.c: 2138: display_num(3,(49 + 14), 0x80 | 106);
+[; ;gui.c: 2116: display_num(0,(49 + 14), 0x80 | 6);
+"2116
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 6 `i `uc ]
+"2117
+}
+[; ;gui.c: 2117: }
+[e $U 735  ]
+"2118
+[e :U 734 ]
+[; ;gui.c: 2118: else if(menu[3].parameter == 2)
+[e $ ! == -> . *U + &U _menu * -> -> -> 3 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 736  ]
+[; ;gui.c: 2119: {
+"2119
+{
+[; ;gui.c: 2120: display_num(0,(49 + 14), 0x80 | 13);
+"2120
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 13 `i `uc ]
+"2121
+}
+[e :U 736 ]
+"2123
+[e :U 735 ]
+[e :U 733 ]
+}
+[e :U 731 ]
+"2124
+[e :U 730 ]
+}
+[; ;gui.c: 2121: }
+[; ;gui.c: 2123: }
+[; ;gui.c: 2124: }
+[e $U 737  ]
+"2125
+[e :U 728 ]
+[; ;gui.c: 2125: else if(menu[4].mode == 3)
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 738  ]
+[; ;gui.c: 2126: {
+"2126
+{
+[; ;gui.c: 2128: if(flip == 1)
+"2128
+[e $ ! == -> _flip `i -> 1 `i 739  ]
+[; ;gui.c: 2129: {
+"2129
+{
+[; ;gui.c: 2130: display_n_blank(1,(0 + 14), 0x80);
+"2130
+[e ( _display_n_blank (3 , , -> -> 1 `i `uc -> + -> 0 `i -> 14 `i `uc -> -> 128 `i `uc ]
+[; ;gui.c: 2131: flip =0;
+"2131
+[e = _flip -> -> 0 `i `uc ]
+"2132
+}
+[; ;gui.c: 2132: }
+[e $U 740  ]
+"2133
+[e :U 739 ]
+[; ;gui.c: 2133: else if(flip == 0)
+[e $ ! == -> _flip `i -> 0 `i 741  ]
+[; ;gui.c: 2134: {
+"2134
+{
+[; ;gui.c: 2135: flip =1;
+"2135
+[e = _flip -> -> 1 `i `uc ]
+[; ;gui.c: 2136: if(menu[4].parameter == 0)
+"2136
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 742  ]
+[; ;gui.c: 2137: {
+"2137
+{
+[; ;gui.c: 2138: display_num(0,(0 + 14), 0x80 | 1);
 "2138
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 106 `i `uc ]
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 1 `i `uc ]
 "2139
 }
 [; ;gui.c: 2139: }
-[e $U 751  ]
+[e $U 743  ]
 "2140
-[e :U 750 ]
-[; ;gui.c: 2140: else if(menu[5].parameter == 2)
-[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 752  ]
+[e :U 742 ]
+[; ;gui.c: 2140: else if(menu[4].parameter == 1)
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 744  ]
 [; ;gui.c: 2141: {
 "2141
 {
-[; ;gui.c: 2142: display_num(3,(49 + 14), 0x80 | 5);
+[; ;gui.c: 2142: display_num(0,(0 + 14), 0x80 | 2);
 "2142
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 5 `i `uc ]
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 2 `i `uc ]
 "2143
 }
-[e :U 752 ]
-"2144
-[e :U 751 ]
-[e :U 749 ]
-}
-[e :U 747 ]
-"2145
-[e :U 746 ]
-}
 [; ;gui.c: 2143: }
-[; ;gui.c: 2144: }
-[; ;gui.c: 2145: }
-[e $U 753  ]
-"2146
+[e $U 745  ]
+"2144
 [e :U 744 ]
-[; ;gui.c: 2146: else if(menu[6].mode == 3)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 754  ]
-[; ;gui.c: 2147: {
+[; ;gui.c: 2144: else if(menu[4].parameter == 2)
+[e $ ! == -> . *U + &U _menu * -> -> -> 4 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 746  ]
+[; ;gui.c: 2145: {
+"2145
+{
+[; ;gui.c: 2146: display_num(0,(0 + 14), 0x80 | 0);
+"2146
+[e ( _display_num (3 , , -> -> 0 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 0 `i `uc ]
 "2147
-{
-[; ;gui.c: 2149: if(flip == 1)
+}
+[e :U 746 ]
 "2149
-[e $ ! == -> _flip `i -> 1 `i 755  ]
-[; ;gui.c: 2150: {
+[e :U 745 ]
+[e :U 743 ]
+}
+[e :U 741 ]
 "2150
+[e :U 740 ]
+}
+[; ;gui.c: 2147: }
+[; ;gui.c: 2149: }
+[; ;gui.c: 2150: }
+[e $U 747  ]
+"2151
+[e :U 738 ]
+[; ;gui.c: 2151: else if(menu[5].mode == 3)
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 748  ]
+[; ;gui.c: 2152: {
+"2152
 {
-[; ;gui.c: 2153: if(work_mode == 0x00 || work_mode == 0x02)
-"2153
-[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 756  ]
-[; ;gui.c: 2154: {
+[; ;gui.c: 2154: if(flip == 1)
 "2154
-{
-[; ;gui.c: 2155: display_n_blank(2,(0 + 14), 0x80);
+[e $ ! == -> _flip `i -> 1 `i 749  ]
+[; ;gui.c: 2155: {
 "2155
-[e ( _display_n_blank (3 , , -> -> 2 `i `uc -> + -> 0 `i -> 14 `i `uc -> -> 128 `i `uc ]
+{
+[; ;gui.c: 2156: display_n_blank(2,(49 + 14), 0x80);
 "2156
-}
-[; ;gui.c: 2156: }
-[e $U 757  ]
+[e ( _display_n_blank (3 , , -> -> 2 `i `uc -> + -> 49 `i -> 14 `i `uc -> -> 128 `i `uc ]
+[; ;gui.c: 2157: flip =0;
 "2157
-[e :U 756 ]
-[; ;gui.c: 2157: else if(work_mode == 0x01)
-[e $ ! == -> _work_mode `i -> 1 `i 758  ]
-[; ;gui.c: 2158: {
-"2158
-{
-[; ;gui.c: 2159: display_n_blank(2,(0 + 17), 0x80);
-"2159
-[e ( _display_n_blank (3 , , -> -> 2 `i `uc -> + -> 0 `i -> 17 `i `uc -> -> 128 `i `uc ]
-"2160
-}
-[e :U 758 ]
-"2161
-[e :U 757 ]
-[; ;gui.c: 2160: }
-[; ;gui.c: 2161: flip =0;
 [e = _flip -> -> 0 `i `uc ]
-"2162
+"2158
 }
-[; ;gui.c: 2162: }
-[e $U 759  ]
-"2163
-[e :U 755 ]
-[; ;gui.c: 2163: else if(flip == 0)
-[e $ ! == -> _flip `i -> 0 `i 760  ]
-[; ;gui.c: 2164: {
-"2164
+[; ;gui.c: 2158: }
+[e $U 750  ]
+"2159
+[e :U 749 ]
+[; ;gui.c: 2159: else if(flip == 0)
+[e $ ! == -> _flip `i -> 0 `i 751  ]
+[; ;gui.c: 2160: {
+"2160
 {
-[; ;gui.c: 2165: flip =1;
-"2165
+[; ;gui.c: 2161: flip =1;
+"2161
 [e = _flip -> -> 1 `i `uc ]
-[; ;gui.c: 2166: if(menu[6].parameter == 0)
+[; ;gui.c: 2162: if(menu[5].parameter == 0)
+"2162
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 752  ]
+[; ;gui.c: 2163: {
+"2163
+{
+[; ;gui.c: 2165: display_num(3,(49 + 14), 0x80 | 1);
+"2165
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 1 `i `uc ]
 "2166
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 761  ]
-[; ;gui.c: 2167: {
+}
+[; ;gui.c: 2166: }
+[e $U 753  ]
 "2167
-{
-[; ;gui.c: 2168: if(work_mode == 0x00 || work_mode == 0x02)
+[e :U 752 ]
+[; ;gui.c: 2167: else if(menu[5].parameter == 1)
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 754  ]
+[; ;gui.c: 2168: {
 "2168
-[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 762  ]
-[; ;gui.c: 2169: {
-"2169
 {
-[; ;gui.c: 2170: display_num(3,(0 + 14), 0x80 | 3);
+[; ;gui.c: 2170: display_num(3,(49 + 14), 0x80 | 106);
 "2170
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 3 `i `uc ]
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 106 `i `uc ]
 "2171
 }
 [; ;gui.c: 2171: }
-[e $U 763  ]
+[e $U 755  ]
 "2172
-[e :U 762 ]
-[; ;gui.c: 2172: else if(work_mode == 0x01)
-[e $ ! == -> _work_mode `i -> 1 `i 764  ]
+[e :U 754 ]
+[; ;gui.c: 2172: else if(menu[5].parameter == 2)
+[e $ ! == -> . *U + &U _menu * -> -> -> 5 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 756  ]
 [; ;gui.c: 2173: {
 "2173
 {
-[; ;gui.c: 2174: display_num(3,(0 + 17), 0x80 | 103);
+[; ;gui.c: 2174: display_num(3,(49 + 14), 0x80 | 5);
 "2174
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 128 `i -> 103 `i `uc ]
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 49 `i -> 14 `i `uc -> | -> 128 `i -> 5 `i `uc ]
 "2175
 }
-[e :U 764 ]
+[e :U 756 ]
 "2176
-[e :U 763 ]
+[e :U 755 ]
+[e :U 753 ]
+}
+[e :U 751 ]
+"2177
+[e :U 750 ]
 }
 [; ;gui.c: 2175: }
 [; ;gui.c: 2176: }
-[e $U 765  ]
-"2177
-[e :U 761 ]
-[; ;gui.c: 2177: else if(menu[6].parameter == 1)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 766  ]
-[; ;gui.c: 2178: {
+[; ;gui.c: 2177: }
+[e $U 757  ]
 "2178
-{
-[; ;gui.c: 2179: if(work_mode == 0x00 || work_mode == 0x02)
+[e :U 748 ]
+[; ;gui.c: 2178: else if(menu[6].mode == 3)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 1 `i -> 3 `i 758  ]
+[; ;gui.c: 2179: {
 "2179
-[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 767  ]
-[; ;gui.c: 2180: {
-"2180
 {
-[; ;gui.c: 2181: display_num(3,(0 + 14), 0x80 | 3);
+[; ;gui.c: 2181: if(flip == 1)
 "2181
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 3 `i `uc ]
+[e $ ! == -> _flip `i -> 1 `i 759  ]
+[; ;gui.c: 2182: {
 "2182
-}
-[; ;gui.c: 2182: }
-[e $U 768  ]
-"2183
-[e :U 767 ]
-[; ;gui.c: 2183: else if(work_mode == 0x01)
-[e $ ! == -> _work_mode `i -> 1 `i 769  ]
-[; ;gui.c: 2184: {
-"2184
 {
-[; ;gui.c: 2185: display_num(3,(0 + 17), 0x80 | 102);
+[; ;gui.c: 2185: if(work_mode == 0x00 || work_mode == 0x02)
 "2185
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 128 `i -> 102 `i `uc ]
+[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 760  ]
+[; ;gui.c: 2186: {
 "2186
-}
-[e :U 769 ]
+{
+[; ;gui.c: 2187: display_n_blank(2,(0 + 14), 0x80);
 "2187
-[e :U 768 ]
-}
-[; ;gui.c: 2186: }
-[; ;gui.c: 2187: }
-[e $U 770  ]
+[e ( _display_n_blank (3 , , -> -> 2 `i `uc -> + -> 0 `i -> 14 `i `uc -> -> 128 `i `uc ]
 "2188
-[e :U 766 ]
-[; ;gui.c: 2188: else if(menu[6].parameter == 2)
-[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 771  ]
-[; ;gui.c: 2189: {
+}
+[; ;gui.c: 2188: }
+[e $U 761  ]
 "2189
-{
-[; ;gui.c: 2190: if(work_mode == 0x00 || work_mode == 0x02)
-"2190
-[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 772  ]
-[; ;gui.c: 2191: {
-"2191
-{
-[; ;gui.c: 2192: display_num(3,(0 + 14), 0x80 | 3);
-"2192
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 3 `i `uc ]
-"2193
-}
-[; ;gui.c: 2193: }
-[e $U 773  ]
-"2194
-[e :U 772 ]
-[; ;gui.c: 2194: else if(work_mode == 0x01)
-[e $ ! == -> _work_mode `i -> 1 `i 774  ]
-[; ;gui.c: 2195: {
-"2195
-{
-[; ;gui.c: 2196: display_num(3,(0 + 17), 0x80 | 101);
-"2196
-[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 128 `i -> 101 `i `uc ]
-"2197
-}
-[e :U 774 ]
-"2198
-[e :U 773 ]
-}
-[e :U 771 ]
-"2200
-[e :U 770 ]
-[e :U 765 ]
-}
 [e :U 760 ]
-"2201
-[e :U 759 ]
-}
-[e :U 754 ]
-"2232
-[e :U 753 ]
-[e :U 743 ]
-[e :U 733 ]
-[e :U 723 ]
-[; ;gui.c: 2197: }
-[; ;gui.c: 2198: }
-[; ;gui.c: 2200: }
-[; ;gui.c: 2201: }
-[; ;gui.c: 2232: }
-[e :UE 713 ]
-}
-"2238
-[v _check_ui_blink `(v ~T0 @X0 1 ef ]
-"2239
+[; ;gui.c: 2189: else if(work_mode == 0x01)
+[e $ ! == -> _work_mode `i -> 1 `i 762  ]
+[; ;gui.c: 2190: {
+"2190
 {
-[; ;gui.c: 2238: void check_ui_blink(void)
-[; ;gui.c: 2239: {
+[; ;gui.c: 2191: display_n_blank(2,(0 + 17), 0x80);
+"2191
+[e ( _display_n_blank (3 , , -> -> 2 `i `uc -> + -> 0 `i -> 17 `i `uc -> -> 128 `i `uc ]
+"2192
+}
+[e :U 762 ]
+"2193
+[e :U 761 ]
+[; ;gui.c: 2192: }
+[; ;gui.c: 2193: flip =0;
+[e = _flip -> -> 0 `i `uc ]
+"2194
+}
+[; ;gui.c: 2194: }
+[e $U 763  ]
+"2195
+[e :U 759 ]
+[; ;gui.c: 2195: else if(flip == 0)
+[e $ ! == -> _flip `i -> 0 `i 764  ]
+[; ;gui.c: 2196: {
+"2196
+{
+[; ;gui.c: 2197: flip =1;
+"2197
+[e = _flip -> -> 1 `i `uc ]
+[; ;gui.c: 2198: if(menu[6].parameter == 0)
+"2198
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 0 `i 765  ]
+[; ;gui.c: 2199: {
+"2199
+{
+[; ;gui.c: 2200: if(work_mode == 0x00 || work_mode == 0x02)
+"2200
+[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 766  ]
+[; ;gui.c: 2201: {
+"2201
+{
+[; ;gui.c: 2202: display_num(3,(0 + 14), 0x80 | 3);
+"2202
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 3 `i `uc ]
+"2203
+}
+[; ;gui.c: 2203: }
+[e $U 767  ]
+"2204
+[e :U 766 ]
+[; ;gui.c: 2204: else if(work_mode == 0x01)
+[e $ ! == -> _work_mode `i -> 1 `i 768  ]
+[; ;gui.c: 2205: {
+"2205
+{
+[; ;gui.c: 2206: display_num(3,(0 + 17), 0x80 | 103);
+"2206
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 128 `i -> 103 `i `uc ]
+"2207
+}
+[e :U 768 ]
+"2208
+[e :U 767 ]
+}
+[; ;gui.c: 2207: }
+[; ;gui.c: 2208: }
+[e $U 769  ]
+"2209
+[e :U 765 ]
+[; ;gui.c: 2209: else if(menu[6].parameter == 1)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 1 `i 770  ]
+[; ;gui.c: 2210: {
+"2210
+{
+[; ;gui.c: 2211: if(work_mode == 0x00 || work_mode == 0x02)
+"2211
+[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 771  ]
+[; ;gui.c: 2212: {
+"2212
+{
+[; ;gui.c: 2213: display_num(3,(0 + 14), 0x80 | 3);
+"2213
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 3 `i `uc ]
+"2214
+}
+[; ;gui.c: 2214: }
+[e $U 772  ]
+"2215
+[e :U 771 ]
+[; ;gui.c: 2215: else if(work_mode == 0x01)
+[e $ ! == -> _work_mode `i -> 1 `i 773  ]
+[; ;gui.c: 2216: {
+"2216
+{
+[; ;gui.c: 2217: display_num(3,(0 + 17), 0x80 | 102);
+"2217
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 128 `i -> 102 `i `uc ]
+"2218
+}
+[e :U 773 ]
+"2219
+[e :U 772 ]
+}
+[; ;gui.c: 2218: }
+[; ;gui.c: 2219: }
+[e $U 774  ]
+"2220
+[e :U 770 ]
+[; ;gui.c: 2220: else if(menu[6].parameter == 2)
+[e $ ! == -> . *U + &U _menu * -> -> -> 6 `i `ui `ux -> -> # *U &U _menu `ui `ux 5 `i -> 2 `i 775  ]
+[; ;gui.c: 2221: {
+"2221
+{
+[; ;gui.c: 2222: if(work_mode == 0x00 || work_mode == 0x02)
+"2222
+[e $ ! || == -> _work_mode `i -> 0 `i == -> _work_mode `i -> 2 `i 776  ]
+[; ;gui.c: 2223: {
+"2223
+{
+[; ;gui.c: 2224: display_num(3,(0 + 14), 0x80 | 3);
+"2224
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 14 `i `uc -> | -> 128 `i -> 3 `i `uc ]
+"2225
+}
+[; ;gui.c: 2225: }
+[e $U 777  ]
+"2226
+[e :U 776 ]
+[; ;gui.c: 2226: else if(work_mode == 0x01)
+[e $ ! == -> _work_mode `i -> 1 `i 778  ]
+[; ;gui.c: 2227: {
+"2227
+{
+[; ;gui.c: 2228: display_num(3,(0 + 17), 0x80 | 101);
+"2228
+[e ( _display_num (3 , , -> -> 3 `i `uc -> + -> 0 `i -> 17 `i `uc -> | -> 128 `i -> 101 `i `uc ]
+"2229
+}
+[e :U 778 ]
+"2230
+[e :U 777 ]
+}
+[e :U 775 ]
+"2232
+[e :U 774 ]
+[e :U 769 ]
+}
+[e :U 764 ]
+"2233
+[e :U 763 ]
+}
+[e :U 758 ]
+"2264
+[e :U 757 ]
+[e :U 747 ]
+[e :U 737 ]
+[e :U 727 ]
+[; ;gui.c: 2229: }
+[; ;gui.c: 2230: }
+[; ;gui.c: 2232: }
+[; ;gui.c: 2233: }
+[; ;gui.c: 2264: }
+[e :UE 717 ]
+}
+"2270
+[v _check_ui_blink `(v ~T0 @X0 1 ef ]
+"2271
+{
+[; ;gui.c: 2270: void check_ui_blink(void)
+[; ;gui.c: 2271: {
 [e :U _check_ui_blink ]
 [f ]
-[; ;gui.c: 2242: if(flag_blink)
-"2242
-[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 776  ]
-[; ;gui.c: 2243: {
-"2243
+[; ;gui.c: 2274: if(flag_blink)
+"2274
+[e $ ! != -> _flag_blink `i -> -> -> 0 `i `uc `i 780  ]
+[; ;gui.c: 2275: {
+"2275
 {
-[; ;gui.c: 2244: blink_mode();
-"2244
+[; ;gui.c: 2276: blink_mode();
+"2276
 [e ( _blink_mode ..  ]
-[; ;gui.c: 2245: flag_blink =0;
-"2245
+[; ;gui.c: 2277: flag_blink =0;
+"2277
 [e = _flag_blink -> -> 0 `i `uc ]
-"2246
+"2278
 }
-[e :U 776 ]
-[; ;gui.c: 2246: }
-[; ;gui.c: 2250: }
-"2250
-[e :UE 775 ]
+[e :U 780 ]
+[; ;gui.c: 2278: }
+[; ;gui.c: 2282: }
+"2282
+[e :UE 779 ]
 }

@@ -3913,15 +3913,11 @@ typedef uint16_t uintptr_t;
 # 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
-
-
-
+# 31
 void BeepInit(void);
-void BeepOn(void);
-void BeepOff(void);
 void buzz(void);
 
-# 40
+# 38
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4027,7 +4023,7 @@ void delay_ms(unsigned int ms);
 void delay_pwm(uint32_t n);
 void delay_f(uint32_t n);
 
-# 9 "../Beep.c"
+# 6 "../Beep.c"
 void uart_init(void)
 {
 
@@ -4061,14 +4057,11 @@ PIR1bits.TXIF =0;
 
 void put_bytes_uart(uint8_t *arr,uint8_t n)
 {
-
 uint8_t i=0;
 for(i=0;i<n;i++)
 {
 put_byte_uart(arr[i]);
 }
-
-
 
 }
 
@@ -4078,18 +4071,14 @@ put_byte_uart(arr[i]);
 void putch(uint8_t c)
 {
 TXREG = c;
-
 while( TXSTAbits.TRMT ==0);
-
-
-
 }
 
-# 78
+
 void BeepInit(void)
 {
 
-# 87
+# 66
 TRISEbits.RE2 =0;
 LATEbits.LE2 =0;
 
@@ -4098,23 +4087,7 @@ TRISDbits.RD5 =0;
 LATDbits.LD5 =1;
 
 }
-void BeepOn(void)
-{
 
-
-
-
-LATEbits.LE2 =1;
-
-
-}
-void BeepOff(void)
-{
-
-
-
-LATEbits.LE2 =0;
-}
 
 
 void buzz(void)
@@ -4125,7 +4098,7 @@ void buzz(void)
 
 LATEbits.LE2 =1;
 
-# 126
+# 89
 delay_nms(1);
 
 

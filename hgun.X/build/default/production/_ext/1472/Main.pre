@@ -4026,7 +4026,7 @@ void c_routine(void);
 void test_routine(void);
 
 
-void check_acting(void);
+int8_t check_acting(void);
 
 # 62 "../Timer.h"
 extern uint16_t action_btn_cnt;
@@ -4049,15 +4049,11 @@ extern uint16_t tv_s[10];
 # 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
-
-
-
+# 31
 void BeepInit(void);
-void BeepOn(void);
-void BeepOff(void);
 void buzz(void);
 
-# 40
+# 38
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4428,7 +4424,6 @@ do{T0IE=1;T0CONbits.TMR0ON =1;}while(0);
 HG_interface();
 check_bat();
 check_ui_status();
-
 check_shut_device();
 
 }
@@ -4451,7 +4446,7 @@ check_ui_blink();
 
 check_device_idle();
 
-# 191
+# 190
 }
 }
 

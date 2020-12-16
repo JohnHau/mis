@@ -1468,25 +1468,51 @@ for(i=0;i<8;i++)
     switch(key)
        {
            case KEY_UP_PRESSED:
-               
+#if 0    
                if(focus == 7)
+               {
                    focus =1;
+               }
                else
-                   focus++;
-               
+#endif
+               {
+                    if(focus == 1)
+                    {
+                       focus += 3;//skip 2 options
+                    }
+                    else
+                    {
+                        focus ++;
+                         if(focus == 8)focus =1;
+                    }
+               }
                break;
 
            case KEY_DOWN_PRESSED:
+           
+#if 0
                if(focus==0)
+               {
                    focus =7;
+               }
                else
-                   focus --;
-               
-               
+#endif
+               {
+                   if(focus == 4)
+                   {
+                     focus -= 3;//skip 2 options
+                   }
+                   else
+                   {
+                       focus --;
+                       if(focus==0) focus =7;
+                   }
+                }
                break;
-
+#if 0
            case KEY_V_PRESSED:
                break;   
+#endif
        }
 
 }
@@ -1879,7 +1905,7 @@ void check_shut_device(void)
             delay_nms(4);
             if(KEY_WAKE  == 0  && KEY_UP == 1 && KEY_DOWN ==1 && KEY_V ==1)
             {
-                buzz();
+                //buzz();
                 test_mode =0;
 
                 if(hg_op.status_powerup == STATUS_WAKE)
@@ -1890,6 +1916,12 @@ void check_shut_device(void)
                      {
                            
                         shut_device();
+                        
+                        while(KEY_WAKE  == 0);
+                        
+                        
+                        
+                        
                          
 #if 0 
                         hg_op.status_powerup = STATUS_SLEEP;

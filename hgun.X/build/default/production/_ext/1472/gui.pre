@@ -3913,15 +3913,11 @@ typedef uint16_t uintptr_t;
 # 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
-
-
-
+# 31
 void BeepInit(void);
-void BeepOn(void);
-void BeepOff(void);
 void buzz(void);
 
-# 40
+# 38
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4217,7 +4213,7 @@ void c_routine(void);
 void test_routine(void);
 
 
-void check_acting(void);
+int8_t check_acting(void);
 
 # 62 "../Timer.h"
 extern uint16_t action_btn_cnt;
@@ -5615,24 +5611,37 @@ switch(key)
 {
 case 0xf1:
 
-if(focus == 7)
-focus =1;
+# 1478
+{
+if(focus == 1)
+{
+focus += 3;
+}
 else
-focus++;
-
+{
+focus ++;
+if(focus == 8)focus =1;
+}
+}
 break;
 
 case 0xf2:
-if(focus==0)
-focus =7;
+
+# 1500
+{
+if(focus == 4)
+{
+focus -= 3;
+}
 else
+{
 focus --;
-
-
+if(focus==0) focus =7;
+}
+}
 break;
 
-case 0xf3:
-break;
+# 1516
 }
 
 }
@@ -5729,10 +5738,10 @@ check_wake_button();
 
 }
 
-# 1593
+# 1619
 }
 
-# 1603
+# 1629
 }
 
 
@@ -6012,7 +6021,7 @@ if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB
 delay_nms(4);
 if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB3 ==1)
 {
-buzz();
+
 test_mode =0;
 
 if(hg_op.status_powerup == 0x01)
@@ -6024,7 +6033,9 @@ if(PORTBbits.RB4 == 0 && PORTDbits.RD6 == 1 && PORTDbits.RD7 ==1 && PORTBbits.RB
 
 shut_device();
 
-# 1913
+while(PORTBbits.RB4 == 0);
+
+# 1945
 }
 }
 }
@@ -6039,7 +6050,7 @@ hg_op.flag_shut_device = 0;
 
 }
 
-# 1931
+# 1963
 void check_wake_button(void)
 {
 if(hg_op.flag_wake_device == 1)
@@ -6088,7 +6099,7 @@ do{ INTCON3bits.INT2E = 1;INTCON3bits.INT2IF =0;}while(0);
 
 }
 
-# 2008
+# 2040
 }
 
 }
@@ -6101,11 +6112,11 @@ hg_op.flag_wake_device = 0;
 
 }
 
-# 2027
+# 2059
 void blink_mode(void)
 {
 
-# 2043
+# 2075
 if(menu[0].mode == 3)
 {
 if(flip == 1)
@@ -6266,10 +6277,10 @@ display_num(3,(0 + 17), 0x80 | 101);
 }
 }
 
-# 2232
+# 2264
 }
 
-# 2238
+# 2270
 void check_ui_blink(void)
 {
 

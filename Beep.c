@@ -3,9 +3,6 @@
 #include "Beep.h"
 #include "Oled.h"
 
-
-
-
 void uart_init(void)
 {
 
@@ -38,16 +35,13 @@ void put_byte_uart(uint8_t n)
 }
 
 void put_bytes_uart(uint8_t *arr,uint8_t n)
-{
-    
+{   
     uint8_t i=0;
     for(i=0;i<n;i++)
     {
         put_byte_uart(arr[i]);
     }
-    
-    
-    
+
 }
 
 
@@ -55,24 +49,9 @@ void put_bytes_uart(uint8_t *arr,uint8_t n)
 
 void putch(uint8_t c)
 {
-     TXREG = c;
-    
+    TXREG = c;  
     while( TXSTAbits.TRMT ==0);
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 void BeepInit(void)
@@ -92,23 +71,7 @@ void BeepInit(void)
     LATDbits.LD5 =1;//test led off
     
 }
-void BeepOn(void)
-{
-	//PORTBbits.RB1 =1;	//colse	
-    
-    // PORTEbits.RE2 =1;
-     
-     LATEbits.LE2 =1;
-     
-     
-}
-void BeepOff(void)
-{
-	//PORTBbits.RB1 =0;	//colse	
-   // PORTEbits.RE2 =0;
-    
-    LATEbits.LE2 =0;
-}
+
 
 
 void buzz(void)

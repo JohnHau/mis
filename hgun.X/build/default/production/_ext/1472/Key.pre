@@ -3913,15 +3913,11 @@ typedef uint16_t uintptr_t;
 # 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
-
-
-
+# 31
 void BeepInit(void);
-void BeepOn(void);
-void BeepOff(void);
 void buzz(void);
 
-# 40
+# 38
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);

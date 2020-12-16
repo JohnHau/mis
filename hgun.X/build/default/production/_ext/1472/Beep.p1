@@ -2948,13 +2948,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Beep.h: 25: extern uint8_t flag_power_up;
-[; ;Beep.h: 30: void BeepInit(void);
-[; ;Beep.h: 31: void BeepOn(void);
-[; ;Beep.h: 32: void BeepOff(void);
-[; ;Beep.h: 33: void buzz(void);
-[; ;Beep.h: 40: void uart_init(void);
-[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void BeepInit(void);
+[; ;Beep.h: 32: void buzz(void);
+[; ;Beep.h: 38: void uart_init(void);
+[; ;Beep.h: 39: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 40: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Oled.h: 87: typedef struct action_profile
 [; ;Oled.h: 88: {
 [; ;Oled.h: 90: uint8_t inject_mode;
@@ -3019,210 +3017,180 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Oled.h: 349: void delay_ms(unsigned int ms);
 [; ;Oled.h: 350: void delay_pwm(uint32_t n);
 [; ;Oled.h: 351: void delay_f(uint32_t n);
-"9 ../Beep.c
+"6 ../Beep.c
 [v _uart_init `(v ~T0 @X0 1 ef ]
-"10
+"7
 {
-[; ;Beep.c: 9: void uart_init(void)
-[; ;Beep.c: 10: {
+[; ;Beep.c: 6: void uart_init(void)
+[; ;Beep.c: 7: {
 [e :U _uart_init ]
 [f ]
-[; ;Beep.c: 12: TRISCbits.RC7 =1;
-"12
+[; ;Beep.c: 9: TRISCbits.RC7 =1;
+"9
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-[; ;Beep.c: 13: TRISCbits.RC6 =0;
-"13
+[; ;Beep.c: 10: TRISCbits.RC6 =0;
+"10
 [e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
-[; ;Beep.c: 16: SPBRG = 12;
-"16
+[; ;Beep.c: 13: SPBRG = 12;
+"13
 [e = _SPBRG -> -> 12 `i `uc ]
-[; ;Beep.c: 17: RCSTAbits.SPEN =1;
-"17
+[; ;Beep.c: 14: RCSTAbits.SPEN =1;
+"14
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;Beep.c: 22: TXSTAbits.TXEN =1;
-"22
+[; ;Beep.c: 19: TXSTAbits.TXEN =1;
+"19
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;Beep.c: 26: }
-"26
+[; ;Beep.c: 23: }
+"23
 [e :UE 279 ]
 }
-"28
+"25
 [v _put_byte_uart `(v ~T0 @X0 1 ef1`uc ]
-"29
+"26
 {
-[; ;Beep.c: 28: void put_byte_uart(uint8_t n)
-[; ;Beep.c: 29: {
+[; ;Beep.c: 25: void put_byte_uart(uint8_t n)
+[; ;Beep.c: 26: {
 [e :U _put_byte_uart ]
-"28
+"25
 [v _n `uc ~T0 @X0 1 r1 ]
-"29
+"26
 [f ]
-[; ;Beep.c: 31: PIR1bits.TXIF =0;
-"31
+[; ;Beep.c: 28: PIR1bits.TXIF =0;
+"28
 [e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;Beep.c: 32: TXREG = n;
-"32
+[; ;Beep.c: 29: TXREG = n;
+"29
 [e = _TXREG _n ]
-[; ;Beep.c: 34: while( TXSTAbits.TRMT ==0);
-"34
+[; ;Beep.c: 31: while( TXSTAbits.TRMT ==0);
+"31
 [e $U 281  ]
 [e :U 282 ]
 [e :U 281 ]
 [e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 282  ]
 [e :U 283 ]
-[; ;Beep.c: 36: while( PIR1bits.TXIF ==0);
-"36
+[; ;Beep.c: 33: while( PIR1bits.TXIF ==0);
+"33
 [e $U 284  ]
 [e :U 285 ]
 [e :U 284 ]
 [e $ == -> . . _PIR1bits 0 4 `i -> 0 `i 285  ]
 [e :U 286 ]
-[; ;Beep.c: 37: PIR1bits.TXIF =0;
-"37
+[; ;Beep.c: 34: PIR1bits.TXIF =0;
+"34
 [e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-[; ;Beep.c: 38: }
-"38
+[; ;Beep.c: 35: }
+"35
 [e :UE 280 ]
 }
-"40
+"37
 [v _put_bytes_uart `(v ~T0 @X0 1 ef2`*uc`uc ]
-"41
+"38
 {
-[; ;Beep.c: 40: void put_bytes_uart(uint8_t *arr,uint8_t n)
-[; ;Beep.c: 41: {
+[; ;Beep.c: 37: void put_bytes_uart(uint8_t *arr,uint8_t n)
+[; ;Beep.c: 38: {
 [e :U _put_bytes_uart ]
-"40
+"37
 [v _arr `*uc ~T0 @X0 1 r1 ]
 [v _n `uc ~T0 @X0 1 r2 ]
-"41
+"38
 [f ]
-"43
+"39
 [v _i `uc ~T0 @X0 1 a ]
-[; ;Beep.c: 43: uint8_t i=0;
+[; ;Beep.c: 39: uint8_t i=0;
 [e = _i -> -> 0 `i `uc ]
-[; ;Beep.c: 44: for(i=0;i<n;i++)
-"44
+[; ;Beep.c: 40: for(i=0;i<n;i++)
+"40
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 291  ]
-"45
+"41
 [e :U 288 ]
-[; ;Beep.c: 45: {
+[; ;Beep.c: 41: {
 {
-[; ;Beep.c: 46: put_byte_uart(arr[i]);
-"46
+[; ;Beep.c: 42: put_byte_uart(arr[i]);
+"42
 [e ( _put_byte_uart (1 *U + _arr * -> _i `ux -> -> # *U _arr `ui `ux ]
-"47
+"43
 }
-"44
+"40
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 291 ]
 [e $ < -> _i `i -> _n `i 288  ]
 [e :U 289 ]
-"47
+"43
 }
-[; ;Beep.c: 47: }
-[; ;Beep.c: 51: }
-"51
+[; ;Beep.c: 43: }
+[; ;Beep.c: 45: }
+"45
 [e :UE 287 ]
 }
-"56
+"50
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
-"57
+"51
 {
-[; ;Beep.c: 56: void putch(uint8_t c)
-[; ;Beep.c: 57: {
+[; ;Beep.c: 50: void putch(uint8_t c)
+[; ;Beep.c: 51: {
 [e :U _putch ]
-"56
+"50
 [v _c `uc ~T0 @X0 1 r1 ]
-"57
+"51
 [f ]
-[; ;Beep.c: 58: TXREG = c;
-"58
+[; ;Beep.c: 52: TXREG = c;
+"52
 [e = _TXREG _c ]
-[; ;Beep.c: 60: while( TXSTAbits.TRMT ==0);
-"60
+[; ;Beep.c: 53: while( TXSTAbits.TRMT ==0);
+"53
 [e $U 293  ]
 [e :U 294 ]
 [e :U 293 ]
 [e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 294  ]
 [e :U 295 ]
-[; ;Beep.c: 64: }
-"64
+[; ;Beep.c: 54: }
+"54
 [e :UE 292 ]
 }
-"78
+"57
 [v _BeepInit `(v ~T0 @X0 1 ef ]
-"79
+"58
 {
-[; ;Beep.c: 78: void BeepInit(void)
-[; ;Beep.c: 79: {
+[; ;Beep.c: 57: void BeepInit(void)
+[; ;Beep.c: 58: {
 [e :U _BeepInit ]
 [f ]
-[; ;Beep.c: 87: TRISEbits.RE2 =0;
-"87
+[; ;Beep.c: 66: TRISEbits.RE2 =0;
+"66
 [e = . . _TRISEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 88: LATEbits.LE2 =0;
-"88
+[; ;Beep.c: 67: LATEbits.LE2 =0;
+"67
 [e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 91: TRISDbits.RD5 =0;
-"91
+[; ;Beep.c: 70: TRISDbits.RD5 =0;
+"70
 [e = . . _TRISDbits 1 5 -> -> 0 `i `uc ]
-[; ;Beep.c: 92: LATDbits.LD5 =1;
-"92
+[; ;Beep.c: 71: LATDbits.LD5 =1;
+"71
 [e = . . _LATDbits 1 5 -> -> 1 `i `uc ]
-[; ;Beep.c: 94: }
-"94
+[; ;Beep.c: 73: }
+"73
 [e :UE 296 ]
 }
-"95
-[v _BeepOn `(v ~T0 @X0 1 ef ]
-"96
-{
-[; ;Beep.c: 95: void BeepOn(void)
-[; ;Beep.c: 96: {
-[e :U _BeepOn ]
-[f ]
-[; ;Beep.c: 101: LATEbits.LE2 =1;
-"101
-[e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
-[; ;Beep.c: 104: }
-"104
-[e :UE 297 ]
-}
-"105
-[v _BeepOff `(v ~T0 @X0 1 ef ]
-"106
-{
-[; ;Beep.c: 105: void BeepOff(void)
-[; ;Beep.c: 106: {
-[e :U _BeepOff ]
-[f ]
-[; ;Beep.c: 110: LATEbits.LE2 =0;
-"110
-[e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 111: }
-"111
-[e :UE 298 ]
-}
-"114
+"77
 [v _buzz `(v ~T0 @X0 1 ef ]
-"115
+"78
 {
-[; ;Beep.c: 114: void buzz(void)
-[; ;Beep.c: 115: {
+[; ;Beep.c: 77: void buzz(void)
+[; ;Beep.c: 78: {
 [e :U _buzz ]
 [f ]
-[; ;Beep.c: 120: LATEbits.LE2 =1;
-"120
+[; ;Beep.c: 83: LATEbits.LE2 =1;
+"83
 [e = . . _LATEbits 1 2 -> -> 1 `i `uc ]
-[; ;Beep.c: 126: delay_nms(1);
-"126
+[; ;Beep.c: 89: delay_nms(1);
+"89
 [e ( _delay_nms (1 -> -> -> 1 `i `l `ul ]
-[; ;Beep.c: 129: LATEbits.LE2 =0;
-"129
+[; ;Beep.c: 92: LATEbits.LE2 =0;
+"92
 [e = . . _LATEbits 1 2 -> -> 0 `i `uc ]
-[; ;Beep.c: 133: }
-"133
-[e :UE 299 ]
+[; ;Beep.c: 96: }
+"96
+[e :UE 297 ]
 }

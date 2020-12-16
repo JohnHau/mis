@@ -42,8 +42,8 @@ uint16_t action_btn_cnt =0;
 #endif
 
 //void __interrupt(high_priority) ISR(void)
-//void __interrupt(high_priority) ISR(void)
-void __interrupt ISR(void)
+void __interrupt(high_priority) ISR(void)
+//void __interrupt ISR(void)
 {
     uint8_t temp;
     static uint8_t tcnt=0;

@@ -3957,7 +3957,7 @@ void c_routine(void);
 void test_routine(void);
 
 
-void check_acting(void);
+int8_t check_acting(void);
 
 # 62 "../Timer.h"
 extern uint16_t action_btn_cnt;
@@ -4224,15 +4224,11 @@ void delay_f(uint32_t n);
 # 25 "../Beep.h"
 extern uint8_t flag_power_up;
 
-
-
-
+# 31
 void BeepInit(void);
-void BeepOn(void);
-void BeepOff(void);
 void buzz(void);
 
-# 40
+# 38
 void uart_init(void);
 void put_byte_uart(uint8_t n);
 void put_bytes_uart(uint8_t *arr,uint8_t n);
@@ -4514,13 +4510,13 @@ if(hg_op.inject_len == 1)
 
 while(hg_op.cnt_pos_nmm < (236));
 }
+else if(hg_op.inject_len == 2)
+{
+while(hg_op.cnt_pos_nmm < (325));
+}
 else if(hg_op.inject_len == 0)
 {
 while(hg_op.cnt_pos_nmm < (148));
-}
-else if(hg_op.inject_len == 2)
-{
-
 }
 
 
@@ -4609,8 +4605,6 @@ else if(hg_op.drops_sb == 1)
 
 if(hg_op.needle_len == 13)
 {
-
-
 do{LATDbits.LD2 =0;LATDbits.LD3 =1; LATDbits.LD4 =1;}while(0);
 while(PORTBbits.RB0 == 1);
 do{LATDbits.LD2 =1;LATDbits.LD3 =0; LATDbits.LD4 =1;}while(0);
@@ -4684,7 +4678,7 @@ hg_op.drops_sa = 1;
 }
 }
 
-# 510
+# 508
 }
 
 
@@ -4745,7 +4739,7 @@ hg_op.drops_push = 1;
 if(hg_op.drops_push == 1)
 {
 
-# 580
+# 578
 while(PORTBbits.RB5 == 0)
 {
 cnt_push =0;
@@ -4793,7 +4787,7 @@ delaynus(10 * 1000);
 }
 do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
-# 632
+# 630
 delay_pwm(hg_op.work_freq * 300);
 
 
@@ -4895,7 +4889,7 @@ LATDbits.LD4 =1;
 while(hg_op.cnt_posa < 20)
 {
 
-# 737
+# 735
 while(PORTBbits.RB2 == 0);
 hg_op.cnt_posa ++;
 while(PORTBbits.RB2 == 1);
@@ -4966,7 +4960,7 @@ LATDbits.LD4 =1;
 while(hg_op.cnt_posb < 20)
 {
 
-# 812
+# 810
 while(PORTBbits.RB2 == 0);
 hg_op.cnt_posb ++;
 while(PORTBbits.RB2 == 1);
@@ -4985,7 +4979,7 @@ do{LATDbits.LD4 =1;LATDbits.LD2 =0;LATDbits.LD3 =0;}while(0);
 
 delay_pwm(hg_op.work_freq * 300);
 
-printf("in test mode\r\n");
+
 
 if(action_btn_cnt%2 == 0)
 {
@@ -5039,10 +5033,18 @@ hg_op.drops_sa = 1;
 }
 
 
-void check_acting(void)
+int8_t check_acting(void)
 {
 if(hg_op.acting_flag)
 {
+
+if( hg_op.drops_sa || hg_op.drops_push || hg_op.drops_sb)
+{
+hg_op.acting_flag =0;
+return -1;
+}
+
+
 delaynus(20 * 1000);
 if(PORTBbits.RB5 == 0)
 {

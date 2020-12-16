@@ -83,7 +83,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _delay_nms `(v ~T0 @X0 0 ef1`ul ]
 "71 ../Timer.h
 [v _delaynus `(v ~T0 @X0 0 ef1`ui ]
-"33 ../Beep.h
+"32 ../Beep.h
 [v _buzz `(v ~T0 @X0 0 ef ]
 "109 ../gui.h
 [v _test_mode `uc ~T0 @X0 0 e ]
@@ -2962,13 +2962,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Beep.h: 25: extern uint8_t flag_power_up;
-[; ;Beep.h: 30: void BeepInit(void);
-[; ;Beep.h: 31: void BeepOn(void);
-[; ;Beep.h: 32: void BeepOff(void);
-[; ;Beep.h: 33: void buzz(void);
-[; ;Beep.h: 40: void uart_init(void);
-[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void BeepInit(void);
+[; ;Beep.h: 32: void buzz(void);
+[; ;Beep.h: 38: void uart_init(void);
+[; ;Beep.h: 39: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 40: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Key.h: 58: extern unsigned char KeyScanPeriod;
 [; ;Key.h: 60: typedef struct
 [; ;Key.h: 61: {

@@ -49,10 +49,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "275
 [v _check_shut_device `(v ~T0 @X0 0 ef ]
 "142 ../MotorDrive.h
-[v _check_acting `(v ~T0 @X0 0 ef ]
+[v _check_acting `(c ~T0 @X0 0 ef ]
 "270 ../gui.h
 [v _check_ui_blink `(v ~T0 @X0 0 ef ]
-"185 ../Main.c
+"184 ../Main.c
 [v _check_device_idle `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2963,7 +2963,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.h: 137: void drops_routine(void);
 [; ;MotorDrive.h: 138: void c_routine(void);
 [; ;MotorDrive.h: 139: void test_routine(void);
-[; ;MotorDrive.h: 142: void check_acting(void);
+[; ;MotorDrive.h: 142: int8_t check_acting(void);
 [; ;Timer.h: 62: extern uint16_t action_btn_cnt;
 [; ;Timer.h: 69: extern void TimerInit(void);
 [; ;Timer.h: 70: extern void Timer1Init(void);
@@ -2973,13 +2973,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer.h: 79: extern uint8_t flag_tv;
 [; ;Timer.h: 81: extern uint16_t tv_s[10];
 [; ;Beep.h: 25: extern uint8_t flag_power_up;
-[; ;Beep.h: 30: void BeepInit(void);
-[; ;Beep.h: 31: void BeepOn(void);
-[; ;Beep.h: 32: void BeepOff(void);
-[; ;Beep.h: 33: void buzz(void);
-[; ;Beep.h: 40: void uart_init(void);
-[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void BeepInit(void);
+[; ;Beep.h: 32: void buzz(void);
+[; ;Beep.h: 38: void uart_init(void);
+[; ;Beep.h: 39: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 40: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Key.h: 58: extern unsigned char KeyScanPeriod;
 [; ;Key.h: 60: typedef struct
 [; ;Key.h: 61: {
@@ -3397,48 +3395,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 163: check_ui_status();
 "163
 [e ( _check_ui_status ..  ]
-[; ;Main.c: 165: check_shut_device();
-"165
+[; ;Main.c: 164: check_shut_device();
+"164
 [e ( _check_shut_device ..  ]
-"167
+"166
 }
-[; ;Main.c: 167: }
+[; ;Main.c: 166: }
 [e $U 305  ]
-"168
+"167
 [e :U 300 ]
-[; ;Main.c: 168: else
-[; ;Main.c: 169: {
-"169
+[; ;Main.c: 167: else
+[; ;Main.c: 168: {
+"168
 {
-"171
+"170
 }
 [e :U 305 ]
 [e :U 299 ]
 [e :U 297 ]
 [e :U 295 ]
 [e :U 293 ]
-[; ;Main.c: 171: }
-[; ;Main.c: 176: check_acting();
-"176
+[; ;Main.c: 170: }
+[; ;Main.c: 175: check_acting();
+"175
 [e ( _check_acting ..  ]
-[; ;Main.c: 181: check_ui_blink();
-"181
+[; ;Main.c: 180: check_ui_blink();
+"180
 [e ( _check_ui_blink ..  ]
-[; ;Main.c: 185: check_device_idle();
-"185
+[; ;Main.c: 184: check_device_idle();
+"184
 [e ( _check_device_idle ..  ]
-"191
+"190
 }
 [e :U 291 ]
-"192
+"191
 }
 [e :U 287 ]
 "124
 [e $U 288  ]
 [e :U 289 ]
+[; ;Main.c: 190: }
 [; ;Main.c: 191: }
-[; ;Main.c: 192: }
-[; ;Main.c: 194: }
-"194
+[; ;Main.c: 193: }
+"193
 [e :UE 286 ]
 }

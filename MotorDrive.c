@@ -327,13 +327,13 @@ void drops_routine(void)
                                    //TEST_LED_ON();
                                     while(hg_op.cnt_pos_nmm < POS_1MM_TARGET);
                                 }
+                                else if(hg_op.inject_len == INJECT_LEN_2_MM)
+                                {
+                                    while(hg_op.cnt_pos_nmm < POS_2MM_TARGET);
+                                }
                                 else if(hg_op.inject_len == INJECT_LEN_0_MM)
                                 {
                                     while(hg_op.cnt_pos_nmm < POS_0MM_TARGET);
-                                }
-                                else if(hg_op.inject_len == INJECT_LEN_2_MM)
-                                {
-                                    
                                 }
 #endif           
                                 
@@ -428,8 +428,6 @@ void drops_routine(void)
 
                             if(hg_op.needle_len == NEEDLE_LEN_13_MM)
                             {
-                                
-                              
                                 REVERSE_RUN_B();
                                 while(LP_BUTTON == 1);   
                                 FORWARD_RUN_B();
@@ -827,7 +825,7 @@ void test_routine(void)
                             //delaynus(hg_op.work_freq * 1000);
                              delay_pwm(hg_op.work_freq * 300);
                             //printf("z-hg_op.cnt_posb is %d\r\n", hg_op.cnt_posb);
-                           printf("in test mode\r\n");
+                           //printf("in test mode\r\n");
                              //if(ACTION_BUTTON  == 1)
                              if(action_btn_cnt%2 == 0)
                              {
@@ -881,10 +879,18 @@ void test_routine(void)
 }
 
 
-void check_acting(void)
+int8_t  check_acting(void)
 {
             if(hg_op.acting_flag)
             {
+                
+                if( hg_op.drops_sa || hg_op.drops_push || hg_op.drops_sb)
+                {
+                   hg_op.acting_flag =0;
+                   return -1;
+                }
+                
+                
                 delaynus(20 * 1000);
                   if(ACTION_BUTTON  == 0)
                   {

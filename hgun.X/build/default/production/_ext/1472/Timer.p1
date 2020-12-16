@@ -1,4 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T52 __interrupt high_priority  ]
 "6431 C:\Program Files (x86)\Microchip\xc8\v1.41\include\pic18f4520.h
 [s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S263 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
@@ -2996,13 +2998,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Key.h: 74: uint8_t KEY_Scan(void);
 [; ;Key.h: 75: void KeyFuction(void);
 [; ;Beep.h: 25: extern uint8_t flag_power_up;
-[; ;Beep.h: 30: void BeepInit(void);
-[; ;Beep.h: 31: void BeepOn(void);
-[; ;Beep.h: 32: void BeepOff(void);
-[; ;Beep.h: 33: void buzz(void);
-[; ;Beep.h: 40: void uart_init(void);
-[; ;Beep.h: 41: void put_byte_uart(uint8_t n);
-[; ;Beep.h: 42: void put_bytes_uart(uint8_t *arr,uint8_t n);
+[; ;Beep.h: 31: void BeepInit(void);
+[; ;Beep.h: 32: void buzz(void);
+[; ;Beep.h: 38: void uart_init(void);
+[; ;Beep.h: 39: void put_byte_uart(uint8_t n);
+[; ;Beep.h: 40: void put_bytes_uart(uint8_t *arr,uint8_t n);
 [; ;Oled.h: 87: typedef struct action_profile
 [; ;Oled.h: 88: {
 [; ;Oled.h: 90: uint8_t inject_mode;
@@ -3090,7 +3090,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MotorDrive.h: 137: void drops_routine(void);
 [; ;MotorDrive.h: 138: void c_routine(void);
 [; ;MotorDrive.h: 139: void test_routine(void);
-[; ;MotorDrive.h: 142: void check_acting(void);
+[; ;MotorDrive.h: 142: int8_t check_acting(void);
 [; ;gui.h: 6: typedef struct xmenu
 [; ;gui.h: 7: {
 [; ;gui.h: 8: uint8_t menu_no;
@@ -3259,34 +3259,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 [; ;Timer.c: 39: static uint32_t test_mode_break_cnt=0;
-[v F3414 `(v ~T0 @X0 1 tf ]
-"46
-[v _ISR `IF3414 ~T0 @X0 1 e ]
+"45
+[v _ISR `(v ~T52 @X0 1 ef ]
 "47
 {
-[; ;Timer.c: 46: void __interrupt ISR(void)
+[; ;Timer.c: 45: void __interrupt(high_priority) ISR(void)
 [; ;Timer.c: 47: {
 [e :U _ISR ]
 [f ]
 "48
 [v _temp `uc ~T0 @X0 1 a ]
 "49
-[v F3416 `uc ~T0 @X0 1 s tcnt ]
-[i F3416
+[v F3411 `uc ~T0 @X0 1 s tcnt ]
+[i F3411
 -> -> 0 `i `uc
 ]
 "50
-[v F3417 `uc ~T0 @X0 1 s cnt_action_btn ]
-[i F3417
+[v F3412 `uc ~T0 @X0 1 s cnt_action_btn ]
+[i F3412
 -> -> 0 `i `uc
 ]
 "51
-[v F3418 `ui ~T0 @X0 1 s tcnt_bat ]
-[i F3418
+[v F3413 `ui ~T0 @X0 1 s tcnt_bat ]
+[i F3413
 -> -> 0 `i `ui
 ]
 "52
-[v F3419 `ui ~T0 @X0 1 s tcnt_overload_ma ]
+[v F3414 `ui ~T0 @X0 1 s tcnt_overload_ma ]
 [; ;Timer.c: 48: uint8_t temp;
 [; ;Timer.c: 49: static uint8_t tcnt=0;
 [; ;Timer.c: 50: static uint8_t cnt_action_btn = 0;
@@ -3791,10 +3790,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Timer.c: 433: tcnt ++;
 "433
-[e ++ F3416 -> -> 1 `i `uc ]
+[e ++ F3411 -> -> 1 `i `uc ]
 [; ;Timer.c: 434: tcnt_bat ++;
 "434
-[e ++ F3418 -> -> 1 `i `ui ]
+[e ++ F3413 -> -> 1 `i `ui ]
 [; ;Timer.c: 436: if( hg_op.drops_push == 1)
 "436
 [e $ ! == -> . _hg_op 26 `i -> 1 `i 339  ]
@@ -3842,7 +3841,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer.c: 455: }
 [; ;Timer.c: 459: if(tcnt_bat > (125))
 "459
-[e $ ! > F3418 -> -> 125 `i `ui 342  ]
+[e $ ! > F3413 -> -> 125 `i `ui 342  ]
 [; ;Timer.c: 460: {
 "460
 {
@@ -3851,14 +3850,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _hg_op 7 -> -> 1 `i `uc ]
 [; ;Timer.c: 462: tcnt_bat =0;
 "462
-[e = F3418 -> -> 0 `i `ui ]
+[e = F3413 -> -> 0 `i `ui ]
 "463
 }
 [e :U 342 ]
 [; ;Timer.c: 463: }
 [; ;Timer.c: 470: if(tcnt > 125)
 "470
-[e $ ! > -> F3416 `i -> 125 `i 343  ]
+[e $ ! > -> F3411 `i -> 125 `i 343  ]
 [; ;Timer.c: 472: {
 "472
 {
@@ -3867,7 +3866,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _flag_blink -> -> 1 `i `uc ]
 [; ;Timer.c: 474: tcnt = 0;
 "474
-[e = F3416 -> -> 0 `i `uc ]
+[e = F3411 -> -> 0 `i `uc ]
 "475
 }
 [e :U 343 ]

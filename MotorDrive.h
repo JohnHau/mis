@@ -139,6 +139,6 @@ void c_routine(void);
 void test_routine(void);
 
 
-void check_acting(void);
+int8_t check_acting(void);
 
 #endif
