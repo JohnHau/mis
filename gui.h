@@ -64,7 +64,7 @@ typedef struct _hg_op
     uint8_t tube_cap;
     uint16_t work_freq;
     
-    uint8_t push_len;
+    uint16_t push_len;
     
     
     uint8_t acting_flag;
@@ -199,10 +199,44 @@ extern uint8_t flag_test_mode_break;
 #define POS_2MM_TARGET   (325)
 
 
+#if 1
+//0.001425
+#define VOL_TUBE_1ML_PUSH_DROPS    (112*2)
+#define VOL_TUBE_2P5ML_PUSH_DROPS  (112) //112 <->2.5ml
+#define VOL_TUBE_5ML_PUSH_DROPS    (112/2)
+#endif
 
-#define VOL_TUBE_1ML_PUSH    (112)
-#define VOL_TUBE_2P5ML_PUSH  (112)
-#define VOL_TUBE_5ML_PUSH    (112)
+#if 0
+#define VOL_TUBE_1ML_PUSH    (56)
+#define VOL_TUBE_2P5ML_PUSH  (56)
+#define VOL_TUBE_5ML_PUSH    (56)
+#endif
+
+
+#if 1
+//0.001425
+#define VOL_TUBE_1ML_PUSH_C    (112*2*6)
+#define VOL_TUBE_2P5ML_PUSH_C  (112*6) //112 <->2.5ml
+#define VOL_TUBE_5ML_PUSH_C    (112/2*6)
+
+
+
+//#define VOL_TUBE_1ML_PUSH_C    (112*2*5)
+//#define VOL_TUBE_2P5ML_PUSH_C  (112*5) 
+//#define VOL_TUBE_5ML_PUSH_C    (112/2*5)
+
+#endif
+
+
+
+
+#if 1
+//0.001425
+#define VOL_TUBE_1ML_PUSH_DROP    (112*2)
+#define VOL_TUBE_2P5ML_PUSH_DROP  (112) //112 <->2.5ml
+#define VOL_TUBE_5ML_PUSH_DROP    (112/2)
+#endif
+
 
 
 

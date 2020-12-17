@@ -224,6 +224,7 @@ void menu0_MsgHandlle(uint8_t key)
                     menu[0].value = WORK_MODE_DROPS;
                     hg_op.work_freq = DROPS_MODE_250_FREQ;
                     
+                    
                 }
                 else if(work_mode == WORK_MODE_DROP)
                 {
@@ -930,8 +931,18 @@ void menu5_MsgHandlle(uint8_t key)
                         // hg_op.needle_len = LEN_4_MM;
                          //hg_op.cnt_target_posrst = POS_4_RST; 
                           //hg_op.need_reset =1;
-                        
-                        hg_op.push_len = VOL_TUBE_1ML_PUSH;//140;
+                        if(hg_op.cur_working_mode == WORK_MODE_DROPS)
+                        {
+                            hg_op.push_len = VOL_TUBE_1ML_PUSH_DROPS;//140;
+                        }
+                        else  if(hg_op.cur_working_mode == WORK_MODE_C)
+                        {
+                            hg_op.push_len = VOL_TUBE_1ML_PUSH_C;
+                        }
+                        else  if(hg_op.cur_working_mode == WORK_MODE_DROP)
+                        {
+                            hg_op.push_len = VOL_TUBE_1ML_PUSH_DROP;
+                        }
                     }
                     else if(menu[5].parameter == 1)
                     {
@@ -945,7 +956,20 @@ void menu5_MsgHandlle(uint8_t key)
                          
                          //hg_op.cnt_target_posrst = POS_13_RST; 
                          //hg_op.need_reset =1;
-                          hg_op.push_len = VOL_TUBE_2P5ML_PUSH;//130;
+                        
+                        
+                        if(hg_op.cur_working_mode == WORK_MODE_DROPS)
+                        {
+                          hg_op.push_len = VOL_TUBE_2P5ML_PUSH_DROPS;//130;
+                        }
+                        else  if(hg_op.cur_working_mode == WORK_MODE_C)
+                        {
+                             hg_op.push_len = VOL_TUBE_2P5ML_PUSH_C;
+                        }
+                        else  if(hg_op.cur_working_mode == WORK_MODE_DROP)
+                        {
+                             hg_op.push_len = VOL_TUBE_2P5ML_PUSH_DROP;
+                        }
                         //
                         //
                         //
@@ -956,7 +980,20 @@ void menu5_MsgHandlle(uint8_t key)
                      {
                           display_num(BOTTOM,COL_PAGE0_FN,NUM_5);
                           menu[5].value = NUM_5;
-                           hg_op.push_len = VOL_TUBE_5ML_PUSH;//160;
+                          
+                          
+                           if(hg_op.cur_working_mode == WORK_MODE_DROPS)
+                           {
+                                hg_op.push_len = VOL_TUBE_5ML_PUSH_DROPS;//160;
+                           }
+                           else  if(hg_op.cur_working_mode == WORK_MODE_C)
+                           {
+                                hg_op.push_len = VOL_TUBE_5ML_PUSH_C;
+                           }
+                           else  if(hg_op.cur_working_mode == WORK_MODE_DROP)
+                           {
+                                 hg_op.push_len = VOL_TUBE_5ML_PUSH_DROP;
+                           }
                      }
                     
                  }
@@ -1648,9 +1685,6 @@ void initial_para_setting(void)
     hg_op.cnt_pos_nmm = 0;
     hg_op.cnt_pos_nmm_target = POS_1MM_TARGET;
     hg_op.inject_len = INJECT_LEN_1_MM;
-    
-   
-    
     
 }
 

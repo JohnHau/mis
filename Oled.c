@@ -3292,7 +3292,7 @@ void initial_ui_setting(void)
     hg_op.tube_cap = TUBE_CAP_2P5_ML;
     hg_op.work_freq = DROPS_MODE_250_FREQ;
     
-    hg_op.push_len = VOL_TUBE_1ML_PUSH;//146
+    hg_op.push_len = VOL_TUBE_1ML_PUSH_C;//146
     
     
     hg_op.cnt_pos_nmm = 0;

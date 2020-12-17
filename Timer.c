@@ -173,7 +173,7 @@ void __interrupt(high_priority) ISR(void)
          }
          else
          {      
-                if(hg_op.working_mode == WORK_MODE_DROPS)
+                if(hg_op.working_mode == WORK_MODE_DROPS  || hg_op.working_mode == WORK_MODE_C || hg_op.working_mode == WORK_MODE_DROP)
                 {
                     if(hg_op.drops_sa == 1)
                     {
@@ -436,6 +436,7 @@ void __interrupt(high_priority) ISR(void)
         if( hg_op.drops_push == 1)
         {
             tva = get_SenseA_AD_vaule();
+            //if(tva >600)
             if(tva >600)
             { 
 
