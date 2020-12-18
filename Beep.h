@@ -3,6 +3,15 @@
 
 #include <stdint.h>
 
+
+
+
+#define  HG_DEBUG   1
+
+
+
+
+
 //==============================================================================
 #define TEST_LED_ON()      LATDbits.LD5 =0
 #define TEST_LED_OFF()     LATDbits.LD5 =1

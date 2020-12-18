@@ -339,6 +339,8 @@ uint8_t display_n_blank(uint8_t y,uint8_t x, uint8_t mode);
 
 uint8_t display_num(uint8_t y,uint8_t x, uint8_t mode);
 
+
+void clear_screen(void);
 void initial_ui_setting(void);
 
 

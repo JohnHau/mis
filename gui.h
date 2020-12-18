@@ -47,8 +47,8 @@ typedef struct _hg_op
     
     uint32_t cnt_device_idle;
     
-    
-    
+    uint8_t work_counter_drop;
+    uint16_t stay_time_drop;
     
    // uint16_t sat;
     //uint16_t sbt;
@@ -268,8 +268,8 @@ extern uint8_t flag_test_mode_break;
 
 #define  INTERVAL_F    40/*20*/
 
-#define  PERIORD_DYNAMIC_UI   200000
-
+//#define  PERIORD_DYNAMIC_UI   200000
+#define  PERIORD_DYNAMIC_UI   2000
 
 extern uint8_t flag_blink;
 extern uint8_t focus;

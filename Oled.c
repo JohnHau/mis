@@ -1687,8 +1687,6 @@ void check_bat(void)
 uint8_t (*bat_x_m)[23] = NULL;
 uint16_t bat_vol =0;
 
-
-
 void display_bat_blank(uint8_t y,uint8_t x,uint8_t mode)
 {
   uint8_t temp =0;
@@ -1777,27 +1775,33 @@ void display_bat(uint8_t y,uint8_t x,uint8_t mode)
   bat_vol = get_AD_vaule();
   
           
-  if(bat_vol > 730)        
+  //if(bat_vol > 730)   
+  if(bat_vol > 844) 
   {  
     bat_x_m = bat100_m;
   } 
-  else if(bat_vol > 720 && bat_vol <= 730) 
+  //else if(bat_vol > 720 && bat_vol <= 730) 
+  else if(bat_vol > 782 && bat_vol <= 844) 
   {
     bat_x_m = bat80_m;
   }
-  else if(bat_vol > 710 && bat_vol <= 720) 
+  //else if(bat_vol > 710 && bat_vol <= 720) 
+  else if(bat_vol > 772 && bat_vol <= 782) 
   {
     bat_x_m = bat60_m;
   }  
-  else if(bat_vol > 700 && bat_vol <= 710) 
+  //else if(bat_vol > 700 && bat_vol <= 710) 
+  else if(bat_vol > 737 && bat_vol <= 772) 
   {
     bat_x_m = bat40_m;
   }   
-  else if(bat_vol > 690 && bat_vol <= 700) 
+  //else if(bat_vol > 690 && bat_vol <= 700) 
+  else if(bat_vol > 663 && bat_vol <= 737) 
   {
     bat_x_m = bat20_m;
   } 
-  else if(bat_vol <= 690) 
+  //else if(bat_vol <= 690) 
+  else if(bat_vol <= 581) 
   {
     bat_x_m = bat00_m;
   }
@@ -3171,11 +3175,9 @@ void display_logo(void)
 
 
 
-uint8_t clear_screen(void)
+void clear_screen(void)
 {
-    
-    
-    uint8_t page,col;
+  uint8_t page,col;
   for(page=0;page<9;page++)  
   {
     setYX_LCD(page,0);
@@ -3183,6 +3185,7 @@ uint8_t clear_screen(void)
        for(col=0;col<99;col++)
         {
             ee_WriteBytes(write_buf, 0x40, 1);
+            //ee_WriteBytes(0x00, 0x40, 1);
         }
   }
 
@@ -3271,13 +3274,14 @@ void initial_ui_setting(void)
     menu[5].value = NUM_1;
     
     
-    
+#if 1
     display_frame_fghi(TYPE_G,COL_PAGE0_PATTERN_G, MODE_NORMAL);
     display_num(BOTTOM,COL_PAGE0_GN, NUM_3);
     menu[6].mode = MODE_NORMAL;
     menu[6].value = NUM_3;
-    
+#endif
  
+  
 #endif
     
     

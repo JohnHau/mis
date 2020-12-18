@@ -3,6 +3,10 @@
 #include "Beep.h"
 #include "Oled.h"
 
+
+
+#if HG_DEBUG
+
 void uart_init(void)
 {
 
@@ -52,6 +56,18 @@ void putch(uint8_t c)
     TXREG = c;  
     while( TXSTAbits.TRMT ==0);
 }
+
+
+
+#endif
+
+
+
+
+
+
+
+
 
 
 void BeepInit(void)
@@ -195,11 +211,11 @@ LATEbits.LE2 =0;
             
             bv =0;
             bv = get_SenseA_AD_vaule();
-            printf("bv is %d\r\n",bv);
+            //printf("bv is %d\r\n",bv);
             
             cv =0;
             cv = get_SenseB_AD_vaule();
-            printf("cv is %d\r\n",cv);
+            //printf("cv is %d\r\n",cv);
         
         delay_nms(100);
     }
@@ -220,7 +236,7 @@ LATEbits.LE2 =0;
         put_byte_uart(0x33);//delay_nms(10);
         put_byte_uart(0x34);//delay_nms(40);
         
-        printf("hello pic18\r\n");
+        //printf("hello pic18\r\n");
         delay_nms(100);
 #endif
         

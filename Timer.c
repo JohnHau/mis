@@ -190,7 +190,7 @@ void __interrupt(high_priority) ISR(void)
                        else
                        {
                          hg_op.cnt_posa --;
-                         printf("***************************ay\r\n");
+                         //printf("***************************ay\r\n");
                        }
 #endif
                       
@@ -288,7 +288,7 @@ void __interrupt(high_priority) ISR(void)
                        if(READ_PHA_MB() == 0)     //falling edge
                        {
                         hg_op.cnt_posb --;
-                         printf("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&by\r\n");
+                         //printf("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&by\r\n");
                        }
                        else
                        {
@@ -370,6 +370,14 @@ void __interrupt(high_priority) ISR(void)
                     }
                     //return ;
                 }
+                
+                
+                
+             
+                
+                
+                
+#if 0   
                 else if(hg_op.working_mode == WORK_MODE_DROP)
                 {
 
@@ -400,14 +408,12 @@ void __interrupt(high_priority) ISR(void)
                 {
 
                 }
-
-             
+                      
+#endif 
+                
+                
          }
           
-         
-         
-
-         
        //INTCON3bits.INT2IF = 0;
     }
     
@@ -439,11 +445,14 @@ void __interrupt(high_priority) ISR(void)
             hg_op.tcnt_overload_ma ++;
             
             if(hg_op.tcnt_overload_ma > 125)
+            //if(hg_op.tcnt_overload_ma > (125 * 2))
             {
                 tva = get_SenseA_AD_vaule();
                 //if(tva >600)
-                //printf("p=%d\r\b",tva);
+                //printf("p=%d\r\n",tva);
                 if(tva >220)
+                //if(tva >420)
+                //if(0)
                 { 
 
                     //hg_op.tcnt_overload_ma ++;
@@ -574,7 +583,7 @@ void __interrupt(high_priority) ISR(void)
                     hg_op.working_mode = WORK_MODE_STOP;
                     hg_op.need_reset =0;
                     
-                    printf("sleep\r\n");
+                    //printf("sleep\r\n");
                     
                 }
             }

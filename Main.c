@@ -58,15 +58,6 @@
           
 
 
-
-
-
-
-
-
-
-
-
 uint8_t flag_power_up =0;
 //int xn=0;
 //int ann=0;
@@ -110,7 +101,7 @@ void main(void)
            buzz();                         
         }
         
-        printf("testing string, hello world\r\n");
+        //printf("testing string, hello world\r\n");
         delay_nms(100);
         
         
@@ -150,7 +141,7 @@ void main(void)
             }
             else if(hg_op.working_mode == WORK_MODE_DROP)
             {
- 
+                drop_routine();     
             }
             else if(hg_op.working_mode == WORK_MODE_TEST)
             {
@@ -167,7 +158,7 @@ void main(void)
                  check_bat();
                  check_ui_status();             
                  check_shut_device();
-                 
+                 //printf("in stop mode\r\n");
             }
             else
             {
