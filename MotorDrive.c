@@ -382,6 +382,7 @@ void drops_routine(void)
                             //prev_edge =0;
                             //cur_edge =0;
                             hg_op.cnt_push =0;
+                            hg_op.tcnt_overload_ma =0;
                             //hg_op.tcnt_overload_ma =0;
                             
                             
@@ -416,10 +417,8 @@ void drops_routine(void)
                                 while(ACTION_BUTTON  == 0)
                                 { 
                                     buzz();
-                                    delay_nms(300);
-                                    //delaynus(50*1000);delaynus(50*1000);
-                                    //delaynus(50*1000);delaynus(50*1000);
-                                    //delaynus(50*1000);delaynus(50*1000);
+                                    delay_nms(3);
+
                                     
                                 }
                                 

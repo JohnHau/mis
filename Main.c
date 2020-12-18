@@ -99,7 +99,7 @@ void main(void)
    
 //==============================================================================    
 #if 0
-    FORWARD_RUN_A();
+   // FORWARD_RUN_A();
     
     while(1)
     {
@@ -109,6 +109,11 @@ void main(void)
         { 
            buzz();                         
         }
+        
+        printf("testing string, hello world\r\n");
+        delay_nms(100);
+        
+        
     
     }
 #endif

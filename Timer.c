@@ -435,19 +435,27 @@ void __interrupt(high_priority) ISR(void)
 #if 1
         if( hg_op.drops_push == 1)
         {
-            tva = get_SenseA_AD_vaule();
-            //if(tva >600)
-            if(tva >600)
-            { 
+            //tcnt_overload_ma ++;
+            hg_op.tcnt_overload_ma ++;
+            
+            if(hg_op.tcnt_overload_ma > 125)
+            {
+                tva = get_SenseA_AD_vaule();
+                //if(tva >600)
+                //printf("p=%d\r\b",tva);
+                if(tva >220)
+                { 
 
-                //hg_op.tcnt_overload_ma ++;
+                    //hg_op.tcnt_overload_ma ++;
 
-                //if(hg_op.tcnt_overload_ma >(30))
-                {
-                   hg_op.tcnt_overload_ma =0;
-                   hg_op.flag_warning_ma = 1;
+                    //if(hg_op.tcnt_overload_ma >(30))
+                    {
+                       //hg_op.tcnt_overload_ma =0;
+                       hg_op.flag_warning_ma = 1;
+                    }
                 }
             }
+            
         }
         else
         {
