@@ -444,7 +444,7 @@ void __interrupt(high_priority) ISR(void)
             //tcnt_overload_ma ++;
             hg_op.tcnt_overload_ma ++;
             
-            if(hg_op.tcnt_overload_ma > 125)
+            if(hg_op.tcnt_overload_ma > 125)  
             //if(hg_op.tcnt_overload_ma > (125 * 2))
             {
                 tva = get_SenseA_AD_vaule();
@@ -598,7 +598,9 @@ void __interrupt(high_priority) ISR(void)
         {
             
             //delaynus(50 * 1000);
+            //TEST_LED_BLINK();
             hg_op.acting_flag = 1;
+
             //printf("act\n");
         }
         //buzz();

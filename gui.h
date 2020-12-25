@@ -145,9 +145,9 @@ extern uint8_t flag_test_mode_break;
 
 
 
-#define DROPS_MODE_100_FREQ     (5*1000)
-#define DROPS_MODE_150_FREQ     (4*1000)
-#define DROPS_MODE_200_FREQ     (3*1000)
+#define DROPS_MODE_100_FREQ     (32*1000)//(5*1000)
+#define DROPS_MODE_150_FREQ     (22*1000)//(4*1000)
+#define DROPS_MODE_200_FREQ     (12*1000)//(3*1000)
 #define DROPS_MODE_250_FREQ     (2*1000)
 #define DROPS_MODE_300_FREQ     (1*1000)
 
@@ -202,7 +202,7 @@ extern uint8_t flag_test_mode_break;
 #if 1
 //0.001425
 #define VOL_TUBE_1ML_PUSH_DROPS    (112*2)
-#define VOL_TUBE_2P5ML_PUSH_DROPS  (112) //112 <->2.5ml
+#define VOL_TUBE_2P5ML_PUSH_DROPS  (112) //112 <->2.5ml,     5uL
 #define VOL_TUBE_5ML_PUSH_DROPS    (112/2)
 #endif
 
