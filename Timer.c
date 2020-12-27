@@ -173,7 +173,7 @@ void __interrupt(high_priority) ISR(void)
          }
          else
          {      
-                if(hg_op.working_mode == WORK_MODE_DROPS  || hg_op.working_mode == WORK_MODE_C || hg_op.working_mode == WORK_MODE_DROP)
+                if(hg_op.working_mode == WORK_MODE_DROPS  || hg_op.working_mode == WORK_MODE_C || hg_op.working_mode == WORK_MODE_DROP || hg_op.working_mode == WORK_MODE_TEST)
                 {
                     if(hg_op.drops_sa == 1)
                     {
