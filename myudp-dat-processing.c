@@ -98,6 +98,7 @@ int main(int argc, char* argv[])
 	{
 
 		scanf("%s %d",mystr,&val);
+		printf("dat is %s %d\n",mystr,val);
 		//fgets(mystr,strlen(mystr),stdin);
 
 		//read(STDIN_FILENO,mystr,sizeof(mystr));
