@@ -47,9 +47,9 @@ char Json_Msg[]="{\n  \
 char Json_Msg[]="{                                                           \n\
                    \"C_UIO\"        :                                        \n\
                    {                                                         \n\
-		      \"UIO_STATUS\":\"TRUE\",                               \n\
+		      \"UIO_EXIST\"           :\"TRUE\",                     \n\
                       \"UIO_COUNT\"           :\"4\",                        \n\
-                      \"UIO_LPSPI_BASE\"      :\"0x401F80B8U\",              \n\
+                      \"UIO_LPSPI_BASE\"      :\"0x4039C000U\",              \n\
                       \"USER_CH_2_UIO_CH\":                                  \n\
                                  {                                           \n\
                                      \"CH0\"  :\"UIO_A\",                    \n\
@@ -71,8 +71,8 @@ char Json_Msg[]="{                                                           \n\
                                  },                                          \n\
                       \"IOMUXC_GPIO_RESET_PIN\":                             \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
+                                     \"gpioBase\"       :\"0x401C0000U\",    \n\
+                                     \"gpioPin\"        :\"27U\",    \n\
                                      \"muxRegister\"    :\"0x401F80B8U\",    \n\
                                      \"muxMode\"        :\"0x5U\",           \n\
                                      \"inputRegister\"  :\"0\",              \n\
@@ -81,73 +81,73 @@ char Json_Msg[]="{                                                           \n\
                                  },                                          \n\
                       \"IOMUXC_GPIO_LPSPI_SCK_PIN\":                         \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
-                                     \"inputRegister\"  :\"0\",              \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80BCU\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
+                                     \"inputRegister\"  :\"0x401F8510\",     \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82ACU\"     \n\
                                  },                                          \n\
                      \"IOMUXC_GPIO_LPSPI_SDO_PIN\":                          \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
-                                     \"inputRegister\"  :\"0\",              \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80C0U\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
+                                     \"inputRegister\"  :\"0x401F8518U\",              \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82B0U\"     \n\
                                  },                                          \n\
                     \"IOMUXC_GPIO_LPSPI_SDI_PIN\":                           \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
-                                     \"inputRegister\"  :\"0\",              \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80C4U\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
+                                     \"inputRegister\"  :\"0x401F8514U\",    \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82B4U\"     \n\
                                  },                                          \n\
                    \"IOMUXC_GPIO_LPSPI_PCS0_PIN\":                           \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
-                                     \"inputRegister\"  :\"0\",              \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80C8U\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
+                                     \"inputRegister\"  :\"0x401F850CU\",    \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82B8U\"     \n\
                                  },                                          \n\
                       \"IOMUXC_GPIO_LPSPI_PCS1_PIN\":                        \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80CCU\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
                                      \"inputRegister\"  :\"0\",              \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82BCU\"     \n\
                                  },                                          \n\
                      \"IOMUXC_GPIO_LPSPI_PCS2_PIN\":                         \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80D0U\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
                                      \"inputRegister\"  :\"0\",              \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82C0U\"     \n\
                                  },                                          \n\
                     \"IOMUXC_GPIO_LPSPI_PCS3_PIN\":                          \n\
                                  {                                           \n\
-                                     \"gpioBase\"       :\"0x401F80B8U\",    \n\
-                                     \"gpioPin\"        :\"0x401F80B8U\",    \n\
-                                     \"muxRegister\"    :\"0x401F80B8U\",    \n\
-                                     \"muxMode\"        :\"0x5U\",           \n\
+                                     \"gpioBase\"       :\"0\",    \n\
+                                     \"gpioPin\"        :\"0\",    \n\
+                                     \"muxRegister\"    :\"0x401F80D4U\",    \n\
+                                     \"muxMode\"        :\"0x7U\",           \n\
                                      \"inputRegister\"  :\"0\",              \n\
                                      \"inputDaisy\"     :\"0\",              \n\
-                                     \"configRegister\" :\"0x401F82A8U\"     \n\
+                                     \"configRegister\" :\"0x401F82C4U\"     \n\
                                  },                                          \n\
                    \"LPSPI_MASTER_CONFIG\":                                  \n\
                                  {                                           \n\
