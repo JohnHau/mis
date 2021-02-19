@@ -252,9 +252,6 @@ else
 //uint32_t val = strtol(jsonV->valuestring,NULL,0);
 //uint32_t val = strtol(mt,NULL,16);
 //printf("val is %x\n",val);
-
-
-
 //printf("config type is %s\n",arrayItemB->valuestring);
 //printf("config type is %s\n",jsonV->valuestring);
 //printf("config type is %d\n",jsonV->type);
