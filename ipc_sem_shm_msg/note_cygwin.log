@@ -1,0 +1,5 @@
+Shared memory support
+
+Shared memory is needed by the MIT-SHM and XFree86-BigFont extensions, which may provide better performance for local applications which use large images or fonts and are written to use those extensions.
+
+In Cygwin, XSI shared memory is provided by the cygserver Windows service. To install cygserver run the cygserver-config script to install the service, and then reboot or use cygrunsrv -S cygserver to start the service.
