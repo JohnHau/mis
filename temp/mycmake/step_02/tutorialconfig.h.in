@@ -1,0 +1,2 @@
+#define  TUTORIAL_VERSION_MAJOR   @tutorial_VERSION_MAJOR@ 
+#define  TUTORIAL_VERSION_MINOR   @tutorial_VERSION_MINOR@ 
