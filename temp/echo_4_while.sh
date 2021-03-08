@@ -17,3 +17,12 @@ fi
 
 done
 
+
+
+for((fcnt=0;fcnt<5;fcnt++))
+do
+echo "fcnt is $fcnt"
+done
+
+
+
