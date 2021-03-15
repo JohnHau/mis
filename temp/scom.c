@@ -12,8 +12,38 @@
 #include <unistd.h>
 #include <sys/select.h>
 
+#include <pthread.h>
+#include <mqueue.h>
+#include <semaphore.h>
 
 int tty_fd = -1 ;
+
+
+mqd_t  mqd;
+struct mq_attr attr;
+
+char msg[8192]={0};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 typedef unsigned char byte;
@@ -539,8 +569,262 @@ int set_timer(uint32_t nms)
 
 
 
+
+
+pthread_mutex_t mutex_a = PTHREAD_MUTEX_INITIALIZER;
+
+
+void* thread_transmit(void *arg)
+{
+
+
+	srand(time(NULL));
+
+	while(1)
+	{
+#if 0
+		pthread_mutex_lock(&mutex_a);
+		printf("thread_TA\n");
+		sleep(rand()%3 + 1);
+		printf("thread_TB\n");
+		printf("\n");
+		pthread_mutex_unlock(&mutex_a);
+#endif
+
+		sleep(3);
+
+		strcpy(msg,"hello");
+
+		//if(mq_send(mqd,msg,strlen(msg),1) == -1)
+		if(mq_send(mqd,msg,8192,1) == -1)
+		{
+			perror("failed send msg\n");
+			exit(EXIT_FAILURE);
+
+		}
+
+
+		//	sleep(1);
+	}
+
+
+}
+
+
+
+char rmsg[8192]={0};
+
+void* thread_receive(void *arg)
+{
+
+	unsigned int prio=0;
+
+	srand(time(NULL));
+
+	while(1)
+	{
+
+
+#if 0
+		pthread_mutex_lock(&mutex_a);
+		printf("thread_RA\n");
+		sleep(rand()%3 + 1);
+		printf("thread_RB\n");
+		printf("\n");
+#endif
+
+
+		//if(mq_receive(mqd,rmsg,8192,&prio) == -1)
+		if(mq_receive(mqd,rmsg,8192,&prio) == -1)
+		{
+			perror("failed receive msg\n");
+			exit(EXIT_FAILURE);
+
+		}
+
+		printf("got message = %s\n",rmsg);
+		memset(msg,0,16);
+
+		//pthread_mutex_unlock(&mutex_a);
+		//	sleep(1);
+	}
+
+
+}
+
+
+void *read_msg(void* arg)
+{
+
+	unsigned int prio=0;
+	char rbuf[1024]={0};
+
+	printf("thread read message\n");
+
+	//sleep(5);
+	while(1)
+	{
+
+#if 0 
+
+		sem_wait(&sem1);
+#endif
+		if(mq_receive(mqd,rbuf,8192,&prio) == -1)
+		{
+			perror("failed receive msg\n");
+			exit(EXIT_FAILURE);
+
+		}
+
+		printf("got message = %s\n",rbuf);
+		memset(rbuf,0,sizeof(rbuf));
+
+
+
+
+		printf("read thread heartbeat\n");
+
+
+#if 0 
+		sem_post(&sem2);
+#endif
+		sleep(1);
+
+
+	}
+
+
+}
+
+
+void *write_msg(void* arg)
+{
+
+
+
+	//char msg[8192]="add one\n";
+
+	printf("thread write message\n");
+#if 0
+	fp =fopen("x.log","w");
+
+	if(fp == NULL)
+	{
+
+		perror("failed open x.log");
+		exit(EXIT_FAILURE);
+
+	}
+#endif
+
+	//	fprintf(fp,"%s","first line");
+
+	while(1)
+	{
+
+
+
+		//int n = fprintf(fp,"%s",msg);
+		//printf("n is %d\n",n);
+		//fflush(fp);
+
+		//fclose(fp);
+		//exit(EXIT_SUCCESS);
+
+
+#if 0
+		sem_wait(&sem2);
+
+#if 0
+		memset(msg,0,sizeof(msg));
+
+		gets(msg);
+
+		printf("msg is %s\n",msg);
+
+#if 1
+
+		if(mq_send(mqd,msg,strlen(msg),1) == -1)
+		{
+			perror("failed send msg\n");
+			exit(EXIT_FAILURE);
+
+		}
+#endif
+
+
+#endif
+
+
+
+
+
+		printf("write thread heartbeat\n");
+
+
+
+		sem_post(&sem1);
+#endif
+
+		sleep(1);
+	}
+
+
+}
+
+
+
 int main(int argc, char *argv[])
 {
+
+	//==================================
+
+	pthread_t  tpida; 
+	pthread_t  tpidb; 
+#if 1
+
+
+	//mq_unlink("/mq.q");
+	mqd = mq_open("/mq.q",O_RDWR | O_CREAT,0777,NULL);
+	//mqd = mq_open("/mq.q",O_RDWR);
+
+	if(mqd == -1)
+	{
+		perror("failed open mq.q\n");
+		exit(EXIT_FAILURE);
+
+	}
+
+
+	mq_getattr(mqd,&attr);
+
+	printf("msg attr: max msg is %ld\n max bytes is %ld\n currently is %ld\n",attr.mq_maxmsg,attr.mq_msgsize,attr.mq_curmsgs);
+
+#endif
+
+
+
+	pthread_create(&tpida,NULL,thread_transmit,NULL);
+	pthread_create(&tpidb,NULL,thread_receive,NULL);
+
+
+	pthread_join(tpida,NULL);
+	pthread_join(tpidb,NULL);
+
+	printf("gotcha\n");
+
+
+
+
+
+
+
+
+
+
+
+
+	//===================================
 
 
 	int rv = -1 ;
