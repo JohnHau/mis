@@ -1,0 +1,18 @@
+Using Meld from Cygwin
+18 December, 2018
+To use Meld from Cygwin:
+
+Download and install Meld for Windows. If you get ¡°missing MSVCP100.dll¡±, install Microsoft Visual C++ 2010 redistributable package
+
+Add to Cygwin ~/.bash_profile
+
+alias meld="/cygdrive/c/Program\ Files\ \(x86\)/Meld/Meld.exe"
+Open a new Cygwin terminal to use Meld from Cygwin.
+
+Usage
+Many use Meld for git mergetool. For Cygwin:
+
+git config --global diff.tool meld
+git config --global merge.tool meld
+
+git config --global mergetool.meld.path "/cygdrive/c/Program Files (x86)/Meld/Meld.exe"
