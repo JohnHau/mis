@@ -1,0 +1,29 @@
+"set nocompatible
+syntax on
+set nu
+set autoindent
+set cindent
+set smartindent
+
+
+filetype on
+
+set laststatus=2
+
+set hlsearch
+set incsearch
+set showmatch
+
+
+
+
+":map<f9>:make
+":set makeprg
+
+
+"Color scheme(terminal)
+set t_Co=256
+set background=dark
+
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1

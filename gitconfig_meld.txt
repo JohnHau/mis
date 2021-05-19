@@ -1,0 +1,8 @@
+[diff]
+	tool = Meld
+[merge]
+	tool = Meld
+[difftool "meld"]
+	cmd = Meld "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[mergetool "Meld"]
+	path = "C:\\Program Files (x86)\\Meld\\Meld.exe"

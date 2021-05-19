@@ -1,0 +1,1 @@
+*dacValue=(uint16_t)(f_value*4096/12.5); //co formula

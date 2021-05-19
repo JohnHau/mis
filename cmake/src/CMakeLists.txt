@@ -1,0 +1,2 @@
+AUX_SOURCE_DIRECTORY(. SRC)
+ADD_LIBRARY(libbubble ${SRC})
