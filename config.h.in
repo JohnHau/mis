@@ -1,0 +1,2 @@
+#cmakedefine01 USE_A
+#cmakedefine USE_B
