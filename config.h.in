@@ -1,2 +1,6 @@
+#ifndef __CONFIG_H__
+#define __CONFIG_H__
 #cmakedefine01 USE_A
 #cmakedefine USE_B
+
+#endif

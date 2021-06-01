@@ -1,1 +1,0 @@
-/usr/bin/cc -Wl,--enable-auto-import CMakeFiles/Tutorial.dir/tutorial.c.o -o Tutorial.exe -Wl,--out-implib,libTutorial.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -1,3 +1,0 @@
-/home/H374389/temp/test_cmake/build/CMakeFiles/rebuild_cache.dir
-/home/H374389/temp/test_cmake/build/CMakeFiles/edit_cache.dir
-/home/H374389/temp/test_cmake/build/CMakeFiles/Tutorial.dir
