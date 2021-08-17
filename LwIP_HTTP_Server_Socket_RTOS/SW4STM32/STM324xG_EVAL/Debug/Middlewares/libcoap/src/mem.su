@@ -1,0 +1,3 @@
+mem.c:25:1:coap_memory_init	0	static
+mem.c:35:1:coap_malloc_type	0	static
+mem.c:41:1:coap_free_type	0	static

@@ -1,0 +1,7 @@
+stm324xg_eval_sram.c:149:9:BSP_SRAM_ReadData	8	static
+stm324xg_eval_sram.c:168:9:BSP_SRAM_ReadData_DMA	8	static
+stm324xg_eval_sram.c:187:9:BSP_SRAM_WriteData	8	static
+stm324xg_eval_sram.c:206:9:BSP_SRAM_WriteData_DMA	8	static
+stm324xg_eval_sram.c:221:6:BSP_SRAM_DMA_IRQHandler	0	static
+stm324xg_eval_sram.c:229:13:BSP_SRAM_MspInit	64	static
+stm324xg_eval_sram.c:102:9:BSP_SRAM_Init	8	static

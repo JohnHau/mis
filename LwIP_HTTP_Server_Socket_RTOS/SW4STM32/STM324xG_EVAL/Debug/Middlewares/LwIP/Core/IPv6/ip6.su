@@ -1,0 +1,8 @@
+ip6.c:477:1:ip6_input_accept	20	static
+ip6.c:86:1:ip6_route	24	static
+ip6.c:291:1:ip6_select_source_address	40	static
+ip6.c:517:1:ip6_input	64	static
+ip6.c:1181:1:ip6_output_if_src	56	static
+ip6.c:1157:1:ip6_output_if	32	static
+ip6.c:1301:1:ip6_output	80	static
+ip6.c:1413:1:ip6_options_add_hbh_ra	16	static

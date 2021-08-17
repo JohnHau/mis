@@ -1,0 +1,14 @@
+coap_debug.c:131:1:print_readable.constprop	48	static
+coap_debug.c:58:13:coap_package_name	0	static
+coap_debug.c:62:13:coap_package_version	0	static
+coap_debug.c:67:1:coap_set_show_pdu_output	0	static
+coap_debug.c:72:1:coap_get_log_level	0	static
+coap_debug.c:77:1:coap_set_log_level	0	static
+coap_debug.c:172:1:coap_print_addr	32	static
+coap_debug.c:677:7:coap_string_tls_version	88	static
+coap_debug.c:761:6:coap_set_log_handler	0	static
+coap_debug.c:766:1:coap_log_impl	2092	static
+coap_debug.c:466:1:coap_show_pdu	3176	static
+coap_debug.c:670:6:coap_show_tls_version	72	static
+coap_debug.c:820:5:coap_debug_set_packet_loss	24	static
+coap_debug.c:860:5:coap_debug_send_packet	24	static

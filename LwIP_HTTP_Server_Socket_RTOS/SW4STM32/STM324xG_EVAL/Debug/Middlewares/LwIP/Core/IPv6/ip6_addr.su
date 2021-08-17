@@ -1,0 +1,3 @@
+ip6_addr.c:71:1:ip6addr_aton	48	static
+ip6_addr.c:222:1:ip6addr_ntoa_r	56	static
+ip6_addr.c:206:1:ip6addr_ntoa	0	static

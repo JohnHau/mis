@@ -1,0 +1,4 @@
+async.c:35:1:coap_register_async	32	static
+async.c:82:1:coap_find_async	0	static
+async.c:89:1:coap_remove_async	16	static
+async.c:101:1:coap_free_async	8	static

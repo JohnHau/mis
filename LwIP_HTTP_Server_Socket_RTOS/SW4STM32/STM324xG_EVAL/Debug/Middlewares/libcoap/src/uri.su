@@ -1,0 +1,9 @@
+uri.c:499:1:is_unescaped_in_path	0	static
+uri.c:385:1:write_option	32	static
+uri.c:53:1:coap_split_uri	24	static
+uri.c:400:1:coap_split_path	32	static
+uri.c:412:1:coap_split_query	32	static
+uri.c:438:1:coap_new_uri	16	static
+uri.c:457:1:coap_clone_uri	16	static
+uri.c:512:16:coap_get_query	72	static
+uri.c:562:16:coap_get_uri_path	80	static

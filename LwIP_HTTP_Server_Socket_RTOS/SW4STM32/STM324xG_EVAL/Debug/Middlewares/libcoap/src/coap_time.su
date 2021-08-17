@@ -1,0 +1,5 @@
+coap_time.c:59:1:coap_clock_init	24	static
+coap_time.c:81:1:coap_ticks	32	static
+coap_time.c:114:1:coap_ticks_to_rt	8	static
+coap_time.c:118:10:coap_ticks_to_rt_us	16	static
+coap_time.c:122:13:coap_ticks_from_rt_us	16	static

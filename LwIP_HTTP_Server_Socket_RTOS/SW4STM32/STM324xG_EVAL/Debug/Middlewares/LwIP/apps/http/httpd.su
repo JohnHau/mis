@@ -1,0 +1,10 @@
+httpd.c:478:1:http_state_eof	8	static
+httpd.c:1673:1:http_get_404_file	16	static
+httpd.c:2601:1:http_accept	16	static
+httpd.c:2424:1:http_err	8	static
+httpd.c:646:1:http_close_conn	16	static
+httpd.c:1559:1:http_send	24	static
+httpd.c:2441:1:http_sent	8	static
+httpd.c:2468:1:http_poll	8	static
+httpd.c:2516:1:http_recv	64	static
+httpd.c:2659:1:httpd_init	8	static

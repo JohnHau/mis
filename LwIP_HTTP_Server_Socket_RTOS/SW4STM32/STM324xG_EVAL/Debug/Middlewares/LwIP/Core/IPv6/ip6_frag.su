@@ -1,0 +1,7 @@
+ip6_frag.c:148:1:ip6_reass_free_complete_datagram	72	static
+ip6_frag.c:236:1:ip6_reass_remove_oldest_datagram	24	static
+ip6_frag.c:686:1:ip6_frag_free_pbuf_custom_ref	8	static
+ip6_frag.c:695:1:ip6_frag_free_pbuf_custom	8	static
+ip6_frag.c:113:1:ip6_reass_tmr	8	static
+ip6_frag.c:272:1:ip6_reass	72	static
+ip6_frag.c:720:1:ip6_frag	80	static

@@ -1,0 +1,2 @@
+address.c:37:1:coap_address_equals	8	static
+address.c:60:5:coap_is_mcast	8	static

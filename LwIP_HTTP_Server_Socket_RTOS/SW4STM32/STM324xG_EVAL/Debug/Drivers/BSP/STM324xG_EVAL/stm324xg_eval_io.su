@@ -1,0 +1,7 @@
+stm324xg_eval_io.c:115:9:BSP_IO_Init	16	static
+stm324xg_eval_io.c:139:9:BSP_IO_ITGetStatus	8	static
+stm324xg_eval_io.c:150:6:BSP_IO_ITClear	0	static
+stm324xg_eval_io.c:170:9:BSP_IO_ConfigPin	8	static
+stm324xg_eval_io.c:184:6:BSP_IO_WritePin	0	static
+stm324xg_eval_io.c:195:10:BSP_IO_ReadPin	8	static
+stm324xg_eval_io.c:205:6:BSP_IO_TogglePin	16	static

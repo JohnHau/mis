@@ -1,0 +1,11 @@
+mld6.c:560:1:mld6_delayed_report	16	static
+mld6.c:601:1:mld6_send	56	static
+mld6.c:101:1:mld6_stop	16	static
+mld6.c:130:1:mld6_report_groups	8	static
+mld6.c:149:1:mld6_lookfor_group	0	static
+mld6.c:232:1:mld6_input	32	static
+mld6.c:350:1:mld6_joingroup_netif	40	static
+mld6.c:320:1:mld6_joingroup	24	static
+mld6.c:442:1:mld6_leavegroup_netif	40	static
+mld6.c:409:1:mld6_leavegroup	24	static
+mld6.c:512:1:mld6_tmr	16	static

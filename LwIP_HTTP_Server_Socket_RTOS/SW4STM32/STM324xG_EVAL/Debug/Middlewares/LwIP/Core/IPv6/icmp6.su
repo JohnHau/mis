@@ -1,0 +1,8 @@
+icmp6.c:385:1:icmp6_send_response_with_addrs_and_netif.isra.0	64	static
+icmp6.c:309:1:icmp6_send_response	48	static
+icmp6.c:83:1:icmp6_input	48	static
+icmp6.c:220:1:icmp6_dest_unreach	0	static
+icmp6.c:236:1:icmp6_packet_too_big	0	static
+icmp6.c:252:1:icmp6_time_exceeded	0	static
+icmp6.c:273:1:icmp6_time_exceeded_with_addrs	40	static
+icmp6.c:292:1:icmp6_param_problem	4	static

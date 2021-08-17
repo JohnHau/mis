@@ -1,0 +1,2 @@
+app_ethernet.c:43:6:User_notification	0	static
+app_ethernet.c:81:6:ethernetif_notify_conn_changed	88	static

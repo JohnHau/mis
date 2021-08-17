@@ -1,0 +1,4 @@
+encode.c:20:5:coap_fls	8	static
+encode.c:26:5:coap_flsll	8	static
+encode.c:36:1:coap_decode_var_bytes	0	static
+encode.c:45:1:coap_encode_var_safe	8	static
