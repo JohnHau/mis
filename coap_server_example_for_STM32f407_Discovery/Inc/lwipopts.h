@@ -205,7 +205,7 @@ The STM32F4xx allows computing and verifying the IP, UDP, TCP and ICMP checksums
 ////
 #define LWIP_IPV6                       1
 #define LWIP_DNS                        1
-#define LWIP_TCPIP_CORE_LOCKING         0
+#define LWIP_TCPIP_CORE_LOCKING         1
 #define LWIP_DNS_SUPPORT_MDNS_QUERIES 1
 #define DNS_SERVER_ADDRESS(ipaddr) ip_addr_set_ip4_u32(ipaddr,ipaddr_addr("8.8.8.8"))
 #define DNS_MAX_SERVERS                 3

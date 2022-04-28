@@ -1,9 +1,9 @@
-api_msg.c:2117:1:lwip_netconn_do_dns_found	12	static
 api_msg.c:218:1:recv_udp	40	static
 api_msg.c:514:1:setup_tcp	16	static
 api_msg.c:1301:1:lwip_netconn_do_connected	16	static
+api_msg.c:2117:1:lwip_netconn_do_dns_found	12	static
 api_msg.c:1640:1:lwip_netconn_do_writemore	40	static
-api_msg.c:920:1:lwip_netconn_do_close_internal	32	static
+api_msg.c:920:1:lwip_netconn_do_close_internal	40	static
 api_msg.c:357:1:poll_tcp	8	static
 api_msg.c:293:1:recv_tcp	24	static
 api_msg.c:432:1:err_tcp	24	static
@@ -17,13 +17,13 @@ api_msg.c:533:1:accept_function	32	static
 api_msg.c:1113:1:lwip_netconn_do_delconn	16	static
 api_msg.c:1216:1:lwip_netconn_do_bind	8	static
 api_msg.c:1256:1:lwip_netconn_do_bind_if	8	static
-api_msg.c:1350:1:lwip_netconn_do_connect	8	static
+api_msg.c:1350:1:lwip_netconn_do_connect	16	static
 api_msg.c:1425:1:lwip_netconn_do_disconnect	8	static
 api_msg.c:1449:1:lwip_netconn_do_listen	32	static
 api_msg.c:1532:1:lwip_netconn_do_send	8	static
 api_msg.c:1589:1:lwip_netconn_do_recv	24	static
 api_msg.c:1813:1:lwip_netconn_do_write	8	static
-api_msg.c:1867:1:lwip_netconn_do_getaddr	16	static
+api_msg.c:1867:1:lwip_netconn_do_getaddr	8	static
 api_msg.c:1934:1:lwip_netconn_do_close	8	static
 api_msg.c:2014:1:lwip_netconn_do_join_leave_group	8	static
 api_msg.c:2060:1:lwip_netconn_do_join_leave_group_netif	8	static

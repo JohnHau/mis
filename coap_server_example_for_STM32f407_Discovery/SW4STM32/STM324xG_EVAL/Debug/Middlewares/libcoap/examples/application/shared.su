@@ -1,0 +1,7 @@
+shared.c:64:12:verify_cn_callback	24	static
+shared.c:9:5:resolve_address	64	static
+shared.c:85:18:setup_pki	24	static
+shared.c:115:6:fill_keystore	8	static
+shared.c:135:6:set_certificate	0	static
+shared.c:140:6:set_certificate_authority	0	static
+shared.c:145:6:set_private_key	0	static

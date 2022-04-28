@@ -1,5 +1,5 @@
 Middlewares/libcoap/src/coap_event.o: \
- D:/work2020/stm/cube_workplace/LwIP_HTTP_Server_Socket_RTOS/Middlewares/Third_Party/libcoap/src/coap_event.c \
+ C:/coap/COAP_server_for_STM32f407_Discovery/coap_server_example_for_STM32f407_Discovery/Middlewares/Third_Party/libcoap/src/coap_event.c \
  ../../../Middlewares/Third_Party/libcoap/include/coap2/coap_event.h \
  ../../../Middlewares/Third_Party/libcoap/include/coap2/libcoap.h \
  ../../../Middlewares/Third_Party/LwIP/src/include/lwip/inet.h \

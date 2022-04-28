@@ -44,8 +44,8 @@ struct in6_pktinfo {
 /* As not defined, just need to define is as something innocuous */
 #define IPV6_PKTINFO IPV6_CHECKSUM
 
-#define PACKAGE_NAME "libcoap-posix"
-#define PACKAGE_VERSION "?"
+#define PACKAGE_NAME "libcoap-freertos"
+#define PACKAGE_VERSION "1.00"
 
 #ifdef CONFIG_MBEDTLS_TLS_ENABLED
 #define HAVE_MBEDTLS

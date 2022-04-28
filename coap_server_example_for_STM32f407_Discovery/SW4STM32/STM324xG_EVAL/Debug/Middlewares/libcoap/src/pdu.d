@@ -1,5 +1,5 @@
 Middlewares/libcoap/src/pdu.o: \
- D:/work2020/stm/cube_workplace/LwIP_HTTP_Server_Socket_RTOS/Middlewares/Third_Party/libcoap/src/pdu.c \
+ C:/coap/COAP_server_for_STM32f407_Discovery/coap_server_example_for_STM32f407_Discovery/Middlewares/Third_Party/libcoap/src/pdu.c \
  ../../../Middlewares/Third_Party/libcoap/port/include/coap_config.h \
  ../../../Middlewares/Third_Party/libcoap/port/include/coap_config_posix.h \
  ../../../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys/socket.h \

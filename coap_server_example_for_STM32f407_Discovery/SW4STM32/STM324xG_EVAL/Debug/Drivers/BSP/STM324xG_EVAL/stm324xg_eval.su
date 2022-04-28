@@ -3,7 +3,7 @@ stm324xg_eval.c:679:13:I2Cx_Error.isra.0	8	static
 stm324xg_eval.c:601:13:I2Cx_Write	32	static
 stm324xg_eval.c:578:16:I2Cx_Read	32	static
 stm324xg_eval.c:208:10:BSP_GetVersion	0	static
-stm324xg_eval.c:222:6:BSP_LED_Init	48	static
+stm324xg_eval.c:222:6:BSP_LED_Init	32	static
 stm324xg_eval.c:247:6:BSP_LED_On	0	static
 stm324xg_eval.c:261:6:BSP_LED_Off	0	static
 stm324xg_eval.c:275:6:BSP_LED_Toggle	0	static

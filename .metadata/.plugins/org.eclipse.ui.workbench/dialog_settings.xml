@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\coap\COAP_server_for_STM32f407_Discovery\coap_server_example_for_STM32f407_Discovery\Middlewares\Third_Party\libcoap\ext\tinydtls\tests"/>
+			<item value="C:\coap\COAP_server_for_STM32f407_Discovery\coap_server_example_for_STM32f407_Discovery\Middlewares\Third_Party\libcoap\ext\tinydtls\platform-specific"/>
+			<item value="C:\coap\COAP_server_for_STM32f407_Discovery\coap_server_example_for_STM32f407_Discovery\Middlewares\Third_Party\libcoap\ext\tinydtls\ecc"/>
+			<item value="C:\coap\COAP_server_for_STM32f407_Discovery\coap_server_example_for_STM32f407_Discovery\Middlewares\Third_Party\libcoap\ext\tinydtls\aes"/>
+			<item value="C:\coap\COAP_server_for_STM32f407_Discovery\coap_server_example_for_STM32f407_Discovery\Middlewares\Third_Party\libcoap\examples\application"/>
+			<item value="C:\Users\h488511\STM32CubeIDE\workspace_1.7.0\Coap_Client_example\LWIP\App"/>
+		</list>
+	</section>
+</section>

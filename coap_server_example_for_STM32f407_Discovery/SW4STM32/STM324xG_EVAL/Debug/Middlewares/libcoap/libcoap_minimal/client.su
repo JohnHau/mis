@@ -1,2 +1,0 @@
-client.c:101:13:message_handler	80	static
-client.c:189:6:coap_client	184	static

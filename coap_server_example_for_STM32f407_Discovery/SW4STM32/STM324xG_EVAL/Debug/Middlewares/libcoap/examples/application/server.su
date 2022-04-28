@@ -1,4 +1,4 @@
-server.c:66:1:hnd_espressif_delete	8	static
-server.c:23:1:hnd_espressif_get	32	static
-server.c:34:1:hnd_espressif_put	16	static
-server.c:81:6:coap_server	64	static
+server.c:154:1:hnd_espressif_delete	8	static
+server.c:111:1:hnd_espressif_get	32	static
+server.c:122:1:hnd_espressif_put	16	static
+server.c:169:6:coap_server	64	static

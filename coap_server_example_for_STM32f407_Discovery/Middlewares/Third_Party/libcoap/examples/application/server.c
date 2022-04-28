@@ -11,8 +11,96 @@
 //#include "freertos/task.h"
 
 #include "common.h"
-#define INITIAL_DATA "Hello World!"
-static char espressif_data[100];
+#define INITIAL_DATA "My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\
+	My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!My libcoap test!\AAAAA"
+static char espressif_data[4096*4];
 static int espressif_data_len = 0;
 
 
@@ -76,7 +164,7 @@ hnd_espressif_delete(coap_context_t *ctx,
     espressif_data_len = strlen(espressif_data);
     response->code = COAP_RESPONSE_CODE(202);
 }
-////////
+
 
 void coap_server(void const * argument)
 {
@@ -100,29 +188,30 @@ void coap_server(void const * argument)
         serv_addr.addr.sin.sin_addr.s_addr = INADDR_ANY;
         serv_addr.addr.sin.sin_port        = htons(COAP_DEFAULT_PORT);
 
-        ctx = coap_new_context(NULL);
+        ctx = coap_new_context(NULL);  // create coap context to save stack status
         if (!ctx) {
 
             continue;
 
         }
 
-        ep = coap_new_endpoint(ctx, &serv_addr, COAP_PROTO_UDP);
+
+        ep = coap_new_endpoint(ctx, &serv_addr, COAP_PROTO_UDP); // endpoint
         if (!ep) {
 
             goto clean_up;
         }
 
-        resource = coap_resource_init(coap_make_str_const("hello"), 0);
+        resource = coap_resource_init(coap_make_str_const("hello"), 0); // init a resource
         if (!resource) {
 
             goto clean_up;
         }
-        coap_register_handler(resource, COAP_REQUEST_GET, hnd_espressif_get);
+        coap_register_handler(resource, COAP_REQUEST_GET, hnd_espressif_get); // register GET PUT DELETET
         coap_register_handler(resource, COAP_REQUEST_PUT, hnd_espressif_put);
         coap_register_handler(resource, COAP_REQUEST_DELETE, hnd_espressif_delete);
         /* We possibly want to Observe the GETs */
-        coap_resource_set_get_observable(resource, 1);
+        coap_resource_set_get_observable(resource, 1);  //observe
         coap_add_resource(ctx, resource);
 
         wait_ms = COAP_RESOURCE_CHECK_TIME * 1000;

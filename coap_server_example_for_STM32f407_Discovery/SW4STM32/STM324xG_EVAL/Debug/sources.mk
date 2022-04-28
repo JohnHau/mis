@@ -36,5 +36,10 @@ Middlewares/LwIP/Core \
 Middlewares/LwIP/Netif \
 Middlewares/LwIP/apps/http \
 Middlewares/libcoap/examples/application \
+Middlewares/libcoap/ext/tinydtls/aes \
+Middlewares/libcoap/ext/tinydtls \
+Middlewares/libcoap/ext/tinydtls/ecc \
+Middlewares/libcoap/ext/tinydtls/sha2 \
+Middlewares/libcoap/ext/tinydtls/tests \
 Middlewares/libcoap/src \
 

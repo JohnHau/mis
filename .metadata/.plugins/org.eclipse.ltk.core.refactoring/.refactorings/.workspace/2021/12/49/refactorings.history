@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;CoAP_LwIP_RTOS/Middlewares/LwIP/apps/lwip.c&apos;" deleteContents="false" description="Delete resource &apos;CoAP_LwIP_RTOS/Middlewares/LwIP/apps/lwip.c&apos;" element1="/CoAP_LwIP_RTOS/Middlewares/LwIP/apps/lwip.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1638465951878"/>
+</session>

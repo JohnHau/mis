@@ -224,15 +224,15 @@ void BSP_LED_Init(Led_TypeDef Led)
   GPIO_InitTypeDef  GPIO_InitStruct;
   
   /* Enable the GPIO_LED clock */
-  LEDx_GPIO_CLK_ENABLE(Led);
-
+  //LEDx_GPIO_CLK_ENABLE(Led);
+  __HAL_RCC_GPIOF_CLK_ENABLE();
   /* Configure the GPIO_LED pin */
-  GPIO_InitStruct.Pin = GPIO_PIN[Led];
+  GPIO_InitStruct.Pin = GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FAST;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
   
-  HAL_GPIO_Init(GPIO_PORT[Led], &GPIO_InitStruct);
 }
 
 /**

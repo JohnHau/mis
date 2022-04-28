@@ -170,7 +170,7 @@ static void message_handler(coap_context_t *ctx, coap_session_t *session,
             //printf("\n");
         } else {
             if (coap_get_data(received, &data_len, &data)) {
-                //printf("Received: %.*s\n", (int)data_len, data);
+                printf("Received: %.*s\n", (int)data_len, data);
             	//BSP_LED_On(LED2);
             	//BSP_LED_Toggle(LED2);
             	coap_rec=1;

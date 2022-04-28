@@ -1,0 +1,5 @@
+block.c:27:1:coap_opt_block_num	16	static
+block.c:46:1:coap_get_block	40	static
+block.c:74:1:coap_write_block_opt	32	static
+block.c:135:1:coap_add_block	4	static
+block.c:152:1:coap_add_data_blocked_response	64	static
