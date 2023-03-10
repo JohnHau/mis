@@ -74,8 +74,8 @@ int32_t init_com_port(char* uart_name)
 {
 	int fdSerial;
 
-	// 打开串口设备
 	fdSerial = open(uart_name, O_RDWR | O_NOCTTY | O_NDELAY);
+
 	if(fdSerial < 0)
 	{
 		perror(uart_name);
@@ -96,7 +96,7 @@ int32_t init_com_port(char* uart_name)
 
 	if (isatty(fdSerial) == 0)
 	{
-		printf("standard input is not a terminal device\n");
+		perror("standard input is not a terminal device\n");
 		close(fdSerial);
 		return -1;
 	}
@@ -104,6 +104,7 @@ int32_t init_com_port(char* uart_name)
 	{
 		printf("is a tty success!\n");
 	}
+
 	printf("fd-open=%d\n", fdSerial);
 
 	// 设置串口参数
@@ -111,12 +112,15 @@ int32_t init_com_port(char* uart_name)
 	{
 		fprintf(stderr, "Set opt Error\n");
 		close(fdSerial);
-		exit(1);
+		return -1;
 	}
 
 	tcflush(fdSerial, TCIOFLUSH);    //清掉串口缓存
 	fcntl(fdSerial, F_SETFL, 0);    //串口阻塞
 
+	printf("init_com_port() end\n");
 
 	return fdSerial;
 }
+
+
