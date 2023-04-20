@@ -44,8 +44,10 @@ int setOpt(int fd)
 
 
     // 设置波特率 B2400/B4800/B9600/B19200/B38400/B57600/B115200/B230400
-    cfsetispeed(&newtio, B115200);
-    cfsetospeed(&newtio, B115200);
+    //cfsetispeed(&newtio, B115200);
+    //cfsetospeed(&newtio, B115200);
+    cfsetispeed(&newtio, B38400);
+    cfsetospeed(&newtio, B38400);
 
     // 设置read读取最小字节数和超时时间
     // 读取一个字符等待1*(1/10)s
@@ -63,7 +65,7 @@ int setOpt(int fd)
 	    return -1;
     }
 
-    printf("Serial set done!\n");
+    //printf("Serial set done!\n");
 
     return 0;
 
@@ -91,7 +93,8 @@ int32_t init_com_port(char* uart_name)
 	}
 	else
 	{
-		printf("fcntl=%d\n", fcntl(fdSerial, F_SETFL, 0));
+		//printf("fcntl=%d\n", fcntl(fdSerial, F_SETFL, 0));
+		 fcntl(fdSerial, F_SETFL, 0);
 	}
 
 	if (isatty(fdSerial) == 0)
@@ -102,10 +105,10 @@ int32_t init_com_port(char* uart_name)
 	}
 	else
 	{
-		printf("is a tty success!\n");
+		//printf("is a tty success!\n");
 	}
 
-	printf("fd-open=%d\n", fdSerial);
+	//printf("fd-open=%d\n", fdSerial);
 
 	// 设置串口参数
 	if (setOpt(fdSerial)== -1)    //设置8位数据位、1位停止位、无校验
@@ -118,7 +121,7 @@ int32_t init_com_port(char* uart_name)
 	tcflush(fdSerial, TCIOFLUSH);    //清掉串口缓存
 	fcntl(fdSerial, F_SETFL, 0);    //串口阻塞
 
-	printf("init_com_port() end\n");
+	//printf("init_com_port() end\n");
 
 	return fdSerial;
 }

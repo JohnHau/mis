@@ -1,0 +1,1 @@
+{	"id"       :        9,	"cmd"      :       20,	"addrType" :        1,	"dstADDr"  :       "0x7F000001",	"req"      :    	      {		"objId"       :566231040,		"pId"         : 802,		"arrInd"      : 3,		"dataType"    : "Bool",		"value"       : 0,		"timeOut"     : 0	      }}

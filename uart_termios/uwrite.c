@@ -38,7 +38,12 @@ int main(int argc,char* argv)
 	fd_set rfds;	
 	FD_ZERO(&rfds);
 	FD_SET(fd,&rfds);
+
+
+
 	select(fd+1,&rfds,NULL,NULL,NULL);	
+
+
 	char rstr[64] = {0};
 	int rrv = read(fd,rstr,16);
 
